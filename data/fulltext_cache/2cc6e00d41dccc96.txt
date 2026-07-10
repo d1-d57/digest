@@ -1,0 +1,612 @@
+
+
+The Shapley Value, or How to Split a Bill in n! Easy Steps – Feature Column
+
+Skip to content
+
+The Shapley Value, or How to Split a Bill in n! Easy Steps
+
+In:
+
+2026
+, 
+Anil Venkatesh
+, 
+Math and Social Sciences
+, 
+Probability and Statistics
+
+Tagged:
+
+economics
+, 
+entropy
+, 
+information theory
+, 
+shapley value
+, 
+video games
+
+My first encounter with the Shapley value came in the unlikely context of video game design...
+
+The Shapley Value, or How to Split a Bill in $n!$ Easy Steps
+
+Anil Venkatesh
+
+Adelphi University
+
+Introduction
+
+More often than not, a happy hour with my non-mathematician friends
+ends with the assumption that I’ll work out how to split the tab. These
+friends assume that the total bill neatly breaks down as a sum of each
+person’s expenditure, but this ignores the “enabler effect”: whenever a
+certain friend of ours is present, everyone seems to order a bit more
+liberally for themselves. To the mathematically minded (and probably no
+one else), the enabler ought to own a share of the expense that their
+presence tends to elicit. In 1951, the game theorist Lloyd Shapley made
+this sentiment precise in the following way (absent evidence to the
+contrary, we can only assume that he too was inspired by splitting one
+too many happy hour bills.)
+
+The author and his friends celebrate a successful happy hour.
+
+Suppose you and your friend run up a $\$55$ bill. You reckon you would
+only have spent $\$20$ and $\$25$ respectively, if dining alone. Shapley
+proposed to consider each party’s impact on the bill under every
+attendance hypothetical: in your case, that means $+\$20$ when dining alone and $+\$30$ when dining with your friend. Likewise,
+your friend adds $\$25$ when dining alone
+and $\$35$ when dining with you.
+
+$\begin{matrix}+\$25\\ \uparrow \end{matrix}$
+
+$\begin{matrix}+\$35\\ \uparrow \end{matrix}$
+
+$\$25$
+
+$\$55$
+
+$\rightarrow +\$30$
+
+$\$0$
+
+$\$20$
+
+$\rightarrow +\$20$
+
+Table of restaurant bills under all attendance
+hypotheticals.
+
+Each person’s 
+Shapley value
+ is the average of their
+contributions across the hypothetical cases, splitting the $\$55$ bill into
+$\$25$ for you and $\$30$ for your friend. Intuitively, you each pay what you
+would have spent alone, plus half of the extra $\$10$ that was caused by
+your mutual enabling behavior. In theory, a party of $n$ friends simply needs to consider
+all $n!$ orderings of themselves
+and take each person’s average marginal contribution to the bill. In
+practice, your friends may not appreciate the time complexity of this
+algorithm!
+
+As we’ll discuss in the next section, the properties of the Shapley
+value allow us to reduce the number of computations from $n!$ to around $n \cdot 2^{n}$, not that
+this will mollify your impatient friends. Facetious applications aside,
+the Shapley value has proven so useful that a tremendous amount of
+research has been done to find ways to estimate it efficiently. Before
+we discuss its applications in the present day, though, let’s stop and
+ask: how do we know that the Shapley value is 
+right
+?
+
+Lloyd Shapley. Photo by 
+Bengt Nyman
+ - 
+Flickr
+: 
+IMG_4826
+, 
+CC BY 2.0
+.
+
+Evocative axioms
+
+While the Shapley value’s computational procedure is intuitive and
+useful, Shapley’s great contribution was a proof that this is the
+
+only
+ fair way to divide a cost among a group of cooperative
+actors. To get there, we need some axioms to agree on what a fair
+division looks like.
+
+Null player: an actor who always contributes 0 marginal cost must
+have a Shapley value of 0.
+
+Symmetry: two actors whose marginal costs agree in all
+hypotheticals must have the same Shapley value.
+
+Efficiency: the sum of all actors’ Shapley values must equal the
+total bill.
+
+Linearity: in the case of multiple bills, the same Shapley values
+result whether treating the bills together or separately (and adding up
+afterwards).
+
+The latter two axioms combine to imply that we can group actors into
+arbitrary coalitions, compute the Shapley value for each coalition, then
+further divide those values among the coalition members via an
+additional Shapley calculation. This fact is leveraged in the 
+Random
+Forest machine learning model
+, a type of classification algorithm that
+consists of many submodels that each use only a subset of the features
+(i.e. columns) of the data set. Once a Random Forest model is trained,
+we can estimate the relative importance of each feature by examining the
+accuracy of the submodels that did or didn’t include this feature.
+Because of the linearity and efficiency axioms, we don’t need to
+consider every hypothetical subset of features to make this
+calculation.
+
+The axioms that give rise to the Shapley value are strikingly similar
+to those of entropy. The (Shannon) entropy $H(X)$ of a discrete random
+variable $X$ is the average
+“surprisingness” of $X$. Just as
+with the criterion of “fair” division of cost, this concept requires 
+an
+axiomatic basis
+ such as the one given below.
+
+Expansibility: Adding an outcome with probability zero does not
+change the entropy.
+
+Symmetry: Permuting the outcomes does not change the
+entropy.
+
+Subadditivity: $H(X,Y) \leq H(X) + H(Y)$
+for all $X$ and $Y$.
+
+Additivity: $H(X,Y) = H(X) + H(Y)$
+if $X$ and $Y$ are independent.
+
+Zero Limit: As a variable’s distribution approaches
+deterministic, its entropy approaches zero.
+
+The first two axioms of entropy are analogous to those of
+fair division, but there is clearly some departure in the matter of
+additivity. This is partly due to a category error since the Shapley
+value is computed for each actor but a single entropy value is computed
+for the entire system. By reformulating a bit, we can find a much
+tighter relationship between these concepts.
+
+Suppose $X_1, X_2,\ldots, X_n$
+are random variables with values in $\{0,1\}$. The entropy of this collection of
+random variables is computed as an expected value over their joint
+distribution, visualized as the $2^n$ vertices of the $n$-dimensional cube. This is because
+we have to consider every possible combination of 0’s and 1’s for each
+variable. The Shapley value for $n$ actors is also computed on the
+$n$-cube since we have to
+consider each hypothetical coalition of actors, but in this case we
+compare the two opposite facets of the cube: those vertices that include
+a certain actor and those that don’t. This partitioning of the cube into
+halves is exactly what happens in the computation of
+
+conditional
+ entropy $H(X_i | X_j\mathrm{,~}j \neq i)$,
+the average amount of information (or “surprisingness”) gained by $X_i$ given prior
+knowledge of the other random variables.
+
+In fact, the properties of conditional entropy have even more in
+common with those of fair division. Conditional entropy has an
+additivity property called the chain rule, which states that $$\begin{aligned}
+H(X_1,\ldots, X_n) &= H(X_1) + H(X_2|X_1) + H(X_3|X_1, X_2) + \cdots
++ H(X_n|X_1,\ldots, X_{n-1}) \\
+&= \sum_{i=1}^n H(X_i | X_1,\ldots,X_{i-1}).
+\end{aligned}$$
+
+This property holds without any independence assumption on the random
+variables. To complete the comparison, let’s introduce the novel
+notation $\Sigma(X_1, X_2 | X_3, X_4)$
+to represent the Shapley value of the coalition $\{X_1, X_2\}$
+in the presence of the other actors $X_3$ and $X_4$. (This nonstandard
+notation draws inspiration from the origin of the entropy symbol as the
+Greek capital letter 
+eta
+.) The corresponding additive law of
+$\Sigma$ is
+
+$$\begin{aligned}
+\Sigma(X_1,\ldots, X_n) = \sum_{i=1}^n \Sigma(X_i | X_j,\mathrm{~}j\neq
+i).
+\end{aligned}$$
+
+We can now see that the additive law of conditional entropy uses a
+triangular sum where the corresponding law of $\Sigma$ has an unconditional sum, a
+consequence of quantifying the accumulation of information rather than
+dividing a fixed whole. For an even tighter connection between the
+concepts, see the definition of 
+uniqueness Shapley value
+ in 
+"What makes you unique?"
+ which is shown to
+correspond exactly to a linear combination of conditional entropies.
+
+The
+power of averaging over symmetries
+
+So far we’ve talked about a pair of famous quantities that are both
+the result of averaging over a (possibly huge) space. Depending on your
+perspective, it’s either marvelous or frustrating that a quantity with
+some desirable and unique property would be the result of an intractable
+computation.
+
+Both entropy and the Shapley value make use of the symmetrizing
+effect of averaging over every possible combination or coalition, giving
+an unbiased measurement in some sense. To me, this is reminiscent of
+another apparently deep principle, that we should expect objects to
+occur inversely proportionally to the size of their symmetry group. In a
+simple example, consider the case of rolling a pair of identical
+six-sided dice. If you ask a person with absolutely no mathematical
+training to work out the number of possible outcomes, they may very well
+come to 21 instead of 36. After all, the practice of imposing an order
+on a pair of indistinguishable dice only makes sense if you already plan
+to use the machinery of independence. Even so, it’s possible to recover
+the correct distribution by weighting the six matching pairs by $\frac{1}{2}$.
+Here, the principle in action is that the unordered pair $\{1,1\}$ has a
+symmetry group $S_2$
+of two elements, the identity and the swap, while the unordered pair
+$\{1,2\}$ has only the identity symmetry. This principle crops up all over
+topology and number theory, as detailed by 
+this lovely MathOverflow post
+.
+
+Closing thoughts
+
+My first encounter with the Shapley value came in the unlikely
+context of video game design. The enduring influence of 
+Dungeons and
+Dragons
+ in gaming has given us a common combat paradigm of dealing
+a certain amount of damage $D$
+at a rate $R$, debited from an
+opponent’s health pool, for a total damage-per-second of $DR$. Often, it’s possible
+for the player to enhance their weapon damage and rate of attack with
+multiplicative bonuses. Some years ago, a game design collaborator asked
+me how I’d go about computing the relative value of a damage bonus to an
+attack rate bonus. Representing these bonuses by $X$ and $Y$ respectively, we get the following
+marginal value table.
+
+$\begin{matrix} +Y \\ \uparrow \end{matrix}$
+
+$\begin{matrix} +Y + XY \\ \uparrow \end{matrix}$
+
+$1 + Y$
+
+$1 + X + Y + XY$
+
+$\rightarrow +X + XY$
+
+$1$
+
+$1 + X$
+
+$\rightarrow +X$
+
+Table of damage per second values under all bonus
+hypotheticals.
+
+Accordingly, we find that the relative contribution of the damage
+bonus $X$ to the attack rate
+bonus $Y$ is $(X + XY/2)$ : $(Y + XY/2)$.
+
+A screenshot from the author's game.
+
+Expository content on the Shapley value often highlights its
+application to business. For example, 
+the Wikipedia entry for Shapley value
+ describes a
+scenario with a business owner and a group of $n$ workers, ultimately deducing that
+the owner is entitled to half of the profits and each worker is entitled
+to a share of $\frac{1}{2n}$. While
+it’s certainly true that no profit could occur without both the owner’s
+capital and the workers’ labor, the symmetrizing effect of the Shapley
+computation assumes that each actor’s presence in the coalition is
+equally irreplaceable, while this assumption generally does not hold in
+the marketplace. So, caution is advised when applying the Shapley value
+to any group of actors whose terms of participation are not
+identical.
+
+I’ll end by extending my sympathy to all the readers whose
+non-mathematical friends expect them to figure out the bill. Little
+consolation though it may be, I think we can all agree that this is
+still preferable to splitting a bill with a group of other
+mathematicians, a task that is famously intractable.
+Share this:
+
+Share on Facebook (Opens in new window)
+
+Facebook
+
+Share on X (Opens in new window)
+
+X
+
+Like this:
+Like
+
+Loading…
+
+2026-06-01
+
+Previous Post: 
+The Story Your Ballot Doesn’t Tell
+Next Post: 
+Another Look at Circles and Squares
+
+Leave a Reply 
+Cancel reply
+Your email address will not be published.
+
+Required fields are marked 
+*
+Comment 
+*
+
+HTML tags are not allowed.
+Name 
+*
+
+Email 
+*
+
+Save my name, email, and website in this browser for the next time I comment.
+
+85,090 Spambots Blocked by 
+Simple Comments
+
+Notify me of follow-up comments by email.
+
+Notify me of new posts by email.
+ Notify me of followup comments via e-mail. You can also 
+subscribe
+ without commenting.
+
+JavaScript must be turned on to leave a comment.
+
+Search
+Subscribe to Feature Column via Email
+
+Enter your email address to subscribe to Feature Column and receive notifications of new posts by email.
+
+							Email Address						
+
+							Subscribe						
+
+Recent Posts
+Another Look at Circles and Squares
+
+The Shapley Value, or How to Split a Bill in n! Easy Steps
+
+The Story Your Ballot Doesn’t Tell
+
+Weekly Maintenance Message
+
+Puzzling Like the Seventeenth Century
+
+Categories
+
+2020
+
+2021
+
+2022
+
+2023
+
+2024
+
+2025
+
+2026
+
+Adam A. Smith
+
+Adriana Salerno
+
+Algebra and Number Theory
+
+Allechar Serrano López
+
+Anil Venkatesh
+
+Anna Haensch
+
+Archive
+
+Audrey St. John
+
+Bevin Maultsby
+
+Bianca Thompson
+
+Bill Casselman
+
+Colm Mulcahy
+
+Courtney Gibbons
+
+David Austin
+
+Deepayan Sarkar
+
+Diana Davis
+
+Discrete Math and Combinatorics
+
+Étienne Ghys
+
+Geometry and Topology
+
+Guillermo Fereyra
+
+History of mathematics
+
+Holley Friedlander
+
+Jessica Sidman
+
+John Eggers
+
+Joseph Malkevitch
+
+Josh Leys
+
+Math and Arts/Humanities
+
+Math and Social Sciences
+
+Math and Technology
+
+Math and the Sciences
+
+Mathematics and Biology
+
+Moira Chas
+
+Noah Giansiracusa
+
+Patrick Ion
+
+Probability and Statistics
+
+Real and Complex Analysis
+
+Sara Chari
+
+Sara Stoudt
+
+Sarah Wolff
+
+Steven H. Weintraub
+
+Sunil Chebolu
+
+Tamsyn Morrill
+
+Teaching and Learning Mathematics
+
+Tony Phillips
+
+Uncategorized
+
+Ursula Whitcher
+
+Tags
+5G
+
+Alan Turing
+
+algebraic geometry
+
+ams
+
+astronauts
+
+Branko Grünbaum
+
+cantor set
+
+chess
+
+Claude Shannon
+
+computability
+
+cryptography
+
+Desargues
+
+economics
+
+elliptic curves
+
+epidemic
+
+Euclidean geometry
+
+feature column history
+
+games
+
+game theory
+
+generating functions
+
+genetics
+
+Geoffrey Colin Shephard
+
+herd immunity
+
+Higgs boson
+
+information theory
+
+lattices (groups)
+
+Lie groups
+
+Machine learning
+
+measles
+
+medieval
+
+partitions
+
+periods
+
+persi diaconis
+
+physics
+
+poetry
+
+polytopes and polyhedra
+
+primes
+
+probability
+
+SEIR model
+
+statistics
+
+string theory
+
+tic-tac-toe
+
+tilings
+
+video games
+
+voting
+
+Meta
+
+Log in
+
+Entries feed
+
+Comments feed
+
+WordPress.org
+
+					 Designed using 
+Hoot Business
+. Powered by 
+WordPress
+.				
+
+%d
+

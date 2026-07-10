@@ -1,0 +1,588 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN" "http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg-flat.dtd" >
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+
+<title>log|x| + C revisited | The n-Category Caf&#xE9;</title>
+
+<meta name="ICBM" content="30.2893, -97.7367" />
+<meta name="DC.title" content="The n-Category Caf&#xE9;" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<style type="text/css" media="all" title="The n-Category Caf&#xE9; Stylesheet">@import url("/category/styles-site.css");</style>
+<link rel="stylesheet" href="/category/print.css" type="text/css" media="print" />
+
+<link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="/category/atom10.xml" />
+<link rel="alternate" type="application/atom+xml" title="Atom 1.0 Comments Feed" href="/category/comments.atom" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="/category/rsd.xml" />
+<link rel="shortcut icon" type="image/x-icon" href="/category/images/favicon.ico" />
+<link rel="icon" type="image/x-icon" href="/category/images/favicon2.ico" />
+<link rel="pgpkey" href="/category/urs.asc" title="Urs Schreiber's PGP Public Key" />
+<link rel="start" href="/category/" title="Home" />
+<link rel="search" href="/cgi-bin/MT-3.0/mt-search.cgi?IncludeBlogs=3&amp;Template=category" title="Search" />
+<link rel="contents" href="/category/archives.html" title="Comprehensive List of Blog Entries" />
+
+
+<link rel="bookmark" href="#content" title="Main Content" />
+<link rel="bookmark" href="#comments" title="Comments" />
+<link rel="bookmark" href="#search" title="Search Box" />
+<link rel="bookmark" href="#related" title="Related entries" />
+<link rel="bookmark" href="#AccessKeyList" title="AccessKeys" />
+<link rel="prev" href="/category/2025/11/the_bioctonionic_plane.html" title="Octonions and the Standard Model (Part 12)" />
+<link rel="next" href="/category/2025/12/octonions_and_the_standard_mod_11.html" title="Octonions and the Standard Model (Part 13)" />
+<link rel="up" href="/category/2025/12/" title="December, 2025" />
+
+<script type="text/javascript" src="/category/prototype.js"></script>
+<script type="text/javascript" src="/category/ie.js"></script>
+<script type="text/x-mathjax-config">
+  <!--//--><![CDATA[//><!--
+    MathJax.Hub.Config({
+      MathML: { useMathMLspacing: true },
+      "HTML-CSS": { scale: 90,
+                    noReflows: false,
+                    extensions: ["handle-floats.js"],
+                    linebreaks: { width: "container" }
+       }
+    });
+    MathJax.Hub.Queue( function () {
+       var fos = document.getElementsByTagName('foreignObject');
+       for (var i = 0; i < fos.length; i++) {
+         MathJax.Hub.Typeset(fos[i]);
+       }
+    });
+  //--><!]]>
+</script>
+<script type="text/javascript">
+  <!--//--><![CDATA[//><!--
+  window.addEventListener("DOMContentLoaded", function () {
+    var div = document.createElement('div');
+    var math = document.createElementNS('http://www.w3.org/1998/Math/MathML', 'math');
+    document.body.appendChild(div);
+    div.appendChild(math);
+  // Test for MathML support comparable to WebKit version https://trac.webkit.org/changeset/203640 or higher.
+    div.setAttribute('style', 'font-style: italic');
+    var mathml_unsupported = !(window.getComputedStyle(div.firstChild).getPropertyValue('font-style') === 'normal');
+    div.parentNode.removeChild(div);
+    if (mathml_unsupported) {
+      // MathML does not seem to be supported...
+      var s = document.createElement('script');
+      s.src = "/wiki/MathJax/MathJax.js?config=MML_HTMLorMML-full";
+      document.querySelector('head').appendChild(s);
+    } else {
+      document.head.insertAdjacentHTML("beforeend", '<style>svg[viewBox] {max-width: 100%}</style>');
+    }
+  });
+  //--><!]]>
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="https://golem.ph.utexas.edu/category/2025/12/logx_c_revisited.html"
+    trackback:ping="https://golem.ph.utexas.edu/cgi-bin/MT-3.0/dxy-tb.fcgi/3624"
+    dc:title="log|x| + C revisited"
+    dc:identifier="https://golem.ph.utexas.edu/category/2025/12/logx_c_revisited.html"
+    dc:subject="Analysis"
+    dc:description="A complex-analytic perspective on the indefinite integral of 1/x."
+    dc:creator="Mike Shulman"
+    dc:date="2025-12-03T02:23:50+00:00" />
+</rdf:RDF>
+-->
+
+
+</head>
+
+<body>
+
+<div class="frame">
+
+<div id="banner">
+<h1><a href="/category/" accesskey="1" title="Jump to the blog main page">The n-Category Caf&#xE9;</a></h1>
+<div class="description">A group blog on math, physics and philosophy</div>
+</div>
+
+
+<h2 class="skip">Skip to the Main Content</h2>
+<div class="skip">
+<a href="#content" accesskey="2">Enough, already! Skip to the content.</a>
+</div>
+<p style="display:none;">
+<strong>Note:</strong>These pages make extensive use of the latest XHTML and CSS <a href="http://www.w3.org">Standards</a>. They ought to look great in any standards-compliant modern browser. Unfortunately, they will probably look horrible in older browsers, like Netscape 4.x and IE 4.x. Moreover, many posts use MathML, which is, currently <em>only</em> supported in Mozilla. My best suggestion (and you will <em>thank</em> me when surfing an ever-increasing number of sites on the web which have been crafted to use the new standards) is to upgrade to the latest version of your browser. If that's not possible, consider moving  to the Standards-compliant and open-source <a href="http://www.mozilla.org">Mozilla</a> browser.
+</p>
+
+
+<div class="blog">
+
+<div><div id='menu'>
+<a href='/category/2025/11/the_bioctonionic_plane.html' accesskey='p'>&#xab; Octonions and the Standard Model (Part 12)</a> |
+
+<a href='/category/'>Main</a>
+| <a href='/category/2025/12/octonions_and_the_standard_mod_11.html' accesskey='n'>Octonions and the Standard Model (Part 13) &#xbb;</a>
+
+</div>
+
+<h2 class='date'>December  3, 2025</h2>
+
+<div id='content' class='blogbody'>
+
+<h3 class='title'>log|x| + C revisited</h3>
+
+<h4 class='posted'>Posted by Mike Shulman</h4>
+
+<div><a href='http://golem.ph.utexas.edu/~distler/blog/mathml.html' onclick='window.open(this.href, &#x27;MathML&#x27;, &#x27;width=310,height=150,scrollbars=no,resizable=yes,status=no&#x27;); return false;' onkeypress='if(window.event.keyCode == 13){window.open(this.href, &#x27;MathML&#x27;, &#x27;width=310,height=150,scrollbars=no,resizable=yes,status=no&#x27;); return false;}'><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>A <a href='https://golem.ph.utexas.edu/category/2012/03/reader_survey_logx_c.html'>while ago</a> on this blog, Tom posted a question about teaching calculus: what do you tell students the value of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mstyle displaystyle='true'><mo>&#x222b;</mo><mfrac><mn>1</mn><mi>x</mi></mfrac><mspace width='0.16667em' /><mi>dx</mi></mstyle></mrow><annotation encoding='application/x-tex'>\displaystyle\int \frac{1}{x}\,dx</annotation></semantics></math> is?  The standard answer is <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>ln</mi><mrow><mo stretchy='false'>|</mo><mi>x</mi><mo stretchy='false'>|</mo></mrow><mo>+</mo><mi>C</mi></mrow><annotation encoding='application/x-tex'>\ln{|x|}+C</annotation></semantics></math>, with <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>C</mi></mrow><annotation encoding='application/x-tex'>C</annotation></semantics></math> an &#x201c;arbitrary constant&#x201d;.  But that&#x2019;s wrong if <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mstyle displaystyle='true'><mo>&#x222b;</mo></mstyle></mrow><annotation encoding='application/x-tex'>\displaystyle\int</annotation></semantics></math> means (as we also usually tell students it does) the &#x201c;most general antiderivative&#x201d;, since</p>
+
+<p><math xmlns="http://www.w3.org/1998/Math/MathML" display='block'><semantics><mrow><mi>F</mi><mo stretchy='false'>(</mo><mi>x</mi><mo stretchy='false'>)</mo><mo>=</mo><mrow><mo>{</mo><mrow><mtable displaystyle='false' columnalign='left left'><mtr><mtd><mi>ln</mi><mrow><mo stretchy='false'>|</mo><mi>x</mi><mo stretchy='false'>|</mo></mrow><mo>+</mo><msup><mi>C</mi> <mo>&#x2212;</mo></msup></mtd> <mtd><mtext>if</mtext><mspace width='0.27778em' /><mi>x</mi><mo>&lt;</mo><mn>0</mn></mtd></mtr> <mtr><mtd><mi>ln</mi><mrow><mo stretchy='false'>|</mo><mi>x</mi><mo stretchy='false'>|</mo></mrow><mo>+</mo><msup><mi>C</mi> <mo>+</mo></msup></mtd> <mtd><mtext>if</mtext><mspace width='0.27778em' /><mi>x</mi><mo>&gt;</mo><mn>0</mn></mtd></mtr></mtable></mrow></mrow></mrow><annotation encoding='application/x-tex'>
+F(x) = \begin{cases}
+  \ln{|x|} + C^- &amp;\text{if}\;x\lt 0\\
+  \ln{|x|} + C^+ &amp;\text{if}\;x\gt 0
+\end{cases}
+</annotation></semantics></math></p>
+
+<p>is a more general antiderivative, for two arbitrary constants <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msup><mi>C</mi> <mo>&#x2212;</mo></msup></mrow><annotation encoding='application/x-tex'>C^-</annotation></semantics></math> and <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msup><mi>C</mi> <mo>+</mo></msup></mrow><annotation encoding='application/x-tex'>C^+</annotation></semantics></math>.  (I&#x2019;m writing <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>ln</mi></mrow><annotation encoding='application/x-tex'>\ln</annotation></semantics></math> for the natural logarithm function that Tom wrote as <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>log</mi></mrow><annotation encoding='application/x-tex'>\log</annotation></semantics></math>, for reasons that will become clear later.)</p>
+
+<p>In the ensuing discussion it was mentioned that other standard indefinite integrals like <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mstyle displaystyle='true'><mo>&#x222b;</mo><mfrac><mn>1</mn><mrow><msup><mi>x</mi> <mn>2</mn></msup></mrow></mfrac><mspace width='0.16667em' /><mi>dx</mi><mo>=</mo><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mfrac><mn>1</mn><mi>x</mi></mfrac><mo>+</mo><mi>C</mi></mstyle></mrow><annotation encoding='application/x-tex'>\displaystyle\int \frac{1}{x^2}\,dx = -\frac{1}{x} + C</annotation></semantics></math> are just as wrong.  This happens whenever the domain of the integrand is disconnected: the &#x201c;arbitrary constant&#x201d; <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>C</mi></mrow><annotation encoding='application/x-tex'>C</annotation></semantics></math> is really only <em>locally</em> constant.  Moreover, Mark Meckes pointed out that believing in such formulas can lead to mistaken calculations such as</p>
+
+<p><math xmlns="http://www.w3.org/1998/Math/MathML" display='block'><semantics><mrow><msubsup><mo>&#x222b;</mo> <mrow><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mn>1</mn></mrow> <mn>1</mn></msubsup><mfrac><mn>1</mn><mrow><msup><mi>x</mi> <mn>2</mn></msup></mrow></mfrac><mspace width='0.16667em' /><mi>dx</mi><mo>=</mo><msubsup><mrow><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mfrac><mn>1</mn><mi>x</mi></mfrac><mo>]</mo></mrow> <mrow><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mn>1</mn></mrow> <mn>1</mn></msubsup><mo>=</mo><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mn>2</mn></mrow><annotation encoding='application/x-tex'>
+\int_{-1}^1 \frac{1}{x^2}\,dx = \left.-\frac{1}{x}\right]_{-1}^1 = -2
+</annotation></semantics></math></p>
+
+<p>which is &#x201c;clearly nonsense&#x201d; since the integrand is everywhere positive.</p>
+
+<p>In this post I want to argue that there&#x2019;s actually a very natural perspective from which <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mstyle displaystyle='true'><mo>&#x222b;</mo><mfrac><mn>1</mn><mrow><msup><mi>x</mi> <mn>2</mn></msup></mrow></mfrac><mspace width='0.16667em' /><mi>dx</mi><mo>=</mo><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mfrac><mn>1</mn><mi>x</mi></mfrac><mo>+</mo><mi>C</mi></mstyle></mrow><annotation encoding='application/x-tex'>\displaystyle\int \frac{1}{x^2}\,dx = -\frac{1}{x} + C</annotation></semantics></math> <em>is</em> correct, while <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mstyle displaystyle='true'><mo>&#x222b;</mo><mfrac><mn>1</mn><mi>x</mi></mfrac><mspace width='0.16667em' /><mi>dx</mi><mo>=</mo><mi>ln</mi><mrow><mo stretchy='false'>|</mo><mi>x</mi><mo stretchy='false'>|</mo></mrow><mo>+</mo><mi>C</mi></mstyle></mrow><annotation encoding='application/x-tex'>\displaystyle\int \frac{1}{x}\,dx = \ln{|x|}+C</annotation></semantics></math> is wrong for a different reason.</p>
+
+
+<div id='more'>
+<div><a href='http://golem.ph.utexas.edu/~distler/blog/mathml.html' onclick='window.open(this.href, &#x27;MathML&#x27;, &#x27;width=310,height=150,scrollbars=no,resizable=yes,status=no&#x27;); return false;' onkeypress='if(window.event.keyCode == 13){window.open(this.href, &#x27;MathML&#x27;, &#x27;width=310,height=150,scrollbars=no,resizable=yes,status=no&#x27;); return false;}'><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>The perspective in question is complex analysis.  Most of the functions encountered in elementary calculus are actually complex-analytic &#x2014; the only real counterexamples are explicit &#x201c;piecewise&#x201d; functions and things like <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mrow><mo stretchy='false'>|</mo><mi>x</mi><mo stretchy='false'>|</mo></mrow></mrow><annotation encoding='application/x-tex'>{|x|}</annotation></semantics></math>, which are mainly introduced <em>as</em> counterexamples to illustrate the meaning of continuity and differentiability.  Therefore, it&#x2019;s not unreasonable to interpret the indefinite integral <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mstyle displaystyle='true'><mo>&#x222b;</mo><mi>f</mi><mo stretchy='false'>(</mo><mi>x</mi><mo stretchy='false'>)</mo><mspace width='0.16667em' /><mi>dx</mi></mstyle></mrow><annotation encoding='application/x-tex'>\displaystyle\int f(x)\,dx</annotation></semantics></math> as asking for the most general <em>complex-analytic</em> antiderivative of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>f</mi></mrow><annotation encoding='application/x-tex'>f</annotation></semantics></math>.  And the complex domain of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mfrac><mn>1</mn><mi>z</mi></mfrac></mrow><annotation encoding='application/x-tex'>\frac{1}{z}</annotation></semantics></math> and <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mfrac><mn>1</mn><mrow><msup><mi>z</mi> <mn>2</mn></msup></mrow></mfrac></mrow><annotation encoding='application/x-tex'>\frac{1}{z^2}</annotation></semantics></math> is <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x2102;</mi><mo>&#x2216;</mo><mo stretchy='false'>{</mo><mn>0</mn><mo stretchy='false'>}</mo></mrow><annotation encoding='application/x-tex'>\mathbb{C}\setminus \{0\}</annotation></semantics></math>, which is connected!</p>
+
+<p>Thus, for instance, since <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mfrac><mi>d</mi><mrow><mi>d</mi><mi>z</mi></mrow></mfrac><mrow><mo>[</mo><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mfrac><mn>1</mn><mi>z</mi></mfrac><mo>]</mo></mrow><mo>=</mo><mfrac><mn>1</mn><mrow><msup><mi>z</mi> <mn>2</mn></msup></mrow></mfrac></mrow><annotation encoding='application/x-tex'>\frac{d}{d z}\left[-\frac{1}{z}\right] = \frac1{z^2}</annotation></semantics></math>, it really is true that the most general (complex-analytic) antiderivative of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mfrac><mn>1</mn><mrow><msup><mi>z</mi> <mn>2</mn></msup></mrow></mfrac></mrow><annotation encoding='application/x-tex'>\frac{1}{z^2}</annotation></semantics></math> is <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mfrac><mn>1</mn><mi>z</mi></mfrac><mo>+</mo><mi>C</mi></mrow><annotation encoding='application/x-tex'>-\frac{1}{z}+C</annotation></semantics></math> for a single arbitrary constant <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>C</mi></mrow><annotation encoding='application/x-tex'>C</annotation></semantics></math>, so we can write <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mstyle displaystyle='true'><mo>&#x222b;</mo><mfrac><mn>1</mn><mrow><msup><mi>z</mi> <mn>2</mn></msup></mrow></mfrac><mspace width='0.16667em' /><mi>dz</mi><mo>=</mo><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mfrac><mn>1</mn><mi>z</mi></mfrac><mo>+</mo><mi>C</mi></mstyle></mrow><annotation encoding='application/x-tex'>\displaystyle\int \frac{1}{z^2}\,dz = -\frac{1}{z} + C</annotation></semantics></math>.  Note that any such antiderivative has the same domain <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x2102;</mi><mo>&#x2216;</mo><mo stretchy='false'>{</mo><mn>0</mn><mo stretchy='false'>}</mo></mrow><annotation encoding='application/x-tex'>\mathbb{C}\setminus \{0\}</annotation></semantics></math> as the original function.</p>
+
+<p>In addition, the dodgy calculation </p>
+
+<p><math xmlns="http://www.w3.org/1998/Math/MathML" display='block'><semantics><mrow><msubsup><mo>&#x222b;</mo> <mrow><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mn>1</mn></mrow> <mn>1</mn></msubsup><mfrac><mn>1</mn><mrow><msup><mi>z</mi> <mn>2</mn></msup></mrow></mfrac><mspace width='0.16667em' /><mi>dz</mi><mo>=</mo><msubsup><mrow><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mfrac><mn>1</mn><mi>z</mi></mfrac><mo>]</mo></mrow> <mrow><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mn>1</mn></mrow> <mn>1</mn></msubsup><mo>=</mo><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mn>2</mn></mrow><annotation encoding='application/x-tex'>
+\int_{-1}^1 \frac{1}{z^2}\,dz = \left.-\frac{1}{z}\right]_{-1}^1 = -2
+</annotation></semantics></math></p>
+
+<p>is actually <em>correct</em> if we interpret <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msubsup><mo>&#x222b;</mo> <mrow><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mn>1</mn></mrow> <mn>1</mn></msubsup></mrow><annotation encoding='application/x-tex'>\int_{-1}^1</annotation></semantics></math> to mean the integral along some (in fact, any) curve in <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x2102;</mi></mrow><annotation encoding='application/x-tex'>\mathbb{C}</annotation></semantics></math> from <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mn>1</mn></mrow><annotation encoding='application/x-tex'>-1</annotation></semantics></math> to <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mn>1</mn></mrow><annotation encoding='application/x-tex'>1</annotation></semantics></math> that <em>doesn&#x2019;t</em> pass through the singularity <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>z</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding='application/x-tex'>z=0</annotation></semantics></math>.  Of course, this doesn&#x2019;t offend against signs because any such path must pass through non-real numbers, whose squares can contribute negative real numbers to the integral.</p>
+
+<p>The case of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mstyle displaystyle='true'><mo>&#x222b;</mo><mfrac><mn>1</mn><mi>z</mi></mfrac><mspace width='0.16667em' /><mi>dz</mi></mstyle></mrow><annotation encoding='application/x-tex'>\displaystyle\int \frac{1}{z}\,dz</annotation></semantics></math> is a bit trickier, because the complex logarithm is multi-valued.  However, if we&#x2019;re willing to work with multi-valued functions (which precisely means functions whose domain is a Riemann surface covering some domain in <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x2102;</mi></mrow><annotation encoding='application/x-tex'>\mathbb{C}</annotation></semantics></math>), we have such a multi-valued function that I&#x2019;ll denote <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>log</mi></mrow><annotation encoding='application/x-tex'>\log</annotation></semantics></math> (in contrast to the usual real-number function <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>ln</mi></mrow><annotation encoding='application/x-tex'>\ln</annotation></semantics></math>) defined on a connected domain, and there we have <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mfrac><mi>d</mi><mrow><mi>d</mi><mi>z</mi></mrow></mfrac><mrow><mo>[</mo><mi>log</mi><mo stretchy='false'>(</mo><mi>z</mi><mo stretchy='false'>)</mo><mo>]</mo></mrow><mo>=</mo><mfrac><mn>1</mn><mi>z</mi></mfrac></mrow><annotation encoding='application/x-tex'>\frac{d}{d z}\left[ \log(z) \right] = \frac{1}{z}</annotation></semantics></math>.  Thus, the most general (complex-analytic) antiderivative of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mfrac><mn>1</mn><mi>z</mi></mfrac></mrow><annotation encoding='application/x-tex'>\frac{1}{z}</annotation></semantics></math> is <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>log</mi><mo stretchy='false'>(</mo><mi>z</mi><mo stretchy='false'>)</mo><mo>+</mo><mi>C</mi></mrow><annotation encoding='application/x-tex'>\log(z)+C</annotation></semantics></math> where <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>C</mi></mrow><annotation encoding='application/x-tex'>C</annotation></semantics></math> is a single arbitrary constant, so we can write <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mstyle displaystyle='true'><mo>&#x222b;</mo><mfrac><mn>1</mn><mi>z</mi></mfrac><mspace width='0.16667em' /><mi>dz</mi><mo>=</mo><mi>log</mi><mo stretchy='false'>(</mo><mi>z</mi><mo stretchy='false'>)</mo><mo>+</mo><mi>C</mi></mstyle></mrow><annotation encoding='application/x-tex'>\displaystyle\int \frac{1}{z}\,dz = \log(z) + C</annotation></semantics></math>.</p>
+
+<p>What happened to <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>ln</mi><mrow><mo stretchy='false'>|</mo><mi>x</mi><mo stretchy='false'>|</mo></mrow></mrow><annotation encoding='application/x-tex'>\ln{|x|}</annotation></semantics></math>?  Well, as it happens, if <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>x</mi></mrow><annotation encoding='application/x-tex'>x</annotation></semantics></math> is a negative real number and <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>Log</mi></mrow><annotation encoding='application/x-tex'>Log</annotation></semantics></math> denotes the principal branch of the complex logarithm, then <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>Log</mi><mo stretchy='false'>(</mo><mi>x</mi><mo stretchy='false'>)</mo><mo>=</mo><mi>ln</mi><mrow><mo stretchy='false'>|</mo><mi>x</mi><mo stretchy='false'>|</mo></mrow><mo>+</mo><mi>i</mi><mi>&#x3c0;</mi></mrow><annotation encoding='application/x-tex'>Log(x) = \ln{|x|} + i\pi</annotation></semantics></math>, hence <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>ln</mi><mrow><mo stretchy='false'>|</mo><mi>x</mi><mo stretchy='false'>|</mo></mrow><mo>=</mo><mi>Log</mi><mo stretchy='false'>(</mo><mi>x</mi><mo stretchy='false'>)</mo><mo>&#x2212;</mo><mi>i</mi><mi>&#x3c0;</mi></mrow><annotation encoding='application/x-tex'>\ln{|x|} = Log(x) - i\pi</annotation></semantics></math>.  Therefore, the antiderivative <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>ln</mi><mrow><mo stretchy='false'>|</mo><mi>x</mi><mo stretchy='false'>|</mo></mrow></mrow><annotation encoding='application/x-tex'>\ln{|x|}</annotation></semantics></math> <em>for negative real <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>x</mi></mrow><annotation encoding='application/x-tex'>x</annotation></semantics></math></em> is of the form <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mo lspace='0em' rspace='0.16667em'>Log</mo><mo stretchy='false'>(</mo><mi>x</mi><mo stretchy='false'>)</mo><mo>+</mo><mi>C</mi></mrow><annotation encoding='application/x-tex'>\Log(x)+C</annotation></semantics></math>, where <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mo lspace='0em' rspace='0.16667em'>Log</mo></mrow><annotation encoding='application/x-tex'>\Log</annotation></semantics></math> is a branch of the complex logarithm and <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>C</mi></mrow><annotation encoding='application/x-tex'>C</annotation></semantics></math> is a constant (namely, <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mi>i</mi><mi>&#x3c0;</mi></mrow><annotation encoding='application/x-tex'>-i\pi</annotation></semantics></math>).</p>
+
+<p>Of course it is also true that for <em>positive</em> real <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>x</mi></mrow><annotation encoding='application/x-tex'>x</annotation></semantics></math>, the antiderivative <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>ln</mi><mrow><mo stretchy='false'>|</mo><mi>x</mi><mo stretchy='false'>|</mo></mrow><mo>=</mo><mi>ln</mi><mo stretchy='false'>(</mo><mi>x</mi><mo stretchy='false'>)</mo></mrow><annotation encoding='application/x-tex'>\ln{|x|} = \ln(x)</annotation></semantics></math> is of the form <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mo lspace='0em' rspace='0.16667em'>Log</mo><mo stretchy='false'>(</mo><mi>x</mi><mo stretchy='false'>)</mo><mo>+</mo><mi>C</mi></mrow><annotation encoding='application/x-tex'>\Log(x)+C</annotation></semantics></math> for some constant <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>C</mi></mrow><annotation encoding='application/x-tex'>C</annotation></semantics></math>, but in this case the constant is <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mn>0</mn></mrow><annotation encoding='application/x-tex'>0</annotation></semantics></math>.  And changing the branch of the logarithm changes the constant by <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mn>2</mn><mi>i</mi><mi>&#x3c0;</mi></mrow><annotation encoding='application/x-tex'>2i\pi</annotation></semantics></math>, so it can never make the constants <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mn>0</mn></mrow><annotation encoding='application/x-tex'>0</annotation></semantics></math> and <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mi>i</mi><mi>&#x3c0;</mi></mrow><annotation encoding='application/x-tex'>-i\pi</annotation></semantics></math> coincide.  Thus, <em>unlike</em> <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mfrac><mn>1</mn><mi>x</mi></mfrac><mo>+</mo><mi>C</mi></mrow><annotation encoding='application/x-tex'>-\frac{1}{x} +C</annotation></semantics></math>, the real-number function <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>ln</mi><mrow><mo stretchy='false'>|</mo><mi>x</mi><mo stretchy='false'>|</mo></mrow><mo>+</mo><mi>C</mi></mrow><annotation encoding='application/x-tex'>\ln{|x|} + C</annotation></semantics></math> in the &#x201c;usual answer&#x201d; is <em>not</em> the restriction to <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x211d;</mi><mo>&#x2216;</mo><mo stretchy='false'>{</mo><mn>0</mn><mo stretchy='false'>}</mo></mrow><annotation encoding='application/x-tex'>\mathbb{R}\setminus \{0\}</annotation></semantics></math> of any complex-analytic antiderivative of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mfrac><mn>1</mn><mi>x</mi></mfrac></mrow><annotation encoding='application/x-tex'>\frac{1}{x}</annotation></semantics></math> on a connected domain.  This is what I mean by saying that <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mstyle displaystyle='true'><mo>&#x222b;</mo><mfrac><mn>1</mn><mi>x</mi></mfrac><mspace width='0.16667em' /><mi>dx</mi><mo>=</mo><mi>ln</mi><mrow><mo stretchy='false'>|</mo><mi>x</mi><mo stretchy='false'>|</mo></mrow><mo>+</mo><mi>C</mi></mstyle></mrow><annotation encoding='application/x-tex'>\displaystyle\int \frac{1}{x}\,dx = \ln{|x|}+C</annotation></semantics></math> is now wrong for a different reason.  And we can see that the analogous dodgy calculation </p>
+
+<p><math xmlns="http://www.w3.org/1998/Math/MathML" display='block'><semantics><mrow><msubsup><mo>&#x222b;</mo> <mrow><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mn>1</mn></mrow> <mn>1</mn></msubsup><mfrac><mn>1</mn><mi>x</mi></mfrac><mspace width='0.16667em' /><mi>dx</mi><mo>=</mo><mi>ln</mi><mrow><mo stretchy='false'>|</mo><mi>x</mi><mo stretchy='false'>|</mo></mrow><msubsup><mo maxsize='1.8em' minsize='1.8em'>]</mo> <mrow><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mn>1</mn></mrow> <mn>1</mn></msubsup><mo>=</mo><mn>0</mn></mrow><annotation encoding='application/x-tex'>
+\int_{-1}^1 \frac{1}{x}\,dx = \ln{|x|}\Big]_{-1}^1 = 0
+</annotation></semantics></math></p>
+
+<p>is also still wrong.  If <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x3b3;</mi></mrow><annotation encoding='application/x-tex'>\gamma</annotation></semantics></math> is a path from <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mn>1</mn></mrow><annotation encoding='application/x-tex'>-1</annotation></semantics></math> to <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mn>1</mn></mrow><annotation encoding='application/x-tex'>1</annotation></semantics></math> in <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x2102;</mi><mo>&#x2216;</mo><mo stretchy='false'>{</mo><mn>0</mn><mo stretchy='false'>}</mo></mrow><annotation encoding='application/x-tex'>\mathbb{C}\setminus \{0\}</annotation></semantics></math>, the value of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msub><mo>&#x222b;</mo> <mi>&#x3b3;</mi></msub><mfrac><mn>1</mn><mi>x</mi></mfrac><mspace width='0.16667em' /><mi>dx</mi></mrow><annotation encoding='application/x-tex'>\int_{\gamma} \frac{1}{x}\,dx</annotation></semantics></math> depends on <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x3b3;</mi></mrow><annotation encoding='application/x-tex'>\gamma</annotation></semantics></math>, but it never equals <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mn>0</mn></mrow><annotation encoding='application/x-tex'>0</annotation></semantics></math>: it&#x2019;s always an odd integer multiple of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>i</mi><mi>&#x3c0;</mi></mrow><annotation encoding='application/x-tex'>i\pi</annotation></semantics></math>, depending on how many times <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x3b3;</mi></mrow><annotation encoding='application/x-tex'>\gamma</annotation></semantics></math> winds around the origin.</p>
+
+<p>I&#x2019;m surprised that no one in the previous discussion, including me, brought this up.  Of course we probably don&#x2019;t want to teach our elementary calculus students complex analysis (although I&#x2019;m experimenting with introducing some complex numbers in second-semester calculus).  But this perspective makes me less unhappy about writing <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mstyle displaystyle='true'><mo>&#x222b;</mo><mfrac><mn>1</mn><mrow><msup><mi>x</mi> <mn>2</mn></msup></mrow></mfrac><mspace width='0.16667em' /><mi>dx</mi><mo>=</mo><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mfrac><mn>1</mn><mi>x</mi></mfrac><mo>+</mo><mi>C</mi></mstyle></mrow><annotation encoding='application/x-tex'>\displaystyle\int \frac{1}{x^2}\,dx = -\frac{1}{x} + C</annotation></semantics></math> and <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mstyle displaystyle='true'><mo>&#x222b;</mo><mfrac><mn>1</mn><mi>x</mi></mfrac><mspace width='0.16667em' /><mi>dx</mi><mo>=</mo><mi>log</mi><mo stretchy='false'>(</mo><mi>x</mi><mo stretchy='false'>)</mo><mo>+</mo><mi>C</mi></mstyle></mrow><annotation encoding='application/x-tex'>\displaystyle\int \frac{1}{x}\,dx = \log(x) + C</annotation></semantics></math> (no absolute value!).</p>
+
+</div>
+
+
+<span class='posted'>Posted at December  3, 2025  2:23 AM UTC
+</span>
+</div>
+
+<p class='trackback-url'>TrackBack URL for this Entry:&#xa0;&#xa0; https://golem.ph.utexas.edu/cgi-bin/MT-3.0/dxy-tb.fcgi/3624</p>
+
+
+<h2 class='comments-head' id='related'>Some Related Entries</h2>
+
+<div id='pane'>
+
+<form method='get' action='/cgi-bin/MT-3.0/mt-search.cgi'>
+<fieldset class='search'>
+  <input type='hidden' name='IncludeBlogs' value='3' />
+  <input type='hidden' name='Template' value='category' />
+  <label for='search' accesskey='4'>Search for other entries:</label><br />
+  <input id='search' name='search' size='25' /><br />
+  <input type='submit' value='Search' />
+</fieldset>
+</form>
+
+
+
+</div>
+
+<ul class='blogbody related'>
+
+   <li><a href='/category/2025/02/universal_characterization_of.html'>A Characterization of Standard Borel Spaces</a> &#x2014;
+<i>Feb 04, 2025</i></li>
+   <li><a href='/category/2023/01/a_curious_integral.html'>A Curious Integral</a> &#x2014;
+<i>Jan 04, 2023</i></li>
+   <li><a href='/category/2021/07/topos_theory_and_measurability.html'>Topos Theory and Measurability</a> &#x2014;
+<i>Jul 28, 2021</i></li>
+   <li><a href='/category/2020/11/the_uniform_measure.html'>The Uniform Measure</a> &#x2014;
+<i>Nov 24, 2020</i></li>
+   <li><a href='/category/2020/11/the_categorical_origins_of_leb_1.html'>The Categorical Origins of Lebesgue Integration, Revisited</a> &#x2014;
+<i>Nov 11, 2020</i></li>
+   <li><a href='/category/2020/09/ricatti_equations_and_the_proj.html'>Riccati Equations and the Projective Line</a> &#x2014;
+<i>Sep 07, 2020</i></li>
+   <li><a href='/category/2019/07/what_is_the_laplace_transform.html'>What is the Laplace Transform?</a> &#x2014;
+<i>Jul 17, 2019</i></li>
+   <li><a href='/category/2019/01/on_the_magnitude_function_of_d_3.html'>On the Magnitude Function of Domains in Euclidean Space, IV: Questions and Examples from a Geometric Analyst&#x2019;s Perspective (b)</a> &#x2014;
+<i>Jan 27, 2019</i></li>
+
+</ul>
+</div>
+
+<h2 class="comments-head" id="comments">13 Comments &amp; 0 Trackbacks</h2>
+
+<div class="blogbody">
+
+<div class="comments-body" id="c069126">
+<h3 class="title">Re: log|x| + C revisited</h3>
+
+<div><div><a href="http://golem.ph.utexas.edu/~distler/blog/mathml.html"><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>An excellent point, Mike!  At the time of that previous discussion I probably hadn&#8217;t given a thought to complex analysis since passing my PhD qualifying exams more than a decade earlier, so that&#8217;s the excuse I&#8217;ll claim for not having thought of this perspective.  (Having now taught complex analysis a couple times, I like to think I&#8217;d be more likely to now.)</p>
+</div>
+<div class="comments-post">Posted by:
+Mark Meckes on December  5, 2025  1:33 PM | <a href="/category/2025/12/logx_c_revisited.html#c069126" title="URL for comment by Mark Meckes [December  5, 2025  1:33 PM]">Permalink</a>
+
+| <a href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3626;parent_id=69126" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}" title="Respond to comment by Mark Meckes [December  5, 2025  1:33 PM]">Reply to this</a>
+</div>
+</div>
+
+
+
+
+
+<div class="comments-body" id="c069127">
+<h3 class="title">Re: log|x| + C revisited</h3>
+
+<div><div><a href="http://golem.ph.utexas.edu/~distler/blog/mathml.html"><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>I vaguely remember my reference tables having a separate line for <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mo>&#x222b;</mo><mfrac><mi>a</mi><mi>x</mi></mfrac><mi>dx</mi></mrow><annotation encoding='application/x-tex'>\int \frac a x dx</annotation></semantics></math>. If you want to write this as <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>ln</mi><mo stretchy='false'>(</mo><msup><mrow><mo>|</mo><mi>x</mi><mo>|</mo></mrow> <mi>a</mi></msup><mo stretchy='false'>)</mo><mo>+</mo><mi>C</mi></mrow><annotation encoding='application/x-tex'>\ln (\left|x\right|^a)+C</annotation></semantics></math> those bars have to be placed exactly where they are to avoid using complex numbers.</p>
+
+<p>Here, it seems what we really want to avoid is complex numbers in the result, i.e. I want a real-valued antiderivative for this real-valued function. We can get that by writing</p>
+
+<p><math xmlns="http://www.w3.org/1998/Math/MathML" display='block'><semantics><mrow><mi>Re</mi><mo>&#x222b;</mo><mfrac><mn>1</mn><mi>x</mi></mfrac><mi>dx</mi><mo>=</mo><mo>&#x222b;</mo><mi>Re</mi><mfrac><mn>1</mn><mi>x</mi></mfrac><mi>dx</mi><mo>=</mo><mi>Re</mi><mspace width='0.16667em' /><mi>log</mi><mi>x</mi><mo>+</mo><mi>C</mi><mo>.</mo></mrow><annotation encoding='application/x-tex'>Re \int \frac 1 x dx = \int Re \frac 1 x dx = Re \, \log x + C .</annotation></semantics></math> 
+This will seem overcomplicated to students; I claim it&#8217;s complexified.</p>
+</div>
+<div class="comments-post">Posted by:
+unekdoud on December  6, 2025  8:16 AM | <a href="/category/2025/12/logx_c_revisited.html#c069127" title="URL for comment by unekdoud [December  6, 2025  8:16 AM]">Permalink</a>
+
+| <a href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3626;parent_id=69127" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}" title="Respond to comment by unekdoud [December  6, 2025  8:16 AM]">Reply to this</a>
+</div>
+</div>
+
+
+
+
+
+<div class="comments-body" id="c069128">
+<h3 class="title">Re: log|x| + C revisited</h3>
+
+<div><div><a href="http://golem.ph.utexas.edu/~distler/blog/mathml.html"><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>Very nice. </p>
+
+<p>One thing I find interesting about this is the way in which the complex numbers become an arena in which what is <em>formally</em> true becomes <em>actually</em> true. I&#8217;m mostly thinking here about <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mo>&#x222b;</mo><mo stretchy='false'>(</mo><mn>1</mn><mo stretchy='false'>/</mo><msup><mi>x</mi> <mn>2</mn></msup><mo stretchy='false'>)</mo><mi>d</mi><mi>x</mi></mrow><annotation encoding='application/x-tex'>\int (1/x^2) d x</annotation></semantics></math>: symbol-pushing gives <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mn>1</mn><mo stretchy='false'>/</mo><mi>x</mi><mo>+</mo><mi>C</mi></mrow><annotation encoding='application/x-tex'>-1/x + C</annotation></semantics></math> as the answer, which is false/problematic for the reals but true in <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x2102;</mi></mrow><annotation encoding='application/x-tex'>\mathbb{C}</annotation></semantics></math>.</p>
+
+<p>There are other, quite different, contexts in which <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x2102;</mi></mrow><annotation encoding='application/x-tex'>\mathbb{C}</annotation></semantics></math> plays a similar role. Blass and Lawvere&#8217;s &#8220;seven trees in one&#8221; phenomenon is one. For those who haven&#8217;t heard this wonderful story, it goes like this.</p>
+
+<p>Let <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>T</mi></mrow><annotation encoding='application/x-tex'>T</annotation></semantics></math> be the set (or type) of binary trees &#x2014; I mean, trees with binary branching. Any such tree either is the trivial tree or consists of two trees joined together at the root, which suggests</p>
+
+<p><math xmlns="http://www.w3.org/1998/Math/MathML" display='block'><semantics><mrow><mi>T</mi><mo>&#x2245;</mo><mn>1</mn><mo>+</mo><msup><mi>T</mi> <mn>2</mn></msup><mo>.</mo></mrow><annotation encoding='application/x-tex'>
+T \cong 1 + T^2.
+</annotation></semantics></math></p>
+
+<p>Solving this quadratic equation gives <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>T</mi><mo>&#x2245;</mo><msup><mi>e</mi> <mrow><mo>&#xb1;</mo><mi>&#x3c0;</mi><mi>i</mi><mo stretchy='false'>/</mo><mn>3</mn></mrow></msup></mrow><annotation encoding='application/x-tex'>T \cong e^{\pm \pi i/3}</annotation></semantics></math> (!!!). So <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>T</mi></mrow><annotation encoding='application/x-tex'>T</annotation></semantics></math> is a 6th root of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mn>1</mn></mrow><annotation encoding='application/x-tex'>1</annotation></semantics></math>. This tells us that <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msup><mi>T</mi> <mn>6</mn></msup><mo>&#x2245;</mo><mn>1</mn></mrow><annotation encoding='application/x-tex'>T^6 \cong 1</annotation></semantics></math>, which is to say, there is exactly one 6-tuple of trees. Clearly this is false. But if we multiply each side by <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>T</mi></mrow><annotation encoding='application/x-tex'>T</annotation></semantics></math> then we get <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msup><mi>T</mi> <mn>7</mn></msup><mo>&#x2245;</mo><mi>T</mi></mrow><annotation encoding='application/x-tex'>T^7 \cong T</annotation></semantics></math>, which isn&#8217;t clearly false. And in fact, there&#8217;s a sense in which it&#8217;s <em>true</em>: there really is an explicit isomorphism between trees and 7-tuples of trees. </p>
+
+<p>It takes a little work to make this statement precise, but it&#8217;s true for 7 in a sense that it&#8217;s not true for 5 or 6 or 8. For example, for any object <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>T</mi></mrow><annotation encoding='application/x-tex'>T</annotation></semantics></math> of a rig category satisfying <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>T</mi><mo>&#x2245;</mo><mn>1</mn><mo>&#x2295;</mo><msup><mi>T</mi> <mrow><mo>&#x2297;</mo><mn>2</mn></mrow></msup></mrow><annotation encoding='application/x-tex'>T \cong 1 \oplus T^{\otimes 2}</annotation></semantics></math>, it&#8217;s true that <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msup><mi>T</mi> <mrow><mo>&#x2297;</mo><mn>7</mn></mrow></msup><mo>&#x2245;</mo><mi>T</mi></mrow><annotation encoding='application/x-tex'>T^{\otimes 7} \cong T</annotation></semantics></math>. </p>
+
+<p>Marcelo Fiore and I wrote a <a href="https://arxiv.org/abs/math/0212377">paper</a> where we examined this phenomenon: when is there a match-up between (i) apparently nonsensical formal arguments of the seven-trees-in-one type using complex numbers, and (ii) what happens in abstract rig categories. It turns out that seven trees in one is just a single example of a general theory.</p>
+</div>
+<div class="comments-post">Posted by:
+<a title="https://www.maths.ed.ac.uk/~tl" href="https://www.maths.ed.ac.uk/~tl" rel="nofollow">Tom Leinster</a> on December 11, 2025  3:37 PM | <a href="/category/2025/12/logx_c_revisited.html#c069128" title="URL for comment by Tom Leinster [December 11, 2025  3:37 PM]">Permalink</a>
+
+| <a href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3626;parent_id=69128" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}" title="Respond to comment by Tom Leinster [December 11, 2025  3:37 PM]">Reply to this</a>
+</div>
+</div>
+
+<div class="comments-nest-box">
+<div class="comments-body" id="c069129">
+<h3 class="title">Re: log|x| + C revisited</h3>
+
+<div><div><a href="http://golem.ph.utexas.edu/~distler/blog/mathml.html"><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>Come to think of it, I guess complex analysis is often sold as a subject in which your dreams come true: every differentiable function has a power series expansion that converges to it (at least locally), etc. And this is used as a contrast with real analysis. So this is another analytic sense in which naive/formal reasoning actually works in <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x2102;</mi></mrow><annotation encoding='application/x-tex'>\mathbb{C}</annotation></semantics></math>.</p>
+</div>
+<div class="comments-post">Posted by:
+<a title="https://www.maths.ed.ac.uk/~tl" href="https://www.maths.ed.ac.uk/~tl" rel="nofollow">Tom Leinster</a> on December 12, 2025 12:17 PM | <a href="/category/2025/12/logx_c_revisited.html#c069129" title="URL for comment by Tom Leinster [December 12, 2025 12:17 PM]">Permalink</a>
+
+| <a href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3626;parent_id=69129" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}" title="Respond to comment by Tom Leinster [December 12, 2025 12:17 PM]">Reply to this</a>
+</div>
+</div>
+
+
+<div class="comments-body" id="c069130">
+<h3 class="title">Re: log|x| + C revisited</h3>
+
+<div><div><a href="http://golem.ph.utexas.edu/~distler/blog/mathml.html"><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>Indeed!  I would probably also point to analytic continuation as a way to make some kind of sense of &#8220;formal&#8221; calculations like</p>
+
+<p><math xmlns="http://www.w3.org/1998/Math/MathML" display='block'><semantics><mrow><mn>1</mn><mo>+</mo><mn>2</mn><mo>+</mo><mn>4</mn><mo>+</mo><mn>8</mn><mo>+</mo><mn>16</mn><mo>+</mo><mi>&#x22ef;</mi><mo>=</mo><mfrac><mn>1</mn><mrow><mn>1</mn><mo>&#x2212;</mo><mn>2</mn></mrow></mfrac><mo>=</mo><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mn>1</mn><mo>.</mo></mrow><annotation encoding='application/x-tex'> 1 + 2 + 4 + 8 + 16 + \cdots = \frac{1}{1-2} = -1. </annotation></semantics></math></p>
+</div>
+<div class="comments-post">Posted by:
+<a title="https://home.sandiego.edu/~shulman" href="https://home.sandiego.edu/~shulman" rel="nofollow">Mike Shulman</a> on December 12, 2025  3:20 PM | <a href="/category/2025/12/logx_c_revisited.html#c069130" title="URL for comment by Mike Shulman [December 12, 2025  3:20 PM]">Permalink</a>
+
+| <a href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3626;parent_id=69130" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}" title="Respond to comment by Mike Shulman [December 12, 2025  3:20 PM]">Reply to this</a>
+</div>
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="comments-body" id="c069131">
+<h3 class="title">Re: log|x| + C revisited</h3>
+
+<div><div><a href="http://golem.ph.utexas.edu/~distler/blog/mathml.html"><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>I find this post (and its &#8220;parent&#8221; from 2012) quite funny as all of this is common knowledge to everyone who has ever implemented (or maintained) a computer algebra system that does definite integration. Granted, that&#8217;s a rather small crowd. People like Robert Corless, David Jeffrey and James H. Davenport (amongst others) have published various papers about this phenomenon.</p>
+
+<p>I don&#8217;t know if the people working on proof systems have also discovered this yet. I&#8217;m guessing no, as they tend to not compute anything, only verify, so basically can avoid the problem by never asking silly questions.</p>
+
+<p>Fun history tidbit: Cauchy covered a similar phenomenon of &#8216;piecewise constants&#8217; his 1821 &#8220;Cours d&#8217;analyse de l&#8217;&#xc9;cole Royale Polytechnique&#8221; (in the context of solutions to ODEs) but removed it from subsequent versions of his course.</p>
+</div>
+<div class="comments-post">Posted by:
+<a title="http://http:/www.cas.mcmaster.ca/~carette" href="http://http:/www.cas.mcmaster.ca/~carette" rel="nofollow">Jacques Carette</a> on December 13, 2025  2:56 PM | <a href="/category/2025/12/logx_c_revisited.html#c069131" title="URL for comment by Jacques Carette [December 13, 2025  2:56 PM]">Permalink</a>
+
+| <a href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3626;parent_id=69131" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}" title="Respond to comment by Jacques Carette [December 13, 2025  2:56 PM]">Reply to this</a>
+</div>
+</div>
+
+<div class="comments-nest-box">
+<div class="comments-body" id="c069132">
+<h3 class="title">Re: log|x| + C revisited</h3>
+
+<div><div><a href="http://golem.ph.utexas.edu/~distler/blog/mathml.html"><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<blockquote>
+  <p>I find this post (and its &#8220;parent&#8221; from 2012) quite funny as all of this is common knowledge to&#8230;</p>
+</blockquote>
+
+<p>Let me quote from that <a href="https://golem.ph.utexas.edu/category/2012/03/reader_survey_logx_c.html">parent post</a>:</p>
+
+<blockquote>
+  <p>It&#8217;s wrong for reasons that won&#8217;t surprise many readers, and although I&#8217;ll explain those reasons, I don&#8217;t think that&#8217;s such an interesting point in itself.</p>
+
+<p>What I&#8217;m more interested in hearing about is the pedagogy. </p>
+</blockquote>
+
+<p>Indeed, it&#8217;s common knowledge among many mathematicians (not only to implementers of computer algebra systems) that the statement &#8220;<math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mo>&#x222b;</mo><mfrac><mn>1</mn><mi>x</mi></mfrac><mi>d</mi><mi>x</mi><mo>=</mo><mi>log</mi><mrow><mo>|</mo><mi>x</mi><mo>|</mo></mrow><mo>+</mo><mi>C</mi></mrow><annotation encoding='application/x-tex'>\int \frac{1}{x} d x = \log\left|x\right| + C</annotation></semantics></math>&#8221;  needs careful interpretation. But as I wrote in the passage just quoted, the primary point was not that old news, but the pedagogical question:</p>
+
+<blockquote>
+  <p>If you think it&#8217;s bad to teach students things that are flat-out incorrect, what do you do instead? I&#8217;m not talking about advanced students here: these are 17- and 18-year-olds, many of whom won&#8217;t take any further math courses. What do you tell them about <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mo>&#x222b;</mo><mfrac><mn>1</mn><mi>x</mi></mfrac><mi>d</mi><mi>x</mi></mrow><annotation encoding='application/x-tex'>\int\frac{1}{x} d x</annotation></semantics></math>? </p>
+</blockquote>
+
+<p>In my opinion, this remains a serious pedagogical question.</p>
+</div>
+<div class="comments-post">Posted by:
+<a title="https://www.maths.ed.ac.uk/~tl" href="https://www.maths.ed.ac.uk/~tl" rel="nofollow">Tom Leinster</a> on December 13, 2025  3:21 PM | <a href="/category/2025/12/logx_c_revisited.html#c069132" title="URL for comment by Tom Leinster [December 13, 2025  3:21 PM]">Permalink</a>
+
+| <a href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3626;parent_id=69132" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}" title="Respond to comment by Tom Leinster [December 13, 2025  3:21 PM]">Reply to this</a>
+</div>
+</div>
+
+
+<div class="comments-body" id="c069134">
+<h3 class="title">Re: log|x| + C revisited</h3>
+
+<div><div><a href="http://golem.ph.utexas.edu/~distler/blog/mathml.html"><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<blockquote>
+  <p>Indeed, it&#8217;s common knowledge among many mathematicians (not only to implementers of computer algebra systems) that the statement &#8220;<math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mo>&#x222b;</mo><mfrac><mn>1</mn><mi>x</mi></mfrac><mi>dx</mi><mo>=</mo><mi>log</mi><mo stretchy='false'>|</mo><mi>x</mi><mo stretchy='false'>|</mo><mo>+</mo><mi>C</mi></mrow><annotation encoding='application/x-tex'>\int \frac{1}{x}dx=log|x|+C</annotation></semantics></math>&#8221; needs careful interpretation.</p>
+</blockquote>
+
+<p>Agreed; CAS implementers have no monopoly here.</p>
+
+<p>However, apparently the fact that <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>log</mi><mo stretchy='false'>(</mo><mi>x</mi><mo stretchy='false'>)</mo><mo>+</mo><mi>C</mi></mrow><annotation encoding='application/x-tex'>log(x)+C</annotation></semantics></math> becomes the indisputably correct answer when working with complex numbers isn&#8217;t sufficiently common knowledge for anyone to have pointed it out on the previous post.</p>
+</div>
+<div class="comments-post">Posted by:
+<a title="https://home.sandiego.edu/~shulman" href="https://home.sandiego.edu/~shulman" rel="nofollow">Mike Shulman</a> on December 13, 2025  6:31 PM | <a href="/category/2025/12/logx_c_revisited.html#c069134" title="URL for comment by Mike Shulman [December 13, 2025  6:31 PM]">Permalink</a>
+
+| <a href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3626;parent_id=69134" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}" title="Respond to comment by Mike Shulman [December 13, 2025  6:31 PM]">Reply to this</a>
+</div>
+</div>
+
+<div class="comments-nest-box">
+<div class="comments-body" id="c069138">
+<h3 class="title">Re: log|x| + C revisited</h3>
+
+<div><div><a href="http://golem.ph.utexas.edu/~distler/blog/mathml.html"><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>Right; I probably never knew this complex analysis fact myself, and if I did, I&#8217;d long forgotten it.</p>
+</div>
+<div class="comments-post">Posted by:
+<a title="https://www.maths.ed.ac.uk/~tl" href="https://www.maths.ed.ac.uk/~tl" rel="nofollow">Tom Leinster</a> on December 13, 2025  9:03 PM | <a href="/category/2025/12/logx_c_revisited.html#c069138" title="URL for comment by Tom Leinster [December 13, 2025  9:03 PM]">Permalink</a>
+
+| <a href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3626;parent_id=69138" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}" title="Respond to comment by Tom Leinster [December 13, 2025  9:03 PM]">Reply to this</a>
+</div>
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="comments-body" id="c069133">
+<h3 class="title">Re: log|x| + C revisited</h3>
+
+<div><div><a href="http://golem.ph.utexas.edu/~distler/blog/mathml.html"><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>The functions in your average calculus class are valued in the real numbers, not the complex numbers, so that those integrals of functions over the complex numbers are kind of irrelevant in that context. </p>
+
+<p>In general, mathematicians need to be more specific about the sets or types that they are working with. An indefinite integral like <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mo>&#x222b;</mo><mfrac><mn>1</mn><mrow><msup><mi>x</mi> <mn>2</mn></msup></mrow></mfrac><mi>dx</mi></mrow><annotation encoding='application/x-tex'>\int \frac{1}{x^2} dx</annotation></semantics></math> does not inherently have any meaning until the domain and codomain of the function <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>x</mi><mo>&#x21a6;</mo><mfrac><mn>1</mn><mrow><msup><mi>x</mi> <mn>2</mn></msup></mrow></mfrac></mrow><annotation encoding='application/x-tex'>x \mapsto \frac{1}{x^2}</annotation></semantics></math> is specified, and then the correct simplification of the indefinite integral is going to be different depending on said domain and codomain, whether it be the reals, complex numbers, quaternions, p-adics, et cetera. </p>
+</div>
+<div class="comments-post">Posted by:
+Madeleine Birchfield on December 13, 2025  5:31 PM | <a href="/category/2025/12/logx_c_revisited.html#c069133" title="URL for comment by Madeleine Birchfield [December 13, 2025  5:31 PM]">Permalink</a>
+
+| <a href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3626;parent_id=69133" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}" title="Respond to comment by Madeleine Birchfield [December 13, 2025  5:31 PM]">Reply to this</a>
+</div>
+</div>
+
+<div class="comments-nest-box">
+<div class="comments-body" id="c069135">
+<h3 class="title">Re: log|x| + C revisited</h3>
+
+<div><div><a href="http://golem.ph.utexas.edu/~distler/blog/mathml.html"><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<blockquote>
+  <p>The functions in your average calculus class are valued in the real numbers, not the complex numbers, so that those integrals of functions over the complex numbers are kind of irrelevant in that context.</p>
+</blockquote>
+
+<p>I presume you mean &#8220;take values <em>from</em> the real numbers&#8221;.  (-:  Both are true, but it&#8217;s the domain that&#8217;s really relevant for this question.</p>
+
+<p>I did say</p>
+
+<blockquote>
+  <p>Of course we probably don&#8217;t want to teach our elementary calculus students complex analysis</p>
+</blockquote>
+
+<p>My point is rather that as a <em>mathematical</em> matter, for what we think of inside our heads as mathematicians, the complex perspective is an alternative to the &#8220;locally constant function&#8221; one, and may make us less concerned that telling students something simple and convenient like <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mo>&#x222b;</mo><mfrac><mn>1</mn><mi>x</mi></mfrac><mi>dx</mi><mo>=</mo><mi>log</mi><mo stretchy='false'>(</mo><mi>x</mi><mo stretchy='false'>)</mo><mo>+</mo><mi>C</mi></mrow><annotation encoding='application/x-tex'>\int \frac{1}{x} dx = log(x)+C</annotation></semantics></math> is &#8220;false&#8221;.</p>
+</div>
+<div class="comments-post">Posted by:
+<a title="https://home.sandiego.edu/~shulman" href="https://home.sandiego.edu/~shulman" rel="nofollow">Mike Shulman</a> on December 13, 2025  6:36 PM | <a href="/category/2025/12/logx_c_revisited.html#c069135" title="URL for comment by Mike Shulman [December 13, 2025  6:36 PM]">Permalink</a>
+
+| <a href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3626;parent_id=69135" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}" title="Respond to comment by Mike Shulman [December 13, 2025  6:36 PM]">Reply to this</a>
+</div>
+</div>
+
+<div class="comments-nest-box">
+<div class="comments-body" id="c069136">
+<h3 class="title">Re: log|x| + C revisited</h3>
+
+<div><div><a href="http://golem.ph.utexas.edu/~distler/blog/mathml.html"><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<blockquote>
+  <p>My point is rather that as a mathematical matter, for what we think of inside our heads as mathematicians, the complex perspective is an alternative to the &#x201c;locally constant function&#x201d; one, and may make us less concerned that telling students something simple and convenient like <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mo>&#x222b;</mo><mfrac><mn>1</mn><mi>x</mi></mfrac><mi>dx</mi><mo>=</mo><mi>log</mi><mo stretchy='false'>(</mo><mi>x</mi><mo stretchy='false'>)</mo><mo>+</mo><mi>C</mi></mrow><annotation encoding='application/x-tex'>\int \frac{1}{x} dx = \log(x) + C</annotation></semantics></math> is &#x201c;false&#x201d;.</p>
+</blockquote>
+
+<p>There is also the examples of using the positive or the negative reals as the domain of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>x</mi><mo>&#x21a6;</mo><mfrac><mn>1</mn><mi>x</mi></mfrac></mrow><annotation encoding='application/x-tex'>x \mapsto \frac{1}{x}</annotation></semantics></math>. For the positive reals <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mo>&#x222b;</mo><mfrac><mn>1</mn><mi>x</mi></mfrac><mi>dx</mi><mo>=</mo><mi>ln</mi><mo stretchy='false'>(</mo><mi>x</mi><mo stretchy='false'>)</mo><mo>+</mo><mi>C</mi></mrow><annotation encoding='application/x-tex'>\int \frac{1}{x} dx = \ln(x) + C</annotation></semantics></math> is true, while for the negative reals <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mo>&#x222b;</mo><mfrac><mn>1</mn><mi>x</mi></mfrac><mi>dx</mi><mo>=</mo><mi>ln</mi><mo stretchy='false'>(</mo><mi>x</mi><mo stretchy='false'>)</mo><mo>+</mo><mi>C</mi></mrow><annotation encoding='application/x-tex'>\int \frac{1}{x} dx = \ln(x) + C</annotation></semantics></math> is false and the right hand side of the equation should be <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>ln</mi><mo stretchy='false'>(</mo><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mi>x</mi><mo stretchy='false'>)</mo><mo>+</mo><mi>C</mi></mrow><annotation encoding='application/x-tex'>\ln(-x) + C</annotation></semantics></math> instead. And if you say that the domain of the function is the reals apart from zero <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mo stretchy='false'>(</mo><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mn>&#x221e;</mn><mo>,</mo><mn>0</mn><mo stretchy='false'>)</mo><mo>&#x222a;</mo><mo stretchy='false'>(</mo><mn>0</mn><mo>,</mo><mn>&#x221e;</mn><mo stretchy='false'>)</mo></mrow><annotation encoding='application/x-tex'>(-\infty, 0) \cup (0, \infty)</annotation></semantics></math> then well of course it is false. </p>
+
+<p>So I would argue that saying that &#8220;<math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mo>&#x222b;</mo><mfrac><mn>1</mn><mi>x</mi></mfrac><mi>dx</mi><mo>=</mo><mi>log</mi><mo stretchy='false'>(</mo><mi>x</mi><mo stretchy='false'>)</mo><mo>+</mo><mi>C</mi></mrow><annotation encoding='application/x-tex'>\int \frac{1}{x} dx = \log(x) + C</annotation></semantics></math> is false&#8221; is the wrong way to go about things unless you have already established the domain of the function you are taking the indefinite integral of. As is, the equation isn&#8217;t true or false, it is underdetermined. The integral has a type variable that needs to be filled in before it can be evaluated. </p>
+</div>
+<div class="comments-post">Posted by:
+Madeleine Birchfield on December 13, 2025  7:15 PM | <a href="/category/2025/12/logx_c_revisited.html#c069136" title="URL for comment by Madeleine Birchfield [December 13, 2025  7:15 PM]">Permalink</a>
+
+| <a href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3626;parent_id=69136" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}" title="Respond to comment by Madeleine Birchfield [December 13, 2025  7:15 PM]">Reply to this</a>
+</div>
+</div>
+
+
+<div class="comments-body" id="c069137">
+<h3 class="title">Re: log|x| + C revisited</h3>
+
+<div><div><a href="http://golem.ph.utexas.edu/~distler/blog/mathml.html"><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>That&#8217;s all technically true, but it&#8217;s also not something we necessarily want to get into with calculus students.</p>
+</div>
+<div class="comments-post">Posted by:
+<a title="https://home.sandiego.edu/~shulman" href="https://home.sandiego.edu/~shulman" rel="nofollow">Mike Shulman</a> on December 13, 2025  7:34 PM | <a href="/category/2025/12/logx_c_revisited.html#c069137" title="URL for comment by Mike Shulman [December 13, 2025  7:34 PM]">Permalink</a>
+
+| <a href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3626;parent_id=69137" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}" title="Respond to comment by Mike Shulman [December 13, 2025  7:34 PM]">Reply to this</a>
+</div>
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<p class="newpost"><a class="comments-post" href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3626" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}">Post a New Comment</a></p>
+
+</div>
+
+<div id="footer">   
+<h2>Access Keys:</h2>
+
+<dl id="AccessKeyList">
+<dt>0</dt><dd><a href="/category/accessibility.html" accesskey="0">Accessibility Statement</a></dd>
+<dt>1</dt><dd>Main Page</dd>
+<dt>2</dt><dd>Skip to Content</dd>
+<dt>3</dt><dd>List of Posts</dd>
+<dt>4</dt><dd>Search</dd>
+<dt>p</dt><dd>Previous (individual/monthly archive page)</dd>
+<dt>n</dt><dd>Next (individual/monthly archive page)</dd>
+</dl>
+<a href="/category/archives.html" accesskey="3"></a>
+</div>
+
+
+</div>
+
+</body>
+</html>

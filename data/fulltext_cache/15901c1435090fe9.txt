@@ -1,0 +1,757 @@
+AMS :: Notices of the American Mathematical Society
+Skip to main content
+Donate Now
+Sign
+in
+Sign
+in
+New
+to AMS?
+Register now.
+Your Account
+Your
+Purchases
+Your
+Donations
+Your
+Member Directory Listing
+Register
+for a Meeting
+AMS
+Member Directory
+Sign
+out
+MathSciNet
+Bookstore
+My Cart
+Help
+Menu
+Menu
+Publications
+Publications Home
+Over 100 years of publishing excellence
+Books
+AMS Bookstore
+Rights, Licensing, Permissions
+Open Math Notes
+AMS Digital Library
+Journals
+eBook Collections
+Author Resource Center
+Librarian Resources
+COUNTER Usage Statistics
+Subscription Information
+Licensing Information
+My Titles
+Mathematical Reviews/MathSciNet®
+MathSciNet®
+Reviewer Home
+MathSciNet® Subscriptions
+Membership
+Membership Home
+Welcome to your membership center
+Membership Choices
+Join the Society
+Renew your Membership
+Gift a Membership
+Individual Membership
+Member Benefits
+Member Directory
+Reciprocating Societies
+Members in Developing Countries
+Institutional Membership
+Domestic Institutions
+International Institutions
+Two-Year Institutions
+Graduate Student Chapter Program
+Other Member Types
+Corporate Memberships
+Associate Memberships
+Meetings & Conferences
+Meetings & Conferences Home
+Engage with colleagues and the latest research
+National Meetings
+Joint Mathematics Meetings
+Upcoming JMMs
+Previous JMMs
+Special Lectures
+Professional Enhancement Programs (PEPs)
+Sectional Meetings
+Upcoming Sectionals
+Previous Sectionals
+Presenting Papers
+Hosting Sectionals
+Other Meetings, Conferences & Workshops
+International Meetings
+Mathematics Calendar
+Short Courses
+Meetings Resources
+Suggest a Speaker
+AMS Meetings Grants
+Submitting Abstracts
+Welcoming Environment Policy
+MathSafe – supporting safe meetings
+News & Outreach
+News & Outreach Home
+Explore news, images, posters, and mathematical essays
+News from the AMS
+Feature Stories
+Information for Journalists
+In Memoriam
+Math Voices
+Feature Column
+Math in the Media
+Column on Teaching and Learning
+Explorations
+Recognizing Diverse Mathematicians
+AMS Posters
+Mathematics & Music
+Mathematical Imagery
+Mathematical Moments
+Grants & Awards
+Grants & Awards Home
+Resources and opportunities to further your mathematical pursuits
+Grants
+AMS Backstop Grants
+Research & Travel Grants
+Child Care Grants for Meetings
+Young Scholars Program Grants
+Honors & Awards
+Awards
+Fellows of the AMS
+AMS Fellowships
+Stefan Bergman Fellowship
+Birman Fellowship
+Centennial Fellowship
+Claytor-Gilmer Fellowship
+Learning & Careers
+Learning & Careers Home
+Resources to support advanced mathematics teaching and learning
+For Students
+High School
+Undergraduate
+Graduate
+Find Graduate Programs
+Math Alliance at the AMS
+For Faculty & Leaders
+Department Chairs Workshop
+Column on Teaching & Learning
+Math in the Media
+Salary & Departmental Data
+Jobs
+Employment Services
+MathJobs
+BEGIN Careers
+Professional Development
+Mathematics Research Communities
+Mathematical Opportunities Listing
+MathPrograms
+Government Relations
+Government Relations Home
+Advocating for the mathematical sciences
+Elevating Mathematics in Congress
+Letters, Statements, & Legislation
+Congressional Briefings
+Legislative Priorities
+Federal Issues of Concern
+Federal Budget Process
+Get Involved
+Advocacy Resources
+Contact Us
+DC-Based Fellowships
+Congressional Fellowship
+Mass Media Fellowship
+Catalyzing Advocacy in Science & Engineering (CASE) Fellowship
+Giving
+Giving to the AMS
+Your gifts make great things happen for mathematics
+What You Can Support
+The 2020 Fund
+Next Generation Fund
+Birman Fellowship for Women Scholars
+JMM Child Care Grants
+Mathematics Research Communities
+MathSciNet for Developing Countries
+Create a Legacy
+Make a Tribute Gift
+Create a Permanent Fund
+Establish a Prize, Award or Fellowship
+Bequests and Charitable Estate Planning
+Honoring Your Gift
+Donor Stories
+Donor Wall of Honor
+Thomas S. Fiske Society
+AMS Contributors Society
+AMS Gardens
+Giving Resources
+AMS Development Committee
+AMS Gift Acceptance Policy
+Contact Us
+Donate Now
+About the AMS
+About the AMS
+Advancing research. Connecting the mathematics community
+Our Organization
+Accessibility
+Equal Opportunity and Fairness
+Jobs at AMS
+Contact Us
+Customer Service
+Leadership
+Executive Staff
+Officers
+Board of Trustees
+Council
+Executive Committee
+Presidents
+Committees
+Governance Operations
+Bylaws
+Elections
+Calendar of Meetings
+Policy Statements & Guidelines
+MathSciNet
+Bookstore
+Your Account
+AMS Website Down
+Notice: All AMS websites will be down for maintenance on Saturday, July 11 from 8 am until 1 pm.
+Home
+Notices of the American Mathematical Society
+Notices of the American Mathematical Society
+Welcome to the
+Notices of the American Mathematical Society
+.
+With
+support from AMS membership
+, we are pleased to share the journal with the global mathematical community.
+PDFLINK
+Short Stories
+Zolotarev’s Magical Proof of Quadratic Reciprocity
+Matthew Baker
+Every great magic trick consists of three parts or acts. The first part is called “The Pledge.” The magician shows you something ordinary…Perhaps he asks you to inspect it to see if it is indeed real, unaltered, normal. But of course…it probably isn’t. The second act is called “The Turn.” The magician takes the ordinary something and makes it do something extraordinary…But you wouldn’t clap yet. Because making something disappear isn’t enough; you have to bring it back. That’s why every magic trick has a third act, the hardest part, the part we call “The Prestige.”
+— Cutter (Michael Caine) in Christopher Nolan’s “The Prestige”
+1
+.
+The Pledge
+Let
+$m$
+and
+$n$
+be positive integers. Suppose you have a deck consisting of
+$mn$
+different cards numbered
+$0,1,\ldots ,{mn-1}$
+from top to bottom. Consider the following two ways of dealing the cards into an
+$m \times n$
+rectangular grid:
+(R):
+Row deal
+Deal the cards by rows, dealing the
+$m$
+rows from top to bottom and the
+$n$
+cards within each row from left to right.
+Figure 1
+.
+Example of a row deal with
+$m=3$
+and
+$n=5$
+(C):
+Column deal
+Deal the cards by columns, dealing the
+$n$
+columns from left to right and the
+$m$
+cards within each column from top to bottom.
+Figure 2
+.
+Example of a column deal with
+$m=3$
+and
+$n=5$
+We label the rows of the grid by
+$0,1\ldots ,m-1$
+and the columns by
+.
+$0,1,\ldots ,n-1$
+The map which takes (R) to (C) yields a permutation
+$\gamma$
+of the set
+$S = \{ 0,1,\ldots ,mn-1 \}$
+of cards by replacing the card in position
+$(i,j)$
+of (R) with the card in position
+$(i,j)$
+of (C). (We can think of
+$\gamma$
+as first picking up the cards by rows and then dealing them out by columns.)
+Now for a combinatorial puzzle: what is the
+sign
+of the permutation
+?
+$\gamma$
+(If you’d like to think about it before seeing the answer, stop reading now!)
+The answer is that
+1
+$$\begin{equation} \operatorname {sign}(\gamma ) = (-1)^{\binom{m}{2} \cdot \binom{n}{2}}. \cssId{texmlid1}{\tag{1}} \end{equation}$$
+To prove
+1
+, recall that the sign of a permutation
+$\sigma$
+of a totally ordered finite set
+$X$
+is equal to
+,
+$(-1)^{\iota ({\sigma })}$
+where
+$\iota (\sigma )$
+is the number of
+inversions
+of
+.
+$\sigma$
+(An inversion is an ordered pair
+$(x,y) \in X^2$
+with
+$x<y$
+and
+.)
+$\sigma (x) > \sigma (y)$
+Exercise
+.
+Show that a pair
+$(x,y)$
+of cards in (R) form an inversion of
+$\gamma$
+if and only if
+$y$
+lies below and to the left of
+.
+$x$
+The number of inversions of
+$\gamma$
+is therefore
+,
+$\binom{m}{2} \cdot \binom{n}{2}$
+since each pair consisting of a
+-
+$2$
+element subset
+$\{ i,i' \}$
+of
+$\{0,1,\ldots ,m-1\}$
+and a 2-element subset
+$\{ j,j' \}$
+of
+$\{0,1,\ldots ,n-1\}$
+gives rise to a unique inversion
+,
+$(x,x')$
+where
+$x=(i,j)$
+and
+,
+$x'=(i',j')$
+by ordering the elements so that
+$i < i'$
+and
+.
+$j > j'$
+If
+$m$
+and
+$n$
+are both odd, then
+1
+simplifies: in this case, we obtain
+2
+$$\begin{equation} \operatorname {sign}(\gamma ) = (-1)^{\frac{(m-1)(n-1)}{4}}. \cssId{texmlid2}{\tag{2}} \end{equation}$$
+In other words,
+$\operatorname {sign}(\gamma ) = 1$
+if either
+$m \equiv 1 \pmod {4}$
+or
+,
+$n \equiv 1 \pmod {4}$
+and
+$\operatorname {sign}(\gamma ) = -1$
+if
+.
+$m \equiv n \equiv 3 \pmod {4}$
+Formula
+2
+may bring to mind Gauss’s Law of Quadratic Reciprocity. Is this just a coincidence? Continue on, dear reader…
+2
+.
+The Turn
+We now assume that
+$m$
+and
+$n$
+are
+relatively prime
+, in addition to being odd and positive. This gives us a third way of dealing the cards into an
+$m \times n$
+rectangular grid:
+(D):
+Diagonal deal
+Deal the cards diagonally down and to the right, wrapping around from bottom to top or right to left whenever necessary.⁠
+Footnote
+1
+1
+For the topologists in the audience, we are actually dealing the cards onto a torus.
+✖
+Figure 3
+.
+Example of a diagonal deal with
+$m=3$
+and
+$n=5$
+The map which takes (R) to (D) yields a permutation
+$\alpha$
+of
+.
+$S$
+(We can think of
+$\alpha$
+as first picking up the cards by rows and then dealing them out diagonally.)
+Now for another combinatorial puzzle: what is the sign of
+?
+$\alpha$
+(Again, if you’d like to think about it before seeing the answer, stop reading now!)
+We claim that
+$\operatorname {sign}(\alpha )$
+is equal to the sign of the permutation of
+$\mathbf{Z}/ m \mathbf{Z}$
+induced by multiplication by
+.
+$n$
+In other words, writing
+${\genfrac {[}{]}{}{}{n}{m}}$
+for the sign of this permutation, we are claiming that
+3
+$$\begin{equation} \operatorname {sign}(\alpha ) = {\genfrac {[}{]}{}{}{n}{m}}. \cssId{texmlid3}{\tag{3}} \end{equation}$$
+To prove
+3
+, we begin with the following observations:
+Exercise
+.
+(1)
+Show that
+$\alpha$
+permutes each individual column of (R).
+(2)
+Since the cards in column
+$j$
+of (R) are all congruent to
+$j$
+modulo
+,
+$n$
+they are uniquely determined by their values modulo
+.
+$m$
+Show that the card in column
+$j$
+which is congruent to
+$i$
+modulo
+$m$
+gets sent to the unique card in column
+$j$
+congruent to
+$n \cdot i + j$
+modulo
+.
+$m$
+It follows that
+$\alpha$
+is a product of
+$n$
+permutations, each of which can be expressed as a composition of multiplication by
+$n$
+modulo
+$m$
+and translation by
+$j$
+modulo
+.
+$m$
+Since
+$m$
+is odd and translation by
+$j$
+modulo
+$m$
+is a product of
+-
+$k$
+cycles with
+$k$
+dividing
+,
+$m$
+it follows that translation by
+$j$
+modulo
+$m$
+is an even permutation for every
+.
+$j$
+Therefore, since the sign of a permutation is a homomorphism, we have
+.
+$\operatorname {sign}(\alpha ) = {\genfrac {[}{]}{}{}{n}{m}}^n$
+Since
+$n$
+is also odd, this establishes
+3
+.
+We now swap the roles of rows and columns in the previous argument. The map which takes (D) to (C) yields a permutation
+$\beta$
+of
+.
+$S$
+Since
+$\operatorname {sign}(\beta ) = \operatorname {sign}(\beta ^{-1})$
+and
+$\beta ^{-1}$
+can be obtained from
+$\alpha$
+by swapping the roles of
+$m$
+and
+,
+$n$
+it follows by symmetry that
+.
+$\operatorname {sign}(\beta ) = {\genfrac {[}{]}{}{}{m}{n}}$
+And since
+,
+$\beta \circ \alpha = \gamma$
+we have
+$$\begin{equation*} \operatorname {sign}(\beta ) \cdot \operatorname {sign}(\alpha ) = \operatorname {sign}(\gamma ), \end{equation*}$$
+i.e.,
+4
+$$\begin{equation} {\genfrac {[}{]}{}{}{m}{n}} \cdot {\genfrac {[}{]}{}{}{n}{m}} = (-1)^{\frac{(m-1)(n-1)}{4}}. \cssId{texmlid4}{\tag{4}} \end{equation}$$
+Formula
+4
+is even
+more
+reminiscent of the Law of Quadratic Reciprocity! But wait…what is the connection to perfect squares modulo primes?
+Now that you are hooked, dear reader, you have no choice but to continue…
+3
+.
+The Prestige
+Let
+$p$
+be an odd prime, and let
+$a$
+be a positive integer not divisible by
+.
+$p$
+Recall that the
+Legendre symbol
+${\genfrac {(}{)}{}{}{a}{p}}$
+is defined by
+$$\begin{equation*} {\genfrac {(}{)}{}{}{a}{p}} = \begin{cases} 1 & {\text{if $a$ is a square modulo $p$}} \\ -1 & {\text{if $a$ is not a square modulo $p$}}. \end{cases} \end{equation*}$$
+The connection between the “Zolotarev symbol”
+${\genfrac {[}{]}{}{}{a}{p}}$
+and the Legendre symbol
+${\genfrac {(}{)}{}{}{a}{p}}$
+is given by:
+Zolotarev’s Lemma
+.
+If
+$p$
+is an odd prime and
+$a$
+is a positive integer not divisible by
+,
+$p$
+then
+$$\begin{equation*} {\genfrac {[}{]}{}{}{a}{p}} = {\genfrac {(}{)}{}{}{a}{p}}. \end{equation*}$$
+To prove Zolotarev’s Lemma, we first recall Gauss’s
+primitive root theorem
+: if
+$p$
+is an odd prime, the multiplicative group
+$(\mathbf{Z}/ p\mathbf{Z})^\times$
+is
+cyclic
+. It follows that
+${\genfrac {[}{]}{}{}{\cdot }{p}}$
+is a surjective homomorphism from the multiplicative group
+$(\mathbf{Z}/ p\mathbf{Z})^\times$
+to
+;
+$\{ \pm 1 \}$
+surjectivity follows from the fact that if
+$g$
+is a primitive root mod
+$p$
+(i.e., a cyclic generator of
+)
+$(\mathbf{Z}/ p\mathbf{Z})^\times$
+then
+${\genfrac {[}{]}{}{}{g}{p}}$
+is a
+-
+$(p-1)$
+cycle and thus has signature
+.
+$-1$
+The kernel of
+${\genfrac {[}{]}{}{}{\cdot }{p}}$
+is therefore a subgroup of
+$(\mathbf{Z}/ p\mathbf{Z})^\times$
+of index
+,
+$2$
+but the only such subgroup is the group of quadratic residues. Thus
+${\genfrac {[}{]}{}{}{\cdot }{p}}$
+coincides with the Legendre symbol
+.
+${\genfrac {(}{)}{}{}{\cdot }{p}}$
+Combining Zolotarev’s Lemma with
+4
+yields:
+Law of Quadratic Reciprocity
+.
+If
+$p$
+and
+$q$
+are distinct odd primes, then
+$$\begin{equation*} \boxed {{\genfrac {(}{)}{}{}{p}{q}} \cdot {\genfrac {(}{)}{}{}{q}{p}} = (-1)^{\frac{(p-1)(q-1)}{4}}. } \end{equation*}$$
+Closing Credits
+Gauss found eight different proofs of the Law of Quadratic Reciprocity over the course of his life. Franz Lemmermeyer has compiled a list of nearly 200 different proofs in Appendix B of
+3
+. The proof I’ve given here is essentially a creative reimagining and dealgebraization of a beautiful 1872 proof due to Egor Ivanovich Zolotarev (1847–1878)
+4
+, which is not as well-known as it ought to be. My “card dealing” interpretation of Zolotarev’s proof first appeared on my blog in 2013
+1
+. It is being published in print here for the first time. Thanks to Jerry Shurman and Joe Silverman for their feedback on the exposition.
+Director’s Commentary
+(1)
+Zolotarev defended his doctoral thesis in 1874 and was appointed as an “extraordinary professor” by the Russian Academy of Sciences in 1876, but his meteoric rise in the math world ended abruptly when he was run over by a train at the age of 31.
+(2)
+The supplemental laws determining
+${\genfrac {(}{)}{}{}{-1}{p}}$
+and
+${\genfrac {(}{)}{}{}{2}{p}}$
+can be proved using similar arguments; see the “Director’s Cut” version of this manuscript
+2
+.
+(3)
+If we identify the set
+$\{0,1,2,\ldots ,mn-1\}$
+with the set
+$\mathbf{Z}/mn\mathbf{Z}$
+of integers modulo
+,
+$mn$
+the map
+$\alpha$
+is just the canonical ring isomorphism from
+$\mathbf{Z}/mn\mathbf{Z}$
+to
+$\mathbf{Z}/m\mathbf{Z}\times \mathbf{Z}/n\mathbf{Z}$
+afforded by the Chinese Remainder Theorem.
+(4)
+Zolotarev’s Lemma generalizes to the statement that if
+$m,n$
+are relatively prime odd positive integers then
+${\genfrac {[}{]}{}{}{m}{n}}$
+is equal to the Jacobi symbol
+,
+${\genfrac {(}{)}{}{}{m}{n}}$
+and the proof above then gives quadratic reciprocity for the Jacobi symbol (which is used for rapid computation of Legendre symbols).
+References
+[
+1
+]
+Matthew Baker,
+Quadratic Reciprocity and Zolotarev’s Lemma,
+Matt Baker’s Math Blog, July 3, 2013. Available at
+https://mattbaker.blog/2013/07/03/quadratic-reciprocity-and-zolotarevs-lemma/
+.
+[
+2
+]
+Matthew Baker,
+Zolotarev’s Magical Proof of Quadratic Reciprocity (Director’s Cut)
+, unpublished manuscript, 2025. Available at
+https://drive.google.com/file/d/1lguZbYwezMPTIziLUWTHxxGDVYs7lDvR/view?usp=sharing
+.
+[
+3
+]
+Franz Lemmermeyer,
+Reciprocity laws
+:
+From Euler to Eisenstein
+, Springer Monographs in Mathematics, Springer-Verlag, Berlin, 2000, DOI
+10.1007/978-3-662-12893-0
+. MR
+1761696
+,
+AMSref
+\bib{lemmermeyerQRG}{book}{
+author={Lemmermeyer, Franz},
+title={Reciprocity laws},
+series={Springer Monographs in Mathematics},
+subtitle={From Euler to Eisenstein},
+publisher={Springer-Verlag, Berlin},
+date={2000},
+pages={xx+487},
+isbn={3-540-66957-4},
+review={\MR {1761696}},
+doi={10.1007/978-3-662-12893-0},
+}
+[
+4
+]
+E. Zolotareff,
+Nouvelle démonstration de la loi de réciprocité de Legendre,
+Nouvelles annales de mathématiques: journal des candidats aux écoles polytechnique et normale, 2
+e
+série, vol. 11 (1872), pp. 354–362. Available at
+https://www.numdam.org/item/NAM_1872_2_11__354_0/
+.
+Matthew Baker is a professor of mathematics and Elaine M. Hubbard Fellow at Georgia Tech. His email address is
+[email protected]
+.
+Article DOI:
+10.1090/noti3303
+Credits
+Figures 1–3 are courtesy of the author.
+Photo of Matthew Baker is courtesy of George Luck.
+Current Issue
+About Notices
+From the Secretary
+Full Issues
+Features
+Career
+Topical Columns
+Reviews
+What Is ...
+Memorials
+Notices Media Kit
+Notices Features
+Author Guidelines
+Join the AMS
+American Mathematical Society ·
+201 Charles Street Providence, Rhode Island 02904-2213
+·
+Contact Us
+AMS, American Mathematical Society, the tri-colored AMS logo, and Advancing research, Creating connections, are trademarks and services marks of the American Mathematical Society and registered in the U.S. Patent and Trademark Office.
+©
+Copyright
+2024
+American Mathematical Society ·
+View Our Privacy Statement
+·
+Terms of Use
+·
+Accessibility and AMS Online Content

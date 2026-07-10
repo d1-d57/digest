@@ -1,0 +1,596 @@
+- Good afternoon, I'm Dan Freed and it's a pleasure to welcome you back to this lecture series on the
+Millennium Prize problems. This is the fourth in
+the series of lectures that's jointly sponsored by
+the mathematics department here by the CMSA, the Center
+of Mathematical Sciences and Applications, and also by the Clay
+Mathematics Institute. So today we're really happy
+to have our own Madhu Sudan who will talk about P versus NP. - Great, thank you Dan.
+Thank you all for coming. 5:00 PM at the science center
+is a little late for me, but I'll try my best not to fall asleep. And please try to stay
+the same way if you can. Now, the existential quantifier
+here can mean two things, is either I'm talking about the role of the existential
+quantifier in mathematics or well maybe, you know, is
+this an existential question for mathematics as we do it today? This we'll really touch
+upon both in this talk. So this talk is about proofs and computer science computation and this kind of a triangle
+between mathematics, proofs and computing. I'll tell you a little bit
+about the history of this thing. Talk about formalizing this
+question is P equal to NP, which somehow talks is
+essentially about how to find proofs. And tell you about some
+progress on this question, more like not so much of
+an update on the progress because there's lots of work and I don't expect you to
+go back remembering who did what in different eras instead
+to just give you a flavor of the kind of explorations that go on. And I will talk a little bit about proofs and randomness that item four
+shouldn't have been there, so I don't know what happened. And then maybe the future
+of proofs with the sort of obligatory mention of AI because there's definitely a lot of AI in doing proofs nowadays. So the origin of proofs this question of what is the proof is
+something that went back to ancient civilizations. And here's a picture of
+Aristotle who was certainly one of the many people in the
+early days who were trying to explore the question
+of what is a proof. But these early explorations
+were mostly based in like more in philosophy than in mathematics. And the fundamental ingredient
+that was missing in all of this was, can you really treat truth value of variables as an
+element of mathematics? That had to wait for Boole to come along and Boole said, introduce this
+range mathematics of zeros and ones and suddenly
+start doing logic with it. And there was this very interesting
+in this wonderful paper, the laws of thought in which
+he sort of relates algebra as we usually do it,
+factors polynomials in order to reduce statements
+about the world of logic and set forth this process of
+trying to formalize the notion of proving theorems in
+a mathematical language. Cantor is an early person who
+had an influence on this thing who sort of foresaw some of the challenges that logic would face. He specifically did not talk about logic, but there was this underlying
+thing that there is self-reference and there's
+infinities hanging around. There has to be problems. And Hilbert finally raised
+this question completely explicitly saying, oh, let's go out there and start mechanically proving everything. And this was part of the Hilbert program. I think in those days there
+might have even been a sense of optimism, just like we
+could develop a calculus and start reasoning about
+reasoning about large parts of mathematics in an automated way or in a more algorithmic way. Maybe we can do the same
+thing with all of mathematics. These hopes were dashed
+by Godel and then Church. And then finally the work of Turing, which completely settle this
+question in the negative. No, there is no real hope of completely settling all
+questions in mathematics by an algorithmic procedure. You have to have something else going on. Now Turing's work on the, you know, well this is what he set out to do had as a byproduct a minor little corollary or definition sitting out there, which was the steering machine, which turns out to be the
+basis of computation today. The steering machine allowed you to talk about any form of reasoning and computation using
+a finite state control. The finite state control
+gives you a huge amount of flexibility, but it's finite. So not infinite amount of flexibility. But with an infinite
+tape where you can store as much information as you want and deal with as large
+problems as you want. And you put them together. I'm sorry, this is what I
+thought you were all saying, but if you put these together, you get this amazing model of what should a computer look like. And over here he also
+introduced this notion of a universal machine, one single machine that could simulate all other machines. And this is like this amazing
+notion, this is why the field of computer science is
+the way it is today. The technology is the way it is today. We buy computers because
+they're universal computers and you can program them to
+do whatever you want to do. Turing was a postdoctoral
+advisee of Von Neumann, Von Neumann many years later sort of kind of changed the names of some of these ingredients. It was a CPU and not a
+finite state machine. It was a RAM and not an infinite tape, but it's the same architecture really. I mean the coincidence is
+just too much to dismiss. So returning to the story
+of proofs, the story so far with Turing, Godel, Church, and Turing was, well, we knew a definition of what's the proof, something that has to be mechanically verifiable. We had a notion of what's a theorem? A theorem is any statement
+that has a proof. And incompleteness was this
+unfortunate thing which says there are some statements X. Says that neither X nor the negation not X will find a proof
+in any system of logic. So this is all very
+interesting, very nice. What was missing was, you know, what difference does this proof make? So here are two different
+proofs of a statement. T, T over here is this theorem, that statement that I want to prove. I can write down a very detailed proof lines and lines and lines. Each line follows from the previous line by some mechanical verifiable procedure and the last line just says T is true. And then that the theorem is true. Or I can just say the proof has L lines. As far as Turing, Church
+and Godel were concerned these two are equivalent proofs. Okay? These are not equivalent to us. Why? Because they're mechanically verifiable but it takes about L steps of verification to verify this proof, takes some exponential and
+L steps to verify this one because you have to figure out what were the intended L lines
+which we did not fit in our margin or whatever. So why did we not put in those L lines? Well you have to guess them
+and then see if it works. And if it works, that's great. If it doesn't work, well
+maybe L was L plus one. Okay? So there's a big difference
+between these two. And this is difference between
+the polynomial over here and the exponential over there is the subject of today's talk. Okay, so now we come to
+the P versus NP question. Where did this start? Well, this started with actually
+a very interesting letter that Godel wrote to Von Neumann. And in that he asked
+this question basically, is there an effective procedure to find a proof if one exists? So exactly the same
+question that we asked, I mean why wasn't the
+left hand column a proof? He's asking could we have
+filled it up ourselves by some mechanical procedure? In a particular system of logic, maybe propositional logic or something. But in general, this is the question that we are interested in and what would be
+effective maybe L squared or L cubed or something like that. Okay, these are all considered effective. So what are some very interesting
+realizations over here? There is this existential quantifier. There exists a proof of length
+L, which we want to remove. We want to say put that
+proof of length L over there. You try to remove that quantifier, it costs you an
+exponential amount of time, at least if you do the brute force way. But that doesn't mean that there's a no clever way of doing it. This is the question that we are interested in understanding. And he's asking, can you replace this exponential by a polynomial? Now why polynomial? What's better about a
+polynomial than exponential? It's just intuitively more satisfactory. Just feels like we are not
+running through the entire space by some blind procedure. We are doing something clever. So this was the ultimate reason for why we choose polynomials
+as somehow acceptable and exponentials as not,
+but that's the way it is. Okay? And these are all some very
+interesting realizations already in Godel's letter. So in some senses this
+is asking the question is P equal to NP? What was missing was any
+definition, there's no P, there's no NP and there's no notion of how to say any equality. So these formal
+definitions took some time. Let me tell you a little bit about the steps that were needed. So first, in order to define the class P, there's a little bit of
+a trickiness over here because complexity of computing
+a function is not something that's very easy to reason about. There's a couple of limits going on. There's an in (indistinct)
+overall possible algorithms and then a limit over the data as the data size tends to infinity. And you're always supposed to
+think about a small algorithm and big data in reasoning about this. If you don't do this, then you
+can get the quantifiers wrong and then all answers
+may look very different. But this is the way in which people ended up formalizing this. In particular, Cobham and
+Edmonds were the first people to define the class P and Hartmanis and Stearns
+sort of reassured us that this is a well-defined notion. Why is this even a statement worth making? The running time of 10 times L
+squared, if you have an input of size L like looking
+for a proof of length L. Running time of 10 times
+L squared is exactly the same as a running time
+of five times L squared. You can solve the same set of problems. How? You just use bigger algorithms, okay? But you cannot actually
+shrink your running time by an exponent. So it's a very interesting definition. You're not comparing two numbers, you're comparing two functions. And when you're comparing functions, you can have an equality over here or an equivalence relation here, which does not make those two equivalent. Okay, so this is a very
+important realization. It is essential to define the class P. And having done this, you can now say, oh let's look at all the problems that are solvable in polynomial time. We will be talking about
+only sort of yes no questions functions that are computing, yes, no values that are
+solvable in polynomial time, but that's a difference that's
+not worth stressing today. Edmonds over here defined
+the class P in order to justify a very complicated
+algorithm that he had found to find matchings and
+graphs, whatever that is. In order to justify it, he wrote a few lines of
+explanation saying, look, we need to justify why this
+very complicated algorithm is better than the brute
+force one that you could do with exponentially large running time. And he said, look, polynomial
+is a good class of functions. It has certain nice properties,
+let's work with that. But along the way in one of his works, I don't know if it was
+the same work or not, he also actually makes
+an explicit conjecture that the traveling salesman problem, unlike the matching problem
+that he had just solved, was not going to be
+solvable in polynomial time. He made this conjecture in 1965 roughly, and what was it based on? He said on years of wisdom, how many years had he
+thought about this problem? Maybe two years. So he did make this conjecture
+that it's not solvable in P, but he pretty much laid
+down the footprint for how you would formalize this thing. He said we should use
+non-deterministic Turing machines, et cetera. That's the last time
+I'll mention that word, non-deterministic Turing machine. From now on we'll talk
+about something else, but this is the class, this was a much more formal
+version of Godel's question and it was already again, hinting at the P versus NP question. Still missing a definition of what is NP. That was finally defined
+by two researchers, Cook in the US at the time and Levin who was in Russia at the time, who both independently came up
+with this notion of the class of functions which could,
+the way we define NP today is the class of problems
+which have efficiently verified verbal solutions. So there's a formal definition, but I won't go through it over here. If you want to look at the slides later and figure out what it
+means, you can do that. But it is the problems where
+if I give you a solution, it's easy for you to verify. If you want to find a
+solution, you might have to run through brute force search or you could have something efficient like Edmond's had for matching. You could find something maybe
+efficiently by cleverness. But at the very least
+what is guaranteed is that if you have a
+solution, you should be able to easily verify it. What are some problems that sit like that? Well by the way, if I ever
+use the word NP complete, it stands for the hardest
+problems that we can find in NP. These are all problems
+which do have efficiently verifiable solutions. But amongst the ones, amongst the problems where there are efficiently
+verifiable solutions, these are considered the hardest and these are probably
+the hardest in fact. I mean if these turn out to
+be polynomial time solvable, everything in NP will be equal to P. What's interesting problems? Well the first problem in
+this line was Cook's problem complexity of theorem proving. This is the same problem
+that Hilbert had asked about. This is the same problem
+that Godel had asked about. If I give you a theorem statement, can you go around
+mechanically finding a proof? The only difference
+between the early version of the Hilbert question, the new version, is I also specify the length of the proof. And I say, I give you a theorem and I give you a length L, can
+you find me a proof which is of length at most L if it exists? If you can solve that, then you've solved this theorem proving problem. Cook showed that this was
+a NP complete problem. Levin's favorite problem for some reason or the other was domino tiling. He loves this problem, he
+just rakes it up to death. And there are lots of other
+problems that were shown by these two folks as being NP complete. And Godel's question in this language, we've already defined the
+class NP on the previous page, we defined the class P and Godel's question is
+really the equivalent of is NP equal to P? Okay. So this now formalizes the question for us and we can now go ahead and
+start reasoning about it. But before we start reasoning
+about it, let me tell you what one very important result
+that I've left out so far. If NP equal to P had been
+restricted to these kinds of problems, probably it would've hung around in the backwaters of logic, which we know is in the backwaters of mathematics altogether. So yes, it wouldn't
+have seen light of day. However, this amazing work
+of Karp came along in '72. That's kind of
+chronologically you read that as being between '71 and '72
+between Karp, Cook and Levin. But really Levin lives
+in a different timescale. It was in the Russian space and that wasn't interacting
+closely with the US. And probably also over there, there were a few years of
+delays between the first version and the English version and so on. So these are all contemporary works, but Karp definitely understood
+Cook's work and built on it. And he said that I can use NP completeness to suddenly explain a huge
+amount of algorithmic failures. We could not figure out how to do various optimization problems, logical problems, combinatorial problems,
+graph theoretic problems, some chip design questions. All of these turned out to be hard because they were all NP complete and there was just huge collection of... So there's also problems in number theory that I forgot to mention and so on. So just a remarkable set
+of questions that he showed to be NP complete here. And today, if you go into this area, you'll see NP completeness sort of transcends all forms of reasoning. There's physics, biology, economics, cryptography, law, what have you. Everything has NP completeness
+has something to say that's relevant in each
+one of these settings. By the way, let's take a moment. At this stage, we've already seen two of the principle actors in
+the field of computer science. In fact, if I had to
+tell you about the only two important principles
+in computer science, these are the two, universality
+and irreversibility. Universality is this ability to have one computer that
+simulates everything else. It lies at the heart of
+this uncomputability result, the incompleteness of logic. Irreversibility is this option which says that if I take a function
+that's easy to compute, that doesn't mean that I can find pre-images of this function. And this is the underlying
+principle which tells you that NP complete problems
+cannot be solved efficiently. And these two together
+are the essential tenets of computer science. These are the core axioms. The difference being on computability is a proven phenomenon and NP completeness is a
+suspected true phenomenon. We have not proved P is different from NP. That's why we have a million dollars prize and that's why I'm speaking today. Alright, some NP complete
+problems that you may or may not have heard about. I give you a map of some space, find out if it's colorable
+with three colors. Okay? So can you put in colors
+into the region so that adjacent regions
+don't have the same color. Sorry, the traveling salesman
+problem is another one of these sort of canonical
+NP complete problems. Find a way to go through a zillion cities visiting each city at least
+once and returning to the origin with the minimum amount
+of total length traversed. Okay? Wonderful example
+of an NP complete problem. All of these are things, there are problems like
+how do you fold DNA, how do you find an optimal
+portfolio of stocks? How do you schedule tasks? All of these translating
+to many other areas. Let me just mention one
+of my favorite problems, which is this one due to Kilian. It's actually a problem
+that has not been as far as I know written about
+anywhere, but it's very cute. And I will not announce
+questions at this stage, but do read the question now. I give you three in integer A, B, and C. And I want to know if A has
+a divisor between B and C. Okay, this is NP complete. Well there's this asterisk because it's either dependent
+on some assumptions and so on, but nevermind, that's the question. Okay, so NP completeness
+is this amazing phenomenon and it has consequences. It has consequences to
+proof checking. Okay? So if you want to read
+a proof and verify it, there are various ways
+in which you can ask. Suppose you have this
+theorem statement, T, you have this length L, and you want to know does
+T have a proof of length at most L? Okay. NP completeness gives you a
+completely radically different way of writing the proof than what you might normally think about. Instead of writing down a
+proof in whatever system of logic that you were working with, you can convert T and L
+into a map of some universe. And that map will have
+roughly some polynomial and L many regions. And if the serum is true, then the map will be three colorable. If it's not, it's not. So what does that mean? Well, instead of giving me a
+proof in your standards system of logic, you can just
+write down the coloring of all this L to the C regions. What colors would you
+want to use in each one of these L to the C regions. And as long as every pair of adjacent states regions
+have distinct colors, the theorem is true. If it's not, it's not. It's a very strange way
+of proving some things. What does it buy us? Well,
+it buys us a locality. The error is local. If somebody sends me a proof and says, "Look, I've proved P is equal to NP or P is not equal to NP or whatever you want,
+any of the six problems that are still left open," well I could just find the error. Though finding the error may take time. I can point back to it very locally and say that, look, this region
+was adjacent to that region and you colored them both red. That's the error. That's
+the end of the story. Okay? Very local way of
+pointing an error to you. This is possible, made possible because of the theory of NP completeness. So this is all very nice. What can we say about is P equal to NP? I'll have more slides and more slides and more slides about this. Let's start with the first one. Okay, so that's the first line. I don't know, nobody knows. If P were equal to NP, the cryptography as we know it might
+very well be impossible. You know, we might have no
+options left over there. It's not completely ruled out, but we are very close
+to that kind of a thing. All optimization problems become easy and you get whatever you wish. You just have to write down your wish. And you know, it's basically any reasoning process that you want to ask. What should I hope for? Could there be a strange object that looks like this and this and this? That's a problem in NP. If you can verify an
+object when you see it, then we'll be able to find
+it because P equals NP. If P is not equal to
+NP, what would happen? Well, nothing dramatic will change. If somebody proves P is
+different from NP today, I mean other than the
+fact that they'll collect a million dollars in a
+price, I mean nothing changes as far as current thinking is concerned. We've been basing most of our
+thoughts on the assumption that P is different from NP. Most of the reasoning is built on that. We have crypto systems, they
+definitely totally rely on that and they're all going to be okay, but we might actually start becoming more, the proof of P different from
+NP might tell us a lot more. And this is the kind of stuff that I believe in pretty strongly. Okay? Now, others have been
+asked about this question, and by the way, there's
+this third option which is that might actually be independent. I mean after all, it sort of
+originates in the same space of logic where we had undesirability and this might well be
+one of those questions, which is independent of the axioms. We don't know there's
+even some work sort of trying to probe in that direction. And I'll talk about it a little bit later, but for the time being,
+yeah, it's a possibility. It's out there. Now when the millennium
+prizes were first announced, and there's a quote from this
+book by Devlin, which says, "Of all the clay problems, this might be the one to
+find the shortest solution by amateur mathematician." Okay, so I don't believe
+it, but that's the quote. And I think probably, if you have to prove P is different from
+NP, I don't necessarily feel that there has to be
+a short proof of this. On the other hand, if you're
+proving P equal to NP, it's conceivable that there's a small algorithm which does it. But there was a kind of a... I don't think the next quote is in response to the first one. It was an independent quote. But this is what Lance Fortnow, who writes the complexity
+blog, wrote there. "If you show P equal to NP,
+you walk away with $6 million." I think he wrote seven
+then but it is six today because you could just solve
+all the problems you want. Because you now have
+an automated algorithm for proving theorems. So this is a reason why
+some of us might be betting that this might be the
+last problem to solve, as Michael just told me earlier today. So yes, of all the problems, this might be the hardest one to solve. Or we might show piece different from NP and then nothing really, you don't collect $6
+million, only a million. But to use the language of completeness, P equal to NP is the
+mathematics complete problem. This represents all of mathematics, this is the essence of what we do. Alright, so onto the
+next stage in the talk. Alright, so progress on
+the P versus NP question. Whoops, let's say if there was a sort of a game going on between
+people saying P equal to NP on the one side, P is not
+equal to NP on the other side. And I'm watching, I would say, the progress is the current
+score is one is to one. What does it mean? It means, I
+really don't know the answer. I can't predict the
+answer based on whatever has gone on so far. But there is a lot of progress. The game's very, very, very exciting. I'm very happy watching it. Okay, so that's my
+rendition of this thing. We are not going to
+see here is an approach that's going to work and here is an approach that's not going to work. I don't know. Okay. But why is this still interesting to us? If you have not made any progress, what could be interesting
+about a piece of research or a body of work and
+where there is no progress? Let me try to explain that. So there's two kinds of works in the area
+called complexity theory. This is the umbrella term which asks about limits on how easy or hard
+functions may be to compute. There are attempts to
+prove limits on algorithms. Either you specialize the algorithms or you create some spaces of
+reasoning where you can try to prove some results. And there's lots and lots and
+lots of progress over here. But these are always for
+special classes of algorithms. There's no general result
+saying all algorithms cannot do such things. So that's... The other way in which
+P equal to NP question has influenced our research is exploration beyond the traditional question. There's been just the
+spirit of reductions, the spirit of equivalence of problems, the spirit of comparing
+if A is equal to B, then C equal to D kinds of
+reasonings have had huge impact on cryptography, on
+optimization, on randomness, on interaction. And I'll try to tell you a
+little bit about the flavor of all of these spaces today. So here is sort of one body
+of work which is in the region of let's try to separate, I mean actually prove
+limits on algorithms. And in order to explain this thing, let me give you a little bit of context. P and NP, we've already heard about. P space is all problem
+solvable with a polynomial amount of memory, not
+polynomial amount of time. So you could keep going over
+this memory again, again, again for exponential amounts of
+time, that would be okay. So those are the problems
+that we call P space. And then there is exponential time, what can you solve in exponential time? Not everything. This has also been established
+by the work of Turing. There are some problems
+which are simply not computable in any amount of time leave alone exponential time. So if you look at these
+classes of four things, they're all contained in each other. We also know that the first
+class here is not equal to the fourth one there. So that should immediately imply that either the first one is
+not equal to the third or the second is not equal
+to the fourth, right? So I mean there is just basic logic. So we know one of those two, but we don't know which one of these two, actually probably what
+we believe is each one of these is a strict containment. But can you prove at least
+one of these separations? And we don't know how to prove it. And this is like some of
+the, I mean, amazing amounts, the latter separation will not tell you about the limits of NP, it'll tell you that NP is not too powerful but it's not going to say
+NP is different from P. But the former will
+certainly tell you that is a necessary step in order
+to show P is different from NP. If you want to show P
+is different from NP, you better show P is
+different from P space and we haven't gotten there yet. Okay. So these are wide open, there's very limited kinds
+of progress over here. And then finally this past year, there's this brilliant work by Williams, which makes significant
+progress towards this question. Doesn't resolve it. No, no. But you would like to say
+that when you have a lot of time, the amount of space
+that you need to simulate that much time is not as
+much as the time itself. You know, that's the whole difference. I mean the space should be
+much more powerful than time. And finally he's given us
+a good solid separation between space and time. We would've loved to see
+something like logarithmic in T over here. But all we are getting
+is square root of T, but at least some separation over here. This is like after years and years of struggling
+with this question. Finally we have some separation. If this number was reduced
+to something like T to the epsilon for all epsilon or then we would actually
+have a separation piece not equal to P space. But we haven't got there. Okay? So this is one direction of progress, it's a brilliant result, very recent. Now a second. This was somehow looking
+for weaker results. Some things that were implied by P is different from NP
+but not the other way around. Now what about stronger results? Actually people have been
+seeking to prove stronger results as a way of proving the weaker result. One such area is the area
+of circuit complexity. There are many ways of describing it. The way I want to
+describe this area is just remember we said the
+algorithm is a finite size and the problems are of large size. Now we allow the algorithms to be of about the same size as the problem. Wait, algorithms and problems are both
+scaling off to infinity, but there are exponentially
+many problems of a given size. You have to solve all of
+those with one algorithm, which is of that polynomial size. Can we show that even
+with algorithms that grow with the size of the input, you cannot solve NP complete problems with polynomial sized algorithms. Why is this an easier question to answer? I mean, clearly we are getting
+into the harder direction. I don't know how to show
+that finite sized algorithms cannot solve the problem. Now I want to show that in order
+to show that I want to say, oh, let's prove that polynomial size algorithms cannot solve the problem. Doesn't seem like the right direction. Why? Look here. So it turns out now you're
+no longer reasoning about the running times of algorithm you can simply reason about
+the size of the algorithm. This becomes a much more
+combinatorial kind of a question and makes it feasible for us to think more combinatorially
+about the problem. So it's a plausible direction,
+it's a fruitful direction. Have we made progress? And also actually one very nice thing that happens over here is
+you can actually make your measures so precise
+that you don't have this weird equivalence of 10 times n2 being the
+same as five times n2. Now these are actually going
+to be concretely different. So you have all of
+these positive features, but unfortunately we've only been able to limit very, very, so what I would consider very fast parallel algorithms. This is what would be called
+small depth circuits for those who are familiar with that phrase. So very, very fast parallel algorithms or algorithms that are somehow
+reasoning in a monotone way. And these are the things
+that we've been able to do. And since 80s, I would say more or less we've been kind of
+stuck with this question. We haven't been able to make progress. I'll come back to this question of being stuck in in the next slide. It's an interesting anecdote. So by the way, this understanding why we
+were stuck led Razborov and Rudich to start asking this question, is there maybe some sort of
+a natural proofs barrier, some barrier that is analogous? So it's kind of an analogy
+to this question of maybe P versus NP is
+independent of the axioms. Maybe we cannot really prove this. In the way things are phrased right now, this is saying, oh there's
+limits to our techniques and that sort of inhibits us from proving something stronger. Doesn't say that it may be
+independent of the axioms, but who knows, one day
+we might actually find that this is the path which tells us that P versus NP is somehow
+independent of the axioms of ZFC or something. It could be, but we don't know. But being stuck in this active world is an amazing phenomenon. I'll tell you one example,
+I'll use some phrases that won't make any sense to you, but just follow it all along syntactically and it should be a fun story. So Razborov and Smolensky in '86 prove that these fast parallel
+algorithms could even be endowed with something called mod p gates. What are mod p gates? I don't know what they are,
+they just compute some, sums of large collection of numbers mod 2. Okay, if you could do that
+very fast, then you get a class of algorithms, even this class of algorithms will not solve
+some other problems like compute the majority of
+N numbers or something. Okay, so they were able to
+reason about very powerful class of gates within the context
+of fast parallel algorithms. But we were stuck with mod P being prime, the P being prime. And if you try to extend
+this result to mod 6 gates and six is not a prime, you were stuck. You could not extend this
+proof technique. Okay? So this is the nature of how
+we can get stuck in this space. So Beigel Barrington and Rudich tried to came
+up with an explanation of why we are stuck with
+the mod 6 computation. And they finally came up
+with some explanation. We roughly said something
+like, oh look, if you wanted to compute some function
+like summation XI mod 6 and Xis are integers zeros and ones, then you would normally,
+if it had been mod 5, you would've needed a degree n polynomial. But mod 6 you can get a degree square root of n polynomial. Okay, so very interesting
+(indistinct) kind of a statement. And then this was '94 and then you know, in
+'99 and 2006 and 2008 and 2014, we've all been like
+capitalizing on this work to build amazing families of
+set systems, amazing collection of error correcting codes, private information retrieval
+schemes and everything. So just one failure in complexity has led to all these wonderful
+results in diverse areas. Why? Because the questions were
+really somehow at the heart of our limits of what could
+be true and what could not. It extracted this beautiful
+question, a beautiful answer and then amazing things followed. So it's less quite a I find it a very interesting
+story that you try to go proving something, hurt
+yourselves, fall down trip and can't find a good reason and then in the process you realize some amazing other things, okay? At least collectively that's what has happened in this space. All right, back to this notion of strong separations. One more strong separation
+that I want to talk about. And I think it's also, it
+is very coincidentally, Kurt was asking me about this
+just before the talk today. There's a very interesting
+dual class two NP called coNP. What is coNP? It's all the functions which are negation of functions in NP. Sounds like the same thing, right? But there is a syntactic
+question we can ask, is this class equal to the other? And it turns out to be a very
+deep fundamental question because this is asking
+the following question, if some theorem does
+not have a short proof, can you gimme a short proof of this fact? Okay, so you go send out you,
+okay, you're a grad student, your advisor is in a mean mood, go sends you out saying look, good, look, find a proof of this fact. I know it can be proved in a page. You go there, you try out
+every one page option, okay? You've managed to convince
+yourselves there is no solution. What do you go tell your advisor now? I tried everything it didn't work. Yeah, well show me your work. I cannot show you all my work. There's like so many
+zillion pages of one page that I tried and none of them worked. Wouldn't it be wonderful
+if there was the fact that it does not have a
+one page proof also has say a two page proof, that
+would be a consequence of NP being equal to coNP. Okay? This is a weaker statement
+than P equal to NP. If P equal to NP, then NP
+is close under compliment because P is close under compliment. But maybe this is true even
+if P is different from NP. So Cook in one of the early
+papers asked the question, can we try to prove NP
+is different from coNP? Of course he knows this is will prove P is different from NP. But it's an interesting question and you can ask it in limited context and proving these kinds of
+statements in limited context. What's a limited context? You restrict the forms of
+reasoning that you're allowed. You can only state
+statements of a certain type as intermediate statements and only resolve them in certain ways. Very simple logical steps are allowed. Then we can actually prove
+that that restricted form of NP is different from that
+restricted form of coNP. Unfortunately, general purpose reasoning, we cannot prove such inequalities
+that's at least as hard as proving P is different from coNP. Okay, so these are some
+very interesting directions of work which are very much
+aligned to the question of understanding is P equal to NP or not? And by the way, I should also
+mention a couple of things. The reason we kind of so obsessed with P as the easy thing is this is
+what we think is tractable. These are things that you can run on computers and solve them. If I prove NP equals
+P, I want to say that, oh I could start writing
+the theorem statements and their length and run
+some algorithm which will efficiently find the proof. So that's associating
+conflating the notion of polynomial time algorithms
+with tractable ones. But this is not always the
+only way to think about it. On the one hand there are people who say, well maybe P is a strict
+subset of what is tractable. Why? Because there may be randomness out there, there may be quantum computing out there and all of these may enhance my power. I can probably solve problems
+which are not sitting in P as we know it, but still expect to be
+able to run them quickly and find answers back quickly. So that leads us to the question of is NP contained in BPP? BPP is roughly correspond to randomized algorithms that are running in polynomial time. And we really don't know
+the answer to this question. So it's like a... Now we could also go
+in the other direction and say that look is an end to the thousand time algorithm, a really attractable one? When N equals two, I
+cannot run this algorithm. So what can you do with this thing? So there are people who've
+very actively investigated this question of within P, can we have further fine
+grained refinements? And within those refinements,
+can we try to compare how problems are relative to each other? This is another very active area of research called fine grain complexity. And I encourage you to go
+take a look at it to see if there's results of interest to you. Most of these things in
+this latter area are kind of mimicking the kinds of things that we've done in the P versus NP world, but trying to get us to some, you know, more refined understanding of the state of interesting problems. Okay, now I want to switch gears a bit. Whoops, sorry, I'm having some. Okay, so there's one direction that I absolutely have to talk about. This is something that I've worked in and so it's very important to me, but also something that
+I think is kind of one of the most fascinating
+byproducts of the study of P versus NP. P versus NP is a study
+of how to prove things. But what if you inject randomness, which is an algorithmic
+primitive into this process of proving, verifying? That starts to lead to amazing
+collections of definitions. The first of these was exposed by the work of Goldwasser, Micali and Rackoff and also independently by Babai who introduced the notion
+of interactive proofs. The first three
+Goldwasser, Micali, Rackoff also introduced this notion of a zero knowledge proof. What are interactive proofs? Here are proofs in which a
+verifier is going to be asking questions to the prover. The prover is not a person
+who writes down a proof and then runs away, but sits down and waits for you to ask questions and answers them so much more of your lecture classroom
+environment than reading a textbook environment. And then you can ask the
+question, can you verify things? And it turns out there are
+many interesting things that you can prove interactively,
+where you don't know how to prove things uninteractively. Well the simplest example that you've all seen is probably Pepsi is different from Coke. You know, you can give a blind taste test and this blind taste test can be converted into a mathematical phenomenon and used to prove that
+graphs are not isomorphic with very short proofs. And I will not get into
+the details of how, but this can be done. You can actually prove that Ethereum has no short proof interactively. Okay, so Kurt could ask me questions after asking me this thing,
+you know, go prove this. And I say, look, I found nothing, you can ask me some questions and I can convince you
+that I did not find a proof because there was no such proof. This can be proved interactively
+with a short proof. We don't have a classical proof and there are many, many other things. In fact, all problem
+solvable in polynomial amount of space can be proved interactively in polynomial amount of time. Remarkable statements, even
+more remarkable is the notion of a zero knowledge proof. These are proofs that reveal
+nothing about this truth of a state, about the
+proof, except the fact that the theorem is true. If you condition on the fact
+that the theorem is true, you learn nothing. And why would anybody care? This is the basis of cryptography today. Cryptography would not
+have gone to anywhere close to the extent that it has
+reached today if it were not for this concept of zero knowledge proofs and the underlying mechanics. How do you reason that something did not
+reveal any knowledge? What does that even mean? These amazing researchers
+formalize this concept and the other researchers around them showed us how to run very, very nice zero knowledge
+proofs, which can be used to simulate all kinds of interactions completely general purpose
+in the world around us, as if there's some
+trusted third party who's going to be administering the protocols. But there is no trusted third party, just doing everything on our own. You can toss coins over the phone, you can do whatever you want. You can gamble on the internet if that's something that you like to do. Sorry. Alright, another randomness anecdote is probabilistically checkable proofs. So here's two proofs for you. First one proves two equal to one. The second one proves Pi equal to three. These are just two proofs
+that I found on the internet. So there's an error. Where is the error? Oh, if I read this line
+that looks plausible, if I read that line, that
+looks plausible, et cetera. So when you look at it locally,
+you cannot find the error. So do proofs have to be
+read in its entirety? Of course, if you read
+from line one to line and you will figure out where the bug is, but I can hide this bug by
+making the proof even longer. Okay, if two really equals one, then you should probably read the proof, even the longer proof. So do proofs have to be
+read in their entirety in order to be verified? And as it turns out, if you look at... Sorry, as you look at the
+proofs as we use them, as we deploy them today, yes they have to be read in their entirety, okay? But that doesn't mean that there isn't exist a
+format for writing proof. So recall what we said about
+graph coloring being used to prove things, that made
+it easy for us to point to errors once we found them. There are other ways of converting
+proofs into nice formats and here it'll be even easy for you to find the errors when you're reading it. You just read a constant number of bits and then you'll be able to verify them. So this is a theorem called
+the PCP theorem that I had some role in as well that we proved in '92. And this has been a very,
+very sort of a significant development in the area
+of complexity theory. There's just immense number
+of follow up works over here with beautiful further
+questions and progress and methods and so on. And they have been of classical interest for one very good reason. In the past what we saw
+in the works of Cook and Karp was that solving some
+optimization problems like finding a traveling salesman tool, which has a smallest length is hard because it's as hard as
+finding proofs of theorems. That's what Cook and
+Karp said collectively. Now that we have these notions of probabilistically checkable proofs, you can ask the question, oh, can you gimme a proof
+which will be accepted by this verifier with probably 99%? And even that is going to be very hard. And that says that even
+approximating the probability with which the verifier accepts the proof is very hard to computation. In turn that when we
+convert it into saying, finding an approximate
+traveling salesman tool, which is, 99% close to the optimum, or sorry, which is at most
+1% more than the optimum is going to be NP complete. So this is the way in which
+the PCP theorem has been used and it has completely changed radically our understanding of the
+world of optimization, which problems are easy
+and which ones are solved. So there's an entire
+revolution with all kinds of machinery developed
+about how to use PCPs to prove hardness results
+at the same time getting algorithmic results to match. And there are many, the state of the art variance over here are just like incredibly
+beautiful mathematics as well. All kinds of alphabet soups,
+the unique game conjectures, the summer squares, hierarchies, and the high dimensional expansion fields. All really, really rich
+domains where we can find there's a lot of life out there. Alright, oh, one last variant
+that I do want to mention, in fact, coincidentally an this here is, I'm going to mention
+this work in a moment. These interactive proofs
+were not first discovered by computer scientists. Apparently, so this is
+Einstein, Podolsky and Rosen, this is from the 30s I guess, who somehow started challenging the axioms of quantum mechanics and realized that there was
+this very intriguing phenomenon that they could set up with
+some sort of a weird experiment where they sent two players, Alice and Bob off to infinity, far away from each other, send some information to them, and then make it look like
+they were communicating instantaneously faster
+than speed of light. They said, look, this is
+challenging the very essence of axioms of quantum mechanics
+can't possibly happen. This cannot be true. Much later, as far as I understand, this was actually experimentally
+validated using exactly such a setup or something very similar. And so now we can use it as a proof that oh, quantum ness actually does exist. It is a real thing. This system itself is an
+interactive proof in the very vein as gold Goldwasser,
+Rackoff and Babai, with one difference. There are not just one
+prover, there are two provers and there are physically separated. Other than that this is really can be expressed in this form. And a later variant of this game can even be
+formalized in a very simple way. And it tells us that, look, the verifier should send the
+following questions to Alice and Bob, find out what
+the answers they give, do some computation, and if the computation
+works out, then you accept. And if you had no
+quantumness in the universe, this would be accepted with
+probably three quarters. If people could use entanglement as implied by the laws of
+physics, they should be able to accept with probably
+greater than three quarters, specifically 0.85. And as far as I know, this has been experimentally
+validated, yes, this can be done and it does work. Okay, so interactive proofs
+are all over the place, but wait, this is all
+physicists doing all this work. So where is complexity theory coming in? Well, complexity now can use
+all its machinery and mechanics and there have been some amazing works. Mahadev showed how you can verify all of quantum computation with very simple, or at least, I don't know
+if it was all of four, but very basic forms of quantum
+computation can be proven by classical verifiers using mechanics, interactive proofs along these lines. And in an even more exciting result. Anand and colleagues showed us that you can actually
+interactively verify all computable functions. In fact, that shouldn't, is
+that computable is correct, or am I even underestimating. All, okay, all recursively
+innumerable functions. So even uncomcomputable ones, but as long as one direction is computable or something like that, provable. So amazing collections of results. And one of the outcomes of
+these protocols is like, you know, if two players
+have lots of entangled bits amongst them, and they'd
+like to prove to you that they have it, they can send you all the bits over, okay? And that'll prove to you or morally the equivalent of all of that. But then at the end there
+have no entanglement left. You can actually prove
+that they have end bits of entanglement using a tiny, tiny, tiny amount of communication. This's also an overestimate of
+the amount of communication. But yeah, I mean really using
+negligible communication, you can prove that I have
+huge amounts of entangle bits. It's just remarkable that you
+can do all of these things. And these are things
+possible because of the tools and techniques that have
+been developed in the context of interactive proofs,
+which in turn come from the context of proofs. Alright, so that's the past
+or the recent past even. What about the future? So recall that, we said Hilbert's goal, well, maybe not, he
+didn't state it this way, but if P equals NP, we
+said that, you know, you can replace all
+mathematicians with computers, but actually that's already happening. Some people may say,
+because AI is doing it. So does this now, do we have
+a proof that P equals NP? Okay (indistinct).. Oh, how else is LLM solving
+all of these problems? Okay? So that's a little bit of tongue in cheek. Firstly, there's an
+implication in one direction. If this is equal, then
+you can replace that. That's not necessary. So maybe computers will
+replace mathematicians, but P equal to NP as a question
+that's intact and safe. So I can sleep peacefully. But more like what's really happening? AI is able to prove some theorems. I mean, not all AI is solving all theorem, but there exists AIs which
+can prove some new theorems, for which we did not
+have proofs in the past. But it's not like you can
+just say prove anything. You know, I believe something
+as a short proof go find it. It's not doing it. In fact, it's very, very
+far from even hinting NP equal to P. It's even further away
+from hinting NP equals coNP because you cannot ask it to
+prove that it's failure to you, right? The same thing that we've
+mentioned all the while that your advisor tells you to find a proof of some statement in shot. You can go ask ChatGPT to
+prove that it was not able to find it, there's a reason why it was not able to find a proof. You'll get a huge bill back
+from ChatGPT but not an answer. Okay? So it's very, very
+far from doing that. But nevertheless, I find that there's something very intriguing and impressive about these
+interactions with AI and LLM, which also go to the
+essence of what theorems and proofs are to us. So all this work on NP equal to P, PCPs and so on, we have amazing
+ways of writing proofs, but we don't use them
+on our day-to-day books. Our books do not talk
+about theorems and proofs. Why is it that we don't ever
+talk about these things? Why don't we use PCPs in
+all textbooks we write. So the reason for that is, you know, we really don't use proofs to, as in the vanilla model,
+there's a standard model in which we think about
+the logic of proofs. There's a short collection of axioms and moderately long theorem and a very, very, very, very long proof. This is the universe that we put ourselves in when
+we started formulating the P versus NP question. What's the real universe
+that we are living in? This is a quote from a book
+by Lehman, Leighton and Meyer. It's the discreet mathematics or computer science course
+at MIT and their notes. "So some proof that two
+plus two equals four would requires 20,000 steps." So obviously we are not going
+to write our proofs in ZFC. Instead, we are going to use
+context to compress our proofs. What's context? Is some huge collection of axioms which we believe, you
+know and I know, okay? So all the facts that you know, high school mathematics
+is known to you and me. And so we'll use that to make
+all our sentences succinct, both the theorems and the proofs. So this is the model in which
+we work with in the real world of theorems and proofs. This is the model that
+journals are employing. So what is context? I mean, what is high school mathematics? I mean, you and I agree and sign a contract saying
+these are the things that you're supposed to know, these things are not going
+to be expected to know? No, I mean we make some very
+rough (indistinct) estimation at what this is and then we vanish to somehow convince each other. But the amazing thing is these
+large language models are managing to reproduce the exact
+same kind of conversations. They're not always reliable, but they're actually, I don't know, you can put a probability on it. 10% of the times they're right. 10% of the times they're right.
+It's an amazing phenomenon. Okay, if somebody did
+not know any mathematics three years ago, like ChatGPT
+did not and now it does. It's up to the point of proving
+new theorems, 10% accuracy. I mean this is just amazing, right? And it's also expressing all of its intermediate thoughts in human language as succinctly. I don't even know how to
+formalize this question. And it is doing it. It's practicing it. It's a remarkable phenomenon. It's something definitely
+that we have to watch out for. Alright, so I'm almost out of time. So let me just say computing
+as a science, you know, so this is the very heart
+of scientific in inquiry, the question of P versus NP is the heart of computer science, it's the heart of scientific inquiry and it's always there is this thing, there's local steps. Every step of verification
+is a local step, but then you put them together and you get some massive
+interesting object, prove some amazing theorems. And the search for proofs is the essence of all search and optimization. It's as hard as, as easy as, it's the core of every one
+of these search problems. It's a P versus NP is still open, but there are many, many,
+I mean, understanding what proofs are and what they can be is
+a rich area of past work and, but also for future work. Thank you.

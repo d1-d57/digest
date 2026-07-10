@@ -1,0 +1,45 @@
+A couple weeks ago I gave at talk in Marseille on the general topic of
+Wick Rotating Spinors and Twistors
+. I’ll make a few comments here on the content of the slides.
+The idea of the talk was to explain the problem of Wick rotation from the point of view of the geometry of spinors and twistors in four spacetime dimensions. A basic fact about this geometry is that it is quite straightforward if you work with complex spacetime, since then
+The complex spacetime rotation group is SL(2,
+C
+) X SL(2,
+C
+), spinors are just the two-complex dimensional spaces these groups act on and come in two independent varieties since there are two copies of the group (which we’ll call right and left-handed). Complex spacetime vectors are just the tensor product of the two spinor spaces.
+In twistor theory, one of the two kinds of spinors is distinguished, say the right-handed one. Complex spacetime is the set of all two-complex dimensional subspaces of twistor space T=
+C
+4
+. Right-handed spinors at a point are tautologically defined: the point is the right-handed spinor space.  The complex conformal group SL(4,
+C
+) acts in the obvious way on twistor space T, and thus on spacetime.
+What gets complicated is when you try and work with real spacetime and its spinors.  The problem of Wick rotation is that Minkowski and Euclidean real spacetimes both complexify to the complex spacetime described above, but they are very different.  They have very different kinds of spinors, and are defined by two very different structures on twistor space.  The usual Wick rotation goes by analytically continuing in complex spacetime but leads to a fundamental problem: you can’t analytically continue the theory of a Weyl spinor field since in the Minkowski case you only need one kind of spinor to define vectors, while in the Euclidean case you need both kinds.
+I’ve
+proposed
+that the way to deal with this is to understand the relation between Minkowski and Euclidean differently, with the Minkowski spacetime Lorentz group the right-handed SL(2,
+C
+), not the usual embedding of SL(2,
+C
+) as a pair of conjugate right and left-handed group elements (which is necessary to do the usual analytic continuation).
+In the talk I don’t explain exactly how to make the proposal for a different sort of Wick rotation work, for the good reason that I’m still confused about how best to do it, hope soon to better understand what is going on and write that up.
+One thing I do in the talk is try and explain the recent point of view on Wick rotation that has seemed to me most promising. In QM, dynamics is given by the operator $U(t)=e^{-itH}$.  Because of positivity in the energy, for complex time z=t+is the operator $U(z)=e^{-izH}$ is holomorphic in the lower half z plane.  This now seems to me the essence of Wick rotation: a quantum theory is a theory holomorphic in a complex time half-plane with a distinguished notion of real time (the boundary of the region in z where the theory is defined).  The operator U(z) is better defined if you define it along some line in the lower-half z plane. This could be the negative imaginary time axis, but you could choose another line.
+Twistor theory provides a different version of this. The definition of Minkowski spacetime provides a decomposition of PT (projective twistor space) into PT
++
+, PT
+–
+and PT
+0
+, analogous to the decompostion of the complex time plane into an upper half-plane, a lower half-plane and the real axis.  Physics is defined in terms of a holomorphic theory on PT
++
+.  Its boundary values on PT
+0
+give the Minkowski spacetime theory.  There is then no distinguished version of Euclidean spacetime to Wick rotate to, one has to make a choice of the extra structure that provides this (for instance by choosing an identification of T with pairs of quaternions).
+Not mentioned in the talk is the main motivation for all of this, the ideas about unification that I’ve often written about here.
+The figures in the talk were an experiment. They are given in two kinds: a hand-drawn version, and a version that is the result of prompts to an AI gadget in
+Underleaf
+I was trying out.  I only had a day to work on this, you can judge for yourself the results.  With more time I could sure have gotten better results.  As with all uses of AI tools, seems like it’s not worth spending a lot of time now trying to get the most of them since they likely will have soon have different capabilities.
+Share this:
+Share on Mastodon (Opens in new window)
+Mastodon
+Share on Bluesky (Opens in new window)
+Bluesky

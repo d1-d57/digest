@@ -1,0 +1,1597 @@
+
+
+The Equational Theories Project: Advancing Collaborative Mathematical Research at Scale | What's new
+
+What's new
+
+Updates on my research and expository papers, discussion of open problems, and other maths-related topics.  By Terence Tao
+
+Home
+
+About
+
+Career advice
+
+On writing
+
+Books
+
+Mastodon+
+
+Applets
+
+Subscribe to feed
+
+The Equational Theories Project: Advancing Collaborative Mathematical Research at Scale
+
+9 December, 2025 in 
+math.RA
+, 
+paper
+ | Tags: 
+Aaron Hill
+, 
+Alex Meiburg
+, 
+Amir Livne Bar-on
+, 
+Anand Rao Tadipatri
+, 
+Andrés Goens
+, 
+Bernhard Reinke
+, 
+Bruno Le Floch
+, 
+Cody Roux
+, 
+Daniel Weber
+, 
+David Renshaw
+, 
+Douglas McNeil
+, 
+Emmanuel Osalotioman Osazuwa
+, 
+Equational Theory Project
+, 
+Fan Zheng
+, 
+Fernando Vaquerizo-Villar
+, 
+Floris van Doorn
+, 
+Giovanni Paolini
+, 
+Harald Husum
+, 
+Hernán Ibarra Mejia
+, 
+Jérémy Scanvic
+, 
+Joachim Breitner
+, 
+Jose Brox
+, 
+Lorenzo Luccioli
+, 
+Marco Petracci
+, 
+Marcus Rossel
+, 
+Mario Carneiro
+, 
+Martin Dvorak
+, 
+Matthew Bolan
+, 
+Nicholas Carlini
+, 
+Pace P. Nielsen
+, 
+Pietro Monticone
+, 
+Shreyas Srinivas
+, 
+universal algebra
+, 
+Vlad Tsyrklevich
+, 
+Zoltan Kocsis
+ | by 
+Terence Tao
+
+ Matthew Bolan, Joachim Breitner, Jose Brox, Nicholas Carlini, Mario Carneiro, Floris van Doorn, Martin Dvorak, Andrés Goens, Aaron Hill, Harald Husum, Hernán Ibarra Mejia, Zoltan Kocsis, Bruno Le Floch, Amir Livne Bar-on, Lorenzo Luccioli, Douglas McNeil, Alex Meiburg, Pietro Monticone, Pace P. Nielsen, Emmanuel Osalotioman Osazuwa, Giovanni Paolini, Marco Petracci, Bernhard Reinke, David Renshaw, Marcus Rossel, Cody Roux, Jérémy Scanvic, Shreyas Srinivas, Anand Rao Tadipatri, Vlad Tsyrklevich, Fernando Vaquerizo-Villar, Daniel Weber, Fan Zheng, and I have just uploaded to the arXiv our preprint 
+The Equational Theories Project: Advancing Collaborative Mathematical Research at Scale
+. This is the final report for the 
+Equational Theories Project
+, which was proposed in 
+this blog post
+ and also showcased in 
+this subsequent blog post
+. The aim of this project was to see whether one could collaboratively achieve a large-scale systematic exploration of a mathematical space, which in this case was the implication graph between 4694 equational laws of magmas. A 
+magma
+ is a set 
+ equipped with a binary operation 
+ (or, equivalently, a 
+ multiplication table). An equational law is an equation involving this operation and a number of indeterminate variables. Some examples of equational laws, together with the number that we assigned to that law, include 
+
+ (Trivial law): 
+
+ (Singleton law): 
+
+ (Commutative law): 
+
+ (
+Central groupoid law
+): 
+
+ (Associative law): 
+
+ Up to relabeling and symmetry, there turn out to be 4694 equational laws that involve at most four invocations of the magma operation 
+; one can explore them in our “
+Equation Explorer
+” tool.
+
+The aim of the project was to work out which of these laws imply which others. For instance, all laws imply the trivial law 
+, and conversely the singleton law 
+ implies all the others. On the other hand, the commutative law 
+ does not imply the associative law 
+ (because there exist magmas that are commutative but not associative), nor is the converse true. All in all, there are 
+ implications of this type to settle; most of these are relatively easy and could be resolved in a matter of minutes by an expert in college-level algebra, but prior to this project, it was impractical to actually do so in a manner that could be feasibly verified. Also, this problem is known to become undecidable for sufficiently long equational laws. Nevertheless, we were able to resolve all the implications informally after two months, and have them completely formalized in Lean after a further five months.
+
+After a rather hectic setup process (documented in 
+this personal log
+), progress came in various waves. Initially, huge swathes of implications could be resolved first by very simple-minded techniques, such as brute-force searching all small finite magmas to refute implications; then, automated theorem provers such as Vampire or Mace4 / Prover9 were deployed to handle a large fraction of the remainder. A few equations had existing literature that allowed for many implications involving them to be determined. This left a core of just under a thousand implications that did not fall to any of the “cheap” methods, and which occupied the bulk of the efforts of the project. As it turns out, all of the remaining implications were negative; the difficulty was to construct explicit magmas that obeyed one law but not another. To do this, we discovered a number of general constructions of magmas that were effective at this task. For instance:
+
+ Linear models, in which the carrier 
+ was a (commutative or noncommutative) ring and the magma operation took the form 
+ for some coefficients 
+, turned out to resolve many cases. 
+ We discovered a new invariant of an equational law, which we call the “
+twisting semigroup
+” of that law, which also allowed us to construct further examples of magmas that obeyed one law 
+ but not another 
+, by starting with a base magma 
+ that obeyed both laws, taking a Cartesian power 
+ of that magma, and then “twisting” the magma operation by certain permutations of 
+ designed to preserve 
+ but not 
+. 
+ We developed a theory of “abelian magma extensions”, similar to the notion of an abelian extension of a group, which allowed us to flexibly build new magmas out of old ones in a manner controlled by a certain “
+magma cohomology group
+
+” which were tractable to compute, and again gave ways to construct magmas that obeyed one law 
+ but not another 
+. 
+
+Greedy methods
+, in which one fills out an infinite multiplication table in a greedy manner (somewhat akin to naively solving a Sudoku puzzle), subject to some rules designed to avoid collisions and maintain a law 
+, as well as some seed entries designed to enforce a counterexample to a separate law 
+. Despite the apparent complexity of this method, it can be automated in a manner that allowed for many outstanding implications to be refuted. 
+ Smarter ways to utilize automated theorem provers, such as strategically adding in additional axioms to the magma to help narrow the search space, were developed over the course of the project. 
+
+Even after applying all these general techniques, though, there were about a dozen particularly difficult implications that resisted even these more powerful methods. Several ad hoc constructions were needed in order to understand the behavior of magmas obeying such equations as 
+E854
+, 
+E906
+, 
+E1323
+, 
+E1516
+, and 
+E1729
+, with the latter taking months of effort to finally solve and then formalize.
+
+A variety of GUI interfaces were also developed to facilitate the collaboration (most notably the Equation Explorer tool mentioned above), and several side projects were also created within the project, such as the exploration of the implication graph when the magma was also restricted to be finite. In this case, we resolved all of the 
+ implications except for one (and its dual):
+
+Problem 1
+  Does the law 
+ (E677) imply the law 
+ (E255) for finite magmas? 
+
+See 
+this blueprint page
+ for some partial results on this problem, which we were unable to resolve even after months of effort.
+
+Interestingly, modern AI tools did not play a major role in this project (but it was largely completed in 2024, before the most recent advanced models became available); while they could resolve many implications, the older “good old-fashioned AI” of automated theorem provers were far cheaper to run and already handled the overwhelming majority of the implications that the advanced AI tools could. But I could imagine that such tools would play a more prominent role in future similar projects.
+
+Share this:
+
+Print (Opens in new window)
+
+Print
+
+Email a link to a friend (Opens in new window)
+
+Email
+
+More
+
+Share on X (Opens in new window)
+
+X
+
+Share on Facebook (Opens in new window)
+
+Facebook
+
+Share on Reddit (Opens in new window)
+
+Reddit
+
+Share on Pinterest (Opens in new window)
+
+Pinterest
+
+Like
+
+Loading...
+
+Recent Comments
+
+Anonymous on 
+Books
+Terence Tao
+ on 
+Long gaps in sieved sets
+Anonymous on 
+Long gaps in sieved sets
+Will Sawin
+ on 
+A digestion of unit distance…
+Terence Tao
+ on 
+275A, Notes 5: Variants of the…
+Anonymous on 
+275A, Notes 5: Variants of the…
+Cosmin Pohoata
+ on 
+A digestion of unit distance…
+Will Sawin
+ on 
+A digestion of unit distance…
+Will Sawin
+ on 
+A digestion of unit distance…
+Anonymous on 
+Modular Arithmetic Challenge
+Anonymous on 
+275A, Notes 5: Variants of the…
+Ben Johnsrude
+ on 
+A digestion of unit distance…
+Terence Tao
+ on 
+Almost all Collatz orbits atta…
+Anonymous on 
+275A, Notes 0: Foundations of…
+Pantelis Rodis on 
+A digestion of unit distance…
+
+Top Posts
+A digestion of unit distance constructions
+Career advice
+Books
+Does one have to be a genius to do maths?
+On writing
+About
+Work hard
+Long gaps in sieved sets
+Analysis I
+A mathematical formalisation of dimensional analysis
+Archives
+
+July 2026
+ (1)
+
+June 2026
+ (3)
+
+May 2026
+ (1)
+
+March 2026
+ (4)
+
+February 2026
+ (3)
+
+January 2026
+ (4)
+
+December 2025
+ (5)
+
+November 2025
+ (5)
+
+September 2025
+ (1)
+
+August 2025
+ (3)
+
+July 2025
+ (1)
+
+June 2025
+ (2)
+
+May 2025
+ (5)
+
+April 2025
+ (2)
+
+March 2025
+ (1)
+
+February 2025
+ (3)
+
+January 2025
+ (1)
+
+December 2024
+ (3)
+
+November 2024
+ (4)
+
+October 2024
+ (1)
+
+September 2024
+ (4)
+
+August 2024
+ (3)
+
+July 2024
+ (3)
+
+June 2024
+ (1)
+
+May 2024
+ (1)
+
+April 2024
+ (5)
+
+March 2024
+ (1)
+
+December 2023
+ (2)
+
+November 2023
+ (2)
+
+October 2023
+ (1)
+
+September 2023
+ (3)
+
+August 2023
+ (3)
+
+June 2023
+ (8)
+
+May 2023
+ (1)
+
+April 2023
+ (1)
+
+March 2023
+ (2)
+
+February 2023
+ (1)
+
+January 2023
+ (2)
+
+December 2022
+ (3)
+
+November 2022
+ (3)
+
+October 2022
+ (3)
+
+September 2022
+ (1)
+
+July 2022
+ (3)
+
+June 2022
+ (1)
+
+May 2022
+ (2)
+
+April 2022
+ (2)
+
+March 2022
+ (5)
+
+February 2022
+ (3)
+
+January 2022
+ (1)
+
+December 2021
+ (2)
+
+November 2021
+ (2)
+
+October 2021
+ (1)
+
+September 2021
+ (2)
+
+August 2021
+ (1)
+
+July 2021
+ (3)
+
+June 2021
+ (1)
+
+May 2021
+ (2)
+
+February 2021
+ (6)
+
+January 2021
+ (2)
+
+December 2020
+ (4)
+
+November 2020
+ (2)
+
+October 2020
+ (4)
+
+September 2020
+ (5)
+
+August 2020
+ (2)
+
+July 2020
+ (2)
+
+June 2020
+ (1)
+
+May 2020
+ (2)
+
+April 2020
+ (3)
+
+March 2020
+ (9)
+
+February 2020
+ (1)
+
+January 2020
+ (3)
+
+December 2019
+ (4)
+
+November 2019
+ (2)
+
+September 2019
+ (2)
+
+August 2019
+ (3)
+
+July 2019
+ (2)
+
+June 2019
+ (4)
+
+May 2019
+ (6)
+
+April 2019
+ (4)
+
+March 2019
+ (2)
+
+February 2019
+ (5)
+
+January 2019
+ (1)
+
+December 2018
+ (6)
+
+November 2018
+ (2)
+
+October 2018
+ (2)
+
+September 2018
+ (5)
+
+August 2018
+ (3)
+
+July 2018
+ (3)
+
+June 2018
+ (1)
+
+May 2018
+ (4)
+
+April 2018
+ (4)
+
+March 2018
+ (5)
+
+February 2018
+ (4)
+
+January 2018
+ (5)
+
+December 2017
+ (5)
+
+November 2017
+ (3)
+
+October 2017
+ (4)
+
+September 2017
+ (4)
+
+August 2017
+ (5)
+
+July 2017
+ (5)
+
+June 2017
+ (1)
+
+May 2017
+ (3)
+
+April 2017
+ (2)
+
+March 2017
+ (3)
+
+February 2017
+ (1)
+
+January 2017
+ (2)
+
+December 2016
+ (2)
+
+November 2016
+ (2)
+
+October 2016
+ (5)
+
+September 2016
+ (4)
+
+August 2016
+ (4)
+
+July 2016
+ (1)
+
+June 2016
+ (3)
+
+May 2016
+ (5)
+
+April 2016
+ (2)
+
+March 2016
+ (6)
+
+February 2016
+ (2)
+
+January 2016
+ (1)
+
+December 2015
+ (4)
+
+November 2015
+ (6)
+
+October 2015
+ (5)
+
+September 2015
+ (5)
+
+August 2015
+ (4)
+
+July 2015
+ (7)
+
+June 2015
+ (1)
+
+May 2015
+ (5)
+
+April 2015
+ (4)
+
+March 2015
+ (3)
+
+February 2015
+ (4)
+
+January 2015
+ (4)
+
+December 2014
+ (6)
+
+November 2014
+ (5)
+
+October 2014
+ (4)
+
+September 2014
+ (3)
+
+August 2014
+ (4)
+
+July 2014
+ (5)
+
+June 2014
+ (5)
+
+May 2014
+ (5)
+
+April 2014
+ (2)
+
+March 2014
+ (4)
+
+February 2014
+ (5)
+
+January 2014
+ (4)
+
+December 2013
+ (4)
+
+November 2013
+ (5)
+
+October 2013
+ (4)
+
+September 2013
+ (5)
+
+August 2013
+ (1)
+
+July 2013
+ (7)
+
+June 2013
+ (12)
+
+May 2013
+ (4)
+
+April 2013
+ (2)
+
+March 2013
+ (2)
+
+February 2013
+ (6)
+
+January 2013
+ (1)
+
+December 2012
+ (4)
+
+November 2012
+ (7)
+
+October 2012
+ (6)
+
+September 2012
+ (4)
+
+August 2012
+ (3)
+
+July 2012
+ (4)
+
+June 2012
+ (3)
+
+May 2012
+ (3)
+
+April 2012
+ (4)
+
+March 2012
+ (5)
+
+February 2012
+ (5)
+
+January 2012
+ (4)
+
+December 2011
+ (8)
+
+November 2011
+ (8)
+
+October 2011
+ (7)
+
+September 2011
+ (6)
+
+August 2011
+ (8)
+
+July 2011
+ (9)
+
+June 2011
+ (8)
+
+May 2011
+ (11)
+
+April 2011
+ (3)
+
+March 2011
+ (10)
+
+February 2011
+ (3)
+
+January 2011
+ (5)
+
+December 2010
+ (5)
+
+November 2010
+ (6)
+
+October 2010
+ (9)
+
+September 2010
+ (9)
+
+August 2010
+ (3)
+
+July 2010
+ (4)
+
+June 2010
+ (8)
+
+May 2010
+ (8)
+
+April 2010
+ (8)
+
+March 2010
+ (8)
+
+February 2010
+ (10)
+
+January 2010
+ (12)
+
+December 2009
+ (11)
+
+November 2009
+ (8)
+
+October 2009
+ (15)
+
+September 2009
+ (6)
+
+August 2009
+ (13)
+
+July 2009
+ (10)
+
+June 2009
+ (11)
+
+May 2009
+ (9)
+
+April 2009
+ (11)
+
+March 2009
+ (14)
+
+February 2009
+ (13)
+
+January 2009
+ (18)
+
+December 2008
+ (8)
+
+November 2008
+ (9)
+
+October 2008
+ (10)
+
+September 2008
+ (5)
+
+August 2008
+ (6)
+
+July 2008
+ (7)
+
+June 2008
+ (8)
+
+May 2008
+ (11)
+
+April 2008
+ (12)
+
+March 2008
+ (12)
+
+February 2008
+ (13)
+
+January 2008
+ (17)
+
+December 2007
+ (10)
+
+November 2007
+ (9)
+
+October 2007
+ (9)
+
+September 2007
+ (7)
+
+August 2007
+ (9)
+
+July 2007
+ (9)
+
+June 2007
+ (6)
+
+May 2007
+ (10)
+
+April 2007
+ (11)
+
+March 2007
+ (9)
+
+February 2007
+ (4)
+
+Categories
+
+expository
+ (321)
+
+tricks
+ (13)
+
+guest blog
+ (10)
+
+Mathematics
+ (917)
+
+math.AC
+ (9)
+
+math.AG
+ (42)
+
+math.AP
+ (115)
+
+math.AT
+ (17)
+
+math.CA
+ (196)
+
+math.CO
+ (206)
+
+math.CT
+ (9)
+
+math.CV
+ (39)
+
+math.DG
+ (37)
+
+math.DS
+ (90)
+
+math.FA
+ (24)
+
+math.GM
+ (16)
+
+math.GN
+ (21)
+
+math.GR
+ (90)
+
+math.GT
+ (17)
+
+math.HO
+ (14)
+
+math.IT
+ (13)
+
+math.LO
+ (54)
+
+math.MG
+ (48)
+
+math.MP
+ (31)
+
+math.NA
+ (26)
+
+math.NT
+ (211)
+
+math.OA
+ (22)
+
+math.PR
+ (110)
+
+math.QA
+ (6)
+
+math.RA
+ (49)
+
+math.RT
+ (21)
+
+math.SG
+ (4)
+
+math.SP
+ (48)
+
+math.ST
+ (11)
+
+non-technical
+ (208)
+
+admin
+ (48)
+
+advertising
+ (77)
+
+diversions
+ (7)
+
+media
+ (14)
+
+journals
+ (3)
+
+obituary
+ (15)
+
+opinion
+ (37)
+
+paper
+ (272)
+
+book
+ (23)
+
+Companion
+ (13)
+
+update
+ (26)
+
+question
+ (128)
+
+polymath
+ (87)
+
+talk
+ (69)
+
+DLS
+ (20)
+
+teaching
+ (190)
+
+245A – Real analysis
+ (11)
+
+245B – Real analysis
+ (22)
+
+245C – Real analysis
+ (6)
+
+246A – complex analysis
+ (11)
+
+246B – complex analysis
+ (5)
+
+246C – complex analysis
+ (5)
+
+247B – Classical Fourier Analysis
+ (5)
+
+254A – analytic prime number theory
+ (19)
+
+254A – ergodic theory
+ (18)
+
+254A – Hilbert's fifth problem
+ (12)
+
+254A – Incompressible fluid equations
+ (5)
+
+254A – random matrices
+ (14)
+
+254B – expansion in groups
+ (8)
+
+254B – Higher order Fourier analysis
+ (9)
+
+255B – incompressible Euler equations
+ (2)
+
+275A – probability theory
+ (6)
+
+285G – poincare conjecture
+ (20)
+
+Logic reading seminar
+ (8)
+
+The sciences
+ (1)
+
+travel
+ (26)
+
+additive combinatorics
+
+approximate groups
+
+arithmetic progressions
+
+Artificial Intelligence
+
+Ben Green
+
+Cauchy-Schwarz
+
+Cayley graphs
+
+central limit theorem
+
+Chowla conjecture
+
+compressed sensing
+
+correspondence principle
+
+cosmic distance ladder
+
+distributions
+
+divisor function
+
+eigenvalues
+
+Elias Stein
+
+Emmanuel Breuillard
+
+entropy
+
+equidistribution
+
+Erdos
+
+ergodic theory
+
+Euler equations
+
+exponential sums
+
+finite fields
+
+Fourier transform
+
+Freiman's theorem
+
+Gowers uniformity norm
+
+Gowers uniformity norms
+
+graph theory
+
+Gromov's theorem
+
+GUE
+
+Hilbert's fifth problem
+
+ICM
+
+incompressible Euler equations
+
+inverse conjecture
+
+Joni Teravainen
+
+Kaisa Matomaki
+
+Kakeya conjecture
+
+Lie algebras
+
+Lie groups
+
+Liouville function
+
+Littlewood-Offord problem
+
+Maksym Radziwill
+
+Mobius function
+
+Navier-Stokes equations
+
+nilpotent groups
+
+nilsequences
+
+nonstandard analysis
+
+Paul Erdos
+
+politics
+
+polymath1
+
+polymath8
+
+Polymath15
+
+polynomial method
+
+polynomials
+
+prime gaps
+
+prime numbers
+
+prime number theorem
+
+random matrices
+
+randomness
+
+Ratner's theorem
+
+regularity lemma
+
+Ricci flow
+
+Riemann zeta function
+
+Schrodinger equation
+
+Shannon entropy
+
+sieve theory
+
+structure
+
+Szemeredi's theorem
+
+Tamar Ziegler
+
+ultrafilters
+
+universality
+
+Van Vu
+
+wave maps
+
+Yitang Zhang
+
+The Polymath Blog
+Polymath News and AI
+Polymath projects 2021
+A sort of Polymath on a famous MathOverflow problem
+Ten Years of Polymath
+Updates and Pictures
+Polymath proposal: finding simpler unit distance graphs of chromatic number 5
+A new polymath proposal (related to the Riemann Hypothesis) over Tao’s blog
+Spontaneous Polymath 14 – A success!
+Polymath 13 – a success!
+Non-transitive Dice over Gowers’s Blog
+
+19 comments
+
+Comments feed for this article
+
+9 December, 2025 at 10:52 am
+
+Paul Dietz
+
+Do you mean Mace4 or Prover9?  I can’t find a Mace9.
+
+[Corrected, thanks – T.]
+
+Reply
+
+9 December, 2025 at 1:33 pm
+
+Anonymous
+
+such equations as […], and E1729, with the latter taking months of effort to finally solve and then formalize.
+
+That number seems to be rather a dull one; apparently it was an unfavourable omen.
+
+Reply
+
+9 December, 2025 at 3:47 pm
+
+Lior Silberman
+
+Typo in the “basic theory” of the blueprint, Definition 1.7 and Theorem 1.8: syntactic implication is usually denoted 
+, to distinguish it from the semantic implication 
+ of Definition 1.6.  As written Theorem 1.8 is a tautology.
+
+[Corrected, thanks – T.]
+
+Reply
+
+9 December, 2025 at 4:04 pm
+
+JoseBrox
+
+Two typos: There are not 4684, but 4694 laws. Also, Conjecture 1 is actually formulated as an open question.
+
+[Corrected, thanks – T.]
+
+Reply
+
+9 December, 2025 at 5:37 pm
+
+Anonymous
+
+Wait, did you resolve all or all except for one? The blog post says the latter but the arxiv abstract says the former.
+
+Reply
+
+9 December, 2025 at 5:51 pm
+
+Terence Tao
+
+Without the restriction that magmas are finite, we resolved all implications.  When restricting attention to finite magmas only, we resolved all but one (and its dual).
+
+Reply
+
+9 December, 2025 at 11:52 pm
+
+Anonymous
+
+Excellent! For the greedy method intercept.
+
+Reply
+
+10 December, 2025 at 6:50 am
+
+Anonymous
+
+Such a nice project, congratulations to all of you, and thanks.
+
+Last year a 
+collaborative effort
+ could prove the exact value for BusyBeaver(5), and I wonder what would it take to have more projects like this. It seems that only a very specific type of propositions could be crowd-researched, but what is your feeling? Are there other natural places to define projects like this?
+
+The Erdos open problems also come to my mind, in the sense that the listing of the problems and space for comments for people to communicate is what made the problem be solved quickly (as you said in previous post). Is there a low hanging fruit here by trying to list conjectures and open problems? Is the “gamification” of completing a list something that can be used for making more people collaborating? 
+
+Reply
+
+10 December, 2025 at 8:33 am
+
+Terence Tao
+
+In Section 14 of our report we identify some factors which we believe were key to allowing our project to be successful.  I do believe that there will be other projects that fulfil these criteria, but some trial and error will need to be done to work out some further models of this type, since until recently the technology did not permit this type of collaboration at scale and so we have very few working models.  But there are some: I recently started an effort to collect examples at 
+https://mathoverflow.net/questions/500720/list-of-crowdsourced-math-projects-actively-seeking-participants
+
+At IPAM I am in the beginning phases of launching another crowdsourced project (see 
+https://www.ipam.ucla.edu/news-research/special-projects/integrated-explicit-analytic-number-theory-network/
+ ): stay tuned!
+
+Reply
+
+10 December, 2025 at 7:06 am
+
+Daniel Pezzi
+
+Is this article submitted for publication? I am not sure what the standards are for review of 1) a large scale collaborative project and 2) something formalized so heavily. Are there journals that specifically handle papers like this, or is the scale collaboration itself a type of review?
+
+Reply
+
+10 December, 2025 at 8:46 am
+
+Terence Tao
+
+We are just 
+restarting a discussion
+ on this on our project channel.  (We had 
+some earlier discussion and a straw poll
+ a few months ago on this topic, but it was inconclusive.)
+
+Reply
+
+11 December, 2025 at 9:23 am
+
+Webspinner
+
+While I do not have significant hopes of this comment not getting redacted, I would like to mention that while I do think the collaborative approach is all well and good if you feel well doing this sort of thing, it is no sense to persecute those who would solve problems on their own.
+
+True inclusivity would imply that EVERY style of doing mathematics (and EVERY person doing so) is accepted.
+
+All of this is particularly painful for those who do NOT hold a far-right opinion and find themselves in opposition both to the far-right and to people who falsely assume they belong to the far-right.
+
+If anything has come out of the recent surge of far-right barbarism, it is though that I’m far less shy now voicing my opinion, because it does seem exceedingly moderate when compared to some positions that now enjoy the support of huge swaths of the population.
+
+Reply
+
+11 December, 2025 at 11:15 am
+
+Anonymous
+
+What does this mean?
+
+Reply
+
+11 December, 2025 at 1:28 pm
+
+Anonymous
+
+ Some problems lend themselves to large collaborations, and others do not. These large Polymath-esque collaborations do not make traditional math research obsolete. Mathematicians who do not join large collaborations are not persecuted.
+
+As for your other comments, they do not seem relevant to the blog post.
+
+Reply
+
+11 December, 2025 at 11:08 am
+
+Anonymous
+
+Is it possible that problem 1 is undecidable?
+
+Reply
+
+11 December, 2025 at 10:25 pm
+
+Terence Tao
+
+Theoretically, yes; it is known that there exist implications between equational laws (either with or without the finiteness hypothesis) which are undecidable.  I would be extremely surprised however if this particular problem was undecidable.
+
+Reply
+
+13 December, 2025 at 10:05 am
+
+Anonymous
+
+If by “undecidable” you mean unprovable from the usual axioms of mathematics (like ZFC), then yes it is possible as Terry confirms.
+
+If by “undecidable” you mean there is no computer program that will output the correct answer, then no.  There is a trivial computer program that can output the correct answer; either the “print Yes” or “print No” algorithm.
+
+Mathematicians usually refer to the first type of undecidability as “independent from X” where X is the given set of axioms.  Undecidability of the second type is usually only discussed in contexts where some data is provided to a computer, and the answer can change depending on the data.  So, for instance, the problem of giving to a computer two magma laws, and asking if the first implies the second for finite magmas, is undecidable in the second sense; there is NO single algorithm that will always give the correct answer when provided with the two laws.
+
+Reply
+
+15 December, 2025 at 1:31 am
+
+Anonymous
+
+One thing that struck me in the Equational Theories Project is how uneven implication feels in practice: some identities rigidify most models almost immediately, while others only weakly constrain behavior unless combined with additional laws.
+
+I don’t have a universal notion in mind, but in settings with natural symmetry it seems plausible to normalize a measure of “alignment” between equational schemas: one that collapses to 1 in the implication case, but otherwise interpolates continuously rather than remaining binary.
+
+Reply
+
+13 March, 2026 at 7:34 pm
+
+Mathematics Distillation Challenge – Equational Theories | What's new
+
+[…] either of these, but this sort of problem is difficult, and even undecidable in some cases; see this paper of the ETP collaborators for more discussion. Nevertheless, many of these problems can be settled with some effort by […]
+
+Reply
+
+Leave a comment 
+Cancel reply
+
+Δ
+
+For commenters
+
+To enter in LaTeX in comments, use $latex 
+<Your LaTeX code>
+$ (without the < and > signs, of course; in fact, these signs should be avoided as they can cause formatting errors). Also, backslashes \ need to be doubled as \\.  See the 
+about page
+ for details and for other commenting policy.
+
+«
+ The story of Erdős problem #1026
+
+The maximal length of the Erdős–Herzog–Piranian lemniscate in high degree 
+»
+
+Blog at WordPress.com.
+Ben Eastaugh and Chris Sternal-Johnson. 
+
+Subscribe to feed.
+
+Comment						
+
+Reblog
+
+Subscribe
+
+Subscribed
+
+				What's new			
+
+Join 12,140 other subscribers
+
+												Sign me up											
+
+											Already have a WordPress.com account? 
+Log in now.
+
+Privacy						
+
+				What's new			
+
+Subscribe
+
+Subscribed
+
+Sign up
+
+Log in
+
+Copy shortlink
+
+										Report this content									
+
+										View post in Reader									
+
+Manage subscriptions
+
+Collapse this bar
+
+%d
+

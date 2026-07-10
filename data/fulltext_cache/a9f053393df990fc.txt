@@ -1,0 +1,22 @@
+# Summary of "Rough Numbers Between Consecutive Primes" (Terence Tao's blog)
+
+Terence Tao and Ayla Gafni have uploaded a paper resolving an Erdős question about rough numbers in prime gaps. A rough number in a prime gap is an integer whose smallest prime factor is at least as large as the gap's length.
+
+## Key Findings
+The authors prove that the count N(X) of prime gaps in [X, 2X] lacking rough numbers satisfies:
+- N(X) ≪ X / log² X (unconditional)
+- N(X) ~ c · X / log² X (under Dickson-Hardy-Littlewood conjecture)
+They estimate c ≈ 2.8, though convergence is slow.
+
+## Methodology
+The approach leverages modern sieve theory, particularly:
+- The fundamental lemma of sieve theory
+- Montgomery-Soundararajan's 2004 work on singular series mean values for k-tuples
+- Higher moment analysis to achieve the log² scaling
+
+The authors note that second-moment analysis yields a weaker bound of log^(4/3) X, requiring higher moments and eventually the prime tuples conjecture for the precise asymptotic.
+
+## Context
+Erdős initially conjectured all but finitely many gaps contain rough numbers, later reversing this. Cousin primes (gaps of 4) provide straightforward counterexamples. The numerical evidence shows the proportion of gaps without rough numbers decays gradually with increasing prime index.
+
+[Note: fetched via WebFetch summarization from https://terrytao.wordpress.com/2025/08/10/rough-numbers-between-consecutive-primes/ — Tao's own preprint-announcement post about his joint paper, technical sieve theory.]

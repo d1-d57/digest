@@ -1,0 +1,759 @@
+BULLETIN (New Series) OF THE
+AMERICAN MATHEMATICAL SOCIETY
+Volume 00, Number 0, Pages 000–000
+S 0273-0979(XX)0000-0
+
+LUNA’S SLICE THEOREM AND APPLICATIONS
+MICHEL BRION, HANSPETER KRAFT, AND GERALD W. SCHWARZ
+
+Abstract. The aim of this article is to give an introduction to Luna’s Slice
+Theorem for non-specialists. In the first section we give an idea of its significance without being too precise. It is followed by an introduction to compact
+transformation groups in section 2. Then we show by examples how classification problems lead to the study of orbits of algebraic groups (section 3).
+In order to explain and formulate Luna’s Slice Theorem we need some basics
+from algebraic transformation groups and algebraic geometry. This is done in
+sections 4 and 5. The paper ends with some striking applications in the last
+section 6.
+
+Contents
+1. Introduction
+1.1. A philosophical Slice Theorem
+1.2. Normal bundle
+1.3. Étale morphisms
+1.4. Algebraic quotients
+1.5. Fiber products
+1.6. Luna’s Slice Theorem
+1.7. First applications
+1.8. Guidelines for the reader
+2. Compact Transformation Groups
+2.1. Group actions and orbit spaces
+2.2. Free actions and G-bundles
+2.3. Generic behavior
+2.4. Nice actions of compact groups
+2.5. Faithful actions
+2.6. Fixed points
+2.7. Slices
+2.8. Twisted products
+2.9. Tubes and slices
+2.10. Construction of orbit spaces
+3. Algebraic examples and classification problems
+3.1. Symmetric products
+3.2. Complex quadratic forms
+3.3. Real quadratic forms
+3.4. Conjugacy classes of matrices
+3.5. Rational representations and algebraic quotients
+3.6. Singularities in orbit spaces
+
+2
+2
+3
+4
+4
+5
+6
+8
+9
+9
+9
+10
+11
+12
+13
+13
+14
+15
+17
+19
+20
+21
+22
+25
+27
+29
+30
+
+Received by the editors April 21, 2025.
+2020 Mathematics Subject Classification. Primary .
+©0000 (copyright holder)
+
+1
+
+2
+
+MICHEL BRION, HANSPETER KRAFT, AND GERALD W. SCHWARZ
+
+4. Orbit spaces and quotients for algebraic groups
+4.1. Algebraic group actions
+4.2. Linearly reductive groups
+4.3. Families of representations
+4.4. Algebraic quotients
+4.5. Étale morphisms
+4.6. Fiber bundles and principal bundles
+4.7. Associated fiber bundles
+4.8. Automorphism groups
+4.9. Special groups
+5. The Slice Theorem
+5.1. Twisted products for reductive groups
+5.2. The construction of slices
+5.3. Excellent morphisms and the Slice Theorem
+5.4. Proof of the Fundamental Lemma
+6. Applications of the Slice Theorem
+6.1. Representations
+6.2. Free actions and principal bundles
+6.3. Actions with closed orbits
+6.4. Luna’s stratification
+6.5. Fix-pointed actions
+References
+
+31
+31
+31
+32
+33
+33
+34
+36
+37
+37
+38
+38
+40
+41
+44
+46
+46
+47
+48
+48
+50
+51
+
+1. Introduction
+Luna’s Slice Theorem is an algebraic version of many more classical slice theorems, for example, the one for smooth actions of compact Lie groups on manifolds.
+But the statement of Luna’s theorem is rather advanced, and it takes some acquaintance with the theory to appreciate its full depth and scope. In this short
+introduction we try to give an idea of its significance without being too precise.
+Precise statements are in the body of the paper; see the end of this introduction
+for an outline.
+1.1. A philosophical Slice Theorem. Let G be a reductive complex algebraic
+group (see 4.2). Examples are the classical groups, e.g., GLm (C), SLm (C) or SOm (C),
+or any finite group. Let V be a finite dimensional complex vector space on which
+G acts linearly. We say that V is a G-module.
+Unless otherwise specified, we are using the Zariski topology on V ≃ Cn (see
+section 3). The Zariski-closed subsets of Cn are exactly the sets of common zeroes
+of polynomial functions in the coordinates z1 , . . . , zn . The usual topology on Cn is
+much finer. We call it the strong topology or the C-topology, and we will talk about
+C-open and C-closed subsets, etc.
+An orbit Gv := {gv | g ∈ G} ⊂ V is always Zariski-open in its Zariski-closure
+which equals the C-closure (see section 4.1) and thus carries a natural structure of
+an algebraic variety. Unless the image of G in GL(V ) is finite there are always orbits
+which are not closed. For example, if G = C∗ = GL1 (C) acts by multiplication on
+C, then the orbits are C \ {0} and {0}, and only the latter is closed.
+Luna’s Slice Theorem describes what is happening near closed orbits. Let v ∈ V
+such that Gv is closed. Then the isotropy group Gv := {g ∈ G | gv = v} is also
+
+LUNA’S SLICE THEOREM AND APPLICATIONS
+
+3
+
+reductive (Matsushima’s Theorem 5.1). As Gv -module, V contains the tangent
+space Tv Gv to the orbit Gv, and there is a Gv -complement Nv such that V =
+Tv Gv ⊕ Nv ; this follows from Gv being reductive. We call the Gv -module Nv the
+slice representation at v, and we think of Nv (or, rather v + Nv ⊆ V ) as the normal
+space to Gv at v.
+The slice representation Nv at v ∈ V is the central object in all what follows.
+Here is a first version of the Slice Theorem.
+Theorem A (Philosophical Slice Theorem). The structure of the G-action in an
+open neighborhood of the closed orbit Gv ⊂ V is determined by the action of the
+isotropy group Gv in a neighborhood of 0 ∈ Nv .
+1.2. Normal bundle. As above, Gv ⊂ V is a closed orbit. If g ∈ G, then the
+subspace gNv ⊆ V is a Ggv -complement to Tgv Gv, and so gv + Ngv is the normal
+space to the orbit Gv at gv. Let N denote the union of all the subsets {gv} × gNv
+in V × V :
+[
+N :=
+{gv} × gNv ⊆ V × V.
+g∈G
+
+Then N is a closed subset of V × V , even a smooth algebraic subvariety, and the
+diagonal G-action on V × V preserves N . The addition map Φ : V × V → V ,
+(u, w) 7→ u + w, is G-equivariant, i.e., Φ ◦ g = g ◦ Φ for all g ∈ G, and the image of
+N is the union of all normal spaces to Gv:
+[
+Φ(N ) =
+gv + Ngv ⊂ V.
+g∈G
+
+Via projection to the first factor, N is a fiber bundle over the orbit Gv with fiber
+Nv (see sections 4.6 and 5.1). We can think of N as the normal bundle to Gv. Note
+that N contains the orbit Gv ≃ Gv × {0} which is mapped identically onto Gv ⊂ V
+under Φ.
+By construction, every G-orbit in N intersects {v} × Nv in a Gv -orbit. Thus the
+G-action on N is determined by the Gv -action on Nv . For example assume that
+∼
+the isotropy group Gv is trivial. Then we have an isomorphism G × Nv −
+→ N given
+by (g, w) 7→ (gv, gw), and so the G-action on N is free, i.e., all isotropy groups are
+trivial.
+Now the Slice Theorem says that locally near Gv the G-module V looks like
+N . More precisely, for a C-open Gv -stable neighborhood S of 0 ∈ Nv denote by
+NS ⊆ N the union of the subsets {gv} × gS:
+[
+NS :=
+{gv} × gS ⊆ N ⊆ V × V.
+g∈G
+
+Then NS is C-open in N and contains the G-orbit Gv. (If S ⊆ Nv is Zariski-open,
+then so is NS ⊆ N .) As before, the projection NS → Gv is a fiber bundle with fiber
+S and the Gv -action on S determines the G-action on NS . We will see in section 2.8
+that NS is a so-called twisted product (cf. section 5.1).
+Theorem B (Topological Slice Theorem, cf. Theorem 2.1). Let Gv be a closed
+orbit. There is a Gv -stable C-open neighborhood S of 0 ∈ Nv with the property
+that the addition map V × V → V induces a C-open and G-equivariant embedding
+φ : NS ,→ V .
+
+4
+
+MICHEL BRION, HANSPETER KRAFT, AND GERALD W. SCHWARZ
+
+Remark 1.1. The subset {v} × S ⊆ NS is mapped, under φ, isomorphically onto
+the subset v + S ⊆ V which is called a slice at v, and the image of φ is the union
+of all the slices gv + gS, g ∈ G. Moreover, by perhaps choosing a smaller S, we can
+arrange that φ is biholomorphic onto its image, and we get a Holomorphic Slice
+Theorem.
+As a first application we see that if the isotropy group Gv is trivial, then the
+G-action is free in a C-open neighborhood of Gv. It is essential for this statement
+that the orbit Gv is closed as shown by the following example.
+Example 1.2. Consider the representation of SL2 on the vector space
+ C[x,
+ y]3 of
+homogeneous polynomials in x, y of degree 3 by substitution: If g = ac db ∈ SL2 ,
+then gx := ax + cy, gy := bx + dy. The orbit of x2 y ∈ C[x, y]3 has a trivial isotropy
+3
+3
+group. The other orbits of dimension
+h 3 are
+i represented by x + λy , λ ̸= 0; their
+ζ 0
+isotropy groups are equal to µ3 := { 0 ζ 2 | ζ 3 = 1}. Note that the orbit of x2 y is
+not closed: it contains the two-dimensional orbit of x3 and the fixed point {0} in
+its closure.
+1.3. Étale morphisms. What can we say in the algebraic category? First of all
+there are far fewer open sets and the inverse function theorem does not hold. This
+leads to the concept of étale morphisms (see section 4.5). Let f : X → Y be a
+morphism between complex algebraic varieties. If X is smooth at x and Y smooth
+at f (x), then f is étale at x if the differential dfx : Tx X → Tf (x) Y is an isomorphism. Thus f is C-locally biholomorphic at x, i.e., posesses, C-locally at f (x), a
+holomorphic inverse. (For possibly singular varieties, we refer to section 4.5 for a
+definition.) We say that f is étale if it is étale at all points.
+The following result is easy. It holds whenever we can find a Gv -stable complement Nv of Tv Gv ⊂ V , e.g. when the isotropy group is reductive. In fact, the bundle
+N is smooth at (v, 0) and its tangent space T(v,0) N = Tv Gv ⊕ Nv is mapped by
+dφ(v,0) isomorphically onto Tv V = V . We also use that NS is an algebraic variety
+if S ⊂ Nv is Zariski-open (see section 1.6).
+Proposition 1.3. There is a Gv -stable Zariski-open neighborhood S of 0 ∈ Nv
+with the property that the addition map V × V → V induces a G-equivariant étale
+morphism φ : NS → V .
+Let us point out here that Luna’s Slice Theorem is much stronger than this
+result. E.g. assume that G acts on an affine variety X with a smooth fixed point
+x0 ∈ X and only one closed orbit, namely {x0 }. Then it is not difficult to see
+that the tangent space Tx0 X is a G-module and that one has a G-equivariant étale
+morphism φ : X → Tx0 X which sends x0 to 0 (cf. Example 5.8). Luna’s Theorem
+∼
+then implies that φ : X −
+→ Tx0 X is a G-equivariant algebraic isomorphism (see
+Theorem 6.1)!
+1.4. Algebraic quotients. In the algebraic setting we have to take into account
+that Zariski-open sets are quite large and orbits are in general not closed if G is not
+finite. As a consequence, the orbit space V /G does not have a suitable structure,
+even as a topological space, and we need a replacement for it.
+Let X be a complex affine algebraic variety and denote by O(X) the C-algebra of
+regular functions on X. Assume that X carries an action of the reductive algebraic
+group G, i.e., (g, x) 7→ gx is a morphism G × X → X of algebraic varieties. Then
+
+LUNA’S SLICE THEOREM AND APPLICATIONS
+
+5
+
+there is an affine variety X//G, the algebraic quotient, and a quotient morphism
+πX : X → X//G which is constant on the G-orbits and has the following universal
+property:
+If Y is an affine variety and φ : X → Y a G-invariant morphism,
+i.e., a morphism constant on G-orbits, then there is a unique morphism φ : X//G → Y such that φ = φ ◦ π:
+X π X//G
+φ
+
+φ
+
+Y
+(The universal property holds for any variety Y , but the proof is slightly more
+involved.)
+More precisely, it can be shown that X//G is the affine variety associated to the
+subalgebra of invariant regular functions O(X)G ⊆ O(X) which is a finitely generated C-algebra (see section 4.2). We will see later in Theorem 4.2 that πX : X →
+X//G is surjective, that X//G carries the quotient topology, and that every fiber
+contains a unique closed orbit. Thus X//G can be understood as the space of closed
+orbits in X, or as the quotient with respect to the following equivalence relation:
+x ∼ y if and only if Gx ∩ Gy ̸= ∅.
+Even if X is smooth, X//G may be singular; in fact, V //G is singular for most
+G-modules V .
+We say that a subset S of X is G-saturated if it is the inverse image of a subset
+of X//G. This means that if x ∈ S, then every y such that the orbit closure Gy
+meets Gx also belongs to S.
+Example 1.4. Consider the linear action of the multiplicative group C∗ := C \ {0}
+on C2 given by t(x, y) := (tx, t−1 y). The invariants are generated by xy ∈ O(C2 ) =
+C[x, y], and thus the ring of invariants is a polynomial ring in one variable. Hence,
+the quotient morphism is given by π : C2 → C2 //C∗ = C, (x, y) 7→ xy. The orbit of
+any point (a, b) with a ̸= 0 ̸= b is closed and equal to the fiber π −1 (ab). The nullfiber F0 := π −1 (0) is equal to the union of the coordinate axes {x = 0} ∪ {y = 0}
+and contains a unique closed orbit, namely {0}. Thus a saturated subset is either
+a union of closed orbits different from {0}, or it contains in addition π −1 (0).
+Note that in the case of the C∗ -action on C we have an open and dense orbit
+and so the invariants are just the constants C, i.e., the quotient is a point. Hence,
+{0} ⊂ C is G-stable but not G-saturated. More examples will appear later in the
+text, e.g. Example 2.21 or Example 3.4.
+
+1.5. Fiber products. In the setting of Luna’s Slice Theorem the concept of a fiber
+product plays an essential role. Let φ : X → Z and ψ : Y → Z be two morphisms of
+varieties, and define the closed subset
+Y ×Z X := {(y, x) ∈ Y × X | ψ(y) = φ(x)} ⊆ Y × X.
+
+6
+
+MICHEL BRION, HANSPETER KRAFT, AND GERALD W. SCHWARZ
+
+Then the commutative diagram
+e
+ψ
+
+Y ×Z X −−−−→ X
+
+
+φ
+φe
+y
+y
+Y
+
+ψ
+
+−−−−→ Z
+
+is called cartesian, and Y ×Z X is the fiber product of Y and X over Z. In the setting
+of scheme theory, it should be called reduced fiber product, but all the schematic
+fiber products we will encounter are reduced. E.g., if ψ is étale, then the schematic
+fiber product is reduced.
+The fiber product X ×Z Y has the following universal property:
+If W is a variety and ρ : W → X, µ : W → Y morphisms such that
+φ ◦ ρ = ψ ◦ µ, then there is a unique morphism (ρ, µ) : W → X ×Z Y
+ρ
+
+W
+(ρ,µ)
+
+e
+such that ψ◦(ρ,
+µ) = ρ and e
+φ◦(ρ, µ) = µ:
+
+µ
+
+e
+ψ
+
+X ×Z Y
+
+φ
+
+φ
+e
+
+Y
+
+X
+
+ψ
+
+Z
+
+If X, Y, Z are affine, then the schematic fiber product is the affine scheme corresponding to the tensor product O(Y ) ⊗O(Z) O(X), and the reduced fiber product
+is obtained by dividing out the nilradical.
+Note that the (reduced) fiber of φ
+e over y ∈ Y is isomorphic to the (reduced)
+fiber of φ over ψ(y) ∈ Z.
+Example 1.5. Consider the morphism φ : C → C, φ(x) = x2 , and the fiber product
+C ×C C −−−−→ C
+
+
+
+φ
+y
+y
+φ
+
+C
+
+−−−−→ C
+
+Then one shows that C ×C C is reduced and isomorphic to the union of two lines
+C ∪ C meeting in the origin.
+1.6. Luna’s Slice Theorem. Now we can formulate Luna’s Slice Theorem in the
+setting of a linear representation V of a reductive group G. Recall that v ∈ V
+is a point of a closed orbit Gv = Gv, and Nv is the slice representation of the
+isotropy group Gv , i.e., a GvS-stable complement of the tangent space to the orbit
+Tv Gv ⊆ V . Moreover, N := g∈G {gv} × gNv ⊆ V × V is the normal bundle which
+is Zariski-closed in V ×V , and the addition map V ×V → V defines a G-equivariant
+morphism φ : N → V which contains the orbit Gv in its image. For any Zariski-open
+and Gv -stable neighborhood S of 0 ∈ Nv the subset
+[
+NS :=
+{gv} × gS ⊆ N
+g∈G
+
+is Zariski-open, and the image φ(NS ) is the union of the slices gv + Ngv , g ∈ G,
+and contains the orbit Gv.
+
+LUNA’S SLICE THEOREM AND APPLICATIONS
+
+7
+
+Theorem D (Luna’s Slice Theorem, see Theorem 5.2). There is a Gv -saturated
+affine Zariski-open subset S of Nv containing 0 ∈ Nv with the following properties.
+Let φ : NS → V be as above.
+(1) φ is étale and φ(NS ) ⊆ V is a G-saturated affine open subset.
+(2) The induced morphism φ//G : NS //G → V //G is étale.
+∼
+(3) S//Gv −
+→ NS //G.
+(4) The commutative diagram
+φ
+
+NS −−−−→
+
+πN
+y S
+
+V
+
+π
+y V
+
+φ//G
+
+NS //G −−−−→ V //G
+is a fiber product.
+Thus Luna’s Slice Theorem gives us a description of the G-action in a saturated
+neighborhood of the fiber F = π −1 (π(v)) of the quotient morphism πV : V → V //G,
+in terms of the slice representation Nv of Gv . The locally closed Gv -stable subset
+v + S ⊆ V is called an étale slice at v.
+From (4) we get
+NS = {(ξ, w)} ⊂ NS //G × V | πV (w) = (φ//G)(ξ)}.
+It follows that φ differs from being an open immersion in exactly the same way
+that φ//G differs from being an open immersion. For example, let ξ ∈ V //G be in
+the image of φ//G and let F denote the fiber πV−1 (ξ) ⊆ V . Let {η1 , . . . , ηm } :=
+−1
+(φ//G)−1 (ξ) and Fi := πN
+(ηi ), i = 1, . . . , m. Then we have the commutative
+S
+cartesian diagram
+φ
+F1 ∪ F2 ∪ · · · ∪ Fm −−−−→ F
+
+
+πN
+π
+y S
+y V
+φ//G
+
+{η1 , η2 , . . . , ηm } −−−−→ {ξ}
+which shows that φ : Fi → F is a G-equivariant isomorphism for all i.
+Remark 1.6. Let us look again at the case of a trivial isotropy group Gv = {e}.
+Then Theorem D implies that for a Zariski-open neighborhood U of πV (v) in V //G
+we get a principal G-bundle πV−1 (U ) → U , i.e., a fiber bundle with fiber G (cf.
+Example 5.9). In particular, all orbits in a neighborhood are closed with trivial
+isotropy group.
+Example 1.7. (We leave the details to the reader.) Consider the standard representation of SO3 = SO3 (C) on C3 . The invariants are generated by the quadratic
+form q := x2 + y 2 + z 2 , and so the quotient is given by π = q : C3 → C. The nullfiber F0 := π −1 (0) consists of two orbits, {0} and the set of non-trivial isotropic
+vectors. The other fibers are closed orbits with isotropy group SO2 (C) ≃ C∗ . More
+precisely, C3 \ F0 → C∗ is a fiber bundle with fiber SO3 / SO2 which is trivialized
+under the two-fold covering C∗ → C∗ , z 7→ z 2 .
+Now let’s see what Luna’s slice theorem tells us in this situation. At v := (0, 0, 1)
+we have (SO3 )v = SO2 which acts trivially on Nv = Ce3 . It follows that for a
+suitable Zariski-open neighborhood S ⊂ Ce3 of (0, 0, 1) the morphisms φ : NS →
+
+8
+
+MICHEL BRION, HANSPETER KRAFT, AND GERALD W. SCHWARZ
+
+C3 and φ// SO3 : NS // SO2 → C3 // SO3 = C are étale, and that the commutative
+diagram
+φ
+NS
+−−−−→ C3
+
+
+π
+πN
+y
+y S
+φ// SO3
+
+NS // SO3 −−−−−→ C
+is a fiber product. Moreover, NS // SO3 ≃ S// SO2 = S, and so again the morphism
+φ// SO3 : S → C is unramified of degree 2.
+Example 1.8. Consider the representation of C∗ on C3 with weights (4, −1, −2):
+t(x, y, z) := (t4 x, t−1 y, t−2 z). Let π : C3 → Y := C3 //C∗ be the quotient. It is
+not difficult to see that the null-fiber F0 := π −1 (π(0)) is equal to the union {x =
+0}∪{y = z = 0}, the yz-coordinate plane and the x-axis, and that all orbits outside
+F0 are closed with isotropy group either {1} or µ2 := {t ∈ C∗ | t2 = 1} ≃ Z/2Z.
+For v := (1, 0, 1) the isotropy group (C∗ )v is equal to µ2 , and the normal space
+is given by Nv = C(1, 0, 0) ⊕ C(0, 1, 0) which – as a representation of µ2 – is the
+direct sum of the trivial representation and the standard representation. For a slice
+S ⊂ v + Nv , the action of µ2 on S ′ := S \ S µ2 is free, and the normal bundle NS has
+two parts, the open subset NS ′ where the C∗ -action is free and the closed subset
+(NS )µ2 where the isotropy group is µ2 .
+Hence the image φ(NS ) is a saturated neighborhood of the orbit C∗ v and consists
+of the closed part φ(NS )µ2 of dimension 2 of orbits isomorphic to C∗ /µ2 , and the
+open complement of dimension 3 where the C∗ -action is free with closed orbits.
+Removing the null-fiber F0 and the fixed points of µ2 we find a Zariski-open
+subset U := C3 \ {xy = 0} where all orbits are closed in C3 and have trivial
+isotropy group. Now Luna’s Slice Theorem implies that for every y ∈ π(U ) there
+is an étale morphism µ : Z → Y with y ∈ µ(Z) and a C∗ -equivariant isomorphism
+∼
+C∗ × Z −
+→ C3 ×Y Z over Z. This means that π : U → π(U ) is a principal C∗ -bundle
+(see Definition 4.13). In this example, the bundle is even trivial, since one can find
+a section.
+1.7. First applications. Luna’s Slice Theorem has many applications as we shall
+see in section 6. Here we list two. Luna was interested in the question of classifying
+actions of reductive complex groups on complex affine spaces Cn . An impetus for
+proving the slice theorem was the following consequence, see Example 6.1(4).
+Theorem. Consider an action of G on Cn and suppose that there is only one
+closed orbit. Then, after an algebraic change of coordinates on V , the action of G
+becomes linear.
+It took a long while (and more ideas of Luna’s) to see that this Linearization
+Theorem does not hold in general if there are infinitely many closed orbits ([36],
+[21]).
+Probably the first application of Luna’s Slice Theorem (aside from those in his
+original paper) was by Kac, Popov and Vinberg in 1976 ([16], see also [34] and
+[35]). They determined all irreducible G-modules V , where G is a simple complex
+algebraic group (e.g., SLn (C) or SOn (C)) and V //G is smooth; equivalently, the
+algebra of G-invariant polynomial functions on V is a polynomial ring. Critical was
+using the following immediate consequence of the slice theorem: if V //G is smooth,
+then so is the quotient of every slice representation.
+
+LUNA’S SLICE THEOREM AND APPLICATIONS
+
+9
+
+1.8. Guidelines for the reader. Here is an outline of the paper. Section 2 gives
+an introduction to the theory of compact transformation groups, in particular to
+the topological slice theorem. A reader familiar with these concepts can skip this
+section.
+In section 3 we show how classification problems in algebra lead to the study
+of orbits of algebraic group actions and of orbit spaces and quotients, and we give
+several examples which can also be skipped in a first reading.
+The next section 4 contains a short introduction to algebraic transformation
+groups and to étale morphisms. Once these concepts are clear, we can formulate
+and prove Luna’s Slice Theorem in section 5, and then give a number of striking
+applications in the final section 6.
+Let us mention here that the book Geometric Invariant Theory of Mumford,
+Fogarty and Kirwan contains a survey on Luna’s Slice Theorem with some
+applications, see [31]. Also, there is the article Luna’s slice theorem and applications
+by Drézet in [10] with a proof of the Slice Theorem.
+Luna’s slice theorem has many applications to the local structure of moduli
+spaces (see for example [24], Section II). The theorem has been generalized to positive characteristic by Bardsley and Richardson; see [4], and [3] (Theorem 5.1)
+for a further generalization that allows non-reduced isotropy groups. We mention
+finally recent developments on the structure of algebraic stacks related to Luna’s
+slice theorem, see [1] and also [33].
+Acknowledgement. The authors thank an anonymous referee for useful remarks and
+corrections. We also thank Herwig Hauser for the same as well as his guidance and encouragement.
+
+2. Compact Transformation Groups
+We start with some generalities and some lack of precision. Let X be a topological space acted upon by a topological group G. A slice theorem enables one to
+determine the properties of the G-action near an orbit Gx in terms of the action
+of the isotropy group Gx on a slice S. There are many slice theorems depending
+upon which category of spaces, groups and actions one chooses. In this first section
+we concentrate on the case of compact groups where the main concepts are more
+elementary.
+Our basic reference here is Bredon’s book [8].
+2.1. Group actions and orbit spaces. Let G be a finite or, more generally, a
+compact group G acting continuously on a topological space X. This means that
+we have a homomorphism ρ of G into the group of homeomorphisms of X such
+that the “action map” G × X → X, (g, x) 7→ gx := ρ(g)x, is continuous. We call X
+a G-space. We will always assume that our topological spaces are locally compact
+and Hausdorff and thus completely regular1 ([15, Theorem 2-56]).
+The orbit space X/G, i.e., the set of orbits Gx := {gx | g ∈ G}, comes with a
+canonical map π : X → X/G, called the quotient map, which sends a point x ∈ X
+to its orbit Gx. For a subset Y ⊆ X we will use the notation GY := {gy | g ∈
+G, y ∈ Y }.
+1This means that points can be separated from closed subsets by continuous real-valued
+functions.
+
+10
+
+MICHEL BRION, HANSPETER KRAFT, AND GERALD W. SCHWARZ
+
+The orbit space X/G has a canonical topology, the quotient topology, where a
+subset U ⊆ X/G is open if and only if π −1 (U ) ⊆ X is open. Then π is an open
+mapping. It is a nice exercise in topology to prove the following result (see [8, Ch.
+1, Theorem 3.1]).
+Proposition 2.1. The orbit space X/G is locally compact and Hausdorff and the
+quotient map π = πG : X → X/G is proper, i.e., the inverse image of every compact
+set is compact.
+Another observation is the following. Let Y be a topological space, let C(X, Y )
+denote the space of continuous functions from X to Y , and let C(X, Y )G denote
+the subset of G-invariant functions, i.e., those functions which are constant on the
+G-orbits in X. If f ∈ C(X/G, Y ), then the pull-back π ∗ f := f ◦ π is G-invariant.
+The converse also holds.
+Proposition 2.2. The pull-back map π ∗ induces an isomorphism of C(X/G, Y )
+with C(X, Y )G .
+Thus we see that there is a strong relation between orbit spaces and invariant
+functions. We will see later in section 2.10 how invariant functions can be used to
+construct orbit spaces.
+Example 2.3. Consider the group G := {±1} acting on the sphere S n ⊂ Rn+1
+by sending x to −x. It is well-known that the orbit space S n /G can be identified
+with the n-dimensional real projective space Pn (R) and that the quotient map
+π : S n → Pn (R) is a 2-fold covering.
+Example 2.4. Consider the compact group S 1 := SO2 (R) acting on R2 by rotation.
+The orbits are the circles with center the origin, and the quotient map is given by
+π : R2 → [0, ∞) := {a ∈ R | a ≥ 0}, (x, y) 7→ x2 + y 2 .
+The reader might check that this map is indeed proper.
+Definition 2.5. Let Y be a G-space. A continuous map f : X → Y is G-equivariant
+if f (gx) = gf (x) for every g ∈ G and x ∈ X. Then f sends G-orbits in X into Gorbits and induces a continuous map X/G → Y /G which we denote by f /G.
+For some results we will need the additional assumption that G is a compact Lie
+group, i.e., it is equipped with a differentiable structure such that the multiplication
+and the inverse are smooth maps. It is known that a compact group is a Lie group
+if and only if it is isomorphic to a closed subgroup of the orthogonal group On (R)
+for some n, cf. [8, Chap. 0.5, Theorem 5.1].
+2.2. Free actions and G-bundles. Let x ∈ X. The (closed) subgroup Gx :=
+{g ∈ G | gx = x} ⊆ G is called the isotropy group at x. Note that the orbit Gx is
+G-equivariantly homeomorphic to the homogeneous space G/Gx , the space of left
+Gx -cosets in G. The point x is called a fixed point if Gx = G or equivalently, if
+Gx = {x}. We denote by X G ⊆ X the subset of fixed points. It is not difficult to
+see that X G is closed in X and that the quotient map induces a homeomorphism
+∼
+XG −
+→ π(X G ).
+The other extreme case is when Gx is the trivial group {e}. We say that the
+action of G on X is free if Gx = {e} for all x ∈ X. Example 2.3 is an example of a
+free action, and the same holds for Example 2.4 if we remove the origin.
+
+LUNA’S SLICE THEOREM AND APPLICATIONS
+
+11
+
+Proposition 2.6. Assume that the action of G on X is free. If G is a finite group
+of order n, then the quotient map π : X → X/G is an n-fold covering. In general,
+for a compact Lie group G the quotient map π : X → X/G is a principal G-bundle.
+Recall that a continuous G-invariant map p : X → B is a principal G-bundle
+if every point b ∈ B admits an open neighborhood U ⊂ B and a G-equivariant
+∼
+homeomorphism φ : G×U −
+→ p−1 (U ) (where G acts on G×U by left multiplication
+on G) such that the following diagram commutes:
+φ
+
+G × U −−−−→ p−1 (U )
+≃
+
+
+
+
+prU y
+py
+U
+
+U.
+
+Equivalently, G acts freely on X and the map p admits local cross sections, that is,
+for every b ∈ B there is an open neighborhood U and a continuous map s : U → X
+such that p ◦ s = idU . A principal G-bundle p : X → B is called trivial if it is
+G-equivariantly homeomorphic to the projection prB : G × B → B.
+For example, if G is a compact Lie group and H ⊂ G is a closed subgroup, then
+H is a Lie subgroup and the quotient map p : G → G/H is a principal H-bundle
+(see [8, Chap. 0, §5]).
+Proof of Proposition 2.6. Let G be a finite group. For an orbit Gx = {x0 = x, x1 , . . . , xn }
+let Ui , i = 1, . . . , n, be pairwise disjoint S
+neighborhoods of the points xi . Choose a
+neighborhood S of x such that GS ⊆ i Ui . Then the open sets {gS | g ∈ G}
+are pairwise disjoint. Now U := π(S) ⊂ X/G is open and π −1 (U ) = GS. Thus π
+is an n-fold cover since every gS is mapped homeomorphically onto U . The map
+∼
+(g, x) 7→ gx induces a G-equivariant homeomorphism G × S −
+→ π −1 (U ) such that
+the requisite diagram commutes, i.e., X → X/G is a principal G-bundle.
+If G is a compact group and x ∈ X we can find a slice S at x. This means a
+locally closed subset S ⊂ X containing x such that the map G × S → X is an open
+embedding. It then follows that π(S) ⊆ X/G is open and that π : GS → π(S) is a
+trivial principal G-bundle (see [8, Chap. II, Theorem 5.4]).
+□
+We will use the more general term G-bundle for a map p : X → B which is Ginvariant and locally trivial, i.e., every b ∈ B admits an open neighborhood U and
+∼
+a G-equivariant homeomorphism φ : F × U −
+→ p−1 (U ) where F is a G-space and
+p ◦ φ = prU . The fiber F is uniquely determined up to equivariant homeomorphism
+if the base B is connected.
+2.3. Generic behavior. Given an orbit O := Gx ⊆ X one of the main problems
+is to describe the G-space X locally around O. If the isotropy group Gx is trivial,
+then one might expect that this holds in a neighborhood of O. This is easy to see
+for finite groups, because the subset X0 := {x ∈ X | Gx = {e}} ⊆ X (the largest
+G-stable
+open set on which G acts freely) is the complement of the closed subset
+S
+H
+X
+where
+H runs through the non-trivial subgroups of G. It also holds if G is
+H
+a compact Lie group, cf. Proposition 2.6 above and its proof.
+It follows that in the open neighborhood X0 of O the action is free, that X0 /G
+is open in X/G, and so X0 → X0 /G is a principal G-bundle.
+
+12
+
+MICHEL BRION, HANSPETER KRAFT, AND GERALD W. SCHWARZ
+
+Example 2.7. Let us look again at the group G := {±1}, this time acting on Rn+1
+by x 7→ −x. There is a unique fixed point x = 0, and the action on Rn+1 \ {0} is
+free. We have an obvious homeomorphism
+∼
+
+ψ : R>0 × S n −
+→ Rn+1 \ {0}, (r, x) 7→ rx,
+and this map is G-equivariant where G acts trivially on R>0 and by x 7→ −x on
+S n . As a consequence, we get
+(Rn+1 \ {0})/G ≃ R>0 × Pn (R).
+In order to obtain the structure of Rn+1 /G we remark that
+Rn+1 = (R≥0 × S n )/{0} × S n ,
+the quotient space obtained from R≥0 × S n by collapsing the closed subset {0} × S n
+to a point. From this we obtain
+Rn+1 /G ≃ (R≥0 × Pn (R))/{0} × Pn (R).
+This means that the orbit space Rn+1 /G is obtained from the product R≥0 × Pn (R)
+by collapsing the closed subset {0} × Pn (R) to a point.
+In this example we used the construction of a cone on a topological space Y .
+This is defined as R≥0 × Y with {0} × Y collapsed to a point and endowed with the
+quotient topology. Now let G be a finite group acting linearly on Rn+1 preserving
+the sphere S n . Since Rn+1 is the cone on S n , it follows that Rn+1 /G is the cone on
+S n /G.
+Remark 2.8. The case n = 1 of the example above is special. In fact, P1 (R) ≃ S 1 ,
+and thus we obtain for the orbit space
+R2 /G ≃ (R≥0 × P1 (R))/{0} × P1 (R) ≃ (R≥0 × S 1 )/{0} × S 1 ≃ R2 .
+This can be explained in the following way. Consider the action of G on C by
+sending z to −z. Then the map π : C → C, z 7→ z 2 , is the quotient map for this
+action. In fact, the fibers are the orbits and the map is proper. One should also
+point out that the function z 2 ∈ C[z] is a generator of the algebra of polynomial
+invariants C[z]G . This again is a general fact which we will discuss in section 2.10.
+This remark also shows that the orbit space R2 /G is homeomorphic to a topological manifold. However, this is not the case for the orbit space Rn /G if n > 2. In
+e := π −1 (U ) is
+fact, if U ⊆ Rn /G is a contractible open neighborhood of π(0), then U
+e \ {0} → U \ {π(0)} is a 2-fold covering.
+a connected open neighborhood of 0, and U
+e
+Since n > 2 the connected open set U \ {0} is simply connected, and we end up
+with a contradiction.
+2.4. Nice actions of compact groups. We will see below in section 2.9 that our
+general assumptions, namely that G is a compact Lie group and X a locally compact Hausdorff space, are sufficient for the main results. However, with additional
+assumptions we might be able to say more.
+A typical case is an action of a compact group G given by a representation
+ρ : G → GL(V ) on a finite dimensional real vector space V . In this case there exists
+a G-invariant scalar product which is obtained by averaging over the compact group,
+and so we can assume that G is a closed subgroup of the orthogonal group On (R).
+We will say that V is a euclidean G-space.
+
+

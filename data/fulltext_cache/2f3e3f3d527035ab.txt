@@ -1,0 +1,20 @@
+Just a couple more notes on
+this setup
+so I don’t forget.
+First of all, I set this up as a problem about G acting on G/H, i.e. G acting transitively on a set.  But the transitivity is actually not critical.  The group could be trivial!  If we call the set Σ, then G could be the trivial group, and we’d just be asking for large subsets S of
+Σ
+such that S^m was contained in some specified subset R of Σ^m.  There are perfectly questions like that!  I’ve seen this come up for instance when Σ is k and R is an algebraic subvariety of k^m.  So maybe you could think of the setup of the blogpost as “questions like that where the problem admits a really big automorphism group, maybe so big that the elements of Σ are homogeneous for it.”  I do think the transitivity cuts you down to a particularly congenial and natural class of such problems; “problems with no moduli” if you like.
+Yet one more note.  I think one could work with more general tensor categories than the category of sets.  For instance, one could take V to be a representation of G, and let R be a subrepresentation of V^{⊗m}, and ask: how large can a subspace (not a subrepresentation) W of V be with the property that W^{⊗m} lies in R?  And tensor powers are actually not necessarily the most natural thing to do to V; probably rather than choosing m and tensoring m times, we should choose a partition λ and apply the λ Schur functor.  I assumed that once again lots of standard problems would fall out of this setup, but to be honest, I couldn’t think of any.  Can you?
+I guess here’s one baby case.  Let V be the standard permutation representation of S_n.  Then Sym^d V is homogeneous forms in n variables with S_n permuting coordinates.  Let R be the subrepresentation of forms F such that the coefficients of X_i^d sum to 0.  Then a subspace W of linear forms such that Sym^d W lies in R is just (I think) a linear subspace of the diagonal hypersurface sum x_i^d = 0 in P^{n-1}, and such a subspace has dimension at most n/2 or so I think (pair up coordinates to make x_i^d = – x_{i+1}^d; maybe you have to be a little more clever if d is even and -1 doesn’t have a square root?)
+Share this:
+Email a link to a friend (Opens in new window)
+Email
+Share on Facebook (Opens in new window)
+Facebook
+Share on Reddit (Opens in new window)
+Reddit
+Share on X (Opens in new window)
+X
+Like
+Loading...
+Related

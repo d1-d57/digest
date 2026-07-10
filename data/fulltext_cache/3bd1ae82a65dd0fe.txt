@@ -1,0 +1,2142 @@
+Séminaire BOURBAKI                                                              Novembre 2025
+78e année, 2025–2026, n° 1243
+
+
+
+                               DEGRÉS DYNAMIQUES
+
+                                      par Serge Cantat
+
+
+
+
+1. Introduction
+
+   Soit f : Cd → Cd une transformation qui, en coordonnées cartésiennes, est définie
+par des formules polynomiales. Ainsi, f (x1 , . . . , xd ) = (f1 , . . . , fd ) pour des polynômes
+fi ∈ C[x1 , . . . , xd ]. Définissons le degré deg(f ) comme le maximum des degrés des
+monômes qui apparaissent dans les fi . Un problème naturel, lorsqu’on s’intéresse au
+système dynamique engendré par f , est de décrire le comportement asymptotique de
+la suite n 7→ deg(f n ), où f n désigne le n-ème itéré de f pour la composition : f 0 = id,
+f n+1 = f n ◦ f . Ce problème est essentiellement ouvert. Par exemple, on ne sait pas
+s’il existe des transformations polynomiales de C3 pour lesquelles deg(f n ) se comporte
+                                                                                 √
+comme n log(n), comme n3/2 , comme na avec a ≥ 3, ou comme exp( n). La croissance
+des degrés étant au plus exponentielle, on introduit le premier degré dynamique
+
+                                 λ1 (f ) := lim sup deg(f n )1/n .
+                                            n→+∞
+
+Par exemple, si f (x1 , x2 ) = (x2 , x1 x2 ), alors deg(f n ) est le (n + 2)-ème nombre de
+Fibonacci et λ1 (f ) est le nombre d’or. De nombreux résultats portant sur ces degrés
+dynamiques ont été obtenus récemment et le but de cet exposé est justement de présenter
+les plus importants d’entre eux dans leur degré de généralité naturel.
+   Pour cela, un point de vue géométrique s’avère pertinent. Supposons f dominante,
+c’est-à-dire que son image contient un ouvert non-vide. Étendons f en une transformation
+rationnelle de l’espace projectif Pd (C) ; en coordonnées homogènes, nous pouvons écrire
+f [x0 : · · · : xd ] = [F0 : · · · : Fd ] où les Fi sont les polynômes homogènes de degré
+k = deg(f ) définis par F0 = xk0 et Fi = xk0 fi (x1 /x0 , . . . , xd /x0 ) pour i ≥ 1. Pour
+chaque entier i entre 0 et d, notons H i et H d−i des sous-espaces projectifs de Pd (C)
+de codimensions respectives i et d − i, choisis en position générale, et considérons le
+nombre d’intersections
+                                                              
+                                 degi (f ) := (f ∗ H i ) · H d−i ;
+                                                  1243–02
+
+
+c’est le degré de la sous-variété obtenue en prenant l’image réciproque de H i par f (1) .
+Par exemple, si i αi xi = 0 est l’équation de H 1 , alors i αi Fi = 0 est l’équation de
+                     P                                           P
+
+f ∗ H 1 , et elle est de degré k ; ainsi, deg1 (f ) coïncide avec deg(f ). Suivant Russakovskii
+et Shiffman (1997), nous définissons alors les degrés dynamiques λi (f ) par la formule
+                                     λi (f ) = lim sup degi (f n )1/n .
+                                                 n→+∞
+
+Cette définition sera étendue aux transformations rationnelles de variétés projectives
+X ⊂ PN en prenant d = dim(X), en remplaçant H i par l’intersection de X avec un
+sous-espace projectif de PN de codimension i, et en calculant les intersections dans X.
+  Il est également possible de définir λi (f ) lorsque f : X 99K X est une transformation
+méromorphe (2) d’une variété kählérienne compacte : les H i sont remplacés par les
+produits extérieurs d’une forme de Kähler κ, et les produits d’intersections par X f ∗ κi ∧
+                                                                                 R
+
+κdim(X)−i (l’intégrale étant calculée là où f est holomorphe). Dans ce cadre, les degrés
+dynamiques sont reliés à la dynamique de f par l’inégalité (Gromov, 2003 ; Dinh et
+Sibony, 2004 ; Favre, Truong et Xie, 2022)
+(1)                                    htop (f ) ≤ max log λi (f )
+                                                    i=0,...,d
+
+où htop (f ) est l’entropie topologique : c’est le taux de croissance exponentielle du nombre
+d’orbites de f qui peuvent être distinguées en observant la dynamique durant un temps n
+avec une précision ε > 0 suffisamment petite (voir Katok et Hasselblatt, 1995). Lorsque
+f : X → X est holomorphe, ce qui est le cas initialement traité par Gromov, λi (f ) coïn-
+cide avec le rayon spectral de f ∗ sur le groupe de cohomologie de Dolbeault H i,i (X; R),
+où f ∗ désigne l’opérateur linéaire induit par f sur la cohomologie de X. En couplant
+l’inégalité (1) à la minoration de Yomdin (1987), nous obtenons alors
+                                       htop (f ) = max log λi (f )
+                                                    i=0,...,d
+
+dès que f est une transformation holomorphe d’une variété compacte kählérienne. Ainsi,
+htop (f ) est le logarithme d’une valeur propre de f ∗ , donc d’un nombre algébrique.
+   Dans une autre direction, si f : X 99K X est une transformation rationnelle d’une
+variété projective, X et f étant définies sur Q, une conjecture de Kawaguchi et Silverman
+prévoit que la hauteur additive de f n (x) se comporte comme λ1 (f )n dès que l’orbite de
+x ∈ X(Q) est Zariski dense. Conjecturalement, λ1 (f ) décrit donc aussi la complexité
+arithmétique de toute orbite Zariski dense.
+   Les degrés dynamiques λi jouent donc un rôle central dans l’étude des transformations
+algébriques ou méromorphes, du moins pour celles dont la dynamique présente des
+
+   1. Plus précisément, l’hypothèse de position générale signifie qu’on impose à la paire (H i , H d−i ) d’évi-
+ter un fermé de Zariski strictement contenu dans le produit des grassmanniennes Gi,d (C) × Gd−i,d (C)
+afin que la sous-variété f ∗ H i soit bien de codimension i et que H d−i intersecte transversalement cette
+sous-variété ; le nombre de points d’intersection est alors égal à degi (f ).
+   2. Les applications rationnelles (resp. méromorphes) ne sont définies qu’en dehors d’un lieu d’indé-
+termination Ind(f ) qui est un sous-ensemble algébrique (resp. analytique) strict de X : c’est ce que
+rappelle la notation en pointillés f : X 99K X.
+                                           1243–03
+
+
+phénomènes de croissance exponentielle. Nous décrirons les propriétés de base des λi
+(définition, log-concavité, semi-continuité) en traitant de concert les cas projectifs et
+kählériens, puis discuterons des propriétés arithmétiques des λi et de quelques résultats
+plus fins qui, pour l’instant, n’ont été établis que pour des endomorphismes réguliers.
+  Remerciements.— Je remercie C. Favre pour ses exposés sur les degrés dynamiques,
+qui m’ont servi de base de travail. Je remercie J. Xie d’avoir répondu à mes questions.
+Ce travail est financé par l’European Research Council (ERC GOAT 101053021).
+
+
+
+
+2. Intersections et degrés dynamiques
+
+2.1. Diviseurs de Cartier
+
+  Nous allons employer la théorie de l’intersection pour les diviseurs de Cartier sur des
+variétés projectives. Le chapitre 1.1 du livre de Lazarsfeld (2004), suivi du chapitre VI.2
+de celui de Kollár (1996), offrent une présentation concise des résultats nécessaires. Nous
+ne ferons pas d’hypothèse sur la caractéristique du corps de définition, noté k, mais
+comme on peut toujours se ramener à ce cas, nous supposerons k algébriquement clos.
+Les variétés seront supposées irréductibles et réduites ; elles peuvent être singulières.
+   Soit X une telle variété. Les diviseurs de Cartier sont définis localement par des
+fonctions rationnelles. Plus précisément, D est un diviseur de Cartier s’il existe un
+recouvrement ouvert (Ui ) de X et des fonctions rationnelles ui : Ui 99K k tels que D ∩ Ui
+coïncide avec Div0 (ui ) − Div∞ (ui ) (le lieu des zéros moins le lieu des pôles, comptés
+avec multiplicité). Les ui vérifient des relations ui = gij uj sur Ui ∩ Uj où les gij sont
+                                                                            ×
+régulières et ne s’annulent pas ; ceci définit un cocycle {gij } ∈ H 1 (X; OX ) qui, à son tour,
+détermine un fibré en droites OX (D). Réciproquement, tout fibré en droites est associé
+à un diviseur. Nous jonglerons avec ces deux points de vue et écrirons simplement
+« diviseur »pour « diviseur de Cartier ». Nous identifierons aussi le fibré OX (D) au
+faisceau de ses sections locales.
+   Un diviseur est effectif si l’on peut choisir des équations locales ui qui sont régulières
+(sans pôles). Deux diviseurs sont linéairement équivalents s’il existe une fonction ration-
+nelle ξ : X 99K k telle que D − D′ = Div0 (ξ) − Div∞ (ξ) ; cela revient à dire que D et D′
+déterminent des fibrés OX (D) et OX (D′ ) isomorphes.
+   On note Div(X) le groupe abélien des diviseurs de Cartier à coefficients entiers,
+l’addition de deux diviseurs D et D′ étant notée D + D′ . Le groupe des classes d’iso-
+morphismes de fibrés en droites sera noté Pic(X). Le produit tensoriel L ⊗ L′ de deux
+fibrés en droites sera aussi noté L + L′ ; en particulier, nL et L⊗n sont deux notations
+pour le même fibré. L’application D ∈ Div(X) 7→ OX (D) ∈ Pic(X) est surjective et son
+noyau est le groupe des diviseurs linéairement équivalents à 0.
+                                               1243–04
+
+
+2.2. Produits d’intersection et équivalence numérique
+   Soit d la dimension de X. Le produit d’intersection est une application multilinéaire
+et symétrique de Div(X)d vers Z, notée (D1 , D2 , . . . , Dd ) 7→ (D1 · D2 · · · Dd ) , qui vérifie
+les propriétés suivantes
+  1. si les Di sont effectifs et s’intersectent transversalement en des points lisses de X,
+     alors (D1 · D2 · · · Dd ) est égal au nombre d’intersections card(D1 ∩ · · · ∩ Dd ) ;
+  2. (D1 · D2 · · · Dd ) ne dépend que des classes d’équivalence linéaire des Di ;
+  3. si f : Y → X est un morphisme surjectif de degré fini entre variétés projectives de
+     dimension d, alors
+
+(2)                 (f ∗ D1 · f ∗ D2 · · · f ∗ Dd ) = degtop (f ) (D1 · D2 · · · Dd )
+
+      pour tout d-uplet de diviseurs Di ∈ Div(X) (les f ∗ Di étant obtenus en composant
+      les équations locales de Di avec f ).
+Dans cette dernière propriété, degtop (f ) est le degré de l’extension de corps de fonctions
+degtop (f ) = [k(Y ) : f ∗ k(X)] ; nous l’appelons degré topologique car, lorsque k = C, c’est
+aussi le nombre de préimages d’un point générique de X.
+  D’après la propriété (2), les produits d’intersection peuvent aussi être définis pour
+des fibrés en droites Li . Si V ⊂ X est une sous-variété irréductible de dimension k,
+(L1 · · · Lk · V ) désignera l’intersection des Li|V dans V , et nous emploierons la même
+notation pour des diviseurs. La propriété (??) fournit alors la relation
+
+(3)                 (f ∗ D1 · f ∗ D2 · · · f ∗ Dk · V ) = (D1 · D2 · · · Dk · f∗ V ) ,
+
+où f∗ V = degtop (f|V )f (V ) si dim(f (V )) = dim(V ) et f∗ V = 0 si dim(f (V )) < dim(V ).
+On étend ces définitions aux sous-variétés réductibles de X par linéarité. Nous ferons
+indistinctement référence aux égalités (2) et (3) comme aux « formules de projection ».
+   Deux diviseurs D, D′ ∈ Div(X) sont numériquement équivalents si (D · C) = (D′ · C)
+pour toute courbe C ⊂ X. Ceci définit une relation d’équivalence D =num D′ sur
+Div(X) et le quotient est le groupe de Néron–Severi NS(X; Z). C’est un groupe abélien
+libre de rang fini, donc isomorphe à Zρ(X) pour un entier ρ(X) ≥ 1 appelé nombre de
+Picard de X. On montre alors (voir Lazarsfeld, 2004, p. 19 et Corollary 1.4.38) que
+  4. (D1 · D2 · · · Dd ) = (D1′ · D2′ · · · Dd′ ) si Di =num Di′ pour tout i.
+Le produit d’intersection passe donc au quotient en une application multilinéaire de
+NS(X; R)d vers Z.
+   Dans la suite, les notations employées (D ou L) ne distinguent pas un diviseur
+(resp. un fibré) de sa classe numérique. Nous noterons Ni (X; Z) l’espace des cycles de
+codimension i modulo équivalence numérique. C’est un groupe abélien libre de rang
+fini, et NS(X; Z) = N1 (X; Z). Nous noterons Ni (X; A) = Ni (X; Z) ⊗Z A pour tout
+anneau A.
+                                                        1243–05
+
+
+2.3. Transformations rationnelles et degrés dynamiques
+2.3.1. Le cas projectif. — Soit f : X 99K Y une application rationnelle dominante
+entre des variétés projectives de dimension d. Soit Z une variété projective, ϵ : Z → X
+un morphisme birationnel et F : Z → Y un morphisme génériquement fini (3) tels que
+f = F ◦ ϵ−1 . Un exemple de tel triplet est fourni en choisissant Z égal au graphe
+Γf ⊂ X × Y de f et en considérant les projections ϵ = (πX )|Γf et F = (πY )|Γf .
+
+                                                            Z
+                                                 ϵ                       F
+
+                                                            f
+                                           X                                 Y
+   Supposons X et Y plongées dans des espaces projectifs PN et PM et fixons des
+intersections HX et HY de X et Y avec des hyperplans. Pour 0 ≤ i ≤ d, on définit alors
+                                                                                 
+                            f ∗ HYi · HX
+                                       d−i
+                                           := (F ∗ HY )i · (ϵ∗ HX )d−i
+                                                                                                 
+                                              = F ∗ HY · · · F ∗ HY · HX · · · HX ,
+                                                    |            {z          } |      {z      }
+                                                                i fois             d−i fois
+
+le produit d’intersection étant calculé dans Z. Ces nombres d’intersections ne dépendent
+pas de la factorisation f = F ◦ ϵ−1 choisie. Si, en effet, (Z ′ , ϵ′ , F ′ ) est une autre fac-
+torisation de f , l’application birationnelle (ϵ′ )−1 ◦ ϵ : Z 99K Z ′ peut-être factorisée en
+(ϵ′ )−1 ◦ ϵ = η ′ ◦ η −1 où η : W → Z et η ′ : W → Z ′ sont des morphismes birationnels.
+Alors, η et η ′ étant de degrés 1, la formule de projection montre que
+                                                                                                   
+                       (F ∗ HY )i · (ϵ∗ HX )d−i = (η ∗ F ∗ HY )i · (η ∗ ϵ∗ HX )d−i
+                                                                                                         
+                                                        = (η ′∗ F ′∗ HY )i · (η ′∗ ϵ′∗ HX )d−i
+                                                                                             
+                                                        = (F ′∗ HY )i · (ϵ′∗ HX )d−i .
+                                  
+                            d−i
+Les quantités f ∗ HYi · HX      sont les degrés de f en codimension i (pour les polarisations
+HX et HY ). Nous les emploierons presqu’exclusivement lorsque X = Y et HX = HY , en
+notant simplement H au lieu de HX ; comme dans           l’introduction,
+                                                                         nous noterons alors
+                                                          ∗ i     d−i
+degH,i (f ) ou degi (f ) ces degrés ; ainsi, degi (f ) = f H · H        .
+                                                            n
+  Si f : X 99K X est dominante, les compositions f = f ◦ · · · ◦ f sont bien définies ;
+ceci permet d’introduire les degrés dynamiques
+                                       λi (f ) := lim sup degi (f n )1/n .
+                                                     n→+∞
+
+Nous verrons à la section 4 que le choix de H ne change pas l’asymptotique de n 7→
+degi (f n ), si bien que λi (f ) ne dépend pas de H (ce que suggère la notation).
+
+   3. Un morphisme dominant F : Z → Y est génériquement fini si ses fibres générales sont finies,
+c’est-à-dire que F −1 (y) est fini pour y dans un ouvert dense de Y , ou encore degtop (F ) < +∞.
+                                                   1243–06
+
+
+Remarque 2.1. — Ce point de vue sur les λi permet des analogies fructueuses avec la
+notion de facteur de dilatation pour le groupe modulaire d’une surface (Farb et Margalit,
+2012) et avec la complexité dynamique d’intersection d’Arnol’d (1990).
+
+Exemple 2.2. — Considérons le cas où X est l’espace projectif Pd , muni de coordonnées
+homogènes [x0 : . . . : xd ]. Soit H ≃ Pd−1 un hyperplan de Pd . Soit f : Pd 99K Pd
+une transformation rationnelle dominante. Il existe alors d + 1 polynômes homogènes
+Fi ∈ k[x0 , . . . , xd ], de même degré et sans facteur commun, tels que f [x0 : . . . : xd ] =
+[F0 : . . . : Fd ]. Le lieu d’indétermination Ind(f ) coïncide avec le lieu des zéros communs
+des Fi . Par définition, le degré des Fi est le degré algébrique de f , noté degalg (f ).
+    Si g = [G0 : . . . : Gd ] est une autre transformation dominante, alors f ◦ g = [H0 :
+. . . : Hd ] où Hi = Fi (G0 , . . . , Gd ), mais il se peut que ces polynômes Hi aient un facteur
+commun de degré ≥ 1. Si Q est un plus grand facteur commun, alors f ◦g est déterminée
+par les fonctions Hi /Q, et degalg (f ◦ g) = degalg (f ) degalg (g) − deg(Q). Les degrés sont
+donc sous-multiplicatifs. Par exemple, f [x0 : x1 : x2 ] = [x20 x31 : x21 x32 : x22 x30 ] est de degré
+algébrique 5 mais f 2 est de degré algébrique 13 (après factorisation par (x0 x1 x2 )4 ).
+
+Exemple 2.3. — Supposons que f : Pd 99K Pd est monomiale, c’est-à-dire que les Fi sont
+                 a        a
+des monômes x0i,0 · · · xdi,d , les ai,j formant les coefficients d’une matrice A ∈ Matd+1 (Z)
+à coefficients ≥ 0. Dans la carte affine x0 = 1, avec les coordonnées affines (x1 , . . . , xd ),
+                                              b       b
+f est encore définie par des monômes x1i,1 . . . xdi,d associés à une matrice B ∈ Matd (Z).
+Comme montré par Favre et Wulcan (2012) et J.-L. Lin (2012), le i-ème degré dynamique
+λi (f ) coïncide avec le rayon spectral de l’action de B sur le produit extérieur ∧i Rd .
+
+2.3.2. Le cas kählérien. — Supposons ici que X est une variété complexe, compacte,
+connexe et kählérienne de dimension d (voir le livre de Griffiths et Harris, 1978). Soit f
+une transformation méromorphe dominante de X ; ceci signifie que le graphe Γf de f
+est un sous-ensemble analytique irréductible de X × X tel que (a) les projections π1 et
+π2 : Γf → X sur le premier et le second facteur sont surjectives et (b) π1 est de degré
+topologique égal à 1 (l’image réciproque d’un point général de X est réduite à un point).
+L’application π1 est donc biméromorphe, et f = π2 ◦ π1−1 . L’ensemble des x ∈ X tels
+que π2 (π1−1 {x}) est de dimension ≥ 1 est le lieu d’indétermination Ind(f ).
+   Munissons X d’une forme de Kähler κ et définissons
+                                                    Z
+                                  degκ,i (f ) =           (f ∗ κi ) ∧ κd−i ,
+                                                     X◦
+
+où X ◦ = X \ Ind(f ) et κi = κ ∧ · · · ∧ κ (i termes). Ces intégrales convergent et sont des
+réels positifs. De plus, en notant Γreg
+                                      f   la partie régulière de Γf , nous avons
+                                               Z
+                               degκ,i (f ) =            (π2∗ κi ) ∧ (π1∗ κd−i ).
+                                               Γreg
+                                                f
+
+Le degré dynamique λi (f ) peut alors être défini comme la limite supérieure des
+degκ,i (f n )1/n quand n tend vers +∞ ; il ne dépend pas du choix de κ car si κ′ est une
+autre forme de Kähler, a−1 κ ≤ κ′ ≤ aκ pour une constante a > 1.
+                                               1243–07
+
+
+  Si X ⊂ PN (C) est projective, H est une intersection hyperplane et κ est la restriction
+de la forme de Fubini–Study à X, alors degH,i (f ) = degκ,i (f ).
+
+2.4. Les opérateurs f ∗ et les transformations régulières
+   Supposons X kählérienne compacte et f méromorphe, et conservons les notations du
+paragraphe 2.3.2. Si α est une forme fermée de type (i, i) sur X, l’image réciproque π2∗ α
+peut être projetée par π1 comme courant de type (i, i) sur X : ce courant est fermé et
+sa classe de cohomologie ne dépend que de celle de α. Ceci définit un endomorphisme
+linéaire f ∗ : H i,i (X; R) → H i,i (X; R). Une construction analogue fournit des endomor-
+phismes f ∗ : Ni (X; Z) → Ni (X; Z) lorsque f est une transformation rationnelle d’une
+variété projective définie sur un corps k quelconque (voir Fulton, 1998). Mais attention,
+en général (f n )∗ ̸= (f ∗ )n (voir l’exemple 2.2 : les degrés ne sont que sous-multiplicatifs).
+
+  1. Si f est rationnelle (resp. méromorphe), alors λi (f ) est la limite de la suite
+     ∥(f n )∗Ni (X;R) ∥1/n (resp. de ∥(f n )∗H i,i (X;R) ∥1/n ).
+
+   Esquissons la preuve lorsque f est holomorphe et i = 1. Considérons la forme linéaire
+ℓκ : γ ∈ H 1,1 (X; R) 7→ X γ ∧ κd−1 . En introduisant la constante cκ = ∥ℓκ ∥ · ∥κ∥, nous
+                        R
+
+disposons tout d’abord de l’inégalité
+
+(4)                     degκ,1 (f n ) = ℓκ ((f n )∗ κ) ≤ cκ ∥(f n )∗H 1,1 (X;R) ∥.
+
+Ensuite, notons Kah(X) le cône des classes des formes de Kähler. Puisque Kah(X)
+est ouvert, nous pouvons fixer des formes de Kähler γj qui induisent une base de
+H 1,1 (X; R). Soient cj des constantes telles que γj ≤ cj κ. La forme linéaire ℓκ étant
+strictement positive sur Kah(X), il existe une constante a > 0 telle que ∥γ∥ ≤ aℓκ (γ)
+pour tout γ ∈ Kah(X). Comme Kah(X) est f ∗ -invariant, ceci montre que ∥(f n )∗ γj ∥ ≤
+acj ℓκ ((f n )∗ κ) = acj deg1 (f n ), puis que
+
+(5)                             ∥(f n )∗H 1,1 (X;R) ∥ ≤ cste degκ,1 (f n )
+
+car les γj fournissent une base de H 1,1 (X; R). L’assertion (1) ci-dessus découle alors des
+inégalités (4) et (5).
+
+  2. Soit f : X → X un endomorphisme d’une variété projective (resp. compacte käh-
+     lérienne). Pour tout i, λi (f ) est le rayon spectral de la transformation linéaire
+     f ∗ : Ni (X; R) → Ni (X; R) (resp. de f ∗ : H i,i (X; R) → H i,i (X; R)).
+
+En effet, dans ce cas, (f n )∗ = (f ∗ )n , si bien qu’il s’agit d’itérer un seul opérateur linéaire.
+  Supposons maintenant X kählérienne compacte et notons λp,q (f ) la limite de
+∥(f n )∗H p,q (X;R) ∥1/n (si bien que λp,p (f ) = λp (f )). Dinh (2005) montre que
+                 q
+  1. λp,q (f ) ≤ λp (f )λq (f ) pour toute transformation méromorphe dominante. Ainsi,
+     les degrés dynamiques contrôlent la suite (f n )∗ sur toute la cohomologie de X.
+                                            1243–08
+
+
+   L’idée clé est de considérer l’action diagonale de f sur X 2 . Pour contrôler la norme de
+f ∗ sur H p,q (X; C), il s’agit en effet de contrôler f ∗ α pour tout forme α de type (p, q). Pour
+cela, on considère la forme π1∗ α ∧ π2∗ α, où π1 et π2 sont les deux projections naturelles ;
+c’est une (p + q, p + q)-forme sur X 2 , et il suffit de contrôler la norme de son image
+réciproque par (f, f ). Il suffit donc de contrôler l’action de (f, f ) sur H p+q,p+q (X 2 ; R)
+pour contrôler celle de f sur la classe de α. Mais l’assertion (1) ci-dessus montre que
+l’action de (f, f ) sur H p+q,p+q (X 2 ; R) est contrôlée par celle sur (π1∗ κ + π2∗ κ)p+q , donc
+par celle de f sur les puissances de κ. Ceci donne directement une majoration du type
+λp,q ≤ max{λi (f ); i ≤ p + q}. Pour obtenir (1), Dinh remarque que π1∗ α ∧ π2∗ α est
+majorée, à une constante multiplicative près, par π1∗ κp ∧ π2∗ κq + π1∗ κq ∧ π2∗ κp .
+   L’analogue de (1) pour la cohomologie ℓ-adique d’une variété projective n’est connu
+que lorsque f est régulière (Esnault et Srinivas, 2013 ; Truong, 2020 ; Xie, 2024b).
+
+
+
+3. Le groupe de Néron–Severi
+
+3.1. Diviseurs amples, nef ou gros
+   Un fibré en droites L est très ample s’il existe un plongement X ⊂ PN tel que L
+soit isomorphe à la restriction du fibré OPN (1) à X ; il est ample s’il existe un entier
+m ≥ 1 tel que L⊗m est très ample. De même, un diviseur D est (très)    ample si O X (D)
+                                                                         dim(V )
+l’est. Le critère de Nakai–Moishezon montre que D est ample si D                 ·V > 0
+pour toute sous-variété irréductible V ⊂ X. Ceci montre que l’amplitude est une
+condition numérique et permet d’introduire l’ensemble Amp(X) ⊂ NS(X; R) formé des
+combinaisons convexes de classes de diviseurs amples entiers. L’adhérence de Amp(X)
+est le cône Nef(X) ; d’après un théorème de Kleiman, D ∈ Nef(X) si et seulement si
+(D · C) ≥ 0 pour toute courbe C ⊂ X ; un diviseur D dont la classe appartient à Nef(X)
+est dit nef (ou numériquement effectif ). Le cône ample est l’intérieur du cône nef. Les
+cônes Amp(X) et Nef(X) sont convexes et saillants, dans le sens précis suivant : si H
+est une intersection hyperplane de X, alors
+                      n                                o
+                        E ∈ Nef(X); H d−1 · E ≤ 1            est compact.
+On notera que l’analogue kählérien de cette compacité a déjà été employé pour montrer
+l’assertion (1) du paragraphe 2.4.
+    Si L est un fibré en droites, H 0 (X; L) désignera l’espace de ses sections globales,
+h (X; L) la dimension de H 0 (X; L) et N(X; L) ⊂ N le semi-groupe des entiers m tels
+  0
+
+que h0 (X; L⊗m ) ≥ 1. La dimension de Kodaira–Iitaka de L est définie par
+                        κ(X; L) = lim sup log(h0 (X; L⊗m ))/ log(m).
+                                     m→+∞
+
+C’est un entier ≤ dim(X), et L est dit gros précisément lorsque κ(X; L) = dim(X) ;
+dans ce cas, N(X; L) contient tout entier suffisamment grand. À nouveau, un diviseur D
+                                             1243–09
+
+
+est gros si OX (D) l’est. Ainsi, D est gros s’il existe une constante c > 0 telle que
+
+                                   h0 (X; ℓD) ≥ cℓdim(X)
+
+pour tout entier ℓ suffisamment grand. Les classes de diviseurs gros engendrent un cône
+convexe ouvert Big(X) ⊂ NS(X; R).
+   Le cône effectif est constitué des classes de R-diviseurs effectifs et son adhérence est le
+cône pseudo-effectif Psef(X). Le lemme de Kodaira (Lazarsfeld, 2004, Proposition 2.2.6)
+permet d’établir que le cône gros est l’intérieur de Psef(X) et que Psef(X) en est
+l’adhérence.
+   Dans le cas où X est une variété kählérienne compacte, on emploiera les définitions
+suivantes (voir Demailly et Paun, 2004) : à la place du cône ample, le cône de Kähler
+Kah(X) ; pour le cône nef, l’adhérence de Kah(X) ; pour le cône pseudo-effectif, celui
+des classes de courants positifs fermés de bidegré (1, 1) ; pour le cône gros, l’intérieur du
+cône pseudo-effectif. Les éléments du cône gros sont alors représentés par des courants
+« kählériens », au sens de la définition 1.6 de Demailly et Paun (2004).
+
+3.2. Formule de Riemann–Roch asymptotique
+  Soient X une variété projective (irréductible) de dimension d et D un diviseur. Notons
+H (X; OX (D)) (ou simplement H i (X; D)) les groupes de cohomologie de Čech du fais-
+  i
+
+ceau OX (D). La caractéristique d’Euler χ(X; D) est, par définition, la somme alternée
+des dimensions de ces groupes : χ(X; D) = h0 (X; D) − h1 (X; D) + · · · + (−1)d hd (X; D).
+La formule de Riemann–Roch, dans sa version asymptotique, stipule que m 7→ χ(X; mD)
+est un polynôme de degré ≤ d vérifiant
+                                             1  d d
+(6)                        χ(X; mD) =           D m + O(md−1 ).
+                                             d!
+Cette estimation permet de montrer que D est gros si l’on sait contrôler les groupes
+H i (X; mD) pour i ≥ 1. Par exemple, ces groupes de cohomologie supérieurs sont nuls
+dès que D est ample et m est suffisamment grand (théorème d’annulation de Serre).
+
+3.3. Critère de Siu
+Théorème 3.1 (Critère de Siu). — Soit X une variété projective de dimension d.
+Soient D et E des Q-diviseurs nef (resp. des classes nef dans NS(X; R)). Si
+                                                     
+                                       Dd > d Dd−1 · E ,
+
+alors D − E est gros (resp. est une classe grosse).
+                                                                
+  Par exemple, D ∈ Nef(X) est gros si et seulement si Dd > 0. Lorsque X est une
+variété compacte kählérienne, l’analogue du théorème 3.1 est établi par Chiose (2016),
+Popovici (2016) et Xiao (2018).
+                                                  1243–10
+
+
+Démonstration. — Nous pouvons remplacer simultanément D par D + εH et E par
+E + εH avec ε ∈ Q>0 petit et H ample, car ceci ne change pas la différence D − E.
+Le théorème de Kleiman montre alors que ces diviseurs sont amples. Par homogénéité,
+nous pouvons donc supposer que D et E sont tous les deux très amples et entiers.
+  Fixons des diviseurs irréductibles distincts E1 , . . ., Em du système linéaire |E|. Alors
+                                                                                m
+                  H 0 (X, OX (m(D − E))) = H 0 (X, OX (mD −
+                                                                                X
+                                                                                      Ei )))
+                                                                                i=1
+
+où le membre de droite est identifié à l’espace des sections globales de OX (mD)
+s’annulant le long des Ei (à l’ordre 1 au moins). La suite exacte de faisceaux 0 →
+OX (m(D − E)) → OX (mD) → ⊕m     i=1 OEi (mD) → 0 fournit la suite exacte longue
+
+   0 → H 0 (X, OX (m(D − E))) → H 0 (X, OX (mD)) → ⊕m    0
+                                                    i=1 H (Ei , OEi (mD)) → · · ·
+
+On en tire h0 (X, OX (m(D − E))) ≥ h0 (X, OX (mD)) − m     0
+                                                      i=1 h (Ei , OEi (mD)) puis, en
+                                                                           P
+
+appliquant la formule de Riemann–Roch asymptotique (6) et le théorème d’annulation
+de Serre,
+                                                                                          
+                                  Dd              m  D d−1 · E
+                                                                i                              
+ h0 (X, OX (m(D − E))) ≥                   md −                            md−1 + O(md−2 ) + O(md−1 ).
+                                                  X
+                                  d!              i=1
+                                                             (d − 1)!                         
+
+Dans cette dernière inégalité, les constantes qui sont implicites dans la notation O(·)
+ne dépendent pas du choix des Ei (elles ne dépendent que de |E|). Ainsi, la dimension
+h0 (X, OX (m(D − E))) est minorée par d!1 {(Dd ) − d(Dd−1 · E)}md + O(md−1 ), et ceci
+montre que D − E est gros car (Dd ) − d(Dd−1 · E) > 0.
+   Le cas de NS(X; R) résulte du cas des Q-diviseurs par approximation.
+
+3.4. Inégalités de Siu
+3.4.1. Premières inégalités. — L’argument fourni pour obtenir le théorème 3.1 permet
+également de démontrer le résultat suivant, de nature légèrement différente.
+
+Théorème      (Inégalité de Siu). — Soient D, E ∈ NS(X; R) des classes réelles nef
+          3.2
+           d
+vérifiant D > 0. Alors
+                                                                      
+                                                            E · Dd−1
+                                       E ≤psef d         D,
+                                                (Dd )
+au sens où la différence est pseudo-effective
+                                            (i.e. appartientà Psef(X)).
+                                                                          En particulier, si
+                                    d                                d−1
+C1 , . . ., Cd−1 ∈ Nef(X), alors D (E · C1 · · · Cd−1 ) ≤ d E · D         (D · C1 · · · Cd−1 ) .
+
+  Il s’agit en effet d’établir la première assertion, la seconde résultant du fait que Nef(X)
+est l’adhérence du cône ample. Pour cela, on peut approximer D et E par les classes
+de diviseurs rationnels amples puis, par homogénéité, supposer D et E entiers et très
+amples. Il suffit alors d’appliquer
+                                     la formule
+                                              de   Riemann–Roch asymptotique, ici pour
+                                        d−1       d
+rD − E en choisissant r > d E · D            / D .
+                                                   1243–11
+
+
+3.4.2. Inégalités supérieures. — Montrons comment ce type d’inégalité admet des
+généralisations pour des produits d’intersection supérieurs. Soient D et E deux classes
+nef. Approximons les par des classes rationnelles amples, encore notées D et E. Si l’on
+restreint l’une de ces classes à une hypersurface V ⊂ X, l’inégalité de Siu donne
+                                                                  d−2
+                                                          (E|V · D|V  )
+                                   E|V ≤psef (d − 1)            d−1       D|V
+                                                              (D|V  )
+
+En choisissant V dans le système linéaire |E|, nous obtenons
+
+                                         2         (E 2 · Dd−2 )
+                                       E ≤ (d − 1)               D · E,
+                                                    (E · Dd−1 )
+                                                                           ·D            2   d−2
+l’inégalité signifiant maintenant que (E 2 · C1 · · · Cd−2 ) ≤ (d − 1) (E
+                                                                        (E·Dd−1 )
+                                                                                 )
+                                                                                   (D · E ·
+C1 · · · Cd−2 ), pour toutes classes nef Ci . En prenant C1 = · · · = Ck−2 = E et
+Ck−1 = · · · = Cd−2 = D nous obtenons
+                                                    (E 2 · Dd−2 ) k−1
+                       (E k · Dℓ ) ≤ (d − 1)                d−1
+                                                                 (E   · Dℓ+1 )
+                                                     (E · D )
+pour toute paire d’entiers positifs telle que k +ℓ = d. Ce type d’inégalités a été généralisé
+par Dang (2020) puis par Jiang et Li (2023) avec des constantes optimales (l’analogue
+kählérien est décrit par Lehmann et Xiao (2017)) :
+
+Théorème 3.3 (Inégalités de Siu). — Soit X une variété projective (resp. kählérienne
+compacte) de dimension d. Si E1 , . . ., Ej et D sont des classes nef, alors
+                                                      !
+                       
+                               d
+                                                    d                    
+                           D           E1 · · · Ej ≤     E1 · · · Ej · Dd−j Dj
+                                                     j
+                                                                           
+                                                          d
+au sens où Dd (E1 · · · Ej · C1 · · · Cd−j ) ≤            j
+                                                              E1 · · · Ej · Dd−j (Dj · C1 · · · Cd−j ) pour
+tout choix de classes nef Ci .
+
+3.5. Inégalités de Khovanskii et Teissier
+   Supposons dim(X) = 2. Le produit d’intersection définit alors une forme bilinéaire
+symétrique sur NS(X; R) et le théorème de l’indice de Hodge affirme que cette forme
+d’intersection est non-dégénérée et de signature (1, ρ(X) − 1), où ρ(X) = dim NS(X; R).
+De même, dans le cas kählérien, le groupe de cohomologie H 1,1 (X; R) est muni d’une
+forme d’intersection (α, β) 7→ X α ∧ β non-dégénérée de signature (1, h1,1 (X; R) − 1).
+                               R
+
+  Les classes amples vérifient (D2 ) > 0 et les classes nef (D2 ) ≥ 0. Si D et E sont
+deux classes nefs linéairement indépendantes, la signature de la forme d’intersection
+sur VectR (D, E) est donc égale à (1, 1) et son déterminant est négatif ; ainsi (D · E)2 ≥
+(D2 ) (E 2 ) pour toute paire de classes nef (y compris si D et E sont proportionnelles).
+Cette inégalité s’étend de la façon suivante à toute variété projective.
+                                                           1243–12
+
+
+Théorème 3.4. — Soit X une variété projective de dimension d et soit k un entier
+entre 1 et d. Si D1 , . . ., Dk et E1 , . . ., Ed−k sont des classes nef de NS(X; R), alors
+                                                                      k
+                                                                      Y                              
+                             (D1 · · · Dk · E1 · · · Ed−k )k ≥              Dik · E1 · · · Ed−k .
+                                                                     i=1
+
+En particulier, si D et E sont des classes nef, alors
+                                                     ℓ                   k         ℓ−k
+                                         Dk · E d−k        ≥ Dℓ · E d−ℓ            Ed
+pour toute paire d’entiers 0 ≤ k ≤ ℓ ≤ d.
+   Nous renvoyons au paragraphe 1.6.1 du livre de Lazarsfeld (2004) pour une preuve
+par récurrence à partir du cas des surfaces. En corollaire, on montre facilement que
+((D + E)d )1/d ≥ (E d 1/d
+                     )    + (E d )1/d pour toute paire de classes nef, et que la suite
+k 7→ log Dk · E d−k est concave. Ces propriétés sont similaires à celles vérifiées par
+les volumes mixtes de corps convexes, et la géométrie torique permet d’expliquer cette
+analogie : voir Gromov (1990), Teissier (1979) et le livre de Burago et Zalgaller (1988).
+   De même, dans le cas kählérien,
+                                                                      d                          
+                                                                 k
+                                                                            ukj · v1 · · · vd−k
+                                                                      Y
+                                (u1 · · · uk · v1 · · · vd−k ) ≥
+                                                                      j=1
+
+dès que les ui et vj sont des classes nef de H 1,1 (X; R). Ceci se déduit du cas projectif
+en appliquant la méthode de Monge–Ampère, comme décrite par Demailly (1993).
+Remarque 3.5. — Les inégalités de Siu sont appelées inégalités de Khovanskii et Teissier
+inverses par certains auteurs. La raison est la suivante. Si A est une classe ample et D
+et E sont des classes nef, les inégalités de Khovanskii et Teissier et de Siu correspondent
+respectivement à la minoration et la majoration de (Dk · E d−k ) dans
+                                                                       !
+       
+               d k/d
+                    
+                             d (d−k)/d
+                                           
+                                                k      d−k
+                                                                  d 1  k       d−k
+                                                                                     
+                                                                                          d−k     k
+                                                                                                    
+           D             E                ≤ D ·E                 ≤         D · A        E     · A     .
+                                                                   k (Ad )
+
+
+4. Premières propriétés des degrés dynamiques
+
+  Le but principal de cette section est d’établir le théorème suivant ainsi que son
+compagnon : le théorème 4.2 de sous-multiplicativité des degrés.
+Théorème 4.1. — Soit X une variété projective, définie sur un corps algébriquement
+clos. Soit d la dimension de X. Soit f : X 99K X une transformation rationnelle domi-
+nante. Si L ∈ NS(X; R) est une classe nef et grosse, les limites
+                                                                                    1/n
+                                         λk (f ) = lim           (f n )∗ Lk · Ld−k
+                                                    n→+∞
+
+existent pour tout 0 ≤ k ≤ d. De plus,
+  1. λ0 (f ) = 1, λd (f ) est le degré topologique de f , et λk (f ) ≥ 1 pour tout k ;
+                                                      1243–13
+
+
+  2. la définition de λk (f ) ne dépend pas de L ;
+  3. les λk sont des invariants de conjugaison : si g : Y 99K X est une application
+     birationnelle, alors λk (g −1 ◦ f ◦ g) = λk (f ) pour tout 0 ≤ k ≤ d ;
+  4. la suite (λ0 (f ), λ1 (f ), . . . , λd (f )) est log-concave.
+
+  En remplaçant L par une classe de Kähler, le même énoncé est valable pour les
+applications méromorphes dominantes des variétés compactes kählériennes (Dinh et
+Sibony, 2004). La démonstration que nous donnerons s’appliquedirectement à ce cadre.
+  Les ingrédients clés sont (a) définir correctement les produits (f n )∗ Lk · Ln−k , ce qui
+a été fait au paragraphe 2.3, et (b) la propriété de sous-multiplicativité démontrée au
+paragraphe 4.1 ci-dessous.
+
+4.1. Sous-multiplicativité
+Théorème 4.2. — Soient X1 , X2 et X3 des variétés projectives de dimension d munies
+de classes nef et grosses L1 , L2 et L3 . Il existe une constante C > 0 telle que
+                                                                                             
+                         (g ◦ f )∗ Lk3 · Ld−k
+                                          1   ≤ C g ∗ Lk3 · Ld−k
+                                                             2                   f ∗ Lk2 · Ld−k
+                                                                                            1
+
+pour toute paire d’applications rationnelles dominantes f : X1 → X2 , g : X2 → X3 .
+
+Remarque 4.3. — Lorsque X1 = X2 = X3 sont une seule et même variété,  munies du
+                                                                d −1 d
+même fibré L, la démonstration montrera que la constante ck = (L ) k convient.
+
+Remarque 4.4. — Soit h : Y → X un morphisme dominant et génériquement fini. Si
+D ∈ NS(X; R) est une classe nef, grosse, ou pseudo-effective, alors h∗ D aussi.
+  En effet, la formule de projection permet d’écrire h∗ (h∗ D ·C) = (D ·h∗ (C)) pour toute
+courbe C ⊂ Y (voir le paragraphe 2.2). Si D est nef, on en déduit que (h∗ D · C) ≥ 0
+pour toute courbe, donc que h∗ D est nef. Pour le reste, il suffit de remarquer que si L
+est gros alors h∗ L aussi car l’on peut prendre les images réciproques des sections de L
+(dans le cas kählérien, on peut prendre l’image réciproque d’un courant de Kähler).
+
+Démonstration du théorème 4.2. — Notons Γf la normalisation du graphe de f , et
+ϵ : Γf → X1 et F : Γf → X2 les projections sur X1 et X2 respectivement. Le mor-
+phisme ϵ est birationnel, et f = F ◦ ϵ−1 . Notons Γg la normalisation du graphe de g et
+π : Γg → X2 et G : Γg → X3 les projections. Enfin, notons h : Γf 99K Γg l’application
+définie par h = π −1 ◦ F . Lui correspond de même un graphe Γh et deux projections
+η : Γh → Γf , H : Γh → Γg . Voici le diagramme commutatif correspondant.
+
+                                                          Γh
+                                                  η                H
+
+                                                      h=π −1 ◦F
+                                         Γf                            Γg
+                                    ϵ                 F        π                 G
+
+                                          f                            g
+                               X1                         X2                         X3
+                                              1243–14
+
+
+  Nous voulons calculer ((g◦f )∗ Lk3 ·Ld−k
+                                       1 ) qui, par définition,
+                                                              est le produit d’intersection
+             ∗ k           ∗ d−k                      d
+entre (G ◦ H) L3 et (ϵ ◦ η) L1 . En notant bk := k , les inégalités de Siu donnent
+
+                          (π ∗ Ld2 )G∗ Lk3 ≤ bk (G∗ Lk3 · π ∗ Ld−k ∗ k
+                                                               2 )π L2
+
+car la remarque 4.4 montre que toutes les classes impliquées dans cette inégalité sont
+nef et grosses. La formule de projection entraîne ((π ∗ L2 )d ) = (Ld2 ). Et (g ∗ Lk3 · Ld−k
+                                                                                         2 ) =
+   ∗ k    ∗ d−k
+(G L3 · π L2 ) par définition. Ainsi, l’inégalité précédente peut être réécrite sous la
+forme (Ld2 )G∗ Lk3 ≤ bk (g ∗ Lk3 · Ld−k ∗ k                  ∗
+                                    2 )π L2 . En appliquant H , nous en déduisons
+
+                         (Ld2 )H ∗ G∗ Lk3 ≤ bk (g ∗ Lk3 · Ld−k ∗ ∗ k
+                                                           2 )H π L2 .
+
+car H est un morphisme dominant et génériquement fini. Enfin, en intersectant avec
+(ϵ ◦ η)∗ Ld−k
+          1 , qui est nef, nous obtenons
+
+                                              (g ∗ Lk3 · Ld−k
+                                                          2 )
+           (H ∗ G∗ Lk3 · (ϵ ◦ η)∗ Ld−k
+                                   1 ) ≤ bk             d
+                                                              (H ∗ π ∗ Lk2 · (ϵ ◦ η)∗ Ld−k
+                                                                                       1 ).
+                                                    (L2 )
+Par ailleurs, le diagramme commutatif ci-dessus montre que
+                      (H ∗ π ∗ Lk2 · (ϵ ◦ η)∗ Ld−k     ∗ ∗ k    ∗ ∗ d−k
+                                               1 ) = (η F L2 · η ϵ L1 )
+
+                                                   = (F ∗ Lk2 · ϵ∗ Ld−k
+                                                                    1 )
+
+                                                   = (f ∗ Lk2 · Ld−k
+                                                                 1 )
+
+car η est un morphisme birationnel. Finalement,
+                                             bk
+                  ((g ◦ f )∗ Lk3 · Ld−k
+                                    1 ) ≤          (g ∗ Lk3 · Ld−k  ∗ k    d−k
+                                                               2 )(f L2 · L1 ),
+                                            (Ld2 )
+ce qu’il fallait démontrer.
+
+4.2. Démonstration du théorème 4.1
+4.2.1. Existence. — Définissons ck comme à la remarque 4.3. Le théorème de
+sous-multiplicativité montre que n 7→ u(n) = ck ((f n )∗ Lk · Ld−k ) est une suite sous-
+multiplicative : u(n + m) ≤ u(n)u(m). Le lemme de Fekete montre alors que u(n)1/n
+                                                                   1/n
+converge vers son infimum, et l’on conclut en remarquant que ck tend vers 1.
+   Les produits d’intersection utilisés pour définir les λk (f ) sont des entiers stricte-
+ment positifs (f étant dominante) donc λk (f ) ≥ 1 pour tout k. Pour k = 0, λ0 (f ) =
+limn (Ld )1/n = 1. Pour k = d, ((f n )∗ Ld ) = degtop (f n )(Ld ) = (degtop (f ))n (Ld ) donc
+λd (f ) = degtop (f ). Ceci montre la première propriété énoncée.
+4.2.2. Invariances. — Montrons, dans cet ordre, les propriétés d’invariance (3) et (2)
+du théorème 4.1. Soit g : Y 99K X une application birationnelle. Munissons X et Y
+de classes nef et grosses
+                        LX et LY . Le théorème       desous-multiplicativité
+                                                                                fournit une
+constante C telle que (g −1 ◦ f n ◦ g)∗ LkY · Ld−k
+                                               Y     ≤ C  (f n ∗ k
+                                                              ) LX · L d−k
+                                                                       X     pour tout n ≥ 1.
+Donc λk (g −1 ◦ f ◦ g) ≤ λk (f ), les degrés dynamiques étant respectivement calculés avec
+LY et LX . Par symétrie, λk (f ) = λk (g −1 ◦ f ◦ g).
+                                                    1243–15
+
+
+ Supposons maintenant que L et L′ sont des classes nef et grosses de NS(X; R). Le
+même argument, appliqué à g = idX : X → X, démontre l’assertion (2).
+4.2.3. Log-concavité. — D’après les inégalités de Khovanskii et Teissier, si D et E sont
+des classes nef, alors k ∈ {0, 1, . . . , d} 7→ (Dk · E d−k ) est une suite log-concave. En
+appliquant cette inégalité à D = (f n )∗ L et E = L, ou plus précisément à leurs images
+réciproques sur le graphe Γf n , nous obtenons
+                                    2                                                   
+                 (f n )∗ Lk · Ld−k        ≥ (f n )∗ Lk−1 · Ld−k+1        (f n )∗ Lk+1 · Ld−k−1 ;
+pour conclure il suffit de passer à la limite après avoir extrait des racines n-èmes.
+
+4.3. Fibrations invariantes
+   Supposons qu’il existe une fibration π : X → Y qui est équivariante sous l’action de
+f : X 99K X : ceci signifie qu’il existe une transformation rationnelle fY : Y 99K Y telle
+que π ◦ f = fY ◦ π. Il est alors possible de définir des degrés dynamiques relatifs à la
+fibration π, notés λi (f ; π), pour 0 ≤ i ≤ dim(X) − dim(Y ). On montre alors que
+                                      λi (f ) = max λj (fY )λi−j (f ; π)
+                                                   j
+
+où j décrit l’ensemble des entiers positifs tels que j ≤ dim(Y ) et 0 ≤ i − j ≤ dim(X) −
+dim(Y ). Nous renvoyons le lecteur aux articles de Dinh et Nguyên (2011), Dang (2020),
+et Truong (2020) pour cette formule et la définition des degrés relatifs.
+
+4.4. Exemples
+4.4.1. Croissance sous-exponentielle. — Si λi (f ) = 1 pour une codimension i ̸= 0, d,
+alors log(λ0 (f )) = 0 = log(λi (f )) et la log-concavité montre que λj (f ) = 1 pour tout j.
+En particulier, λd (f ) = 1 et f est birationnelle. Ceci montre le corollaire suivant.
+
+Corollaire 4.5. — Soit f une transformation rationnelle dominante d’une variété
+projective (resp. compacte kählérienne). L’un des λi (f ) avec 1 ≤ i ≤ dim(X) − 1 est
+égal à 1 si et seulement si λi (f ) = 1 pour tout i. Dans ce cas, f est birationnelle.
+
+   Un problème important est de déterminer les comportements possibles des suites
+n 7→ degi (f n ) lorsque les λi (f ) valent 1. Tous les exemples connus aujourd’hui ont une
+croissance polynomiale : il existe un entier a(i) ≥ 0 tel que n−a(i) degi (f n ) converge vers
+une constante strictement positive (voir les paragraphes 7.2 et 8.2).
+
+Exemple 4.6. — Soit f un endomorphisme (régulier) de l’espace affine Ad. La dimension
+de l’espace vectoriel des endomorphismes de degré ≤ m est égale à d d+m          d
+                                                                                      . Donc si
+deg(f n ) = o(n1/d ) et n est suffisamment grand, les endomorphismes id, f , . . ., f n vérifient
+une relation linéaire dans l’espace vectoriel End(Ad ), que l’on peut écrire f k = k−1          j
+                                                                                     P
+                                                                                        j=0 αj f .
+                             n
+On en déduit que (deg(f )) est bornée (Urech, 2018 ; Cantat et Xie, 2020).
+                                           1243–16
+
+
+Exemple 4.7. — Soient E une courbe elliptique et f l’automorphisme de E × E défini
+par f (x, y) = (x, y + x). Munissons E × E de la polarisation H donnée par la somme des
+courbes E × {0} et {0} × E. Comme f n (x, y) = (x, y + nx) et comme l’endomorphisme
+de E donné par x 7→ nx est de degré n2 , on trouve deg1 (f n ) = 2 + n2 ≃ n2 .
+
+4.4.2. Minoration de λ1 en dimension 2. — Le théorème suivant est dû à Xie (2015,
+2024a).
+
+Théorème 4.8. — Soient X une surface projective et f : X 99K X une transformation
+rationnelle dominante. Soit L un fibré en droites gros et nef sur X. Notons deg1 (f n ) =
+((f n )∗ L · L). Alors
+                                           1 deg1 (f 2 )
+                                 λ1 (f ) ≥               .
+                                           4 deg1 (f )
+
+Remarque 4.9. — La constante 1/4 est optimale. D’après l’exemple 4.7, on peut en
+effet avoir deg1 (f n ) ≃ cn2 avec c > 0. Pour une telle transformation, λ1 (f m ) = 1
+tandis que deg1 ((f m )2 )/ deg1 (f m ) tend vers 4 ; donc si une inégalité du type λ1 (f ) ≥
+r deg1 (f 2 )/ deg1 (f ) est satisfaite par toute transformation rationnelle, r ≤ 1/4.
+
+Démonstration du théorème 4.8. — Notons Ln = (f n )∗ L, an = deg1 (f n ), q = a2 /a1 et
+                                     √                                                      √
+λk = λk (f ). Par log-concavité, λ1 ≥ λ2 ; nous pouvons donc supposer que q/4 > λ2 .
+Le théorème 4.2 et la remarque 4.3 assurent que (L2 ) deg1 (f 2 ) ≤ 2(deg1 (f ))2 , i.e. a0 a2 ≤
+2a21 , ou encore (q/2)a0 ≤ a1 . Comme β < q/2, nous obtenons a1 − βa0 > 0.
+  Supposons trouvés des paramètres réels α et β strictement positifs tels que
+
+(7)                              L2 + αβL−(α + β)L1 > 0,
+
+au sens où ce fibré est gros, et
+
+(8)                                     0 < β < q/2.
+
+En appliquant (f n )∗ à l’inégalité (7) et en intersectant avec L, nous obtenons
+
+                              an+2 + αβan − (α + β)an+1 > 0.
+
+Ce type de relation réapparaîtra au paragraphe 6.3.2 (voir aussi le lemme 3.1 de Wang,
+2024). Une récurrence sur n donne alors an+2 −βan+1 > α(an+1 −βan ) ≥ αn+1 (a1 −βa0 ),
+et nous avons vu que a1 − βa0 > 0. Donc an+2 > βan+1 pour tout n, et λ1 (f ) =
+limn (an )1/n ≥ β.
+   Il suffit donc maintenant de montrer que les inégalités (7) et (8) sont satisfaites si
+l’on choisit α = β = q/4. L’inégalité (8) est immédiate. Pour (7), remarquons d’abord
+que M := L2 + αβL = L2 + (q 2 /16)L et N := (α + β)L1 = (q/2)L1 vérifient
+
+                               (M 2 ) > 2αβ(L2 · L) = 2αβa2 ;
+                                              1243–17
+
+
+ensuite, en utilisant (L2 · L1 ) = (f ∗ (f ∗ L) · f ∗ L) = λ2 (L1 · L) puis λ2 ≤ q 2 /16, nous
+obtenons
+                        2(M · N ) = 2(α + β) ((L2 · L1 ) + αβ(L · L1 ))
+                                    = 4α(λ2 + αβ)(L · L1 )
+                              ≤ 4α(q 2 /16 + q 2 /16)a1
+                                 1
+                              ≤ αq 2 a1 .
+                                 2
+Ainsi, 2(M · N ) ≤ (q/8)q a1 ≤ 2(q 2 /16)a2 , par définition de q. Le critère de Siu énoncé
+                         2
+
+au théorème 3.1 montre alors que l’inégalité (7) est satisfaite.
+
+
+
+5. Semi-continuité
+
+5.1. Deux exemples
+5.1.1. — Soient C0 et C∞ deux courbes cubiques de P2 (C) et (Ct )t∈P1 le pinceau
+associé (4) . Choisissons C0 et C∞ en position générale, pour que le pinceau ait 9 points
+base pℓ distincts, qu’il contienne 12 courbes singulières Csj , et que l’unique singularité qj
+de Csj soit nodale. Soit I l’union des pℓ et qj . Si x n’appartient pas à I, il appartient à une
+unique cubique Ct ; la tangente à Ct en x intersecte alors Ct en x (avec multiplicité 2)
+et en un unique autre point x′ (égal à x si x est un point d’inflexion de Ct ). Ceci
+définit une transformation rationnelle f : P2 99K P2 , x 7→ f (x) := x′ dont le lieu
+d’intermination est Ind(f ) = I. Si Ct est lisse, il existe un isomorphisme de Ct vers
+une courbe elliptique C/Λt qui conjugue f|Ct à la multiplication par −2 ; en particulier,
+degtop (f|Ct ) = 4 = λ1 (f|Ct ). Par contre, les courbes Csj sont isomorphes à P1 avec deux
+points (disons 0 et ∞) identifiés à qsj : on peut choisir cet isomorphisme pour conjuguer
+f|Csj \{qsj } à z 7→ z −2 . Ainsi, f induit un endomorphisme de Csj de degré 2.
+   On observe donc une variation semi-continue de t 7→ λ1 (f|Ct ), la valeur de λ1 (f|Ct )
+chutant de 4 à 2 lorsqu’on spécialise en t = sj . L’explication est la suivante : qsj
+appartient à Ind(f ) et l’éclatement de qsj fait apparaître un diviseur exceptionnel E qui
+est « envoyé sur Csj par f avec degré 2 » (et 2 + 2 = 4).
+5.1.2. — Notons σ : P2 99K P2 , σ[x : y : z] = [yz : zx : xy], l’involution quadratique
+standard. À un élément A de PGL3 (C), considéré comme automorphisme de P2 , nous
+associerons l’application birationnelle fA = A ◦ σ. Elle vérifie les propriétés suivantes :
+  — Ind(fA ) = {p, q, r} avec p = [1 : 0 : 0], q = [0 : 1 : 0], r = [0 : 0 : 1] ;
+  — Exc(fA ) est l’union des trois droites ℓx = {x = 0}, ℓy = {y = 0}, ℓz = {z = 0} ;
+  — Ind(fA−1 ) = Ind(σ ◦ A−1 ) = {p1 , q1 , r1 } où p1 = A(p), q1 = A(q), r1 = A(r) ;
+
+   4. Si t = [a : b], l’équation de Ct est aE0 + bE∞ = 0, où E0 = 0 et E∞ = 0 sont les équations de C0
+et C∞ .
+                                            1243–18
+
+
+  — Exc(fA−1 ) est l’union des trois droites A(ℓx ), A(ℓy ), A(ℓz ).
+Ici, Ind(f ) est le lieu d’indétermination de f et Exc(f ) est l’ensemble exceptionnel, formé
+des courbes C telles que f contracte C \ Ind(f ). Par exemple, fA contracte ℓx sur p1 .
+Définissons l’orbite de p1 récursivement en posant pn+1 = fA (pn ), ce qui est possible
+tant que pn n’appartient pas à Ind(fA ). L’orbite de p1 est (globalement) bien définie si
+cette construction peut être effectuée pour tout n ≥ 1, c’est-à-dire que p1 ∈        / Ind(fA ),
+p2 = fA (p1 ) ∈/ Ind(fA ), etc. Nous emploierons le même vocabulaire pour q1 et r1 . Lorsque
+les orbites de p1 , q1 et r1 sont toutes les trois bien définies, on a degalg (fAn ) = 2n pour
+tout n (voir l’exemple 2.2 et le paragraphe 2.4) ; en particulier, λ1 (fA ) = 2. Sinon, il
+existe un entier m ≥ 1 tel que fAm contracte une droite ℓ ∈ {ℓx , ℓy , ℓz } sur un point
+d’indétermination de fA ; choisissons m le plus petit possible. Alors
+                          degalg (fAm+1 ) < degalg (fAm ) × degalg (fA ),
+l’équation de ℓ apparaissant comme un facteur commun des polynômes homogènes
+définissant fAm+1 ; ceci entraîne λ1 (fA ) < 2, car λ1 (fA ) = λ1 (fAk )1/k ≤ degalg (fAk )1/k .
+Ainsi, pour un choix de A générique (hors d’une union dénombrable de fermés de
+Zariski stricts dans PGL3 (C)), λ1 (fA ) = 2, mais pour des choix spéciaux λ1 (fA ) < 2
+(voir Blanc et Cantat, 2016, et l’exemple de la section 9 de Diller et Favre, 2001).
+   Supposons maintenant que A ∈ PGL3 (Qp ) et que les orbites de p1 , q1 , r1 sont bien
+définies. Si p est un nombre premier suffisamment grand la réduction de A modulo p
+détermine un élément Ap ∈ PGL3 (Fp ), si bien que fA induit une application birationnelle
+fA,p = Ap ◦σ de P2 définie sur le corps Fp (donc sur Fp ). Puisque P2 (Fp ) est un ensemble
+fini, l’orbite de p1 modulo p n’est pas bien définie : sinon, elle serait périodique, disons de
+                               m                           m−1
+période m ≥ 1, et on aurait fA,p  (p1 ) = p1 ; mais alors fA,p (p1 ) appartiendrait à Exc(fA,p )
+     m−2
+et fA,p (p1 ) serait un point d’indétermination de fA,p . Donc, λ1 (fA,p ) < 2 = λ1 (fA ) pour
+tout p. Par ailleurs, on montre facilement que λ1 (fA,p ) tend vers λ1 (fA ) lorsque p tend
+vers +∞ (voir Xie, 2015).
+
+5.2. Familles, semi-continuité, points périodiques
+5.2.1. Semi-continuité. — Soit S un espace topologique. Une fonction ξ : S → R est
+semi-continue inférieurement si les sous-niveaux Sξ (β) = {s ∈ S ; ξ(s) ≤ β} sont fermés.
+Étudions cette notion lorsque S est un schéma, muni de la topologie de Zariski.
+
+Exemple 5.1. — Soit S une courbe irréductible définie sur Q. Puisque Q est dénom-
+brable, il existe une bijection ξ0 : S(Q) → N ; si l’on munit S(Q) de la topologie
+de Zariski, ξ0 est semi-continue inférieurement. Considérons maintenant S comme un
+schéma dont le point générique est noté η. Alors toute fonction ξ : S → R qui est
+semi-continue inférieurement est automatiquement majorée par ξ(η), car η est dense
+dans S. En fait, ξ est semi-continue inférieurement si, et seulement si (i) ξ ≤ ξ(η) et (ii)
+Sξ (β) est fini pour tout β < ξ(η).
+
+  Cet exemple illustre le lemme suivant ; pour une démonstration, voir Xie (2024a).
+                                         1243–19
+
+
+Lemme 5.2. — Soit S un schéma noethérien intègre. Une fonction ξ : S → R est semi-
+continue inférieurement si et seulement si les deux propriétés suivantes sont satisfaites.
+  (i) Pour tous x, y ∈ S, si y ∈ {x} alors ξ(y) ≤ ξ(x).
+ (ii) Pour tout x ∈ S, pour tout β < ξ(x), il existe un ouvert dense V ⊂ {x} contenant
+      x tel que ξ|V > β.
+
+5.2.2. Familles. — Soit π : X → S une famille de variétés projectives de dimension d,
+c’est-à-dire un morphisme de schémas qui est projectif, plat et de dimension relative d.
+Pour t ∈ S, on notera Xt la fibre « au-dessus de t » ; on demande qu’elles soient toutes
+réduites et irréductibles. Soit f : X 99K X une application rationnelle telle que
+  (i) π ◦ f = π,
+ (ii) pour tout t ∈ S, l’application induite ft : Xt 99K Xt est dominante, et
+ (iii) aucune des fibres Xt n’est contenue dans Ind(f ).
+On dit alors que (f, π) détermine une famille de transformations rationnelles dominantes
+(ft )t∈S en dimension d paramétrée par S.
+5.2.3. Semi-continuité des degrés dynamiques et conséquences. — Le théorème suivant
+montre que la semi-continuité observée au paragraphe 5.1 est une propriété générale.
+
+Théorème 5.3 (de semi-continuité de Xie). — Soit S un schéma noethérien intègre.
+Si π : X → S et f : X 99K X déterminent une famille de transformations rationnelles
+dominantes en dimension d, les fonctions s ∈ S 7→ λi (fs ) ∈ R+ sont semi-continues
+inférieurement (pour la topologie de Zariski de S).
+
+   Le même énoncé reste valable pour des familles de transformations méromorphes de
+variétés kählériennes compactes (S étant munie de la topologie de Zariski analytique).
+   Il est important que S puisse être considéré comme un schéma. C’est ce qui permet,
+par exemple, d’obtenir les deux conséquences suivantes.
+— Supposons que π : X → S et f : X 99K X sont définies sur Q et que le degré de
+transcendance de s0 ∈ S(C) est égal à dim(S). Alors λi (fs0 ) = maxs∈S λi (fs ).
+— Soit f : Pd 99K Pd une application rationnelle dominante définie par des formules à
+coefficients dans Z, et notons fp la réduction de f modulo p. Alors limp→+∞ (λi (fp )) =
+λi (f ) ; pour cela on prendra S = Spec(Z) privé des p en lesquels fp n’est pas dominante.
+   Une troisième conséquence, concernant à la fois l’existence d’orbites Zariski denses
+et la conjecture de Kawaguchi et Silverman mentionnée dans l’introduction, est décrite
+dans le travail de Matsuzawa et Xie (2025).
+   Voici une quatrième conséquence. Disons que y ∈ X est périodique si son orbite
+yn = f n (y) ne visite pas Ind(f ) et repasse par y en un temps fini. La période est le plus
+petit entier r ≥ 1 tel que f r (y) = y ; si la sous-variété {f r (x) = x} ne contient pas de
+composante de dimension ≥ 1 passant par y, le point périodique y est dit isolé.
+                                             1243–20
+
+
+Théorème 5.4. — Soit f : X 99K X une application rationnelle dominante d’une
+variété projective X définie sur un corps algébriquement clos k. Supposons qu’il existe
+un indice i tel que λi (f ) > λj (f ) pour tout j ̸= i. Alors, pour tout ouvert dense V ⊂ X,
+les orbites périodiques de f entièrement contenues dans V forment un sous-ensemble
+Zariski dense de V , et donc aussi de X.
+
+  La démonstration, décrite par Xie (2024a), repose sur deux ingrédients clés. Tout
+d’abord, si k est la clôture algébrique d’un corps fini, le théorème résulte des estimées
+de Lang–Weil tordues obtenues par Hrushovski (voir le Théorème 4.2 de l’exposé donné
+par Rideau-Kikuchi, 2022, à ce séminaire). Pour se ramener à cette situation, notons
+A l’anneau de type fini engendré par les coefficients des équations et des formules
+définissant X et f . Après réduction modulo un idéal maximal I0 ⊂ A convenablement
+choisi, f induit encore une transformation dominante f0 qui, par semi-continuité, vérifie
+toujours λi (f0 ) > λj (f0 ) si j ̸= i. Dans cette situation, Xie construit un ouvert dense
+dans lequel les points périodiques de f0 sont tous isolés ; or, les points périodiques isolés
+peuvent être relevés en des points périodiques de f dans X(k) ; on peut donc conclure
+en utilisant les points périodiques produits par Hrushovski.
+
+5.3. Semi-continuité des degrés
+  Si π : X → S est une famille de variétés projectives (Xs )s∈S et L est un fibré en
+droites sur X , on note Ls la restriction de L à Xs .
+
+Proposition 5.5. — Soit (X , f, S) une famille d’applications rationnelles dominantes
+en dimension d. Soit L un fibré en droites ample sur X . Soient m1 , m2 , . . ., md des
+entiers positifs et i ∈ {0, . . . , d}. Les fonctions de S vers N définies par
+                                                                                          
+            s 7→ ((fsm1 )∗ Ls · · · (fsmd )∗ Ls ) et s 7→ degi,Ls (fs ) = fs∗ Lis · Ld−i
+                                                                                     s
+
+sont semi-continues inférieurement.
+
+  Ainsi, degi,Ls (fs ) atteint une valeur maximale d0 au point générique. Puis il existe un
+entier d1 < d0 tel que degi,Ls (fs ) atteint la valeur d1 sans prendre aucune des valeurs
+entre d1 + 1 et d0 − 1. L’ensemble S(d1 ) = {s ∈ S; degi,Ls (fs ) ≤ d1 } est un fermé de
+Zariski. Puis degi,Ls (fs ) atteint une valeur d2 < d1 , et ainsi de suite jusqu’à la plus
+petite valeur atteinte par degi,Ls (fs ), elle-même obtenue sur un fermé de Zariski.
+
+Exemple 5.6. — Étudions s 7→ degi,Ls (fs ) lorsque X = Pd , L est un hyperplan, et
+i = 1. Dans ce cas, f [x0 : . . . : xd ] = [P0 : . . . : Pd ] pour des polynômes homogènes
+Pi ∈ k(S)[x0 , . . . , xd ] d’un certain degré δ, sans facteur commun de degré ≥ 1. Ici, δ est
+le degré algébrique de f , vue comme transformation rationnelle de Pd définie sur le corps
+de fonctions k(S) ; de manière équivalente, δ = deg1 (fη ) où η est le point générique
+de S. Si s ∈ S, fs est obtenue en évaluant les coefficients des Pj en s, ce qui donne des
+polynômes Pj,s ∈ k[x0 , . . . , xd ]. Alors deg1 (fs ) ≤ δ − m si et seulement si les Pj,s ont un
+facteur commun de degré ≥ m ; ceci définit des fermés de Zariski emboîtés.
+                                                 1243–21
+
+
+Esquisse de démonstration de la proposition 5.5. — Le point crucial est d’établir
+                                                                                   
+(9)                  ((fsm1 )∗ Ls · · · (fsmd )∗ Ls ) ≤ (fηm1 )∗ Lη · · · (fηmd )∗ Lη ,
+où η est le point générique de S. Pour cela, notons Γη ⊂ Xηd l’image de x 7→
+(fηm1 (x), . . . , fηmd (x)) ; plus précisément, Γη est l’adhérence de l’image de cette applica-
+tion pour x hors des points d’indétermination des fηmi . Soit Γ l’adhérence de Γη dans le
+produit fibré X|Sd ; cette variété est munie d’une projection πΓ : Γ → S dont les fibres Γs
+sont des sous-variétés de Xsd . Les d projections de Γ vers X permettent de rapatrier le
+fibré L en d fibrés Lm1 , . . ., Lmd sur Γ. Les points clés sont les suivants : (a) si la famille
+Γ → S était plate, les produits d’intersection (Lm1 ,s · · · Lmd ,s ), calculés dans Γs , seraient
+constants ; (b) un théorème de Raynaud et Gruson (1971) permet de se ramener au cas
+d’une famille plate après un changement de base S ′ → S obtenu en éclatant S (voir
+aussi Guignard, 2021) ; (c) après un tel changement de base, pour s ∈ S général, Γs
+coïncide avec l’image de x 7→ (fsm1 (x), . . . , fsmd (x)), et dans ce cas
+                                                                                                
+(10)     ((fsm1 )∗ Ls · · · (fsmd )∗ Ls ) = (Lm1 ,s · · · Lmd ,s ) = (fηm1 )∗ Lη · · · (fηmd )∗ Lη ,
+mais pour certains paramètres, Γs est l’union de l’image de cette application et de
+composantes additionnelles : dans ce cas l’égalité (10) devient l’inégalité (9).
+   La raison pour la semi-continuité (plutôt que la continuité) est donc la suivante :
+lorsque sn converge vers un point t ∈ S, la limite des graphes des fsn peut être consituée
+du graphe de ft et de composantes irréductibles additionnelles éventuelles.
+
+Exemple 5.7. — Reprenons l’exemple du § 5.1.1. Éclatons les 9 points base pℓ du pinceau
+(Ct )t∈P1 . Ceci fournit une surface ϵ : X → P2 et une fibration π : X → P1 dont les fibres
+Xt vérifient ϵ(Xt ) = Ct . Après conjugaison par ϵ, la transformation f : P2 99K P2 induit
+une transformation dominante de X que nous noterons encore f ; le couple (f, π) est une
+famille de transformations rationnelles dominantes en dimension 1. Éclatons X en les 12
+points qj , ce qui remplace chaque fibre singulière Xsj par deux courbes rationnelles Aj
+et Bj s’intersectant en 2 points : Aj est la transformée stricte de Xsj ≃ Csj et Bj est le
+diviseur exceptionnel. Notons X ′ la surface obtenue et f ′ la transformation rationnelle
+induite par f . Alors fs′j envoie Aj et Bj sur Aj avec degré 2. La famille des graphes des
+fs′ est plate et, en sj , elle contient deux composantes : l’une est fournie par l’application
+z 7→ z −2 sur Aj , l’autre par l’application qui envoie Bj sur Aj .
+
+Remarque 5.8. — Comme λd (fs ) = degd,Ls (fs )/(Lds ) = degtop (fs ) (voir le théorème 4.1),
+la proposition 5.5 établit la semi-continuité de λd .
+
+5.4. Démonstration du théorème de semi-continuité : le cas des surfaces
+   Montrons le théorème 5.3 en dimension 2, le cas général sera décrit dans la sec-
+tion 6. D’après la remarque 5.8, il suffit d’expliquer que s 7→ λ1 (fs ) est semi-continue
+inférieurement. Pour cela commençons par établir l’assertion
+  a. pour tout s ∈ S, λ1 (fs ) ≤ λ1 (fη ), où η est le point générique de S.
+                                                1243–22
+
+
+D’après la proposition 5.5, en effet, nous avons deg1,Ls (fsn ) ≤ deg1,Lη (fηn ), et en prenant
+des racines n-èmes nous obtenons le résultat. Montrons maintenant l’assertion
+
+  b. si β < λ1 (fη ), il existe un ouvert dense U ⊂ S sur lequel λ1 (fs ) > β.
+
+C’est le point délicat. Par définition de λ1 , il existe un entier m0 ≥ 1 tel que
+                                                                 !1/m
+                                             1 deg1,Lη (f 2m )
+                             λ1 (fηm ) ≥                                >β
+                                             4 deg1,Lη (f m )
+
+pour tout m ≥ m0 . Comme s 7→ deg1,Ls (fsm ) est semi-continue et ne prend que des
+valeurs entières, il existe un ouvert dense V ⊂ S tel que deg1,Ls (fsm ) = deg1,Lη (fηm )
+et deg1,Ls (fs2m ) = deg1,Lη (fη2m ) pour tout s ∈ U . Le théorème 4.8 montre alors que
+λ1 (fs ) = λ1 (fsm )1/m > β sur cet ouvert.
+   Les assertions (i) et (ii) du lemme 5.2 se démontrent de la même façon que (a.) et
+(b.) (en remplaçant S par {x}), ce qui établit la semi-continuité cherchée.
+
+
+
+
+6. Inégalités de Xie et preuve de la semi-continuité
+
+   Pour démontrer le théorème de semi-continuité en dimension 2, nous avons fait
+appel à la minoration λ1 (f ) ≥ deg1 (f 2 )/(4 deg1 (f )). Il s’agit maintenant d’obtenir des
+substituts à cette inégalité qui permettront de démontrer la semi-continuité des λi
+pour des dimensions d et codimensions i quelconques. Dans cette partie, X est donc une
+variété projective de dimension d, f : X 99K X est dominante et L est un fibré en droites
+gros et nef sur X. Notons Ln = (f n )∗ L. Plus précisément, Ln sera toujours considéré
+sur des modèles birationnels de X adéquats. C’est-à-dire que nous factoriserons f n en
+la composée f n = Fn ◦ ϵ−1 de deux morphismes Fn : Z → X et ϵ : Z → X, avec ϵ
+birationnel ; l’incarnation de Ln sur Z sera le fibré Fn∗ L. Si π : Z ′ → Z est un autre
+modèle birationnel de X dominant Z, l’incarnation de Ln sur Z ′ coïncide avec π ∗ Fn∗ L.
+  Étant donnés des entiers positifs mi et ri tels que r1 + r2 + · · · + rs = d, nous
+considèrerons les intersections
+                                                           
+                                       Lrm11 · Lrm22 · · · Lrmss ∈ N;
+
+ces entiers seront appelés degrés mixtes. À nouveau, de manière implicite, les Lmi et les
+intersections sont considérées sur un modèle adéquat de X (comme au paragraphe 2.3,
+ou dans la démonstration du théorème 4.2). Nous avons degr (f m ) = (Lrm · Ld−r ).
+
+ Cette partie étant très technique, nous recommandons, en première lecture, de simplement
+ lire le paragraphe 6.1.3, la définition des multiplicateurs µi (f ) (§ 6.2.1) et le théorème 6.5.
+                                                            1243–23
+
+
+6.1. Degrés mixtes et degrés dynamiques : comparaison
+6.1.1. Application des inégalités de Siu. — Soient s1 , s2 et t des entiers positifs tels
+que s1 + s2 ≤ d et t ≤ s1 . Soient n1 et n2 des entiers positifs. Si n1 ≥ n2 , alors
+                                         d − s1 − s2 + t degs1 (f n1 −n2 ) s1 −t s2 +t
+                                                                   !
+(11)            Lsn11 · Lsn22 ≤num                                           L   · Ln2
+                                                t        degs1 −t (f n1 −n2 ) n1
+où ≤num signifie que l’inégalité est satisfaite dès que l’on intersecte les membres de
+gauche et de droite avec des classes nef C1 , . . ., Cd−s1 −s2 (dans un modèle adéquat
+de X). Si n2 ≥ n1 , alors
+                                       d − s1 − s2 + t degd−s1 (f n2 −n1 ) s1 −t s2 +t
+                                                               !
+(12)          Lsn11 · Lsn22 ≤num                                             L   · Ln2 .
+                                              t        degd−s1 −t (f n2 −n1 ) n1
+Démonstration de (11) et (12). — On se place sur un modèle dominant X où Ln1 et
+Ln2 sont bien définis. Perturbant Lni en Lni +εi H avec H ample, nous pouvons supposer
+que Lni est ample puis, par homogénéité des inégalités cherchées, que Lni est en fait
+très ample, donc engendré par ses sections. Soit V l’intersection de s1 − t sections de
+Ln1 et de s2 sections de Ln2 prises en position générale. En appliquant le théorème 3.3 à
+  — la variété V (au lieu de X), qui est de dimension d − s1 − s2 + t,
+  — la classe du fibré Ln1 restreint à V (au lieu des classes Ei ),
+  — la classe du fibré Ln2 restreint à V (au lieu de la classe D), et
+  — j = t,
+nous obtenons
+                                                                t           d−s −s
+                                              d − s1 − s2 + t (Ln1 |V · Ln2 |V1 2 ) t
+                                                                   !
+                     Ltn1 |V   ≤num                                      1 −s2 +t
+                                                                                    Ln2 |V
+                                                     t          (Ld−s
+                                                                    n2 |V         )
+où les intersections sont calculées dans V . Ceci donne
+                                                    (Lsn11 · Ld−s
+                                                !
+                               d − s 1 − s2 + t               n2 )
+                                                                  1
+(13)           s1    s2
+              Ln1 · Ln2 ≤num                                            Lsn11−t · Lsn22+t
+                                       t          (Lsn11−t · Ld−s
+                                                              n2
+                                                                 1 +t )
+
+                                                                                              
+Si n1 ≥ n2 , nous avons (Lsn11 · Ld−s        n2 ) =
+                                                  1
+                                                           ((f n1 )∗ L)s1 · ((f n2 )∗ L)d−s1 par définition,
+                                                     n1 −n2
+donc (Lsn11 · Ld−s                    n2
+                   n2 ) = degtop (f ) degs1 (f
+                       1
+                                                            ) par la formule de projection. De même,
+   s1 −t      d−s1 −t               n2                n1 −n2
+(Ln1 · Ln2            ) = degtop (f ) degs1 −t (f            ). L’inégalité (11) découle donc de (13).
+Lorsque n2 ≥ n1 , nous obtenons (Ln1 · Ln2 ) = degtop (f n1 ) degd−s1 (f n2 −n1 ) et (Lsn11−t ·
+                                                s1     d−s1
+
+Lnd−s
+   2
+       1 +t
+            ) = degtop (f n1 ) degd−s1 −t (f n2 −n1 ), si bien que (12) découle aussi de (13).
+
+6.1.2. Comparaison entre degrés et degrés mixtes. —
+Proposition 6.1. — Soient m1 ≥ m2 ≥ · · · ≥ ms des entiers positifs et r1 , r2 , . . ., rs
+des entiers positifs dont la somme est égale à d. Notons ℓi = r1 + · · · + ri . Les degrés
+mixtes vérifient alors
+                                             
+                          Lrm11 · · · Lrmss           s               s
+                                                                         degℓi (f mi −mi+1 )
+                                                                       !
+                                                      Y     d − ri+1 Y
+                                                  ≤
+                               (Ld )                  i=1      ℓi    i=1        (Ld )
+                                                                    1243–24
+
+
+et
+                                                         !−1 s
+                               m1
+                                         s
+                                         Y     d − ℓi       Y       degℓi (f m1 −mi+1 )    
+                                                                                              r1          rs
+                                                                                                               
+                   degd (f           )                                        m1 −mi+1 )
+                                                                                         ≤   Lm    · · · Lm  s
+                                         i=1   ri + 1          i=1 degℓi+1 (f
+                                                                                                 1
+
+
+
+
+Démonstration. — Pour la première inégalité, appliquons l’inégalité (11) avec n1 = m1 ,
+n2 = m2 , s1 = r1 , s2 = r2 et t = r1 , puis intersectons avec Lrm33 · · · Lrmss . Cela donne
+                                                     d − r2 degr1 (f m1 −m2 )  0
+                                                                   !
+                                                                                                                  
+                                                                                                   r3          rs
+(14)           Lrm11 · Lrm22 · · · Lrmss           ≤                           Lm   · L r1 +r2
+                                                                                        m      · L m    · · · Lm
+                                                       r1   deg0 (f m1 −m2 )      1       2           3           s
+
+
+                                                     d − r2 degℓ1 (f m1 −m2 )  ℓ2
+                                                                   !
+                                                                                                     
+                                                                                        r3        rs
+(15)                                               ≤                           L m2 · L m3 · · · Lms
+                                                       ℓ1        (Ld )
+Nous pouvons alors effectuer une récurrence sur le nombre s de termes    dans le degré
+mixte. L’initialisation, prise pour s = 1 et r1 = d, correspond à Lm1 ≤ degd (f m1 )
+                                                                        d
+
+(il y a en fait égalité). Maintenant, supposons le résultat montré pour s − 1. Puisque
+ℓ2 + r3 + · · · + rs = d, l’hypothèse de récurrence peut être appliquée aux s − 1 termes
+Lm2 , . . ., Lms , ce qui donne
+                                                                        s               s
+                                                                                           degℓi (f mi −mi+1 )
+                                                                                            !
+                           −1                                             d − ri+1 Y
+                       Ld           Lℓm2 2 · Lrm33 · · · Lrmss ≤
+                                                                        Y
+                                                                                                               .
+                                                                        i=2      ℓi    i=2        (Ld )
+On conclut alors avec l’inégalité (15). La seconde inégalité est similaire.
+
+6.1.3. Équivalence asymptotique. — Soient (un ) et (vn ) des suites de réels strictement
+positifs. Nous noterons un ≲ vn si les propriétés équivalentes suivantes sont satisfaites :
+     — pour tout ε > 0, il existe D(ε) > 0 telle que un ≤ D(ε)eεn vn pour tout n ≥ 0 ;
+     — pour tout ε > 0, un ≤ eεn vn si n est suffisamment grand ;
+     — lim supn (un /vn )1/n ≤ 1.
+Nous noterons un ≍ vn si un ≲ vn et vn ≲ un .
+
+Corollaire 6.2. — Les degrés mixtes et les degrés dynamiques vérifient
+                                                                        s
+                                                   Lrm11 · · · Lrmss ≍          λℓi (f )mi −mi+1 .
+                                                                          Y
+
+                                                                          i=1
+
+Autrement dit, pour tout δ ∈ ]0, 1[, il existe C = CL (f ; δ) ≥ 1 tel que
+                              s                                                                       s
+                   −1 m1                       mi −mi+1                                           −m1
+                                                                   Lrm11 · · · Lrmss                          λℓi (f )mi −mi+1
+                              Y                                                                         Y
+               C       δ            λℓi (f )               ≤                               ≤ Cδ
+                              i=1                                                                       i=1
+
+pour tous choix d’entiers m1 ≥ m2 ≥ · · · ≥ ms ≥ 0 et ri ≥ 0 tels que r1 + · · · + rs = d.
+
+   La majoration résulte de la proposition 6.1 en écrivant degℓi (f n ) ≤ D(ε)λℓi (f )n eεn ;
+la minoration est similaire.
+                                               1243–25
+
+
+6.2. Multiplicateurs cohomologiques et inégalités fondamentales
+6.2.1. Multiplicateurs. — Par définition, les multiplicateurs cohomologiques (ou
+ 8
+                                   simplement multiplicateurs) associés à f sont les
+                l3 l4 l5           quotients
+ 7                                                            λi (f )
+            l2                                    µi (f ) =             ∈ R+∗
+                                                                              ,
+ 6                                                           λ    (f  )
+                         l6                                   i−1
+ 5                                 avec la convention λ−1 (f ) = 1, si bien que
+        l1
+ 4     m1                          µ0 (f ) = λ0 (f ) = 1. La log-concavité des degrés
+                            l7
+ 3                                 dynamiques équivaut à la décroissance des multipli-
+ 2                                 cateurs. La courbe affine par morceaux reliant les
+           m2
+ 1                                 points (i, log(λi (f ))) est le graphe d’une fonction
+    l0         m3              l8 concave : les log(µi (f )) sont les pentes de ce graphe.
+                  m4 m5          x Nous noterons simplement µ = µ (f ) et λ = λ (f ).
+                                                                    j     j      i    i
+ -1
+                                         L’exemple de la figure ci-contre représente li =
+ -2                       m6 m7          log(λi ) et mi = log(µi ) pour 0 ≤ i ≤ 8 = dim(X) ;
+ -3                               m8     ici, λ3 = λ4 = λ5 , donc µ4 = µ5 = 1.
+6.2.2. Inégalités fondamentales. —            Pour des entiers r1 et r2 positifs fixés satisfaisant
+r1 + r2 < d, définissons
+(16)                t = min{i ≥ 1 ; µr1 +1+i µr1 +r2 +1+i < µr1 +1 µr1 +r2 +1 }
+(17)                η = µr1 +t µr1 +r2 +1+t
+Autrement dit, t − 1 est la longueur maximale pour laquelle µj est simultanément
+constante à partir de j = r1 + 1 et de j = r1 + r2 + 1. En particulier, µr1 +1 = µr1 +t et
+η = µr1 +1 µr1 +r2 +t+1 . De plus η ≤ µr1 +1 µr1 +r2 +1 car les µi décroissent. Cette inégalité est
+stricte dès que µr1 +r2 +1 > µr1 +r2 +2 , car alors µr1 +r2 +t < µr1 +r2 +1 .
+Remarque 6.3. — La suite j 7→ η −j λj λr2 +j croît pour j entre 0 et r1 + t, atteint un
+maximum en j = r1 + t, puis décroît pour j entre r1 + t et d − r2 .
+  Pour s’en convaincre, supposons j ≤ r1 + t − 1. Par définition, µj+1 λj = λj+1 et
+µr2 +j+1 λr2 +j = λr2 +j+1 ; d’autre part,
+                               η ≤ µr1 +t µr1 +r2 +t ≤ µj+1 µr2 +j+1 ;
+donc ηλj λr2 +j ≤ λj+1 λr2 +j+1 , ce qui donne la monotonie désirée en multipliant par η −j−1 .
+Le cas j ≥ r1 + t + 1 est similaire. De même, on obtient l’assertion suivante.
+  La suite j 7→ η −j λj λr2 +j+1 croît pour j entre 0 et r1 + t − 1, atteint un maximum en
+j = r1 + t − 1, puis décroît pour j entre r1 + t − 1 et d − r2 .
+Théorème 6.4. — Soient X une variété projective de dimension d et f une trans-
+formation rationnelle dominante de X. Soient r1 et r2 deux entiers positifs tels que
+r1 + r2 ≤ d ; soit η le paramètre défini par l’équation (17). Pour tout ε > 0 il existe un
+entier m(ε) ≥ 1 tel que, pour tout m ≥ m(ε)
+                          (L2m + η m L) · Lrm2 >num e−εm µm      r2 +1
+                                                          r1 +1 Lm .
+                                                                     1243–26
+
+
+    Par conséquent, en intersectant avec (L2m + η m L)d−r2 −1 nous obtenons
+                                                                                                         
+(18)               (L2m + η m L)d−r2 · Lrm2 ≥ e−εm µm             m
+                                                    r1 +1 (L2m + η L)
+                                                                     d−r2 +1
+                                                                             · Lrm2 +1
+pour tout m suffisamment grand. De manière équivalente,
+                                                                                                     
+(19)                   (L2m + η m L)d−r2 · Lrm2 ≳ µm             m
+                                                   r1 +1 (L2m + η L)
+                                                                    d−r2 +1
+                                                                            · Lrm2 +1 .
+Démonstration du théorème 6.4. — Nous allons d’abord établir l’inégalité (19). Le théo-
+rème s’ensuivra par le critère de Siu.
+Étape 1.— En développant, nous obtenons la somme de termes strictement positifs
+                                                           d−r
+                                                                             !
+                                                          X2       d − r2 m(d−r2 −j)  j                   
+              (L2m + η L)   m     d−r2
+                                         · Lrm2        =                    η           L2m · Ld−r2 −j · Lrm2 .
+                                                             j=0       j
+D’après le corollaire 6.2, les degrés mixtes vérifient
+                                              
+                  Lj2m · Ld−r2 −j · Lrm2 ≍ λj (f )m λr2 +j (f )m λd (f 0 ) ≍ λf (f )m λr2 +j (f )m .
+La première assertion de la remarque 6.3 assure que le terme dominant de la somme,
+donc la somme toute entière, est d’ordre ≍ (η (d−r2 −r1 −t) λr1 +t (f )λr2 +r1 +t (f ))m . Ainsi
+                                                            
+                        (L2m + η m L)d−r2 · Lrm2 ≍ (η (d−r2 −r1 −t) λr1 +t (f )λr2 +r1 +t (f ))m .
+De même,
+                                               d−r2 −1
+                                                                                 !
+
+                        d−r2 −1                                    d − r2 − 1 m(d−r2 −1−j)  j                         
+               m
+                                  · Lrm2 +1                                                 L2m · Ld−r2 −j−1 · Lrm2 +1
+                                                  X
+    (L2m + η L)                                =                             η
+                                                       j=0             j
+Par la dernière assertion de la remarque 6.3, le terme dominant se comporte comme
+                                                                
+                         d−r2 −1
+       µm             m
+        r1 +1 (L2m + η L)        · Lrm2 +1 ≍ (µr1 +1 η d−r2 −r1 −t λr1 +t−1 (f )λr1 +r2 +t (f ))m .
+Puisque µr1 +1 = µr1 +t et µr1 +1 λr1 +t−1 (f ) = λr1 +t (f ), le second
+                                                                       membre se comporte     
+          d−r2 −r1 −t
+comme (η              λr1 +t (f )λr1 +r2 +t (f )) , c’est-à-dire comme (L2m + η m L)d−r2 · Lrm2 ,
+                                                 m
+
+au sens de l’équivalence asymptotique ≍. Ceci termine la preuve de (19).
+Étape 2.— Une fois ε > 0 fixé, l’étape précédente montre que
+                                                                                                             
+         (d − r2 )e−εm µm             m
+                        r1 +1 (L2m + η L)
+                                         d−r2 +1
+                                                 · Lrm2 +1 ≤ (L2m + η m L)d−r2 · Lrm2
+dès que m est assez grand. Fixons m grand et plaçons nous sur un modèle de X où
+l’on peut calculer ces produits. Quitte à perturber Lm nous pouvons supposer que
+c’est un fibré ample puis, par homogénéité, que c’est un fibré très ample. Soient V
+l’intersection de r2 sections de Lm en position générale. Considérons les restrictions des
+fibrés D = Lm + η m L et E = e−εm µm r1 +1 Lm à V . Alors dim(V ) = d − r2 et
+                                                                                                                 
+       (d − r2 ) E · Dd−r2 −1 · V = (d − r2 )e−εm µm                 m
+                                                   r1 +1 Lm · (Lm + η L)
+                                                                        d−r2 −1
+                                                                                · Lrm2
+                                                                                        
+                                                   ≤ (Lm + η m L)d−r2 · Lrm2
+                                                                        
+                                                   = Dd−r2 · V .
+Le critère de Siu montre alors que (D − E)|V est gros. Le théorème en résulte.
+                                               1243–27
+
+
+6.2.3. Conséquence. —           Pour i ∈ {0, 1, . . . , d}, définissons
+
+                         u(i) = max{j ∈ {0, 1, . . . , d} ; µj = µi } ∈ [i, d].
+
+Puisque µ0 = 1, u(0) ≥ 1 si, et seulement si λ1 = 1, si et seulement si tous les λk valent 1.
+Donc u(0) = 0 dans les cas intéressants, u est croissante, et u(d) = d par définition.
+Supposons maintenant i ≥ 1. En choisissant r1 = i − 1 et r2 = 0 dans le théorème 6.4,
+nous obtenons t = min{j ≥ 1 ; µi+j µi+j < µi µi } = u(i) + 1 − i et
+
+                                    η = µu(i) µu(i)+1 = µi µu(i)+1 .
+
+Puisque r2 = 0, la démonstration du théorème 6.4 (étape 2) certifie que L2m +
+(µi µu(i)+1 )m L − (εµi )m Lm est gros (sur des modèles adéquats de X). Puisque i ≤ u(i),
+µu(i)+1 ≤ µi+1 , donc L2m + (µi µi+1 )m L − (εµi )m Lm est également gros. Ceci montre le
+théorème suivant, obtenu par Xie (2024a) (voir aussi Matsuzawa et Wang (2024)).
+
+Théorème 6.5. — Pour tout i ∈ {0, 1, . . . , d} et tout ε ∈ ]0, 1[, il existe un entier
+m(ε) ≥ 1 tel que les fibrés
+
+         L2m + (µi µu(i)+1 )m L − (εµi )m Lm        et       L2m + (µi µi+1 )m L − (εµi )m Lm
+
+sont gros pour tout m ≥ m(ε).
+
+
+6.3. Minoration et approximation des λi
+   Notre but est désormais de fournir un algorithme permettant d’estimer les degrés
+dynamiques λi (f ), en prenant pour acquis l’existence d’un programme calculant pro-
+duits d’intersection et degrés mixtes. La difficulté est d’approximer λi (f ) par valeurs
+inférieures. Cet algorithme servira aussi à établir la semi-continuité des λi .
+
+6.3.1. Paramètres de calcul. — Donnons nous des réels α1 ≥ α2 ≥ · · · ≥ αd > 0 et
+définissons β0 = 1 et βi = ij=1 αj pour i ≥ 1. Il faut penser aux αi et βi comme à des
+                           Q
+
+approximations des µi (f ) et λi (f ), car si αi = µi (f ) pour tout i, alors βi = λi (f ) pour
+tout i. Fixons également deux constantes ε et γ dans l’intervalle ]0, 1[ ; il faut penser ε
+et γ proches de 1. Ces quantités αi , ε et γ sont les paramètres de calcul.
+  Nous dirons que les paramètres sont adaptés à f , à l’indice i et au temps m si
+                                                            
+               (L2m + (αi αj+1 γ)m L)d−i+j+1 · Li−j−1
+                                                m
+(20)                                                           > (d − i + j + 1)(εαj+1 )m
+                   (L2m + (αi αj+1 γ)m L)d−i+j · Li−j
+                                                  m
+
+
+quelque soit l’entier j ∈ {0, 1, . . . , i − 1}. Cette condition permet d’appliquer le critère
+de Siu et entraîne, comme dans l’étape 2 de la démonstration du théorème 6.4, que
+
+(21)                L2m · Li−j−1
+                           m     + (αi αj+1 γ)m Li−j−1
+                                                 m     · L >num (εαj+1 )m Li−j
+                                                                           m .
+                                                      1243–28
+
+
+6.3.2. Récurrence. —          En intersectant l’inégalité (21) avec Lj2m nous obtenons
+            Lj+1   i−j−1
+             2m · Lm     + (αi αj+1 γ)m Lj2m · Li−j−1
+                                                m     · L >num (εαj+1 )m Lj2m · Li−j
+                                                                                 m .
+                                                                                
+Notons alors dn (u, v, w) = Lu(n+2)m · Lv(n+1)m · Lw
+                                                   nm · L
+                                                          d−u−v−w
+                                                                  , où n ∈ N. En appli-
+        nm ∗                                                     d−i
+quant (f ) à l’inégalité précédente et en intersectant avec L , nous trouvons
+       (εαj+1 )m dn (j, i − j, 0) < (αi αj+1 γ)m dn (j, i − j − 1, 1) + dn (j + 1, i − j − 1, 0).
+Nous allons maintenant fixer m et faire tendre n vers +∞. En divisant par (εj+1 βj+1 )m
+et en utilisant βj+1 = βj αj+1 , on obtient
+              dn (j, i − j, 0) dn (j + 1, i − j − 1, 0)   (αi γ)m dn (j, i − j − 1, 1)
+                              −                         <                              ;
+                 (εj βj )m           (εj+1 βj+1 )m                (εj+1 βj )m
+donc, en sommant de j = 0 à i − 1, nous arrivons à
+                                                      i−1
+                                        dn (i, 0, 0) X    (αi γ)m dn (j, i − j − 1, 1)
+                     dn (0, i, 0) −                 <                                  .
+                                         (εi βi )m    j=0         (εj+1 βj )m
+
+Par définition, dn (0, i, 0) = degi (f (n+1)m ) et dn (i, 0, 0) = degi (f (n+2)m ). D’autre part, la
+proposition 6.1 fournit la majoration
+                                                           d − 1 degj (f m ) degi−1 (f m )
+                                                      !          !
+                               d−i+j+1
+        dn (j, i − j − 1, 1) ≤                                                             degi (f nm )
+                                  j                        i−1     (Ld )        (Ld )
+                                                                                                       
+                                                                                                          d
+En majorant les coefficients binomiaux qui apparaissent dans cette inégalité par                          j
+                                                                                                              et
+ 
+ d
+ i
+      , nous sommes conduits à introduire les réels Bi = Bi (α1 , . . . , αd ; ε, γ; m) définis par
+                              d−1
+                                                d (αi γ)m degj (f m ) degi−1 (f m )
+                                            !    !
+                              X         d
+(22)                   Bi =                                                         .
+                              j=0       j       i (εj+1 βj )m (Ld )      (Ld )
+Les Bi ne dépendent pas de n, et nous venons de démontrer que, si les paramètres sont
+adaptés à f , i et m, alors
+                    degi (f m(n+1) ) − (εi βi )−m degi (f m(n+2) ) < Bi degi (f nm ).
+Ainsi, la suite an = degi (f mn ) vérifie la relation de récurrence linéaire
+(23)                             an+2 + Bi εmi βim an > εmi βim an+1 .
+Introduisons alors les quantités
+(24)                                ϕ = (ε2i βi )m        et   ψ = Bi ε−mi .
+Nous dirons que les conditions de récurrence sont satisfaites à l’instant N si
+     1. ϕ + ψ < (εi βi )m , ce qui revient à dire que Bi < ε2mi βim (1 − εmi ) ;
+     2. aN +1 − ψaN > 0, ce qui signifie que degi (f m(N +1) ) > Bi ε−mi degi (f mN ).
+
+Lemme 6.6. — Si les paramètres αj , γ et ε sont adaptés à f , i, et m, et si les conditions
+de récurrence sont satisfaites pour un entier N ≥ 1, alors λi (f ) ≥ ε2i βi .
+                                              1243–29
+
+
+Démonstration. — À elles deux, la première condition et l’inégalité (23) assurent que
+an+2 + ϕψan > (ϕ + ψ)an+1 et donc que an+2 − ψan+1 > ϕ(an+1 − ψan ). D’après la
+seconde condition, aN +1 − ψaN > 0. Par récurrence, nous obtenons donc
+                              an+1 − ψan > ϕn (aN +1 − ψaN )/ϕN
+pour n ≥ N , ce qui montre que λi (f m ) ≥ ϕ = (ε2i βi )m et λi (f ) ≥ ε2i βi .
+
+6.3.3. Satisfaire les conditions. — Pour employer le lemme 6.6, nous aurons donc
+besoin d’un critère permettant d’assurer que les paramètres sont adaptés et que les
+conditions de récurrence sont satisfaites.
+
+Lemme 6.7. — Soit i ∈ {0, 1, . . . , d} un indice pour lequel µi > µi+1 . Supposons les
+                                                                           1
+paramètres αi égaux aux µi . Si γ est suffisamment proche de 1 et 0 < γ 3d < ε < 1, il
+existe un entier m0 (ε) tel que
+  1. les paramètres ε et γ sont adaptés à f , i et m dès que m ≥ m0 (ε) ;
+  2. pour tout N ≥ 0, les conditions de récurrence sont satisfaites.
+
+  La démonstration ne faisant pas apparaître d’idée nouvelle, nous renvoyons le lecteur
+au Lemme 3.14 de Xie (2024a). Notez que la preuve nécessite de se placer en un point
+de « rupture de pente », i.e. en un indice i pour lequel µi > µi+1 .
+6.3.4. Conclusion. — Nous pouvons maintenant décrire un algorithme qui approxime
+les degrés dynamiques λi (f ) par des valeurs λ−                          +                   +
+                                                      i (s) ≤ λi (f ) ≤ λi (t) telles que λi (t) −
+λ−i (s) tende vers 0 lorsque s, t ∈ N tendent vers +∞.
+    Pour le degré topologique λd on définit λ−              +
+                                                 d (s) = λd (t) = degtop (f ) pour tout s et tout
+t ≥ 1. Cette quantité est égale à ((f ∗ L)d )/(Ld ) et à λd (f ) sans avoir besoin d’itérer f .
+Pour λ0 on définit λ−             +
+                         0 (s) = λ0 (t) = 1 pour tout s et tout t ≥ 1.
+    Pour l’approximation par valeurs supérieures, il suffit de poser λ+                         t 1/t
+                                                                            i (t) = (ci degi (f ))    ,
+            −1  
+              d     d
+où ci = L           i
+                      . Cette suite converge vers λi (f ) par valeurs supérieures car la suite
+                n
+n 7→ ci degi (f ) est sous-multiplicative (voir les théorèmes 4.1 et 4.2 et la remarque 4.3).
+    Pour l’approximation inférieure, notons Par(Q) l’ensemble des paramètres de calculs
+rationnels, c’est-à-dire l’ensemble des vecteurs p = (α1 , . . . , αd , ε, γ, m) ∈ Qd+3 tels que
+α1 ≥ . . . αd > 0, ε et γ appartiennent à ]0, 1[, et m ∈ N. Nous pouvons énumérer ces
+vecteurs (disons par hauteur et ordre lexicographique croissants), ce qui donne une
+bijection s ∈ N∗ 7→ p(s) ∈ Par(Q). Pour s = 0, l’algorithme est initialisé en posant
+λ−i (0) = 1 pour tout i. On applique alors le processus suivant à s = 1, puis s = 2, etc.
+    À l’étape s, on considère le paramètre p(s) et on évalue les quantités βi (s) =
+Q                                                            i      m(s)
+   j≤i αj (s), puis Bi (s) := Bi (p(s)) et ϕi (s) = (ε(s) βi (s))        (voir les équations (22)
+et (24)). On teste alors si les paramètres sont adaptés et si les conditions de récurrence
+sont satisfaites. Si ce n’est pas le cas, on laisse les estimations précédentes inchangées en
+définissant l(i) = λ−  i (s − 1). Si c’est le cas, on pose, l(i) = max{λi (s − 1), ϕi (s)
+                                                                                              1/m(s)
+                                                                                                     }.
+                                          1243–30
+
+
+Puis, on améliore ces choix en se rappelant que les λi forment une suite log-concave,
+donc en définissant :
+                                                                  
+                         
+                                                                  
+                                                                   
+                                                   v 1/(u+v)
+(25)      λ−                              u
+           i (s) = max l(i), max (l(i − u) l(i + v) )                  ≥ λ−
+                                                                          i (s − 1).
+                         
+                                1≤u≤i                             
+                                                                   
+                                1≤v≤d−i
+
+
+  Pour montrer que cet algorithme fonctionne, il s’agit de voir que les λ−
+                                                                         i (s) convergent
+bien vers λi (f ).
+   Si µi > µi+1 , la suite (λ−
+                             i (s))s converge vers λi (f ) par valeurs inférieures. En effet,
+écrire que les paramètres sont adaptés et que les conditions de récurrence sont satisfaites,
+c’est écrire une famille finie d’inégalités strictes entre certains produits d’intersection.
+Par le théorème 6.5, ces inégalités sont satisfaites (pour certains (ε, γ, m)) lorsque
+les paramètres αi sont remplacés par les multiplicateurs µi ; donc ces inégalités sont
+satisfaites pour des paramètres rationnels p(s) dont les αi sont suffisamment proches
+des µi et dont les coefficients ε et γ vérifient les hypothèses du lemme 6.7.
+   Maintenant, considérons le cas où i < i′ sont deux indices en lesquels µi > µi+1 ,
+µi′ > µi′ +1 et µi+1 = · · · = µi′ . On sait alors que λ−            −
+                                                          i (s) et λi′ (s) tendent vers λi (f )
+et λi′ (f ) par valeurs inférieures. Donc, si i ≤ j ≤ i′ , λ−j (s) tend aussi vers λj (f ) par
+log-concavité grâce au choix effectué dans l’équation (25).
+
+6.4. Semi-continuité
+   Pour démontrer la semi-continuité des λi (fs ) énoncée au théorème 5.3, le point clé
+est —comme au paragraphe 5.4— de démontrer que, si β < λi (fη ), alors λi (fs ) > β
+sur un ouvert dense U ⊂ S. Pour cela, on fait tourner l’algorithme précédent jusqu’à
+un temps s0 afin d’obtenir une bonne approximation des λi (fη ), disons à 2−N près avec
+2−N < λi (fη ) − β. Le temps s0 étant ainsi fixé, considérons les paramètres p(s) avec
+s ≤ s0 qui sont adaptés à f et vérifient les conditions de récurrence ; ils sont déterminés
+par un nombre fini d’inégalités entre degrés mixtes. Par la proposition 5.5, ces produits
+d’intersection restent constants sur un ouvert dense U ⊂ S, et alors λi (fs ) > β pour
+tout s ∈ U .
+
+
+
+7. Propriétés arithmétiques
+
+7.1. Dénombrabilité et transcendance
+   Nous noterons Λ ⊂ [1, +∞[ l’ensemble de tous les degrés dynamiques λi (f ) possibles,
+le corps k, la variété X et la transformation f variant tous les trois.
+
+Théorème 7.1 (Bonifant et Fornæss, 2000 ; Urech, 2018). — L’ensemble Λ de tous les
+degrés dynamiques possibles est dénombrable.
+                                         1243–31
+
+
+   En effet, chaque transformation rationnelle f : X 99K X est définie sur le corps de type
+fini K ⊂ k qui est obtenu en adjoignant les coefficients des équations déterminant X
+et des formules définissant f au corps de base (donc à Q ou à Fp , p = carac(k)). À
+isomorphisme près, il n’y a qu’une quantité dénombrable de tels corps, car chacun
+d’entre eux est une extension de degré fini d’une extension transcendante pure de degré
+fini du corps de base. Enfin, K étant fixé, il n’y a qu’une quantité dénombrable de
+variétés et de transformations rationnelles définies sur K.
+   L’exemple 2.3 montre que Λ contient les rayons spectraux des matrices entières de
+déterminant non nul, donc les entiers algébriques λ ∈ [1, +∞[ qui sont supérieurs au
+module des autres racines λ′ ∈ C de leur polynôme minimal.
+
+Théorème 7.2 (Bell, Diller, Jonsson et Krieger). — Soit k un corps de caractéristique
+différente de 2. Il existe des transformations rationnelles de P2k et des transformations
+birationnelles de P3k dont les degrés dynamiques sont transcendants.
+
+   Les exemples employés par Bell, Diller et Jonsson (2020) puis Bell, Diller, Jonsson et
+Krieger (2024) sont des compositions f1 ◦s◦f2 où s est l’involution de Cremona standard
+et f1 et f2 sont monomiales. Il est également probable que le degré de transcendance
+de Q(Λ) sur Q soit infini. Nous verrons ci-dessous que λ1 (f ) est algébrique si f est une
+transformation birationnelle d’une surface, mais il pourrait exister une paire (f, g) de
+transformations birationnelles du plan dont le degré dynamique joint λ1 (f, g) soit trans-
+cendant ; ici λ1 (f, g) désigne la limite de max{deg(w); w ∈ Bf,g (n)}1/n où Bf,g (n) est
+l’ensemble des compositions de f , g, f −1 et g −1 de longueur ≤ n. Enfin, le théorème 7.2
+et sa démonstration suggèrent d’étudier en détails les séries génératrices n≥0 degi (f n )tn
+                                                                          P
+
+et les propriétés d’approximation diophantienne des λi (f ) (voir Nguyen, 2025).
+
+7.2. Transformations birationnelles des surfaces
+    Si f est une transformation birationnelle d’une surface X, ses points d’indétermination
+forment un sous-ensemble fini Ind(f ) ⊂ X. Nous avons vu au paragraphe 2.4 qu’en
+général l’action de f ∗ sur NS(X; R) ne vérifie pas (f n )∗ = (f ∗ )n . Plus précisément, si
+g : X 99K Y et h : Y 99K Z sont des applications rationnelles dominantes entre surfaces
+projectives, alors (h ◦ g)∗ ̸= g ∗ ◦ h∗ si et seulement si g contracte une courbe sur un
+point d’indétermination de h. Ainsi, pour que (f n )∗ soit toujours égal à (f ∗ )n il faut
+que l’orbite positive de Ind(f −1 ) sous l’action de f ne rencontre pas Ind(f ). Sinon, on
+trouve une courbe E ⊂ Exc(f ) contractée sur un point q de Ind(f −1 ) qui, pour un
+n ≥ 0 que nous choisirons minimal, vérifie f n (q) ∈ Ind(f ). Si l’on éclate X en q, f (q),
+..., f n (q), on peut espérer faire disparaître ce phénomène tout en réduisant le nombre
+total de points d’indétermination de f . Grâce à cette idée, Diller et Favre (2001) ont
+montré le théorème suivant.
+
+Théorème 7.3 (Diller et Favre). — Soit f une transformation birationnelle d’une
+surface projective X. Il existe un morphisme birationnel π : Y → X telle que l’application
+birationnelle fY := π −1 ◦ f ◦ π : Y 99K Y vérifie les propriétés suivantes :
+                                         1243–32
+
+
+  1. fY est algébriquement stable, c’est-à-dire que les endomorphismes linéaires de
+     NS(Y ; Z) associés aux itérés de fY vérifient (fYn )∗ = (fY∗ )n pour tout n ≥ 0 ;
+  2. λ1 (fY ) est le rayon spectral de fY∗ : NS(X; Z) → NS(X; Z) ;
+  3. λ1 (f ) = λ1 (fY ) est égal à 1, ou à un nombre de Salem, ou à un nombre de Pisot.
+Autrement dit, λ1 (f ) est un entier algébrique appartenant à [1, +∞[ dont les conjugués
+galoisiens ont tous un module complexe ≤ 1.
+Esquisse de démonstration. — Nous avons expliqué ci-dessus d’où provient le point (1).
+Le point (2) est conséquence de (1) et de la première propriété établie au paragraphe 2.4.
+En particulier, λ1 (fY ), qui est égal à λ1 (f ) par le théorème 4.1(3), est un entier algé-
+brique : c’est une racine du polynôme caractéristique de fY∗ .
+   Le point (3) est plus délicat. Pour décrire les arguments clés, supposons directement
+que f = fY est algébriquement stable. D’après le théorème de l’indice de Hodge, la
+forme d’intersection sur NS(X; R) est non-dégénérée et de signature (1, ρ(X) − 1).
+   Si f est un automorphisme, la forme d’intersection est f ∗ -invariante, ainsi que le cône
+ample, si bien que les deux composantes de {u ∈ NS(X; R) ; (u·u) > 0} sont invariantes.
+Lorsque le rayon spectral de f ∗ est > 1, le théorème de Perron–Frobenius fournit un
+vecteur propre isotrope θf+ de valeur propre λ1 (f ) = ρ(f ∗ ). La valeur propre 1/λ1 (f )
+apparaît aussi dans le spectre de f ∗ , pour un autre vecteur isotrope θf− . Le sous-espace
+de NS(X; R) orthogonal à VectR (θf+ , θf− ) est f ∗ -invariant et la forme d’intersection
+y est définie négative, donc les autres valeurs propres de f ∗ sont de module 1. Ceci
+montre que λ1 (f ) est la racine d’un polynôme unitaire à coefficients entiers (le polynôme
+caractéristique de f ∗ ∈ GL(NS(X; Z))), dont les racines sont λ1 (f ) ≥ 1, 1/λ1 (f ), et
+des nombres de module 1. Ainsi, λ1 (f ) est soit égal à 1, soit un entier quadratique
+réciproque (donc un nombre de Pisot), soit un nombre de Salem.
+   Lorsque f n’est pas un automorphisme, la forme d’intersection n’est plus invariante.
+Toutefois, pour tout diviseur D,
+                          (f ∗ D · f ∗ D) = (D · D) +       (D · Ej )2
+                                                        X
+(26)
+                                                        j
+
+où les Ej sont des diviseurs effectifs portés par Exc(f −1 ) ; ainsi, (D · D) ne peut qu’aug-
+menter sous l’action de f ∗ , ce qui suffit pour conclure (Diller et Favre, 2001).
+  Pour D effectif, l’explication géométrique de (26) est la suivante : si un point d’indé-
+termination q est envoyé par f sur un diviseur E et si (E · D) = m, alors f ∗ D passera
+par q avec multiplicité m et E apparaîtra avec multiplicité m dans f∗ f ∗ D. Ceci montre
+que f∗ f ∗ D = D + j (D · Ej )Ej pour certains diviseurs effectifs Ej portés par Exc(f −1 ).
+                   P
+
+L’égalité (26) en découle en intersectant avec D.
+
+Remarque 7.4. — Les nombres de Pisot (resp. Salem) ne sont pas tous réalisés comme
+degrés dynamiques de transformations birationnelles de surfaces. Ces degrés dynamiques,
+en effet, forment un sous-ensemble bien ordonné de [1, +∞[, c’est-à-dire que toute suite
+décroissante dans cet ensemble est stationnaire, et cette propriété n’est pas satisfaite
+                                           1243–33
+
+
+par les nombres de Salem (voir Blanc et Cantat, 2016). De plus, le plus petit degré
+dynamique > 1 réalisé par une transformation birationnelle de surface est le nombre de
+Lehmer : la racine λL ≃ 1, 17628 de l’équation t10 + t9 − (t7 + · · · + t3 ) + t + 1 = 0.
+Remarque 7.5. — Pour les transformations birationnelles des surfaces, un théorème de
+Gizatullin permet de répondre au problème décrit au paragraphe 4.4.1. Si λ1 (f ) = 1,
+seuls trois cas sont possibles :
+  a. deg(f n ) est une suite bornée. Dans ce cas, il existe une application birationnelle
+     g : Y 99K X et un entier k ≥ 1 tels que g −1 ◦ f k ◦ g appartienne à un sous-groupe
+     algébrique connexe de Aut(Y ).
+  b. deg(f n ) ≃ cn pour un c > 0. Dans ce cas, f préserve un pinceau de courbes et un
+     seul, et ce pinceau est formé de courbes rationnelles.
+  c. deg(f n ) ≃ cn2 pour un c > 0. Dans ce cas, f préserve un pinceau de courbes et un
+     seul, et ce pinceau est formé de courbes de genre 1.
+  Nous renvoyons aux survols de Favre (2010), Cantat (2018, 2025) pour ces deux re-
+marques. Ils décrivent notamment comment interpréter ces énoncés à l’aide de géométrie
+hyperbolique, log(λ1 (f )) devenant la longueur de translation d’une isométrie.
+
+7.3. Endomorphismes de l’espace affine
+  Pour un endomorphisme f : Ad → Ad , Blanc et Santen (2022) suggèrent que λ1 (f )
+est un entier algébrique de degré ≤ d (≤ d − 1 lorsque f ∈ Aut(Ad )) qui est supérieur au
+module de toutes les racines de son polynôme minimal. Le cas des automorphismes du
+plan résulte du théorème de Jung et van der Kulk, qui stipule que Aut(A2 ) est le produit
+amalgamé du groupe affine et du groupe des transformations élémentaires (x1 , x2 ) 7→
+(x1 + p(x2 ), x2 ) le long de leur intersection (Lamy, 2001). Le cas des endomorphismes
+des surfaces affines est traité par Favre et Jonsson (2011) et Abboud (2023).
+Théorème 7.6 (Dang et Favre). — Si f est un endomorphisme propre de l’espace
+affine AdC tel que λ1 (f )2 > λ2 (f ), alors λ1 (f ) est un nombre algébrique de degré ≤ d.
+   En corollaire, si f est un automorphisme de A3C , alors λ1 (f ) est un nombre algébrique
+de degré ≤ 6. Les méthodes employées pour ce type d’énoncés diffèrent fortement de
+celles décrites dans le reste de cet exposé. Il s’agit notamment de décrire l’action de f sur
+l’espace des valuations de C[x1 , . . . , xd ], l’anneau des fonctions de Ad , qui sont centrées
+à l’infini. Nous renvoyons le lecteur à l’article de Dang et Favre (2021).
+
+
+8. Endomorphismes réguliers
+
+   Pour conclure cet exposé, nous allons décrire deux théorèmes qui ont été obtenus pour
+les endomorphismes (réguliers) et pourraient avoir des analogues pour toute transforma-
+tion rationnelle dominante. Le premier résultat dit que les multiplicateurs µi peuvent
+                                           1243–34
+
+
+être retrouvés en considérant l’action des (f n )∗ sur NS(X; R) seulement, et pas sur
+les N i (X; R) avec i ≥ 2. Le second montre que si degi (f n ) ≤ cste na pour un certain
+degré a, alors en fait degi (f n ) ≤ cste ni(2d−2) , où d = dim(X).
+
+8.1. Multiplicateurs et groupe de Néron–Severi
+8.1.1. Spectre associé à un cône. — Soient W un espace vectoriel réel de dimension
+finie et g un endomorphisme de W . Nous noterons SpC (g) ⊂ C le spectre de g et SpR (g)
+sa partie réelle, c’est-à-dire l’ensemble des valeurs propres réelles de g.
+   Soit C ⊂ W un cône tel que (i) C est ouvert, non vide, et convexe ; (ii) C est (stric-
+tement) saillant, c’est-à-dire qu’il existe une forme linéaire ξ ∈ W ∨ telle que ξ(u) > 0
+pour tout u ∈ C \ {0} ; et (iii) C est g-invariant : g(C) = C.
+   On définit le spectre de g relatif à C par
+(27)                  Sp(g; C) = {α ∈ R ; (g − α id)(W ) ∩ C = ∅}.
+C’est un sous-ensemble de SpR (g) ∩ R>0 car si α n’est pas une valeur propre de g, alors
+(g − α id)(W ) = W , et si α est négatif, alors (g − α id)(C) ⊂ C. Si C1 ⊂ C2 sont deux
+cônes g-invariants comme ci-dessus, alors Sp(g; C2 ) ⊂ Sp(g; C1 ).
+
+Lemme 8.1. — Soit α un réel ≥ 0. Les assertions suivantes sont équivalentes
+  a. α ∈ Sp(g; C) ;
+  b. il existe n ≥ 1 tel que αn ∈ Sp(g n ; C) ;
+  c. pour tout n ≥ 1, αn ∈ Sp(g n ; C).
+En particulier, pour tout n ≥ 1, Sp(g n ; C) = {αn ; α ∈ Sp(g; C)}.
+
+Démonstration. — Notons que (c.) entraîne (a.) qui entraîne (b.). Supposons
+α∈/ Sp(g; C). Il existe alors w ∈ W tel que g(w) − αw appartient à C ; donc
+   g n (w) − αn w = g n−1 (g(w) − αw) + αg n−1 (g(w) − αw) + · · · + αn−1 (g(w) − αw)
+appartient à C ; donc αn ∈/ Sp(g n ; C). Ceci montre que (b.) implique (a.). Il reste à établir
+que (a.) entraîne (c.). Il revient au même de montrer que si αm ∈         / Sp(g m ; C) pour un
+m ≥ 1, alors α ∈ / Sp(g; C). L’hypothèse αm ∈  / Sp(g m ; C) fournit en effet un vecteur v ∈ W
+tel que g m (v) − αm v appartient à C ; en posant w = αm−1 v + αm−2 g(v) + · · · + g m−1 (v)
+on obtient un vecteur qui vérifie g(w) − αw = g m (v) − αm v ∈ C, donc α ∈       / Sp(g; C).
+
+8.1.2. Spectres associés aux cônes gros et amples. —
+
+Théorème 8.2 (Xie, 2025). — Soient X une variété projective et f : X → X un
+endomorphisme dominant. L’application linéaire f ∗ : NS(X; R) → NS(X; R) préserve
+les cônes Big(X) et Amp(X). Le spectre de f ∗ associé à Big(X) est égal à l’ensemble
+des multiplicateurs de f ∗ :
+                      Sp(f ∗ ; Big(X)) = {µi (f ) ; i = 1, . . . , dim(X)}.
+                                             1243–35
+
+
+Le spectre de f ∗ associé au cône Amp(X) est
+                   Sp(f ∗ ; Amp(X)) =
+                                         [
+                                             {µi (V, f ) ; i = 1, . . . , dim(V )}.
+                                         V
+
+où l’union est prise sur toutes les sous-variétés irréductibles de X de dimension ≥ 1 qui
+sont f -périodiques.
+
+    Voici un énoncé équivalent à la première assertion : pour qu’il existe un fibré en
+droites L tel que f ∗ L − αL soit gros, il faut et il suffit que α ne soit pas l’un des µi (f ).
+    Ce théorème montre que les degrés dynamiques se déduisent de la seule connaissance
+de f ∗ : NS(X; R) → NS(X; R) et de Big(X) ⊂ NS(X; R). Par exemple, si α1 > α2 >
+· · · > αk sont les valeurs propres réelles positives de f ∗ : NS(X; R) → NS(X; R), alors
+λ1 (f ) est égal à α1 , λ2 (f ) = αi2 λ1 (f ) pour un indice i2 ≥ 1, λ3 (f ) = αi3 λ2 (f ) pour un
+indice i3 ≥ i2 , etc.
+Démonstration pour Big(X). — Soit d la dimension de X. Soit L la classe d’un fibré en
+droites ample sur X. Comme précédemment, nous noterons Ln = (f n )∗ L et µi = µi (f ),
+et nous emploierons la convention µd+1 = 0.
+Étape 1.— Soit α un réel > 0 tel que α ∈      / {µi (f ) ; i = 1, . . . , d}. Montrons que
+                             ∗
+α n’appartient pas à Sp(f ; Big(X)). C’est le cas si α n’appartient pas au spectre
+de f ∗ : NS(X; R) → NS(X; R). Comme µ1 = λ1 est le rayon spectral de f ∗ , nous
+pouvons supposer µ1 > α > 0. Il existe donc un entier i minimal tel que α > µi+1 ,
+et alors µi > α > µi+1 . Soit ε ∈ ]0, 1[. Pour m assez grand (fixé), le théorème 6.5
+assure que M := L2m + (µi µi+1 )m L − (εµi )m Lm appartient à Big(X). Définissons N =
+Lm − (µi µi+1 α−1 )m L et remarquons que
+            (f m )∗ N − αm N = L2m − (µi µi+1 α−1 )m Lm − αm Lm + (µi µi+1 )m L
+                              = M + ((εµi )m − αm − (µi µi+1 α−1 )m ))Lm .
+Donc (f m )∗ N −αm N appartient à Big(X) si ε ∈ ]0, 1[ vérifie εµi > α et εµi > µi µi+1 α−1 .
+Un tel choix de ε est possible car 1 > α/µi et 1 > µi+1 α−1 . Ceci montre que αm n’ap-
+partient pas à Sp((f m )∗ ; Big(X)). Comme (f ∗ )m = (f m )∗ , on conclut avec le lemme 8.1.
+
+Étape 2.— Supposons maintenant que α = µi pour un i ∈ {1, . . . , d} et montrons que
+α appartient à Sp(f ∗ ; Big(X)). Raisonnons par l’absurde, en supposant qu’il existe
+N ∈ NS(X; R) tel que M := f ∗ N − µi N est une classe grosse. Nous pouvons alors
+multiplier N (et donc M ) par une constante > 0 pour que M − L soit grosse. Fixons
+des constantes c et c′ ≥ 1 telles que −cL ≤ N ≤ cL (au sens où cL − N et cL + N sont
+grosses) et f ∗ L ≤ c′ L.                                               
+  Soit h(n, m) le réel > 0 défini par h(n, m) = µ−m
+                                                 i    Li−1
+                                                       n   · L m · L d−i
+                                                                           .
+Remarques intermédiaires.— Montrons les trois propriétés suivantes
+  1. h(n + 1, m) ≤ (c′ )i−1 h(n, m) ;
+  2. h(n, m + 1) ≤ (c′ /µi )h(n, m) ;
+                                                 1243–36
+
+
+  3. pour tout δ ∈]0, 1[ il existe une constante c′′ ≥ 1 telle que
+                                                     h(n, m)
+                                    (c′′ )−1 δ n ≤           ≤ c′′ δ −n
+                                                      λni−1
+     pour tous les entiers n ≥ m ≥ 0.
+                                                                               
+Pour (1), on écrit h(n + 1, m) = µ−m
+                                  i  (f n )∗ (f ∗ L)i−1 · Lm · Ld−i et on utilise f ∗ L ≤ c′ L.
+L’inégalité (2) s’obtient de manière analogue. Pour (3), on applique le corollaire 6.2
+en prenant s = 3, r1 = i − 1, r2 = 1, r3 = d − i et m1 = n, m2 = m, m3 = 0. Alors
+ℓ1 = i − 1, ℓ2 = i, ℓ3 = d et
+                                                                  
+                 (c′′ )−1 δ n λn−m  m 0     i−1
+                               i−1 λi λd ≤ Ln · Lm · L
+                                                       d−i
+                                                           ≤ c′′ δ −n λn−m  m 0
+                                                                       i−1 λi λd
+
+dès que n ≥ m ≥ 0. En remarquant que λi /λi−1 = µi , ceci donne
+                              (c′′ )−1 δ n λni−1 ≤ h(n, m) ≤ c′′ δ −n λni−1 .
+Conclusion (esquisse).— En utilisant L ≤ M nous obtenons
+          m                  m                                
+                                    µ−j Li−1        d−i
+          X                  X
+                 h(n, j) ≤           i   n · Mj · L
+          j=m0               j=m0
+                                                                                 
+                        ≤ µ−m
+                           i  Li−1
+                               n · Nm+1 · L
+                                            d−i
+                                                − µ−m
+                                                   i
+                                                      0 +1
+                                                           Li−1
+                                                            n · N m0 · L
+                                                                         d−i
+
+
+                        ≤ (cµi )h(n, m + 1) + (cµi )h(n, m0 )
+                        ≤ (cc′ )h(n, m) + (cµi )h(n, m0 ).
+car −cL ≤ N ≤ cL et h(n, m + 1) ≤ (c′ /µi )h(n, m).
+   Nous voulons déduire une contradiction de cette inégalité en choisissant convenable-
+ment m0 ≤ m ≤ n. La fonction h : N×N → R+ est une combinaison linéaire de fonctions
+du type (n, m) 7→ αn β m na mb où les coefficients α et β sont des valeurs propres de f ∗ sur
+NS(X; C). Simplifions la situation en supposant que h(n, m) = αn β m na mb . La propriété
+(3) démontrée ci-dessus entraîne alors β = 1 et α = λi−1 , donc h(n, m) = λni−1 na mb .
+Mais alors
+                       m
+                                                 1
+                                                                   
+                           h(n, j) = λni−1 na        mb+1 + O(mb ) ,
+                      X
+
+                     j=m0                       b+1
+ce qui contredit l’inégalité m                 ′
+                             j=m0 h(n, j) ≤ (cc )h(n, m) + (cµi )h(n, m0 ).
+                                P
+
+  Le cas d’une combinaison linéaire quelconque h(n, m) = k ck αkn βkm nak mbk est plus
+                                                             P
+
+délicat, mais conduit à une contradiction similaire.
+
+8.2. Croissance polynomiale
+   Soit f : X → X un endomorphisme dominant d’une variété projective X tel que
+λ1 (f ) = 1. Par le corollaire 4.5, λi (f ) = 1 pour tout i. D’après le paragraphe 2.4, λi (f )
+est le rayon spectral de f ∗ sur Ni (X; R), donc les valeurs propres de f ∗ sur Ni (X; R) sont
+de module ≤ 1. Comme f ∗ préserve le réseau Ni (X; Z), son polynôme caractéristique
+est unitaire et à coefficients entiers et ses valeurs propres sont des racines de l’unité. Il
+existe donc un entier k ≥ 1 tel que (f k )∗ est unipotent. Dans le cas kählérien, la même
+                                          1243–37
+
+
+démarche peut être couplée à l’assertion (??) du paragraphe 2.4 et donne : si les λi (f )
+valent 1, il existe un entier k ≥ 1 tel que (f k )∗ : H ∗ (X; R) → H ∗ (X; R) est unipotent.
+En écrivant f ∗ sous forme de Jordan, on voit alors que la croissance de ∥(f n )∗ ∥ sur
+NS(X; R) (resp. sur H 1,1 (X; R)) est polynomiale. La taille des blocs de Jordan étant
+évidemment majorée par ρ(X) = dim(NS(X; R)), nous obtenons ∥(f n )∗ ∥ ≤ cste nρ(X)−1
+                1,1
+(resp. ≤ cste nh (X)−1 ). Il existe en fait une majoration qui ne dépend que de dim(X) :
+
+Théorème 8.3. — Soit f : X → X un endomorphisme d’une variété projective de
+dimension d défini sur un corps k. Si ses degrés dynamiques valent 1, alors
+
+                                ∥(f n )∗NS(X;R) ∥ = O(n2d−2 ).
+
+Ce résultat est optimal : il existe des endomorphismes de variétés abéliennes pour lesquels
+∥(f n )∗NS(X;R) ∥ croît comme n2d−2 .
+
+  Les inégalités de Khovanskii et Teissier fournissent alors un entier k ≥ 1 tel que
+  1. (f k )∗ est une transformation linéaire unipotente de ⊕i Ni (X; R) ;
+  2. degi (f n ) = O(ni(2d−2) ), si bien que chaque bloc de Jordan de (f k )∗ sur N i (X; R)
+     est de taille ≤ i(2d − 2) + 1.
+Ces énoncés restent valables pour les transformations holomorphes des variétés com-
+pactes kählériennes en remplaçant l’action de f ∗ sur Ni (X; R) par celle sur H i,i (X; R).
+Ils ont été démontrés par Lo Bianco (2019) lorsque dim(X) ≤ 3, puis Dinh, H.-Y. Lin,
+Oguiso et Zhang (2022) si X est kählérienne, et Hu et Chen (2024) si X est projective.
+Lorsque dim(X) = 2, l’énoncé reste valable pour les transformations birationnelles (voir
+la remarque 7.5) ; on ne sait pas si c’est le cas en dimension ≥ 3.
+  Pour conclure, décrivons quelques points de la démonstration obtenue par Dinh, H.-Y.
+Lin, Oguiso et Zhang (2022), car les idées principales diffèrent de ce que nous avons
+expliqué jusqu’ici : il s’agit de suivre l’étude classique de la cohomologie des variétés
+kählériennes, notamment la preuve des théorèmes de Lefschetz, en ajoutant l’action
+de f .
+   Supposons f ∗ unipotent. Les cônes Kah(X)i ⊂ H i,i (X; R) étant f ∗ -invariants, on
+construit facilement des éléments Mi ∈ Kah(X) ⊂ H 1,1 (X; R), pour i allant de 1
+à d − 1, tels que les produits Li := M1 · · · Mi vérifient Li ̸= 0 et f ∗ Li = Li . Les
+auteurs considèrent alors deux filtrations de H 1,1 (M ; R). La première, {0} = F0 ⊂
+Fi ⊂ Fi+1 ⊂ Fd = H 1,1 (M ; R), est définie par la propriété suivante : une classe D
+appartient à Fi si (Li · D) · (Ei · · · Ed−i−1 ) = 0 pour toutes classes Ej ∈ H 1,1 (X; R).
+Nous noterons Li · D ≡ 0 pour cette propriété. La seconde, Fi′ , peut être définie par
+Fi′ = {D ∈ H 1,1 (X; R); Li · D · D ≡ 0}. Par construction, Fi−1 ⊂ Fi′ ⊂ Fi .
+  Dinh et Nguyên (2006) ont établi des relations de Hodge–Riemann pour des classes
+de Kah(X) pouvant être distinctes. Elles permettent de montrer que dim(Fi′ /Fi−1 ) ≤ 1,
+avec égalité si et seulement si Fi′ = Fi−1 ⊕ RMi .
+                                         1243–38
+
+
+  Fixons maintenant une forme de Kähler κ, écrivons (f n )∗ κ = ((f ∗ − id) + id)n κ, et
+développons :                    !
+                           X n
+                    n ∗
+                  (f ) κ =        ωj avec ωj = (f ∗ − id)j κ.
+                           j≥0 j
+                                                                               
+Ainsi ∥(f n )∗ κ∥ croît comme na , où a est le plus grand entier tel que ωa · κd−1 ̸= 0. Le
+théorème 8.3 résulte alors du fait remarquable suivant : soit t(j) le plus grand indice
+tel que ωj ∈ Ft(j) \ Ft(j)−1 ; alors t(2j − 1) = t(2j) > t(2j + 1) = t(2j + 2) pour tout j.
+Donc ωj = 0 dès que j ≥ 2(d − 1) et la croissance est majorée par n2(d−1) .
+
+
+Références
+
+Marc Abboud (2023). « On the dynamics of endomorphisms of affine surfaces ». Preprint
+  arxiv :2311.18381.
+Vladimir I. Arnol’d (1990). « Dynamics of complexity of intersections », Bol. Soc. Brasil.
+  Mat. (N.S.) 21 (1), p. 1-10.
+Jason P. Bell, Jeffrey Diller et Mattias Jonsson (2020). « A transcendental dynamical
+  degree », Acta Math. 225 (2), p. 193-225.
+Jason P. Bell, Jeffrey Diller, Mattias Jonsson et Holly Krieger (2024). « Birational maps
+  with transcendental dynamical degree », Proc. Lond. Math. Soc. (3) 128 (1), Paper
+  No. e12573, 47.
+Jérémy Blanc et Serge Cantat (2016). « Dynamical degrees of birational transformations
+  of projective surfaces », J. Amer. Math. Soc. 29 (2), p. 415-471.
+Jérémy Blanc et Immanuel van Santen (2022). « Dynamical degrees of affine-triangular
+  automorphisms of affine spaces », Ergodic Theory Dynam. Systems 42 (12), p. 3551-
+  3592.
+Araceli M. Bonifant et John Erik Fornæss (2000). « Growth of degree for iterates of
+  rational maps in several variables », Indiana Univ. Math. J. 49 (2), p. 751-778.
+Yurii D. Burago et Viktor A. Zalgaller (1988). Geometric inequalities. T. 285. Grund-
+  lehren der mathematischen Wissenschaften [Fundamental Principles of Mathematical
+  Sciences]. Translated from the Russian by A. B. Sosinskiı̆, Springer Series in Soviet
+  Mathematics. Springer-Verlag, Berlin, p. xiv+331.
+Serge Cantat (2018). « The Cremona group », in : Algebraic geometry : Salt Lake City
+  2015. T. 97. Proc. Sympos. Pure Math. Amer. Math. Soc., Providence, RI, p. 101-142.
+        (2025). « Dynamical degrees, entropies, and Fatou sets », J. Reine Angew. Math.
+  (to appear), p. 7339-7371.
+Serge Cantat et Junyi Xie (2020). « On degrees of birational mappings », Math. Res.
+  Lett. 27 (2), p. 319-337.
+Ionuţ Chiose (2016). « The Kähler rank of compact complex manifolds », J. Geom.
+  Anal. 26 (1), p. 603-615.
+                                       1243–39
+
+
+Nguyen-Bac Dang (2020). « Degrees of iterates of rational maps on normal projective
+  varieties », Proc. Lond. Math. Soc. (3) 121 (5), p. 1268-1310.
+Nguyen-Bac Dang et Charles Favre (2021). « Spectral interpretations of dynamical
+  degrees and applications », Ann. of Math. (2) 194 (1), p. 299-359.
+Jean-Pierre Demailly (1993). « A numerical criterion for very ample line bundles », J.
+  Differential Geom. 37 (2), p. 323-374.
+Jean-Pierre Demailly et Mihai Paun (2004). « Numerical characterization of the Kähler
+  cone of a compact Kähler manifold », Ann. of Math. (2) 159 (3), p. 1247-1274.
+Jeffrey Diller et Charles Favre (2001). « Dynamics of bimeromorphic maps of surfaces »,
+  Amer. J. Math. 123 (6), p. 1135-1169.
+Tien-Cuong Dinh (2005). « Suites d’applications méromorphes multivaluées et courants
+  laminaires », J. Geom. Anal. 15 (2), p. 207-227.
+Tien-Cuong Dinh, Hsueh-Yung Lin, Keiji Oguiso et De-Qi Zhang (2022). « Zero en-
+  tropy automorphisms of compact Kähler manifolds and dynamical filtrations », Geom.
+  Funct. Anal. 32 (3), p. 568-594.
+Tien-Cuong Dinh et Viêt-Anh Nguyên (2006). « The mixed Hodge-Riemann bilinear
+  relations for compact Kähler manifolds », Geom. Funct. Anal. 16 (4), p. 838-849.
+        (2011). « Comparison of dynamical degrees for semi-conjugate meromorphic
+  maps », Comment. Math. Helv. 86 (4), p. 817-840.
+Tien-Cuong Dinh et Nessim Sibony (2004). « Regularization of currents and entropy »,
+  Ann. Sci. École Norm. Sup. (4) 37 (6), p. 959-971.
+Hélène Esnault et Vasudevan Srinivas (2013). « Algebraic versus topological entropy for
+  surfaces over finite fields », Osaka J. Math. 50 (3), p. 827-846.
+Benson Farb et Dan Margalit (2012). A primer on mapping class groups. T. 49. Princeton
+  Mathematical Series. Princeton University Press, Princeton, NJ, p. xiv+472.
+Charles Favre (2010). « Le groupe de Cremona et ses sous-groupes de type fini », in :
+  332. Séminaire Bourbaki. Volume 2008/2009. Exposés 997–1011, Exp. No. 998, vii,
+  11-43.
+Charles Favre et Mattias Jonsson (2011). « Dynamical compactifications of C2 », Ann.
+  of Math. (2) 173 (1), p. 211-248.
+Charles Favre, Tuyen Trung Truong et Junyi Xie (2022). Topological entropy of a rational
+  map over a complete metrized field. arXiv : 2208.00668 [math.DS].
+Charles Favre et Elizabeth Wulcan (2012). « Degree growth of monomial maps and
+  McMullen’s polytope algebra », Indiana Univ. Math. J. 61 (2), p. 493-524.
+William Fulton (1998). Intersection theory. Second. T. 2. Ergebnisse der Mathematik
+  und ihrer Grenzgebiete. 3. Folge. Springer-Verlag, Berlin, p. xiv+470.
+Phillip Griffiths et Joseph Harris (1978). Principles of algebraic geometry. Wiley-
+  Interscience [John Wiley & Sons], New York, p. xii+813.
+Mikhaïl Gromov (1990). « Convex sets and Kähler manifolds », in : Advances in diffe-
+  rential geometry and topology. World Sci. Publ., Teaneck, NJ, p. 1-38.
+                                        1243–40
+
+
+Mikhaïl Gromov (2003). « On the entropy of holomorphic maps », Enseign. Math. (2)
+  49 (3-4), p. 217-235.
+Quentin Guignard (2021). « A new proof of Raynaud-Gruson’s flattening theorem »,
+  Int. Math. Res. Not. IMRN (9), p. 6932-6966.
+Fei Hu et Jiang Chen (2024). « An upper bound for polynomial volume growth of
+   automorphisms of zero entropy ». arXiv : 2408.15804 [math.AG].
+Chen Jiang et Zhiyuan Li (2023). « Algebraic reverse Khovanskii-Teissier inequality via
+   Okounkov bodies », Math. Z. 305 (2), Paper No. 26, 14.
+Anatole Katok et Boris Hasselblatt (1995). Introduction to the modern theory of dy-
+  namical systems. T. 54. Encyclopedia of Mathematics and its Applications. With a
+   supplementary chapter by A. Katok and L. Mendoza. Cambridge University Press,
+   Cambridge, p. xviii+802.
+János Kollár (1996). Rational curves on algebraic varieties. T. 32. Ergebnisse der Ma-
+   thematik und ihrer Grenzgebiete. 3. Folge. Springer-Verlag, Berlin, p. viii+320.
+Stéphane Lamy (2001). « L’alternative de Tits pour Aut[C2 ] », J. Algebra 239 (2),
+   p. 413-437.
+Robert Lazarsfeld (2004). Positivity in algebraic geometry. I. T. 48. Ergebnisse der
+   Mathematik und ihrer Grenzgebiete. 3. Folge. Classical setting : line bundles and
+   linear series. Springer-Verlag, Berlin, p. xviii+387.
+Brian Lehmann et Jian Xiao (2017). « Correspondences between convex geometry and
+   complex geometry », Épijournal Géom. Algébrique 1, Art. 6, 29.
+Jan-Li Lin (2012). « Pulling back cohomology classes and dynamical degrees of monomial
+   maps », Bull. Soc. Math. France 140 (4), p. 533-549.
+Federico Lo Bianco (2019). « On the cohomological action of automorphisms of compact
+   Kähler threefolds », Bull. Soc. Math. France 147 (3), p. 469-514.
+Yohsuke Matsuzawa et Long Wang (2024). « Arithmetic degrees and Zariski dense orbits
+   of cohomologically hyperbolic maps », Trans. Amer. Math. Soc. 377 (9), p. 6311-6340.
+Yohsuke Matsuzawa et Junyi Xie (2025). « Arithmetic degree and its application to
+   Zariski dense orbit conjecture », J. Lond. Math. Soc. (2) 112 (3), Paper No. e70282.
+Quang-Khai Nguyen (2025). « On the generating series of the degree sequence ». arXiv :
+   2510.06142 [math.DS].
+Dan Popovici (2016). « Sufficient bigness criterion for differences of two nef classes »,
+  Math. Ann. 364 (1-2), p. 649-655.
+Michel Raynaud et Laurent Gruson (1971). « Critères de platitude et de projectivité.
+   Techniques de “platification” d’un module », Invent. Math. 13, p. 1-89.
+Silvain Rideau-Kikuchi (2022). « Sur un théorème de Lang-Weil tordu [d’après E.
+   Hrushovski, K. V. Shuddhodan et Y. Varshavsky] », in : Séminaire Bourbaki. Vol.
+   2022/2023. Exposés 1200.
+Alexander Russakovskii et Bernard Shiffman (1997). « Value distribution for sequences
+   of rational mappings and complex dynamics », Indiana Univ. Math. J. 46 (3), p. 897-
+   932.
+                                         1243–41
+
+
+Bernard Teissier (1979). « Du théorème de l’index de Hodge aux inégalités isopérimé-
+  triques », C. R. Acad. Sci. Paris Sér. A-B 288 (4), A287-A289.
+Tuyen Trung Truong (2020). « Relative dynamical degrees of correspondences over a
+  field of arbitrary characteristic », J. Reine Angew. Math. 758, p. 139-182.
+Christian Urech (2018). « Remarks on the degree growth of birational transformations »,
+  Math. Res. Lett. 25 (1), p. 291-308.
+Long Wang (2024). « Periodic points and arithmetic degrees of certain rational self-
+  maps », J. Math. Soc. Japan 76 (3), p. 713-738.
+Jian Xiao (2018). « Movable intersection and bigness criterion », Univ. Iagel. Acta Math.
+  (55), p. 53-64.
+Junyi Xie (2015). « Periodic points of birational transformations on projective surfaces »,
+  Duke Math. J. 164 (5), p. 903-932.
+        (2024a). « Algebraic dynamics and recursive inequalities ». arXiv : 2402.12678
+  [math.DS].
+         (2024b). « Numerical spectrums control Cohomological spectrums ». arXiv :
+  2412.01216 [math.AG].
+          (2025). « Numerical action for endomorphisms ». arXiv : 2502 . 04779
+  [math.DA].
+Yosef Yomdin (1987). « Volume growth and entropy », Israel J. Math. 57 (3), p. 285-300.
+
+
+
+                                           Serge Cantat
+                                           CNRS et Université de Rennes
+                                           Bâtiment 22–23 du Campus de Beaulieu
+                                           F–35042 Rennes cedex
+                                           E-mail : serge.cantat@univ-rennes.fr
+

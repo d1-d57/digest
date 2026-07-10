@@ -1,0 +1,644 @@
+Asymptotic spectra:
+Theory, applications and extensions
+Avi Wigderson and Jeroen Zuiddam
+October 24, 2023
+Dedicated to Volker Strassen, who blazed for us beautiful
+trails to explore in the forests of computation
+Abstract
+In 1969, Strassen shocked the computational world with his subcubic algorithm for multiplying matrices. Attempting to understand the best possible algorithm for this problem,
+Strassen went on to develop his magnificent theory of asymptotic spectra in three papers between
+1986–1991. Expressed in the great generality of partially ordered semirings, the centerpiece of
+this theory is a duality theorem between the asymptotic “rank” of elements, and a topological
+space which is called asymptotic spectrum. This duality theorem is a vast generalization of
+linear programming duality (in which we have a semigroup rather than a semiring), and indeed
+also of certain versions of the Positivstellensatz, the duality theorem of polynomial inequalities
+over the reals. Focusing on understanding the structure of the asymptotic spectrum of matrix
+multiplication, the theory has provided surprising connectivity and convexity theorems for it.
+Strassen’s theory has led to many subsequent results, especially new algorithmic, structural
+and barrier results on matrix multiplication, and more generally for the semiring of tensors (which
+includes the matrix multiplication tensors). Perhaps even more impressively, the generality of
+Strassen’s theory has been applied recently to the study of a variety of very different settings
+and parameters, in diverse fields including communication theory, graph theory, probability
+theory, quantum information theory and computational complexity.
+We feel that these developments call for an exposition of this growing field. This paper
+gives a comprehensive, self-contained, modern survey of Strassen’s theory of asymptotic spectra
+and its various old and new application areas. For accessibility we provide many examples and
+high-level discussions of definitions and techniques.
+The paper contains some new ingredients. We disentangle some proofs to make them more
+modular, and each part as general as possible. We introduce some new notions, which sometimes
+lead to simpler, more intuitive proofs, as well as to some stronger or more general theorems.
+One such consequence is our connectivity theorem for the asymptotic spectrum of any tensor
+network, greatly generalizing Strassen’s connectivity theorem for the special case of matrix
+multiplication. Another consequence is progress on a conjecture of Strassen which generalizes
+Schönhage’s tau theorem.
+
+1
+
+Contents
+1 Introduction
+1.1 Amortization and asymptotics . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+1.2 From matrix multiplication to preordered semirings and asymptotic rank . . . . . .
+1.3 The asymptotic spectrum and duality . . . . . . . . . . . . . . . . . . . . . . . . . .
+1.4 Optimization: Linear programming duality and Positivstellensatz . . . . . . . . . . .
+1.5 Connectivity and convexity of the asymptotic spectrum . . . . . . . . . . . . . . . .
+1.6 Organization of this paper . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+4
+4
+6
+8
+10
+12
+15
+
+I
+
+17
+
+Asymptotic spectra and duality
+
+2 Semirings, Strassen preorders, rank and asymptotic rank
+17
+2.1 Basic objects of study . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18
+2.2 Rank, subrank and their asymptotic versions . . . . . . . . . . . . . . . . . . . . . . 20
+2.3 Examples . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23
+2.4 Summary . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 30
+3 Strassen’s duality theorem
+31
+3.1 Closed Strassen preorders . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 32
+3.2 Total closed Strassen preorders . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 34
+3.3 Fractional rank and fractional subrank . . . . . . . . . . . . . . . . . . . . . . . . . . 37
+3.4 Monotone homomorphisms, the asymptotic spectrum and duality theorem for asymptotic preorder . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 38
+3.5 Duality theorem for asymptotic rank and asymptotic subrank . . . . . . . . . . . . . 40
+3.6 Compactness . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 42
+3.7 Examples . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 44
+3.8 Summary . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 45
+4 Applications, variations and extensions of Strassen duality
+47
+4.1 Additivity if and only if multiplicativity . . . . . . . . . . . . . . . . . . . . . . . . . 47
+4.2 Schönhage’s tau theorem and a direct sum theorem for square matrix multiplication 52
+4.3 Lifting between semirings . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 53
+4.4 Complete semirings and the density theorem . . . . . . . . . . . . . . . . . . . . . . 56
+4.5 Barrier theorems . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 57
+4.6 Related duality theories and Positivstellensätze . . . . . . . . . . . . . . . . . . . . . 61
+
+II
+
+Connectivity and convexity of the asymptotic spectrum
+
+63
+
+5 Convexity and monomial inequalities
+65
+5.1 Polynomial inequalities characterize closed sets . . . . . . . . . . . . . . . . . . . . . 65
+5.2 Monomial inequalities characterize connected sets . . . . . . . . . . . . . . . . . . . . 66
+5.3 Multivariate monomial inequalities characterize log-convex sets . . . . . . . . . . . . 67
+
+2
+
+6 Type decomposition of polynomials and the monomial partial order
+68
+6.1 Asymptotic behavior of polynomials and the type decomposition . . . . . . . . . . . 69
+6.2 The monomial partial order on polynomials . . . . . . . . . . . . . . . . . . . . . . . 72
+6.3 The finite monomial partial order on polynomials . . . . . . . . . . . . . . . . . . . . 73
+6.4 Multivariate type decomposition and (finite) monomial partial order . . . . . . . . . 74
+7 Convexity and the monomial partial order
+77
+7.1 Sufficient condition for connectedness . . . . . . . . . . . . . . . . . . . . . . . . . . . 77
+7.2 Necessary condition for connectedness . . . . . . . . . . . . . . . . . . . . . . . . . . 78
+7.3 Multivariate sufficient and necessary condition for log-convexity . . . . . . . . . . . . 79
+8 Star-convexity and anchors
+79
+8.1 Anchor method for connectedness . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 80
+8.2 Anchors imply connectedness of univariate spectra . . . . . . . . . . . . . . . . . . . 82
+8.3 Anchors imply log-star-convexity of multivariate spectra . . . . . . . . . . . . . . . . 84
+9 Applications and extensions of connectedness
+85
+9.1 The power of connectedness and convexity in bounding rank . . . . . . . . . . . . . . 85
+9.2 Multivariate bounds from convexity and star-convexity . . . . . . . . . . . . . . . . . 88
+9.3 Type decompositions and convexity . . . . . . . . . . . . . . . . . . . . . . . . . . . . 92
+
+III
+
+Compression of tensors
+
+96
+
+10 Warm-up: compression (and error correction) of matrix multiplication
+
+97
+
+11 Basis shifting of tensors of vectors
+100
+11.1 Conditional dimension and group action on tensors of vectors . . . . . . . . . . . . . 101
+11.2 Shifting of one-dimensional tensors of vectors . . . . . . . . . . . . . . . . . . . . . . 103
+11.3 Shifting of two-dimensional tensors of vectors . . . . . . . . . . . . . . . . . . . . . . 105
+11.4 Shifting of high-dimensional tensors of vectors . . . . . . . . . . . . . . . . . . . . . . 106
+11.5 Discussion . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 108
+12 Compression (and error correction) of tensor networks
+110
+12.1 Tensor networks . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 111
+12.2 Tensors of vectors associated to a tensor network . . . . . . . . . . . . . . . . . . . . 113
+12.3 Projection property of tensor networks . . . . . . . . . . . . . . . . . . . . . . . . . . 114
+12.4 Invariance property of tensor networks . . . . . . . . . . . . . . . . . . . . . . . . . . 116
+12.5 Compression theorem for tensor networks . . . . . . . . . . . . . . . . . . . . . . . . 117
+12.6 Compression theorem for direct sums of tensor networks . . . . . . . . . . . . . . . . 119
+12.7 Log-star-convexity of asymptotic spectra of tensor networks . . . . . . . . . . . . . . 120
+13 Open problems and directions
+
+121
+
+3
+
+1. Introduction
+In his seminal 1969 paper “Gaussian elimination is not optimal”, Strassen sent a clear message to
+the (very young at the time) community of algorithm designers and complexity theorists, which
+has become part of its ethos since: natural, obvious and centuries-old methods for solving natural,
+important computational problems may be far from the fastest. For the problem of multiplying
+n × n matrices1 , he proved that the obvious O(n3 ) algorithm known to Gauss (and in some form,
+already to the Egyptians and Chinese millennia earlier) is far from optimal, by designing a new
+one which takes only O(nlog2 7 ) ≈ O(n2.8 ) arithmetic operations.2 The possibility of obtaining even
+faster algorithms for this central problem set Strassen and many other computer scientists on a
+quest to obtain them (with the current record below O(n2.4 )). The quest to understand the matrix
+multiplication exponent, namely the smallest3 real number ω such that multiplying n × n matrices
+can be performed in nω arithmetic operations, is still raging on.
+Then in the years 1986–1991 Strassen published three magnificent papers elaborating his theory
+of asymptotic spectra.4 While chiefly motivated by trying to understand the complexity of matrix
+multiplication, Strassen’s theory is far more general, putting the quest for proving upper and lower
+bounds on ω in a broader framework that suits other problems and settings. This theory sent
+another clear message to the same community, which too became part of its ethos: studying the
+computational complexity of natural problems may both require and generate deep and sophisticated
+mathematics. And indeed, today researchers from many different disciplines use and develop this
+theory.
+This paper is devoted to a modern, self-contained exposition of Strassen’s theory. In this
+introduction we begin by motivating it. Naturally, this introduction will be described in high-level,
+intuitive terms, which will be formalized in the technical sections.
+
+1.1. Amortization and asymptotics
+The following question arises in numerous parts of mathematics, physics, economics and computer
+science. Let R be a universe, and f : R → N be an N-valued function on R. In different contexts
+these objects may have a variety of meanings. In complexity theory, R may be a set of computational
+tasks, and for each task r ∈ R the number f (r) may be the minimal cost (in some resource, e.g.,
+time, space, communication, etc.) which is required to perform r. In economics, R may be a set of
+commodities or services, and f (r) may denote the monetary value of r. In graph theory, R may be
+the set of undirected graphs, and f (r) may be some graph parameter, for example the size of the
+largest clique or matching in r. And so on. To fix terminology, we will use “task” for elements of R
+and “cost” for the function f , but of course any of the many other interpretations are valid for what
+follows. In general, the cost f (r) of a task r may be very complex to understand and compute.
+1 A problem whose computational complexity dominates all linear algebra calculations (e.g., solving systems
+of linear equations, computing the determinant, inversion of a matrix, etc.) and thus central to numerous other
+mathematical computations that use it. While this complexity may depend on the underlying field, almost all our
+discussions hold for every field.
+2 This algorithm works for any field and so do all the subsequent matrix multiplication algorithms and results that
+we discuss.
+3 More precisely, the infimum of such numbers.
+4 The theory was first presented at the conference FOCS in 1986 [Str86]. The work in [Str87, Str88, Str91] was
+accompanied by the PhD theses of Strassen’s students Bürgisser [Bür90], Tobler [Tob91], and (later) Mauch [Mau98],
+and was followed up by Strassen’s paper [Str05] which surveys the theory and presents new ideas.
+
+4
+
+Assume now that for every task r ∈ R, and every integer n, also the task denoted rn is in R.
+Here rn intuitively means “n copies of r”, namely the task of performing r n times. Then the
+asymptotic behavior of f (rn ) for any fixed r as n gets larger, and the limit5 f˜(r) of (f (rn ))1/n as n
+tends to infinity, captures some notion of “bulk” or “amortized” cost of performing r.
+Remark 1.1. The choice of multiplicative notation for asymptotic behavior is standard and natural
+in Strassen’s theory, as we shall see. Moreover, in many settings the “cost” tends to accumulate
+multiplicatively with additional tasks. Of course, in many other settings “cost” tends to add up
+with additional tasks, and it may be more natural to work additively. Namely, denoting nr for “n
+copies of r”, and assuming nr ∈ R for all n, one can study the asymptotics of f (nr)/n for large n.
+Needless to say, in the generality above one can switch between the two by replacing such “additive”
+cost function f by (say) 2f to move to the multiplicative notation. Moreover, as in Strassen’s theory
+the universe R will be a (semi)ring under addition and multiplication, both asymptotic notions can
+be (and are) studied simultaneously. Nonetheless, the focus is on the multiplicative notion, and we
+proceed with it.
+The main object of study of Strassen’s theory is this amortized cost f˜(r). There are multiple
+reasons for studying it, some very general, and some depending on the setting and application area.
+The most obvious general reason is that in many computational and economic settings problems
+do indeed come in batches (e.g., computing the same function on multiple inputs, simultaneously
+communicating many messages through parallel channels, buying or selling many identical items,
+etc.). In others, multiple copies are generated artificially to achieve some “amplification”, making
+hard problems harder (e.g., for cryptographic purposes or in optimization settings.) In many areas
+of mathematics and physics, “direct sum” and “tensor product” apply to different types of objects,
+and it is natural to study how various parameters of these objects are affected by sum and product.6
+Finally, in many cases the amortized cost f˜ is an analytically easier function to study or compute
+than the cost f , and thus, for example, f˜(r) can be used to bound f (r). Moreover, as we shall
+see in the next subsection on matrix multiplication, sometimes f˜(r0 ) for a single, fixed r0 ∈ R can
+approximate f˜(r) extremely well for infinitely many r ∈ R!
+A particularly basic question is understanding the settings in which amortization does not help,
+namely f˜(r) is equal, or very close to f (r) for every r. In such settings one often says that a
+“direct sum” or “direct-product” theorem holds. When direct sum does not hold, one often says
+that “economy of scale” is achieved. Such an understanding is essential for many of the applications
+above. We conclude this subsection with a list of different settings, and some (sample of) references
+to what is known about this basic question and amortization in general. This list is not meant to be
+exhaustive (nor is the list of references complete), but rather to impress the reader with the variety
+of areas in which it arises and is studied. We will expand on some of these and others in Section 2.3.
+• Communication: In the setting of one-sided, zero-error communication, surprising economy
+of scale can be achieved. This led Shannon to the asymptotic notion of Shannon capacity of
+graphs, conjecturing a direct sum for this notion which was refuted by Alon [Alo98b]. For
+(interactive) communication complexity, such economy of scale was characterized for every
+problem via the information-theoretic notion of information complexity [BR14].
+5 Assuming a limit exists, which will be the case throughout the paper.
+6 Such investigations are often carried out not only for many copies of identical objects, but also for many copies of
+objects selected from a collection of few, different objects.
+
+5
+
+• Optimization: Direct sum and direct product theorems were proved for linear programming (under natural notions of sum and product), both for linear and convex objective
+functions [JM64, Mon65]. A direct product theorem for the SDP (semidefinite program)
+defining the Lovász theta function ϑ of a graph plays a central role in establishing the Shannon
+capacity of the pentagon [Lov79].
+• Amplification: A large family of (approximate) direct product theorems (often named by
+the related concept of “XOR lemmas” or “parallel repetition”) were proved for a variety of
+computational models, mainly for hardness amplification in cryptographic, pseudorandomness
+and optimization applications. These models include Boolean circuits (see the survey [GNW11]),
+multiparty communication and F2 -polynomials [VW07], decision trees [NRS98], (classical and
+quantum) 2-prover proof systems [Raz98, Hol07] and many others.
+• Computation: Perhaps the most famous economy-of-scale result is the following. Fix a
+field F and consider the number of operations (additions and multiplications of numbers in F)
+required to compute the linear transformation Ax for a fixed n × n matrix A and an input
+n-vector x. It is known (and quite easy) to see that for every matrix this complexity is at most
+O(n2 / log n), and that this is tight up to constant factors for most matrices A. Strikingly, for
+any matrix A, the total complexity of this problem for n input vectors x1 , . . . , xn is below n2.4 ,
+namely the amortized complexity per vector is only n1.4 ! This is a simple consequence of the
+best-known algorithm for the matrix multiplication problem.7
+The last example segues us to the next subsection on matrix multiplication, explaining how its
+arithmetic complexity begs an asymptotic study of the nature discussed above.
+
+1.2. From matrix multiplication to preordered semirings and asymptotic
+rank
+The following natural sequence of ideas interpolates between Strassen’s algorithm for the very specific
+problem of matrix multiplication, to the general framework of preordered semirings, in which he
+develops the theory of asymptotic spectra.
+Idea 0. Matrix multiplication is a bilinear function of its two input matrices, thus requiring
+additions and multiplications. In analyzing algorithms we will focus on counting multiplications
+only. As it happens (and is not hard to see), for this problem and the approach below, there is no
+loss of generality, as the number of additions will be at most a constant factor larger. Below we
+denote the problem of multiplying two n × n matrices by MMn , and by f (MMn ) the multiplicative
+complexity of this problem.
+Idea 1. Matrix multiplication is a “self-reducible” problem, so one can recurse, by viewing an
+n × n matrix as a 2 × 2 block-matrix, with each block being an n/2 × n/2 matrix. Thus, any
+algorithm for MM2 (in which we think of entries as belonging to a non-commutative ring) using
+k multiplications, allows reducing one instance of MMn to k instances of Mn/2 . This leads to a
+bound of nlog2 k multiplications.8 Clearly, 2 × 2 matrix multiplication can be performed using k = 8
+7 Simply, regard all input vectors as one matrix X, and compute AX. As A is fixed, only linear operations in X
+are performed.
+8 Up to constants, one can assume that n is a power of 2 for this argument without losing generality.
+
+6
+
+multiplications (namely, f (MM2 ) ≤ 8). Strassen’s seminal paper [Str69], which introduced the idea
+above, does it using k = 7 multiplications (proving f (MM2 ) ≤ 7), leading to the first subcubic
+algorithm for MMn , with O(nlog2 7 ) ≈ O(n2.8 ) multiplications.
+Idea 2. For such recursive algorithms, it suffices to have an asymptotic bound on the complexity
+of the 2 × 2 matrix multiplication problem. Namely, assume we had an upper bound of k m+o(m)
+multiplications on computing MM2m for large m. Here and in the rest of the paper o(m) denotes
+some function g(m) for which g(m)/m → 0. (Note that this may possibly be achievable with a
+much smaller value of k than 7.) Then, we could use recursion on size 2m instead of 2, and again
+obtain nlog2 k+o(1) complexity in general. This suggests studying
+lim (f (MM2m ))1/m .
+
+m→∞
+
+We shall presently see that this expression is precisely f˜(MM2 ) in the asymptotic notation of the
+previous subsection.
+Idea 3. Matrix multiplication, like any bilinear map, may be naturally viewed as a (3-dimensional)
+tensor Tn = TMMn of size n2 in each dimension (for entries of each of the two input matrices as
+well as the output matrix).9 With this representation it is easy to see that the multiplicative
+complexity f (MMn ) equals R(Tn ), with the usual notion of tensor rank.10 Observe that taking
+Kronecker products of two such matrix multiplication tensors yields another matrix multiplication
+tensor; more precisely, for any s, r, Ts ⊗ Tr = Tsr . With the idea above, we are led to study the
+asymptotic rank of any tensor T ,
+e
+R(T ) = lim R(T ⊗m )1/m ,
+m→∞
+
+e n ) for every n. Indeed, we see that understanding R(T
+e 2 ),
+and see immediately that f˜(MMn ) = R(T
+the asymptotic rank of a single tensor, determines the complexity of matrix multiplication in general
+(up to constant factors).
+Idea 4. Tensors11 form a semiring (under direct sum and Kronecker product). We have already
+seen the role of multiplication in this semiring. The importance of addition arises from the additive
+definition of tensor rank. Namely, one can express any upper bound R(T ) ≤ k (k positive integer)
+as an inequality T ≤ kI with I a unit (diagonal) tensor, and ≤ denotes a “reduction” that allows
+applying linear transformations12 on each of the tensor “legs” (or fiber directions) and transform kI
+to T . Moreover, the relation T ≤ T 0 can be extended using this notion of reduction to any pair
+of tensors T, T 0 . To summarize, this semiring of tensors naturally comes with a preorder13 that
+captures naturally the rank (and asymptotic rank) parameter, and is easily seen to be consistent
+with the addition and multiplication in this semiring.14
+9 Simply, T ((i, j), (j, k), (k, i)) = 1 and all its other entries are 0.
+10 Namely, R(T ) is the smallest number of rank-1 tensors which add up to T , where a tensor has rank 1 if it is the
+
+outer product of vectors.
+11 We think of d-dimensional tensors for fixed d, for example d = 3. This d is sometimes called the order of the
+tensor.
+12 Not necessarily invertible.
+13 Throughout we use preorder rather than the closely related notion of partial order, which is a preorder that is
+antisymmetric.
+14 Explicitly, if S ≤ T and S 0 ≤ T 0 , then S ⊕ S 0 ≤ T ⊕ T 0 and S ⊗ S 0 ≤ T ⊗ T 0 .
+
+7
+
+Idea 5. The above preordered semiring of tensors is just one of many (as we will see in Section 2.3)
+natural semirings R with preorder, in which the positive integers N≥1 are embedded in a similar
+natural way, as a totally ordered subsemiring. It is precisely in this vast generality of preordered
+semirings (with some added simple technical conditions) that Strassen develops his asymptotic
+theory. In each such preordered semiring one can define a notion of rank of an element r ∈ R in
+exactly the same way: R(r) is the smallest15 positive integer k ∈ N≥1 such that r ≤ k, using the
+given preorder ≤ on R. Moreover, it is equally natural, and in some semirings more interesting16 to
+consider the subrank Q(r) of elements r ∈ R, defined as the largest integer k ∈ N≥1 such that k ≤ r.
+e
+e
+For each of these we can define the analogous amortized, asymptotic notions, R(r),
+Q(r),
+which can
+now be real-valued.
+Idea 6. The final generalization is that there is no reason to consider asymptotic relations of
+semiring elements to integers only. Indeed, from the given preorder ≤, one can define a new,
+asymptotic preorder . as follows: for any two elements a, b ∈ R let a . b, iff a has an “amortized
+reduction” to b, namely, if for large n we have an ≤ bn+o(n) .17 In particular, this means that the
+amortized complexity of a is at most that of b. (It turns out that this asymptotic preorder essentially
+generalizes the notions of asymptotic rank (resp. asymptotic subrank), in which we essentially take b
+(resp. a) to be an integer.) Thus, the goal of the theory is to understand this asymptotic preorder .
+for general preordered (and bounded) semirings.
+
+1.3. The asymptotic spectrum and duality
+In this very general, abstract set-up, how does one prove inequalities like a . b? Let us see that we
+at least understand the answer in a very concrete set-up, namely when the semiring consists of all
+continuous non-negative real functions on a compact space. Let X be a compact topological space
+(for concreteness, the reader can imagine simply a compact subset of some Euclidean space Rd ). Let
+RX = C(X , R≥1 ) be the set of continuous R≥1 -valued functions on X . Clearly, RX is a semiring
+under pointwise addition and multiplication, namely (f +g)(x) = f (x)+g(x) and (f g)(x) = f (x)g(x)
+for all f, g ∈ RX and x ∈ X . Moreover, RX comes with a natural preorder ≤ of pointwise ordering,
+namely f ≤ g iff for all x ∈ RX we have f (x) ≤ g(x) (where here ≤ is the standard ordering of real
+numbers).
+The family of preordered semirings RX is extremely friendly. First, compactness guarantees that
+it is bounded, as each function f ∈ R attains a maximum max(f ) (and a minimum min(f )) over X .
+Second, the asymptotic preorder here is the same as the non-asymptotic one, namely defined by
+inequalities of real numbers, since for any x in X , f (x)n ≤ g(x)n+o(n) if and only if f (x) ≤ g(x).
+Now comes the main message of Strassen’s theory: every preordered semiring has such a simple
+form! More precisely, Strassen’s duality theorem states that for every preordered semiring R there
+exists a compact space X such that R is isomorphic to a subsemiring of RX . Namely, there is a
+semiring homomorphism Φ : R → RX which preserves the asymptotic preorder .. The pair (X , Φ)
+is called the asymptotic spectrum18 of R. Strassen proves further that the asymptotic spectrum of
+15 In some rings it may be that no such finite bound exists; we will demand that our semirings are bounded (or
+
+Archimedean), namely that rank is defined for all elements in R.
+16 As is the case in the semiring of graphs, where subrank corresponds to the Shannon capacity — an example we’ll
+discuss in detail.
+17 The general definition will be slightly different, as we will see when we formally define this in Section 2.
+18 In commutative algebra, the spectrum of a ring R (the set of prime ideals) is a topological space X such that
+elements of R can be viewed as functions on X. In real algebra, there is an analogous object called spectrum (the set
+
+8
+
+every preordered semiring is essentially unique!
+Let us denote fa = Φ(a) the image of a ∈ R in RX . By definition, fa ≤ fb if for all x ∈ X we
+have fa (x) ≤ fb (x).
+The impact of this theorem is astounding. Let us start from the most direct consequence, which
+is also the most important. The theorem characterizes the asymptotic preorder on R: for any
+two elements a, b, a . b in R iff fa ≤ fb . This leads to a characterization of asymptotic rank
+e
+by R(a)
+= max(fa ), converting a minimization problem into a maximization one. Similarly, the
+asymptotic subrank satisfies e
+Q(a) = min(fa ), turning a maximization problem into a minimization
+one.19 These are strong duality theorems in a very general context. Indeed, in the next subsection
+we will see how they vastly generalize linear programming duality, and indeed even some versions of
+the Positivstellensatz, the duality theorem for systems of polynomial inequalities in real algebraic
+geometry. We will also explain a less direct consequence of the duality theorem to Schönhage’s tau
+theorem, a central tool for developing fast matrix multiplication algorithms. But before these, let us
+see how much simpler the duality theory becomes when we specialize it to finitely generated rings.
+The fact that the mapping Φ is a semiring homomorphism means that it commutes with any
+polynomial. More precisely, if p ∈ N[Z1 , Z2 , . . . , Zd ] is any multivariate polynomial with non-negative
+integer coefficients, then Φ(p(a1 , a2 , . . . , ad )) = p(Φ(a1 ), Φ(a2 ), . . . , Φ(ad )). Thus, if our semiring
+R is finitely generated, say by some d elements a1 , a2 , . . . , ad , then every element b ∈ R is such
+a polynomial, say pb . Thus Φ(b) is uniquely determined (via pb ) by the (coordinate) functions
+Φ(a1 ), Φ(a2 ), . . . , Φ(ad ). In other words, the asymptotic spectrum X may be identified with a
+compact set in Rd≥1 , a much friendlier object than the abstract set in the general duality theorem.
+Moreover, as elements in such semirings are in 1-1 correspondence with polynomials, the asymptotic
+order b . c between any pair of elements holds iff pc − pb ≥ 0 holds on X .
+The study of finitely generated semirings is extremely natural and useful. Indeed, in many cases
+we care really about the asymptotic rank or subrank of specific elements in a ring (e.g., the Shannon
+capacity of the 7-cycle C7 , or the asymptotic complexity of the 2 × 2 matrix multiplication tensor).
+In such cases we can restrict ourselves to the subsemiring generated by that single element, whose
+asymptotic spectrum is simply a subset of R≥1 , namely a union of closed intervals. Let us use this
+understanding.
+Schönhage’s tau theorem (a.k.a. asymptotic-sum inequality) One of the most important
+advances in the design of fast matrix multiplication algorithms was Schönhage’s tau theorem [Sch81]
+(see also [Blä13]). To state it, recall that we denoted by MMn the matrix multiplication problem
+(equivalently, tensor), and we capture its asymptotic complexity by ω, the smallest real number
+ω
+τ
+e
+e
+such that R(MM
+n ) ≤ n . Thus trivially, an upper bound of the form R(MMn ) ≤ n (presumably
+via a new algorithm, as Strassen’s first breakthrough gave ω ≤ 2.8) immediately implies ω ≤ τ .
+Schönhage’s tau theorem greatly generalizes this to upper bounds on the asymptotic rank of the
+direct sum of any number of matrix multiplication tensors (e.g., to algorithms which compute many
+matrix multiplication problems on disjoint variables). It states20 for any k, ni ∈ N≥1 and τ ∈ R≥0
+e Pk MMn ) ≤ Pk nτ also implies ω ≤ τ . Giving an algorithm proving such an inequality
+that R(
+i
+i=1
+i=1 i
+for a direct sum of two specific (rectangular) matrix multiplication tensors, Schönhage improved
+Strassen’s initial bound to ω ≤ 2.55. This was a great advance, which led to the development of
+of “pre-primes”) [Mar08], which is the origin of the name asymptotic spectrum.
+19 The precise conditions under which this holds are discussed in Section 3.5.
+20 He has a more general version for rectangular matrix multiplication that we discuss further in Section 7.31 — we
+state it here only for square matrices.
+
+9
+
+even better algorithms. Schönhage’s proof is a very clever exercise in asymptotic analysis! Now let
+us see that the tau theorem (and more) directly follows from the duality theorem specialized to
+univariate rings.
+Let MM be the semiring generated by MM2 . While this ring contains MMn not for every n, but
+only powers of 2, this need not bother us as we are doing asymptotic analysis. Let us denote the
+e
+asymptotic spectrum of MM by ∆ ⊆ R≥1 . By Strassen’s duality, as R(MM
+2 ) = max Φ(MM2 ) =
+21 ω
+max ∆ we see that P
+2 is an elementPof ∆, indeed theP
+largest one! Recall
+the
+assumption of the
+Pk
+k
+k
+k
+τ
+τ
+e
+tau theorem was R(
+i=1 MMni ) ≤
+i=1 MMni .
+i=1 ni . Assuming (wlog)
+i=1 ni , that is,
+that the sizes ni appearing in the assumption P
+of the tau theorem
+to be powers of 2, the LHS is a
+Pk
+k
+τ
+polynomial in MM2 . Applying Φ to it we get i=1 nω
+i ≤
+i=1 ni , and can conclude ω ≤ τ . This
+argument followed essentially just from the membership of 2ω in ∆. Moreover, as 2ω is in fact the
+largest element in the spectrum, we have also proved that Schönhage’s theorem is in fact tight! It is
+not clear how one can prove this without the duality theorem. This argument implies a direct sum
+theorem for asymptotic rank, namely that
+X
+
+X
+
+2223
+e
+e
+R
+MMni = Ω
+R(MM
+ni ) .
+i
+
+i
+
+It is easy to see now how to generalize the tau theorem to any semiring with an identical proof.
+Let a ∈ R denote any element whose asymptotic rank we are after. Then the argument above shows
+bounding the rank of any element generated by a immediately bounds e
+R(a). More precisely, for any
+polynomial (again, univariate with non-negative integer coefficients) p, the assumption p(a) . p(r)
+e
+for any real number r implies R(a)
+≤ r.
+In Section 9.2 we will discuss even more general statements than Schönhage’s tau theorem that
+rely on Strassen’s duality.
+
+1.4. Optimization: Linear programming duality and Positivstellensatz
+Understanding systems of polynomial inequalities (and the special case of linear inequalities) is a
+central quest of real algebraic geometry and optimization. Let us see how these connect to Strassen’s
+theory, in its special case of finitely generated semirings. We will do so informally, and send the
+interested readers to a formal and detailed exposition in [Fri21, Fri17, RZ22]. Strassen starts with a
+preordered semiring, and finds its dual, the asymptotic spectrum, which in the finitely generated
+case turns out to be a set cut out by polynomial inequalities. We will reverse the order now — start
+from such a semi-algebraic set, and generate a preordered semiring from it.
+Consider an arbitrary semi-algebraic set, say X in Rd , cut out by a system of k integer24
+polynomial inequalities in d variables {pi ≤ 0}. Moving negative coefficients in each pi to the RHS,
+we obtain an equivalent system {p0i ≤ p00i } where p0i , p00i ∈ N[Z1 , Z2 , . . . , Zd ] have non-negative integer
+coefficients. We can define an abstract preordered semiring RX as follows. It is generated by d
+21 The appearance of the exponential function is natural, as we ω is the exponent of matrix multiplication. This
+observation is more general, and indeed in any setting it is natural to consider log Φ(b) as the exponent governing the
+rate of growth in e
+R(b).
+22 In fact, this equality is true even without the Ω.
+23 We do not know if a similar result holds for rank. One result in this direction is that direct-sum holds for MM ,
+2
+P
+P
+that is, R( i MM2 ) = i R(MM2 ) [Bür90, Rem 17.13 (6) and Eq. 14.8]. It is not known whether this direct-sum
+statement is true for larger square matrix multiplication tensors MMn , n > 2. Generally, Shitov proved that there are
+tensors T1 , T2 such that R(T1 ⊕ T2 ) < R(T1 ) + R(T2 ) [Shi19].
+24 We could allow rational coefficients, and then clear denominators to get integer ones.
+
+10
+
+abstract elements Z1 , Z2 , . . . , Zd , and its elements are all non-negative integer polynomials in these
+generators. The preorder is generated by the given system of inequalities. More explicitly, for
+any non-negative integer polynomial in k variables q ∈ N[X1 , X2 , . . . , Xk ], we have the inequality
+q(p01 , p02 , . . . , p0k ) ≤ q(p001 , p002 , . . . , p00k ) between these two elements of our semiring. Finally, define the
+asymptotic preorder . extending ≤. Note that the constant polynomials provide the embedding
+of the integers in RX . In this case it turns out that X is the asymptotic spectrum of RX . So, by
+Strassen’s duality, the maximum value of any non-negative integer polynomial r over X is, say, α
+precisely if the asymptotic rank of that polynomial in the semiring RX is α.
+Here the reader might wonder what is going on. By the celebrated Positivstellensatz of real algebraic geometry (there are several versions [Kri64, Ste74, Put93, Sch91] which we will not distinguish
+for this level of exposition) the duality should have a completely different form. Positivstellensatz
+essentially states that the maximum value of any polynomial r is α on X precisely if the polynomial
+r − α is in the cone generated by the system {pi ≥ 0} with sum-of-square coefficients. This looks
+extremely different from Strassen’s characterization. While one can try to find the differences in the
+exact technical assumptions in each duality theorem25 the difference is too striking and demands
+explanation. This is done in some detail in the paper of Fritz [Fri21]. But at a high level, these
+seemingly very different duality theorems are practically equivalent. Let us say a few words on each
+of the two directions.
+In one direction, Positivstellensatz implies Strassen’s duality for rings RX as above (namely,
+when both the elements and the preorder are finitely generated). We remark that this is non-trivial,
+and crucially requires the transition from the preorder ≤ to the asymptotic preorder .. The key
+point is that in every preordered semiring, asymptotic inequalities of the form 2ab . a2 + b2 are true
+for every a, b in the semiring.26 In our case this leads to the equivalent non-negativity of any square
+of any27 integer polynomial (via 0 . (p − q)2 ), and this can be used within Strassen’s framework to
+generate the coefficients in the sum-of-squares combination of the given inequalities defining X .
+In the other direction Strassen’s duality seems far more general, as it pertains to arbitrary
+semirings where elements and preorder may not be finitely generated, and thus having asymptotic
+spectra X which may be infinite-dimensional and may require an infinite number of polynomial
+inequalities to define. Here the connection is that Strassen’s original proof actually uses a vast
+generalization of Positivstellensatz of Kadison and Dubois (more precisely, the version of Becker
+and Schwartz [BS83]) to such settings. The proof of Strassen’s duality theorem we will give in this
+paper (based on Zuiddam [Zui18]) will be however completely self-contained, without appeal to
+these general results.
+Finally, we note that if we demand that polynomials pi in the definition of X above are actually
+affine, everything becomes much simpler, and at the same time very interesting. Here full details are
+provided in [RZ22], and we only give the gist of the argument. Carrying out the same construction
+as for polynomials, one obtains a finitely generated semigroup (under addition) instead of a semiring,
+again with a finitely generated preorder via non-negative affine functions q. It is thus natural to
+define amortization, and thus the asymptotic rank additively. In this linear setting Strassen’s duality
+theorem becomes equivalent to the duality theorem of linear programming! Here a key point in
+using linear programming duality to prove Strassen’s duality is showing that the former implies a
+certain “catalytic” inequality, in the defined preorder ≤. One then uses the asymptotic preorder
+25 These are important, and are related to different “boundedness” conditions in both Positivstellensatz and in
+Strassen’s framework.
+26 Proving this is a really good exercise for understanding the power of asymptotics.
+27 Namely, allowing negative coefficients.
+
+11
+
+. to remove the catalyst and show that the asymptotic rank of any non-negative integral affine
+function r over X is certified by the asymptotic rank of r in this semigroup.
+
+1.5. Connectivity and convexity of the asymptotic spectrum
+Let us return to Strassen’s duality theorem. As we have seen, if the spectrum of a semiring of
+interest is known, everything becomes simple, and we can in principle compute asymptotic rank
+and subrank of any element. But even in extremely simple semirings generated by a single element,
+where the asymptotic spectrum is just a union of intervals in the real line, (so the maximum and
+minimum points respectively determine the asymptotic rank and asymptotic subrank), it is hard to
+find these points, or sometimes indeed any point in the spectrum.
+Strassen’s next insight is that even if we cannot determine the asymptotic spectrum, proving
+additional structural results can lead to further understanding of the basic semiring parameters it
+encodes. Natural questions to explore beyond compactness can be: Is it connected? Is it convex?
+Strassen’s major result answers all of these in the affirmative for matrix multiplication, namely the
+spectrum ∆ of the semiring generated by MM2 which we discussed above. We have already observed
+that ∆ ⊆ R≥1 , and compactness guarantees that it is a union of closed intervals. We know that
+its largest point is 2ω , where ω is the (yet unknown) matrix multiplication exponent. It turns out
+that the asymptotic subrank of MM2 is known to be 4, and so this is the smallest point of ∆. For
+example, it is a priori possible that ∆ looks like a union of two disjoint closed intervals:
+2ω
+
+4
+
+Of course, if ω = 2, then the minimum and maximum points in ∆ coincide and so ∆ consists of one
+single point:
+4
+Thus, if we were able to prove by any argument whatsoever that ∆ is not connected, we would prove
+the lower bound ω > 2. Strassen’s result rules out this line of attack on a lower bound, by proving
+the theorem that ∆ is connected. Thus, it must be one closed interval:
+2ω
+
+4
+
+In other words, the theorem says that the asymptotic spectrum of matrix multiplication is given by
+the closed interval ∆ = [4, 2ω ].
+Let us comment first that connectivity of the spectrum is a special and possibly rare situation;
+It is not hard to see that even for univariate semirings, the spectrum can be an arbitrary compact
+subset of the non-negative reals. Indeed as we have discussed before, one can pick any compact
+set X ⊆ R, and take the semiring of all non-negative integer polynomials under pointwise addition,
+multiplication and ordering.
+Thus Strassen’s proof of connectivity of the matrix multiplication spectrum must make use of
+very special properties of this specific problem. Indeed, the proof is ingenious, and we will soon
+return to discuss it. But before, let us demonstrate its power by showing how it significantly extends
+Schönhage’s tau theorem.
+
+12
+
+

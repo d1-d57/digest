@@ -1,0 +1,402 @@
+
+
+Puzzling Like the Seventeenth Century – Feature Column
+
+Skip to content
+
+Puzzling Like the Seventeenth Century
+
+In:
+
+2026
+, 
+Algebra and Number Theory
+, 
+History of mathematics
+, 
+Ursula Whitcher
+
+Tagged:
+
+1500s
+, 
+1600s
+, 
+Anton Schultze
+, 
+base 10
+, 
+Gottfried Wilhelm Leibniz
+, 
+Maria Cunitz
+, 
+Mayan numerals
+, 
+number systems
+
+Though the chart starts out in alphabetical order, there's a break in the pattern that offers a clue...
+
+Puzzling Like the Seventeenth Century
+
+Ursula Whitcher
+
+Mathematical Reviews (AMS)
+
+The following chart is taken from the second edition of a German-language arithmetic textbook by Anton Schultze. It was published in Liegnitz (now Legnica, Poland) in 1600:
+
+Arithmetica Oder Rechenbuch
+, SLUB Collections, folio 258v.
+
+What do you think it's for?
+
+One possible guess is that the chart represents a simple substitution cipher. There are 24 letters in this alphabet ($u$ is the same as $v$ and $i$ is the same as $j$, here), so by replacing each letter in a message with the corresponding number, you could make the message seem mysterious. I played a similar game in grade school, replacing $a$ with 1, $b$ with 2, and so on.
+
+Substitution ciphers are much, much older than you or me or even Anton Schultze. The substitution cipher where you replace each letter by the letter a fixed number of steps later in the alphabet (so $a$ might become $c$, $b$ might become $d$, and so on), wrapping around as necessary, is called the Caesar cipher after one of its most famous users, Julius Caesar. 
+
+But Schultze's chart is meant for a different purpose. Though the chart starts out in alphabetical order, there's a break in the pattern that offers a clue. The 14th letter in this alphabet, $o$, isn't assigned the number 14—instead, it's 0. There's an obvious logic here: the letter $o$ looks a lot like 0. In fact, zero is key to the whole project. Schultze isn't replacing individual letters by individual numbers. He's using letters as numerals—and computing in base 24.
+
+The title page of Schultze's textbook 
+Arithmetica Oder Rechenbuch
+, SLUB Collections.
+
+Let's work out a couple of examples. We'll start with our familiar base 10, and then look at Schultze's system. 
+
+When we work in base 10, each digit in a number represents a different power of 10. The rightmost digit of a whole number is multiplied by $10^0$ (that is, 1), the next digit is multiplied by $10^1$, and so on. For example, 2026 represents $2 \cdot 10^3 + 0 \cdot 10^2 + 2 \cdot 10^1 + 6 \cdot 10^0 = 2 \cdot 1000 + 0 \cdot 100 + 2 \cdot 10 +  6$.
+
+Schultze uses the German word 
+aus
+ 'out of' in one of his examples. What number does this represent? Consulting the chart, we see that $a$ corresponds to 1, $u$ corresponds to 19, and $s$ corresponds to 17. (We need some familiarity with historical alphabets to read the chart! Remember that $u$ and $v$ are the same. The $s$ in the chart is a long 
+S
+—just like the 
+S
+ for sum in an integral sign.) Because there are 24 possible symbols, we use powers of 24. Thus, we convert 
+aus
+ to $1 \cdot 24^2 + 19 \cdot 24^1 + 17 \cdot 24^0 = 1 \cdot 24^2 + 19 \cdot 24 + 17 = 1049$.
+
+Why do this? For Schultze, it's a game. The chart appears at the very end of his textbook. He demonstrates that a problem about currency involving multiplication and long division can be solved using the techniques developed earlier in the book—but now using letters as numerals. The answers to each step of his problem are words taken from a German proverb. You can find all the details in the Czech mathematician Libor Koudela's article 
+"An early example of a nondecimal positional number system
+". (Got an idea for a similar base-24 puzzle in modern English? Please share it in the comments!)
+
+I'd like to take a minute to look carefully at Koudela's title: "An early example of a nondecimal positional number system". Schultze's puzzle is nondecimal because it's not base 10, but rather base 24. It's a positional number system because the position of the digits from rightmost to leftmost conveys meaning.
+
+What about "early"? That is, to some extent, a judgment call. Mayan numerals provide a much earlier example of a nondecimal positional number system. In the best-known Mayan system, dots are combined with bars, which represent multiples of five, to represent numbers between 1 and 20. A symbol like a shell represents 0. The numbers are read vertically, from bottom to top. Here's an example of such a number, in base 20, taken from the thirteenth- or fourteenth-century Dresden Codex:
+
+A number using the Mayan numeral system in the Dresden Codex, c. 1200-1345.
+
+The first edition of Schultze's arithmetic textbook was published in 1584. Koudela argues that this makes Schultze's base-24 puzzle the earliest known European example of experimenting with positional notation in a base other than 10. The Englishman Thomas Harriot experimented with notation for binary numbers (base 2) in unpublished notes written between 1600 and 1605. Later in the seventeenth century, all sorts of people experimented with the notion of different bases, including Francis Bacon, Blaise Pascal, and John Napier. Gottfried Wilhelm Leibniz, who is best known to mathematicians for his work on calculus, wrote several papers about binary numbers. We see here an example of a scientific community, where many people explore and expand on similar ideas, sometimes directly inspired by each other, sometimes combining similar material in new ways.
+
+Anton Schultze's scientific community included his children and grandchildren. His granddaughter, the astronomer Maria Cunitz, published a book of astronomical tables, 
+Urania Propitia
+, that simplified and corrected work by Johannes Kepler. A crater on Venus and the asteroid 12624 Mariacunitia are named in her honor.
+
+A perspective view of the Venusian crater named for Maria Cunitz, 
+created by JPL (NASA)
+ using radar imagery.
+
+Further Reading
+
+ Libor Koudela, 
+"An early example of a nondecimal positional number system
+". 
+Historia Mathematica
+ Volume 72, September 2025, Pages 2-7.
+
+ Leila McNeill, 
+The 17th-Century Lady Astronomer Who Took Measure of the Stars
+. 
+Smithsonian Magazine
+, 2017.
+
+  Lloyd Strickland and Harry R. Lewis, 
+Leibniz on Binary: The Invention of Computer Arithmetic
+. MIT Press, 2022.
+
+Share this:
+
+Share on Facebook (Opens in new window)
+
+Facebook
+
+Share on X (Opens in new window)
+
+X
+
+Like this:
+Like
+
+Loading…
+
+2026-04-01
+
+Previous Post: 
+How to Untwist Your Fractions
+Next Post: 
+Weekly Maintenance Message
+
+Leave a Reply 
+Cancel reply
+Your email address will not be published.
+
+Required fields are marked 
+*
+Comment 
+*
+
+HTML tags are not allowed.
+Name 
+*
+
+Email 
+*
+
+Save my name, email, and website in this browser for the next time I comment.
+
+85,090 Spambots Blocked by 
+Simple Comments
+
+Notify me of follow-up comments by email.
+
+Notify me of new posts by email.
+ Notify me of followup comments via e-mail. You can also 
+subscribe
+ without commenting.
+
+JavaScript must be turned on to leave a comment.
+
+Search
+Subscribe to Feature Column via Email
+
+Enter your email address to subscribe to Feature Column and receive notifications of new posts by email.
+
+							Email Address						
+
+							Subscribe						
+
+Recent Posts
+Another Look at Circles and Squares
+
+The Shapley Value, or How to Split a Bill in n! Easy Steps
+
+The Story Your Ballot Doesn’t Tell
+
+Weekly Maintenance Message
+
+Puzzling Like the Seventeenth Century
+
+Categories
+
+2020
+
+2021
+
+2022
+
+2023
+
+2024
+
+2025
+
+2026
+
+Adam A. Smith
+
+Adriana Salerno
+
+Algebra and Number Theory
+
+Allechar Serrano López
+
+Anil Venkatesh
+
+Anna Haensch
+
+Archive
+
+Audrey St. John
+
+Bevin Maultsby
+
+Bianca Thompson
+
+Bill Casselman
+
+Colm Mulcahy
+
+Courtney Gibbons
+
+David Austin
+
+Deepayan Sarkar
+
+Diana Davis
+
+Discrete Math and Combinatorics
+
+Étienne Ghys
+
+Geometry and Topology
+
+Guillermo Fereyra
+
+History of mathematics
+
+Holley Friedlander
+
+Jessica Sidman
+
+John Eggers
+
+Joseph Malkevitch
+
+Josh Leys
+
+Math and Arts/Humanities
+
+Math and Social Sciences
+
+Math and Technology
+
+Math and the Sciences
+
+Mathematics and Biology
+
+Moira Chas
+
+Noah Giansiracusa
+
+Patrick Ion
+
+Probability and Statistics
+
+Real and Complex Analysis
+
+Sara Chari
+
+Sara Stoudt
+
+Sarah Wolff
+
+Steven H. Weintraub
+
+Sunil Chebolu
+
+Tamsyn Morrill
+
+Teaching and Learning Mathematics
+
+Tony Phillips
+
+Uncategorized
+
+Ursula Whitcher
+
+Tags
+5G
+
+Alan Turing
+
+algebraic geometry
+
+ams
+
+astronauts
+
+Branko Grünbaum
+
+cantor set
+
+chess
+
+Claude Shannon
+
+computability
+
+cryptography
+
+Desargues
+
+economics
+
+elliptic curves
+
+epidemic
+
+Euclidean geometry
+
+feature column history
+
+games
+
+game theory
+
+generating functions
+
+genetics
+
+Geoffrey Colin Shephard
+
+herd immunity
+
+Higgs boson
+
+information theory
+
+lattices (groups)
+
+Lie groups
+
+Machine learning
+
+measles
+
+medieval
+
+partitions
+
+periods
+
+persi diaconis
+
+physics
+
+poetry
+
+polytopes and polyhedra
+
+primes
+
+probability
+
+SEIR model
+
+statistics
+
+string theory
+
+tic-tac-toe
+
+tilings
+
+video games
+
+voting
+
+Meta
+
+Log in
+
+Entries feed
+
+Comments feed
+
+WordPress.org
+
+					 Designed using 
+Hoot Business
+. Powered by 
+WordPress
+.				
+
+%d
+

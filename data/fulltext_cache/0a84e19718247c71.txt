@@ -1,0 +1,529 @@
+AMS :: Notices of the American Mathematical Society
+AMS Website Down
+Notice: All AMS websites will be down for maintenance on Saturday, July 11 from 8 am until 1 pm.
+PDFLINK
+Short Stories
+Throwing Darts at the Real Line
+Joel David Hamkins
+There is an elegant style of mathematical argument by which one proves an existence claim not by exhibiting any particular instance, but rather by proving that a randomly chosen instance from a suitable class exhibits the property with nonzero probability.
+In that spirit, suppose that we have a map
+$x\mapsto A_x$
+associating every real number
+$x$
+with a countable set of real numbers
+.
+$A_x$
+$$\begin{equation*} \vcenter{\img[][224pt][39pt][{\begin{tikzpicture} [yscale=.8,xscale=514.9pt/14cm] \useasboundingbox(-3,-.25) rectangle (3,1); \draw[<->] (-3,0) -- (3,0) node[below,scale=.9] {$\R$}; \draw(-2,0) node[dot,Blue,label={[black,scale=1]below:$x$}] (x) {} (1,0) node[dot,Red,label={[black,scale=1]below:$y$}] (y) {}; \draw[every node/.style={dot=.6pt,Blue}] (0,0) node (x0) {} (.5,0) node (x1) {} (1.5,0) node (x2) {} (2,0) node (x3) {}; \draw[Blue,fill=Orchid!30] (x) to[out=60,in=100,looseness=1.35] node[above left=6pt,scale=.9] {} (x0) to[out=100,in=100,looseness=3.5] (x1) to[out=100,in=100,looseness=1.5] node[pos=.4,above ,scale=.9,black] {$A_x$} (x2) to[out=100,in=100,looseness=2.8] (x3) to[out=100,in=60] (x); \path[tips,-{[scale=.7]>},Blue] (x0) to[in=102] (x0); \path[tips,-{[scale=.7]>},Blue] (x1) to[in=101] (x1); \path[tips,-{[scale=.7]>},Blue] (x2) to[in=103] (x2); \path[tips,-{[scale=.7]>},Blue] (x3) to[in=104] (x3); \end{tikzpicture}}]{Images/imgb0d58121aec5f192b83066574a58db41.svg}} \end{equation*}$$
+Let us throw two darts at the real line—use a normal distribution for their landing points, if you like, or take them uniformly at random in an interval; we could restrict our attention to the unit interval, if this were desired. Suppose that the first dart lands at
+$x$
+and the second at
+.
+$y$
+Because
+$A_x$
+is a countable set, the second dart will almost surely miss it. That is, having fixed
+,
+$x$
+almost surely
+.
+$y\notin A_x$
+Chris Freiling
+1
+encourages us to notice a certain symmetry in this thought experiment—namely, it shouldn’t matter which dart we consider as being first. Therefore, almost surely the first dart also misses the set attached to the second. Thus, we might expect that neither dart lands in the other’s set:
+$$\begin{equation*} y\notin A_x\quad {\text{ and }}\quad x\notin A_y. \end{equation*}$$
+In this event, we say that
+$x$
+and
+$y$
+are
+independent
+with respect to the map
+.
+$x\mapsto A_x$
+We are therefore led to the following principle:
+Axiom of symmetry
+.
+For every map
+$x\mapsto A_x$
+of real numbers to countable sets of real numbers, there are distinct numbers
+$x,y$
+with
+$y\notin A_x$
+and
+.
+$x\notin A_y$
+$$\begin{equation*} \vcenter{\img[][244pt][51pt][{\begin{tikzpicture} [yscale=.8,xscale=514.9pt/15cm] \useasboundingbox(-4,-1) rectangle (3,1); \draw[<->] (-4,0) -- (3,0) node[below,scale=.9] {$\R$}; \draw(-2,0) node[dot,Blue,label={[black,scale=1]above:$x$}] (x) {} (1,0) node[dot,Red,label={[black,scale=1]below:$y$}] (y) {}; \draw[every node/.style={dot=.6pt,Red}] (-1,0) node (y0) {} (-1.2,0) node (y1) {} (-1.7,0) node (y2) {} (-2.5,0) node (y3) {} (-3.1,0) node (y4) {}; \draw[every node/.style={dot=.6pt,Blue}] (0,0) node (x0) {} (.5,0) node (x1) {} (1.5,0) node (x2) {} (2,0) node (x3) {}; \draw[Blue,fill=Orchid!30] (x) to[out=60,in=100,looseness=1.1] node[above left=6pt,scale=.9] {} (x0) to[out=100,in=100,looseness=3.5] (x1) to[out=100,in=100,looseness=1.5] node[pos=.4,above ,scale=.9,black] {$A_x$} (x2) to[out=100,in=100,looseness=2.8] (x3) to[out=100,in=60] (x); \path[tips,-{[scale=.7]>},Blue] (x0) to[in=102] (x0); \path[tips,-{[scale=.7]>},Blue] (x1) to[in=101] (x1); \path[tips,-{[scale=.7]>},Blue] (x2) to[in=103] (x2); \path[tips,-{[scale=.7]>},Blue] (x3) to[in=104] (x3); \draw[Red,fill=Orange!30] (y) to[out=-130,in=-70,looseness=1.2] node[below right=5pt,scale=.9] {} (y0) to[out=-70,in=-70,looseness=4.5] (y1) to[out=-70,in=-70,looseness=2.8] (y2) to[out=-70,in=-70,looseness=1.8] node[pos=.4,below,scale=.9,black] {$A_y$} (y3) to[out=-70,in=-70,looseness=2.5] (y4) to[out=-70,in=-130] (y); \path[tips,-{[scale=.7]>},Red] (y0) to[in=-68] (y0); \path[tips,-{[scale=.7]>},Red] (y1) to[in=-68] (y1); \path[tips,-{[scale=.7]>},Red] (y2) to[in=-68] (y2); \path[tips,-{[scale=.7]>},Red] (y3) to[in=-68] (y3); \path[tips,-{[scale=.7]>},Red] (y3) to[in=-67] (y4); \end{tikzpicture}}]{Images/img8e49f90554cb44ba77cbdf2f985cee49.svg}} \end{equation*}$$
+The axiom asserts that there is an independent pair, at least one, while the dart-throwing thought experiment suggests far more—almost every pair should be independent. Is the axiom true? Are you convinced? Is the dart-throwing argument a proof?
+Before you answer, let me tell you a little more of what we know. Namely, we can prove that the axiom of symmetry is equivalent to the negation of the continuum hypothesis. What?! Yes, the axiom of symmetry is equivalent to the failure of that famous statement about uncountable cardinalities.
+Let me explain. The continuum hypothesis
+(
+)
+$\operatorname {CH}$
+is the assertion that there is no infinity between the countable infinity of the natural numbers and the uncountable infinity of the real numbers. This principle is known to be independent of the Zermelo-Fraenkel
+(
+)
+$\operatorname {ZFC}$
+axioms of set theory—it is neither provable nor refutable in that theory. The axiom of symmetry is therefore likewise independent of
+,
+$\operatorname {ZFC}$
+being provably equivalent to
+,
+$\neg \operatorname {CH}$
+and we should not expect to have proved it with a simple dart-throwing argument. What is going on?
+The theorem that I have in mind is the following, due in its earliest forms to Sierpiński and made famous again by Freiling’s dart-throwing argument:
+Theorem 1
+.
+The axiom of symmetry is equivalent to the failure of the continuum hypothesis.
+Shall we prove it? Let us begin by showing that if
+$\operatorname {CH}$
+is true, then we can exhibit a counterexample to the axiom of symmetry. Assume that
+$\operatorname {CH}$
+holds. Therefore the set of real numbers
+$\mathbb{R}$
+has cardinality
+,
+$\aleph _1$
+the first uncountable cardinal, so there is a well-order
+$\vartriangleleft$
+of
+$\mathbb{R}$
+in the order type of the first uncountable ordinal, known as
+.
+$\omega _1$
+A well-order is a linear order for which every nonempty set has a least element. So there will be a globally
+-
+$\vartriangleleft$
+least element, then a next element, a next, and indeed a first element after all finite iterations of that process—it is just like counting in the ordinals. The essential feature of a well order of order type
+$\omega _1$
+is that it is a linear order of an uncountable set, and yet every proper initial segment of the order is countable. The key consequence of
+$\operatorname {CH}$
+relevant here is that
+$\mathbb{R}$
+admits such an order. Let us associate each real number
+$x$
+with the set of numbers preceding it in the
+$\vartriangleleft$
+order:
+$$\begin{equation*} A_x\quad =\quad {\left\{\ \strut y\in \mathbb{R}\ \middle |\ y\vartriangleleft x\ \right\}}. \end{equation*}$$
+This is a countable set, as we said, and because
+$\vartriangleleft$
+is linear, distinct real numbers
+$x$
+and
+$y$
+must have either
+$x\vartriangleleft y$
+or
+.
+$y\vartriangleleft x$
+Consequently,
+$x\in A_y$
+or
+.
+$y\in A_x$
+So there can be no independent pair, and this is a counterexample to the axiom of symmetry. In short, if
+$\operatorname {CH}$
+is true, then the axiom of symmetry is not.
+Conversely, suppose that
+$\operatorname {CH}$
+fails. So the set of real numbers
+$\mathbb{R}$
+has size at least
+.
+$\aleph _2$
+Consider any set
+$B_0\subseteq \mathbb{R}$
+of size
+,
+$\aleph _1$
+and let us systematically close it under the operation
+.
+$x\mapsto A_x$
+That is, after
+$B_0$
+we iteratively define
+,
+$B_{n+1}=B_n\cup \bigl (\bigcup _{x\in B_n}A_x\bigr )$
+which adds the elements of
+$A_x$
+for any point
+$x$
+that we already have. The limit set
+$B=\bigcup _n B_n$
+will therefore contain all the elements of
+$A_x$
+for any
+,
+$x\in B$
+so it is closed under the operation.
+$$\begin{equation*} \vcenter{\img[][235pt][71pt][{\begin{tikzpicture} [scale=514.9pt/22cm,rounded corners] \draw[fill=Gold!35] (0,0) rectangle (10,3) node[below left] {$\R$}; \draw[fill=Green!30] (.5,.5) rectangle (7,2.5) node[below left] {$B$}; \draw[fill=Red!30] (2,.75) circle (.65 and .4) node[scale=.8] {$A_y$}; \draw[fill=Orchid!30] (5,1.1) circle (.65 and .4) node[scale=.8] {$A_x$}; \draw(8,1.5) node {$y$} (3.5,1.75) node {$x$}; \end{tikzpicture}}]{Images/img116f24fc68291b2aba69db2ea738a117.svg}} \end{equation*}$$
+Since the original set
+$B_0$
+had size
+$\aleph _1$
+and all the sets
+$A_x$
+are countable, it follows by induction that all the sets
+$B_n$
+also have size
+,
+$\aleph _1$
+and therefore
+$B$
+will have size
+$\aleph _1$
+as well. Because we assumed
+$\operatorname {CH}$
+is false,
+$B$
+is not all of
+,
+$\mathbb{R}$
+so there is a real number
+.
+$y\notin B$
+Since
+$A_y$
+is countable but
+$B$
+is uncountable, there must be an element
+$x\in B$
+with
+.
+$x\notin A_y$
+But
+$A_x$
+will be contained in
+$B$
+since this set was closed under the operation, so in particular,
+.
+$y\notin A_x$
+Thus we have found distinct points
+$x,y$
+with
+$x\notin A_y$
+and
+,
+$y\notin A_x$
+which verifies this instance of the axiom of symmetry. So the failure of
+$\operatorname {CH}$
+implies the success of the axiom of symmetry. Thus we have proved theorem
+1
+.
+In light of the theorem, how should we think about the original dart-throwing thought experiment? Has Freiling given us reason to deny the continuum hypothesis? Freiling describes his argument, after all, as “a simple philosophical ‘proof’ of the negation of Cantor’s continuum hypothesis.”
+As I see it, a key issue amounts to a measurability presumption for the map
+.
+$x\mapsto A_x$
+To be sure, each
+$A_x$
+is countable and therefore measure zero, and so having fixed
+$x$
+it is correct to say with no measurability hypothesis that almost surely
+;
+$y\notin A_x$
+and similarly having fixed
+$y$
+then almost surely
+.
+$x\notin A_y$
+These two observations, however, fall short of the relevant conclusion, that almost surely both
+$y\notin A_x$
+and
+.
+$x\notin A_y$
+For this, we would want measurability for the set of pairs
+.
+$\{\,{(x,y)\mid y\in A_x}\,\}$
+The
+$\operatorname {CH}$
+construction shows how two-dimensional measurability can go awry. If
+$\vartriangleleft$
+well-orders
+$\mathbb{R}$
+in order type
+,
+$\omega _1$
+then the relevant pair set is
+.
+$A=\{\,{(x,y)\mid y\vartriangleleft x}\,\}$
+Every vertical section
+$A_x$
+is thin, a countable set, because
+$x$
+has only countably many
+-
+$\vartriangleleft$
+predecessors. Similarly, all the horizontal sections are thick, the complement of a countable set, since
+$y$
+is
+-
+$\vartriangleleft$
+below every
+$x$
+except countably many. So this set
+$A$
+has all vertical sections of measure zero, but all horizontal sections have full measure. The set is consequently not measurable since this would violate Fubini’s theorem.
+The thought experiment appeals to intuitions that hold just fine for measurable maps
+,
+$x\mapsto A_x$
+but not for more badly behaved maps. If one admits the possibility of nonmeasurable maps
+,
+$x\mapsto A_x$
+then the dart-throwing thought experiment does not, after all, provide us with a philosophical reason to expect that the axiom of symmetry is true.
+Meanwhile, there have been many generalizations of the axiom of symmetry beyond the case of countable sets to larger cardinalities, null sets, meager sets, higher dimensions, and so forth, including
+1
+. I invite the reader to explore further.
+For example: what about three darts? We can write the original two-dart axiom of symmetry as
+,
+$\text{AS}_2$
+and then consider the axiom
+,
+$\text{AS}_3$
+asserting that for any association
+$(x,y)\mapsto A_{x,y}\subseteq \mathbb{R}$
+of pairs of real numbers with countable sets of real numbers, there are three real numbers
+,
+$x$
+,
+$y$
+,
+$z$
+such that none of them is in the set associated with the other two:
+$$\begin{equation*} x\notin A_{y,z}\qquad y\notin A_{x,z}\qquad z\notin A_{x,y}. \end{equation*}$$
+We may assume
+$A_{x,y}=A_{y,x}$
+without loss—simply apply the axiom with the map
+,
+$(x,y)\mapsto A_{x,y}\cup A_{y,x}$
+which exhibits that symmetry.
+You can convince your friends of the truth of axiom
+,
+$\text{AS}_3$
+I claim, by throwing three darts at the real line instead of two. The final dart is almost surely not in the set determined by the first two, and then by symmetry it is the same with the other combinations.
+Meanwhile, let us prove that the three-dart axiom of symmetry
+$\text{AS}_3$
+is equivalent to the continuum having size at least
+.
+$\aleph _3$
+Assume first that
+$\mathbb{R}$
+has size at least
+,
+$\aleph _3$
+and consider any association
+$(x,y)\mapsto A_{x,y}$
+of pairs of real numbers with countable sets of real numbers. Let
+$C\subseteq \mathbb{R}$
+be a set of size
+,
+$\aleph _2$
+which is closed under the association map, so that
+$A_{x,y}\subseteq C$
+whenever
+.
+$x,y\in C$
+(We can build
+$C$
+in steps just as we built
+$B$
+earlier.)
+$$\begin{equation*} \vcenter{\img[][235pt][71pt][{\begin{tikzpicture} [scale=514.9pt/22cm,rounded corners] \draw[fill=Gold!50] (0,0) rectangle (10,3) node[below left] {$\R$}; \draw[fill=Green!30] (.5,.75) rectangle (8,2.5) node[below left] {$C$}; \draw[fill=Red!30] (1.5,.25) rectangle (5,2.2) node[below left] {$B$}; \draw(9,1.35) node {$z$} (6.5,1.35) node {$y$} (3,1.35) node {$x$}; \draw[fill=Aqua!20] (1.45,.75) circle (.45 and .35) node[scale=.7] {$A_{y,z}$}; \draw[fill=SpringGreen!30] (4,.7) circle (.45 and .35) node[scale=.7] {$A_{x,z}$}; \draw[fill=Yellow!30] (5.1,1.25) circle (.45 and .35) node[scale=.7] {$A_{x,y}$}; \end{tikzpicture}}]{Images/img0320b1cdc10637c0cd4723fdafb9d941.svg}} \end{equation*}$$
+Since
+$C$
+is smaller than
+,
+$\mathbb{R}$
+there is some
+.
+$z\in \mathbb{R}\setminus C$
+Fix such a point
+,
+$z$
+and build a set
+$B$
+of size
+,
+$\aleph _1$
+with
+$B\cap C$
+of size
+,
+$\aleph _1$
+and closed under
+.
+$x\mapsto A_{x,z}$
+Since
+$B$
+is smaller than
+,
+$C$
+there is a point
+.
+$y\in C\setminus B$
+Since
+$A_{y,z}$
+is countable, there is some
+$x\in B\cap C$
+with
+.
+$x\notin A_{y,z}$
+Note that
+$y\notin A_{x,z}$
+since
+$A_{x,z}\subseteq B$
+but
+.
+$y\notin B$
+And finally,
+$z\notin A_{x,y}$
+since
+.
+$x,y\in C$
+So the three points are independent, as desired.
+Conversely, suppose that
+$\mathbb{R}$
+has size at most
+.
+$\aleph _2$
+So there is a well-ordering
+$\vartriangleleft$
+of
+$\mathbb{R}$
+with every initial segment having size at most
+.
+$\aleph _1$
+For any real number
+,
+$z$
+there are at most
+$\aleph _1$
+many
+-
+$\vartriangleleft$
+predecessors. Fix an enumeration of these predecessors of
+$z$
+in order type at most
+.
+$\omega _1$
+For any
+$y$
+amongst them, there are only countably many real numbers appearing earlier in this enumeration. Let
+$A_{y,z}$
+be that set—the set of numbers
+$x$
+that appear before
+$y$
+in the
+-
+$\omega _1$
+enumeration of the
+-
+$\vartriangleleft$
+predecessors of
+.
+$z$
+Now, given any three real numbers,
+,
+$x,y,z$
+one of them, let’s assume
+,
+$z$
+will be largest in the original well order
+.
+$\vartriangleleft$
+The predecessors of
+$z$
+were enumerated in order type at most
+.
+$\omega _1$
+But now either
+$x$
+precedes
+$y$
+in that enumeration or vice versa, and this will mean either that
+$x\in A_{y,z}$
+or
+.
+$y\in A_{x,z}$
+So the three numbers are not independent. Thus, we have proved that
+$\text{AS}_3$
+is equivalent to the assertion that the continuum
+$\mathbb{R}$
+has cardinality at least
+.
+$\aleph _3$
+One may push further with the four-dart axiom
+,
+$\text{AS}_4$
+which asserts that for every association
+$(x,y,z)\mapsto A_{x,y,z}\subseteq \mathbb{R}$
+of triples of real numbers with countable sets of real numbers, there are four real numbers
+$w,x,y,z$
+for which none is in the set determined by the other three.
+$$\begin{equation*} w\notin A_{x,y,z}\qquad x\notin A_{w,y,z} \end{equation*}$$
+$$\begin{equation*} y\notin A_{w,x,z}\qquad z\notin A_{w,x,y}. \end{equation*}$$
+This axiom is equivalent to the assertion that the continuum has size at least
+.
+$\aleph _4$
+And so on. The pattern continues like this for all finite
+,
+$n$
+and there are ways to continue the pattern further into the transfinite. Please enjoy exploring this further on your own!
+Lastly, let me mention another totally different
+$\operatorname {CH}$
+thought experiment—I argue in
+2
+that if our mathematical history had been just a little different, if mathematical discoveries had been made in a slightly different order, then we would naturally view the continuum hypothesis as a fundamental axiom, one necessary for mathematics and indispensable for making sense of the core ideas underlying calculus. Please take a look.
+References
+[
+1
+]
+Chris Freiling,
+Axioms of symmetry: throwing darts at the real number line
+, J. Symbolic Logic
+51
+(1986), no. 1, 190–200, DOI
+10.2307/2273955
+. MR
+830085
+,
+AMSref
+\bib{Freiling1986:AxiomsOfSymmetry:ThrowingDartsAtTheRealLine}{article}{
+author={Freiling, Chris},
+title={Axioms of symmetry: throwing darts at the real number line},
+journal={J. Symbolic Logic},
+volume={51},
+date={1986},
+number={1},
+pages={190--200},
+issn={0022-4812},
+review={\MR {830085}},
+doi={10.2307/2273955},
+}
+[
+2
+]
+Joel David Hamkins,
+How the continuum hypothesis could have been a fundamental axiom
+, Journal for the Philosophy of Mathematics
+1
+(2024), 113–126.,
+AMSref
+\bib{Hamkins2024:How-the-CH-could-have-been-fundamental}{article}{
+author={Hamkins, Joel~David},
+title={How the continuum hypothesis could have been a fundamental axiom},
+date={2024},
+journal={Journal for the Philosophy of Mathematics},
+volume={1},
+pages={113\ndash 126},
+url={https://jdh.hamkins.org/how-ch-could-have-been-fundamental},
+}
+Joel David Hamkins is the O’Hara Professor of Logic at the University of Notre Dame. His email address is
+[email protected]
+. He writes about infinity at
+https://www.infinitelymore.xyz
+.
+Article DOI:
+10.1090/noti3315
+Credits
+All graphics are courtesy of Joel David Hamkins.

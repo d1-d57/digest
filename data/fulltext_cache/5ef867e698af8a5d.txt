@@ -1,0 +1,1474 @@
+Séminaire BOURBAKI                                                                   Juin 2026
+78e année, 2025–2026, n° 1254
+
+
+
+   SUR LES PSEUDO-ROTATIONS ANALYTIQUES DE SURFACES
+                      [d’après Berger]
+
+                                     par Anna Florio
+
+
+
+
+Introduction
+
+  Quand on étudie un système dynamique, l’une des premières notions auxquelles nous
+pouvons nous intéresser est celle de points périodiques. Pour une dynamique discrète sur
+un ensemble X, c’est-à-dire donnée par les itérés d’une même application f : X → X,
+un point x ∈ X est dit périodique de période n ∈ N, n > 0, si
+                                f n (x) = f ◦ . . . ◦ f (x) = x .
+                                          |     {z     }
+                                              n fois
+
+Si les orbites périodiques peuvent aider à étudier le système, il est néanmoins intéressant
+de se demander ce qui se passe loin de tels points.
+   En dimension 2, les exemples les plus simples de systèmes sans point périodique, ou
+avec un nombre fini de points périodiques, sont les rotations d’angles irrationnels sur
+certaines surfaces. Plus précisément, nous considérons des surfaces qui admettent une
+action du cercle S1 . Soit α ∈ R \ Q ; nous pouvons alors considérer :
+   — la rotation RαA sur l’anneau A := R/Z × R, qui est l’application
+                                (θ, y) ∈ A 7→ (θ + α, y) ∈ A ;
+                     2                                      P3
+  — la rotation RαS sur la sphère S2 := {x ∈ R3 :                  2
+                                                              i=1 xi = 1}, autour de l’axe x3 ,
+    qui est l’application
+       (x1 , x2 , x3 ) ∈ S2 7→ (cos(α)x1 + sin(α)x2 , − sin(α)x1 + cos(α)x2 , x3 ) ∈ S2 ;
+                     2
+  — la rotation RαD sur le disque D2 := {x ∈ R2 : x21 + x22 ≤ 1}, autour de l’origine,
+    qui est l’application
+          (x1 , x2 ) ∈ D2 7→ (cos(α)x1 + sin(α)x2 , − sin(α)x1 + cos(α)x2 ) ∈ D2 .
+Ces rotations ont respectivement : aucun point périodique, exactement deux points
+périodiques, exactement un point périodique. Leurs dynamiques sont très simples à
+comprendre : chaque surface, privée de ces points, admet une partition en courbes inva-
+riantes, difféomorphes au cercle. Ces dynamiques ne sont pas transitives, ni ergodiques
+                                               1254–02
+
+
+par rapport à la mesure de Lebesgue (1) . Ces exemples motivent la question suivante :
+l’absence (ou le peu) de points périodiques est-elle synonyme de « dynamique simple » ?
+   Ceci n’est pas le cas. Dans les années 1970, Anosov et Katok (1970) construisent
+le premier exemple de difféomorphisme de l’anneau borné A0 := R/Z × [−1, 1] qui
+est : lisse (c’est-à-dire C ∞ ), conservatif (c’est-à-dire qui préserve l’aire), préservant
+l’orientation, sans points périodiques et transitif. Nous décrirons la construction de
+l’exemple d’Anosov–Katok dans la section 2 ; pour le moment, précisons simplement
+qu’un difféomorphisme f est dit transitif s’il possède une orbite dense, c’est-à-dire s’il
+existe un point x ∈ A0 tel que l’adhérence de son orbite
+                                      Oxf := {f n (x) : n ∈ Z}
+dans A0 est égale à A0 .
+  Introduisons maintenant la définition de conjugaison. Étant donné des difféomor-
+phismes f et g d’une surface orientable M, nous disons que f est C 0 -conjugué à g s’il
+existe un homéomorphisme h de la surface M qui préserve l’aire et l’orientation, et tel
+que
+                                   f = h−1 ◦ g ◦ h .
+Le difféomorphisme h est alors appelé conjugaison. La relation de conjugaison entre
+difféomorphismes est une relation d’équivalence : étant donné un difféomorphisme g,
+sa classe de conjugaison est donc l’ensemble de tous les difféomorphismes qui sont
+C 0 -conjugués à g.
+   Or, la transitivité est préservée par conjugaison : si f est C 0 -conjugué à g et si f est
+transitif, alors g aussi est transitif. Comme la rotation d’angle α restreinte à l’anneau A0
+n’est pas transitive, l’exemple d’Anosov–Katok n’est pas conjugué à une telle rotation.
+L’exemple d’Anosov–Katok s’adapte aussi pour des difféomorphismes de la sphère S2
+et du disque D2 .
+   Notre question sur la relation entre absence de points périodiques et dynamique simple
+a donc une réponse négative. Qu’est-ce que se passe si l’on ajoute de la « structure » à
+notre difféomorphisme ? La conjecture suivante de Birkhoff, énoncée en 1941, suggère que
+tout difféomorphisme analytique sans point périodique possède une dynamique simple.
+Pour une surface M parmi l’anneau, la sphère et le disque, un symplectomorphisme f
+de M est un difféomorphisme qui préserve l’aire et l’orientation.
+
+Conjecture 0.1 (Birkhoff, 1941). — Tout symplectomorphisme analytique de l’an-
+neau A0 sans points périodiques est C 0 -conjugué à une rotation d’angle irrationnel. De
+même, tout symplectomorphisme analytique de la sphère S2 avec exactement deux points
+périodiques est C 0 -conjugué à une rotation d’angle irrationnel.
+
+  Le but de ce texte est de présenter les résultats de Berger (2022, 2024) qui ont
+récemment réfuté la conjecture de Birkhoff.
+
+  1. Ces définitions seront précisées plus loin, voir Section 2.
+                                              1254–03
+
+
+Théorème 0.2 (Berger, 2022). — Il existe un symplectomorphisme analytique de l’an-
+neau (resp. de la sphère, resp. du disque) sans points périodiques (resp. avec exactement
+deux points périodiques, resp. avec exactement un point périodique) qui n’est C 0 -conjugué
+à aucune rotation d’angle irrationnel.
+   En fait, les travaux de Berger permettent d’obtenir des résultats plus forts concer-
+nant les types de dynamiques qui sont réalisables au sein des symplectomorphismes
+analytiques sans (ou avec peu de) points périodiques, comme nous allons le voir dans
+la sous-section 3.3.
+
+Remerciements
+   Je suis très reconnaissante à Pierre Berger pour toutes les réponses à mes questions,
+ainsi qu’à Guillaume Carlier, Antonin Chambolle, Jacques Fejoz, Martin Leguil et Yating
+Liu pour leurs explications. Je remercie Pierre Berger et Nicolas Bourbaki pour leur
+relecture.
+
+
+1. Quelques notations, définitions et rappels
+
+   Même si les exemples de dynamiques que nous allons construire peuvent se réaliser
+aussi sur la sphère et sur le disque, par souci de clarté de la présentation, nous allons
+travailler dans l’anneau borné A0 = R/Z × [−1, 1], qui est plongé dans l’anneau A =
+R/Z × R. On considère la forme symplectique Ω = dθ ∧ dy, qui est donc une 2-forme
+fermée, non dégénérée. Notons Leb la mesure de Lebesgue sur l’anneau, associée à la
+forme d’aire Ω. Quand on se restreint à l’anneau borné A0 , on désigne par LebA0 la
+mesure
+                                             1
+                                 LebA0 :=          Leb|A0 .
+                                          Leb(A0 )
+L’ensemble des symplectomorphismes lisses de l’anneau A est l’ensemble des difféomor-
+phismes lisses de A qui préservent l’orientation ainsi que l’aire. En particulier, pour un
+tel difféomorphisme f , on a f ∗ Ω = Ω. Notons Symp∞ (A) l’ensemble des symplectomor-
+phismes lisses de l’anneau. Parmi Symp∞ (A), nous considérons aussi le sous-groupe des
+difféomorphismes hamiltoniens, noté Ham∞ (A).
+   Pour les définir, on considère une famille lisse (2) (Ht )t∈[0,1] de fonctions Ht : A → R
+telle que la condition suivante est satisfaite. Pour chaque Ht , on définit le champ de
+vecteurs hamiltonien Xt associé en imposant
+                                    ιXt Ω := Ω(Xt , ·) = dHt ;
+l’isotopie hamiltonienne associée est alors la famille de symplectomorphsimes (ft )t∈[0,1]
+telle que f0 = IdA et
+                                 d
+                                    |s=0 ft+s ◦ ft−1 = Xt .
+                                 ds
+  2. C’est-à-dire C ∞ en t et en x ∈ A, par rapport à la topologie C ∞ .
+                                              1254–04
+
+
+Un symplectomorphisme f ∈ Symp∞ (A) est hamiltonien s’il existe une isotopie hamil-
+tonienne (ft )t∈[0,1] telle que f1 = f .
+
+Exemple 1.1. — Un exemple de difféomorphisme f ∈ Symp∞ (A) \ Ham∞ (A) est l’ap-
+plication
+                         (θ, y) ∈ A 7→ (θ, y + y0 ) ∈ A ,
+pour un certain y0 ∈ R fixé. Ceci peut se voir de la façon suivante. On peut définir une
+application Flux du groupe fondamental du groupe des difféomorphismes symplectiques
+isotopes à l’identité, dans la première classe d’homologie de la variété : le noyau de
+l’application Flux est le groupe des isotopies hamiltoniennes. Autrement dit, une isotopie
+symplectique est hamiltonienne si et seulement si son Flux est nul. On renvoie à Viterbo
+(1991).
+
+  Parmi les difféomorphismes hamiltoniens, dans la suite on travaille avec un sous-
+ensemble : on considère les difféomorphismes hamiltoniens à support compact. Il s’agit
+de l’ensemble, noté Ham∞   0 (A), des difféomorphismes hamiltoniens qui peuvent être
+obtenus à partir d’une famille lisse de fonctions hamiltoniennes (Ht )t∈[0,1] telle que, pour
+tout t, la fonction Ht a son support contenu dans T×] − 1, 1[= int(A0 ) (3) .
+
+1.1. Définition des pseudo-rotations et quelques propriétés
+  On précise maintenant la définition des pseudo-rotations sur l’anneau, la sphère et le
+disque.
+
+Définition 1.2. — Une pseudo-rotation de l’anneau A0 est un symplectomorphisme
+de A0 sans points périodiques.
+  Une pseudo-rotation de la sphère S2 est un symplectomorphisme de S2 qui a exacte-
+ment deux points périodiques.
+  Une pseudo-rotation du disque D2 est un symplectomorphisme de D2 qui a précisément
+un point périodique.
+
+   Le nombre de points périodiques d’une pseudo-rotation est en effet le nombre minimal
+de points périodiques qu’on peut avoir. Par exemple, dans le cas de la sphère, grâce à la
+formule de Poincaré–Lefschetz, tout homéomorphisme de S2 a au moins un point fixe P ;
+si, par l’absurde, il n’y a pas d’autres points périodiques, la dynamique sur S \ {P }
+(quitte à passer par une projection stéréographique) est alors un homéomorphisme de
+Brouwer du plan, c’est-à-dire un homéomorphisme du plan, sans point fixe, préservant
+l’orientation. Ceci impliquerait que tout point est errant (c’est-à-dire possède un voisi-
+nage qui est disjoint de toutes ses itérés) et contredirait l’hypothèse de conservation de
+l’aire. On renvoie à Crovisier (2006).
+   Si l’on pense donc à une pseudo-rotation comme à un symplectomorphisme ayant le
+nombre minimal de points périodiques, la définition peut s’étendre aussi en dimension
+
+  3. La notation int(U ) dénote l’intérieur d’un ensemble U .
+                                               1254–05
+
+
+supérieure. Étant donné une variété symplectique fermée (4) (M, ω), une possible défini-
+tion de pseudo-rotation sur M est un difféomorphisme hamiltonien de M avec un nombre
+fini de points périodiques (nombre qui est minimal parmi ceux des points périodiques
+possibles pour un difféomorphisme hamiltonien). Parmi les variétés symplectiques qui
+peuvent admettre une pseudo-rotation, on a notamment les variétés symplectiques to-
+riques, c’est-à-dire munies d’une action du tore de dimension n, où 2n est la dimension
+de la variété. Nous renvoyons à Ginzburg et Gürel (2018) ou Le Roux et Seyfaddini
+(2022) pour plus de détails.
+Remarque 1.3. — Dans le cadre de la conjecture de Birkhoff, il est essentiel, dans la
+définition 1.2, de considérer des applications qui préservent l’aire. En effet, il est facile
+de construire un difféomorphisme dissipatif (c’est-à-dire ne conservant pas l’aire) de
+l’anneau, du disque ou de la sphère, possédant un nombre fini de points périodiques, qui
+n’est conjugué à aucune rotation. Un exemple classique est fourni par une dynamique
+de type nord–sud sur la sphère : il s’agit d’une dynamique sur S2 possédant exactement
+deux points fixes, notés S et N , et telle que tout point de la sphère distinct de S et N
+converge vers S dans le futur (donc S est un point attractif) et vers N dans le passé (ce
+qui fait de N un point répulsif).
+   Un résultat de Franks (1992) montre que tout homéomorphisme conservatif de l’an-
+neau a soit une infinité de points périodiques, soit aucun point périodique. Pour des
+surfaces de genre au moins 2, Franks et Handel (2003) montrent que tout difféomor-
+phisme hamiltonien non trivial a une infinité de points périodiques : sur les surfaces de
+genre au moins 2, il ne peut pas exister de pseudo-rotations. Dans le même article, la
+dichotomie « 2 ou ∞ » est montrée pour les difféomorphismes hamiltoniens de la sphère.
+   L’entropie topologique est une quantité qui mesure une certaine forme de complexité
+dynamique d’un système (on renvoie à Katok (1980) pour une définition précise) : Katok
+(1980) montre qu’un difféomorphisme de classe C 1+α d’une surface possède une entropie
+topologique positive si et seulement s’il admet une infinité de points périodiques. Il en
+résulte que toute pseudo-rotation de classe C 1+α sur une surface est nécessairement
+d’entropie topologique nulle.
+
+   Soit f une pseudo-rotation de l’anneau A0 . On définit alors le nombre de rotation
+de f comme suit : soit F : R × [−1, 1] → R × [−1, 1] un relevé de f (5) et notons
+p1 : R × [−1, 1] → R la projection sur la première coordonnée. Soit (Θ, y) ∈ R × [−1, 1]
+et considérons la suite
+                                 p1 ◦ F n (Θ, y) − Θ
+                                                     !
+                                                          .
+                                           n          n≥1
+Cette suite converge vers un nombre ρ ∈ R \ Q, qui ne dépend pas du point (Θ, y) : voir
+par exemple Franks (1988). Le nombre de rotation de f est la partie fractionnaire de ρ.
+
+    4. Compacte, sans bord.
+    5. Un relevé de f est une application F : R × [−1, 1] → R × [−1, 1] telle que π ◦ F = f ◦ π, où π est
+le revêtement universel de l’anneau.
+                                                1254–06
+
+
+1.2. Topologie
+   Dans la suite, on construit des suites de symplectomorphismes convergentes : ceci
+demande de préciser la topologie dans laquelle on va travailler. On considère l’espace des
+difféomorphismes de classe C ∞ sur l’anneau A = T × R muni de la topologie compacte-
+ouverte des applications C ∞ de l’anneau dans l’anneau. Cette topologie est la réunion
+des topologies induites par les inclusions C ∞ (A, A) ,→ C r (A, A), avec C r (A, A) muni de
+la topologie compacte-ouverte, pour tout r fini. Il s’agit alors d’une variété de Fréchet
+modelée sur des espaces de Fréchet et on peut définir une distance dC ∞ qui induit la
+topologie de C ∞ (A, A) de la façon suivante.
+
+Définition 1.4 (Distance dC ∞ ). — Munissons A de la norme standard ∥ · ∥. Pour tout
+n ≥ 0, soit An := T × [−n, n] et définissons une semi-norme pn sur C ∞ (A, A) en posant
+                           pn : f 7→ pn (f ) := sup sup ∥Dk f (x)∥ .
+                                                   k≤n x∈An
+                         ∞
+La distance dC ∞ sur C (A, A) est définie comme
+                                              X 1
+                             dC ∞ (f, g) :=        n
+                                                       min(pn (f − g), 1) .
+                                              n≥0 2
+
+  L’espace des difféomorphismes C ∞ (A, A) muni de cette distance est complet.
+
+1.3. Transitivité et ergodicité
+  Dans la suite, il y aura deux notions dynamiques qui seront largement utilisées pour
+des difféomorphismes de l’anneau borné A0 : la notion de transitivité et la notion
+d’ergodicité.
+
+Définition 1.5. — Un difféomorphisme f : A0 → A0 est transitif s’il existe un point
+x ∈ A0 tel que (6)
+                          Ad({f n (x) : n ∈ Z}) = A0 .
+
+  De façon équivalente, si un difféomorphisme est transitif, pour tout couple (U, V )
+d’ouverts de l’anneau et pour tout N ≥ 0, il existe n ≥ N tel que f n (U ) rencontre V .
+  Pour définir l’ergodicité, il faut d’abord choisir une mesure de référence : dans notre
+cas, on parle toujours d’ergodicité par rapport à la mesure de Lebesgue LebA0 . Étant
+donné un symplectomorphisme f de A qui préserve A0 , la mesure LebA0 est une mesure
+de probabilité f -invariante. Nous considérons alors l’ensemble M des mesures de pro-
+babilités sur A0 qui sont f -invariantes, muni de la topologie faible-∗. Rappelons qu’une
+suite de mesures (µn )n ∈ MN converge en topologie faible-∗ vers une mesure µ ∈ M si
+pour toute fonction continue bornée ϕ : A0 → R, on a
+                                          Z                Z
+                                    lim         ϕ dµn =          ϕ dµ .
+                                   n→+∞ A0                  A0
+
+
+  6. La notation Ad(U ) dénote l’adhérence d’un ensemble U .
+                                            1254–07
+
+
+L’ensemble M est alors compact par rapport à cette topologie. La distance de
+Wasserstein-1 ou simplement de Wasserstein (qu’on notera W) induit cette topologie,
+et de plus l’espace (M, W) est complet. Rappelons que la distance de Wasserstein W
+est définie comme suit : étant donné d la distance canonique sur A0 (c’est-à-dire celle
+induite par le revêtement euclidien R × [−1, 1]), on a
+                                            Z
+                           W(µ, ν) := inf
+                                       η
+                                                      d(x, y) dη(x, y) ,
+                                             A0 ×A0
+
+où la borne inférieure est prise sur les mesures de probabilités η sur le produit A0 × A0
+dont la loi marginale par rapport à la première variable est µ et la loi marginale par
+rapport à la deuxième est ν. De façon intuitive, on peut penser à W(µ, ν) comme le
+« coût » en termes de distance entre points pour transporter la mesure µ vers la mesure ν.
+   Étant donné la dynamique f et un point x ∈ A0 , on peut alors définir, pour tout
+N ≥ 1, la mesure N -empirique de x comme
+                                                   −1
+                                                1 NX
+                                   efN (x) :=         δf i (x) ,
+                                                N i=0
+où δx est la mesure de Dirac centrée au point x. Dire que le système est ergodique, c’est
+dire que l’orbite de presque tout point x ∈ A0 s’équidistribue sur l’anneau sous l’action
+de la dynamique. Plus précisément :
+
+Définition 1.6. — Un symplectomorphisme f ∈ Symp∞ (A) qui préserve l’anneau
+borné A0 est ergodique par rapport à la mesure de Lebesgue sur A0 , notée LebA0 , si,
+pour LebA0 -presque tout point x ∈ A0 , la suite des mesures N -empiriques (efN (x))N ≥1
+converge en topologie faible-∗ vers la mesure LebA0 .
+
+Remarque 1.7. — On vérifie sans grande difficulté que si f est ergodique par rapport à
+la mesure de Lebesgue, alors f est transitif. La réciproque est fausse en général.
+
+
+
+2. Pseudo-rotations lisses : l’exemple d’Anosov–Katok et la méthode AVC
+
+  Avant de parler de pseudo-rotations analytiques, on commence par présenter la
+construction d’Anosov–Katok, qui sera le point de départ pour obtenir les résultats
+de Berger (2022, 2024). Le symplectomorphisme final est obtenu comme limite d’une
+suite de Cauchy de symplectomorphismes, construits de façon récursive à partir d’une
+certaine rotation Rα = RαA via des conjugaisons successives : cette méthode d’« Ap-
+proximation Via Conjugaison », qu’on raccourcit comme AVC (7) , a permis d’obtenir
+des exemples de pseudo-rotations avec différentes propriétés dynamiques. Dans la sous-
+section 2.2, un petit survol de ces résultats est présenté.
+
+  7. En anglais, la terminologie standard est Approximation by Conjugacy, souvent abrégée en AbC.
+                                           1254–08
+
+
+2.1. Construction de pseudo-rotations lisses
+  Le but de cette sous-section est de montrer le résultat suivant.
+
+Théorème 2.1 (Anosov et Katok, 1970). — Il existe f ∈ Symp∞ (A) tel que :
+ — f (A0 ) = A0 ;
+ — f|A0 est ergodique par rapport à LebA0 ;
+ — f|A0 est sans points périodiques.
+
+  Pour construire une telle f , on produit une suite (gn )n≥0 ∈ (Ham∞0 (A)) et une suite
+                                                                           N
+
+(αn = pqnn )n≥0 ∈ QN pour que la suite (fn )n≥0 ∈ (Ham∞ (A))N définie par
+                                     fn := gn ◦ Rαn ◦ gn−1
+converge (pour la distance dC ∞ ) vers un symplectomorphisme f avec les propriétés
+souhaitées.
+   Rappelons que Rαn (θ, y) = (θ + αn , y). La suite (gn )n≥0 est construite de façon
+récursive, en demandant de plus en plus de propriétés afin d’assurer que le symplecto-
+morphisme final f soit ergodique (par rapport à la mesure de Lebesgue) sur A0 . La suite
+dont la limite donne l’application f est construite via des conjugaisons des rotations,
+ce qui justifie le nom d’approximation via conjugaison pour la méthode qui produit le
+difféomorphisme f .
+
+Notation. Pour tout ε > 0 nous notons Aε := T × [−1 + ε, 1 − ε]. Soit (εn )n≥0 une suite
+                                       P
+de réels strictement positifs telle que n εn < 1.
+
+  Le lemme de récursion clé que nous allons utiliser est le suivant.
+
+Lemme 2.2. — Il existe une suite (αn = pqnn )n ∈ QN , qui converge vers un nombre
+irrationnel, et une suite (gn )n ∈ (Ham∞
+                                       0 (A)) , telles que la suite (fn )n définie par
+                                             N
+
+
+                                     fn = gn ◦ Rαn ◦ gn−1
+possède les propriétés suivantes :
+                                                                        Pqn −1
+   1. Pour tout x ∈ gn (Aεn ), la mesure empirique efn (x) = q1n            i=0   δfni (x) satisfait
+
+                                W(efn (x), LebA0 ) < εn ;
+
+   2. Pour tout x ∈ A et pour tout 1 ≤ k ≤ qn−1 , on a
+                                              f
+                               W(ekfn (x), ekn−1 (x)) < εn ;
+
+   3. Pour tout k ≤ n − 1 la valeur pk (fn − fn−1 ) est plus petite que εn ;
+   4. Pour tout x ∈ A0 et pour tout 0 < k < qn−1 , on a
+                                                               1
+                                                                   
+                         d(fnk (x), x) > d(fn−1
+                                            k
+                                                (x), x) 1 −             .
+                                                               2n
+                                           1254–09
+
+
+
+
+       Figure 1. Une étape du schéma-AVC : une application fn . Image réalisée par
+       Pierre Berger.
+
+
+Preuve du théorème 2.1 à partir du lemme 2.2. — Supposons avoir déjà construit une
+suite de fonctions (fn )n qui satisfait les propriétés du lemme 2.2. Comme la suite
+(αn = pqnn )n construite dans le lemme 2.2 converge vers un nombre irrationnel, on a
+qn → +∞. Le premier point à montrer est la convergence de la suite elle-même par
+rapport à la topologie C ∞ . L’espace des symplectomorphismes Symp∞ (A) est complet
+par rapport à la distance dC ∞ : il suffit donc de montrer que la suite (fn )n est de Cauchy
+par rapport à cette distance. Ceci se déduit du point 3 du lemme 2.2, car on a
+                   n−1                     ∞          n−1       ∞
+                   X     pi (fn − fn−1 ) X    1       X 1      X   1           1     1
+ dC ∞ (fn , fn−1 ) ≤             i
+                                        +      i
+                                                 < εn      i
+                                                             +      i
+                                                                      ≤ 2εn + n−1 < n−2 ,
+                     i=0        2         i=n 2       i=0 2    i=n 2         2     2
+                          P
+où on utilise le fait que n εn < 1.
+   Notons alors f ∈ Symp∞ (A) le difféomorphisme limite de la suite (fn )n . On remarque
+que, a priori, il n’est pas garanti que le difféomorphisme f soit hamiltonien, mais, grâce
+à la régularité de la mesure de Lebesgue, f préserve LebA0 .
+   Observons que tout fn préserve l’anneau A0 : ceci vient du fait que chaque rotation Rαn
+le préserve et que gn est l’identité sur l’adhérence du complémentaire de A0 .
+   On veut maintenant montrer que f|A0 est ergodique par rapport à LebA0 . Plus précisé-
+ment, on montre qu’il existe B ⊂ A0 de mesure pleine tel que pour tout x ∈ B, la suite
+de mesures empiriques (efN (x))N ≥1 converge en topologie faible-∗ vers LebA0 . Construi-
+sons d’abord B : comme, pour tout k, on a LebA0 (gk (Ak )) = LebA0 (Ak ) = 1 − 2εk , en
+appliquant le lemme de Borel–Cantelli, on déduit que l’ensemble
+                                        [ \
+                                 B :=             gk (Ak ) ⊂ A0
+                                        n≥0 k≥n
+
+est de complémentaire négligeable par rapport à LebA0 . Soit x ∈ B : il existe n ≥ 0
+tel que pour tout k ≥ n on ait x ∈ gk (Ak ). On montre alors que (efqn−1 (x))n converge
+en topologie faible-∗ vers LebA0 . Grâce au point 2 du lemme 2.2, on sait que la suite
+(efqn−1
+    n
+        (x))n est une suite de Cauchy, asymptotique à (efqn−1 (x))n , car l’espace des mesures
+                                                1254–10
+
+
+de probabilités invariantes est complet par rapport à la distance de Wasserstein. De
+plus, grâce aux points 1 et 2, nous déduisons que, pour n assez grand,
+                                    W(efqn−1
+                                         n
+                                             (x), LebA0 ) < 2εn .
+D’après l’inégalité triangulaire, la quantité W(efqn−1 (x), LebA0 ) est petite quand n est
+grand, ce qui nous implique l’ergodicité.
+   Le dernier point à montrer est que f|A0 est sans points périodiques : pour ceci on
+utilise le point 4 du lemme 2.2. Fixons k > 0 et montrons que pour tout x ∈ A0 on a
+d(f k (x), x) > 0 : ceci revient à dire que f n’a pas de point périodique de période k. Une
+fois k fixé, on sait que la suite (fnk )n est aussi de Cauchy et converge vers f k . Soit ε > 0
+et soient m ≫ n ≫ k suffisamment grands : grâce au point 4 du Lemme 2.2, on obtient
+                                                                                     1
+                                                                                      
+              d(f k (x), x) > d(fm
+                                 k                  k
+                                   (x), x) − ε > d(fm−1 (x), x) 1 −                    − ε;
+                                                                                    2m
+en appliquant de façon récursive le point 4, on arrive à :
+                                         1                           1                                  1
+                                                                                                   
+                                                    k
+ d(f k (x), x) > d(fm−1
+                    k
+                        (x), x) 1 −      m
+                                           − ε > d(fm−2 (x), x) 1 − m−1                           1−      −ε
+                                        2                          2                                   2m
+                                                          m 
+                                                                         1
+                                                                           
+                          > · · · > d(fnk (x), x)
+                                                          Y
+                                                                     1 − i − ε.
+                                                         i=n+1          2
+En passant à la limite pour m → +∞, on obtient :
+                                                            1
+                                            Y                   
+                                                                                         1
+           d(f k (x), x) > d(fnk (x), x)             1−              ≥ d(fnk (x), x) e− 2n−1 > 0 ,
+                                           i≥n+1            2i
+
+où d(fnk (x), x) > 0 car fn est sans points périodiques de période plus petite que qn . Nous
+déduisons que f est sans points périodiques de période k dans A0 , pour tout k > 0.
+
+  On peut maintenant passer à la preuve du lemme 2.2 : elle repose aussi sur un autre
+lemme, énoncé dans la suite. Pour tout y ∈ R, on note LebT×{y} la mesure image de la
+mesure de Lebesgue sur T par l’application ϕy : s ∈ T 7→ (s, y) ∈ T × {y}.
+
+Lemme 2.3. — Pour tout η > 0, tout ε > 0 et tout q > 0, il existe un difféomorphisme
+g ∈ Ham∞0 (A) tel que :
+  — le difféomorphisme g commute avec la rotation d’angle 1q , c’est-à-dire
+                                         g ◦ R1 = R1 ◦ g ;
+                                                q          q
+
+
+  — Pour tout y ∈ [−1 + ε, 1 − ε], nous avons
+                                 W(g∗ LebT×{y} , LebA0 ) < η .
+
+Preuve du Lemme 2.2 à partir du Lemme 2.3. — Le lemme 2.2 est montré par récur-
+rence ; commençons par définir
+                                     α0 = 0         et     g0 = IdA .
+                                                     1254–11
+
+
+Soit n > 0. Supposons déjà construites la suite (gk )k<n et la suite (αk = pqkk )k<n . Soient
+q = qn−1 et ε = εn . On peut choisir η > 0 suffisamment petit de telle sorte qu’un
+difféomorphisme g donné par le lemme 2.3 avec ce choix de ε, η, q est tel que
+                                                                                   εn
+(1) W((gn−1 )∗ g∗ LebT×{y} , (gn−1 )∗ LebA0 ) = W((gn−1 )∗ g∗ LebT×{y} , LebA0 ) <     .
+                                                                                   2
+Ceci vient du fait que (gn−1 )∗ agit de façon continue sur l’espace de mesures de proba-
+bilités. On définit alors
+                                      gn := gn−1 ◦ g .
+Comme g commute avec la rotation R 1 , on a :
+                                                     qn−1
+
+                                                                  −1
+(2)                           gn ◦ Rαn−1 ◦ gn−1 = gn−1 ◦ Rαn−1 ◦ gn−1 = fn−1 .
+Il nous reste encore à choisir αn . Montrons d’abord qu’il existe un choix de αn tel que
+la propriété 3 est vérifiée : pour k ≤ n, on a, grâce à (2)
+(3)                                fn − fn−1 = gn ◦ (Rαn − Rαn−1 ) ◦ gn−1 ,
+et, par continuité de la composition, on peut choisir αn suffisamment proche de αn−1 de
+façon que la semi-norme pn de (3) soit plus petite que εn .
+   Pour le point 2, pour x ∈ A et pour 1 ≤ k ≤ qn−1 , on veut montrer que
+             f
+W(efkn (x), ekn−1 (x)) < εn . Si l’on explicite les mesures empiriques, on veut estimer la
+distance de Wasserstein entre des mesures discrètes, c’est-à-dire (encore grâce à (2))
+entre
+                      1 k−1
+                        X                          1 k−1
+                                                     X
+                            δgn ◦Riαn ◦gn−1 (x) et       δ            −1    .
+                      k i=0                        k i=0 gn ◦Riαn−1 ◦gn (x)
+De façon intuitive, une telle distance peut être majorée par le coût du transport (c’est-
+à-dire la distance) d’un point du support de la première mesure sur un point de la
+deuxième. La borne cherchée est obtenue en majorant la distance entre gn ◦ Riαn ◦ gn−1 (x)
+et gn ◦ Riαn−1 ◦ gn−1 (x). Quitte à choisir alors αn encore plus proche de αn−1 , on peut
+                           f
+assurer que W(efkn (x), ekn−1 (x)) < εn .
+   Pour montrer le point 1, montrons que pour tout x ∈ gn (Aεn ), la mesure empirique
+efn (x) est εn -proche de LebA0 . Pour tout x = gn (θ, y) ∈ gn (Aεn ) (donc |y| ≤ 1 − εn ), la
+mesure empirique efn (x) s’écrit comme
+                                  −1                       −1                            −1
+                              1 qnX                    1 qnX                         1 qnX
+                                                                                                           
+     fn
+ e        (x) = efqnn (x) =         δ           −1   =       δg (θ+iαn ,y)) = (gn )∗        δ(θ+iαn ,y) .
+                              qn i=0 gn ◦Riαn ◦gn (x) qn i=0 n                       qn i=0
+                                          1 Pqn −1
+Si qn est suffisamment grand, la mesure            δ(θ+iαn ,y) est aussi proche qu’on veut
+                                          qn i=0
+de LebT×{y} . Grâce à la continuité de l’action de (gn )∗ sur l’espace des mesures de
+probabilités, quitte à choisir qn encore plus grand (en prenant αn encore plus proche
+de αn−1 ), nous avons
+                                                                 n −1
+                                                             1 qX                                         εn
+                                                                                               
+(4) W efn (x), (gn )∗ (LebT×{y} ) = W (gn )∗                          δ(θ+iαn ,y) , (gn )∗ (LebT×{y} ) <      .
+                                                             qn i=0                                        2
+                                           1254–12
+
+
+Grâce aux inégalités (1) et (4), on obtient
+    W(efn (x), LebA0 ) ≤ W(efn (x), (gn )∗ LebT×{y} ) + W((gn )∗ LebT×{y} , LebA0 ) < εn .
+
+   Il ne nous reste plus qu’à montrer le point 4. Soit 0 < k < qn−1 . Comme fn−1 est
+conjugué à la rotation d’angle pqn−1
+                                 n−1
+                                     , on ne peut pas avoir de points périodiques de période
+                                                             k
+strictement plus petite que qn−1 ; la quantité minx∈A0 d(fn−1   (x), x) est alors strictement
+                             k
+positive. Si l’on regarde d(fn (x), x), on obtient
+                     d(fnk (x), x) ≥ d(fn−1
+                                        k                k
+                                            (x), x) − d(fn−1 (x), fnk (x)) ;
+quitte à choisir αn encore plus proche de αn−1 , on peut supposer que
+                              k              1
+                           d(fn−1 (x), fnk (x)) <  k
+                                                d(fn−1 (x), x)
+                                             2n
+pour tout x. Ceci nous permet de conclure la preuve.
+
+Remarque 2.4. — Dans la preuve du lemme 2.2, qui constitue vraiment le cœur de
+la méthode AVC, nous remarquons que d’abord on choisit un difféomorphisme gn et
+seulement après l’angle αn : il dépend de façon cruciale du choix d’un gn . La construction
+de la suite (αn )n implique notamment que sa limite α est un nombre bien approché
+par les rationnels (en fait il est Liouville). La question de savoir si une pseudo-rotation
+analytique de nombre de rotation diophantien doit être conjuguée à une rotation reste
+ouverte, voir Herman (1998).
+
+   Il nous reste plus qu’à prouver le lemme 2.3, dont la démonstration repose sur un
+argument classique, connu sous le nom d’« astuce de Moser ». L’« astuce de Moser »
+nous dit que, étant donné deux formes volume sur une variété compacte, si le volume de
+la variété par rapport à la première forme est égal au volume par rapport à la deuxième,
+alors il existe un difféomorphisme de la variété qui envoie la première forme sur la
+deuxième.
+Esquisse de preuve du lemme 2.3. — Le but du lemme est de construire un difféomor-
+phisme hamiltonien g sur A0 , à support compact, qui commute avec la rotation R 1 , et
+                                                                                         q
+tel que l’image de chaque courbe T × {y} par g est presque équidistribuée par rapport à
+la mesure de Lebesgue de l’anneau borné. Nous commençons par observer que, quitte à
+passer à un relevé, on peut supposer que q = 1, car LebA0 et LebT×{y} sont invariantes
+par rotation d’angle 1q .
+   Considérons n2 rectangles verticaux (Recti )1≤i≤n2 , de hauteur presque 2 et de base
+presque n12 , tous disjoints, ainsi que n2 petits carreaux (Carri )1≤i≤n2 , chacun de hauteur
+presque n2 et de base presque n1 , encore tous disjoints, comme dans la figure 2. Quitte
+à approcher les rectangles et les carreaux par l’extérieur à l’aide des domaines lisses
+(nécessaires pour appliquer l’« astuce de Moser »), on veut construire un difféomorphisme
+hamiltonien lisse g, de support contenu dans A0 , qui envoie chaque rectangle Recti sur
+le carreau Carri . L’existence d’un tel difféomorphisme est assurée par un argument qui
+                                        1254–13
+
+
+repose sur l’« astuce de Moser », car, dans notre cas, le rectangle et le carreau ont la
+même aire.
+
+
+
+
+       Figure 2. Le difféomorphisme hamiltonien g envoie chaque rectangle Recti
+       sur un carreau Carri .
+
+
+   Notons xi le centre de chaque carreau Carri et considérons la mesure           discrète
+1 Pn2
+n2   i=1 δxi . D’un côté, on peut facilement estimer la distance de Wasserstein
+
+                                  n2
+                                                   √
+                               1 X                   5
+                                               
+                             W 2     δxi , LebA0 ≤     ,
+                               n i=1               n
+
+en utilisant le diamètre du carreau. De l’autre côté, on peut aussi estimer, pour tout y
+tel que T × {y} rencontre les rectangles verticaux,
+                                                n  2
+                                              1 X
+                                                       
+                              W g∗ LebT×{y} , 2   δx ;
+                                             n i=1 i
+
+la majorité du segment T × {y} est contenue dans la réunion des rectangles verticaux
+et donc son image par g est envoyée, pour la plupart, dans les carreaux : le coût du
+transport revient alors à bouger le point jusqu’au centre du carreau où il est. Ceci nous
+donne une borne d’ordre n1 , l’ordre du diamètre du carreau. Toutefois sur une petite
+partie (qu’on peut rendre plus petite en agrandissant les rectangles du départ, tout en
+les gardant disjoints), on n’a pas de contrôle de son image : le coût du transport et donc
+la borne sur la distance de Wasserstein est de l’ordre du diamètre de A0 , donc d’ordre 1,
+mais ceci a un « poids » petit, grâce au fait que cette perte du contrôle intervient juste
+sur une petite proportion de la courbe.
+  D’après l’inégalité triangulaire, on peut alors rendre la distance entre g∗ LebT×{y} et
+LebA0 arbitrairement petite.
+                                           1254–14
+
+
+2.2. Quelques résultats sur les pseudo-rotations lisses
+   Plusieurs auteurs et autrices ont travaillé afin de mieux comprendre la classe des
+pseudo-rotations, déjà dans le cas lisse. Même avant de s’intéresser aux pseudo-rotations,
+on cite le travail de Shnirelman (1930), qui construit un homéomorphisme transitif du
+disque (voir aussi Besicovitch, 1951). Toutefois, grâce à Le Calvez et Yoccoz (1997), on
+sait qu’il n’existe pas d’homéomorphisme minimal (8) de T × R. En revenant aux pseudo-
+rotations, une première question assez naturelle est de savoir si toute pseudo-rotation
+peut être réalisée comme limite de conjugaisons de rotations. Dans Bramham (2015),
+l’auteur montre que toute pseudo-rotation lisse du disque peut être C 0 approximée
+par la méthode AVC : sa preuve repose sur des techniques venant des courbes pseudo-
+holomorphes. Ce résultat a été généralisé par Le Calvez (2016) pour des pseudo-rotations
+de classe C 1 du disque, en utilisant plutôt des méthodes de flot gradient associé aux
+fonctions génératrices produites par les géodésiques brisées de Chaperon (1984). Avila,
+Fayad, Le Calvez, Xu et Zhang (2020) montrent que, si le nombre de rotation est de
+type non-Brjuno, une pseudo-rotation du disque de classe C k est C k−1 -approximée par
+la méthode AVC. Dans Bramham et Zhang (2025), les auteurs montrent que toute
+pseudo-rotation dont le nombre de rotation satisfait une certaine condition arithmétique
+(en particulier, qui implique la condition Liouville) peut être C ∞ -approchée par des
+dynamiques périodiques.
+   Nous avons parlé de pseudo-rotations lisses ergodiques (et transitives) : il est possible
+de s’interroger alors sur l’existence de pseudo-rotations avec d’autres propriétés dyna-
+miques, comme le mélange ou l’ergodicité minimale. Nous rappelons ici les principales
+définitions.
+Définition 2.5. — Un difféomorphisme f sur un espace de probabilité (X, B, µ) qui
+préserve µ est faiblement mélangeant si pour tout couple (A, B) de mesurables on a
+                           1 n−1
+                                 |µ(A ∩ f −i (B)) − µ(A ∩ B)| = 0 .
+                             X
+                       lim
+                      n→+∞ n
+                             i=0
+
+Un difféomorphisme f est topologiquement mélangeant si pour tout couple (A, B) d’ou-
+verts, il existe N > 0 tel que pour tout n > N on a
+                                      f n (A) ∩ B ̸= ∅ .
+Remarque 2.6. — Le mélange faible implique l’ergodicité, tandis que le mélange topolo-
+gique implique la transitivité.
+   Anosov et Katok (1970) obtiennent des pseudo-rotations faiblement mélangeantes
+de l’anneau. Fayad et Saprykina (2005) construisent des exemples de pseudo-rotations
+faiblement mélangeantes pour tout nombre de Liouville sur Td = Rd /Zd , pour d ≥ 2.
+Toutefois, aucune pseudo-rotation analytique du disque ou de la sphère ne peut être
+topologiquement mélangeante, comme le montrent Avila, Fayad, Le Calvez, Xu et Zhang
+
+  8. Un homéomorphisme sur un espace topologique X est minimal si toute orbite est dense dans X.
+                                         1254–15
+
+
+(2020). Dans le même article, ils déduisent qu’un difféomorphisme analytique conservatif
+de la sphère ou du disque qui est topologiquement mélangeant doit être d’entropie
+positive.
+
+Définition 2.7. — Un symplectomorphisme f de l’anneau borné (ou de la sphère ou
+du disque) est minimalement ergodique si f a exactement 3 mesures ergodiques.
+
+   Au-delà de la mesure de Lebesgue qui est f -invariante, les autres deux mesures sont
+celles supportées sur T × {+1} (resp. T × {−1}) pour l’anneau. Dans le cas de la sphère,
+les deux autres sont deux mesures de Dirac, supportées respectivement aux deux pôles.
+Dans le cas du disque, on a la mesure de Dirac centrée à l’origine et la mesure supportée
+sur le bord du disque. Dans le cas lisse, Fayad et Katok (2004) montrent qu’on peut
+réaliser des pseudo-rotations lisses minimalement ergodiques.
+   Comme souligné pendant la description de l’exemple d’Anosov–Katok, les pseudo-
+rotations réalisées avec cette méthode ont un nombre de rotation de type Liouville, c’est-
+à-dire bien approchable par des rationnels. Ceci va être le cas aussi de la construction de
+Berger. La question suivante reste alors encore ouverte, même pour des difféomorphismes
+lisses.
+
+Question. — pour tout α ∈]0, 1[\Q, existe-t-il une pseudo-rotation (lisse ou analytique)
+de nombre de rotation α qui ne soit pas conjuguée à la rotation d’angle α ?
+
+   Nous renvoyons à Fayad et Krikorian (2018) pour une discussion plus détaillée. Cette
+question devient intéressante en particulier vis-à-vis des nombres de rotation diophan-
+tiens. Est-il vrai que toute pseudo-rotation du disque de classe C k avec nombre de
+rotation diophantien (c’est-à-dire mal approché par des rationnels) est conjuguée à une
+rotation, par des difféomorphismes de classe C k ? Dans le cadre analytique, Rüssmann
+(1967) montre que la dichotomie suivante est vérifiée : soit l’origine, qui est un point
+fixe elliptique, est entourée par un ensemble de mesure strictement positive de cercles
+invariants, soit le difféomorphisme est localement conjugué à la rotation du même angle
+dans un voisinage de l’origine. Pour une pseudo-rotation lisse de nombre de rotation
+diophantien, si le difféomorphisme est suffisamment proche de la rotation, grâce à Fayad
+et Krikorian (2009), il doit être alors conjugué à la rotation elle-même.
+   Concernant les résultats pour des difféomorphismes en classe analytique, rappelons
+que Furstenberg (1961) construit les premiers exemples de difféomorphismes analytiques
+du 2-tore minimaux, mais pas uniquement ergodiques (ils admettent une infinité de
+mesures ergodiques). Fathi et Herman (1977) montrent que toute variété de classe C ∞
+ayant une action de S1 admet un difféomorphisme lisse, isotope à l’identité, minimal.
+Windsor (2001) construit, sur toute variété compacte admettant une action libre de S1 ,
+un difféomorphisme arbitrairement proche de la rotation, minimal et avec un nombre fini
+de mesures ergodiques. Banerjee et Kunde (2019) adaptent l’exemple d’Anosov–Katok
+pour construire des symplectomorphismes analytiques du tore Td , d ≥ 2, ergodiques et
+                                               1254–16
+
+
+obtenus comme limite de conjugaisons de translations irrationnelles. Dans Fayad et Ka-
+tok (2004), les auteurs montrent l’existence de difféomorphismes analytiques préservant
+le volume, uniquement ergodiques sur toute sphère de dimension impaire.
+
+
+
+3. Pseudo-rotations analytiques
+
+   La preuve de Berger (2022) repose sur la méthode AVC d’Anosov–Katok, mais éga-
+lement sur un théorème d’approximation très fin, qui va nous permettre d’approcher
+un difféomorphisme hamiltonien g qui intervient dans le lemme 2.3 par des difféomor-
+phismes hamiltoniens entiers de C/Z × C (c’est-à-dire holomorphes définis sur C/Z × C)
+de norme C 0 suffisamment petite sur certains compacts dans C/Z × C en dehors de
+int(A0 ) (9) . Le fait de travailler avec des applications entières permet à Berger d’éviter
+des problèmes de dégénérescence de la bande d’analyticité.
+
+3.1. Théorème d’approximation
+  Rappelons que Ham∞   0 (A) désigne l’ensemble des difféomorphismes hamiltoniens à
+support contenu dans l’intérieur de A0 . Dans la suite, on note Hamω (A) l’ensemble
+des difféomorphismes hamiltoniens dans Ham∞ (A) qui sont entiers sur C/Z × C. Le
+théorème d’approximation de Berger consiste à approcher tout élément de Ham∞       0 (A)
+par un élément de Hamω (A), dont on demande de plus qu’il soit C 0 -proche de l’identité
+sur des sous-ensembles de C/Z×C qui ne sont pas contenus dans A et qui ne rencontrent
+pas A0 . Plus précisément, pour ρ > 1, on considère le sous-ensemble Kρ ⊂ C/Z × C
+défini par
+                                   Kρ = Tρ × Qρ ,
+où
+                                         Tρ := T + i[−ρ, ρ]
+et
+                               Qρ := ([−ρ, −1] ∪ [1, ρ]) + i[−ρ, ρ] .
+Notons Hamω (A; ρ) l’ensemble des difféomorphismes g ∈ Hamω (A) tels que
+                                                           1
+                                         sup ∥g − Id∥ <      .
+                                         Kρ                ρ
+     Nous pouvons maintenant énoncer le théorème d’approximation de Berger (2022).
+
+Théorème 3.1 (Berger, 2022). — Soient g ∈ Ham∞          0 (A) et U un voisinage en topolo-
+gie C de la restriction g|int(A0 ) . Alors pour tout ρ > 1, il existe g̃ ∈ Hamω (A; ρ) tel que
+      ∞
+
+la restriction g̃|int(A0 ) appartienne à U.
+
+   9. Ici et dans la suite, un compact en dehors de int(A0 ) indique un compact d’intersection vide avec
+int(A0 ).
+                                            1254–17
+
+
+Remarque 3.2. — Si de plus le difféomorphisme g commute avec la rotation R 1 , pour
+                                                                                     q
+q ≥ 1, alors on peut aussi obtenir une approximation g̃ ∈ Hamω (A; ρ) qui commute avec
+la rotation R 1 . En fait g induit un difféomorphisme ḡ sur le quotient R/q −1 Z × R. Or, le
+              q
+quotient R/q −1 Z × R est difféomorphe à A via φ : (θ, y) 7→ (qθ, y) ; on applique alors le
+théorème d’approximation à φ◦ḡ◦φ−1 . On obtient un difféomorphisme entier de C/Z×C
+qui, conjugué par φ−1 , donne un difféomorphisme entier du quotient C/q −1 Z × C. En
+considérant un relevé de ce dernier, on a le difféomorphisme cherché.
+Remarque 3.3. — Dans Berger (2022), l’auteur énonce une version plus fine du théo-
+rème 3.1 ; pour la clarté de l’exposé, nous préférons cette présentation, en précisant que
+les idées des deux preuves sont les mêmes et en renvoyant à Berger (2022) pour tous les
+détails.
+  Le cœur de la preuve consiste à montrer que tout difféomorphisme hamiltonien lisse
+peut s’approcher par les deux familles d’applications suivantes et par leurs commutateurs.
+Soit T l’ensemble des applications de l’anneau de la forme
+                      (θ, y) 7→ (θ + τ (y), y) ,      avec τ ∈ C 0 (R, T) ,
+et soit V est l’ensemble des applications de la forme
+                                                                     Z
+              (θ, y) 7→ (θ, y + v(θ)) ,      avec v ∈ C 0 (T, R) ,       v(θ)dθ = 0 .
+                                                                     T
+
+Observons que, si V ∈ V est de la forme V (θ, y) = (θ, y +v(θ)), alors V −1 est de la forme
+V −1 (θ, y) = (θ, y − v(θ)), en particulier V −1 appartiennt aussi à V. La même propriété
+est vérifiée, mutatis mutandis, pour les applications dans T . Étant donné V ∈ V, T ∈ T ,
+leur commutateur est
+                                ⟨V, T ⟩ := V −1 ◦ T −1 ◦ V ◦ T .
+Observons que ⟨V, T ⟩−1 = ⟨T, V ⟩. On note ⟨T , V⟩, respectivement ⟨V, T ⟩, l’ensemble
+des commutateurs de la forme ⟨T, V ⟩, respectivement ⟨V, T ⟩, pour V ∈ V, T ∈ T .
+On s’intéresse aux applications des familles V, T et à leurs commutateurs, mais en
+demandant que les fonctions v, τ soient analytiques. Plus précisément, pour ρ > 1,
+soient
+                Tρω := T ∩ Hamω (A; ρ) et Vρω := V ∩ Hamω (A; ρ) ;
+donc une application dans Tρω est de la forme (θ, y) 7→ (θ + τ (y), y), où τ est entière et
+supy∈Qρ |τ (y)| < ρ1 ; une application dans Vρω est de la forme (θ, y) 7→ (θ, y + v(θ)), où v
+est entière, on a T vdθ = 0 et supθ∈Tρ |v(θ)| < ρ1 .
+                  R
+
+  Le lemme suivant montre que, même si nous n’avons pas de contrôle à l’infini des
+applications dans Vρω , nous pouvons encore contrôler les commutateurs, quitte à deman-
+der un contrôle des applications aussi sur un petit voisinage de Kρ = Tρ × Qρ . Pour
+                         ω           ω
+ρ > 1, ε > 0, notons Vρ,ε   (resp. Tρ,ε ) l’ensemble des applications dans Vρω (resp. Tρω ) qui
+sont ρ1 -proches de l’identité sur un ε-voisinage de Kρ . Dans la suite, pour ρ > 0, ε > 0,
+on note B(Kρ , ε) un ε-voisinage de Kρ , c’est-à-dire l’ensemble des points de C/Z × C à
+distance < ε de Kρ .
+                                                   1254–18
+
+
+Lemme 3.4. — Soient ρ1 > ρ0 > 1 et ε > ε′ > 0 tels que ε > ε′ + ρ20 > 0. Posons
+         ′−2/ρ0
+ρ2 = ε−ε        ρ . Alors pour tout ⟨V, T ⟩ ∈ ⟨Vρω0 ,ε , Tρω1 ,ε ⟩, on a
+     ε−ε′ −1/ρ0 1
+                                                                       1
+                                     sup         ∥⟨V, T ⟩ − Id∥ <         .
+                                   B(Kρ2 ,ε′ )                         ρ2
+  On sait donc que, pour ρ1 , ρ0 > 1, les applications dans Tρω1 ,ε ou dans ⟨Vρω0 ,ε , Tρω1 ,ε ⟩
+vont être bien contrôlées sur un grand compact. De plus, ce contrôle est stable par
+composition, comme précisé dans le lemme qui suit.
+Lemme 3.5. — Soient ε > 0 et (ρk )k une suite croissante de nombres réels > 1 qui
+croît « suffisamment » vite vers l’infini. Soit (Fk )k une suite dans (Hamω (A))N . Si l’on a
+supB(Kρ0 ,ε) ∥Fk − Id∥ < ρ1k pour tout k, alors pour tout n ≥ 1, la composition F1 ◦ · · · ◦ Fn
+est dans Hamω (A; ρ).
+  On passe maintenant à la preuve du théorème d’approximation.
+Preuve du théorème 3.1. — Soient g ∈ Ham∞       0 (A) et U un voisinage en topologie C
+                                                                                        ∞
+
+de g|int(A0 ) . Le point principal de la preuve consiste à montrer que ∀(ρk )k , ρk > 1, il
+existe M ∈ N, M > 0 et une composition
+                                           Fe = F1 ◦ · · · FM
+telle que FM ∈ TρωM , pour tout 1 ≤ j ≤ M − 1 la fonction Fj ∈ ⟨Vρω0 , Tρωj ⟩, et telle que
+Fe|int(A0 ) appartienne à U. En fait, il est même possible de montrer que, pour ε > 0
+suffisamment petit, ces fonctions Fj sont dans TρωM ,ε ou dans ⟨Vρω0 ,ε , Tρωj ,ε ⟩. Une fois la
+fonction Fe construite, le théorème 3.1 se déduit grâce aux lemmes 3.4 et 3.5, car il ne
+reste plus qu’à contrôler la fonction Fe sur un compact qui ne rencontre pas int(A0 ).
+    Considérons d’abord une fonction hamiltonienne H, et fixons un voisinage W de H
+dans la topologie C ∞ . En passant par une décomposition en série de Fourier, il existe
+N ∈ N, N > 0, des fonctions lisses C, A1 , · · · , AN , B1 , · · · , BN , et des constantes non
+nulles M1 , · · · , MN , telles que la fonction
+                                  N
+                                  X        cos(2πnθ)           sin(2πnθ)
+                                                                               
+             H̃(θ, y) := C(y) +     An (y),           + Bn (y),           ,
+                                n=1            Mn                  Mn
+est dans le voisinage W de H. Ici, on utilise la notation
+                                 {f1 , f2 } := ∂θ f1 ∂y f2 − ∂y f1 ∂θ f2
+pour indiquer le crochet de Poisson de deux fonctions f1 , f2 . Autrement dit, on écrit
+notre approximation hamiltonienne H̃ comme la somme
+                                                      2N
+                                                      X
+                                             H0 +           Hn ,
+                                                      n=1
+où H0 dépend seulement de y et, pour 1 ≤ n ≤ 2N , chaque Hn est un crochet de Poisson
+de deux fonctions qui dépendent, la première, de y, et la deuxième, de θ. Étant donné
+une fonction hamiltonienne H, le champ de vecteurs associé est XH := (∂y H, −∂θ H).
+Or, il faut se rappeler les faits suivants :
+                                                1254–19
+
+
+      1. Si un hamiltonien H dépend seulement de y, alors le flot hamiltonien associé est
+         de la forme (θ, y) 7→ (θ + tH ′ (y), y)), donc dans T ;
+      2. Si un hamiltonien H dépend seulement de θ, alors le flot hamiltonien associé est
+         de la forme (θ, y) 7→ (θ, y + tH ′ (θ))), donc dans V ;
+      3. Le champ associé à un hamiltonien {f1 , f2 } est obtenu comme crochet de Lie des
+         champs associés à f1 et f2 , c’est-à-dire
+                      X{f1 ,f2 } = [Xf1 , Xf2 ] := DXf2 · Xf1 − DXf1 · Xf2 .
+      4. Si H1 , H2 sont deux hamiltoniens, alors le flot hamiltonien au temps ε > 0 associé
+         à l’hamiltonien H1 + H2 peut s’approcher comme
+                                   ϕεH1 +H2 = ϕεH1 ◦ ϕεH2 + O(ε2 ) ,
+        où O(ε2 ) est en topologie C ∞ .
+Les fonctions hamiltoniennes qui apparaissent sont assez spéciales. Notamment, le flot
+hamiltonien de H0 = C(y) est une application dans T , car de la forme (θ, y) 7→
+(θ + C ′ (y), y). Pour chaque 1 ≤ n ≤ 2N , le flot hamiltonien de Hn = {f1 (y), f2 (θ)}
+est engendré par le champ de vecteurs XHn = [Xf1 , Xf2 ], où Xf1 = (f1′ (y), 0) et Xf2 =
+(0, −f2′ (θ)). De plus, un calcul direct montre le lemme suivant.
+Lemme 3.6. — Pour un champ vectoriel XH = [Xf1 , Xf2 ], où Xf1 = (f1′ (y), 0) et
+Xf2 = (0, −f2′ (θ)), nous avons, pour tout r ≥ 0,
+(5)                               Id + t2 XH = ⟨V t , T t ⟩ + O(t3 ) ,
+où V t (θ, y) = (θ, y − tf1′ (θ)) et T t (θ, y) = (θ + tf2′ (y), y), et où O(t3 ) est en topologie C r .
+    En approximant alors notre fonction hamiltonienne H en série de Fourier par H̃, et en
+appliquant de façon répétée le lemme 3.6, nous obtenons qu’il existe des fonctions lisses
+τ0 , . . . , τ2N et des fonctions entières (10) v1 , . . . , v2N telles que, si on utilise la notation
+Tnt (θ, y) = (θ + tτn (y), y) ∈ T et Vnt (θ, y) = (θ, y + tvn (θ)) ∈ Vρω , pour tout r ≥ 0 nous
+avons
+                           2
+                        ∥ϕtXH̃ − ⟨V2N
+                                    t    t
+                                      , T2N ⟩ ◦ · · · ◦ ⟨V1t , T1t ⟩ ◦ T0t ∥C r = o(t2 ) ,
+        2
+où ϕtXH̃ désigne le flot hamiltonien au temps t2 associé à la fonction hamiltonienne H̃.
+Ici on utilise de façon importante la propriété 4 des flots hamiltoniens. En particulier,
+si H et H̃ sont proches en topologie C ∞ , alors leurs flots correspondants au temps t2
+seront proches en norme C r , pour tout r ≥ 0.
+   Autrement dit, si t est suffisamment petit, nous pouvons approximer en distance C ∞
+          2
+le flot ϕtXH par une composition finie d’applications dans T et dans ⟨Vρω0 , T ⟩.
+   Enfin, il est possible d’améliorer cette approximation, pour que les applications dans T
+qui rentrent en jeu dans l’approximation soient entières et avec un bon contrôle de leur
+norme sur des compacts dehors de A0 de la forme Kρj : ceci est le contenu du lemme
+suivant.
+ 10. Les vi sont entières car elles sont dérivées de fonctions entières, telles que sin et cos.
+                                              1254–20
+
+
+Lemme 3.7. — Soient ρ0 > 1 et F un difféomorphisme dans T ∪ ⟨Vρω0 , T ⟩ à support
+compact dans int(A0 ). Soit W un voisinage en topologie C ∞ de F|int(A0 ) . Pour tout ρ′ > 1,
+il existe F̃ ∈ Tρω′ ∪ ⟨Vρω0 , Tρω′ ⟩ tel que F̃|int(A0 ) ∈ W.
+
+Preuve du lemme 3.7. — Étant donné un tel F , il suffit de montrer que l’application
+dans T intervenant dans la définition de F peut être approximée par une application
+dans Tρω′ : si F ∈ T il s’agit de l’énoncé même, si F ∈ ⟨Vρω0 , T ⟩, la forme du commutateur
+nous permet de déduire que, en remplaçant l’approximation de l’élément dans T dans
+l’expression, le nouveau commutateur va rester encore proche de F . Ce dernier point
+n’est pas immédiat et nous renvoyons à Berger (2022) pour les détails (il faut utiliser
+aussi le lemme 3.4).
+   Soit alors T ∈ T de la forme (θ, y) 7→ (θ + τ (y), y), avec τ à support compact contenu
+dans ] − 1, 1[. Le voisinage W permet de fixer un ouvert ] − 1 + δ, 1 − δ[, pour un certain
+δ > 0 : d’après le théorème de Stone–Weierstrass sur l’approximation des fonctions
+continues par des polynômes, on approxime τ|]−1+δ,1−δ[ par un polynôme τ ∞ , qui se
+prolonge sur un voisinage complexe N de ]−1+δ, 1−δ[. Quitte à rétrécir le voisinage N ,
+on peut supposer que N est disjoint de Qρ′ , et que le complémentaire de N ∪ Qρ′ dans C
+est connexe. L’idée clé est alors d’appliquer le théorème de Runge, en considérant la
+fonction τ ∞ sur N et la fonction nulle sur Qρ′ : on obtient alors une application entière τ ω ,
+          ′
+qui est ρ1 -C 0 -proche de zéro sur Qρ′ , mais également arbitrairement C 0 -proche de τ ∞
+sur N et donc, d’après l’inégalité de Cauchy, C ∞ -proche de τ sur ] − 1 + δ, 1 − δ[.
+  Jusqu’ici, on a donc obtenu le théorème 3.1 pour un difféomorphisme hamiltonien g
+qui peut être approché par un flot hamiltonien en temps suffisamment petit.
+  Considérons maintenant le difféomorphisme hamiltonien g de départ : il n’y a aucune
+raison pour laquelle il devrait s’approcher par un flot en temps petit d’une fonction
+hamiltonienne. Néanmoins, nous savons qu’il existe une famille de fonctions hamilto-
+niennes (Ht )t∈[0,1] et une famille de difféomorphismes symplectiques (gt )t∈[0,1] , telles que
+pour tout t on a XHt = ∂t gt , g0 = Id et g1 = g. On divise alors l’intervalle [0, 1] en
+segments de la même longueur M1 , où M = t12 . Les deux observations suivantes sont
+cruciales :
+  — on écrit
+                 g = (g1 ◦ g −1                  −1                        −1
+                             M −1 ) ◦ (g M −1 ◦ g M −2 ) ◦ · · · ◦ (g 2 ◦ g 1 ) ◦ g 1 ;
+                               M          M         M               M      M       M
+
+   — pour chaque 0 ≤ j ≤ M − 1, on a l’approximation
+                                                       1
+                                            1
+                                                          
+                           g j+1 ◦ g −1
+                                     j  = ϕ M
+                                           XHj/M + O         .
+                              M      M                 M2
+   Maintenant, en prenant M suffisamment grand, on peut appliquer l’approximation du
+flot hamiltonien pour des temps petits à chaque g j+1 ◦ g −1
+                                                          j , en l’exprimant, à un terme
+                                                             M      M
+d’erreur près, comme une composition d’applications qui appartiennent à Tρωj ∪⟨Vρω0 , Tρωj ⟩.
+Ceci permet d’approcher notre g avec la composition de fonctions souhaitée, et termine
+la preuve du théorème d’approximation.
+                                            1254–21
+
+
+3.2. Réfutation de la conjecture de Birkhoff
+  Nous donnons ici les idées de la preuve de la réfutation de la conjecture de Birkhoff,
+ainsi que la notion de schéma-C r -AVC.
+3.2.1. Pseudo-rotations analytiques ergodiques de l’anneau. — On a maintenant tous
+les outils pour donner les idées de la preuve du théorème 0.2 : il existe un symplecto-
+morphisme analytique de l’anneau borné ergodique (donc en particulier, il n’est pas
+conjugué à une rotation). La preuve suit la structure de l’exemple d’Anosov–Katok :
+la grande différence est que le symplectomorphisme analytique de A obtenu par la
+méthode AVC ne peut pas préserver l’anneau A0 (11) . En revanche, il sera déformé par
+le passage à la limite dans un autre cylindre analytique qu’on pourra redresser. Notons
+E = A \ int(A0 ) et EC = C/Z × { y ∈ C : Re(y) ∈  / ]−1, 1[ }. Le théorème 0.2 se déduit
+du lemme suivant, qui est l’analogue analytique du lemme 2.2.
+Lemme 3.8. — Soit ρ > 1. Il existe une suite (αn = pqnn )n ∈ QN et une suite (gn )n ∈
+(Hamω (A; ρ))N telles que, en définissant
+                                   fn = gn ◦ Rαn ◦ gn−1 ,
+les propriétés suivantes sont vérifiées :
+   1. la restriction gn |EC converge en topologie C 0 vers une application g analytique
+      sur int(EC ) et sur C/Z × {±1}, et telle que supKρ |g − Id| < ρ1 ;
+   2. la suite (fn )n converge vers un automorphisme entier f ∈ Sympω (A) tel que f|A′0
+      est ergodique, avec A′0 := A \ g(E) ;
+   3. la limite f est sans point périodique sur C/Z × C.
+Preuve du théorème 0.2 à partir du lemme 3.8. — Le lemme 3.8 fournit un symplecto-
+morphisme analytique f de A qui préserve A′0 et dont la restriction à A′0 est ergodique.
+Pour conclure, il reste à vérifier que A′0 est un cylindre analytique. Ses bords sont en
+effet donnés par g(T × {±1}) : d’après le point 1 et d’après l’inégalité de Cauchy, on
+déduit que ces courbes sont des graphes analytiques. Il est alors facile de conjuguer f par
+un symplectomorphisme entier afin de redresser cet anneau borné et de conclure.
+  Comme dans le cas lisse, la preuve du lemme 3.8 repose sur le lemme suivant. Fixons
+une suite (εn )n telle que n εn < 1. Pour n ≥ 1, notons D(n) := {x ∈ C : |x| < n}.
+                          P
+
+
+Lemme 3.9. — Pour tout N ∈ N, il existe des suites (αn )n ∈ QN et (gn )n ∈ (Hamω (A))N
+avec α0 = 0 et g0 = Id, telles que, en définissant la suite (fn )n comme
+                                   fn = gn ◦ Rαn ◦ gn−1 ,
+les conditions suivantes sont vérifiées :
+   1. les applications gn |Kn+N et gn−1 |Kn+N sont εn+N -proches en distance C 0 ;
+
+ 11. En fait, d’après le théorème de Picard, un symplectomorphisme entier de A qui préserve A0
+appartient à T .
+                                            1254–22
+
+
+   2. pour tout x ∈ gn (T × [−1 + εn , 1 − εn ]), nous avons
+                                  W(efn (x), LebA0 ) < εn ;
+   3. pour tout x ∈ Tn × D(n) et pour tout k ≤ qn−1 , nous avons
+                                                f
+                                 W(efkn (x), ekn−1 (x)) < εn ;
+   4. les inégalités suivantes sont satisfaites :
+                            dC 0 (fn |Tn ×D(n) , fn−1 |Tn ×D(n) ) < εn ,
+                           dC 0 (fn−1 |Tn ×D(n) , fn−1
+                                                   −1
+                                                       |Tn ×D(n)
+                                                                 ) < εn ;
+   5. pour tout x ∈ Tn × D(n) et pour tout 0 < k < qn−1 , on a
+                                                           1
+                                                            
+                        d(fnk (x), x) > d(fn−1
+                                           k
+                                               (x), x) 1 − n .
+                                                          2
+Preuve du Lemme 3.8 à partir du Lemme 3.9. — D’après le point 1 du lemme 3.9, la
+suite (gn )n est de Cauchy en dehors de A0 : elle converge donc vers une application g,
+qui de plus est analytique (ceci découle du théorème de Weierstrass pour les fonctions
+analytiques). Toujours d’après le point 1, il est possible de déduire que
+                                                       X
+                                    sup |g − Id| <           εi .
+                                    KN                 i≥N
+
+Considérons maintenant la suite (fn = gn ◦ Rαn ◦ gn−1 )n . Pour chaque n suffisamment
+grand, l’image gn (A0 ) est encore un cylindre analytique ; notons γn± les bords de gn (A0 ).
+Alors, chaque γn± est le graphe d’une fonction analytique et la suite (γn± )n converge
+aussi vers le graphe d’une fonction analytique γ ± . Le cylindre analytique A′0 est donc
+le cylindre analytique dont les bords sont γ ± . Observons que A′0 = n≥0 k≥n gk (A0 ).
+                                                                       T     S
+
+   Par le point 4, on peut montrer que (fn )n et (fn −1 )n sont des suites de Cauchy,
+donc convergentes. De plus, d’après le théorème de Weierstrass, comme les fn , fn−1 sont
+analytiques, on déduit que la limite f et son inverse sont entières. Autrement dit, f est
+un automorphisme entier de C/Z × C et un symplectomorphisme.
+   L’ensemble
+                                         \ [
+                                   C :=         gk (Aεk ) ,
+                                           n≥0 k≥n
+
+où Aεk = T × [−1 + εk , 1 − εk ], est de complémentaire négligeable dans A′0 . En effet, il
+est possible de montrer que
+                            A′0 \ C ⊂ lim sup gn (A0 ) \ gn (Aεn ) .
+                                          n→∞
+
+Or, comme pour tout n nous avons
+          Leb(gn (A0 ) \ gn (Aεn )) = Leb(gn (A0 \ Aεn )) = Leb(A0 \ Aεn ) = 2εn ,
+           P
+et comme n εn < 1, grâce au lemme de Borel–Cantelli, on déduit que la mesure de
+lim supn→∞ gn (A0 ) \ gn (Aεn ) est nulle. Par inclusion, A′0 \ C est aussi de mesure de
+Lebesgue nulle.
+                                          1254–23
+
+
+  En utilisant les points 2 et 3, on peut alors montrer que la limite f est ergodique par
+rapport à la mesure LebA′0 , comme dans le cas lisse.
+  Finalement, le point 5, utilisé de façon récursive, permet de montrer que f est une
+pseudo-rotation, c’est-à-dire qu’elle est sans point périodique.
+   Il ne reste donc plus qu’à montrer le lemme 3.9 : c’est ici qu’on va utiliser le théorème
+d’approximation 3.1.
+Preuve du lemme 3.9. — Nous voulons construire des suites (αn )n et (gn )n avec les
+propriétés demandées. Comme dans le cas lisse, la preuve est faite par récurrence :
+on suppose déjà définis αn−1 , gn−1 et on construit αn , gn . Dans le cas lisse, on peut
+construire un difféomorphisme hamiltonien g̃ qui commute avec la rotation Rαn−1 et
+tel que
+                                                                     εn
+                        W((gn−1 )∗ g̃∗ LebT×{y} , (gn−1 )∗ LebA0 ) <    ,
+                                                                     2
+voir le lemme 2.3. Fixons un voisinage U en topologie C ∞ de g̃int(A0 ) . Par le théo-
+rème 3.1 et par la remarque 3.2, il existe alors, pour tout ρ > 1, un difféomorphisme
+g ∈ Hamω (A; ρ) qui commute avec la rotation Rαn−1 et qui est dans U.
+   Notre fonction candidate gn est alors gn−1 ◦ g. En considérant ρ assez grand, on peut
+obtenir le point 1. On choisit alors αn en fonction de αn−1 et de gn , comme déjà fait dans
+le cas lisse, pour assurer toutes les autres propriétés. L’idée clé est alors que, quitte à
+remplacer l’application g̃ du cas lisse par une bonne approximation analytique, dont on
+garde un bon contrôle sur un compact dehors de A0 , on garde les propriétés souhaitées
+(car ces propriétés sont ouvertes en topologie C ∞ ) ; la convergence est encore assurée
+par le choix de αn suffisamment proche de αn−1 , en fonction aussi de gn .
+
+3.2.2. Propriétés réalisables par un schéma-C r -AVC. — Sans le dire explicitement, déjà
+dans la preuve du théorème 3.1, nous avons construit et utilisé un schéma-C ∞ -AVC,
+notion introduite dans Berger (2024). Considérons l’anneau ouvert int(A0 ) = T×] − 1, 1[
+et, pour 1 ≤ r ≤ ∞, l’ensemble des symplectomorphismes C r de A0 (resp. de int(A0 )),
+noté Sympr (A0 ) (resp. Sympr (int(A0 ))). On munira l’ensemble Sympr (int(A0 )) de la
+topologie C r compacte-ouverte, notée Topr .
+
+Définition 3.10. — Un schéma-C r -AVC est une application
+               (g, α) ∈ Sympr (A) × Q 7→ (U (g, α), ν(g, α)) ∈ Topr ×]0, ∞[
+telle que :
+   1. l’ouvert U (g, α), voisinage de g|int(A0 ) dans Topr , contient au moins une application
+      ĝ telle que ĝ −1 ◦ Rα ◦ ĝ = g −1 ◦ Rα ◦ g ;
+   2. pour toute suite (gn )n ∈ (Sympr (A0 ))N et toute suite (αn )n ∈ QN telles que :
+      — g0 = Id et α0 = 0 ;
+                                  −1
+      — pour tout n ≥ 0 on a gn+1    ◦ Rαn ◦ gn+1 = gn−1 ◦ Rαn ◦ gn ;
+      — pour tout n ≥ 0 on a gn+1 |int(A0 ) ∈ U (gn , αn ) ;
+      — pour tout n ≥ 0 on a 0 < |αn+1 − αn | < ν(gn+1 , αn ),
+                                          1254–24
+
+
+      la suite (fn := gn−1 ◦ Rαn ◦ gn )n converge, en topologie Topr , vers une application
+      f ∈ Sympr (A0 ).
+
+   Dans le cas lisse, l’exemple d’Anosov–Katok construit de façon itérative une suite de
+fonctions (gn )n et une suite de rationnels (αn )n pour que la suite fn := gn −1 ◦ Rαn ◦ gn
+converge. Ceci revient, à chaque étape n, à choisir un point (le « centre ») de l’ouvert
+U (gn , αn ), celui qui commute avec la rotation d’angle αn dont l’existence est assurée par
+le point 1 ; le choix de αn+1 se fait dans un deuxième temps, quand gn+1 est fixé : en
+le choisissant suffisamment proche de αn , d’une façon qui dépende de gn+1 (c’est-à-dire,
+tel que |αn+1 − αn | < ν(gn+1 , αn )), on peut assurer la convergence de la suite fn . Ceci
+est cohérent avec le fait qu’il s’agit d’une suite produite par un schéma-C r -AVC, par le
+point 2.
+   Si l’on veut utiliser la définition 3.10, ce qui est fait dans Berger (2022) est de
+construire un schéma-C r -AVC : si à la place du centre de l’ouvert U (gn , αn ), dans
+la construction de notre suite, on choisit une autre application gn+1 , toujours dans
+U (gn , αn ), mais analytique, l’existence d’un tel schéma-AVC va nous assurer que notre
+nouvelle suite fn = gn−1 ◦ Rαn ◦ gn , maintenant composée de fonctions analytiques,
+est encore convergente. De plus, comme les propriétés demandées à chaque étape aux
+fonctions gn pour assurer l’ergodicité (ou la transitivité) sont ouvertes, la limite de la
+nouvelle suite garde les propriétés dynamiques recherchées. Cette formulation en termes
+de schéma-AVC a permis d’aller même au-delà de la réfutation de la conjecture de
+Birkhoff.
+
+3.3. Au-delà de la conjecture de Birkhoff
+  Comme anticipé, les travaux de Berger (2022, 2024) permettent de dépasser le cadre
+de la conjecture de Birkhoff. L’objectif de cette sous-section est de présenter ces résultats
+ainsi que les principales idées.
+  Herman (1998) pose la question suivante : existe-t-il un difféomorphisme analytique,
+homotope à l’identité et conservatif, de l’anneau borné A0 ou de la sphère S, avec un
+nombre fini de points périodiques et avec une orbite dense ? Le théorème de Berger
+(2022), dont nous avons évoqué la preuve dans la sous-section 3.2, donne une réponse
+positive à la question d’Herman pour l’anneau, mais pas pour la sphère. Dans Berger
+(2024), l’auteur montre le résultat suivant :
+
+Théorème 3.11 (Berger, 2024). — Il existe un symplectomorphisme analytique de la
+sphère avec exactement deux points périodiques et une orbite dense.
+
+  Ceci implique alors le corollaire suivant et permet de répondre à une autre question
+de Birkhoff (1927).
+
+Corollaire 3.12 (Berger, 2024). — Il existe un symplectomorphisme analytique de
+la sphère avec un point fixe elliptique instable.
+                                           1254–25
+
+
+   Il s’agit du premier exemple d’un point fixe elliptique instable sur une surface pour un
+symplectomorphisme analytique. Ici, un point fixe P est instable pour la dynamique f
+s’il existe un voisinage V de P tel que l’orbite de tout voisinage U de P va sortir de V ,
+c’est-à-dire tel que l’on ait ∪n≥0 f n (U ) ̸⊂ V pour tout voisinage U de P .
+   Pour mettre en contexte le corollaire 3.12, Arnold (1994) conjecturait que tout équi-
+libre elliptique d’un système hamiltonien réel analytique générique est instable, avec
+deux seuls types d’exceptions : d’une part, les fonctions hamiltoniennes avec partie
+quadratique de signe défini, d’autre part, les dynamiques génériques en dimension 2.
+En dimension 4, Kaloshin, Mather et Valdinoci (2004) montrent que génériquement
+un point elliptique totalement résonant, pour une application lisse symplectique, est
+instable. Fayad (2023) construit le premier exemple d’un système hamiltonien réel
+analytique, dans R6 , avec un équilibre elliptique non résonant instable.
+   Ce qui permet d’aller au-delà de la conjecture de Birkhoff, dans Berger (2024), en
+relation avec la notion de schéma-C r -AVC introduite dans la sous-section 3.2.2, est en
+fait le résultat suivant, que l’auteur appelle « principe AVC ». On dit qu’une propriété
+est réalisable par schéma-C 0 -AVC si elle est invariante par conjugaison C 0 et s’il existe
+un schéma-C 0 -AVC tel que toute application obtenue comme limite au point 2 de la
+définition 3.10 satisfait la propriété.
+
+Théorème 3.13 (Berger, 2024). — Soit M une surface parmi l’anneau borné, la sphère
+et le disque. Toute propriété réalisable par schéma-C 0 -AVC est satisfaite par au moins
+un symplectomorphisme analytique de M.
+
+   Plusieurs propriétés dynamiques peuvent être réalisées aussi par des pseudo-rotations
+analytiques de la sphère. Nous avons déjà parlé de l’ergodicité d’une application par
+rapport à la mesure de Lebesgue et de difféomorphismes minimalement ergodiques ; on
+introduit rapidement la notion de difféomorphisme d’émergence maximale.
+   Étant donné un difféomorphisme f d’une variété compacte qui préserve une mesure de
+probabilité µ, grâce à l’application e qui associe à µ-presque tout point x de la variété sa
+mesure empirique, c’est-à-dire la mesure limite de la suite ( n1 n−1
+                                                                P
+                                                                 i=0 δf i (x) )n , on peut doter
+l’espace des mesures de probabilités invariantes d’une mesure de probabilité, qui est la
+décomposition ergodique de la mesure µ, c’est-à-dire e∗ µ. Si la mesure µ est ergodique,
+alors sa décomposition ergodique est une masse de Dirac en µ dans l’espace des mesures
+de probabilités invariantes. La notion d’émergence maximale mesure le comportement
+opposé : elle est maximale quand, pour décrire la décomposition ergodique de µ, on a
+besoin d’une infinité de mesures. Nous renvoyons à Berger (2017) pour plus de détails.
+  Récemment, en poussant la méthode de Berger (et notamment le théorème 3.13),
+Delaporte a pu montrer que bien d’autres propriétés dynamiques peuvent être réalisées
+par des pseudo-rotations analytiques.
+
+Théorème 3.14 (Delaporte, 2025, 2026). — Il est possible de construire sur la sphère
+(ainsi que sur le disque) un symplectomorphisme analytique f tel que :
+                                          1254–26
+
+
+  — f est ergodique par rapport à la mesure de Lebesgue ;
+  — f est minimalement ergodique ;
+  — f est d’émergence maximale.
+
+3.4. Pseudo-rotations de la sphère via déformation structurelle
+   Dans cette dernière partie, nous souhaitons donner quelques idées de la construction
+faite dans Berger (2024), qui permet notamment d’obtenir une pseudo-rotation analy-
+tique de la sphère avec une orbite dense. Nous allons essayer d’expliquer la philosophie
+générale, mais sans rentrer dans les détails techniques. Dans la preuve expliquée dans la
+section 3, la limite du schéma-AVC nous donne un symplectomorphisme réel analytique
+de T × R, qui ne préserve pas l’anneau borné, mais plutôt un autre anneau analytique
+un peu déformé (noté A′0 ). Ceci ne permet pas de passer aisément de l’anneau à la
+sphère, en obtenant toujours un symplectomorphisme entier de la sphère complexe.
+   La stratégie proposée dans Berger (2024) vise alors à obtenir une application qui
+préserve l’anneau borné, toujours symplectique, mais en s’autorisant à changer la struc-
+ture complexe par rapport à laquelle l’application est analytique. En simplifiant et en
+laissant de côté les détails techniques, si l’on tire en arrière de telles applications sur la
+sphère (complexifiée), on peut obtenir le symplectomorphisme analytique voulu. Dans
+cette sous-section, tous les résultats, sauf mention explicite du contraire, font référence
+à Berger (2024).
+3.4.1. Structures complexes et extensions holomorphes. — Considérons une surface
+symplectique (M, Ω), où Ω est une forme symplectique, c’est-à-dire une 2-forme fer-
+mée, non dégénérée. Une structure réelle analytique pour M est la donnée d’un atlas
+Aω = (Uα , ϕα )α tel que tout changement de carte est analytique par rapport à la struc-
+ture standard sur C ≃ R2 . L’idée clé est alors de changer la structure réelle analytique
+par rapport à laquelle notre pseudo-rotation est analytique : ceci ne pose pas de pro-
+blème, car, d’après Kutzschebauch et Loose (2000), il existe, à symplectomorphisme
+près, une unique structure réelle analytique, et il suffit donc de conjuguer par le bon
+symplectomorphisme la pseudo-rotation obtenue, afin de revenir à la structure réelle
+analytique standard.
+   Une façon d’obtenir une structure réelle analytique est de partir avec la donnée d’une
+structure complexe sur la surface. Une structure presque complexe est une section J du
+fibré des endomorphismes du fibré tangent de la surface M, telle que J 2 = −Id ; une
+structure complexe est une structure presque complexe J telle que la surface M admet
+un atlas (Uα , ϕα )α de cartes J-holomorphes, c’est-à-dire vérifiant Dϕα ◦ J = iDϕα . Cet
+atlas est celui qui nous donne la structure réelle analytique à partir de J. Il est possible
+de mettre une topologie C ∞ sur l’ensemble des structures presque complexes, et même
+une distance qui induit cette topologie et qui rend l’espace complet.
+   Une complexification d’une surface réelle M est une variété complexe (M• , J) telle
+que M ⊂ M• et telle que pour tout z ∈ M il existe une carte J-holomorphe ϕα définie
+sur un voisinage Vα de z dans M• dont la restriction à Uα = M ∩ Vα est une carte réelle
+                                           1254–27
+
+
+analytique de M. Dès qu’on se donne alors une structure complexe qui anti-commute
+avec la conjugaison complexe (12) , ceci nous donne une complexification d’une structure
+réelle analytique.
+  Supposons données une surface symplectique (M, Ω) et une complexification (M• , J).
+La forme Ω se prolonge de façon J-holomorphe à M• s’il existe une 2-forme complexe
+Ω• sur M• telle que Ω•|T M = Ω et telle que pour toute carte J-holomorphe ϕα on obtient
+
+                              (ϕα )∗ (ψ(z1 , z2 )dz1 ∧ dz2 ) = Ω• ,
+
+où ψ est une fonction holomorphe.
+   De même, étant donné une application f définie sur un voisinage complexe de M
+dans M• , on dit que f est une extension J-holomorphe d’une application réelle si
+f (M) ⊂ M et si f est J-holomorphe, c’est-à-dire Df ◦ J = J ◦ Df .
+  Nous rappelons deux résultats de rigidité concernant les structures complexes et les
+extensions holomorphes des formes symplectiques. On renvoie à Newlander et Nirenberg
+(1957) et à McDuff et Salamon (2012).
+
+Lemme 3.15. — Soit (Jn )n une suite de structures complexes qui converge en topo-
+logie C ∞ (sur l’espace des sections du fibré des endomorphismes) vers une structure
+presque complexe J∞ . Alors J∞ est une structure complexe.
+
+Lemme 3.16. — Soit (Jn )n une suite de structures complexes qui converge en topolo-
+gie C ∞ vers une structure complexe J∞ . Soit Ω une forme symplectique sur M. Supposons
+que :
+   — pour tout n ∈ N, la forme Ω admet une extension Jn -holomorphe Ωn ;
+   — la suite (Ωn )n converge en topologie C ∞ (sur l’espace des 2-formes complexes) vers
+      une forme complexe Ω∞ .
+Alors Ω∞ est une extension J∞ -holomorphe de Ω.
+
+3.4.2. Schéma-AVC en déformant la structure réelle analytique. — Nous nous sommes
+désormais familiarisés avec la construction par induction des pseudo-rotations : notre
+candidate pseudo-rotation est obtenue comme limite d’une suite d’applications (fn )n ,
+elles aussi construites à partir d’une suite de symplectomorphismes (gn )n et d’une suite
+de rationnels (αn )n . En effet chaque fn est définie comme
+
+                                       gn ◦ Rαn ◦ gn−1 .
+
+Chaque gn et αn est produite par induction à partir de gn−1 et αn−1 , grâce au lemme
+suivant. Pour ρ > 0, notons Aρ le ρ-voisinage de l’anneau borné A0 = T × [−1, 1] dans
+sa complexification C/Z × C.
+
+ 12. Une structure complexe J anti-commute avec la conjugaison complexe σ si on a σ ◦ J = −J ◦ σ.
+                                               1254–28
+
+
+Lemme 3.17. — Soit g un symplectomorphisme lisse de T × R et soit U un voisinage
+en topologie C ∞ de g|int(A0 ) . Pour tout ρ > 1, pour tout voisinage WJ en topologie C ∞ de
+la structure complexe standard J0 , pour tout voisinage WΩ en topologie C ∞ de la forme
+complexe standard Ω0 (extension J0 -holomorphe de Ω), il existe un difféomorphisme
+lisse ĝ de Aρ sur son image tel que :
+   — ĝ(A0 ) = A0 , c’est-à-dire ĝ préserve l’anneau borné ;
+   — detDĝ|A0 = 1, c’est-à-dire sa restriction à l’anneau borné réel est symplectique ;
+   — ĝ|int(A0 ) ∈ U ;
+   — ĝ commute avec la conjugaison complexe (13) ;
+   — ĝ ∗ J0 ∈ WJ et ĝ ∗ Ω0 ∈ WΩ .
+
+   En admettant pour l’instant le lemme 3.17, on peut déjà construire nos suites (gn )n
+et (αn )n : supposant avoir déjà gn−1 et αn−1 , dans le cadre lisse, on a déjà à disposition
+un difféomorphisme lisse (pas analytique) g tel que, si l’on construit gn comme gn−1 ◦ g,
+alors, en choisissant αn suffisamment proche de αn−1 , on peut assurer que la suite
+(fn = gn ◦ Rαn ◦ gn−1 )n converge vers un symplectomorphisme ayant les bonnes propriétés
+dynamiques. On va alors appliquer le lemme 3.17 à cette application g. Notre nouvelle
+application gn est alors définie comme
+                                           gn = gn−1 ◦ ĝ ;
+observons que chaque gn préserve alors l’anneau borné, elle est symplectique sur A0 , et
+commute avec le conjugué, tout en étant définie sur un voisinage complexe de l’anneau
+borné. Le choix de αn en fonction de αn−1 et de gn nous permet d’assurer que la suite
+(fn )n converge et que les propriétés dynamiques souhaitées sont préservées en passant
+à la limite. De plus, quitte à bien choisir les voisinages WJ et WΩ , encore en fonction
+de gn−1 , on peut aussi assurer que la suite de structures complexes (Jn := gn∗ J0 )n converge
+vers une structure complexe J∞ , et que la suite de formes complexes (Ωn := gn∗ Ω0 )n
+converge vers une forme complexe Ω∞ . Par le lemme 3.16, nous savons que Ω∞ est une
+extension J∞ -holomorphe de Ω, car chaque Ωn est une extension Jn -holomorphe de Ω.
+   Quitte à tirer en arrière chaque fn sur la sphère complexifiée, grâce à la projection
+standard π : S2 \ {N, S} → int(A0 ) où N = (0, 0, 1) et S = (0, 0, −1), on peut travailler
+avec une suite d’applications (π ∗ fn )n , qui converge vers une pseudo-rotation transitive
+(ceci vient de bonnes propriétés dynamiques préservées par la projection standard),
+analytique par rapport à une structure qui n’est pas forcément la structure standard :
+en effet, la limite de la suite va être la restriction d’une extension J∞ -holomorphe, pas
+J0 -holomorphe (14) .
+  Nous terminons en donnant quelques idées de la preuve du lemme 3.17.
+
+  13. Par conjugaison complexe, on entend une application σ du fibré tangent complexifié de la surface
+dans lui-même, telle que σ ◦ J = −J ◦ σ.
+  14. On passe sous le tapis les détails techniques pour tirer en arrière aussi les structures complexes
+et les 2-formes holomorphes.
+                                          1254–29
+
+
+Idée de la preuve du lemme 3.17. — Le théorème 3.1 nous donne un symplectomor-
+phisme analytique g̃ de A, qui admet une extension J0 -holomorphe sur C/Z × C, et qui
+est aussi proche qu’on veut de g. Le problème est que g̃ ne préserve pas l’anneau borné.
+On va alors considérer une fonction « cloche » β dont le support est contenu dans le
+complexifié de int(A0 ), définie dans le complexifié, telle que ḡ := βg̃ + (1 − β)Id préserve
+maintenant l’anneau borné, tout en restant proche de g sur int(A0 ). Le problème de ḡ
+est que, maintenant, elle n’est plus forcément symplectique. Quitte à composer avec une
+application proche de l’inclusion, on peut aussi surmonter ce problème et obtenir une
+application finale ĝ, encore proche de g, qui préserve l’anneau, et qui est symplectique :
+observons que ĝ ∗ J0 ̸= J0 et ĝ ∗ Ω0 ̸= Ω0 , néanmoins ils vont rester aussi proches qu’on
+veut de J0 et Ω0 , respectivement. Ceci permet en fin de compte d’obtenir l’application
+recherchée.
+
+
+
+Références
+
+Dmitriy Anosov et Anatole Katok (1970). « New examples of ergodic diffeomorphisms
+  of smooth manifolds », Uspehi Mat. Nauk 25 (4(154)), p. 173-174.
+Vladimir I. Arnold (1994). « Mathematical problems in classical physics », in : Trends
+  and perspectives in applied mathematics. Appl. Math. Sci. T. 100. Springer, p. 1-20.
+Arthur Avila, Bassam Fayad, Patrice Le Calvez, Disheng Xu et Zhiyuan Zhang (2020).
+  « On mixing diffeomorphisms of the disc », Invent. Math. 220 (3), p. 673-714.
+Shilpak Banerjee et Philpp Kunde (2019). « Real-analytic AbC constructions on the
+  torus », Ergodic Theory Dyn. Syst. 39 (10), p. 2643-2688.
+Pierre Berger (2017). « Emergence and non-typicality of the finiteness of the attractors
+  in many topologies », Proceedings of the Steklov Institute of Mathematics 297 (1),
+  p. 1-27.
+        (2022). « Analytic pseudo-rotations », Ann. of Math. (à paraître), arXiv : 2210.
+  03438 [math.DS].
+        (2024). « Analytic pseudo-rotations II : a principle for spheres, disks and annuli »,
+  arXiv : 2402.15303 [math.DS].
+Abram S. Besicovitch (1951). « A problem on topological transformations of the plane.
+  II », Proc. Cambridge Philos. Soc. 47, p. 38-45.
+George D. Birkhoff (1927). Dynamical systems. American Mathematical Society Collo-
+  quium Publications, T. 9.
+        (1941). « Some unsolved problems of theoretical dynamics », Science 94, p. 598-
+  600.
+Barney Bramham (2015). « Periodic approximations of irrational pseudo-rotations using
+  pseudoholomorphic curves », Ann. of Math. (2) 181 (3), p. 1033-1086.
+Barney Bramham et Zhiyuan Zhang (2025). « On pseudo-rotations of the annulus with
+  generic rotation number », J. Mod. Dyn. 21, p. 497-541.
+                                       1254–30
+
+
+Marc Chaperon (1984). « Une idée du type “géodésiques brisées” pour les systèmes
+  hamiltoniens », C. R. Acad. Sci. Paris Sér. I Math. 298 (13), p. 293-296.
+Sylvain Crovisier (2006). « Exotic rotations ». Notes de cours. url : https://www.imo.
+  universite-paris-saclay.fr/~sylvain.crovisier/grenoble2006.pdf.
+Yann Delaporte (2025). « Analytic pseudo-rotations displaying ergodicity or emergence
+  on the sphere and disk », arXiv : 2507.13029 [math.DS].
+        (2026). « Analytic symplectomorphisms displaying minimal ergodicity on the
+  sphere, cylinder and disk », arXiv : 2603.06053 [math.DS].
+Albert Fathi et Michel Herman (1977). « Existence de difféomorphismes minimaux »,
+  in : Système dynamique I – Varsovie. Astérisque 49, p. 37-59.
+Bassam Fayad (2023). « Lyapunov unstable elliptic equilibria », J. Amer. Math. Soc.
+  36 (1), p. 81-106.
+Bassam Fayad et Anatole Katok (2004). « Constructions in elliptic dynamics », Ergodic
+  Theory Dyn. Syst. 24 (5), p. 1477-1520.
+Bassam Fayad et Raphaël Krikorian (2009). « Herman’s last geometric theorem », Ann.
+  Sci. Éc. Norm. Supér. (4) 42 (2), p. 193-219.
+        (2018). « Some questions around quasi-periodic dynamics ». In : Proceedings
+  of the International Congress of Mathematicians—Rio de Janeiro 2018. Vol. III,
+  p. 1909-1932.
+Bassam Fayad et Maria Saprykina (2005). « Weak mixing disc and annulus diffeomor-
+  phisms with arbitrary Liouville rotation number on the boundary », Ann. Sci. Éc.
+  Norm. Supér. (4) 38 (3), p. 339-364.
+John Franks (1988). Ergod. Theory Dynam. Syst. 8 (8), p. 99-107.
+        (1992). « Geodesics on S 2 and periodic points of annulus homeomorphisms »,
+  Invent. Math. 108 (2), p. 403-418.
+John Franks et Michael Handel (2003). « Periodic points of Hamiltonian surface diffeo-
+  morphisms », Geom. Topol. 7, p. 713-756.
+Hillel Furstenberg (1961). « Strict ergodicity and transformation of the torus », Am. J.
+  Math. 83, p. 573-601.
+Viktor Ginzburg et Başak Gürel (2018). « Hamiltonian pseudo-rotations of projective
+  spaces », Invent. Math. 214 (3), p. 1081-1130.
+Michel Herman (1998). « Some open problems in dynamical systems ». In : Proceedings
+  of the International Congress of Mathematicians—Berlin 1998. Vol. II, p. 797-808.
+Vadim Kaloshin, John N. Mather et Enrico Valdinoci (2004). « Instability of resonant
+  totally elliptic points of symplectic maps in dimension 4 », in : Analyse complexe,
+  systèmes dynamiques, sommabilité des séries divergentes et théories galoisiennes. II.
+  Astérisque 297, p. 79-116.
+Anatole Katok (1980). « Lyapunov exponents, entropy and periodic orbits for diffeo-
+  morphisms », Inst. Hautes Études Sci. Publ. Math. (51), p. 137-173.
+Frank Kutzschebauch et Frank Loose (2000). « Real analytic structures on a symplectic
+  manifold », Proc. Amer. Math. Soc. 128 (10), p. 3009-3016.
+                                        1254–31
+
+
+Patrice Le Calvez (2016). « A finite dimensional approach to Bramham’s approximation
+  theorem », Ann. Inst. Fourier 66 (5), p. 2169-2202.
+Patrice Le Calvez et Jean-Christophe Yoccoz (1997). « Un théorème d’indice pour les
+  homéomorphismes du plan au voisinage d’un point fixe », Ann. of Math. (2) 146 (2),
+  p. 241-293.
+Frédéric Le Roux et Sobhan Seyfaddini (2022). « The Anosov-Katok method and pseudo-
+  rotations in symplectic dynamics », J. Fixed Point Theory Appl. 24 (2).
+Dusa McDuff et Ditmar Salamon (2012). J-holomorphic curves and symplectic topology.
+  Second Edition. American Mathematical Society Colloquium Publications, T. 52.
+August Newlander et Louis Nirenberg (1957). « Complex analytic coordinates in almost
+  complex manifolds », Ann. of Math. (2) 65, p. 391-404.
+Helmut Rüssmann (1967). « Über die Normalform analytischer Hamiltonscher Differen-
+  tialgleichungen in der Nähe einer Gleichgewichtslösung », Math. Ann. 169, p. 55-72.
+Lev G. Shnirelman (1930). « An example of a transformation of the plane », Izv. Donsk.
+  Polytech. Inst 14, p. 64-74.
+Claude Viterbo (1991). « An introduction to symplectic topology », in : Journées “Équa-
+  tions aux Dérivées Partielles” (Saint Jean de Monts, 1991). École Polytech., Palaiseau,
+  Exp. No. II, 9.
+Alistair Windsor (2001). « Minimal but not uniquely ergodic diffeomorphisms », in :
+  Smooth Ergodic Theory and Its Applications. Proceedings of Symposia in Pure Ma-
+  thematics, AMS, T. 69, p. 809-824.
+
+
+
+                                          Anna Florio
+                                          Ceremade
+                                          Université Paris Dauphine-PSL
+                                          E-mail : florio@ceremade.dauphine.fr
+

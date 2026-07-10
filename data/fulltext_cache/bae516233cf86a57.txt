@@ -1,0 +1,2088 @@
+                                           GENERALIZING HURWITZ’S QUATERNIONIC PROOF OF LAGRANGE’S
+                                                      AND JACOBI’S FOUR-SQUARE THEOREMS
+
+                                                                                      MATĚJ DOLEŽÁLEK
+
+                                                  Abstract. A proof of Lagrange’s and Jacobi’s four-square theorem due to Hurwitz utilizes
+                                                  orders in a quaternion algebra over the rationals. Seeking a generalization of this technique to
+                                                  orders over number fields, we identify two key components: an order with a good factorization
+                                                  theory and the condition that all orbits under the action of the group of elements of norm
+                                                  1 acting by multiplication intersect the suborder corresponding to the quadratic form to be
+                                                  studied. We use recent results on class numbers of quaternion orders and then find all suborders
+
+
+
+
+arXiv:2409.16970v2 [math.NT] 23 Sep 2025
+                                                  satisfying the orbit condition. Subsequently, we obtain universality and formulas for the number
+                                                  of representations by the corresponding quadratic forms. We also present a quaternionic proof
+                                                  of Götzky’s four-square theorem.
+
+
+
+
+                                                                                           Contents
+                                             Introduction                                                                                             1
+                                             Acknowledgments                                                                                          3
+                                             1. Preliminaries                                                                                         3
+                                             1.1. Number fields, quadratic forms                                                                      4
+                                             1.2. Algebras with involutions, quaternion algebras                                                      4
+                                             1.3. Orders, ideals, completions                                                                         5
+                                             1.4. Localizations, completions                                                                          6
+                                             1.5. Indices, discriminants                                                                              7
+                                             1.6. Ideal class theory                                                                                  7
+                                             2. Factorization in principal ideal quaternion orders                                                    8
+                                             2.1. Irreducible elements                                                                                8
+                                             2.2. Factorizing into irreducibles                                                                       9
+                                             2.3. Counting irreducible elements                                                                      11
+                                             2.4. Counting factorizations                                                                            11
+                                             3. Intersecting unit orbits with suborders                                                              13
+                                             3.1. Chains of orders                                                                                   13
+                                             3.2. Module conditions for perceptivity                                                                 16
+                                             3.3. The case of a linear poset of orders                                                               18
+                                             3.4. Searching for perceptive suborders                                                                 21
+                                             3.5. Sizes of orbit intersections                                                                       24
+                                             4. A quaternionic proof of Götzky’s four-square theorem                                                31
+                                             References                                                                                              35
+
+
+                                                                                        Introduction
+                                              The study of quadratic forms is a long thread woven into the history of number theory, from
+                                           the theorems on sums of two and four squares of Fermat and Lagrange respectively, all the
+                                           way to the 290-theorem of Bhargava and Hanke and beyond. Lagrange’s four-square theorem
+                                           is perhaps the single most apt prototype for the history of this area: it states that the positive
+                                             2020 Mathematics Subject Classification. 11E12, 11E25, 11R52, 11R80.
+                                             Key words and phrases. Universal quadratic form, quaternion order, class number, totally real number field.
+                                             We acknowledge support by Charles University project GAUK No. 134824.
+                                                                                                 1
+2             GENERALIZING HURWITZ’S PROOF OF THE FOUR-SQUARE THEOREMS
+
+definite quadratic form t2 + x2 + y 2 + z 2 is universal over Z, that is to say that it expresses
+all positive integers. Universal forms have enjoyed much interest throughout history – Dickson
+[Di] identified all universal diagonal forms in four variables over Z, while others like Siegel [Si]
+broadened the scope to consider quadratic forms over the rings of integers of number fields.
+Over the integers at least, the study of universal forms may be seen as effectively solved by
+the celebrated 290-theorem due to Bhargava and Hanke [BH], which remarkably states that a
+positive definite form over Z is universal if and only if it expresses each of 29 so-called critical
+integers, the largest of which is 290 (hence the name).
+   On the broader front over number fields, mostly totally real number fields, the topic has
+enjoyed much interest in recent years. Various authors have studied diverse aspect of the matter,
+such as providing bounds on the minimal number of variables in a universal form over a given
+number field, relations to continued fractions in the case of quadratic fields or considering when
+a quadratic form with coefficients from Z may be universal over a number field [BK1, BK2,
+CL+, CKR, EK, Ka1, Ka2, Ki, Km, KS, KTZ, Ya]. Overall, it appears that universal forms in
+a small number of variables are rare. To a reader interested in the topic, we may recommend a
+survey paper [Ka3] by Kala.
+   This article is more specifically interested in the intersection of the study of quadratic forms
+with that of quaternions, which came into prominence in 19th century based on geometric
+and algebraic motivations, though they may be seen as having been anticipated in Euler’s
+four-square identity. Originally, Lagrange proved his four-square theorem elementarily using
+a descent technique, but Hurwitz [Hu] provided a proof using what he called the “integer
+quaternions”, though they are more commonly known as Hurwitz quaternions after him or the
+Hurwitz order. Further, Hurwitz simultaneously used the technique to prove Jacobi’s four-square
+theorem, an extension of Lagrange’s theorem which states not only that t2 + x2 + y 2 + z 2 = n
+has an integer solution for all n > 0, but that the exact number of these solutions is
+                                                 X
+                                               8     d.
+                                               4∤d|n
+
+(Jacobi’s original proof was analytic in nature). Soon after, quaternions over (totally real)
+number fields were also considered, providing results on sums of four squares in these number
+fields [Kr].
+
+  The goal of this article is to generalize Hurwitz’s approach to other quadratic forms over
+number fields and to find all situations where it may succeed, under a somewhat conservative
+notion of what constitutes “a Hurwitz-like approach” we introduce, called perceptivity (see
+Definition 3.1). As such, it may be useful to overview and motivate Hurwitz’s proof of the
+four-square theorems.
+  Hurwitz’s approach starts with the observation that the sum of four squares may be expressed
+by the reduced norm of quaternions qq, where
+                          q = t + xi + yj + zk 7→ q = t − xi − yj − zk
+(see Section 1 for the notation of quaternion algebras) and that this norm is also multiplicative.
+It would then be natural to hope to use the ring Z ⊕ Zi ⊕ Zj ⊕ Zk, the so-called Lipschitz order,
+but complications arise due to this not being a (left or right) principal ideal domain, since e.g.
+its left ideal generated by 1 + i and 1 + j is not principal. To fix this problem, Hurwitz used
+the order Z ⊕ Zi ⊕ Zj ⊕ Z 1+i+j+k
+                               2
+                                    that now bears his name, in which the coordinates of 1, i, j,
+k are not only allowed to all be integers, but to also (simultaneously) lie in Z + 21 . It turns out
+that the Hurwitz order is a (left and right) principal ideal domain (in fact it admits a left- and
+right-sided analogue of the Euclidean algorithm). Using this, Hurwitz proved that the reduced
+norm in the Hurwitz order expresses every positive integer (we will prove a straightforward
+generalization of this in Corollary 2.3).
+   But since the objective is to prove universality of the reduced norm in the Lipschitz order,
+not the Hurwitz order, it is necessary to carry over the universality result from the better
+               GENERALIZING HURWITZ’S PROOF OF THE FOUR-SQUARE THEOREMS                             3
+
+behaved larger order to the smaller order of interest. For this, one realizes that for any q from
+the Hurwitz order, there is a quaternion u of reduced norm 1 such that uq lies in the Lipschitz
+order. In other words, the action by these u with multiplication from the left partitions the
+Hurwitz order into orbits, each of which intersects the Lipschitz order.
+   To arrive at Jacobi’s four-square theorem, Hurwitz’s approach is again to first work in the
+Hurwitz order and count representations there by building a weaker, non-commutative version
+of “unique ”factorization into irreducible elements, and then using the action described above
+and calculating the sizes of intersections of individual orbits with the Lipschitz order. Thus he
+arrives at a formula for number of representations in the Lipschitz order by essentially weighing
+the formula for the Hurwitz order.
+
+
+   Our plan at generalizing Hurwitz’s approach will then be to start with an order H (over a
+number field) that is a principal ideal domain – to play a role analogous to the Hurwitz order
+– and count representation by reduced norm there. We will overview a well-known approach to
+this by counting factorizations in H in Section 2. Next, in Section 3 we will endeavor to find
+all suborders G ⊆ H such that for any q ∈ H, there is a u ∈ H with reduced norm 1 such that
+uq ∈ G. A finite enumeration of orders that are principal ideal domains (i.e. candidates for
+H) follows from the work of Kirschmer and Lorch [KL], who enumerated all orders in definite
+quaternion algebras over number fields with class number 1 (see Section 1 and Theorem 3.14).
+This was preceded by partial results on this problem, when Kirschmer and Voight [KV] provided
+such an enumeration restricted to so-called Eichler orders and when Brzezinski [Bz2] did so
+for orders over Z. The main result of this article, namely Theorem 3.18 combined with the
+theorems of Subsection 3.5, will be as follows:
+
+Theorem. Up to isomorphism, there are 111 orders in definite quaternion algebras over totally
+real number fields that are perceptive in some maximal order. Consequently, the norm form of
+each of them is universal and admits an explicit formula for the number of representation of
+a chosen totally positive element given by one of Theorems 2.15, 3.23, 3.25, 3.27, 3.29, 3.30,
+3.31, 3.33, 3.34 and 3.35.
+
+   The list of these 111 orders along with an implementation in Magma [BCP] that we used is
+available electronically from https://gimli.ms.mff.cuni.cz/~matej/perceptive-orders/.
+   Another source of inspiration for this article are certain works of Deutsch, who used quater-
+nions and related notions of geometry of numbers to prove various results on universality or
+representation by several specific quadratic forms over number fields [De1, De2, De3, √  De4, De5,
+De6, De7]. Notably, [De1] contains a proof of universality of t2 + x2 + y 2 + z 2 over Q( 5) using
+quaternions, which we will improve upon in Section 4 by giving a quaternionic proof of Götzky’s
+four-square theorem, which gives a precise formula for the number of representations by this
+form, akin to Jacobi’s four-square theorem.
+
+
+                                      Acknowledgments
+   I am grateful to Vı́tězslav Kala for his helpful advice. I would also like to thank John Voight
+for answering a few questions about the state of research regarding quaternion orders of small
+class number.
+
+
+                                        1. Preliminaries
+  In this section, we give a brief overview of the theoretical baseline for this article. For further
+background, see [Vo].
+  The secondary role of this section is that of a repository of miscellaneous smaller lemmata.
+4              GENERALIZING HURWITZ’S PROOF OF THE FOUR-SQUARE THEOREMS
+
+1.1. Number fields, quadratic forms. Throughout the article, we consider totally real num-
+ber fields K with their rings of integers OK . The field K is equipped with d real embedding
+σ1 , . . . , σd : K → R, where d is the degree of K, and we say an α ∈ K is totally positive (denoted
+α ≻ 0) if σi (α) > 0 for all i. The subsets of totally positive elements in K and OK are K + and
+  +
+       respectively. We denote the field norm and field trace of α as NmK/Q (α) = di=1 σi (α) and
+                                                                                       Q
+OK
+TrK/Q (α) = di=1 σi (α) respectively; we will drop the subscript K/Q when it is clear from the
+                  P
+context.
+   We say that a quadratic form over K is totally positive definite if it attains totally positive
+values at every point aside from 0. Lastly, a quadratic form Q in r variables over OK is said to
+represent an α ∈ OK if there are β1 , . . . , βr ∈ OK such that Q(β1 , . . . , βr ) = α, and a totally
+                                                                     +
+positive definite Q is universal, if it represents all elements of OK  .
+1.2. Algebras with involutions, quaternion algebras. We say an algebra A over a field
+F is equipped with a standard involution x 7→ x if
+                     1 = 1,       (x) = x     , (xy) = y x     and      xx ∈ F
+is satisfied for all x, y ∈ A. Then, we define the reduced norm and reduced trace as
+                                 nrd(x) := xx,      trd(x) := x + x.
+These are a multiplicative and an additive map A → F respectively. We may also observe that
+any x ∈ A satisfies
+                       x2 − x trd(x) + nrd(x) = x2 − x(x + x) + xx = 0.
+Hence every element of an A satisfies a quadratic equation over F . As a consequence, any
+subspace spanned by 1 and x is a subalgebra of A.
+Lemma 1.1. Let O be a subring of an F -algebra A with a standard involution. If R is a subring
+of F such that trd(O) ⊆ R, then for any x, y ∈ O, the R-submodule B := R + Rx + Ry + Rxy
+is a subring of A.
+Proof. The only nontrivial part is to verify that B is closed under multiplication, which may be
+done by simply checking that all possible products of the four generating elements 1, x, y, xy
+lie in B. The products involving 1 are trivial and the products of an element with itself follow
+from
+                              x2 = trd(x) x − nrd(x) ∈ R + Rx,
+                                     | {z }     | {z }
+                                         ∈R         ∈R
+where we use that fact that trd(O) ⊆ R. Next we have x · y ∈ B by construction and then we
+calculate
+                  yx = trd(yx) − x y = trd(yx) − (trd(x) − x)(trd(y) − y) =
+                      = trd(yx) − trd(x) trd(y) + trd(x) y + trd(y) x − xy,
+                        |         {z          } | {z }       | {z }
+                                    ∈R                ∈R          ∈R
+
+which lies in B. Then we see that
+                                x · xy ∈ (R + Rx)y = Ry + Rxy ⊆ B
+and similarly xy · y ∈ B. Lastly
+                              xy · x = x(yx) ∈ x(R + Rx + Ry + Rxy),
+which lies in B, because we’ve already checked all products where x is the left multiplicand.
+Analogously, we obtain y · xy ∈ B.                                                         □
+Lemma 1.2. Let B be a four-dimensional k-algebra with a standard involution and let A be
+a three-dimensional subalgebra of B. Then whenever 1, x, y is a basis of A, we may choose
+x̃ ∈ x + k, ỹ ∈ y + k such that x̃ỹ = 0 and nrd(x̃) = nrd(ỹ) = 0.
+               GENERALIZING HURWITZ’S PROOF OF THE FOUR-SQUARE THEOREMS                                5
+
+Proof. Since 1, x, y is a basis of A, we have
+                                          xy = c1 + c2 x + c3 y
+for some c1 , c2 , c3 ∈ k. Denoting x̃ := x − c3 and ỹ := y − c2 , we then obtain
+                                       x̃ỹ = c1 − c2 c3 =: c ∈ k,
+and we wish to obtain c = 0. Since we only shifted in the direction of the other basis element,
+we see that 1, x̃, ỹ is still a basis of A. If now c ̸= 0, it would mean that both x̃, ỹ are invertible
+and hence
+                                   ỹ = cx̃−1 = c nrd(x̃)−1 (x̃) ∈ k + kx̃,
+which is a contradiction. So x̃ỹ = 0 as we wanted.
+  Now, suppose for the sake of contradiction that nrd(x̃) ̸= 0, then x̃ is invertible, so x̃ỹ = 0
+implies ỹ = 0, which is absurd, since ỹ belongs to some basis. nrd(ỹ) = 0 follows analogously.
+                                                                                                       □
+  A quaternion algebra over a field F of char F ̸= 2 is a four-dimensional F -algebra of the form
+                          
+                           a, b
+                                  := F ⊕ F i ⊕ F j ⊕ F k, a, b ∈ F ×
+                            F
+with multiplication given by
+                                i2 = a,      j2 = b,      k = ij = −ji.
+Alternatively, quaternion algebras can be characterized as four-dimensional central simple al-
+gebras. We leave out the explicit definition of quaternion algebras in characteristic 2, since we
+will work mainly with algebras  over number fields.
+                        a,b
+                            
+  We may equip A := F with an anti-involution
+                           q = t + xi + yj + zk 7→ q := t − xi − yj − zk.
+Due to qq = t2 − ax2 − by 2 + abz 2 , this is a standard involution.
+   A notable case of a quaternion algebra is the algebra 1,1
+                                                                 
+                                                              F
+                                                                   , which is isomorphic to the ring
+M2 (F ) of 2 × 2 matrices over F . A quaternion algebra over F is always either a division algebra
+– then we say A is a definite quaternion algebra – or it is isomorphic to M2 (F ) and we say A
+is an indefinite quaternion algebra.
+   Right ideals in a ring of n × n matrices over F correspond bijectively to subspaces L ⊂ F n
+via L 7→ {a ∈ Mn (F ) | Im a ⊂ L}, so in particular for M2 (F ), we get that apart from the two
+trivial ideals, all non-trivial ideal correspond to lines in F 2 . In particular, M2 (F ) is a (right)
+PID. Since M2 (F ) is isomorphic to its opposite ring via the standard involution, we also have
+an analogous result for left ideals.
+1.3. Orders, ideals, completions. When A is a quaternion algebra over a number field K,
+we may consider OK -lattices in it. An OK -order, or just order for short, is an OK -lattice that
+is simultaneously a subring of A. On the other hand, starting with an arbitrary lattice L, we
+obtain its left order
+                                 OL (L) := {x ∈ A | xL ⊆ L} .
+This is always an order, and analogously, we define the right order OR (L). For two lattices L
+and M , we similarly define their left colon lattice
+                                  (L : M )L := {x ∈ A | xM ⊆ L} .
+This is a lattice, and we may note OL (L) = (L : L)L . Analogously, we define the right colon
+lattice (L : M )R .
+   For an order H in a quaternion algebra A, we denote its set of elements of reduced norm 1
+as
+                                H1 := {u ∈ H | nrd(u) = 1} .
+6              GENERALIZING HURWITZ’S PROOF OF THE FOUR-SQUARE THEOREMS
+
+When A is a definite quaternion algebra over a totally real number field, then H1 is guaranteed
+to be finite.
+ Lemma 1.3. Let G ⊆ H be orders.
+ (i) If I is a two-sided ideal of H, then G +I is an order. As a special case, we may take I := aH
+     for any ideal a of OK .
+(ii) If z ∈ H, then G + Gz is an order. Similarly for G + zG.
+Proof. (i) The only non-trivial part is to verify that G +I is closed under multiplication. Letting
+   q1 , q2 ∈ G, a1 , a2 ∈ I, we obtain
+                    (q1 + a1 )(q2 + a2 ) = q1 q2 + a1 q2 + q1 a2 + a1 a2 ∈ G + I.
+                                           |{z} |{z} |{z} |{z}
+                                            ∈G      ∈I     ∈I      ∈I
+
+(ii) Again, we only have to prove G + Gz is closed under multiplication. Since it is generated as
+     an OK -module by elements of the forms q and qz for q ∈ G, it suffices to verify for that the
+     product of any two such elements lies in G + Gz again. Clearly q1 q2 ∈ G for q1 , q2 ∈ G and
+                                    q1 (q2 z) = (q1 q2 ) z ∈ Gz.
+                                                | {z }
+                                                  ∈G
+
+    Next, similarly to the proof of Lemma 1.1, we use the fact that
+                                yx ∈ OK + OK x + OK y + OK xy
+    for any x, y ∈ H to get
+                  (q1 z)q2 ∈ q1 (OK + OK q2 + OK z + OK q2 z) =
+                           = (OK q1 + OK q1 q2 ) + (OK q1 + OK q1 q2 ) z ⊆ G + Gz,
+                             |       {z       } |          {z       }
+                                      ⊆G                    ⊆G
+
+               (q1 z)(q2 z) = (q1 zq2 )z ∈ (G + Gz)z = Gz + Gz2 ⊆
+                           ⊆ Gz + G(OK + OK z) ⊆ G + Gz.
+      The result for G + zG is proved analogously.                                                □
+   Maximal orders (meaning inclusion-maximal orders) always exist in a quaternion algebra
+over a number field, playing a role analogous to the ring of integers of a number field. Unlike
+in the commutative setting however, there may be many distinct maximal orders.
+Proposition 1.4 ([Vo, Corollary 10.5.4]). If R is a PID, F its fraction field and A = M2 (F ),
+then any maximal R-order H ⊂ A is isomorphic to M2 (R).
+1.4. Localizations, completions. For any prime ideal p of OK , we may consider the local-
+ization OK,(p) and its p-adic completion OK,p . Further, we may take Kp := K ⊗OK OK,p . We
+may also apply − ⊗K Kp to a quaternion algebra A over K to obtain Ap , a quaternion algebra
+over Kp , and then apply − ⊗OK OK,p to any OK -lattice L ⊂ A to obtain Lp ⊂ Ap .
+   The usefulness of localizations and completions stems from the ability to only check certain
+properties locally – notably, being an order and being an ideal of an order may be checked
+locally. Here, let us summarize the contents of Corollary 9.4.4, Lemma 9.4.6 and Theorem 9.5.1
+of [Vo, Chapter 9]:
+ Theorem 1.5 (Local-global dictionary). Let A be a quaternion algebra over K and let M, N ⊆
+ V be OK -lattices.
+ (i) M ⊆ N , if and only if Mp ⊆ Np for all p. In particular, M = N if and only if Mp = Np for
+     all p.
+(ii) If M is fixed, then N 7→ (Np | prime p of OK ) yields a bijection between OK -lattices in A
+     and collections of OK,p -lattices in Ap that only differ from (Mp | prime p of OK ) in finitely
+     many positions.
+               GENERALIZING HURWITZ’S PROOF OF THE FOUR-SQUARE THEOREMS                                 7
+
+   A more informal wording of part (ii) is that if we start with a lattice M and change Mp at
+finitely many p, the result uniquely determines an OK -lattice again.
+   A further strength of localizations and completions comes from the fact that over a completion
+Kp of a number field, there is only one division quaternion algebra up to isomorphism. This
+allows us to say that a quaternion algebra over Kp is either the matrix ring, or “the” division
+algebra.
+   This division quaternion algebra Ap may be given explicitly: if char(OK /π) ̸= 2, the (princi-
+pal) ideal pOK,p of OK,p is generated by some π and d ∈ OK,p is chosen such that it becomes
+a quadratic non-residue in OK,p /pOK,p ≃ OK /π, then d,π Kp
+                                                             ≃ Ap (see [Vo, Chapter 13] for fur-
+ther details). As with the definition of quaternion algebras themselves, characteristic 2 brings
+technical complications, but the result about uniqueness still holds.
+   Moreover, the division quaternion algebra over Kp has a single, unique maximal order Hp .
+This order has only one maximal (left or right) ideal P , which is a two-sided ideal and satisfies
+P 2 = πHp [Vo, Theorem 13.3.10].
+
+1.5. Indices, discriminants. When L and M are two OK -lattices in an K-vector space V , we
+define their OK -index [L : M ]OK as the fractional ideal generated by det(δ) ∈ K for K-linear
+endomorphisms δ : V → V such that δ(L) ⊆ M . Of note is the case when M ⊆ L, then we
+may consider that L/M is a torsion OK -module. Appealing to the structure theorem for finitely
+generated modules over a Dedekind ring ([Br, Theorem 10.3.10]), we then decompose L/M as
+some direct sum of cyclic modules, i.e.
+                                   L/M ≃ OK /I1 ⊕ · · · ⊕ OK /In .
+Then it holds that [L : M ]OK = I1 · · · In , so in particular if M ⊆ L, then M = L if and only
+if [L : M ]OK = OK . Another consequence of this is that [L : M ]OK · L ⊆ M . Further, we have
+NmK/Q ([L : M ]OK ) = [L : M ]Z . Indices also commute with completions, i.e. ([M : N ]OK )p =
+[Mp : Np ]OK,p
+   For any OK -lattice L in a quaternion algebra A over K, its discriminant disc(L) is the
+fractional ideal of OK generated by all det(trd(xi xj ))i,j=1,...,4 as (x1 , . . . , x4 ) runs through all
+quadruplets of elements of L. It turns out that disc(L) is always a square of an ideal of OK ,
+and this ideal is called the reduced discriminant discrd(L) (this might not hold for all lattices
+over more general rings). It may be explicitly constructed as the ideal generated by all
+                                         trd((x1 x2 − x2 x1 )x3 )
+as (x1 , x2 , x3 ) runs through all triplets of elements of L. See [Vo, Chapter 15] for more details.
+ Proposition 1.6. Let A be a definite quaternion algebra over K.
+ (i) For OK -lattices L, M ⊂ A, it holds that discrd(M ) = [L : M ]OK discrd(L).
+(ii) For an OK -lattice L ⊆ A and q ∈ A, it holds that [L : qL]OK = [L : Lq]OK = nrd(q)2 .
+  Further, the discriminant disc A of the quaternion algebra A is defined as the product of all
+those primes p of OK for which Ap is a division algebra (or, rather, the division algebra); there
+always only finitely many such primes. Notably, whenever H is a maximal OK -order in A, then
+discrd H = disc A ([Vo, Theorem 23.2.9]).
+
+1.6. Ideal class theory. We use Cl K to refer to the ideal class group of K and Cl+ K to the
+narrow class group. Both are always finite and # Cl K = 1 occurs if and only if OK is a PID,
+while # Cl+ K = 1 occurs if and only if OK is a PID in which all totally positive units are
+squares (of units).
+  In the non-commutative setting of quaternion orders, we lose the group structure, leaving
+only an ideal class set.
+Definition 1.7. Let A be a definite quaternion algebra over K. Amongst OK -lattices in A, we
+say L and M are (right) equivalent, which we denote L ∼R M , if L = xM for some x ∈ A× ;
+8             GENERALIZING HURWITZ’S PROOF OF THE FOUR-SQUARE THEOREMS
+
+let us denote the equivalence classes of this relation as [L]R . For an OK -order H ⊂ A, we then
+define its (right) class set as
+                        Cls H := {[L]R | L is a lattice with OR (L) = H} .
+The cardinality of Cls H is called the (right) class number of H.
+   The left class set is defined analogously, though they are always in bijection due to the isomor-
+phism H ≃ Hop given by the standard involution, hence we will usually omit the designation
+of right or left. Note that when H is maximal, # Cls H = 1 is equivalent to H being a right
+PID (and thus also a left PID). Similarly to the class group of number fields, the class set of a
+quaternion order is always guaranteed to be finite. This is due to an analogue of Minkowski’s
+bound (see [Vo, Section 17.7] for more details).
+   Kirschmer and Lorch [KL] obtained an enumeration of all orders in definite quaternion alge-
+bras with class number 1, up to isomorphism, which we will use in Section 3. In this context, it
+will be useful to note some implications this has on any superorders as well as the base number
+field K.
+Proposition 1.8 ([Vo, Exercise 17.3], [KL, Remark 6.3]). Let G ⊆ H be OK -orders in a definite
+quaternion algebra over K. Then # Cls G ≥ # Cls H ≥ # Cl+ K.
+
+               2. Factorization in principal ideal quaternion orders
+  In this section, we will examine factorizations into irreducible elements in quaternion orders.
+These are not unique, but we will show that when the order is a principal ideal domain,
+uniqueness up to certain manipulations holds, which allows us to count elements of a given
+reduced norm based on these factorizations.
+  Note that even though a quaternion order H is a non-commutative ring, we know that the
+standard involution preserves orders and maps their left ideal to right ideals and vice versa.
+Hence the notions of a left PID and a right PID coincide, which is why we will call them just
+PIDs.
+Convention. Throughout this section, let us fix a totally real number field K and let OK be
+its ring of integers; further, let us presume that K has narrow class number 1, i.e. that it is
+a PID and that all of its totally positive units are squares. We will be considering a maximal
+OK -order H that is a PID, in a definite quaternion algebra A over K.
+   As discussed in Subsection 1.6, a maximal order H is a PID if and only if it has class number
+1, and by Proposition 1.8, this forces K to have narrow class number 1. Further, a non-maximal
+order cannot be a PID, e.g. since it will always contain some principal ideals of a large order,
+which then cannot be principal in this smaller order. Hence the above presumptions are justified.
+
+2.1. Irreducible elements. Let us start by identifying the irreducible elements of H, that is
+those that cannot be written as a product of two non-invertible elements – we will show they
+are exactly the quaternions of prime reduced norm, and for every totally positive prime element
+of OK , there exists a quaternion of that reduced norm in H.
+   The elementary proofs we provide here will be later somewhat superseded by the local count-
+ing arguments of Subsection 2.3
+Lemma 2.1. Over a finite field k, any quadratic form Q in three or more variables is isotropic,
+i.e. it represents 0.
+Proof. In odd characteristic, this is proved in [Om, 62:1b]. For the statement including charac-
+teristic 2, see [Vo, Exercise 12.6].´                                                         □
+Proposition 2.2. Let π be a totally positive prime element of OK . Then there exists a quater-
+nion p ∈ H of reduced norm π.
+               GENERALIZING HURWITZ’S PROOF OF THE FOUR-SQUARE THEOREMS                              9
+
+Proof. Reducing the quadratic form (H, nrd) modulo π, we obtain a quaternary quadratic form
+over the finite field OK /πOK . By the Lemma 2.1, this has an isotropic vector, which corresponds
+to a quaternion q ∈ H with nrd(q) ∈ πOK but q ∈      / πH.
+  Since H is a PID, there exists a generator p of the left ideal Hp = Hq + Hπ. On one hand,
+calculating in H/πH immediately yields nrd(p) ≡ 0 (mod π). On the other hand, nrd(p) |
+nrd(π) = π 2 , so nrd(p) must be either π or π 2 up to multiplication by units of OK .
+                                                                                               ×
+  If nrd(p) were associated to π 2 , it would mean π = ap for some a ∈ H with nrd(a) ∈ OK        ,
+hence p ∈ Hπ. This would in turn imply q ∈ Hp ⊆ Hπ, a contradiction.
+                                        ×
+  So nrd(p) = επ for some ε ∈ OK          . Clearly, ε must be totally positive, so because OK
+has narrow class number 1, we may express it as ε = ε20 . Then nrd(ε−1      0 p) = π proves the
+proposition.                                                                                   □
+Corollary 2.3. (H, nrd) is a universal quadratic form over OK .
+Proof. Any totally positive element of OK can be expressed as a product of totally positive
+primes and totally positive units. Each of the primes is expressed by the Proposition. Further,
+totally positive units are squares, which are the reduced norms of elements of OK , hence totally
+positive units are also expressed. The Corollary then follows by the multiplicativity of nrd. □
+Proposition 2.4. A quaternion p ∈ H is irreducible in H, if and only if nrd(p) is a (totally
+positive) prime element of OK .
+Proof. If nrd(p) is a prime, the irreducibility of p is immediate by considering the reduced
+norm, since an element is invertible in H if and only if its reduced norm is invertible in OK .
+  On the other hand, suppose that p is irreducible. Its reduced norm then cannot be invertible,
+hence it is divisible by some prime π ∈ OK . Just as in the proof of Proposition 2.2, we may
+then take Hp + Hπ =: Hq with nrd(q) = π. This will then imply that q is irreducible and
+p = aq for some a ∈ H, forcing a to be invertible. Hence ε := nrd(a) is invertible in OK , so
+nrd(p) = επ is a prime in OK .                                                                  □
+2.2. Factorizing into irreducibles. Here, we present several results on factorization into
+irreducible elements in H. Because of non-commutativity, we cannot hope for an entirely unique
+factorization. We can however prove some weaker analogues which will later suffice for counting
+elements of a given reduced norm.
+   While we work over number fields, the proofs do not differ significantly from the situation in
+the Hurwitz order over Q (cf. [CSm, Chapter 5] or [Vo, Section 11.5]).
+Definition 2.5. For a given quaternion q ∈ H, let us call a finite sequence a1 , . . . , an a
+factorization of q if q = a1 · · · an . Let us further say that two factorizations a1 , . . . , an and
+b1 , . . . , bm differ by unit migration, if n = m and there exist quaternions u1 , . . . , un−1 ∈ H1
+such that
+          b1 = a1 u−1
+                   1 ,   b2 = u1 a2 u−1
+                                     2 ,    ...,   bn−1 = un−2 an−1 u−1
+                                                                     n−1 ,    bn = un−1 an .
+   We will always consider factorizations where reduced norms of the multiplicands follow a
+given factorization in OK . Before we do this with a factorization into a product of irreducible
+elements, i.e. elements with prime reduced norms, let us start with a factorization whose reduced
+norms are prime powers, or, slightly more generally, pairwise coprime.
+                                                          +
+ Proposition 2.6. Let q ∈ H have nrd(q) = α ∈ OK            and let α = α1 · · · αn be a factorization
+                                                      +
+ into a product of pairwise coprime elements of OK . Then:
+ (i) There is a factorization q = a1 · · · an with nrd(ai ) = αi .
+(ii) This factorization is unique up to unit migration.
+Proof. To first prove existence, let us consider Hq + Hαn =: Han . Computing in H/αn H, we
+see that nrd(an ) ∈ αn OK . On the other hand, nrd(an ) must divide both nrd(αn ) = αn2 and
+nrd(q) = α. Since α1 , . . . , αn are pairwise coprime, αn is the greatest common divisor of α and
+10              GENERALIZING HURWITZ’S PROOF OF THE FOUR-SQUARE THEOREMS
+
+αn2 . Hence nrd(an ) must be associated to αn and so after possibly changing an by a suitable
+              ×
+unit from OK     , we may take nrd(an ) = αn . The proof of existence of the desired factorization
+then proceeds by induction on n.
+   For the uniqueness, suppose q = a1 · · · an = b1 · · · bn are two such factorizations. The pre-
+vious paragraph implies that Han = Hq + Hαn = Hbn , hence bn = uan for some u ∈ H and
+considering the reduced norms shows nrd(u) = 1. We may then denote un−1 := u, simplify the
+equality a1 · · · an = b1 · · · bn to
+                              a1 · · · an−2 (an−1 u−1
+                                                   n−1 ) = b1 · · · bn−2 bn−1
+and proceed by induction.                                                                             □
+                                                                                           +
+     Now we factorize a quaternion q whose reduced norm is a power of some prime, say π ∈ OK .
+It may happen that q ∈ πH. Since π commutes with everything in H, such a occurrence would
+introduce an overcount when we count the factorizations later, so it is useful to distinguish and
+separate this.
+Definition 2.7. Let us say a quaternion q ∈ H is primitive if q ∈
+                                                                / αH for all non-units
+          ×
+α ∈ OK \ OK .
+     First we prepare a weaker, non-commutative analogue of Euclid’s lemma:
+                       +
+Lemma 2.8. Let π ∈ OK    be a prime, p ∈ H a quaternion of reduced norm π and a, b ∈ H
+arbitrary. Then apb ∈ πH implies ap ∈ πH or pb ∈ H.
+Proof. It suffices to prove that if apb ∈ πH but pb ∈
+                                                    / πH, then ap ∈ πH. Consider
+                         I := (πH : pbH)L ∩ H = {x ∈ H | xpb ∈ πH} .
+This is a left ideal of H, so by H being a PID, we get I = Hq for some q.
+                                                          ×
+  Now on one hand, 1 ∈   / I since pb ∈
+                                      / πH, so nrd(q) ∈
+                                                      / OK  . On the other hand, clearly p ∈ I,
+so nrd(q) | nrd(p) = π. This forces nrd(q) to be associated to π, and hence p = uq for some
+                         ×
+u ∈ H with nrd(u) ∈ OK     , meaning u ∈ H× . Thus q ∈ Hp and a ∈ I implies ap ∈ Hpp = Hπ
+as we wished to prove.                                                                       □
+                               +
+ Proposition 2.9. Let π ∈ OK     be a prime and q ∈ H a primitive quaternion of norm π r . Then:
+ (i) There is a factorization q = p1 · · · pr with nrd(pi ) = π.
+(ii) This factorization is unique up to unit migration.
+Proof. For existence, q must factorize into some product p1 · · · pn of irreducible quaternions.
+These each have prime reduced norms by Proposition 2.4, so due to nrd(q) = π r , we must
+                                                                                             ×
+have n = r and each nrd(pi ) must be associated to π. Since all totally positive units in OK   are
+squares, we just multiply each pi by a suitable unit to achieve nrd(pi ) = π, thus obtaining the
+desired factorization.
+  For the uniqueness, let q = p1 · · · pr = q1 · · · qr be two such factorizations. Multiplying by
+qr from the right, we get
+                              (p1 · · · pr−1 )pr qr = q1 · · · (qr qr ) ∈ πH,
+so applying Lemma 2.8 with p := pr and a := p1 · · · pr−1 , b := qr we get that at least
+one of (p1 · · · pr−1 )pr = q and pr qr is divisible by π. But have presumed q to be primitive,
+hence we conclude that pqr ∈ Hπ = Hqr qr . Thus pr ∈ Hqr , considering reduced norms
+forces pr = ur−1 qr for some ur−1 ∈ H1 and we proceed by induction as in the proof of
+Proposition 2.6.                                                                             □
+Proposition 2.10. If q = p1 · · · pr is a factorization into a product of irreducible quaternions
+of reduced norm π, then q ∈ πH if and only if pi ∈ H1 pi+1 for some i = 1, . . . , r − 1.
+Proof. Sufficiency is obvious, so let us prove necessity. Let us choose an inclusion-minimal
+interval {i, i + 1, . . . , i + ℓ − 1} ⊆ {1, 2, . . . , r} such that pi · · · pi+ℓ−1 ∈ πH. By considering
+reduced norms, clearly ℓ ≥ 2. On the other hand, if it were the case that ℓ ≥ 3, then we could
+              GENERALIZING HURWITZ’S PROOF OF THE FOUR-SQUARE THEOREMS                           11
+
+use Lemma 2.8 with a := pi , p := pi+1 , b := pi+2 · · · pi+ℓ−1 to find a strictly smaller interval
+which still gives a product divisible by π.
+   This forces ℓ = 2, i.e. pi pi+1 ∈ πH = Hpi+1 pi+1 for some i, hence pi ∈ Hpi+1 . Considering
+reduced norms then forces pi to be a left multiple of pi+1 by a quaternion of reduced norm
+1.                                                                                               □
+2.3. Counting irreducible elements.
+Lemma 2.11. For any prime ideal p of OK such that p ∤ discrd H, the quotient ring H/pH is
+isomorphic to M2 (OK /p).
+Proof. H/pH is unchanged by taking the completion at p, and then the Lemma follows from
+[Vo, 23.2.3].                                                                         □
+Lemma 2.12. For a prime ideal p of OK such that p | discrd H, the quotient ring H/pH has
+a unique non-trivial left ideal.
+Proof. Again, it suffices to argue for Hp /pHp . Then the Lemma is essentially contained in [Vo,
+13.3.7 and 13.3.10]: all ideals of Hp are two-sided and powers of the unique maximal ideal P
+which satisfies P 2 = pHp . Thus only P remains as a non-trivial ideal in Hp /pHp .           □
+   These two lemmata hold even without our conditions on the class number of H (and the
+narrow class number of K). With these conditions however, we will leverage them to count
+irreducible quaternions of prime reduced norms.
+ Proposition 2.13. Let π be a totally positive prime element in OK .
+ (i) If πOK ∤ discrd H, there are #H1 · (1 + NmK/Q (π)) quaternions of reduced norm π in H.
+(ii) If πOK | discrd H, there are #H1 quaternions of reduced norm π in H.
+Proof. First, let us argue that it suffices to count left ideals of reduced norm πOK . Firstly, any
+quaternion of reduced norm π generates such a left ideal. On the other hand, any such ideal
+is principal and we may multiply any generator by a suitable unit (utilizing the narrow class
+number being 1 again) to get a generator of reduced norm π. Any two such generators differ
+only by multiplication by a unit of reduced norm 1, hence any ideal of reduced norm πOK
+yields exactly #H1 quaternions of reduced norm π.
+   Then, a left ideal of reduced norm π must be contained in πH, so we may count these ideals in
+H/πH. Now (ii) is immediate, since by Lemma 2.12, the quotient ring has a unique non-trivial
+(left) ideal.
+   For (i), let us denote the finite field k := OK /πOK and q := #k = NmK/Q (π). Thanks to
+Lemma 2.11, we may count the non-zero left ideals of reduced norm 0 ∈ k in M2 (k). As we
+noted in Section 1, this is a (left) principal ideal ring and there is a bijection
+        {non-trivial left ideals of M2 (k)} ←→ one-dimensional subspaces of k 2 = P1 k,
+                                                 
+
+where the last set is the projective line over k, which has q + 1 elements, so we are done.      □
+2.4. Counting factorizations. All that remains now is to use the results of Subsection 2.2 to
+count quaternions of a given reduced norm. As it turns out, expressions akin to sums of divisors
+appear in these calculations, so to simplify them, let us introduce the following notation: if D
+is an ideal of OK which factorizes into a product of prime ideals p1 · · · pr , let us denote
+                                              X
+                               σD (α) :=               Nm(δOK )
+                                         p1 ,...,pr ∤δOK |αOK
+
+where α ∈ OK and the sum runs over all the (principal) ideals of OK which divide αOK but
+are not divided by any pi . The condition p1 , . . . , pr ∤ δOK can also be equivalently stated as
+D + δOK = OK , so informally speaking, this is a “sum of divisors of α coprime to D”.
+  By the Chinese remainder theorem, if α, β ∈ OK are coprime, ideal divisors of αβOK are
+exactly products of a divisor of αOK and a divisor of βOK , whence it follows that σD (αβ) =
+12            GENERALIZING HURWITZ’S PROOF OF THE FOUR-SQUARE THEOREMS
+
+σD (α)σD (β). We say that σD is multiplicative. Lastly, we may notice that σD (εα) = σD (α) for
+               ×
+any unit ε ∈ OK  , since αOK = εαOK .
+                          +
+Definition 2.14. For α ∈ OK and an order H, let us denote
+
+                               rH (α) := # {q ∈ H | nrd(q) = α} .
+
+Theorem 2.15. Let H be a maximal order of class number 1 in a definite quaternion algebra
+A of discriminant D over a totally real number field K of narrow class number 1. Then for
+            +
+every α ∈ OK  , there exist exactly
+
+                                      rH (α) = #H1 · σD (α)
+
+quaternions in H of reduced norm α.
+
+Proof. First, notice that if we multiply α by a totally positive unit ε, such a totally positive
+                                  ×
+unit is a square of some ε0 ∈ OK    . Hence this change can be realized on any quaternion q of
+reduced norm α by considering ε0 q instead. Thus, both rH (α) and the quantity #H1 ·σD (α) are
+                                                      ×,+
+unchanged when replacing α by εα for some ε ∈ OK          , so we may change α by totally positive
+units without loss of generality.
+   With this in mind, we have σD (1) = 1, so the theorem clearly holds when α is a unit. By
+Proposition 2.13, it also holds for a prime element α.
+   Next, let α = π k be a prime power. Suppose first that πOK ∤ discrd H. Let us denote
+q := NmK/Q (π). We claim that there are #H1 ·(q k +q k−1 ) primitive quaternions of reduced norm
+α. For this, we use Propositions 2.9 and 2.10. This tells us that we should count factorizations
+using irreducible quaternions of reduced norm π where conjugates (up to multiplication by
+units) do not appear in adjacent positions, all the while managing the overcounting stemming
+from unit migration.
+   Choosing the irreducible pi , i = 1, . . . , k sequentially, the first one offers #H1 · (1 + q)
+options, but for all subsequent positions, the last chosen factor forbids #H1 of these. So we
+                             k−1
+have #H1 ·(1+q)·(#H1 · q)        suitable factorizations. From any such factorization, we perform
+     1 k−1
+(#H )      unit migrations and clearly, each results in a different factorization. So we have
+overcounted by a factor of (#H1 )k−1 , which yields
+
+                            (#H1 )k (q + 1)q k−1
+                                                 = #H1 · q k−1 (q + 1)
+                               (#H1 )k−1
+
+primitive quaternions of reduced norm m.
+  Dropping the primitivity condition, we need to additionally count quaternions divisible by
+π, π 2 , etc., leading to a total count of
+
+               rH (α) = #H1 · (q k + q k−1 ) + (q k−2 + q k−3 ) + · · · + 1 = #H1 · σD (π k ).
+                                                                           
+
+
+   If on the other hand πOK | discrd H, let us prove that there only #H1 quaternions of reduced
+norm π k by induction on k ≥ 0. We already have this claim for k = 0 and k = 1. Since there are
+only #H1 quaternions of reduced norm π, if we let q be any of them, then H1 q must recover all
+#H1 of them again. Hence in view of Proposition 2.10, there can be no primitive quaternions
+of reduced norm π k for k ≥ 2. So their count is the same as for π k−2 and our claim follows by
+induction.
+   Finally, we consider an arbitrary α ∈ OK   +
+                                                and we fix a factorization α = π1e1 · · · πkek into
+powers of totally positive primes (as before, multiplying by a totally positive units does not
+affect the count). By Proposition 2.6, we multiply the quantities of quaternions of reduced
+norms πiei and then correct for the overcount stemming from unit migrations by a factor of
+(#H1 )k−1 . Since we have already counted quaternions with prime power reduced norms, we
+                 GENERALIZING HURWITZ’S PROOF OF THE FOUR-SQUARE THEOREMS                                          13
+
+ thus obtain
+            rH (π1e1 ) · · · rH (πkek )   (#H1 σD (π1e1 )) · · · (#H1 σD (πkek ))
+   rH (α) =                             =                                         =
+                 (#H1 )k−1                             (#H1 )k−1
+                              = #H1 · (σD (π1e1 ) · · · σD (πkek )) = #H1 · σD (π1e1 · · · πkek ) = #H1 · σD (α)
+ quaternions of reduced norm α, finishing the proof.                                                               □
+
+                          3. Intersecting unit orbits with suborders
+    Mimicking Hurwitz’s proofs of Lagrange’s and Jacobi’s four-square theorem, we will concern
+ ourselves with the following situation in this section: we are given an OK -order H in a definite
+ quaternion algebra A over a number field K (mostly, H will be a maximal order of class number
+ 1). We let the (finite) group H1 of units of reduced norm 1 act on H by multiplication from
+ the left. Then we wish to examine suborders G ⊆ H which intersect every orbit of this action –
+ in the classical case of Hurwitz, this corresponds to the Lipschitz order G intersecting all orbits
+ in the Hurwitz order H with respect to the (left) action of the group H1 .
+ Definition 3.1. Let G ⊆ H be orders in a definite quaternion algebra. We say that G is (left)
+ H-perceptive (or that the pair G, H is (left) perceptive, or that G is (left) perceptive in H), if
+ every orbit H1 q for q ∈ H has a non-empty intersection with G.
+    We may notice that since the standard involution preserves orders and maps left orbits to
+ right orbits and vice versa, the notion of a right perceptive suborder would be equivalent to
+ that of a left perceptive one, so we drop the directional distinction.
+    As in the Hurwitz case, once H is definite, maximal and of class number 1 and G is H-
+ perceptive, the universality of the quadratic form (H, nrd) may immediately be carried over
+ to obtain universality of (G, nrd). Further, with an examination of the exacts sizes of the
+ intersections H1 q ∩ G, one may deduce precise formulas for the number of quaternions of a
+ given norm in G from those in H.
+    Throughout this section, “orders” are always OK -orders in a definite quaternion algebra.
+
+ 3.1. Chains of orders.
+ Proposition 3.2. Let F ⊆ G ⊆ H be orders.
+  (i) If both G, H and F, G are perceptive pairs, then so is F, H.
+ (ii) If F is H-perceptive, then G is H-perceptive.
+(iii) If F is H-perceptive and additionally [H : G]OK , [G : F]OK are comaximal ideals of OK ,
+      then F is G-perceptive.
+  Proof. (i) Starting with a q ∈ H, we first find an r ∈ H1 q ∩ G and then an s ∈ G 1 r ∩ F ⊆
+      H1 q ∩ F .
+ (ii) Clearly H1 q ∩ F ⊆ H1 q ∩ G.
+(iii) Let us denote a := [G : F]OK and b := [H : G]OK . Suppose for the sake of contradiction that
+      G 1 q ∩ F is empty for some q ∈ G.
+    Claim (A). We can choose this q with the added condition that nrd(q)OK is comaximal to
+    b.
+      Since a, b are comaximal, we may find an α ∈ OK satisfying α ≡ 0 (mod a), α ≡ 1
+    (mod b) by the Chinese remainder theorem. Let us then start our search with an arbitrary
+    r ∈ G such that G 1 r ∩ F is empty, and then look for a suitable q in the form tα + (α + 1)r
+    for some t ∈ OK yet to be determined. Since aG ⊆ F and α ∈ a, we have αG ⊆ F. Thus
+    because q = r + α(t + r), any such q will still satisfy G 1 q ∩ F = ∅. So we only need to deal
+    with the desired condition on nrd(q).
+14               GENERALIZING HURWITZ’S PROOF OF THE FOUR-SQUARE THEOREMS
+
+         Let p1 , . . . , pr be the prime ideals dividing b. Then it suffices to determine t modulo each
+      pi so that nrd(q) ̸≡ 0 (mod pi ) and then compose this data using the Chinese remainder
+      theorem. So let us investigate nrd(q) (mod pi ). We have
+                      nrd(tα + (α + 1)r) = α2 t2 + α(α + 1) trd(r)t + nrd(r) ≡
+(∗)                                        ≡ t2 + 2 trd(r)t + nrd(r)        (mod pi )
+      since α ≡ 1 (mod b). Thus this is a polynomial of degree 2 over the finite field OK /pi . The
+      only way for it to never attain a non-zero value is for all elements of OK /pi to be its roots.
+      It can have no more than two roots, so this may only happen if OK /pi is the field with two
+      elements. Hence in all other cases we find a suitable t (mod pi ).
+         In the case when OK /pi = {0, 1} is the two-element field, (∗) simplifies to
+                                   nrd(q) ≡ t2 + nrd(r)     (mod pi ).
+             2
+      Since t ≡ t holds in the two-element field, we then choose t ≡ nrd(r) + 1 and achieve
+      nrd(q) ̸≡ 0 (mod pi ) in this case as well.
+        Choosing a t ∈ OK that satisfies each of the chosen residues t (mod pi ) via the Chinese
+      remainder theorem, we achieve nrd(q)OK comaximal to b. This proves Claim (A).
+        Now with this q, we know that there is some u ∈ H1 such that uq ∈ F; this ensures
+      u ∈ H1 \ G 1 . Let us denote the order L := F + Fu and the lattice N := qF, then we observe
+      that LN ⊆ G
+      Claim (B). The ideal [L : F]OK is divisible by some prime ideal p of OK comaximal to a.
+         Notice that u ∈ L but u ∈  / G, hence L ⊈ G. By the local-global dictionary, this means
+      there is some prime p such that Lp ⊈ Gp . On one hand, it must be a prime p | [L : F]OK ,
+      since otherwise we would get Lp = Fp ⊆ Gp . On the other hand, it must also be a prime
+      p | b = [H : G]OK , since otherwise Gp = Hp ⊇ Lp . But then p is comaximal to a because b
+      is, proving Claim (B).
+         Using this p, let us now pass to the local situation over OK,p . We obtain Fp ⊆ Gp but also
+                                  [Gp : Fp ]OK,p = ([G : F]OK )p = OK,p ,
+      hence Fp = Gp . Similarly, since Np ⊆ Gp = Fp and
+                                       [F : N ]OK = nrd(q)2 OK ,
+      which is comaximal to b by Claim (A), we get
+                                 [Fp : Np ]OK,p = (nrd(q)2 OK )p = OK,p
+      and thus Np = Fp .
+        On the other hand, p | [L : F]OK means [Lp : Fp ]OK,p remains non-trivial and thus
+      Fp ⊊ Lp . But the inclusion LN ⊆ G now turns into
+                                            Lp Np ⊆ Gp = Fp ,
+      which is false due to Np = Fp ∋ 1 and Lp · 1 ⊈ Fp . Thus we have reached a contradiction,
+      proving the proposition.                                                               □
+   Once we’ve built up some tools to aid in the verification in the next subsection, we shall
+illustrate in Example 3.7 that without the condition that [H : G]OK , [G : F]OK be comaximal,
+the conclusion of part (iii) need not hold.
+   For now, the last proposition suggests it may be beneficial, when studying a suborder F ⊆ H,
+to insert intermediate orders such that the two resulting indices are comaximal. In its most
+severe form, this looks as follows:
+Proposition 3.3. Let orders F ⊆ H be given and let a factorization of [H : F]OK into powers
+of distinct prime ideals pe11 · · · perr be given. Then there exists a chain of orders
+                                       F =: G0 ⊊ · · · ⊊ Gr := H
+                GENERALIZING HURWITZ’S PROOF OF THE FOUR-SQUARE THEOREMS                              15
+
+such that [Gi : Gi−1 ]OK = pei i for each i = 1, . . . , r.
+Proof. Let us use the local-global dictionary to construct each Gi by prescribing
+                                
+                                Hp ,
+                                             if p = pj for some j ≤ i,
+                         Gi,p := Fp ,         if p = pj for some j > i,
+                                
+                                F = H , if p ∈
+                                    p     p        / {p1 , . . . , pr };
+the equality Fp = Hp for p ∈    / {p1 , . . . , pr } is due to F ⊆ H and [Hp : Fp ]OK,p = ([H : F]OK )p =
+OK,p . By construction, Gi is an order at all p, hence it is an order globally as well.
+  For any i = 1, . . . , r, we also see that Gi and Gi−1 only differ at pi , where
+                                        Gi−1,pi = Fpi ⊆ Hpi = Gi,pi ,
+so Gi−1 ⊆ Gi . It also follows that ([Gi : Gi−1 ]OK )p = OK,p for all p ̸= pi and ([Gi : Gi−1 ]OK )pi =
+([H : F ]OK )pi = (pi OK,pi )ei implies [Gi : Gi−1 ]OK = pei i .                                      □
+  Naturally, we may ask for further refinements of a chain orders constructed like this. As-
+suming for notational ease that [H : F]OK was a prime power already, whenever there exists
+an intermediate order G, we may insert it to get F ⊊ G ⊊ H. Then [H : G]OK and [G : F]OK
+will both be strictly smaller powers of the same prime, so this process of inserting intermediate
+orders must stop eventually. We now characterize maximal suborders of H.
+ Proposition 3.4. Let F ⊊ H be orders with [H : F]OK = pe for some prime p of OK . No
+ order G with F ⊊ G ⊊ H exists if and only if either:
+ (i) e = 1 and thus H/F ≃ OK /p as OK -modules; or
+(ii) e = 2, H/F ≃ (OK /p)2 as OK -modules and within the OK /p-algebra H/pH, the subalgebra
+     F/pH is a quadratic field extension of OK /p.
+Proof. Let us denote k := OK /p. First, we verify that in both (i) and (ii), no intermediate
+order G exists. For (i), this is obvious. For (ii), we descend to H/pH. Any intermediate G would
+correspond to a three-dimensional subalgebra G/pH containing F/pH. This would also be a
+vector space over F/pH, which is two-dimensional over k. Hence G/pH would need to have an
+even dimension over k, a contradiction.
+   To prove that one of (i) or (ii) is necessary, we first note that by [Bz1, Corollary 1.11],
+[H : F]OK is either p or p2 and pF ⊆ H. Thus it only remains to prove that in the latter case,
+F/pH is a field.
+   Let us work in H/pH again. By its dimension, F/pH is spanned by 1 and some a. Since a
+commutes with itself and 1 commutes with everything, F/pH is commutative. Let us suppose
+for the sake of contradiction it is not a field, then it contains a non-invertible element. Without
+loss of generality, we may assume a is this non-invertible element; this means nrd(a) = 0 ∈ k.
+Let us consider the multiplication map
+                                            µ : H/pH → H/pH,
+                                                   q 7→ qa.
+Note that dim ker µ + dim Im µ = 4 (over k) and that 1 does not belong to either ker µ or Im µ.
+Hence at least one of ker µ \ (F/pH) and Im µ \ (F/pH) is non-empty.
+  If we can choose a q ∈ ker µ \ (F/pH), let us consider the subalgebra (by Lemma 1.1)
+                                            k + kq + ka + kqa.
+Since qa = 0, this is three-dimensional, so its preimage in H is an intermediate order.
+  If on the other hand we can choose a qa ∈ Im µ \ (F/pH), let us consider the subalgebra
+                                           k + kqa + ka + kqa2 .
+Observe that a2 = trd(a)a due to nrd(a) = 0, hence kqa2 ⊆ kqa, making the subalgebra
+three-dimensional, so its preimage in H is an intermediate order.
+  Overall, we have found a contradiction, so F/pH must have been a field.         □
+16            GENERALIZING HURWITZ’S PROOF OF THE FOUR-SQUARE THEOREMS
+
+3.2. Module conditions for perceptivity. Orders are very specific lattices, so for orders
+G ⊆ H, we can look at H/G as a quotient of OK -modules. It must be a torsion module, so by
+the structure theorem for finitely generated modules over Dedekind domains (combined with the
+Chinese remainder theorem), it decomposes as a direct sum of several cyclic modules isomorphic
+to some OK /pa , p being a prime ideal of OK . In this subsection, we examine some implications
+this decomposition might have for whether G is H-perceptive. The most fruitful of these will,
+in specific situations, yield equivalent conditions for this perceptivity using cardinalities of G 1
+and H1 .
+   In view of Propositions 3.2 and 3.3, we will restrict our attention to the case when the index
+of the two orders is a prime power. Hence, throughout this entire subsection, let G ⊆ H be
+orders in a definite quaternion algebra A such that [H : G]OK = pe .
+Proposition 3.5. Suppose that H/G ≃ OK /pa1 × · · · × OK /par with a1 , . . . , ar ≥ 1. If G is
+H-perceptive, then r ≤ 2.
+Proof. Consider F := G + pH. This is an order and it satisfies G ⊆ F ⊆ H and H/F ≃
+(OK /p)r . By Proposition 3.2(ii), we see that F is H-perceptive. We may quotient by pH to
+view A := F/pH as a subalgebra of the four-dimensional algebra B := H/pH over k := OK /p.
+Then A is (4 − r)-dimensional, which immediately forces r ≤ 3 since at least 1 ∈ A.
+  Let us suppose for the sake of contradiction that r = 3, then A = k is one-dimensional. Yet,
+because F is H-perceptive, any element of B may be multiplied by an element of B × (in fact
+more strongly, by a residue class of some u ∈ H1 ) with the result falling into A. This implies that
+every line (one-dimensional subspace) in B contains an invertible element. Invertible elements
+must have non-zero reduced norms, so this would imply that the quadratic form (B, nrd) is
+anisotropic, contradicting Lemma 2.1. Hence it must have been the case that r ≤ 2.                □
+   Now we know that if the pair of orders is to be perceptive, it suffices to consider the case
+when H/G ≃ (OK /pa ) × (OK /pb ). Our strategy will be to quotient the situation by such an
+OK -submodule that the emptiness or non-emptiness of H1 q ∩ G only depends on the class of q
+in the quotient. It turns out that
+                      (G : H)R = {x ∈ A | Hx ⊆ G} = {x ∈ G | Hx ⊆ G} ,
+the so-called (right) conductor of H into G, is the suitable choice for such a submodule. We
+may notice that this is a right ideal of G and a left ideal of H, since for x ∈ (G : H)R we obtain
+HxG ⊆ GG ⊆ G, hence xG ⊆ (G : H)R , and HHx ⊆ Hx ⊆ G, hence Hx ⊆ (G : H)R .
+  Due to H0 := (G : H)R being a left ideal of H, we specifically know that the left action of H1
+by multiplication on H preserves H0 , hence it makes sense and is well-defined to consider the
+action on the quotient H/H0 . Written explicitly, this is
+                                     u(q + H0 ) = uq + H0 .
+Further, since uH0 ⊆ G, if we have q1 + H0 = q2 + H0 , then uq1 ∈ G if and only if uq2 ∈ G.
+                                  G is H-perceptive, it is enough to examine the action of H1
+This means that to decide whether S
+on H/H0 – namely to see whether u∈H1 uG/H0 = H/H0 .
+Proposition 3.6. Suppose that G ⊆ H are orders such that H/G is a cyclic module, i.e. that
+                                                                             1
+H/G ≃ OK /pe for some prime ideal p of OK with q := Nm(p) and e ≥ 1. Then #H
+                                                                          #G 1
+                                                                               ≤ q e + q e−1
+and G is H-perceptive if and only if equality occurs.
+Proof. First we investigate the right conductor H0 := (G : H)R . Since H/G is a cyclic module,
+we may take an arbitrary lift z ∈ H of some generator to get that H = OK z + G as OK -modules
+for some z ∈ H. Then for x ∈ G, we have Hx ⊆ G if and only if zx ∈ G, so we interpret H0 as
+the kernel of the OK -linear map
+                                           G → H/G,
+                                           x 7→ zx + G.
+              GENERALIZING HURWITZ’S PROOF OF THE FOUR-SQUARE THEOREMS                        17
+
+Clearly, 1 maps to z + G which is a generator of H/G, so the map is surjective and hence we
+get
+                                  G/H0 ≃ H/G ≃ OK /pe .
+Obviously we have pe H ⊆ G and thus also pe H ⊆ H0 . This taken together with G/H0 ≃ H/G ≃
+OK /pe means H/H0 ≃ (OK /pe )2 .
+  Now we view H/H0 as a “plane” (a rank 2 free module) over the ring R := OK /pe . Further,
+G/H0 sits inside it as a “line”, by which we mean it is a free cyclic R-submodule. Then for
+any u ∈ H1 , the set uG/H0 is again some line in the plane H/H0 , and G is H-perceptive if
+and only if these lines collectively cover the entire plane. Finally, u1 G/H0 = u2 G/H0 if and
+only if (u−1                                                           −1
+          2 u1 )G/H0 = G/H0 , which surely happens if and only if u2 u1 ∈ G. Thus we have
+constructed an injective map
+                           left cosets of G 1 in H1 ,→ {lines in H/H0 }
+                         
+
+                                              uG 1 7→ uG/H0 .
+   Next we notice that every element in H/H0 lies on some line (possibly on multiple lines) and
+every line has a generator, which must lie only on the one line it generates. This means that
+G will be H-perceptive if and only if the injective map above is surjective. We know there are
+#H1
+ #G 1
+      cosets, so it remains to count the lines in H/H0 .
+   For that, we just notice that (α, β) ∈ R2 generates a free cyclic submodule if and only if at
+least of one α, β lies in R× = R \ pR. Thus after multiplying the generator by a suitable scalar
+from R× , we see that we may enumerate all the lines as those generated by (1, β) for β ∈ R and
+by (α, 1) for α ∈ pR, and that these are all distinct. Thus we have #R + #(pR) = q e + q e−1
+lines in H/H0 . In view of the injective map established above, this gives us the inequality
+#H1
+ #G 1
+      ≤ q e + q e−1 unconditionally and perceptivity if and only if equality holds.           □
+
+Example 3.7. Let us provide an example illustrating the necessity of [H : G]OK and [G : F]OK
+being comaximal in Proposition 3.2. In the quaternion algebra −3,−1
+                                                                Q
+                                                                       = Q ⊕ Qi ⊕ Qj ⊕ Qk let
+us consider orders
+                                 1+i             j+k
+                     H := Z ⊕ Z         ⊕ Zj ⊕ Z      ,
+                                    2            2
+                                         1−i            1+i+j+k
+                      G := Z ⊕ Zi ⊕ Z         +j ⊕Z                  ,
+                                           2                 2
+                                                  
+                                           1−i           1+i+j+k
+                     F := Z ⊕ Z2i ⊕ Z           +j ⊕Z                  .
+                                            2                 2
+One may verify that these are indeed Z-orders and that H/F ≃ Z/4Z and H/G ≃ G/F ≃ Z/2Z
+as Z-modules. Next, we have the following groups of units of reduced norm 1:
+                                               
+                 1          ±1 ± i       ±j ± k
+               H = ±1,             , ±j,           ,              F 1 = {±1} .
+                               2            2
+Applying Proposition 3.6, this immediately tells us that F is H-perceptive. Even without
+computing G 1 explicitly, we may then see that G is H-perceptive (Proposition 3.2(ii)) and thus
+                                                  #G 1
+#G 1 = 4 (Proposition 3.6 again). Finally, since #F  1 = 2 ⪇ 2 + 1, this means that F is not
+
+G-perceptive.
+   To close out this subsection, let us provide a partial analogue to Proposition 3.6 in the
+following sense: if we consider specifically the case when H/G ≃ OK /p as OK -modules, the
+                                1
+Proposition gives a bound #H #G 1
+                                  ≤ Nm(p) + 1 and says perceptivity happens if and only if
+equality occurs. Hence this gives a concise way to recognize a perceptive submodule when it is
+a “maximal suborder” as described in Proposition 3.4(i). Let us provide a similar answer for a
+maximal suborder described by Proposition 3.4(ii).
+ 18               GENERALIZING HURWITZ’S PROOF OF THE FOUR-SQUARE THEOREMS
+
+ Proposition 3.8. Suppose that G ⊆ H are orders such that H/G ≃ (OK /p)2 as OK -modules for
+                                                       1
+ some prime ideal p of OK and G/pH is a field. Then #H
+                                                    #G 1
+                                                         ≤ Nm(p)2 + 1 and G is H-perceptive
+ if and only if equality holds.
+ Proof. We proceed similarly to the proof of Proposition 3.6. Let us start by proving that the
+ right conductor
+                             H0 := (G : H)R = {x ∈ G | Hx ⊆ G}
+ is in fact equal to pH. We have pH ⊆ H0 , so we may quotient everything by this two-sided
+ ideal. Then we are in the four-dimensional algebra B := H/pH and have a two-dimensional
+ subalgebra A := G/pH ⊂ B that is in fact a field. Notice that H0 was a right ideal of G,
+ so H0 /pH is right ideal of A. So it is an A-vector subspace of the one-dimensional space A;
+ additionally, we clearly have 1 ∈    / H0 , so H0 ⊊ G, and thus H0 /pH must be a proper subspace
+ of A, which forces H0 /pH = 0.
+    Still viewing B as a two-dimensional vector space over A (the vector space structure given
+ by multiplication from the right), we may see that for every u ∈ H1 , the set uG/pH = uA
+ is again a one-dimensional A-vector subspace. Hence, similar to the proof of Proposition 3.6
+ working over A, we obtain an injective map
+                left cosets of G 1 in H1 ,→ {one-dimensional A-vector subspaces of B}
+              
+
+                                    uG 1 7→ uA,
+ since again u1 A = u2 A if and only if (u−1                                −1
+                                             2 u2 )A = A if and only if (u2 u2 ) ∈ G. Perceptivity
+ occurs if and only if the map is surjective, and since A is a quadratic extension of OK /p and thus
+ has Nm(p)2 elements, the two-dimensional A-vector space B has Nm(p)2 + 1 one-dimensional
+ subspaces. The conclusion of the Proposition then follows.                                       □
+
+ 3.3. The case of a linear poset of orders. In this subsection, we will provide a slight
+ generalization to the results of Propositions 3.6 and 3.8, which will later coincidentally cover
+ most of the perceptive suborders of maximal orders of class number 1 that we find in the
+ following subsection.
+ Definition 3.9. Let G ⊆ H be orders. Let us say the pair G, H has a linear poset of orders, if
+ the partially ordered set (poset) of intermediate orders M satisfying G ⊆ M ⊆ H ordered by
+ inclusion is linear.
+      In other words, G, H has a linear poset of orders if there is only one chain
+                             G =: M1 ⊊ M2 ⊊ · · · ⊊ Mℓ−1 ⊊ Mℓ := H
+ of orders between G and H that cannot be further refined. Note that the situation of Proposi-
+ tion 3.8 satisfies this trivially and the situation of Proposition 3.6 satisfies this because already
+ the poset of intermediate OK -modules M , G ⊆ M ⊆ H, being isomorphic to the poset of
+ submodules of H/G ≃ OK /pe , is linear.
+ Proposition 3.10. Suppose that the pair G, H has a linear poset of orders, that poset being
+                                     G =: M1 ⊊ · · · ⊊ Mℓ := H.
+  Then
+  (i) The collection of right conductors {(G : Mi )R } forms an opposite poset whilst also satisfying
+      [(G : Mi )R : (G : Mj )R ]OK = [Mj : Mi ]OK .
+ (ii) Let H0 := (G : H)R . Then for any M = Mi and u1 , u2 ∈ H1 , we have u1 (G : M)R /H0 =
+      u2 (G : M)R /H0 if and only if u1 M1 = u2 M1 .
+(iii) Let u1 , u2 ∈ H1 be given and let u := u−1
+                                               2 u1 and M := G + Gu. Then
+
+                     (u1 G/H0 ) ∩ (u2 G/H0 ) = u1 (G : M)R /H0 = u2 (G : M)R /H0 .
+               GENERALIZING HURWITZ’S PROOF OF THE FOUR-SQUARE THEOREMS                           19
+
+ Proof. (i) First we show that the map M 7→ (G : M)R reverses (non-strict) inclusions. For any
+    x ∈ (G : M)R must have 1x ∈ G due to 1 ∈ M, so (G : M)R ⊆ G. Next, if L ⊆ M and
+    x ∈ (G : M)R , then
+                                       Lx ⊆ Mx ⊆ G,
+    meaning x ∈ (G : L)R and (G : M)R ⊆ (G : L)R .
+       Next, we prove the statement on indices. Since indices behave multiplicatively on a chain
+    of lattices and we obviously have (G : G)R = G, it suffices to show [G : (G : M)R ]OK = [M :
+    G]OK for all M. Here we use the condition that the poset of orders is linear: since this is
+    the case, none of the orders may be covered by the union of its proper suborders. Thus we
+    may choose an element z ∈ M that does not belong to any proper suborder of M (that
+    also contains G). Then, since G + Gz and G + zG are both orders by Lemma 1.3 and contain
+    z, we must have G + Gz = G + zG = M. With this, we may proceed similarly to the proof
+    of Proposition 3.6: we see that for x ∈ G, if Mx ⊆ G, then surely zx ∈ G, and conversely,
+    zx ∈ G implies
+                        Mx = (G + Gz)x = Gx + Gzx ⊆ GG + GG = G.
+    So we interpret (G : M)R as the kernel of the OK -linear map
+                                           G → M/G,
+                                           x 7→ zx + G.
+    The image must then be (zG + G)/G = M/G, so we obtain
+                                       G/(G : M)R ≃ M/G,
+     which implies [G : (G : M)R ]OK = [M : G]OK .
+        Because of this relation of indices, we can improve the reversal of non-strict inclusions to
+     strict inclusions as well: if Mi ⊊ Mj , then also (G : Mi )R ⊋ (G : Mj )R . Since the original
+     poset of orders was linear, any two Mi and Mj were comparable, which then yields an
+     opposite comparison of (G : Mi )R and (G : Mj )R , so we see that everything in {(G : Mi )R }
+     is also comparable, in reversed order.
+(ii) Letting u := u−12 u1 , we equivalently want to prove
+
+                 u(G : M)R /H0 = (G : M)R /H0          if and only if    u ∈ M1 .
+       First, suppose u ∈ M1 . We know that (G : M)R is a left ideal of M, so u(G : M)R ⊆
+    (G : M)R . Similarly we get u−1 (G : M)R ⊆ (G : M)R , so the equality u(G : M)R = (G : M)R
+    follows. We finish proving this implication by just descending to the quotient by H0 .
+       Second, suppose that u(G : M)R /H0 = (G : M)R /H0 . Lifting from H/H0 to H, this
+    means u(G : M)R = (G : M)R ⊆ G. Let us denote L := G + Gu, by Lemma 1.3, this is an
+    order. We also see
+                    L(G : M)R = G(G : M)R + Gu(G : M)R ⊆ GG + GG = G,
+      and thus (G : M)R ⊆ (G : L)R . By part (i), we know these right conductors form an opposite
+      poset to the orders, with M 7→ (G : M)R being the antiisomorphism, so (G : M)R ⊆ (G : L)R
+      implies M ⊇ L ∋ u.
+(iii) Multiplying by u−12 from the left, we are equivalently proving
+
+                      (uG/H0 ) ∩ (G/H0 ) = u(G : M)R /H0 = (G : M)R /H0 ,
+    where the last equality was already the content of part (ii). We have trivial inclusions
+    (G : M)R /H0 ⊆ G/H0 and u(G : M)R /H0 ⊆ uG/H0 , making one direction clear. For the
+    other, if ux + H0 ∈ G/H0 , it means ux ∈ G, and through M = G + Gu it follows that
+    Mx ⊆ G, so x ∈ (G : M)R .                                                             □
+    With this Proposition, we are sufficiently equipped to account for
+                                                                     Sthe overcounting stemming
+ from the intersections of various uG/H0 in estimating the size of u∈H1 uG/H0 .
+20              GENERALIZING HURWITZ’S PROOF OF THE FOUR-SQUARE THEOREMS
+
+Proposition 3.11. Suppose that the pair G, H has a linear poset of orders, that poset being
+                                    G =: M1 ⊊ M2 ⊊ · · · ⊊ Mℓ := H.
+If M2 is H-perceptive, then
+                             #H1
+                                  ≤ Nm([H : G]OK ) + Nm([H : M2 ]OK )
+                             #G 1
+and equality holds if and only if G is H-perceptive.
+                        S              
+Proof. We calculate # u∈H1 uG/H0 . We split the set G/H0 into
+                      (G : Mi )R /H0 \ (G : Mi+1 )R /H0       for i = 1, . . . , ℓ − 1
+                                                                           #H            1
+and the singleton H0 /H0 . By Proposition 3.10, we then see that there are #M 1 possible results
+                                                                              i
+of
+                             u ((G : Mi )R /H0 \ (G : Mi+1 )R /H0 )
+as u ∈ H1 varies and that for distinct i, these sets are disjoint. Since
+                                     
+  # (G : Mi )R /H0 \ (G : Mi+1 )R /H0 = #(G : Mi )R /H0 − #(G : Mi+1 )R /H0 =
+                                                                                             3.10(i)
+             = Nm([(G : Mi )R : (G : H)R ]OK ) − Nm([(G : Mi+1 )R : (G : H)R ]OK ) =
+                                                    3.10(i)
+                                                      = Nm([H : Mi ]OK ) − Nm([H : Mi+1 ]OK ),
+we then count
+                             !      ℓ
+               [                   X   #H1                                      
+         #           uG/H0       =          Nm([H : Mi ]OK ) − Nm([H : Mi+1 ]OK ) + 1.
+                                       #M1i
+              u∈H1                 i=1
+
+The left-hand side is bounded above by #(H/H0 ) = Nm([H : G]OK )2 and equality is equivalent
+to perceptivity of G, H.
+  But we know that M2 is H-perceptive, so we may take the right-hand side sum starting for
+M2 in place of G. Since the terms of the sum individually do not depend on G, this corresponds
+to omitting the first term, so altogether, we obtain the statement
+                                       !
+                           [
+  Nm([H : G]OK )2 ≥ #          uG/H0 =
+                             u∈H1
+                                 #H1                                    
+                             =         Nm([H : G] OK ) − Nm([H : M ]
+                                                                  2 OK )   + Nm([H : M2 ]OK )2 .
+                                 #G 1
+Moving the term Nm([H : M2 ]OK )2 to the left-hand side and dividing both sides by
+                                  Nm([H : G]OK ) − Nm([H : M2 ]OK ),
+we obtain the desired inequality and we see that through the manipulations performed, equality
+is still equivalent to perceptivity of G, H.                                                □
+Remark 3.12. The methods of this subsection might, perhaps, be used in some further situations
+other than the case of a linear poset of orders. Essentially, everything we derived here stemmed
+from Proposition 3.10(i). Anytime its analogue – that is, the collection of right conductors
+{(G : M)R } forming an opposite poset to {orders M | G ⊆ M ⊆ H} along with the property
+about indices – could be established, the rest of the subsection could follow with the only change
+being a potentially more involved combinatorial calculation (and a different inequality) in the
+analogue of Proposition 3.11, depending on the poset of orders.
+                  GENERALIZING HURWITZ’S PROOF OF THE FOUR-SQUARE THEOREMS                         21
+
+ 3.4. Searching for perceptive suborders. In this subsection, we will use the results of this
+ section so far to find all perceptive suborders G of maximal orders H of class number 1. These
+ are (left and right) PIDs, and we saw in Section 2 that this implies that (H, nrd) is a universal
+ quadratic form. Because the action of H1 used to define perceptivity preserves reduced norms,
+ such a perceptive suborder gives us automatically:
+ Proposition 3.13. If H is a maximal order of class number 1 and G ⊆ H is an H-perceptive
+ suborder, then (G, nrd) is a universal quadratic form.
+   For these starting orders H, we appeal to a result of Kirschmer and Lorch:
+ Theorem 3.14 ([KL, Theorems II and III]). Up to isomorphism, there are 154 orders of class
+ number 1 in definite quaternion algebras over totally real number fields. Of them, 49 are maximal
+ orders.
+    We may note that these maximal orders of class number 1 occur over 15 different number
+ fields, of degree up to 5. Some of these orders may only differ by a map induced from an
+ automorphism of the number field though.
+    Now we need an algorithm to find all perceptive suborders of a given order, which we will
+ then perform on all 49 maximal orders of class number 1. Though we will still rely on brute
+ force to some extent, let us sum up results that can help in this search:
+ Lemma 3.15. Let G ⊊ H be an H-perceptive suborder. Then:
+                                                                                           1
+ (i) For any prime ideal factor p of [H : G]OK , one of Nm(p) + 1 or Nm(p)2 + 1 divides #H
+                                                                                        #G 1
+                                                                                             ,
+                               1
+      which in turn divides #H  2
+                                   .
+                                         1      1
+ (ii) Nm([H : G]OK ) = [H : G]Z < #H  #G 1
+                                           ≤ #H
+                                              2
+                                                  .
+(iii) If a is anSideal of OK such that aH ⊆ G, then for verifying that G is H-perceptive, it suffices
+      to check u∈H1 uG/aH = H/aH.
+(iv) To determine whether the pair G, H is perceptive, it suffices to determine whether each pair
+      Gi , Gi+1 is perceptive in a chain
+                                    G =: G0 ⊊ · · · ⊊ Gr := H
+                            ei
+    where [Gi+1 : Gi ]OK = pi are the individual powers of prime ideals from the factorization of
+    [H : G]OK .
+ Proof. (i) Combining Propositions 3.3 and 3.4, we can find an order F with G ⊆ F ⊆ H
+     and either H/F ≃ OK /p or H/F ≃ (OK /p)2 with F/pH being a field. Then, we apply
+     Proposition 3.6 or Proposition 3.8. Finally, we note that {±1} is a subgroup of G 1 , hence
+                        1      1
+     2 | #G 1 and so #H
+                     #G 1
+                          | #H
+                             2
+                                 .
+(ii) We may denote H0 := (G : H)R and view the action of H1 on H/H0 as in Subsection 3.2.
+     Whenever u1 G 1 = u2 G 1 , we have u1 G/H0 = u2 G/H0 , so we may view the union
+                                             [
+                                                uG/H0
+                                            u∈H1
+
+    as indexed by left cosets uG 1 instead of the individual u. Each uG/H0 has the same number
+    of elements, so we bound
+                                               !
+                                    [               #H1
+                              #         uG/H0 ≤           · #(G/H0 ).
+                                      1
+                                                     #G 1
+                                   u G
+                         #H1
+    Further, as long as #G 1 > 1, the inequality is strict, since any two uG/H0 intersect in 0+H0 .
+                                                            1
+    Since G ⊊ H, perceptivity requires that indeed #H
+                                                   #G 1
+                                                        > 1. Thus H-perceptivity of G implies
+                                                             !
+                                                  [               #H1
+           [H : G]Z · #(G/H0 ) = #(H/H0 ) = #          uG/H0 <         · #(G/H0 ),
+                                                    1
+                                                                  #G 1
+                                                      u G
+ 22              GENERALIZING HURWITZ’S PROOF OF THE FOUR-SQUARE THEOREMS
+
+      whence the conclusion follows.
+(iii) Notice that aH is a two-sided ideal of H which satisfies
+                                     H(aH) = a(HH) = aH ⊆ G,
+     i.e. aH ⊆ (G : H)R . Being a two-sided ideal (so especially a left ideal), the left action of H1
+     on H preserves aH. So as we did with H/(G : H)R , we may consider the left H1 -action of
+     H/aH and check that all orbits of this action intersect G/aH there.
+(iv) This is just Proposition 3.3 combined with Proposition 3.2.                                    □
+      Now we may state the algorithm to find perceptive suborders.
+
+ Algorithm 3.16. Input: an OK -order H in a definite quaternion algebra A over a number
+ field K.
+ Output: the set of all H-perceptive suborders of H.
+ (1) Compute H1 and determine all the prime ideals p1 , . . . , pr such that Nm(pi )+1 or Nm(pi )2 +
+                     1
+      1 divides #H 2
+                       .
+ (2) Initialize Ω := {H}.
+ (3) For each i = 1, . . . , r, pick p := pi , q := Nm(p) and do:
+      (4) Initialize Ωnew := {}.
+      (5) For each G ∈ Ω, do:
+          (6) Initialize Γ := {G}.
+          (7) As long as Γ is non-empty:
+               (8) Pick F ∈ Γ, and update Γ := Γ \ {F}, Ωnew := Ωnew ∪ {F}.
+               (9) Compute S1 := {suborders L ⊂ F with F/L ≃ OK /p} by checking all three-
+                    dimensional subspaces of F/pF containing 1 to see whether they are closed
+                    under multiplication.
+             (10) Compute S2 := {suborders L ⊂ F where F/L ≃ (OK /p)2 and L/pF is a field}
+                    by checking all two-dimensional subspaces of F/pF containing 1 to see whether
+                    they are fields.
+                                                       #G1
+              (11) For each L ∈ S1 ∪S2 , if [G : L]Z < #L 1 , then we check whether L is G-perceptive:
+
+                  (12) If already L ∈ Ωnew , take no action.
+                  (13) Else, if G/L ≃ OK /pe for some e, check perceptivity by checking whether
+                       #G 1
+                       #L1
+                            = q e + q e−1 .
+                  (14) Else, if G/L ≃ (OK /p)2 and L/pG is a field, check perceptivity by checking
+                                 #G 1    2
+                       whether #L   1 = q + 1.
+
+               (15) Otherwise, find e such that pe G ⊆ L and check perceptivity in G/pe G.
+               (16) In either case, if L is G-perceptive and L ∈
+                                                               / Ωnew yet, then update Γ :=
+                    Γ ∪ {L}.
+    (17) Update Ω := Ωnew .
+(18) Return Ω.
+   In a practical implementation, some further small optimizations may be taken. For example,
+ within one iteration of the loop (5), we may also keep a set of orders that have already been
+ found not to be G-perceptive, so that especially the brute-force check of (15) is not performed
+ unnecessarily. Similarly, we may along with each order L keep its L1 so that it is not computed
+ several times. We have left these small details out of the statement of the algorithm above for
+ the sake of conciseness.
+ Proposition 3.17. The Algorithm 3.16 is correct.
+                GENERALIZING HURWITZ’S PROOF OF THE FOUR-SQUARE THEOREMS                                    23
+
+Proof. Let G be a perceptive suborder of H, let [H : G]OK = pe11 · · · perr and let
+                                        G =: G0 ⊊ · · · ⊊ Gr := H
+be a chain of orders such that [Gr+1−i : Gr−i ] = pei i . To prove that G will be in the set returned
+by the algorithm, since Gr = H is in the initial Ω, it suffices prove that at the i-th iteration of
+the loop (3), after choosing Gr+1−i in (5), the order Gr−i will be found and added to Ωnew in
+this inner loop.
+  Between Gr−i and Gr+1−i , we may construct a chain
+                                    Gr−i := L1 ⊊ · · · ⊊ Lℓ := Gr+1−i ,
+where each pair of consecutive orders is as described in Proposition 3.4. But then we see that
+starting with Lℓ = Gr+1−i , which is initially put in Γ, every time Lj is picked as F in (8),
+Lj−1 is found in either (9) or (10), depending on whether Lj−1 ⊊ Lj is as described by (i) or
+(ii) in Proposition 3.4. Using Proposition 3.2(ii) and (iii) repeatedly, we know Gr−i is Gr+1−i -
+perceptive and so Lj−1 ⊇ Gr−i is Gr+1−i -perceptive as well. If step (12) takes place, that means
+H-perceptivity of Lj−1 has already been verified, so it is Gr+1−i -perceptive as well by Proposi-
+tion 3.2. If (13) or (14) takes place, perceptivity is ascertained correctly due to Proposition 3.6
+or 3.8 respectively. Lastly, if (15) takes place, perceptivity is checked via Lemma 3.15(iii). So
+overall, Lj−1 passes whichever test of perceptivity it is steered into, so it is added into Γ in (16)
+and hence later into Ωnew , provided it is not there already.
+   This finishes the proof that all perceptive suborders of H will be found by the algorithm.
+Conversely, any order added into Ω is checked to be a perceptive suborder of some order
+previously in Ω by one of (13), (14) or (15), so by induction and due to {H} being the initial
+value of Ω, any order in the returned set is H-perceptive by Proposition 3.2.                      □
+  Running Algorithm 3.16 on each of the 49 maximal orders of class number 1 from Theo-
+rem 3.14 a removing isomorphic copies, we obtain:
+Theorem 3.18. Up to isomorphism, there are 111 orders in definite quaternion algebras over
+totally real number fields that are perceptive in some maximal order. The list is available from
+https: // gimli. ms. mff. cuni. cz/ ~ matej/ perceptive-orders/ .
+   We used an implementation of Algorithm 3.16 in Magma, which is also available at the page
+linked above.
+   In the following subsection, it will be useful to catalogue these orders based on the factor-
+ization of their indices in their respective maximal orders:
+Definition 3.19. Let us say a suborder G of a maximal order H is of the kind pe11 · · · peaa qf11 · · · qfb b ,
+if this is the factorization of [H : G]OK into prime ideals with p1 , . . . , pa | discrd H and
+q1 , . . . , qb ∤ discrd H. If a = 1 or b = 1, we will permit ourselves to omit the subscripts of
+p and q respectively.
+  With this definition, we catalogue the orders whilst also checking their class numbers against
+the list of Theorem 3.14.
+Proposition 3.20. Of the 111 chosen representative orders G from Theorem 3.18 perceptive
+in a maximal order H:
+  • 49 are maximal,
+  • 36 are of the kind q,
+  • 5 are of the kind p,
+  • 5 are of the kind q1 q2 ,
+  • 11 are of the kind q2 and
+  • 1 is of each of the kinds pq, p2 , q3 , p3 , q4 .
+Further, each of these orders has class number 1. For those G of the kind qe , the quotient H/G
+is cyclic, that is H/G ≃ OK /qe ; while all of those G of the kind pe have a linear poset of orders
+with H.
+24             GENERALIZING HURWITZ’S PROOF OF THE FOUR-SQUARE THEOREMS
+
+3.5. Sizes of orbit intersections. In this subsection, we shall go through the catalogue of
+Proposition 3.20 and provide a formula for the number of quaternions of a given reduced norm
+in each of the orders found. Let recall the notations rH (α) and σD (α) from Subsection 2.4 and
+the fact that we proved the formula rH (α) = #H1 · σD (α) when H is a maximal order of class
+number 1.
+   The basic principle for all the proofs to come is in essence a restatement of Proposition 3.10(iii):
+Lemma 3.21. Suppose that the pair of orders G ⊆ H is perceptive and has a linear poset of
+orders. Then for q ∈ G such that M is the largest intermediate order G ⊆ M ⊆ H satisfying
+q ∈ (G : M)R , we have #(H1 q ∩ G) = #M1 .
+Proof. We know that for u ∈ H1 and M := G + uG, it holds that uq ∈ G if and only if
+q ∈ (G : M)R . Thus belonging to the respective right conductors determines which units take
+q to an element of G. But since the poset of orders is linear, the poset of the right conductors
+is also linear by Proposition 3.10(i), so the maximal one of them that contains q determines
+the order whose units land q back in G.                                                       □
+Lemma 3.22. Let M be an H-perceptive suborder and consider a left principal ideal Ma for
+some a ∈ M. Then for q ∈ H, the orbit H1 q intersects Ma if and only if q ∈ Ha.
+Proof. In one direction, if uq = ma for some u ∈ H1 , m ∈ M, then q = (u−1 m)a ∈ Ha. In
+the other direction, if q = ha for some h ∈ H, then by perceptivity, we find a u ∈ H1 such
+that uh ∈ M, so then uq = (uh)a ∈ Ma.                                                   □
+   Combining the two lemmata, we may say: if G, H is a perceptive pair with a linear poset of
+orders and (G : M)R = MaM for each of the intermediate orders, then #(H1 q ∩ G) = #M1 ,
+where M is the largest intermediate order such that q ∈ HaM . We may also notice in this
+situation that if M1 ⊆ M2 , then aM1 divides aM2 from the right as elements of H.
+   In the following theorem and others like it, we of course take only totally positive α. Since
+some ideas in the proofs will repeat themselves, we will present these proofs more thoroughly in
+the beginning and then gradually more shortly, referring to repetitions of ideas from previous
+proofs. We will also illustrate some of the theorems with examples of particular quadratic forms
+over Z that such orders correspond to.
+Theorem 3.23. Let G be a perceptive suborder of the kind q in a maximal order H with class
+number 1 and discrd H = D = p1 · · · pk . Then
+                           X                                X
+        rG (α) = 2#G 1 ·                 Nm(δOK ) − #G 1             Nm(δOK ) =
+                            p1 ,...,pk ∤δOK |αOK             q,p1 ,...,pk ∤δOK |αOK
+                        1                  1
+(1)              = 2#G σD (α) − #G σqD (α).
+Proof. We have [H : G]OK = q, hence H/G ≃ OK /q, so G, H trivially has a linear poset of
+orders. Further, perceptivity implies that #H1 = #G 1 · (Nm(q) + 1).
+  We have that (G : H)R is a left ideal of H, which is a principal ideal domain (being a maximal
+order of class number 1), so (G : H)R = Ha for some a ∈ (G : H)R . Further, we know that
+[H : (G : H)R ]OK = q2 and [H : Ha]OK = nrd(a)2 OK , hence we must have nrd(a)OK = q.
+Additionally, (G : G)R = G = G · 1 trivially. So applying the consequence of the two lemmata
+above, we see that                            (
+                                               #H1 , if q ∈ Ha,
+                               #(H1 ∩ G) =
+                                               #G 1 , otherwise
+for q ∈ H.
+                          +
+   Denote π := nrd(a) ∈ OK  , a generator of q, and q := Nm(π) = Nm(q). We will consider an
+       +                                                      +
+α ∈ OK and factorize it as α = βπ e for some e ≥ 0 and β ∈ OK   with π ∤ β. Let us count how
+                                 e
+many of the σD (α) = σD (β)σD (π ) orbits with reduced norm α that exist in H are contained in
+Ha. By Proposition 2.6, we may consider quaternions of reduced norm α in H factorized in the
+              GENERALIZING HURWITZ’S PROOF OF THE FOUR-SQUARE THEOREMS                                25
+
+form bq with nrd(b) = β, nrd(q) = π e . Due to the coprime reduced norms, we have bq ∈ Ha
+if and only if q ∈ Ha (e.g. because b will be invertible is some H/π a H such that π a H ⊆ Ha),
+so it suffices to count rG (π e ) and then multiply from the left by σD (β).
+   Now, orbits H1 q of quaternions of reduced norm π e that lie in Ha are exactly of the form
+Hq0 a for nrd(q0 ) = π e−1 , so there are as many of them as orbits of reduced norm π e−1 , that is
+(1 + q + · · · + q e−1 ) for e ≥ 1 and 0 otherwise. The remaining q e orbits then do not lie in Ha.
+Thus we calculate for e ≥ 1 that
+             rG (π e ) = (1 + q + · · · + q e−1 )#H1 + q e #G 1 =
+                      = #G 1 (1 + q + · · · + q e−1 )(q + 1) + q e =
+                                                                  
+
+                      = #G 1 (2(1 + q + · · · + q e ) − 1) = 2#G 1 σD (π e ) − #G 1 σqD (π e ),
+and a posteriori we observe that this also happens to be true for e = 0. Hence multiplying by
+                                                     / q, we obtain rG (α) = #G 1 · (2σD (α) −
+σD (β) and using fact that σD (β) = σqD (β) due to β ∈
+σqD (α)) as desired.                                                                         □
+  Note that just by rearranging the right-hand side of (1), it may also be written as
+                              X                                X
+           rG (α) = #G 1               Nm(δOK ) + #G 1                  Nm(δOK ).
+                             p1 ,...,pk ∤δOK |αOK                              p1 ,...,pk ∤δOK |αOK
+                                                                                        q|δOK
+
+Example 3.24. Inside the Hurwitz order H := Z ⊕ Zi ⊕ Zj ⊕ Z 1+i+j+k    2
+                                                                           , a maximal order of
+class number 1 and reduced discriminant 2Z, the suborder G := Z ⊕ Z11i ⊕ Z(j − i) ⊕ Z 1+7i+j+k
+                                                                                          2
+is perceptive and of the kind 11Z, whilst having #G 1 = 2. So writing out the quadratic form
+(G, nrd) and applying the proposition, we see that for a positive integer n, the equation
+                 t2 + 121x2 + 2y 2 + 13z 2 + tz − 22xy + 77xz − 6yz = n
+              X      X
+has exactly 4   d−2       d solutions.
+              2∤d|n       11,2∤d|n
+
+Theorem 3.25. Let G be a perceptive suborder of the kind p in a maximal order H with class
+number 1 and discrd H = D = pp2 · · · pk . Then
+                                               X
+(2)                      rG (α) = #G 1                Nm(δOK ).
+                                                    p2 ,p2 ,...,pk ∤δOK |αOK
+
+Proof. The proof of this proposition follows mostly similarly to the previous one, so let us
+simply treat the few differences and leave out what would be merely a repetition.
+  The characterization of the sizes of intersections of orbits with G is analogous: we have
+(G : H)R = Ha with nrd(a) = π being a generator of p. The discussion now turns rather trivial
+though, because for all e, there is only one orbit of quaternions of reduced norm π e , hence
+q ∈ Ha if and only if π | nrd(q).
+  So, splitting the orbits based on the size of their intersections with G again, we just get
+                                        (
+                                         #H1 σD (α), if π | α,
+                               rG (α) =
+                                         #G 1 σD (α), otherwise.
+Then we finish by noticing that this agrees with (2) simply by the virtue of #H1 = (Nm(p) +
+1)#G 1 , the looser condition p2 ∤ δOK exactly adding a factor of Nm(p) + 1 for α’s divisible by
+π compared to the stricter p ∤ δOK .                                                          □
+Example 3.26. Inside the Hurwitz order H := Z ⊕ Zi ⊕ Zj ⊕ Z 1+i+j+k
+                                                                  2
+                                                                     , a maximal order of
+class number 1 and reduced discriminant 2Z, the Lipschitz order G := Z ⊕ Zi ⊕ Zj ⊕ Zk is
+perceptive and of the kind 2Z, having #G 1 = 8. Hence we see that
+                                             t2 + x2 + y 2 + z 2 = n
+26              GENERALIZING HURWITZ’S PROOF OF THE FOUR-SQUARE THEOREMS
+                X
+has exactly 8           d solutions, i.e. we have recovered Jacobi’s four-square theorem.
+                4∤d|n
+
+Theorem 3.27. Let G be a perceptive suborder of class number 1 in a maximal order H such
+that H/G ≃ OK /q2 and let H have q ∤ discrd H = D = p1 · · · pk . If q := Nm(q) and α ∈ qe but
+α∈/ qe+1 for some e ≥ 0, then
+                                                         
+                                   X                     1,
+                                                                                        e = 0,
+                      1
+(3)       rG (α) = #G                          Nm(δOK ) · 2q,                            e = 1,
+                        q,p1 ,...,pk ∤δOK |αOK           2(q + · · · + q e ) + q e − q, e ≥ 2.
+                                                         
+
+Proof. Due to the cyclic quotient, we have the linear poset of orders G ⊂ M ⊂ H, where
+M := G + qH, and perceptivity implies #M1 = q#G 1 and #H1 = q(q + 1)#G 1 . Let us start
+by identifying the conductors.
+               +
+  Let π ∈ OK     be a generator of q. Trivially we have (G : G)R = G and (G : H)R = Ha2 ,
+where considering indices and reduced norms yields nrd(a2 )OK = q2 . Next we claim that
+(G : M)R = Ma1 for some a1 ∈ (G : M)R . For that, denote OL ((G : M)R ) =: L, this must
+contain M since (G : M)R is a left ideal of M. By Proposition 1.8, we have # Cls L = 1, so
+then (G : M)R = La1 for some a1 ∈ (G : M)R . Since M is an index-q suborder of a maximal
+order, either L = M or [L : M]OK = q. But the latter would lead to
+                               q2 = [M : (G : M)R ]OK = q−1 · nrd(a1 )2 OK ,
+which is absurd, because the ideal on the left is a square and the one on the right is not. So we
+indeed have L = M and (G : M)R = Ma1 . Considering indices then gives nrd(a1 ) = q.
+   Possibly multiplying by a unit from OK (here we use Cl+ K = 1 due to Proposition 1.8),
+we may presume that nrd(a1 ) = π, nrd(a2 ) = π 2 . As in the proof of Theorem 3.23, we may
+consider quaternions of reduced norm α = βπ e as factorized into bq, nrd(b) = β, nrd(q) = π e
+and the choice of b is then irrelevant for whether the orbit of such a quaternion belongs to
+either of the two Hai . So we only count rG (π e ) and then multiply by σD (β).
+   Now, counting orbits H1 q of quaternions of reduced norm π e in Hai is equivalent to counting
+the orbits H1 qa−1
+                 i  of reduced norm π e−i in H, which yields 1 + q + · · · + q e−i for e ≥ i. Let us
+deal with small cases of e first; if e = 0, tautologically we obtain rG (1) = #G 1 . Then, for e = 1,
+of the 1 + q orbits of reduced norm π, one lies in Ha1 (that is, H1 a1 itself), none of them lies
+in Ha2 and the remaining q are only in H. So we count
+                                   rG (π) = #M1 + q#G 1 = #G 1 (q + q)
+as desired for (3).
+   Next we deal with the general case e ≥ 2. Then 1 + q + · · · + q e−2 orbits lie in Ha2 , leaving
+(1 + q + · · · + q e−1 ) − (1 + q + · · · + q e−2 ) = q e−1 of them in Ha1 and (1 + q + · · · + q e ) − (1 +
+q + · · · + q e−1 ) = q e merely in H. Thus we calculate
+                   rG (π e ) = (1 + q + · · · + q e−2 )#H1 + q e−1 #M1 + q e #G 1 =
+                             = #G 1 (1 + q + · · · + q e−2 ) · q(q + 1) + q e−1 · q + q e =
+                                                                                         
+
+                             = #G 1 q + 2q 2 + · · · + 2q e−1 + 3q e =
+                                                                    
+
+                             = #G 1 (2(q + · · · + q e ) + q e − q)
+as desired. Multiplying by σD (β) = σqD (α) as justified above, we then obtain (3).                      □
+Example 3.28. Inside the maximal order H := Z ⊕ Z 1+i 2
+                                                        ⊕ Zj ⊕ Z j+k
+                                                                  2
+                                                                     (which has class number
+       −3,−1                                   1−i      1+i+j+k
+                                                   
+1) of    Q
+               , the suborder G := Z ⊕ Z2i ⊕ Z 2 + j ⊕ Z 2      is perceptive and of the kind
+     2               1
+(2Z) , having #G = 2. Hence for any positive integer n with 2-adic valuation e, the equation
+                             t2 + 12x2 + 2y 2 + 2z 2 + ty + tz − 6xy + 6xz = n
+               GENERALIZING HURWITZ’S PROOF OF THE FOUR-SQUARE THEOREMS                                        27
+                                                          
+                                                X         1,
+                                                                        e = 0,
+has its number of solutions given exactly by 2         d · 4,            e = 1,
+                                               2,3∤d|n    2e+2 + 2e − 6 e ≥ 2.
+                                                          
+
+Theorem 3.29. Let G be a perceptive suborder of the kind p2 and class number 1 in a maximal
+order H with a linear poset of orders G ⊊ M ⊊ H and discrd H = D = pp2 · · · pk . If q := Nm(p)
+and α ∈ pe but α ∈/ pe+1 for some e ≥ 0, then
+                                                                   
+                                             X                     1,
+                                                                            e = 0,
+                                1
+(4)                rG (α) = #G                           Nm(δOK ) · q,       e = 1,
+                                  p,p2 ,...,pk ∤δOK |αOK           q 2 + q, e ≥ 2.
+                                                                   
+
+Proof. Again, the proof is similar to that of Theorem 3.27, but simpler due to the nature of
+quaternions of reduced norm pe , so we just highlight the differences.
+   The proof that (G : M)R is a principal left ideal of M goes through in the same way as before,
+so then #(H1 q ∩ G) is determined by the belonging or non-belonging of q to some Ha2 , Ha1
+or just H with nrd(ai )OK = p2 . Since Cl+ K = 1, we may choose a totally positive generator π
+of p and take nrd(ai ) = π i . But since there is only one orbit of reduced norm π e for each e ≥ 0,
+we have q ∈ Hai if and only if π i | nrd(q).
+   Thus we obtain
+                                                           
+                                      1
+                                #G , e = 0,                1,
+                                                                          e = 0,
+                        e               1                  1
+                   rG (π ) =     #M , e = 1,         = #G · q,             e = 1,
+                                #H1 , e ≥ 2                
+                                                             q(q + 1), e ≥ 2
+
+and multiplying by σD (β) with β from the factorization α = βπ e , π ∤ β yields (4).                           □
+Theorem 3.30. Let G be a perceptive suborder of the kind q1 q2 and class number 1 in a maximal
+order H with discrd H = D = p1 · · · pk . Then
+                       X                                  X
+(5) rG (α) = 4#G 1              Nm(δOK ) − 2#G 1                     Nm(δOK ) −
+                      p1 ,...,pk ∤δOK |αOK                        q1 ,p1 ,...,pk ∤δOK |αOK
+                               X                                              X
+            − 2#G 1                              Nm(δOK ) + #G 1                                  Nm(δOK ) =
+                      q2 ,p1 ,...,pk ∤δOK |αOK                     q1 ,q2 ,p1 ,...,pk ∤δOK |αOK
+
+                                     = 4#G σD (α) − 2#G σq1 D (α) − 2#G 1 σq2 D (α) + #G 1 σq1 q2 D (α).
+                                                  1           1
+
+
+Proof. First, let us investigate the poset of orders of G, H. Since [H : G]OK = q1 q2 , the only
+quotient module H/G for such an index is the cyclic module OK /q1 q2 , which decomposes as
+OK /q1 × OK /q2 . Thus there are only two intermediate modules (corresponding to OK /q1 × {0}
+and {0} × OK /q2 ), which are also modules because we express them as M1 := G + q2 H,
+M2 := G + q1 H; this is so that [Mi : G]OK = qi .
+   Since both pairs G, M1 and G, M2 have a linear poset of orders, it follows that [G :
+(G : Mi )R ]OK = [Mi : G]OK . Further, (1, 1) in OK /q1 × OK /q2 is not contained in either
+of the submodules OK /q1 × {0} or {0} × OK /q2 , so this corresponds to some z ∈ H such that
+H = G + Gz = G + zG, with which one easily shows that [G : (G : H)R ]OK = [H : G]OK just
+as in the proof of Proposition 3.10(i). As in that proof, we also have that M 7→ (G : M)R re-
+verses inclusions, so thanks to the indices, it also preserves strict inclusions. Finally, due to [G :
+(G : Mi )R ] = qi being comaximal, the two conductors (G : Mi )R must be incomparable in inclu-
+sion. So altogether, we have shown that the collection of conductors {(G : M)R | G ⊆ M ⊆ H}
+forms an opposite poset to the poset of orders. In other words, we have established the conclu-
+sion of Proposition 3.10(i) for the poset of intermediate orders between G and H. Since parts
+(ii) and (iii) of that Proposition only relied on the conclusion of (i) and not other conditions of
+the Proposition directly, we may now use (ii) and (iii) in our situation.
+28              GENERALIZING HURWITZ’S PROOF OF THE FOUR-SQUARE THEOREMS
+
+  Now, arguing with indices [Mi : (G : Mi )R ]OK = q2i and parity of exponents as in the proof
+of Theorem 3.27, we obtain (G : Mi )R = Mi ai with some nrd(ai )OK = qi OK . Further, we
+obtain (G : H)R = Ha for some a of reduced norm nrd(a)OK = q1 q2 . If we choose totally
+positive generators π1 , π2 of q1 , q2 respectively, then we may without loss of generality take
+nrd(ai ) = πi , nrd(a) = π1 π2 . Additionally, let us denote qi := Nm(qi ).
+  The size of H1 q ∩ G is now determined by which of the conductors
+          (G : G)R = G,      (G : M1 )R = M1 a1 ,         (G : M2 )R = M2 a2 ,            (G : H)R = Ha,
+the orbit intersects, hence we obtain
+                                       
+                                       
+                                        #H1 ,             if q ∈ Ha,
+                                       #M1 ,
+                                       
+                                                           if q ∈ Ha1 \ Ha,
+                                             1
+                         #(H1 q ∩ G) =
+                                       
+                                        #M12 ,            if q ∈ Ha2 \ Ha,
+                                       
+                                        1
+                                         #G ,              if q ∈ H \ (Ha1 ∪ Ha2 ).
+All of these conditions are unchanged when multiplying from the left by some b with nrd(b) ∈               /
+q1 , q2 , so as we have seen a number of times so far, it suffices that we count rG (π1e1 π2e2 ) and then
+multiply from the left by the number of orbits of some reduced norm β ∈               / q1 , q2 taken from a
+factorization α = βπ1e1 π2e2 , i.e. by σD (β).
+   Now, considering quaternions of reduced norm π1e1 π2e2 in H, we see that Ha contains exactly
+σD (π1e1 −1 π2e2 −1 ) of their orbits. Similarly, Ha1 contains σD (π1e1 −1 π2e2 ), so
+                      σD (π1e1 −1 )σD π2e2 ) − σD (π1e1 −1 )σD π2e2 −1 ) = σD (π1e1 −1 ) · q2e2
+are in Ha1 \ Ha. Similarly, Ha2 \ Ha contains q1e1 σD (π2e2 −1 ) orbits. Subtracting from σD (π1e1 π2e2 )
+all orbits accounted for so far, we get q1e1 q2e2 orbits that only lie in H. Note that all this counting
+is sensible even for e1 = 0 or e2 = 0 if we interpret
+                                                                        qiei +1 − 1
+                                 σD (πiei ) = 1 + qi + · · · + qiei =
+                                                                           qi − 1
+                          q −1+1 −1
+and hence σD (πi0−1 ) = i qi −1 = 0, which we do.
+  Weighing this and considering that #M1i = (qi + 1)#G 1 and #H1 = (q1 + 1)(q2 + 1)#G 1 , we
+obtain
+         rG (π1e1 π2e2 ) = σD (π1e1 −1 π2e2 −1 )#H1 + σD (π1e1 −1 )q2e2 #M11 + q1e1 σD (π2e2 −1 )#M12 +
+                                  + q1e1 q2e2 #G 1 =
+                            
+                      = #G 1 σD (π1e1 −1 π2e2 −1 )(q1 + 1)(q2 + 1) + σD (π1e1 −1 )q2e2 (q1 + 1) +
+                                                                      
+                              + q1e1 σD (π2e2 −1 )(q2 + 1) + q1e1 q2e2 =
+                      = #G 1 σD (π1e1 −1 )(q1 + 1) + q1e1 σD (π2e2 −1 )(q2 + 1) + q2e2 =
+                                                                                         
+
+                      = #G 1 (2σD (π1e1 ) − 1) (2σD (π2e2 ) − 1) .
+If we now interpret the solitary −1’s in the two parentheses as σqi D (πiei ) and multiply out, we
+get an expression corresponding to (5) if α = π1e1 π2e2 . Multiplying by σD (β) for α = βπ1e1 π2e2
+then yields the Proposition in its full statement.                                              □
+Theorem 3.31. Let G be a perceptive suborder of the kind pq and class number 1 in a maximal
+order H with discrd H = D = pp2 · · · pk . Then
+                            X                                  X
+(6)    rG (α) = 2#G 1 ·                   Nm(δOK ) − #G 1                Nm(δOK ).
+                            p2 ,p2 ,...,pk ∤δOK |αOK                    q,p2 ,p2 ,...,pk ∤δOK |αOK
+
+Proof. We argue in the same fashion as in Theorem 3.30, but just like in Theorem 3.25 the
+prime p | D only contributes a factor of Nm(p) + 1 to those α’s contained in p, which then may
+be interpreted as loosening a condition p ∤ δOK to p2 ∤ δOK .                               □
+               GENERALIZING HURWITZ’S PROOF OF THE FOUR-SQUARE THEOREMS                            29
+
+Example 3.32. Inside the Hurwitz order, we found a perceptive suborder G := Z ⊕ Z3i ⊕ Z(i +
+j) ⊕ Z(i + k) of the kind (2Z)(3Z), having #G 1 = 2. Hence we see that for a positive integer n,
+the equation
+                                t2 + (3x + y + z)2 + y 2 + z 2 = n
+              X          X
+has exactly 4      d−2       d solutions.
+              4∤d|n     3,4∤d|n
+
+  Reviewing Proposition 3.20, the only orders not covered by our results so far are
+                               Gp3 = Z ⊕ Z2i ⊕ Z2j ⊕ Z(i + k)
+inside the Hurwitz order in the algebra −1,−1
+                                              
+                                          Q
+                                                and
+                                                 √      √
+                                 i+j        (1 + 2) + ( 2 − 1)i + j + k
+         Gq3 = OK ⊕ OK 2i ⊕ OK √ ⊕ OK                                   ,
+                                    2                     2
+                                                            √         √
+                          √
+                                               
+                                          i+j          (1 + 2) + (3 + 2)i + j + k
+         Gq4 = OK ⊕ OK 2 2i ⊕ OK 2i + √           ⊕ OK                            ,
+                                             2                      2
+both inside the so-called cubian order
+                                    1                 1               1+i+j+k
+                  K = OK ⊕ OK √ (1 + i) ⊕ OK √ (1 + j) ⊕ OK
+                                     2                 2                    2
+                                      √
+in the algebra −1,−1
+                      
+                        over K = Q( 2). Note that cubians were used by Deutsch [De2] to prove
+                  K                           √
+a theorem on sums of four squares over Q( 2) originally due to Cohn.
+   Let us first focus on G := Gp3 inside the Hurwitz order. Its maximal order is the Hurwitz
+order H = Z ⊕ Zi ⊕ Zj ⊕ Z 1+i+j+k 2
+                                       and with it, it has a linear poset of orders consisting of the
+Lipschitz order L = Z ⊕ Zi ⊕ Zj ⊕ Zk and the order M = Z ⊕ 2i ⊕ Zj ⊕ Z(i + k). To mimic
+the proof of Theorem 3.29, let us show that the right conductor of each of these orders in G
+is a left principal ideal of its respective order. For H and L, we can do this in the same way
+as in previous theorems, since these orders are a maximal order and an index-2 suborder of a
+maximal order respectively. For M, we do it explicitly, claiming that
+                                      (G : M)R = M(i + k).
+On one hand, since M = G + Gj and j(i + k) = −k + i ∈ G, we see that M(i + k) ⊆ G, hence
+i + k ∈ (G : M)R and so M(i + k) ⊆ (G : M)R because the latter is a left ideal of M. On the
+other hand we know that
+                           [M : (G : M)R ]Z = [M : G]2Z = 4Z,
+so since [M : M(i + k)]Z = nrd(i + k)2 Z = 4Z, equality must occur in M(i + k) ⊆ (G : M)R .
+   Now the rest of the discussion of orbit intersections goes exactly as in Theorem 3.29: the
+intersection size of an orbit depends on which of the conductors it intersects, that in turn
+depends on which corresponding left ideal of H it lies in, but because there is only one orbit of
+irreducible quaternions of reduced norm 2e in H for all e ≥ 0, this only depend on the 2-adic
+valuation of the reduced norm. Depending on this, the intersection sizes may be either
+                  #G 1 = 2,       #M1 = 4,       #L1 = 8        or     #H1 = 24.
+Thus we obtain:
+Theorem 3.33. Let G = Gp3 be as above and let n ∈ Z+ have 2-adic valuation e. Then
+                                                
+                                                
+                                                 1, e = 0,
+                                                
+                                       X 2, e = 1,
+(7)                         rG (n) = 2       d·
+                                       2∤d|n
+                                                
+                                                 4, e = 2,
+                                                
+                                                  12, e ≥ 3.
+                                                
+30              GENERALIZING HURWITZ’S PROOF OF THE FOUR-SQUARE THEOREMS
+
+  Now we focus on the two suborders of the cubians. Note that Gq4 is a suborder of Gq3 and
+that K/Gq4 is a cyclic module, so the poset of orders is just
+
+                      Gq4 ⊊ Gq4 + q3 K = Gq3 ⊊ Gq4 + q2 K ⊊ Gq4 + qK ⊊ |{z}
+                                                                        K ,
+                     |{z} |        {z      } | {z } | {z }
+                     =:M4            =:M3              =:M2           =:M1       =:M0
+
+            √              √
+where q = 2OK = (2 − 2)O√K . Explicitly,√
+                                                the cyclic module M0 /M4 is generated by (the
+          1+i                (1− 2)+i+( 2−1)j+k
+class of) √2 . Denoting a :=          2
+                                                 ∈ M4 , we calculate explicitly that
+
+                                             1+i
+                                             √ · a ∈ M1 ,
+                                              2
+                             √
+hence M0 a ⊆ M1 . Since          2Mi ⊆ Mi+1 , we also analogously obtain
+                                         √      1+i
+                                        ( 2)i OK √ a ⊆ Mi+1 .
+                                                  2
+          √                                               √
+Then since 2 1+i
+             √ a ∈ M2 , we get M0 a2 ⊆ M1 a = M2 + M2 2 1+i
+               2
+                                                               √ a ⊆ M2 etc. – in general,
+                                                                2
+    j                                                        j
+Mi a ⊆ Mi+j for all i and j that makes sense. Then since Mi a ⊆ (Mi+j : Mi )R and
+                                              √
+                   [Mi : (Mi+j : Mi )R ]OK = ( 2)2j OK = nrd(aj )2 OK ,
+we get that (Mi+j : Mi )R = Mi aj .
+  Thus when investigating the size of the intersection for each orbit, we will have #(H1 q ∩ Mi ) =
+#M1i−j if and only if j is the largest such that q ∈ Haj . In other words, for both Gq3 = M3 and
+Gq4 = M4 , we obtain a calculation
+                             √ e       akin to that of Theorem
+                                                             √ 3.27. Within this calculation, we
+only√need to find rMi ((2 − 2) ) (here we chose π := 2 − 2 as a totally positive generator  √ of
+q = 2OK ) and subsequently multiply by σqD (α) = σ√2OK (α). When counting rMi ((2 − 2)e ),
+we get the term corresponding to Haj contributing
+                           √ e−j                √ e−j−1 
+             1
+        #Mi−j σD ((2 − 2) ) − σD ((2 − 2)                ) = #M1i · 2j · 2e−j = 2e #M1i
+
+for all j < i and then
+                 √
+  #M10 σD ((2 − 2)e−i ) = #M1i (2i + 2i−1 )(1 + 2 + · · · + 2e−i ) =
+                                                           = #M1i 2(2i−1 + · · · + 2e ) − 2i−1 − 2e ,
+                                                                                                   
+
+with the contribution from Haj only happening if e ≥ j. Thus, for the small cases, we get #Mi
+times 1 · 20 , 2 · 21 , . . . , i2i−1 , until finally for the general case e ≥ i we get
+
+  #Mii · 2(2i−1 + · · · + 2e ) − 2i−1 − 2e + i2e =
+                                                         
+
+                                                          = #Mii · 2(2i−1 + · · · + 2e ) + (i − 1)2e − 2i−1
+                                                                                                            
+
+  Hence, specializing these calculations to M3 = Gq3 and M4 = Gq4 , which have #Gq13 = 4 and
+#Gq14 = 2 respectively, we obtain the last of the Jacobi-like formulas:
+                                                                +
+                                                                                    √ e
+Theorem     3.34. Let  G  =  G   3 be as above and let α ∈ O       satisfy   α ∈  (  2) OK but α ∈
+                                                                                                 /
+ √ e+1                          q                              K
+( 2) OK . Then
+                                               
+                                               
+                                                1,                                  e = 0,
+                                               
+                                               2 · 2,
+                          X                                                          e = 1,
+(8)       rG (α) = 4                Nm(δOK ) ·       2
+                     √                          3·2 ,                               e = 2,
+                      2OK ∤δOK |αOK
+                                               
+                                               
+                                                2              e          e    2
+                                                 2(2 + · · · + 2 ) + 2 · 2 − 2 , e ≥ 3.
+               GENERALIZING HURWITZ’S PROOF OF THE FOUR-SQUARE THEOREMS                             31
+
+                                                              +
+                                                                                   √ e
+Theorem
+ √ e+1   3.35. Let   G  =  G  q4 be as above and let α ∈ O
+                                                             K    satisfy α  ∈   (  2) OK but α ∈
+                                                                                                /
+( 2) OK . Then
+                                             
+                                             
+                                              1,                                   e = 0,
+                                             2 · 2,
+                                             
+                        X
+                                             
+                                                                                   e = 1,
+(9)    rG (α) = 2                                  2
+                                  Nm(δOK ) · 3 · 2 ,                                e = 2,
+                  √                               3
+                    2OK ∤δOK |αOK
+                                             
+                                             
+                                             
+                                              4·2 ,                                e = 3,
+                                              3
+                                               2(2 + · · · + 2e ) + 3 · 2e − 23 , e ≥ 4.
+   Let us remark that in these results, we sometimes relied on certain “happy coincidences”
+observed on concrete data obtained algorithmically: namely, that all the perceptive suborders
+from Theorem 3.18 happened to have class number 1, that those of them that were of the kinds
+pa and qb happened to have linear posets of orders, and that the relevant right conductors
+(G : M)R were principal, of the form Ma (which is just equivalent to OL (G : M)R = M, since
+then we could leverage # Cls M ≤ # Cls G = 1). One avenue of further research might thus be
+to investigate whether these are indeed coincidences, or rather if they are provable consequences
+of perceptivity combined with the maximal order having class number 1. As we alluded to in
+Remark 3.12 as well as in the proof of Theorem 3.30, the condition of having a linear poset of
+orders does not seem to be tightly necessary in our endeavor, because as long as the conductors
+(G : M)R form an opposite poset to the intermediate orders G ⊆ M ⊆ H and satisfy the
+condition on indices (Proposition 3.10(i)), the rest of the subsequent theory can be carried out
+without major alterations. However, we have not been able to establish Proposition 3.10(i) in
+a more general situation – the problem is when an order would be covered by the union of its
+proper suborders.
+
+            4. A quaternionic proof of Götzky’s four-square theorem
+   In this short section, we will illustrate that perceptivity of a suborder may not be necessary
+for a Hurwitz-like method – examining the norm form of a quaternion order through a maximal
+superorder with class number 1 – √    to succeed. This will be achieved by proving an analogue of
+Jacobi’s four-square theorem in Q( 5) originally due to Götzky. Throughout     this entire section,
+                    √                                                       √
+                                                                          1+ 5
+let us fix K := Q( 5) and its ring of integers OK = Z[φ], where φ = 2 is the golden ratio.
+Note that OK has narrow class number 1.
+                                    +
+Theorem 4.1 (Götzky). For any α ∈ OK , the equation α = t2 + x2 + y 2 + z 2 has exactly
+           X                       X                         X
+        8        Nm(δOK ) − 4              Nm(δOK ) + 8               Nm(δOK )
+             δOK |αOK                2OK |δOK |αOK                4OK |δOK |αOK
+
+solutions t, x, y, z ∈ OK . In particular, the quadratic form t2 + x2 + y 2 + z 2 is universal over K.
+   Götzky originally derived this result through
+                                             √    an analytic approach [Go], although Kirmse had
+already studied sums of four squares in Q( 5) using quaternions before that [Kr]. More recently,
+Deutsch used quaternions and geometry of numbers to prove universality of t2 + x2 + y 2 + z 2
+over K, but did not extract the full formula for the number of representations [De1]. Here, we
+will provide a quaternionic proof of the full theorem. The analytic point of view of Götzky’s
+theorem was also recently examined by Thompson [Th].
+   Of course, Götzky’s theorem is easily restated as a formula for rG with the order G :=
+OK ⊕ OK i ⊕ OK j ⊕ OK k in −1,−1 K
+                                      . Within the framework established in Section 3, the role of
+the maximal superorder will be played by the icosian order
+                                 I := OK ⊕ OK i ⊕ OK h ⊕ OK ih,
+where h = 12 (φ + (φ − 1)i + j). This is a maximal order in −1,−1
+                                                                 
+                                                              K
+                                                                   , it has reduced discriminant
+                                     1
+OK , class number 1 and its group I , the so-called binary icosahedral group, has 120 elements.
+32            GENERALIZING HURWITZ’S PROOF OF THE FOUR-SQUARE THEOREMS
+
+Both the group I1 and the icosian order have many remarkable properties, for which we refer
+the reader to [CSl, §8.2].
+   Let us verify that G, I has a linear poset of orders, identifying the poset in the process. We
+have [I : G]OK = 4OK and 2I ⊆ G; further, in OK , the rational prime 2 is inert, so I/2I is a
+four-dimensional algebra over the four-element field k := OK /2OK in which G/2I is present as
+a two-dimensional subalgebra spanned by (the residue classes of) 1 and i. Additionally, since
+2OK ∤ discrd I, we have I/2I ≃ M2 (k) by Lemma 2.11.
+   Suppose H is an order with G ⊊ H ⊊ I, then H/2I will manifest as a three-dimensional
+subalgebra of I/2I containing G/2I. We may thus take the basis of H/2I to be 1, i, q for some
+q ∈ H. Then by Lemma 1.2, (i + a)(q + b) = 0 in I/2I for some a, b ∈ k, and nrd(i + a) ≡
+nrd(q + b) ≡ 0 (mod 2OK ). The only elements of reduced norm divisible by 2 in the two-
+dimensional subalgebra G/2I are scalar multiples of 1 + i, which forces a = 1. All non-trivial
+ideals in M2 (k) are two-dimensional, the set of elements that annihilate 1+i from the right forms
+a non-trivial right ideal and it contains the ideal (1 + i)I/2I, so these two must coincide because
+they are both two-dimensional. Thus we see that q + b must be chosen from (1 + i)I/2I. But
+this two-dimensional ideal intersects the two-dimensional subalgebra G/2I in a one-dimensional
+subspace, so together, they span just a three-dimensional subspace. Thus any choice of q + b
+from (1 + i)I/2I \ G/2I in fact gives the same three-dimensional subspace.
+   This means there may be at most one three-dimensional algebra H/2I of the desired prop-
+erties, and we easily see that k ⊕ ki ⊕ kj is a such an algebra, since ij ≡ ji ≡ (φ − 1) + φi
+(mod 2I). This corresponds to the order
+                                                            1+i+j+k
+                            H = OK ⊕ OK i ⊕ O K j ⊕ O K                  ,
+                                                                  2
+essentially an analogue over OK of the Hurwitz order over Z. Thus we have identified the full
+poset of orders between G and I, this poset being G ⊂ H ⊂ I.
+   Straightforwardly, one calculates that #H1 = 24 and #G 1 = 8. Alongside #I1 = 120,
+applying Proposition 3.11, we obtain that H is I-perceptive but G is not.
+   Next, we may wish to examine the right conductors arising in this poset. (G : I)R must have
+[G : (G : I)R ]OK = 4OK by Proposition 3.10, but since 2I ⊆ G, it follows that 2I ⊆ (G : I)R , so
+just by considering indices, we obtain (G : I)R = 2I. Next we show (G : H)R = H(1 + i). On one
+hand, we must have [H : (G : H)R ]OK = 4OK , on the other, we see H = G + G 1+i+j+k   2
+                                                                                          , so
+                              1+i+j+k
+                                          · (1 + i) = i + j ∈ G
+                                   2
+implies 1 + i ∈ (G : H)R and so H(1 + i) ⊆ (G : H)R . Due to indices, we then get (G : H)R =
+H(1 + i).
+Lemma 4.2. For each ũ ∈ I/2I with nrd(ũ) ≡ 1 (mod 2OK ), there is a u ∈ I1 such that u ≡ ũ
+(mod 2I). As a consequence, for any q ∈ I with 2 ∤ nrd(q), the set I1 q ∩ G is non-empty.
+Proof. First, we claim that for u1 , u2 ∈ I1 , we have u1 ≡ u2 (mod 2I) if and only if u1 = ±u2 .
+The “if” part is obvious, so to prove the “only if” part, let us presume that u1 ̸= ±u2 and
+show that u1 ̸≡ u2 (mod 2I).
+  Since u1 + u2 ̸= 0, we have
+                             0 ≺ nrd(u1 + u2 ) = 1 + trd(u1 u2 ) + 1,
+hence trd(u1 u2 ) ≻ −2. Using this bound, we then have
+                             0 ≺ nrd(u1 − u2 ) = 2 − trd(u1 u2 ) ≺ 4
+and taking the field norm yields 0 < Nm(nrd(u1 − u2 )) < 16. Now if it were the case that
+u1 ≡ u2 (mod 2I), it would imply 4 | nrd(u1 − u2 ), hence 16 | Nm(nrd(u1 − u2 )), which is a
+contradiction with the previous bound.
+  Now, since #I1 = 120, these units must occupy 60 distinct residue classes in I/2I ≃
+M2 (OK /2OK ). This algebra has 256 elements, namely the zero element and 255 non-zero ones,
+              GENERALIZING HURWITZ’S PROOF OF THE FOUR-SQUARE THEOREMS                          33
+
+which we may group in 255/3 = 85 lines (one-dimensional OK /2OK -subspaces) they generate.
+On a line, either all four elements have reduced norm 0 ∈ OK /2OK , or they are non-zero, and
+then nrd takes all four values from OK /2OK (this is because all elements are squares in this
+finite field). Let us call the former an even line and the latter an odd line.
+   Non-zero elements from even lines must generate a non-trivial left ideal, which is then two-
+dimensional, so it has 15 non-zero elements or equivalently 5 even lines. Different left ideals
+have trivial intersections, and since I/2I ≃ M2 (OK /2OK ), there are Nm(2) + 1 = 5 of these
+non-trivial ideals. Thus, we count that there are 5 · 5 = 25 even lines in all of I/2I, leaving
+85 − 25 = 60 odd lines.
+   Now, we know units from I1 occupy 60 distinct residue classes. Each such class has reduced
+norm 1, and on each odd line, there is only one such residue class. So we see that there are only
+60 classes with nrd(ũ) = 1, hence each must be represented by exactly two units from I1 .
+   To prove that I1 q ∩ G ̸= ∅ for 2 ∤ nrd(q), we just take the line of q + 2I, which must be an
+odd line, find its element of reduced norm 1 and represent it by a u ∈ I1 . This then ensures
+that uq lies on the same line as qq = nrd(q), that is, the line of 1, which lies in G/2I.      □
+
+Lemma 4.3. For q ∈ I with 2 | nrd(q), the set I1 q ∩ G is non-empty if and only if q ∈ I(1 + i).
+
+Proof. Let us denote k := OK /2OK . First, suppose that I1 q ∩ G is non-empty, then we may
+without loss of generality presume q already lies in G 1 . If q ∈ 2I = (I(1 + i))(1 + i), then
+the conclusion holds, so we may presume q + 2I is non-zero in I/2I. In I/2I, the residue class
+of q then lies in the subalgebra spanned by 1 and i. The norm form in this two-dimensional
+subalgebra is
+                                nrd(x + yi) = x2 + y 2 = (x + y)2
+for x, y ∈ k, so the only elements with reduced norm zero are located on the line generated by
+1 + i. This means that in I/2I, the left ideals generated by q and 1 + i intersect non-trivially,
+so they must in fact coincide, hence q + 2I ∈ (I/2I)(1 + i). Lifting back from I/2I to I, which
+we may do due to 2I ⊂ I(1 + i), we obtain q ∈ I(1 + i).
+   Second, suppose that q ∈ I(1 + i). If actually q ∈ 2I, then trivially q ∈ G, so we may presume
+q∈ / 2I, which then means (I/2I)q = (I/2I)(1 + i) and thus aq ≡ 1 + i (mod 2I) for some a ∈ I.
+We will show that a may in fact be chosen from I1 .
+   Notice that the polynomial x2 + x + φ has no root in k, so after homogenizing, x2 + xy + φy 2
+       zeroif x ≡ y ≡ 0. In view of the isomorphism I/2I ≃ M2 (k), we have the matrix
+is only
+        1 φ
+b :=           with trd(b) = 1 and nrd(b) = φ, so
+        1 0
+
+                                 nrd(x + yb) = x2 + xy + φy 2
+
+for x, y ∈ k. This implies that 1 and b span a two-dimensional subalgebra B of I/2I that is a
+quadratic field extension of k. In particular, each of its non-zero elements has a scalar multiple
+that may be represented by a unit from I1 by Lemma 4.2
+   Let us prescribe a k-linear map
+
+                                        µ : B → (I/2I)q
+                                            x 7→ xq.
+
+Since all non-zero elements of B have non-zero reduced norms, they are invertible in I/2I, so
+xq ≡ 0 would imply q ≡ 0 for x ∈ B \ {0}, which is absurd, and thus ker µ = 0. Now both
+B and (I/2I)q are two-dimensional spaces, so injectivity of µ implies its surjectivity. Hence we
+may take 1 + i ≡ aq (mod 2I) for some a ∈ B. But now, possibly after taking a scalar multiple,
+a is represented by some u ∈ I1 . Thus we get uq ∈ k(1 + i) ⊆ G/2I, hence uq ∈ G.             □
+34                 GENERALIZING HURWITZ’S PROOF OF THE FOUR-SQUARE THEOREMS
+
+Proposition 4.4. For q ∈ I, we have
+                                 
+                                 
+                                 8,   if 2 ∤ nrd(q),
+                                 
+                                 0,   if 2 | nrd(q) but q ∈
+                                                           / I(1 + i),
+                   #(I1 q ∩ G) =
+                                 
+                                 24, if q ∈ I(1 + i) but q ∈/ 2I,
+                                 
+                                  120, if q ∈ 2I.
+                                 
+
+Proof. The case when q ∈ 2I is obvious and the case of 2 | nrd(q) but q ∈   / I(1 + i) stems from
+Lemma 4.3. When 2 ∤ nrd(q), then surely q ∈       / H(1 + i) = (G : H)R , so by Lemma 3.21, we
+obtain #(I1 q ∩ G) = #G 1 = 8.
+  For the case of q ∈ I(1 + i) but q ∈   / 2I, note that since (G : H)R = H(1 + i), the fact that
+q ∈ I(1 + i) implies that I1 q intersects (G : H)R by Lemma 3.22, whence the conclusion follows
+by Lemma 3.21 due to q ∈   / 2I = (G : I)R .                                                    □
+
+     With this, we are ready to prove Götzky’s theorem:
+
+Proof of Theorem 4.1. Recall that I has reduced discriminant OK , hence rI (α) = 120σOK (α).
+                           +
+Let us consider an α ∈ OK     and derive a formula for rG (α). For this, let us write α = 2e β for
+                           +
+some e ≥ 0 and 2 ∤ β ∈ OK    ; this is valid because 2 is a prime element in OK . Any quaternion
+in I of reduced norm α may then be written as bq, where nrd(b) = β and nrd(q) = 2e . Then b
+is invertible in I/2I; we may further notice that each of the four conditions in Proposition 4.4
+may be recognized by just looking at residue classes in I/2I and that each is unchanged when
+multiplying by an invertible element from the left. Hence #(I1 bq ∩ G) = #(I1 q ∩ G). So, to
+count elements of reduced norm α in G, it suffices to count those of reduced norm 2e and
+multiply the result by σOK (β).
+   First let us deal with the cases of small e. If e = 0, there is only one orbit and it intersects
+G in 8 elements, which is consistent with the desired formula. If e = 1, there are 5 orbits, but
+only of them intersects G, namely in 24 elements. We express this as
+                                                 8(1 + 4) − 4 · 4,
+so it is again consistent with the desired formula.
+  Now, we may presume e ≥ 2. In I there are 1 + 4 + · · · + 4e−1 + 4e orbits quaternions of
+reduced norm 2e with respect to the action of I1 acting by multiplication from the left. Of these,
+1 + 4 + · · · + 4e−2 lie in 2I, a further
+                           1 + 4 + · · · + 4e−1 − 1 + 4 + · · · + 4e−2 = 4e−1
+                                                                     
+
+lie in I(1 + i) \ 2I while the remaining 4e lie outside of I(1 + i). By Proposition 4.4, the orbits
+in these three groups contribute 120, 24 and 0 quaternions each.
+   So with these weights, we get the total number of these quaternions in G as
+                  rG (2e ) = 120 1 + 4 + · · · + 4e−2 + 24 · 4e−1 =
+                                                     
+
+                                  4e−1 − 1
+                          = 120 ·          + 24 · 4e−1 = 40 · 4e−1 − 40 + 24 · 4e−1 =
+                                    4−1
+                          = 64 · 4e−1 − 40 = 4e+2 − 40.
+On the other hand,
+     X                              X                                X
+ 8         Nm(δOK ) − 4                          Nm(δOK ) + 8                     Nm(δOK ) =
+      δOK |2e OK               2OK |δOK |2e OK                  4OK |δOK |2e OK
+
+                     = 8 (1 + 4 + · · · + 4e ) − 4 (4 + · · · + 4e ) + 8 42 + · · · + 4e =
+                                                                                        
+
+                4e+1 − 1     4e+1 − 4     4e+1 − 16   12 · 4e+1 − 8 + 16 − 128
+            =8·          −4·          +8·           =                          = 4e+2 − 40,
+                 4−1          4−1           4−1                   3
+                GENERALIZING HURWITZ’S PROOF OF THE FOUR-SQUARE THEOREMS                                    35
+
+so indeed the two quantities agree. Thus we have shown that the formula of the theorem holds
+forXα = 2e . But then by β being coprime to 2, multiplying both quantities by σOK (α) =
+        Nm(δOK ) finishes the proof.                                                      □
+δOK |βOK
+
+   To conclude, let us remark that this proof suggests that a Hurwitz-like technique on a pair
+of orders G ⊆ H may be performed even with some weaker properties of the H1 -action (with
+H = I there) on H, compared to perceptivity. If we denote a some ideal such that aH ⊆ G,
+it seems hard to imagine that any Hurwitz-like technique could succeed without at least the
+orbits of elements invertible in H/aH intersecting G, but it is unclear where the exact limits
+are or what a tighter condition for the success of a Hurwitz-like method might look like.
+
+                                               References
+[BCP] W. Bosma, J. Cannon, C. Playout, The Magma algebra system. I. The user language, J. Symbolic
+    Comput., 24 (1997), 235–265.
+[BH] M. Bhargava, J. Hanke, Universal quadratic forms and the 290-Theorem, preprint.
+[BK1] V. Blomer, V. Kala, Number fields without n-ary universal quadratic forms, Math. Proc. Cambridge
+    Philos. Soc. 159 (2015), 239–252.
+[BK2] V. Blomer, V. Kala, On the rank of universal quadratic forms over real quadratic fields, Doc. Math.
+    23 (2018), 15–34.
+[Br] M. Broué, From Rings and Modules to Hopf Algebras, Springer Cham (2024).
+[Bz1] J. Brzezinski, On orders in quaternion algebras, Comm. Algebra 11 (1983) 5, 501–522.
+[Bz2] J. Brzezinski, Definite quaternion orders of class number one, J. Théorie Nombres Bordeaux 7 (1995),
+    93–96.
+[CKR] W. K. Chan, M.-H. Kim, S. Raghavan, Ternary universal integral quadratic forms, Japan. J. Math.
+   22 (1996), 263–273.
+[CL+] M. Čech, D. Lachman, J. Svoboda, M. Tinková, K. Zemková, Universal quadratic forms and
+    indecomposables over biquadratic fields, Math. Nachr. 292 (2019), 540–555.
+[CSl] J. H. Conway, N. J. A. Sloane, Sphere Packings, Lattices and Groups, Springer, New York (1999).
+[CSm] J. H. Conway, D. A. Smith, On Quaternions and Octonions: Their Geometry, Arithmetic, and Sym-
+    metry, A K Peters, New York (2003).
+[De1] J. I. Deutsch, Geometry of Numbers Proof of Götzky’s Four-Squares Theorem, J. Number Theory 96
+    (2002), 417–431.
+[De2] J. I. Deutsch, An alternate proof of Cohn’s four squares theorem, J. Number Theory 104 (2004), 263–
+    278.
+[De3] J. I. Deutsch, A Quaternionic Proof of the Representation Formula of a Quaternary Quadratic Form,
+    J. Number Theory 113 (2005), 149–174.
+[De4] J. I. Deutsch, A Quaternionic Proof of the Universality of Some Quadratic Forms, Integers 8(2) (2008),
+    #A3.
+[De5] J. I. Deutsch, Short proofs of the universality of certain diagonal quadratic forms, Archiv der Mathe-
+    matik 91 (2008), 44–48.
+                                                                                         √
+[De6] J. I. Deutsch, Universality of a non-classical integral quadratic form over Q( 5), Acta Arith. 136
+    (2009), 229–242.
+                                                                                                  √
+[De7] J. I. Deutsch, A non-classical quadratic form of Hessian discriminant 4 is universal over Q( 5), Integers
+    16 (2016), #A19.
+[Di] L. E. Dickson, Quaternary Quadratic Forms Representing all integers, Amer. J. of Math. 49 (1927),
+     39–56.
+[EK] A. G. Earnest, A. Khosravani, Universal positive quaternary quadratic lattices over totally real number
+    fields, Mathematika 44 (1997), 342–347.
+[Go] F. Götzky, Über eine zahlentheoretische Anwendung von Modulfunktionen zweier Veränderlicher, Math.
+    Ann. 100 (1928), 411–437.
+[Hu] A. Hurwitz, Über die Zahlentheorie der Quaternionen, Nachrichten der Gesellschaft der Wissenschaften
+    zu Göttingen (1896), 314–340.
+36              GENERALIZING HURWITZ’S PROOF OF THE FOUR-SQUARE THEOREMS
+
+[Ka1] V. Kala, Universal quadratic forms and elements of small norm in real quadratic fields, Bull. Aust.
+    Math. Soc. 94 (2016), 7–14.
+[Ka2] V. Kala, Number fields without universal quadratic forms of small rank exist in most degrees, Math.
+    Proc. Cambridge Philos. Soc. 174 (2023), 225–231.
+[Ka3] V. Kala, Universal quadratic forms and indecomposables in number fields: A survey, Commun. Math.
+    31 (2023), 81–114.
+[Ki] B. M. Kim, Finiteness of real quadratic fields which admit positive integral diagonal septenary universal
+     forms, Manuscr. Math. 99 (1999), 181–184.
+[KL] M. Kirschmer, D. Lorch, Ternary quadratic forms over number fields with small class number, J.
+    Number Theory 161 (2016), 343–361.
+[Km] M.-H. Kim, Recent developments on universal forms, In Algebraic and arithmetic theory of quadratic
+    forms, Contemp. Math. 344, Amer. Math. Soc., Providence, RI, 2004, 215–228.
+[Kr] J. Kirmse, Zur Darstellung total positiver Zahlen als Summen von vier Quadraten, Math. Z. 21 (1924),
+     195–202.
+[KS] V. Kala, J. Svoboda, Universal quadratic forms over multiquadratic fields, Ramanujan J. 48 (2019),
+    151–157.
+[KTZ] J. Krásenský, M. Tinková, K. Zemková, There are no universal ternary quadratic forms over
+   biquadratic fields, Proc. Edinb. Math. Soc., 63 (2020), 861–912.
+[KV] M. Kirschmer, J. Voight, Algorithmic enumeration of ideal classes for quaternion orders, SIAM J.
+    Comput. 39 (2010), 1714–1747.
+[KY] V. Kala, P. Yatsyna, Lifting problem for universal quadratic forms, Adv. Math. 377 (2021), 107497,
+    24 pp.
+[Ne] J. Neukirch, Algebraic Number Theory, Springer-Verlag, Berlin (1999).
+[Om] O. T. O’Meara, Introduction to Quadratic Forms, Springer-Verlag Berlin Heidelberg (1973).
+[Si] C. L. Siegel, Sums of m-th powers of algebraic integers, Ann. of Math. 46 (1945), 313–339.
+[Th] K. Thompson, The sum of four squares over real quadratic number fields, Int. J. Number Theory 20
+    (2024), 47–72.
+[Vo] J. Voight, Quaternion algebras, Springer Cham (2021).
+[Ya] P. Yatsyna, A lower bound for the rank of a universal quadratic form with integer coefficients in a totally
+     real field, Comment. Math. Helvet. 94 (2019), 221–239.
+
+  Charles University, Faculty of Mathematics and Physics, Department of Algebra, Sokolovská
+83, 186 75 Praha 8, Czech Republic
+  Email address: matej@gimli.ms.mff.cuni.cz
+

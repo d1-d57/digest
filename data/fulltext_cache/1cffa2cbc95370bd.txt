@@ -1,0 +1,549 @@
+Snapshots of modern mathematics                                               № xx/xxxx
+from Oberwolfach
+
+
+
+
+                           Brackets, trees
+                      and the Borromean rings
+
+
+                                  Gustavo Jasso 1
+
+
+
+
+      We describe some of the beautiful mathematical struc-
+      tures that arise from the study of the associativity
+      equation. Our journey will bring us from combi-
+      natorics to abstract algebra, with brief excursions
+      through geometry and topology along the way.
+
+1 The combinatorics of bracketings
+
+In this snapshot, we will have a glimpse at the wonderful complexity that
+emerges from the familiar associativity equation:
+
+                                   ((ab)c) = (a(bc)).
+
+   Let us warm up with the following counting problem considered by Catalan [3]
+in the 1800s: 2
+
+      Consider a string of n + 1 letters, say a0 a1 a2 · · · an . How many
+      distinct ways are there to insert n pairs of correctly matched paren-
+      theses so that these define n binary products on this string?
+
+1 Gustavo Jasso’s research was partially supported by the Swedish Research Council (Veten-
+
+skapsrådet) Research Project Grant 2022-03748 ‘Higher structures in higher-dimensional
+homological algebra.’ The author wishes to thank Bernhard Keller for comments on an earlier
+version of the snapshot.
+2 This problem is equivalent to that of counting the number of triangulations of a regular
+
+convex polygon proposed by Euler in the 1750s.
+
+
+                                            1
+For a string with one letter there is a single (empty) bracketing a0 , and there
+is also a single bracketing (a0 a1 ) for a string with two letters. For a string
+with three letters there are exactly two bracketings, ((a0 a1 )a2 ) and (a0 (a1 a2 )).
+If we now consider the case of a string with four letters we see that there
+are five distinct bracketings: (((a0 a1 )a2 )a3 ), ((a0 (a1 a2 ))a3 ), ((a0 a1 )(a2 a3 )),
+(a0 ((a1 a2 )a3 )) and (a0 (a1 (a2 a3 ))).
+    Let us now tackle the general case. We observe that the first inner pair of
+parentheses in a bracketing of the string a0 a1 a2 · · · an divides it into a left block
+a0 a1 · · · ak and a right block ak+1 · · · an . For example, according to the number
+k + 1 of letters in the left block (underlined for clarity), the possible bracketings
+of a string with four letters can be arranged as follows:
+             (a0 ((a1 a2 )a3 ))             (a0 (a1 (a2 a3 )))             k=0
+             ((a0 a1 )(a2 a3 ))                                            k=1
+             (((a0 a1 )a2 )a3 )             ((a0 (a1 a2 ))a3 )             k = 2.
+Any bracketing of a string with k + 1 letters can appear within the left block
+a0 a1 · · · ak and, similarly, any bracketing of a string with n − k letters can
+appear within the right block ak+1 · · · an . Thus, if we let Cn be the number of
+distinct bracketings on a string of n + 1 letters, we obtain Segner’s recursive
+formula
+                                          Xn
+                      C0 = 1,     Cn+1 =      Ck Cn−k , n ≥ 0.
+                                               k=0
+For example, since
+                     C0 = 1,      C1 = 1,     C2 = 2     and     C3 = 5,
+we obtain
+                          C4 = C0 C3 + C1 C2 + C2 C1 + C3 C0
+                              =1·5+1·2+2·1+5·1
+                              = 14.
+From Segner’s recursive formula one can derive the closed-form expression
+                                    
+                                1    2n
+                        Cn =             ,    n ≥ 0,
+                             n+1 n
+although the derivation is not completely straightforward. The resulting num-
+bers 3
+            1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862, 16796, . . .
+
+3   See the corresponding entry (A000108) in the Online Encyclopedia of Integer Sequences.
+
+
+                                               2
+are collectively known as the Catalan numbers and they appear remarkably often
+throughout mathematics. Stanley’s book [15] lists 214 families of mathematical
+objects that are counted by the Catalan numbers, and new families are discovered
+on a regular basis. 4 Isn’t it remarkable that such a fundamental sequence of
+numbers arises from simple considerations about bracketings?
+
+
+2 The Tamari lattices
+
+One of the insights of 20th-century mathematics is the importance of recognising
+and keeping track of the structures that are present among the objects that one
+investigates. In his 1951 doctoral dissertation [17], Tamari observed that the set
+(=collection) of bracketings of a string with n + 1 letters has the structure of a
+partially ordered set. A partial order on a set X consists of a relation x ⪯ y
+that satisfies the following axioms:
+
+Reflexivity For each element x ∈ X, we have x ⪯ x.
+
+Antisymmetry If x ⪯ y and y ⪯ x, then x = y.
+
+Transitivity If x ⪯ y and y ⪯ z, then x ⪯ z.
+
+Thus, a partial order tells us when an element of the set is ‘smaller’ than
+another one with the caveat that two arbitrary elements are not necessarily
+comparable. 5 For example, we declare that the bracketing ((a0 a1 )a2 ) is smaller
+than the bracketing (a0 (a1 a2 )) and indicate this relation with an arrow:
+
+                          ((a0 a1 )a2 )           (a0 (a1 a2 )).
+
+More generally, for a fixed string of letters, we say that one bracketing is smaller
+than another one if the latter can be obtained from the former by a sequence of
+rightwards applications of the associativity law. The resulting structures are
+called the Tamari lattices. 6 Figure 1 depicts the Tamari lattice for a string
+with four letters, with an arrow pointing from a lower element to a larger one
+obtained by a single rightwards application of the associativity law. The Tamari
+lattice for a string with five letters has a three-dimensional character and is
+depicted in Figure 2 (the outermost pairs of matching parentheses have been
+omitted to increase readability).
+
+4 See for example Rognerud’s snapshot [14], were the previous argument is applied to count
+
+a family of objects appearing in the theory of quiver representations.
+5 This is quite different from the usual order ≤ on the natural numbers, where given two
+
+natural numbers a and b we have that a ≤ b or b ≤ a.
+6 A lattice is a special kind of partially ordered set.
+
+
+
+
+                                            3
+                                                          (((a0 a1 )a2 )a3 )
+
+                                   ((a0 (a1 a2 ))a3 )
+
+
+
+                                                                           ((a0 a1 )(a2 a3 ))
+
+
+
+                                   (a0 ((a1 a2 )a3 ))
+
+                                                          (a0 (a1 (a2 a3 )))
+
+
+                Figure 1: The Tamari lattice for a string with four letters.
+
+
+
+
+   We invite the interested reader to peruse the volume [13], published to
+commemorate the centennial anniversary of Tamari’s birth, which contains
+rather accessible surveys and interesting historical remarks on a wide range
+of mathematics related to the Tamari lattices (some of them discussed in this
+snapshot). For us, the illustrations of the Tamari lattices in Figures 1 and 2
+suggest a relationship between bracketings and polytopes—higher-dimensional
+analogues of polygons and polyhedra—that we outline in the next section.
+
+
+
+                          a((bc)(de))                                                       a((bc)(de))
+
+                               ·                                                            a(b(c(de)))
+       (a(bc))(de)                          a(((bc)d)e)                    (a(bc))(de)                    a(((bc)d)e)
+
+
+                      ·                 ·                                          (ab)(c(de))    a(b((cd)e))
+ ((ab)c)(de)                                       a((b(cd))e)       ((ab)c)(de)                                   a((b(cd))e)
+               ((a(bc))d)e           (a((bc)d))e                                        ·                 ·
+                               ·                                                            (ab)((cd)e)
+
+      (((ab)c)d)e                           (a(b(cd)))e                   (((ab)c)d)e                         (a(b(cd)))e
+
+
+                          ((ab)(cd))e                                                       ((ab)(cd))e
+
+
+                Figure 2: The Tamari lattice for a string with five letters.
+
+
+
+
+                                                                 4
+3 From associativity to (mathematical) dendrology
+
+Before continuing our discussion, it is convenient to introduce a way to visualise
+different bracketings. Namely, each bracketing of a string with n + 1 letters
+corresponds to what mathematicians call a ‘planar binary rooted tree with n + 1
+leaves.’ Rather than giving a precise definition of this mouthful let us look at
+some examples. The bracketing (a0 a1 ) corresponds to the following tree:
+
+                                         a0       a1
+
+                                          (a0 a1 )
+                                                                                        (1)
+
+This tree has two leaves at the top and one root pointing to the bottom—it
+is called ‘planar’ because it has a fixed embedding in the plane. The two
+bracketings ((a0 a1 )a2 ) and (a0 (a1 a2 )) correspond to the trees
+
+                        a0    a1    a2                 a0   a1    a2
+
+
+
+                         ((a0 a1 )a2 )                 (a0 (a1 a2 ))
+                                                                                        (2)
+
+which now have three leaves and one root. As before, we have indicated the
+rightwards application of the associativity law with an arrow. All of these are
+binary trees since there are exactly two branches emanating upwards from every
+node. 7 Thus, instead of bracketings, we may consider the Tamari lattices as
+partial orders on planar binary rooted trees with a fixed number of leaves.
+    The interpretation of the Tamari lattices in terms of trees reveals further
+structure that is not immediately apparent from looking at bracketings. Consider
+the two planar binary rooted trees with three leaves, and notice that they both
+have a unique internal edge. If we contract this edge to a point we obtain a new
+planar rooted tree that is no longer binary since three branches/leaves emanate
+from the unique node. We record the outcome of this procedure pictorially as
+follows:
+
+
+
+
+7 Planar binary trees are perhaps more recognisable as genealogical trees, although they are
+
+typically drawn upside down in that context.
+
+
+                                              5
+       Figure 3: The decorated Tamari lattice for trees with four leaves.
+
+
+The Tamari lattice for the planar binary rooted trees with four leaves is depicted
+in Figure 3. Notice that each of the binary trees that is placed on the vertices
+of the pentagon now has two internal edges that we can contract separately into
+a point. Something conspicuous happens: The new non-binary trees that label
+the edges of the pentagon each have a single internal edge. If, in any of these
+trees, we contract this edge into a point we obtain the last planar rooted tree
+with four leaves. We have included this tree in the Tamari lattice as a further
+decoration, this time as a label of the interior of the pentagon.
+   In general, every planar rooted tree can be obtained from the binary ones by
+contracting one internal edge at a time. Remarkably, the planar rooted trees
+with n + 1 leaves label the cells of an (n − 1)-dimensional polytope that is called
+an associahedron because of its relation to bracketings and the associativity
+equation. 8 The close relationship between associativity and planar rooted trees
+can be used, among other things, to establish combinatorial formulas for the
+inverse with respect to composition of formal power series [11]. As a curious
+example, the formal power series
+                                   X
+                           h(t) =      (−1)n+1 Cn t3n+1 ,
+                                     n≥0
+
+
+8 The planar rooted trees with n + 1 leaves and k internal edges label the (n − 1 − k)-
+
+dimensional cells of the corresponding associahedron. It is a nice exercise to label the
+three-dimensional associahedron in Figure 2 with the planar rooted trees with five leaves.
+
+
+                                            6
+whose coefficients are the Catalan numbers up to a sign, is its own inverse:
+h(h(t)) = t.
+   Ceballos and Ziegler [4] remind us that associahedra have been described by
+Haiman [6] as ‘mythical polytope[s]’ and, as we shall see below, there is more
+to the relationship between associahedra and the associativity equation than
+meets the eye . . .
+
+
+4 Stasheff’s A∞ -algebras
+
+Although associahedra were already present in Tamari’s thesis, they were
+rediscovered in the 1960s by Stasheff—also in his doctoral dissertation [16].
+Stasheff’s motivation came neither from combinatorics nor from geometry, but
+from the field of algebraic topology. In a nutshell, algebraic topology studies the
+qualitative properties of spaces, such as the number of holes in a surface, using
+tools from abstract algebra. Through his investigations, Stasheff discovered
+a new class of algebraic structures that he called A∞ -algebras. The precise
+definition is rather technical so we only sketch some of the main ideas behind it.
+    An ordinary algebra is a collection of elements that can be added, subtracted
+and multiplied, but we cannot necessarily divide by non-zero elements and the
+multiplication does not necessarily satisfy the commutativity law. For example,
+the polynomials with a fixed number of variables and coefficients in the real
+numbers form an algebra, and so do the n × n matrices with real entries. What
+is important for our discussion is that the multiplication in an algebra is a binary
+operation: it takes as inputs two elements a and b and outputs their product
+ab. Thus, we may visualise the multiplication operation in an algebra as a
+process described by the binary tree in (1). More generally, iterated applications,
+keeping track of the corresponding bracketing, of the multiplication operation in
+an algebra can be encoded with a planar binary rooted tree! For example, the
+two ways to combine the multiplication operations in order to multiply three
+elements correspond to the trees in (2).
+    What about the planar rooted trees that are non-binary? Stasheff discovered
+that some structures that arise in algebraic topology have not only binary
+operations, but a possibly infinite system of ‘higher operations’ with n + 1
+inputs and a single output:
+
+              (a0 , a1 , . . . , an ) 7−→ mn+1 (a0 , a1 , . . . , an ),   n ≥ 0.
+
+Crucially, the operation mn+1 is not obtained by iterated applications of the
+binary operation m2 (a0 , a1 ) = a0 a1 but is rather a new operation that multiplies
+n + 1 elements ‘all at once.’ With this in mind, it is natural to visualise the
+operation mn+1 as a process described by the tree
+
+
+                                                 7
+                                        a0     a1       ···   an
+
+
+                                     mn+1 (a0 , a1 , . . . , an )
+
+Arbitrary planar rooted trees are then obtained by combining the various higher
+operations. Stasheff also discovered that these operations satisfy an infinite
+system of equations—the A∞ -equations—that serve as a replacement of the
+associativity equation:
+        X
+                 ±mr+1+t (a0 , a1 , . . . , ar−1 , ms (ar , . . . , ar+s−1 ), ar+s , . . . , an ) = 0.
+     r+s+t=n+1
+
+
+The reader is not expected to parse the A∞ -equations easily (mathematicians
+struggle to do this the first time they see them as well). We merely wish to
+highlight the kind of complexity that arises in this context. However, this
+complexity is not arbitrary: As it turns out, the A∞ -equations are governed by
+the combinatorial structure of the Stasheff–Tamari associahedra. For example,
+rewritten in terms of a certain ‘boundary operator’ x 7→ ∂(x), the A∞ -equation
+corresponding to the value n = 3 involves precisely the interior and the boundary
+of the two-dimensional associahedron: 9
+
+
+               ∂(           )=−                  +            −       +          +
+
+
+In the above depiction of the A∞ -equation we have replaced combinations of
+higher operations by the corresponding trees.
+   Summarising, an A∞ -algebra consists, roughly speaking, of a collection of
+elements that can be added, subtracted and that are equipped with a system
+of operations that satisfy the A∞ -equations. One of the many marvels of A∞ -
+algebras is that they appear not only in algebraic topology but also in fields as
+diverse as algebraic geometry, representation theory and symplectic geometry.
+For example, they are crucial to Kontsevich’s famous Homological Mirror
+Symmetry Conjecture that foresees a far-reaching bridge between algebraic and
+symplectic geometry [10].
+   Since this is all too abstract, let us look at a concrete example. Consider the
+polynomials in two variables ε and t with real coefficients, say. We will modify
+the usual multiplication table for polynomials by declaring that ε2 = 0. 10 For
+
+9  The signs that appear are related to the arrows in the Tamari lattice. Do you see how?
+10 For technical reasons that we did not explain, we also need to modify the degrees of
+polynomials by declaring that ε is a variable of degree 1 and that t is a variable of degree 2.
+
+
+                                                    8
+                           Figure 4: The Borromean rings.
+
+
+example,
+              (2 + πεt2 + t5 )(ε + 3t5 ) = 2ε + 6t5 + 3πεt7 + εt5 + 3t10
+since (πεt2 )ε = πε2 t2 = 0. We now fix a number n ≥ 2 and introduce the
+operation
+                             mn+1 (ε, ε, . . . , ε) = t.
+                                   | {z }
+                                         n+1 times
+
+This new operation, which cannot be obtained from combinations of the binary
+multiplication since ε2 = 0, defines an A∞ -algebra structure on this collection
+of polynomials and different choices of n give us fundamentally different such
+structures. Notice also how the new operation allows us to express an algebraic
+relation of ‘higher order’ between the variables ε and t, although these are
+independent from each other if we consider the binary multiplication only.
+
+
+5 The Borromean rings
+
+Although the definition of an A∞ -algebra is quite technical and somewhat
+obscure, the higher operations sometimes have interesting interpretations. Here
+is one such example.
+    The Borromean rings, 11 depicted in Figure 4, are a configuration of three
+interlinked circles in three-dimensional space. The distinctive feature of this
+
+11   Named after the House of Borromeo who included them in their coat of arms.
+
+
+                                            9
+configuration is that, while the three circles are linked together, if we remove any
+one circle the remaining two are no longer linked. 12 Using sophisticated machin-
+ery from algebraic topology one constructs an A∞ -algebra from the Borromean
+rings; this A∞ -algebra has three distinguished elements α, β and γ (correspond-
+ing roughly to the three circles in the configuration) whose multiplication table
+looks as follows:
+
+               αβ = βα = 0,       αγ = γα = 0      and    βγ = γβ = 0.
+
+These equations reflect the fact that any two circles in the Borromean rings
+are unlinked. On the other hand, Massey [12] discovered (in a slightly different
+language) that there is a non-zero ternary operation
+
+                                    m3 (α, β, γ) ̸= 0
+
+that witnesses the fact that the circles in the Borromean rings are triply linked!
+
+
+6 A∞ -algebras in contemporary mathematical research
+
+Even though A∞ -algebras were invented about sixty years ago, many of their
+properties remain mysterious and their careful study has led to unexpected
+applications. For example, in their work in (complex) three-dimensional alge-
+braic geometry [5], Donovan and Wemyss formulated a deep conjecture that,
+thanks to the work of several mathematicians, relates a beautiful family of
+geometric objects called compound Du Val singularities 13 to a particular class
+of A∞ -algebras. The recent solution [8] to the conjecture 14 involves a delicate
+analysis of the qualitative properties of these A∞ -algebras—an approach that
+was not at all obvious from the original formulation of the conjecture!
+
+
+
+
+12 An elementary proof of the fact that the Borromean rings are indeed linked can be found
+
+in the book [1] by Aigner and Ziegler, a book that we wholeheartedly recommend to the
+reader.
+13 See also the snapshot by Buchweitz and Faber [2] where the (two-dimensional) Du Val
+
+singularities make an appearance.
+14 See also [7, 9].
+
+
+
+
+                                           10
+Image credits
+
+The illustrations were created by the author with the following exceptions:
+Figure 2 Author: Nilesj; minor modifications by the author. Licensed under
+     Creative Commons CC0 1.0 Universal Public Domain Dedication via Wiki-
+     media Commons, https://en.wikipedia.org/wiki/File:Associahedron_K5_
+     front.svg and https://en.wikipedia.org/wiki/File:Associahedron_K5_front.
+     svg, visited on August 22, 2024.
+Figure 4 Author: Jim.belk; background removed by Ravenpuff. Released to the
+     public domain via Wikimedia Commons, https://en.wikipedia.org/wiki/
+     Borromean_rings#/media/File:Borromean_Rings_Illusion_(transparent)
+     .png, visited on August 22, 2024.
+
+
+References
+
+ [1] Martin Aigner and Günter M. Ziegler, Proofs from The Book, sixth ed.,
+     Springer, Berlin, 2018, ISBN 978-3-662-57264-1; 978-3-662-57265-8, https:
+     //doi.org/10.1007/978-3-662-57265-8, See corrected reprint of the 1998
+     original [ MR1723092], Including illustrations by Karl H. Hofmann. MR
+     3823190
+ [2] Ragnar Buchweitz and Eleonore Faber, Swallowtail on the shore, 2014,
+     https://doi.org/10.14760/SNAP-2014-007-EN.
+ [3] E. Catalan, Note sur une équation aux différences finies, Journal de Math-
+     ématiques Pures et Appliquées (1838), 508–516, http://eudml.org/doc/
+     233904.
+ [4] Cesar Ceballos and Günter M. Ziegler, Realizing the associahedron: mys-
+     teries and questions, Associahedra, Tamari lattices and related struc-
+     tures, Progr. Math., vol. 299, Birkhäuser/Springer, Basel, 2012, pp. 119–
+     127, ISBN 978-3-0348-0404-2; 978-3-0348-0405-9, https://doi.org/10.1007/
+     978-3-0348-0405-9_7. MR 3221537
+ [5] Will Donovan and Michael Wemyss, Noncommutative deformations and
+     flops, Duke Math. J. 165 (2016), no. 8, 1397–1474, ISSN 0012-7094, https:
+     //doi.org/10.1215/00127094-3449887. MR 3504176
+ [6] Mark Haiman, Constructing the associahedron, https://math.berkeley.edu/
+     ~mhaiman/ftp/assoc/manuscript.pdf, 1984.
+ [7] Gustavo Jasso, Bernhard Keller, and Fernando Muro, The Derived
+     Auslander–Iyama Correspondence, 2022.
+
+
+                                      11
+ [8] Gustavo Jasso, Bernhard Keller, and Fernando Muro, The Donovan–
+     Wemyss Conjecture via the Derived Auslander–Iyama Correspon-
+     dence, Triangulated Categories in Representation Theory and
+     Beyond, Abel Symp., vol. 17, Springer, Cham, 2024, pp. 105–
+     140, ISBN 9783031577888; 9783031577895, https://doi.org/10.1007/
+     978-3-031-57789-5_4. MR 4786504
+ [9] Joseph Karmazyn, Emma Lepri, and Michael Wemyss, Trivial extension
+     dg-algebras, unitally positive a∞ -algebras, and applications, (2024).
+[10] Maxim Kontsevich, Homological algebra of mirror symmetry, Proceedings
+     of the International Congress of Mathematicians, Vol. 1, 2 (Zürich, 1994),
+     Birkhäuser, Basel, 1995, pp. 120–139. MR 1403918
+[11] Jean Louis Loday, Inversion of integral series enumerating planar trees,
+     Sém. Lothar. Combin. 53 (2004/06), Art. B53d, 16, ISSN 1286-4889. MR
+     2180779
+
+[12] W. S. Massey, Higher order linking numbers, Conf. on Algebraic Topology
+     (Univ. of Illinois at Chicago Circle, Chicago, Ill., 1968), Univ. of Illinois at
+     Chicago Circle, Chicago, Ill., 1969, pp. pp 174–205. MR 254832
+[13] Folkert Müller-Hoissen, Jean Marcel Pallo, and Jim Stasheff (eds.),
+     Associahedra, Tamari lattices and related structures, Progress in
+     Mathematical Physics, vol. 299, Birkhäuser/Springer, Basel, 2012,
+     ISBN 978-3-0348-0404-2; 978-3-0348-0405-9, http://dx.doi.org/10.1007/
+     978-3-0348-0405-9, Tamari memorial Festschrift. MR 3235205
+[14] Baptiste Rognerud, Invitation to quiver representation and Catalan combi-
+     natorics, 2021, https://doi.org/10.14760/SNAP-2021-004-EN.
+
+[15] Richard P. Stanley, Catalan numbers, Cambridge University Press, New
+     York, 2015, ISBN 978-1-107-42774-7; 978-1-107-07509-2, https://doi.org/
+     10.1017/CBO9781139871495. MR 3467982
+[16] James Dillon Stasheff, Homotopy associativity of H-spaces. I, II, Trans.
+     Amer. Math. Soc. 108 (1963), 275-292; ibid. 108 (1963), 293–312,
+     ISSN 0002-9947. MR 0158400
+[17] Dov Tamari, Monoïdes préordonnés et chaînes de Malcev, Université de
+     Paris, Paris, 1951, Thèse. MR 51833
+
+
+
+
+                                         12
+Gustavo Jasso is a professor of mathematics   License
+at the University of Cologne.                 will be filled out by the editors
+
+Mathematical subjects                         DOI
+will be filled out by the editors             will be filled out by the editors
+
+Connections to other fields
+will be filled out by the editors
+
+
+
+
+Snapshots of modern mathematics from Oberwolfach provide exciting insights into
+current mathematical research. They are written by participants in the scientific
+program of the Mathematisches Forschungsinstitut Oberwolfach (MFO). The
+snapshot project is designed to promote the understanding and appreciation of
+modern mathematics and mathematical research in the interested public worldwide.
+All snapshots are published in cooperation with the IMAGINARY platform and
+can be found on www.imaginary.org/snapshots and on www.mfo.de/snapshots.
+
+ISSN 2626 -1995
+
+
+Junior Editor                                 Mathematisches Forschungsinstitut
+will be filled out by the editors             Oberwolfach gGmbH
+junior- editors@mfo.de                        Schwarzwaldstr. 9 –11
+                                              77709 Oberwolfach
+Senior Editor                                 Germany
+Anja Randecker
+senior- editor@mfo.de                         Director
+                                              Gerhard Huisken
+

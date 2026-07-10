@@ -1,0 +1,279 @@
+              WHAT IS. . .
+
+                                                                                    Phylogenetics?
+                                                                 Simone Linz and Kristina Wicke
+
+How did whales and dolphins evolve, and what are their                            Neanderthals and Denisovans, resulting in detectable lev-
+closest living relatives? When did humans and chim-                               els of introgressed DNA in present-day human popula-
+panzees share their last common ancestor? Phylogenetics                           tions. These gene flow events cannot be fully encapsu-
+plays a key role in answering these and similar questions                         lated by a bifurcating tree and instead require a more gen-
+about all life on Earth. The overarching goals of phyloge-                        eral graph, a phylogenetic network, to be accurately repre-
+netics are to uncover the evolutionary relationships among                        sented. Such non-treelike evolution is widespread across
+organisms and to piece together how the global biodi-                             all domains of life, including hybridization in plants,
+versity has developed over time. Phylogenetic trees and                           birds, fungi, and mammals, lateral gene transfer in bacte-
+networks are reconstructed from biological sequence data                          ria, and recombination in viruses. Although various scal-
+such as DNA (and to a smaller extent from other sources                           able and reliable methods for inferring phylogenetic trees
+such as morphological data) and represent inferred evolu-                         exist, the reconstruction of phylogenetic networks and the
+tionary histories that best explain a given dataset. In line                      development of efficient software for this purpose is still
+with Dobzhansky’s famous statement “Nothing in biology                            in its early stages.
+makes sense except in the light of evolution,” the applicabil-                        Research in phylogenetics is highly interdisciplinary, in-
+ity of phylogenetic trees and networks goes far beyond a                          volving biologists, software developers, computer scien-
+record keeping of evolutionary relationships. By recon-                           tists, statisticians, and mathematicians. Phylogenetic trees
+structing and analyzing phylogenetic trees and networks,                          and the inherently more complex phylogenetic networks
+researchers contribute to addressing contemporary chal-                           are leaf-labeled graphs that directly link them to graph the-
+lenges in the life and medical sciences such as forecasting                       ory. More broadly, the field is built upon a rich mathemat-
+next season’s influenza strain in designing an effective vac-                     ical foundation that ties together algebra, combinatorics,
+cine, informing conservation decisions, and monitoring                            geometry, stochastic processes, statistics, and theoretical
+and predicting the spread of infectious diseases.                                 computer science. In this article, we discuss the topical
+   Traditionally, evolutionary relationships among organ-                         problem of developing scalable and accurate methods to
+isms have been represented by phylogenetic trees. How-                            infer phylogenetic networks, and highlight how various
+ever, recent advances in genome sequencing have revealed                          areas of mathematics contribute to addressing this chal-
+that evolution is often not strictly treelike. A prominent ex-                    lenge.
+ample comes from human evolution: Genomic evidence                                    Mathematically, a phylogenetic network 𝑁 on a set 𝑋 of
+shows that anatomically modern humans interbred with                              taxonomic units such as extant species is a rooted directed
+                                                                                  acyclic graph that satisfies the following three properties:
+Simone Linz is an associate professor in the School of Computer Science at
+                                                                                  (i) the unique root has in-degree 0 and out-degree 2; (ii) all
+the University of Auckland in New Zealand. Her email address is s.linz
+                                                                                  vertices with out-degree 0 have in-degree 1 (called leaves),
+@auckland.ac.nz.
+Kristina Wicke is an assistant professor in the Department of Mathematical Sci-
+                                                                                  and this set is identified with 𝑋; and (iii) all other ver-
+ences at the New Jersey Institute of Technology. Her email address is kristina    tices have either in-degree 1 and out-degree 2 (called tree
+.wicke@njit.edu.                                                                  vertices), or in-degree 2 and out-degree 1 (called reticula-
+For permission to reprint this article, please contact:                           tions). Intuitively, tree vertices correspond to speciation
+reprint-permission@ams.org.                                                       events, whereas reticulations depict reticulate evolutionary
+DOI: https://doi.org/10.1090/noti3299                                             events such as hybridization. A phylogenetic network on
+                                                                                  𝑋 with no reticulations is a phylogenetic tree 𝑇 on 𝑋 (see
+
+140                                                       NOTICES OF THE AMERICAN MATHEMATICAL SOCIETY                     VOLUME 73, NUMBER 2
+                                                                                                                       What is. . .
+
+                                                                      large parent tree. In contrast, analogous combinatorial re-
+                                                                      sults for the reconstruction of phylogenetic networks from
+                                                                      smaller building blocks have only recently gained momen-
+                                                                      tum. Huber et al. [HvIMW15] showed that there exist two
+                                                                      non-isomorphic phylogenetic networks 𝑁 and 𝑁 ′ on an
+                                                                      arbitrarily large leaf set 𝑋 such that the collection 𝐶 of all
+                                                                      phylogenetic networks on a proper subset of 𝑋 that are em-
+Figure 1. For 𝑋 = {1, 2, … , 5}, (a) shows a phylogenetic tree 𝑇 on   bedded in 𝑁 is equal to that collection for 𝑁 ′ . In other
+𝑋 and (b) shows a phylogenetic network 𝑁 on 𝑋 with two                words, 𝐶 does not encode 𝑁. On the positive side, the
+reticulations indicated in red. Note that 𝑁 is tree-child but not     situation changes if 𝑁 and 𝑁 ′ have certain structural prop-
+level-1.
+                                                                      erties. For instance, level-1 networks are encoded by their
+Fig. 1). Phylogenetic trees and networks are sometimes                set of embedded trees on three leaves [GH12], which is
+also equipped with branch lengths, i.e., each edge is as-             similar to what happens for phylogenetic trees. Other in-
+signed a positive real. Branch lengths represent, for ex-             stances include normal networks, which are a subclass of
+ample, the time that has passed between two adjacent ver-             tree-child networks, and are encoded by their sets of em-
+tices. Due to the structural complexity of networks, strik-           bedded caterpillar trees on, respectively, three leaves and
+ing a balance between biological relevance and mathemat-              four leaves [LS20]. These results highlight that understand-
+ical tractability requires a focus on specific classes of net-        ing the combinatorial structure of phylogenetic networks
+works. For instance, level-1 networks are phylogenetic net-           and classifying them into different subclasses can lead to
+works whose underlying cycles are pairwise vertex disjoint,           positive results and efficient algorithms.
+whereas tree-child networks are those for which each non-             Algebra & algebraic statistics. One of the most basic yet
+leaf vertex has a child that is not a reticulation.                   fundamental problems about phylogenetic networks is to
+Combinatorics. Analyzing the combinatorial properties                 determine which of their features are identifiable from ob-
+of phylogenetic trees and networks has a long history. For            served data. Identifiability refers to a statistical model,
+example, the formula                                                  where a model parameter is said to be identifiable if any
+                                                                      probability distribution arising from the model uniquely
+                                  (2𝑛 − 2)!
+                  (2𝑛 − 3)! ! =                                       determines the value of that parameter. In the context of
+                               (𝑛 − 1)! 2𝑛−1                          phylogenetic network inference, the main parameter of in-
+to count the number of phylogenetic trees with 𝑛 leaves               terest is the network topology itself, often referred to as the
+dates back to 1870 [Sch70]. In comparison, without any                network parameter. The observed data may, for example,
+constraint on the structure of a phylogenetic network (e.g.,          consist of DNA sequences evolving along the network. Es-
+an upper bound on the number of reticulations), the to-               tablishing identifiability is essential, as only those features
+tal number of phylogenetic networks on 𝑛 leaves is infi-              that are identifiable can, in principle, be inferred from data
+nite, even for 𝑛 = 1. Unsurprisingly, these exponentially             and thus targeted in network inference. Although many ar-
+large numbers pose a major challenge because many of the              eas of mathematics are involved in obtaining identifiabil-
+widely-used algorithms to reconstruct phylogenetic trees              ity results, techniques from algebra and algebraic statistics
+include a search through tree space that, for practicality, is        are often highly effective.
+based on a heuristic hill-climbing strategy. Consequently,               Under network-based Markov models, DNA sequence evo-
+to be able to search a space of phylogenetic networks, there          lution is described on the edges of a phylogenetic network.
+is a strong demand for efficient and precise algorithms.              Each edge is equipped with a transition matrix that speci-
+    To counteract the combinatorial explosion that is                 fies the probabilities of nucleotide changes along that edge,
+caused by the exponential growth of the underlying search             and the root of the network is assigned a root distribution,
+spaces, divide-and-conquer algorithms are used to sub-                giving the probability of each nucleotide occurring at the
+stantially reduce the running time. These algorithms re-              root. In addition, each reticulation is assigned inheritance
+construct phylogenetic networks for subsets of a dataset              probabilities that describe how likely it is to inherit genetic
+and then combine the resulting smaller networks into a                material from each of its incoming edges. By randomly se-
+large phylogenetic network for the full dataset. In the con-          lecting one of these edges at every reticulation, a collection
+text of phylogenetic trees, it is well known that if 𝐶 is the         of trees is obtained, each weighted by the corresponding in-
+collection of all phylogenetic trees on three leaves that are         heritance probabilities. The probability of observing a par-
+embedded in a phylogenetic tree 𝑇, then up to isomor-                 ticular site pattern (an assignment of single nucleotides to
+phism, 𝑇 is the unique phylogenetic tree whose collection             the leaves) is then computed by summing the correspond-
+of embedded 3-leaf subtrees is 𝐶 [SS03]. This encoding                ing probabilities determined by the model parameters over
+result is foundational to many supertree algorithms that              all these trees and all possible assignments of nucleotides
+amalgamate a collection of phylogenetic trees into one                to internal vertices.
+
+
+FEBRUARY 2026                                 NOTICES OF THE AMERICAN MATHEMATICAL SOCIETY                                      141
+What is. . .
+
+   This site pattern probability is a polynomial in the nu-           a constant rate 𝜈. Thus, if 𝑘 species are present, the spe-
+merical parameters of the model (including the entries of             ciation rate is 𝑘𝜆, the hybridization rate is ( 𝑘 ) 𝜈, and the
+                                                                                                                      2
+the transition matrices, the root distribution, and the in-           waiting time to the next event follows an exponential distri-
+heritance probabilities). Consequently, for a given net-              bution. The birth-hybridization model was developed in
+work 𝑁, the map                                                       the context of Bayesian inference of phylogenetic networks,
+                                     |𝑋| −1                           where it was used as a prior. From a more mathematical
+                     𝜓𝑁 ∶ Θ𝑁 → Δ4
+                                                                      viewpoint, the networks generated under this model for
+                                                                      𝜈 = 2𝜆 are uniformly distributed over the class of ranked
+from the numerical parameter space Θ𝑁 to the probability
+             |𝑋|                                                      tree-child networks, which are a subclass of tree-child net-
+simplex Δ4 −1 is a polynomial map. The image of the
+                                                                      works that are enriched with a partial order on their ver-
+map 𝜓𝑁 is called the model associated to 𝑁, denoted by ℳ𝑁 .
+                                                                      tices to ensure that they could have resulted from an evo-
+   With these definitions in hand, the notion of identifia-
+                                                                      lutionary process that obeys certain time constraints.
+bility can be made more precise. Formally, the topology of
+                                                                          Turning to summary statistics, these quantify small fea-
+a phylogenetic network 𝑁 on 𝑋 is identifiable if given any
+                                                                      tures or global properties of a phylogenetic network 𝑁
+two phylogenetic networks 𝑁1 and 𝑁2 on 𝑋, the intersec-
+                                                                      (e.g., the number of cherries, which are pairs of leaves that
+tion of their models ℳ𝑁1 ∩ ℳ𝑁2 is empty. As this notion
+                                                                      have a common parent, or the balancedness of 𝑁). When
+of identifiability is often too strong in practice, most stud-
+                                                                      the distribution of such statistics under a null model (e.g.,
+ies aim to establish generic identifiability instead. The net-
+                                                                      the birth-hybridization model) is known either analyti-
+work parameter of a phylogenetic network model is said
+                                                                      cally or through simulation, it can be used in statistical
+to be generically identifiable if, given any two distinct phylo-
+                                                                      tests to evaluate whether an observed network is consis-
+genetic networks 𝑁1 and 𝑁2 on 𝑋, the set of numerical pa-
+                                                                      tent with the null model. These tests, in turn, help as-
+rameters Θ𝑁1 that 𝜓𝑁1 maps into ℳ𝑁2 is a set of Lebesgue
+                                                                      sess if the null model plausibly reflects the underlying
+measure zero.
+                                                                      evolutionary process. While numerous summary statistics
+   The algebraic structure of the models ℳ𝑁1 and ℳ𝑁2
+                                                                      have been developed and extensively studied for phyloge-
+plays an important role in establishing identifiability re-
+                                                                      netic trees, only a small number of summary statistics have
+sults. Techniques include studying phylogenetic network
+                                                                      been proposed for networks, and even less is known about
+models through their vanishing ideals, associated phyloge-
+                                                                      their distributions. However, promising progress is un-
+netic varieties, or phylogenetic invariants. Using these and
+                                                                      derway, with recent efforts beginning to explore both the
+related ideas, several identifiability results for semi-directed
+                                                                      definition and statistical behavior of such network-based
+level-1 networks and basic models of sequence evolution
+                                                                      measures. To give a taste of some of the techniques em-
+have been obtained in recent years, e.g., [HS21, GvIJ+ 21].
+                                                                      ployed in this area, the method of coupling was used to
+(A semi-directed level-1 network is a mixed graph obtained
+                                                                      derive the expected number of cherries and their limit-
+from a level-1 network by undirecting all edges that are
+                                                                      ing distribution for a phylogenetic network sampled uni-
+not directed into a reticulation.) Extending this work to
+                                                                      formly at random from the class of ranked tree-child net-
+more complex network structures and substitution mod-
+                                                                      works [BLS22]. As a second example, in the context of in-
+els remains an active area of research.
+                                                                      dices that measure how balanced a phylogenetic network
+Probability       theory. Probabilistic       techniques     are      is, ideas from analytic combinatorics combined with the
+frequently applied to analyze random phylogenetic net-                method of moments were instrumental in obtaining asymp-
+works. These techniques include approaches to enumer-                 totic expressions for the expectations of two such indices,
+ate and sample phylogenetic networks, to derive their ex-             along with their limiting distributions, for phylogenetic
+pected properties, and to study summary statistics that               networks sampled uniformly at random from the class of
+capture their geometric or structural properties. In addi-            level-1 networks [FG25].
+tion to investigating the behavior of random phylogenetic
+                                                                      Geometry. The elements of discrete tree spaces are non-
+network models to gain insight into the evolutionary pro-
+                                                                      isomorphic phylogenetic trees without branch lengths.
+cesses that have shaped the biodiversity we see today, these
+                                                                      Metrics on such spaces are obtained by defining distances
+models are also crucial in practical applications such as the
+                                                                      between two trees that are, for example, based on local re-
+development of Bayesian and maximum likelihood meth-
+                                                                      arrangement operations that transform one tree into an-
+ods to infer phylogenetic networks from DNA.
+                                                                      other. In comparison, continuous tree spaces allow for
+   An example of a model of random phylogenetic net-
+                                                                      smooth transitions between phylogenetic trees (e.g., by
+works is the birth-hybridization model [ZODS18]: Start with
+                                                                      gradually changing their branch lengths). In their influ-
+a single species at the time of origin. Then each species
+                                                                      ential paper, Billera et al. [BHV01] developed a geomet-
+splits into two species (i.e., a species gives birth to a new
+                                                                      ric model of a continuous tree space that is composed
+species) with a constant rate 𝜆, and each pair of species
+                                                                      of orthants and called BHV space. They showed that it
+merges into one species (i.e., two species hybridize) with
+                                                                      is a CAT(0) metric space and, thus, there is a unique
+
+142                                           NOTICES OF THE AMERICAN MATHEMATICAL SOCIETY                     VOLUME 73, NUMBER 2
+                                                                                                                        What is. . .
+
+shortest path between any two points. BHV space and sub-            [BHV01] Louis J. Billera, Susan P. Holmes, and Karen
+sequently developed variants of this space allow for the               Vogtmann, Geometry of the space of phylogenetic trees,
+application of statistical methods to analyze collections of           Adv. in Appl. Math. 27 (2001), no. 4, 733–767, DOI
+phylogenetic trees, for example, to compute their Fréchet             10.1006/aama.2001.0759. MR1867931
+                                                                    [FG25] Michael Fuchs and Bernhard Gittenberger, Sackin
+mean. Continuous spaces for phylogenetic networks re-
+                                                                       indices for labeled and unlabeled classes of galled trees, J.
+main largely unexplored. Nevertheless, it was recently es-             Math. Biol. 90 (2025), no. 4, Paper No. 42, 34, DOI
+tablished that the continuous space of all ranked tree-child           10.1007/s00285-025-02205-0. MR4882955
+networks satisfying the property that each directed path            [GH12] P. Gambette and K. T. Huber, On encodings of
+from the root to a leaf has the same sum of branch length is           phylogenetic networks of bounded level, J. Math. Biol. 65
+also a CAT(0)-orthant space, which implies that distances              (2012), no. 1, 157–180, DOI 10.1007/s00285-011-0456-y.
+in the space can be computed efficiently [MS25].                       MR2917197
+Statistics. Statistics plays a fundamental role in inferring        [GvIJ+ 21] Elizabeth Gross, Leo van Iersel, Remie Janssen,
+                                                                       Mark Jones, Colby Long, and Yukihiro Murakami, Distin-
+phylogenetic networks from biological data. This includes
+                                                                       guishing level-1 phylogenetic networks on the basis of data
+estimating the network topology, inheritance probabili-                generated by Markov processes, J. Math. Biol. 83 (2021),
+ties, and branch lengths or divergence times, all under un-            no. 3, Paper No. 32, 24, DOI 10.1007/s00285-021-01653-
+certainty due to noise and stochasticity in the data. Meth-            8. MR4311049
+ods such as maximum likelihood, maximum pseudolike-                 [HS21] B. Hollering and S. Sullivant, Identifiability in phy-
+lihood, or Bayesian inference underlie various software                logenetics using algebraic matroids, J. Symbolic Comput.
+packages that estimate phylogenetic networks by fitting                104 (2021), 142–158, DOI 10.1016/j.jsc.2020.04.012.
+models, often based on the network multispecies coalescent             MR4180121
+(NMSC) model, to data such as sequence alignments or                [HvIMW15] K. T. Huber, L. van Iersel, V. Moulton, and T. Wu,
+                                                                       How much information is needed to infer reticulate evolutionary
+collections of phylogenetic trees. The NMSC model ex-
+                                                                       histories?, Systematic Biology 64 (2015), no. 1, 102–111.
+tends the classical multispecies coalescent model by ex-            [LS20] Simone Linz and Charles Semple, Caterpillars on three
+plicitly accounting for non-treelike evolution. Beyond full            and four leaves are sufficient to reconstruct binary normal net-
+network estimation, many additional questions in phylo-                works, J. Math. Biol. 81 (2020), no. 4-5, 961–980, DOI
+genetics are addressed through statistical methods. These              10.1007/s00285-020-01533-7. MR4162428
+include, but are not limited to, testing for hybridization          [MS25] Vincent Moulton and Andreas Spillner, Spaces of
+signals in specific groups of organisms, selecting among               ranked tree-child networks, J. Math. Biol. 91 (2025), no. 3,
+different models using information criteria such as AIC                Paper No. 32, 26, DOI 10.1007/s00285-025-02265-2.
+(Akaike Information Criterion) or BIC (Bayesian Informa-               MR4953189
+                                                                    [Sch70] E. Schröder, Vier combinatorische Probleme, Z. Math.
+tion Criterion), and performing bootstrap analyses to as-
+                                                                       Phys 15 (1870), 361–376, https://oeis.org/A000108
+sess support for features of the inferred networks.                    /a000108_9.pdf.
+   In summary, phylogenetics is built upon a mathemat-              [SS03] Charles Semple and Mike Steel, Phylogenetics, Oxford
+ical foundation with different areas of mathematics con-               Lecture Series in Mathematics and its Applications, vol. 24,
+tributing to the reconstruction of phylogenetic trees and              Oxford University Press, Oxford, 2003. MR2060009
+networks, their analysis and comparison, and their appli-           [ZODS18] C. Zhang, H. A. Ogilvie, A. J. Drummond, and T.
+cation in downstream analyses.                                         Stadler, Bayesian inference of species networks from multilocus
+   Despite significant advances over the past several                  sequence data, Mol. Biol. Evol. 35 (2018), no. 2, 504–517.
+decades, mostly in the context of phylogenetic trees, many
+open problems and challenges remain. As highlighted in
+this article, there is now a growing need for new mathe-
+matical tools and algorithms to infer and analyze evolu-
+tionary histories that include non-treelike processes such
+as hybridization, lateral gene transfer, and recombination,
+which are better represented by phylogenetic networks. As
+such, mathematical phylogenetics is an active area of re-
+search, with many theoretical and methodological contri-
+butions yet to be made.
+                                                                    Simone Linz              Kristina Wicke
+References
+                                                                    Credits
+[BLS22] F. Bienvenu, A. Lambert, and M. Steel, Combinatorial
+   and stochastic properties of ranked tree-child networks, Ran-    Figure 1 is courtesy of the authors.
+   dom Structures Algorithms 60 (2022), no. 4, 653–689,             Photo of Simone Linz is courtesy of Chris Loufte / University
+   DOI 10.1002/rsa.21048. MR4429840                                     of Auckland Media Productions.
+                                                                    Photo of Kristina Wicke is courtesy of Pete Labrozzi / NJIT.
+
+FEBRUARY 2026                               NOTICES OF THE AMERICAN MATHEMATICAL SOCIETY                                          143
+

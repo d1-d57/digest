@@ -1,0 +1,560 @@
+What Is the Positive Grassmannian and Why Does It Show Up Everywhere? | Quanta Magazine
+Quanta Homepage
+About Quanta
+Search
+Newsletter
+Get the latest news delivered to your inbox.
+Recent newsletters
+Follow Quanta
+Facebook
+Youtube
+Instagram
+RSS
+An editorially independent publication supported by the Simons Foundation.
+Type search term(s)
+and press enter
+Home
+What Is the Positive Grassmannian and Why Does It Show Up Everywhere?
+Comment
+Save Article
+Read Later
+Share
+Facebook
+Copied!
+Copy link
+Email
+Pocket
+Reddit
+Ycombinator
+Comment
+Comments
+Save Article
+Read Later
+Read Later
+The Joy of Why
+What Is the Positive Grassmannian and Why Does It Show Up Everywhere?
+By
+Janna Levin
+and
+Steven Strogatz
+June 25, 2026
+Lauren Williams tells 'The Joy of Why' how studying a fundamental object in algebraic combinatorics led to a career full of surprises.
+Comment
+Save Article
+Read Later
+Chanelle Nibbelink for
+Quanta Magazine
+Introduction
+What links certain mathematical models of traffic flow, shallow-water waves, and quantum particle scattering? The surprising answer lies in a corner of the algebraic combinatorics world that goes by the name of positive Grassmannian. In simple terms, the positive Grassmannian is a shape that classifies other shapes. Remarkably, pieces of the positive Grassmannian can be reassembled in forms that reveal shared structures in these and many other seemingly unrelated mathematical systems.
+That we know the positive Grassmannian crops up in many real-world settings is largely down to the theoretical work of Lauren Williams at Harvard University. In this latest episode of
+The Joy of Why
+, Williams talks to co-host Steven Strogatz about her work, how she realized the surprising pervasiveness of the positive Grassmannian, and how she has made a career of finding connections among fields that don’t at first sight seem connected. The conversation then switches to another project Williams is working on, called First Proof, which is trying to measure objectively how good AI systems are at coming up with proofs of research-level mathematical statements, and which leads to an exploration of whether AI may or may not take over mathematics.
+Listen on
+Apple Podcasts
+,
+Spotify
+,
+TuneIn
+or your favorite podcasting app, or you can
+stream it from
+Quanta
+.
+Note
+: Since this conversation was recorded, results from the First Proof Second Batch project were
+released on June 10, 2026
+.
+Transcript
+[
+Music plays
+]
+STEVE STROGATZ:
+All right.
+JANNA LEVIN:
+Okay, now we’re starting, starting?
+STROGATZ:
+I’m Steve Strogatz,
+LEVIN:
+And I’m Janna Levin.
+STROGATZ:
+And this is
+The Joy of Why
+.
+LEVIN:
+A podcast from
+Quanta Magazine
+where we explore some of the biggest unanswered questions in math and science today.
+STROGATZ:
+I can start us off with a discussion I had recently with a mathematician who works in the area of math that we call algebraic combinatorics.
+LEVIN:
+Oof.
+STROGATZ:
+Yeah? What makes you say “oof” to that?
+LEVIN:
+Oh, I don’t know. It sounds really hard. I mean, algebraic, we know what those two words mean. Combinatorics, I assume some kind of discrete algebra.
+STROGATZ:
+Yeah, something like that, right? It’s all about discrete objects or structures.
+LEVIN:
+When I think of combinatorics, I sometimes think of the many ways in which you can organize something. Like this comes up in thermodynamics where statistical thinking or in counting of entropy. What are the possible ways of organizing a sequence of numbers, for instance? And is that an element in combinatorics, or is that too simplistic?
+STROGATZ:
+No, that’s exactly on the money. That’s the kind of thing that we’re thinking about. And for our listeners who may not be in the world of thermodynamics or statistical physics, we do combinatorics any time we play card games.
+LEVIN:
+Right, exactly.
+STROGATZ:
+You know, so you can ask yourself, with a deck of 52 cards and the four suits, how many ways are there to get three of a kind versus two of a kind or a straight? Those kinds of counting questions or probability questions, that’s part of what gave rise to combinatorics, but now it’s used all the time when we have to find clever time-saving ways to count things or to organize things, as you said, in some very structured manner.
+LEVIN:
+Yeah, that’s a great analogy. That’s exactly how I think of it. If you’re handed five cards, what are your possible combinatorics? Your first card is a king, then what are the possible combinations that follow with the next four cards, and then the next three, and then the next two, and then the one?
+STROGATZ:
+Right. and you’ve put your finger on the key word there, right? Combinatorics coming from the idea of many combinations of possibilities.
+LEVIN:
+Yeah, fascinating.
+STROGATZ:
+But one of the things that came up that I really would like to have your take on before we dive into the episode is the question of beauty. Because I know that in physics, you all use beauty occasionally as a cri- oh, okay, so you’re smirking at me here.
+LEVIN:
+I am! Well, I feel like, I feel like physicists are the last ones with a straight face that really talk about beauty as a very serious criteria. You know, something looks really messy, ugly, long, not compact, you suspect you’ve done something wrong or there’s something deeper worth pursuing, and that, we might dismiss it, but it seems to work.
+STROGATZ:
+That’s the interesting and sometimes uncanny thing, right?
+LEVIN:
+Yeah.
+STROGATZ:
+That, that first of all, beauty, even just as an aesthetic issue, is hard to define, but then somehow we expect that the universe is going to have such good taste that it’s gonna…
+LEVIN:
+Yeah.
+STROGATZ:
+You know, that we can use beauty as a selection criterion for our theories.
+LEVIN:
+Yeah. And I don’t know if that is still as forceful a kind of trend, but it has been incredibly successful, and we can quantify symmetries, you know, certain organizational structures, compact expressions, grouping things together so that it seems to streamline. These are pretty compelling definitions of beauty, I think, in this context.
+STROGATZ:
+Uh-huh. Well, so that’s where we’re gonna go first. We wanna hear Lauren Williams’s take on the issue of beauty, not in physics, but in pure math. She is a recent MacArthur Genius Prize winner, a mathematician at Harvard University, and, uh, you’ll see in, in our conversation that she seems to specialize in finding connections between fields or topics that don’t seem like they’re related.
+She finds a common thread, often not just with combinatorics, but with a very specific object in combinatorics that goes by the even more intimidating name of the positive Grassmannian.
+LEVIN:
+Mmmmm.
+STROGATZ:
+So get ready to go plunge into those waters.
+LEVIN:
+Well, Grassmann was amazing, so I’m already interested.
+STROGATZ:
+Let’s dive in.
+[
+Music plays
+]
+STROGATZ:
+Welcome to
+The Joy of Why
+.
+WILLIAMS:
+Thank you so much. It’s great to be here.
+STROGATZ:
+The thing that’s got me really fired up to talk to you, Lauren, I have to say, besides all the beautiful math that you’ve done, I feel like your work touches on this uncanny aspect of math that has a whole philosophical dimension to it.
+If you don’t mind, let’s start with some personal stuff. I have two daughters, my wife and I, and if I understand right, you are one of four daughters?
+WILLIAMS:
+That’s right. I’m the eldest of four girls.
+STROGATZ:
+And so, are your sisters also mathematically inclined?
+WILLIAMS:
+Yes. All of my sisters liked math as well. The age gaps between us are two, two, and six, so when I was growing up, the house was pretty full.
+I remember teaching my youngest sister, Genevieve, addition of numbers with carries when she was probably four or five, and I showed her how to do it, and then I gave her, you know, some homework. She came back and she had a big grin on her face, and she had done it a different way. She was doing things left to right instead of right to left, and she thought that was hysterical.
+So I don’t want to put words in their mouths, but my recollection is that it seemed fun for them. And with my sister Eleanor, who’s closest to me in age, when I was in fourth or fifth grade and she was two years younger, we decided that instead of learning another language, we could learn codes, and so we started learning about Caesar cipher and then making up our own codes. We spent a lot of time doing that, and it was a lot of fun. It was a secret language.
+STROGATZ:
+I also saw some pictures of you, looking on the internet, playing the violin, and it makes me wonder if your interest in beautiful things, whether in music or in math… I mean, are you generally interested in beauty?
+WILLIAMS:
+Very much so. I started playing the violin when I was four, it was quite a big passion of mine. I was also writing poetry and stories as well. But, for sure, it feels like the beauty that we see in mathematics has a lot to do with the beauty that we see in music or in poetry in terms of elegance or the symmetry, the harmony. There’s a strong correlation there.
+I don’t know if learning music early on helped me to appreciate math or made me more inclined to math, or if having a mathematical appreciation also went hand in hand with having an appreciation of music. I really don’t know.
+STROGATZ:
+Now, if I can fast forward a little bit can you unpack for us what is the idea of combinatorics? What are the kinds of questions you would study in that field?
+WILLIAMS:
+Roughly speaking, combinatorics is the study of finite or discrete structures. When one starts out learning combinatorics, one tends to learn a lot of techniques for counting or studying different kinds of objects and counting them with the usual sort of non-negative integers, zero, one, two, and so on.
+Actually, probably 30, 40 years ago, combinatorics was looked down on as a field of math. There was a viewpoint among purists that combinatorics was sort of a bag of tricks. But in fact, my advisor, Richard Stanley, was one of the people who really made combinatorics a much more respectable field. He wrote these beautiful books. His work sort of pointed out that there was a lot more structure and deeper theory behind it all. And in particular, he has a lot of wonderful work in algebraic combinatorics, which is using techniques from algebra to study combinatorial problems.
+STROGATZ:
+So I, I wanna go back to something you said a minute ago, the idea that some parts of math are considered more peripheral or more marginal, like they can come in and out of fashion, and I, I’m just wondering if you could expand because it gets into the sociology of math.
+WILLIAMS:
+It is a sociological phenomenon. I think partly it has to do with the age of a field. So for example, number theory is the study of numbers and their arithmetic properties, things like primes. It’s a very, very old subject and had a very prestigious reputation. You know, Fermat’s last theorem is one of the crowning achievements in number theory, whereas somehow combinatorics didn’t really come into its presence, good reputation, until fairly recently.
+I mean, in fact, Richard Stanley was a PhD student at Harvard in the 1960s, and at the time, Harvard had no professor doing combinatorics. He wanted to work with Gian-Carlo Rota, who was a combinatorist working at MIT, and he had faculty members at Harvard telling him, you know, “Stop doing this Mickey Mouse mathematics.”
+Fortunately, he persisted, and he, and he changed the field. And then, you know, more recently, in the last 10 years, the mathematician June Huh won a Fields Medal largely for his work at the interface of combinatorics and algebraic geometry, and that, of course, it’s maybe a sign that this has finally been recognized.
+STROGATZ:
+You’re really putting your finger on it there. This idea of the interconnectedness of math itself is part of a status of a subject. If a subject is seen as too far in the outskirts, not connecting to the other domains in math, that tends to lower its reputation.
+WILLIAMS:
+I agree.
+STROGATZ:
+Right? Whereas the things that are in the core, whatever that means, have higher status like algebraic geometry you mentioned.
+WILLIAMS:
+Right.
+STROGATZ:
+So I began by asking you questions about beauty, the aesthetic dimension of math, and so I would like to try to connect that to a quote that I read of yours. It says, “If you ask a question and the answer is not beautiful, that means you asked the wrong question.” I don’t know. I’d like to hear more.
+WILLIAMS:
+Yes. So starting from the beginning of my time as a graduate student, I was going to seminars, I was taking classes, and one of the things I was trying to figure out was, what do different people find interesting in mathematics, or what do they find beautiful in mathematics? What do I find interesting? What do I find beautiful? And I picked up this aesthetic in part from my advisor. You know, the work should be beautiful. Uh. And as a pure mathematician, we’re not beholden to particular questions or applications, and so what are the standards to which we should hold ourselves? Well, we should be looking for something beautiful.
+And we have complete freedom as pure mathematicians, and if we have complete freedom to ask whatever question we want, well, what I want to do is find questions with beautiful answers. And I think those are the questions and answers that tend to wind up becoming the most important or having the most connections to other fields, whether it’s within math or outside of math.
+STROGATZ:
+In the popular mind, math is known as being a very black and white subject. There’s a right answer, there’s a wrong answer. When you start talking about beauty, it sounds very subjective. There’s the old line about beauty being in the eye of the beholder. And it seems a little surprising that mathematicians would be so obsessed with beauty, given that it’s so hard to define what beauty means.
+And I guess I’d like to know first of all, what would it look like for math to be not beautiful?
+WILLIAMS:
+So a beautiful piece of math is short, clean, elegant, maybe a statement that connects two mathematical objects that you didn’t expect to be connected. That is something that I would find more likely to be beautiful than if the theorem takes paragraphs or pages to even get to the statement.
+On the other hand, one could come up with a true theorem or a true fact that seems very arbitrary or specific. Maybe you ask like, “Okay, what if I take 73 random lines in the plane, and then I look at the, I don’t know, I look at some curve going through these four intersection points, what’s gonna happen? You know, that’s less likely to be considered beautiful than a statement like there are infinitely many primes. You know, a statement that is short and simple, clean, and feels more sort-of universal is going to be considered, considered more beautiful than the other kind of statement.
+STROGATZ:
+So let me see if I follow you. The aesthetic you’re talking about tends to like economy of means or minimalism. You like universality. You don’t want a lot of very highly specific things. To the extent that it’s general, that’s a plus. To the extent that it’s compact, that helps. But I was hearing some disrespect towards certain types of numbers in favor of other types of numbers.
+WILLIAMS:
+Well, I am a combinatorialist after all.
+STROGATZ:
+Okay.
+WILLIAMS:
+But, but it was more about questions where the answer is a theorem that holds true for infinitely many cases, as opposed to a question with a single answer, which is some real specific number.
+STROGATZ:
+So in terms of, um, like if we were doing a self-help manual for mathematicians, and you suppose you’re studying something and it’s coming out not beautiful according to these and maybe some other criteria, what do you do? Like, are there moves that you can make to push yourself on a more beautiful track?
+WILLIAMS:
+I guess I would try to tweak the question. If it seems like I’m arriving at the answer, but it’s simply not elegant, doesn’t seem to be interesting, then I would try to tweak the question. I mean, I might in an extreme situation just abandon that effort, but if I feel like there should be something interesting nearby, then I would try to adjust the question.
+STROGATZ:
+And that’s the nice gambit because in a lot of fields you’re sort of stuck with the question. But in math, you mentioned the freedom to think about whatever they want, and so you’re saying you can leverage that freedom to maybe change the question.
+Maybe your ugly answer is a sign that your question isn’t quite right. Okay. So now I think I understand what you meant by that.
+WILLIAMS:
+Yeah. I would imagine that that people in music or art could relate to this kind of statement. Maybe there’s a theme that they’re trying to play with in composing a piece of music and it doesn’t have the right harmonies. I’m sure there’s a lot of tweaking of the framework or tweaking of the approach that goes into art that results in a better end product.
+STROGATZ:
+Well, so I wanna dive into that now, this set of ideas related to a thing called the Grassmannian and the positive Grassmannian, which for a long time were a playground for pure mathematicians.
+So okay, what the heck is this thing? For people who have never heard of the Grassmannian, start us off. How should we think about it in the simplest cases?
+WILLIAMS:
+Yeah. So the Grassmannian, it’s a geometric object, and it’s a bit like a library for keeping track of simpler objects. So, for example, the Grassmannian of one-planes in two-space is the set of all lines through the origin in the x-y plane.
+In the Grassmannian, each line passes through the northern half of the sphere.
+Samuel Velasco/Quanta Magazine
+And so we’re, we’re thinking of this as a sort-of one mathematical object that’s keeping track of all of these lines. And so you can imagine all these lines passing through the origin in two-dimensional space, and then the positive part of this Grassmannian would be the set of those lines that go through the positive orthant.
+STROGATZ:
+Let me think about these lines. If I were looking at a compass, there’s a line that goes north and south.
+WILLIAMS:
+Yes.
+STROGATZ:
+I think of that as one line. So north and south are both part of the same line.
+WILLIAMS:
+Yes, exactly.
+STROGATZ:
+And east and west are also part of the same line.
+WILLIAMS:
+That’s right. And then there’s sort of infinitely many lines that we can get by tilting either of those lines.
+STROGATZ:
+Yeah. So I’m thinking about infinitely many different lines, and you’re telling me there’s a way I could think about them as somehow described by a single shape?
+WILLIAMS:
+Yes. And if you like, if you’re thinking about this set of all lines through the origin in two-dimensional space, each one passes through the sort-of northern half of your compass. And so you could actually just keep track of each of those lines by the intersection point with a circle.
+And then if you just think about this positive semicircle at the top, then each point on that sort-of positive semicircle will be specifying uniquely a line that goes through the origin.
+STROGATZ:
+Which on a compass would just have little markings on it that say north, northeast, we could even have north-north-north-northeast.
+WILLIAMS:
+Yes.
+STROGATZ:
+I mean, that gets cumbersome to do it that way. But you’re saying there’s infinitely many points on this northern half circle, and then the totality of all those points makes what you called a semicircle. But do I consider… What’s going on with the equator or the east and western points?
+WILLIAMS:
+That’s, that’s right.  We should only include one of them because there’s only one … there’s one line that passes through both the west and the east-most points. Yeah. So we should only keep one of them and throw the other point away.
+STROGATZ:
+As far as the collection of all these lines, am I right in thinking that it’s like a line segment that goes from east, but I don’t include east, all the way around the top to west, but I do include west?
+WILLIAMS:
+Exactly.
+STROGATZ:
+So is it like a line segment with one end point but not the other endpoint?
+WILLIAMS:
+Exactly, yes. That would be the Grassmannian of 1-planes in 2-space. We, that’s how we can think about it.
+STROGATZ:
+You could think of it as being like a half-open interval.
+WILLIAMS:
+Yes.
+STROGATZ:
+Huh. Okay. That’s a kind of a weird object.  I mean, it feels kind of unsymmetrical, a half-open interval, like I’m, I’m dying to close that other endpoint, but I shouldn’t. Not if I want the Grassmannian.
+WILLIAMS:
+Well, we sort of identify those two points, so it’s almost like we could think about sort of gluing those together.
+STROGATZ:
+Okay. And then for the positive Grassmannian, you only want the positive orthant.
+WILLIAMS:
+Right. So first the Grassmannian of lines in three-dimensional space in this slightly higher dimensional setting would look more or less like the northern hemisphere. And then if we restrict to the positive part of the Grassmannian, then we’re just looking at the intersection of that hemisphere with the positive orthant. And so it’s actually gonna look like a triangle, like a kind of a curvy triangle.
+The positive Grassmannian is the part of the Grassmannian in which all the lines have non-negative slope.
+Samuel Velasco/Quanta Magazine
+STROGATZ:
+Okay. And this word “orthant,” which isn’t totally familiar, is the 3D version of quadrant.
+WILLIAMS:
+Exactly.
+STROGATZ:
+Right. There’s eight of them. So that’s why you’re saying “orthant.”
+WILLIAMS:
+Yeah. So that positive orthant would be where the X, Y, and Z coordinates are all positive or non-negative.
+STROGATZ:
+Okay. And you say it looks sort of like a curvy triangle. And so at this point, if people are still with us, why would anyone think about this object? This doesn’t seem like an obvious thing to think about.
+WILLIAMS:
+Yeah, yeah. It wasn’t an obvious thing to think about, but back in the 1900s, mathematicians were studying certain kinds of matrices called totally positive matrices, and they had nice properties. They had some connections to different systems like oscillation.
+And then in the late 1990s, early 2000s, Lusztig and Postnikov realized that there was a way to sort of generalize this notion of totally positive matrices to an object that lived inside the Grassmannian. And so it was just sort of a purely interesting mathematical idea to try to study total positivity, not just for matrices anymore, but for geometric objects like the Grassmannian.
+So, there’s all kinds of sets of matrices that describe motions and symmetries for the real world.
+STROGATZ:
+And they come up in quantum theory. They’re used all the time now in artificial intelligence, but even inside of math, as you say, they’re, they can act like machines that do things to other mathematical objects.
+WILLIAMS:
+Yes, in math, one of the common themes is that we study not just the mathematical objects, but also the relationships between the objects. And matrices can give us a way to create or to analyze relationships between different mathematical objects.
+STROGATZ:
+Now, one of the results that you are known for was this positive Grassmannian that we talked about, you looked at in a combinatorial way, in the very general case. So, tell us a little bit of the flavor of what you did there.
+WILLIAMS:
+Yeah, absolutely. Back when I was a grad student or postdoc, I think I had a conversation with some other mathematicians about, you know, just what combinatorics is as a field. and one thing that we discussed at that dinner was that one can think of combinatorics, not necessarily just as a field, but as an attitude.
+You know, we can go through life, uh, with a combinatorial attitude and take a combinatorial approach to different problems. And the positive Grassmannian can be divided into pieces of different dimensions. An analogy I like to use is that of the cube, say the three-dimensional cube. If a combinatorialist looks at it, they may come away saying, “Well, it has six two-dimensional faces,” these squares on the different sides, “and it has 12 one-dimensional edges, and it also has eight zero-dimensional pieces,” the eight vertices.
+And so you can associate these numbers, six, 12, and eight to a cube. That’s what a combinatorialist might do. Now, there are infinitely many positive Grassmanians, and they can have arbitrarily high dimension, but the first problem that I worked on in graduate school was coming up with an explicit formula for how many pieces there are of each dimension.
+So, I wrote down a polynomial that for any k and n tells you how many pieces there are of each dimension in that positive Grassmannian.
+STROGATZ:
+Okay, so let’s now make a little swerve from this pretty abstract realm of matrices and Grassmannians and positive Grassmannians to the much more mundane world of traffic and waves on the ocean and proteins being made inside of cells, because it turns out all those things can be viewed as part of one story.
+WILLIAMS:
+That’s right. There have been sort of three different areas that I’ve had personal experience with where the positive Grassmannian got connected. During my postdoc, I learned that another mathematician, Sylvie Corteel, had written a paper which said that my polynomials that were counting pieces of the positive Grassmannian according to dimension were also computing probabilities in a model that had been introduced to study translation in protein synthesis and was also used as a model for traffic flow.
+I was floored when I saw this paper to think that my polynomials had to do with a sort of, quote-unquote, “real world.” Her result was quite beautiful. Basically, she was saying that my polynomials were giving the probability that in a lattice with n sites or in a road with space for n cars, there are exactly k cars present. That’s what my polynomials were computing.
+So great, so we know the probability that in a road with space for n cars, there’s exactly k present. Well, what if we want to know the probability that the cars are present in positions one, four, five, eight? You know, what if you want to know all the probabilities that any given configuration of cars is there? And so that was the natural question to ask. That actually kicked off a decades-long collaboration with Sylvie. I mean, we’ve written a number of papers together by now.
+[
+Music plays
+]
+[
+STROGATZ:
+So, there’s a lot to unpack there, Janna. Did that wash over you?
+LEVIN:
+Well, I mean, I grasp some of it, right? This idea that you can cut some mathematical object into pieces, find some mathematical rule for the number of pieces occurring of a certain variety. She was saying dimensionality. So having heard all of that, which is very intriguing, just give me the bird’s-eye view of what a Grassmannian is.
+STROGATZ:
+Okay, fair enough. Right, it’s not a concept we run into every day. So here’s what it is. There’s a technical way we could define it, but before I give you that, can I give you ‘What’s it gonna do for us?’ How is it helpful? So, it’s a really nice meta-concept. It’s a shape that tells us about other shapes.
+LEVIN:
+Hmm.
+STROGATZ:
+It’s a shape that can be used as a library or a catalog for other kinds of structures or shapes.
+LEVIN:
+So it’s one shape or it’s a family of shapes?
+STROGATZ:
+It’s a family of shapes. There’s different Grassmannians. I mean, here’s the technical definition, which may work for you, but I don’t wanna linger on it too long because I don’t think it’s the most helpful way to think about it.
+Technically, it has to do with thinking about all the different ways that k-dimensional spaces, linear spaces, like a two-dimensional space would be a plane, a one-dimensional space would be a line, a three-dimensional space is what we’re used to for ordinary 3D space. Yeah. So you’re trying to think about the totality of all k-dimensional linear spaces through the origin of n-dimensional space.
+LEVIN:
+Okay.
+STROGATZ:
+So there’s two parameters, k and n. Now, the simplest case would be think about lines through the origin. That’d be one-dimensional spaces through the origin in a plane.
+LEVIN:
+So n is two, k is one.
+STROGATZ:
+Right. That would be the 1-2 Grassmannian or something like that.
+LEVIN:
+Oh, I see. Okay.
+STROGATZ:
+Okay? So there’s, infinitely many, a whole continuum of lines, but if you wanted to parameterize them in our language, if you wanted to catalog them, you could do it by saying, “What’s their compass direction?” Like there’s the line that goes north-south, or there’s the line that goes north-northeast and south-southwest or something like that, right? So if I listed all of those possible lines, it could be the whole upper semicircle. So that’s a shape.
+LEVIN:
+And so people study different Grassmannians, some high-dimensional space and some lower dimensional.
+STROGATZ:
+Exactly.  Now, Lauren specializes in this piece of it that’s called the positive Grassmannian, which in our little example with lines through the origin in the plane would be like only considering the ones that have positive slope. And that turns out to have extra structure that makes it more helpful in lots of applications.
+At this point, it seems like something that pure geometers would think about. This is about a shape that classifies other shapes. The spooky thing is that this pops up all over the place in real-world settings. So like she mentions, traffic flow. I want you to have not an image of cars motoring down the highway, ’cause she doesn’t really mean that kind of traffic.
+Think of back when COVID was rampant and we had to stand in line at the checkout for the supermarket, and you had to stay six feet behind the person in front of you, right? So imagine you had something like 10 spots available that you could stand on. That would be like our n. And now people start arriving to get in line and also people at the front of the line can leave, and the rules of the game are that whatever spot you’re on, you have some probability of moving forward one spot, except not if someone’s standing there.
+There’s a constraint. If you let this whole thing run for a long time with people arriving at random and leaving at random, and moving forward one spot at random when they can, you could classify all the possible ways that these 10 spots could be occupied by four people, let’s say. That would be the k. It turns out the 4,10 Grassmannian tells me something about the likelihood of seeing a particular number of people in this queue.
+LEVIN:
+Now, I’m curious. I can imagine during COVID, as you said, having to solve this problem, right? It’s a problem that has to be solved because we now have distribution centers for vaccines, and this is happening or something like that. How does somebody notice that the polynomial that they’ve generated to answer this practical question happens to be the same as a polynomial a very abstract mathematician has found for a Grassmannian on the positive with positive Grass… I mean, how do they even notice this correlation?
+STROGATZ:
+That might be the unique genius of Lauren Williams and her collaborator, Sylvie Corteel. And it’s not just about the queues. If you think about ribosomes moving down an mRNA molecule as they’re doing protein synthesis, it also pops up in that setting. You see what I’m getting at? This is a really fun, diverse set of applications all mysteriously falling under the heading of the positive Grassmannian.
+But after the break, Lauren Williams will walk us through why this phenomenon might be happening, why it’s happening so pervasively, and also how artificial intelligence may or may not take over mathematics.
+[
+Music plays
+]
+STROGATZ:
+Welcome back to
+The Joy of Why
+. We’re speaking with Harvard mathematician Lauren Williams about algebraic combinatorics and the positive Grassmannian.
+STROGATZ:
+I would love to ask about why these connections to the much more mundane world happen. I know that no one knows.
+WILLIAMS:
+Well, you know, what’s really interesting to me is that you know, with the model of traffic flow, it’s this model of particles that repel each other. And with the shallow water waves, these are waves that are sort of coming together and interacting. And with the scattering aptitudes, it’s about particles that are being thrown together and interacting. And somehow it’s always about particles or waves that are being flung together and then they sort of repel in some way.
+And you know, the coordinates one uses for the Grassmannian are Plücker coordinates. And if you have your k by n matrix, you think of this as a, as a list of column vectors. Well, if two, two vectors get so close that they’re actually on top of each other, your Plücker coordinate vanishes. So there’s something in the nature of the Plücker coordinates on the Grassmannian that build in this repelling property.
+And so I’ve always wondered if it could be possible to connect these three different settings, whether it’s the particles repelling each other, or the waves, or the scattering aptitudes. But somehow I think it all comes down to Plücker coordinates on the Grassmannian.
+STROGATZ:
+That’s nice. That’s a very, very nice answer. And I mean, it feels like a more refined way of saying what you said at first. ’Cause I’ve seen diagrams like when you look at the particles in the Feynman diagrams, veering towards each other and then bouncing off. Or if you look at the diagrams of the water waves where you’re just looking at, I don’t know what, the crests or something, there’s ways of drawing the pictures that it almost looks like you’re drawing the same picture over and over.
+WILLIAMS:
+Right, right, right.
+STROGATZ:
+Yeah. So, I mean, it would be weird, then again, maybe not so surprising that if at a very deep level we’re drawing this same picture over and over and nature is interpreting it, or math is interpreting it in different ways in different settings, but it’s kind of the same mechanism. But your, your thing with the Plücker coordinates, and the… does the zero mean that that’s the analog of repulsion. They won’t go through each other because of that zero?
+WILLIAMS:
+Well, they could, but then there’s a sign change.
+STROGATZ:
+Oh.
+WILLIAMS:
+And then somehow, like with the shallow water wave stuff, I was thinking about why positivity comes into the picture. You know, to analyze these solutions, to analyze these water waves, you use Soliton solutions to the KP equation, and that involves a tau function in which you take the log of a certain function, and this function is built out of the Plücker coordinates in some way. And as long as the Plücker coordinates are all non-negative, you’re taking the log of something that’s always positive.
+But if you lose this positivity, if you now are talking about all points in the Grassmannian and not just the positive part, you might at some point be taking the log of zero or something really close to zero. But then what happens is that your model for shallow water waves goes off to plus or minus infinity, which obviously does not represent the real world.
+And so there’s something about, you know, if you want to stay in the real world, you have to stay away from this zero. And it means restricting to the positive Grassmannian. So, yeah.
+STROGATZ:
+But if we were to just get a little sloppier, but I think maybe more understandable about it, is it that there are sort of a bank of possible patterns that can happen in our minds or in nature. And sometimes those patterns just, you know, if they’re fundamental enough, they will show up in many parts of our thought and in our observations.
+So like there’s a certain family of patterns that you are swirling around and this positive Grassmannian story is encoding them, and they have different manifestations in math and in the world, but it’s kind of the same pattern over and over.
+WILLIAMS:
+Yeah, maybe that’s right. Maybe that’s right. I mean, the Grassmannian is so universal, and then there’s something about positivity that just captures properties of the real world for some reason.
+STROGATZ:
+This story is not over because then somehow you get entangled, naturally I use that word, with things happening in quantum physics specifically with things related to a very beautiful quantum field theory: N=4 supersymmetric Yang-Mills theory.
+WILLIAMS:
+Yes, yes.
+STROGATZ:
+If I’ve got that right. But anyway, Nima Arkani-Hamed and other collaborators are looking at this fantastic model and somehow you connect to them. You want to build that bridge for us?
+WILLIAMS:
+Yes. So they started to realize that somehow the structure of the positive Grassmannian was helping to understand scattering amplitudes. So scattering amplitudes are basically probabilities that tell you what you might expect would happen if you throw a bunch of particles with given momentum together and more particles come out.
+Well, I guess that sort of classical approach to scattering amplitudes was to use some complicated diagrams called Feynman diagrams. But the physicist Nima Arkani-Hamed and collaborators realized that there were more compact ways to understand these scattering amplitudes. And they involved a lot of the machinery of the positive Grassmannian. Um, yeah. And then this in turn led to a beautiful geometric object that they call the amplituhedron, whose volume computes scattering amplitudes.
+STROGATZ:
+Before we start delving into the amplituhedron, if I’m saying that right, I, there was one question I had about something in, in doing a little background reading that you mentioned, these  Feynman diagrams. It’s a wonderful technique for calculating the kinds of information that physicists need to try to match what they see in their experiments or to make predictions about future experiments. But it can be very arduous. There could be thousands of diagrams, sometimes even more that they have to calculate on computers.
+And the crazy thing that seems to have come out in the amplituhedron story, as done by the physicists, is that the thousands of calculations can be reduced sometimes to one calculation.
+That is, when you mention calculating a volume, it’s analogous to finding a volume of a shape. And it seems like a miracle. How could a thousand or a million things be replaced by one thing? And it reminded me of cancellations that I teach when I teach calculus. There’s something we teach and you probably have to teach calculus from time to time too. We talk, call it a telescoping series where there’s a series of terms and then on the inside there’s a lot of things being added and then subtracted again and added and subtracted and they all collapse. And I feel like from what I read, that in your picture you, ’cause we talked about positive as an adjective applied to the Grassmannian, that when you have this positivity extra thing thrown in there, it somehow gives rise to this kind of, it’s not the same cancellation as in a telescoping series, but it feels like it has that flavor.
+A lot of internal cancellation simplifying a big messy thing to something much simpler. Am I on the right track with that? I mean, even morally, if not in detail.
+WILLIAMS:
+So, there are many cancellations that occur when one goes from kind-of Feynman diagram expressions to the sort of most compact expressions that we know.
+A big advance in this area was the recurrence of BCFW, Britto, Cachazo, Feng, and Witten, and they wrote down this beautiful and much more compact recurrence for computing scattering amplitudes. And then what was noticed a few years later by a physicist named Hodges was that in some special cases, if you take the recurrence and you express your amplitude as a sum of terms, it looked like the sum of terms was computing the volume of some geometric object by cutting it into pieces and adding up the volumes of those pieces.
+So, this was an observation of Hodges in a few very special cases, and then he asked the question, “Is this true in general?” Can we write all of these scattering amplitudes as computing volumes of some geometric object by cutting them up into pieces and summing them up? So Nima Arkani-Hamed and Jaroslav Trnka invented/discovered the amplituhedron as the answer to this question.
+So they defined this object, and it’s closely related to the positive Grassmannian, and they proposed in their 2013 paper that this was the answer to Hodges’s question. The volume of this object is indeed computing the scattering amplitudes in question.
+STROGATZ:
+So, maybe we should close our discussion here by just going into a little bit of what you’ve been doing very recently, in connection with a project known as First Proof. Can you fill us in on what this project is about and what you’re trying to do with it?
+WILLIAMS:
+Yeah. So First Proof is a project that we initiated in the fall, and the motivation and the idea was to try to come up with an objective measure of how good AI systems are at coming up with proofs of mathematical statements. There’s been a lot of noise in the media either sort-of hyping up the ability of AI or denigrating it, and we thought mathematicians themselves should try to figure out how best we can use AI in our own research, and in particular, to figure out how good AI is at coming up with proofs of statements.
+But this is a very tricky thing to test because LLMs, AI models are extremely good at searching the literature. So, if you ask your favorite AI model to come up with a proof of a mathematical statement, if that statement and proof are on the internet somewhere, it’s gonna find it. So we wanted to know how good is it at coming up with new proofs that aren’t already out there.
+And so what we decided we needed to do was take mathematical statements, lemmas, say from our own research, where we had proved the lemma or the statement, but we had not released the solution on the internet anywhere, and propose these kinds of statements as problems, as a challenge for AI systems. So, a group of 11 of us got together and produced these kinds of problems from our work and put them out on the internet in a paper on February 6 as a challenge for AI systems.
+STROGATZ:
+That’s February 6th, 2026 for people in the future listening to this.
+WILLIAMS:
+That’s, that’s right. Yes. And then what we did at the time was we wanted to sort-of make clear that we had solved these problems ourselves. We encrypted our solutions, we put the encrypted solutions on the internet, and then we said that we would release the key to the encryption, we’d release the solutions, publicly in one week’s time.
+And so during that time, we were really gratified to see that there was just an incredible amount of interest, both from the mathematical community, like professional mathematicians or math afficionados, but also from the big AI companies, you know, jumping on the challenge and seeing what they could do.
+STROGATZ:
+Yeah. ’cause these are not like the Olympiad problems or the high school math contest problems or anything like that. These are really research-level questions, but bite-sized.
+WILLIAMS:
+That’s right.
+STROGATZ:
+As you say, they’re lemmas, not the whole paper.
+WILLIAMS:
+Right, right, right. So this was a new kind of challenge because as you said, most previous benchmarks consisted of problems with numerical answers, as opposed to answers that consisted of proofs. So with all of our problems, we made sure that we had proofs that were roughly five pages in length, or less.
+STROGATZ:
+And how did the AIs do? Is it possible to assess?
+WILLIAMS:
+Yeah, so we did our own private assessments at the time that we came up with these 10 questions. And, actually deciding the protocols around testing is also a tricky thing to do because you could give an AI model one shot to answer the question. You know, you could just give it the problem and see how it does. Or one could have an extended conversation with the model and try to coax it to give a better answer. But so in our private tests that we did beforehand, we just gave each AI model one shot to answer the question. We didn’t have any back and forth, and what we found at that time was that the models could solve two of our 10 questions.
+STROGATZ:
+Oh, okay. That’s not bad. These are hard questions.
+WILLIAMS:
+Yeah, yeah, yeah. No. Not bad. And during that week various individuals and also people with the companies were working on the problems and coming up with solutions. And if you sort-of put together the best efforts from all of the different people and groups who submitted answers, we did get perhaps correct solutions to six of the 10. But we are trying to shy away from making any formal statements about how people or groups did because we didn’t lay any ground rules. Since different people and different groups and different companies would’ve had different procedures, and different amounts of feedback, it’s hard to sort of compare how the models did.
+STROGATZ:
+And so now you have very recently, it was only a few days before our conversation right now, you released what you’re calling, what are you calling it?
+WILLIAMS:
+The second batch.
+STROGATZ:
+The second batch.
+WILLIAMS:
+Yes. First Proof is a baking pun. It’s about proofing the dough before you bake it. And so we put out, you know, our first batch of problems back in February and just a few days ago on March 14, 2026, on Pi Day, we put out an announcement that we will release a second batch of problems sometime later in the spring. They will similarly be sort of bite-sized problems from different areas of mathematics coming from research of mathematicians. But this time we mean for our problems to be a more formal benchmark. And we do intend to get the solutions graded at the end.
+STROGATZ:
+Okay. Well, this’ll be interesting to see. Are there any discoveries about either of the things we really talked about the Grassmannian and its relatives, or this AI work, you most hope to see, say 10 years from now?
+WILLIAMS:
+As far as the Grassmannian goes, I’m hopeful that maybe there’s even more exciting connections to other parts of the real world. And as far as the AI model go, it’s very hard for me to predict. You know, it feels like the ecosystem in which we’re doing math is being upended and we’re trying to figure out how best to adapt, how we can use these new tools. I would hope that 10 years from now, they would be sort of research partners, with a sort of higher level of reliability and confidence than we have at the moment.
+STROGATZ:
+All right, and the last thing, is there something you could put your finger on that particularly is a source of joy for you as a mathematician? What brings you joy in your work?
+WILLIAMS:
+I think it’s identifying connections between things I didn’t expect to be connected. You know, just finding these kinds of connections, whether it’s to the traffic flow, or to the shallow water waves, or to the scattering aptitudes. I have so many stories from my research where I might have a conversation with another mathematician and they show me some numbers of something that they were computing, and then I recognize them as having come up before. It’s always so exciting and intriguing. I mean, it’s this sort of mystery and then we have to do the detective work of figuring out how these objects are connected.
+Yeah, so I think that’s the thing that I find most exciting. And then of course, the joy is when you realize, you make that connection. You understand, you have this realization of how they are secretly connected and how you can sort of make that rigorous.
+STROGATZ:
+Well, very, very good. It’s really been fun. Thank you, Lauren.
+WILLIAMS:
+Thank you, Steven
+[
+Music plays
+]
+LEVIN:
+Wow. So this is terrifying, right? Now, I really do wonder, hey, have I written the last of my very, very technical papers. But then I also remember the time that computers were first invented, and everybody was saying … that’s not… I don’t remember when computers were first invented. But you know what I’m saying. When they got cheaper, more readily available, large processing machines could do huge datasets, and the same kind of thing was said: “Well, now the technical people are obsolete.” I don’t know. What do you think?
+STROGATZ:
+Well, um, I’m confused about it. I really am of two minds, and, you know, we still have CAPTCHA, that thing where you have to identify that you’re not a robot by doing some little image processing. Apparently, that’s still hard for the AIs. So yes, they’re very good at certain things, but there’s still a way to go. They also seem to lack common sense in a lot of domains. But still, back to your question though, I mean, will they make you and me and people like us obsolete? Because what we do isn’t exactly the realm of common sense. We’re in a… as my wife would be the first to tell you.
+LEVIN:
+Right, exactly. And she’d be right.
+STROGATZ:
+No, but you know, like a lot of the work we do involves very explicit rules. You could imagine we might be at risk more than the people who do plumbing or caregiving, who will be the last to be superseded by robots and AIs.
+LEVIN:
+Well, just to play devil’s advocate, I think the idea of these machines as thought partners is closer to what I’m imagining is going to happen, because I still don’t see the machine asking the questions.
+STROGATZ:
+Not yet, no. Do you think in the era when AI starts doing math alongside us, or maybe even instead of us, will beauty play the same role then? Like a guide to what you should think about, what questions you should ask, how to judge whether you’re on the right track with the theorems you can obtain.
+LEVIN:
+Gosh, it’s a really… profound question, ’cause one of the roles beauty might be playing is rendering some very complex subject comprehensible to us. Which I really need because I don’t have infinite compute. So, I need to have a more aesthetic approach.
+So, I mean, you could kind of say, in a way, nature already has all the answers. The whole game is discovering what nature already knows. So, if the AI just simply has this infinite list of things it knows, you know, if we don’t understand it, I don’t know that the game has changed that much. I don’t know. What do you think?
+STROGATZ:
+I always wonder about is understanding overrated? So, here’s what I mean, that we might be confusing means and ends. Like, if the end is to predict nature, to be able to find formulas and theorems that are true, understanding may be a crutch. It helps us get good answers. It helps us get more control over the universe, but it’s not the game.
+Like, if you’re trying to save someone’s life, you may have to come up with a medical therapy that you don’t understand that works. And so it’s not always so clear to me that understanding is the goal in itself.
+But on the other hand, there are people who say it’s not science without understanding. It’s something less than science. It’s like a degradation of the human spirit. Why even do it if you’re not understanding? I don’t know what to think about that. I can see both sides of that argument.
+But what’s really interesting in what Lauren Williams and her colleagues are doing is they are giving these secret problems from research-level math that haven’t been published, so the AI can’t look them up on the internet, and asking them how many of our 10 problems can you solve? It’s just an interesting benchmark, different methodology than we’re seeing elsewhere.
+LEVIN:
+Yeah. Yeah, it’s amazing ’cause it means they’re not just regurgitating, culling a human response.
+STROGATZ:
+So far they’re not mastering that. They’re not climbing the whole mountain.
+LEVIN:
+But right now, in the context of what people are doing, is it possible to have a machine that says, “You know, here’s an interesting idea,” or, you know, “I’m bored today I’m going to try this,” or…
+STROGATZ:
+We’ll really know that they’ve arrived when they’re a guest on
+The Joy of Why
+.
+LEVIN:
+Yeah. When we have Claude on.
+STROGATZ:
+Yeah, when we have Claude, and course, by then, maybe we won’t be the hosts anymore.
+LEVIN:
+Yeah. Oh, man.
+STROGATZ:
+But until then…
+LEVIN:
+Until then.
+STROGATZ:
+See you later, Janna.
+LEVIN:
+If you’re enjoying
+The Joy of Why
+and you’re not already subscribed, hit the subscribe or follow button wherever you’re listening. You can also leave a review for the show. It helps people find this podcast. Find articles, newsletters, videos, and more at quantamagazine.org.
+STROGATZ:
+The Joy of Why
+is a podcast from
+Quanta Magazine
+, an editorially independent publication supported by the Simons Foundation. Funding decisions by the Simons Foundation have no influence on the selection of topics, guests, or other editorial decisions in this podcast or in
+Quanta Magazine
+.
+The Joy of Why
+is produced by PRX Productions. The production team is Caitlin Faulds, Jade Abdul-Malik, Genevieve Sponsler, and Merritt Jacob. The executive producer of PRX Productions is Jocelyn Gonzales. Edwin Ochoa is our project manager.
+From
+Quanta Magazine
+, Simon Frantz and Samir Patel provided editorial guidance, with support from Samuel Velasco, Simone Barr, and Michael Kanyongolo. Samir Patel is
+Quanta’s
+editor-in-chief. The episode art is by Chanelle Nibbelink, and our logo is by Jackie King and Kristina Armitage. Special thanks to Garth Avery at the Cornell Broadcast Studio.
+I’m your host, Steve Strogatz. If you have any questions or comments, please email us at
+[email protected]
+.
+The Quanta Newsletter
+Get highlights of the most important news delivered to your email inbox
+Recent newsletters
+Also in
+Mathematics
+After 80 Years, Mathematicians Give Famed ‘Erdős Method’ an Upgrade
+graph theory
+After 80 Years, Mathematicians Give Famed ‘Erdős Method’ an Upgrade
+By
+Leila Sloman
+June 26, 2026
+Comment
+Save Article
+Read Later
+Seven Perfect Shuffles Randomize a Deck of Cards. But How Many Sloppy Ones?
+probability
+Seven Perfect Shuffles Randomize a Deck of Cards. But How Many Sloppy Ones?
+By
+John Pavlus
+June 17, 2026
+Comment
+Save Article
+Read Later
+How Terry Tao Became an Evangelist for AI in Math
+computer-assisted proofs
+How Terry Tao Became an Evangelist for AI in Math
+By
+Kevin Hartnett
+June 8, 2026
+Comment
+Save Article
+Read Later
+Comment on this article
+Quanta Magazine moderates comments to facilitate an informed, substantive, civil conversation. Abusive, profane, self-promotional, misleading, incoherent or off-topic comments will be rejected. Moderators are staffed during regular business hours (New York time) and can only accept comments written in English.
+Show comments
+Next article
+How Physicists Track and Trap the Elusive Neutrino
+Close
+Log in to Quanta
+Use your social network
+Facebook
+Connect with Facebook
+Connect with Google
+or
+Don't have an account yet?
+Sign up
+Close
+Forgot your password?
+We’ll email you instructions to reset your password
+Close
+Change your password
+Enter your new password
+Close
+Sign Up
+Creating an account means you accept Quanta Magazine's
+Terms & Conditions
+and
+Privacy Policy

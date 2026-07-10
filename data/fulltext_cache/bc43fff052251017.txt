@@ -1,0 +1,253 @@
+- Good afternoon. I'm Dan Freed. And it's a pleasure to welcome you here to the fifth in this
+series of seven lectures about the Millennium Prize Problems. These lectures are sponsored jointly by the mathematics department here, by the CMSA, Harvard Center, Mathematical Sciences and Applications, and also by the Clay
+Mathematics Institute. I keep these introductions short. So we're just going to
+go right to this problem, the Birch and Swinnerton-Dyer conjecture. And we're thrilled to have our own Barry Mazur
+tell us about it today. - Well, as Dan just said, we're going to muse about the Birch and
+Swinnerton-Dyer conjecture. Whoops. Oh, gosh. I got to learn how to manage this clicker. And it's a Millennium Prize Problem. And I'll be thinking about it and thinking about Dick
+Gross, who died recently. He was a blessing to all
+of his friends and family, of course, and to the math department, to the university, to the community of mathematicians. In fact, to anyone he encountered. And we'll see his influence on
+the subject a bit this hour. Now, there, you see the
+originators of our little subject, Birch and Swinnerton-Dyer conjecture. I have to learn how to run this thing. There's Birch and there's Swinnerton-Dyer in there youth incarnations. And there, below, in
+their maturity and wisdom. And they had the wisdom in the 1950s to use the EDSAC computer in
+Cambridge to make computations, which suggested a striking connection between basic global arithmetic invariant of an elliptic curve defined over the field of rational numbers, that is to say, the rank of
+its group of rational points, and something that seems
+somewhat different. Certain asymptotics of its
+local arithmetic invariants. The number of its rational
+points over finite fields. And then this initial observation evolved into their conjecture. And I'm going to talk about general ideas, the general shape of it, and its ever expanding development. And I'll try to do this in as non-technical a way as is feasible. So it's a conjecture, that
+I write here, that unifies. There's power in the words that I've put on that screen. Conjecture, problem, hypothesis, program. They're frames for mathematical
+assertions that call for, that coalesce to do new mathematics. Now, a conjecture might take on a devil's advocate posture. Prove me wrong if you can. It might capture mathematical ideas in a volatile early state. I say, think of Riemann's Hypothesis. Now, if you take a glance
+at the Riemann's 1859 paper, you'll see that the subject
+is completely volatile. Or the Poincare Conjecture. Do the same with Poincare. Hey, it's even more
+volatile in his framing of what we call the Poincare Conjecture. And might be meant to
+inspire further developments. The famous unifier of that
+sort is the Langlands Program. It's meant to unify, to bind together different ways of seeing, different types of intuition, different subjects. And the Birch and Swinnerton-Dyer, I'm going to call it BSD for short, is a unifier. And not only has it unified, but it's in constant
+evolution, even today. Here's our program. I'm going to begin by discussing
+three different formats of what I want to call Classic BSD. And there are three
+versions of Classic BSD. There is the first one, which is just the historical starter. The initial conception of
+Birch and Swinnerton-Dyer, which gives an asymptotic expression for the variable X to the rank of the group of rational
+points of E over Q as X tends to infinity. And the asymptotic expression is, as I mentioned in the previous slide, is in terms of local invariants of E. Version two is similar. But it's a much neater formula. It's something you can actually, you might be tempted to actually look at sort of more closely for the rank of the
+group of rational points. Also in terms of local invariants. But with a twist here. And the version three is
+a structural statement. I'll call it, that doesn't
+have a standard name, but I'll call it the Rank
+= Multiplicity Conjecture. And all three of them are, they're very close to each other. And they're closely
+related ways of expressing, as I say, the beginning
+form of the conjecture. Now, at that point, we'll pass to what I'll call Refined BSD. And as I said a minute ago, it evolves, it evolves, it evolves. And, finally, to what I'll
+call BSD Expanded, okay? Okay, as I said a few minutes ago, Classic BSD expresses a
+specific global invariant of an elliptic curve, the rank of the group of
+its rational points over Q, in terms of local invariants, the number of its rational points, but over finite fields. Refined BSD is quite a thing. It draws into the same
+arena all these theories, if you want, or aspects
+of the elliptic curve. There's the local arithmetic. And it's the group of rational points of the elliptic curve over prime fields. There's the analytic number
+theory of the elliptic curve. There's the global arithmetic. And I put the global
+arithmetic in two boxes here because what's curious is it's a group. And you could take it mod torsion. And if you take it mod torsion, it plays one role in the final
+structure of the conjecture. And if you take the torsion
+subgroup separately, that will play a different role. Okay, there's a pre-cursor from BSD. It's usually called the
+class number formula. The class number formula is, it's a statement about a number field. Not on elliptic curve. And it's a theorem. Not a conjecture. It began, as surmised by
+Gauss, about quadratic fields. It was then extended to sort of an actual
+statement by Dirichlet. Quadratic fields, again,
+generalized to all number fields. And, finally, over a century later, there was an actual proof. Now, that class number formula is a model for BSD in some sense
+because it too is a unifier. It brings in the analytic
+number theory of K, the class number of K, the order of the ideal class group of K, and the global arithmetic of the K. That is to say, the units mod torsion and the torsion in the group of units, alias the roots of unity in K. Yeah. So I'm going to give you
+names for all of those things. So hK is the class number of K. LK, I want to call the analytic L of K, rather than having to say all the time, it's the residue of the
+Dedekind zeta function of K at s = 1. But that's what it is, okay? The regulator. You take the group of units in
+the number field mod torsion. And you can embed it
+in the Euclidean space, just by taking a sort of a
+natural logarithm mapping. And then you get a lattice. Lattice has a fundamental domain. The fundamental domain has a volume. And that is the regulator of K. And wK is, you can call it the order of the torsion subgroup of
+K* if you want to be a... Well, anyway, it is just the
+number of roots of unity in K. And this is a formula. There are some elementary terms, which don't live up to the complexity of the boxes with blue objects in there. The class number. It's a class number formula. So I write it as the class
+number is equal to something. And it's equal to some
+elementary things times the wK over the regulator times
+the analytic L of K. But we're going to talk
+about elliptic curves. So let's do that. You know, elliptic curves and their global arithmetic invariants. And I want to do it in, as I say, in the spirit of Poincare. And take a look at that picture. He's thinking of something. (audience laughing) Okay. He viewed an elliptic curve
+as a plane cubic curve. He never says defined over Q in the paper. But, anyway. As a plane cubic curve situated
+in the projective plane in such a way that the
+line of infinity intersects at a single point, therefore a flex-point, point of multiplicity three. To put it in another way, if you ignore the line at infinity there, that is to say, take it
+as an affine plane curve, you're missing only one point. The point at infinity. Now, every line in the projective
+plane intersects the curve in three points, counting multiplicity. And here's the standard picture of it. And such a smooth projective curve has, amazingly, a canonical
+abelian group structure. The flex-point at infinity is the origin. And all the triplets of collinear points, that is, the intersection taken with multiplicity of the curve with the projective lines add to zero. So we've got P + Q + R = 0 if P, Q, and R are collinear. And, of course, you get similar statements with counting multiplicities
+if there are multiplicities. Now, Poincare, in his 1901 paper, really got things started. Here's Poincare. Always, with everything he wrote, by the way, it has a flare. And he wrote a lot. A lot about the philosophy
+of mathematics as well. Okay, so here's what he writes. "Let's first study the distribution of rational points on these curves. I note that knowledge
+of two rational points on a rational cubic is sufficient to get us to know a third." (Barry speaking French) I don't know whether this would, anyway. Now, without stating this explicitly, Poincare views the set of rational points as an abelian group. And there are no proofs in his paper. None at all. But he defines the rank to be the number of points playing the
+role of P and Q needed to get all the rational
+points on the curve as the R's such that you've got
+those collinear triplets, P + Q + R equals infinity. Pretty good. In effect, he anticipates
+Mordell's Theorem, which is proved, as I
+said, two decades later. And here's Mordell in youth and in wisdom. The headline there is, "Beats
+the world at mathematics." Okay, and this is how he
+states it in his paper. "If a non-singular
+rational plane cubic curve has a rational point, then the group of rational points is finitely generated." Finitely generated. So it is of the form of torsion subgroup. That, which is finite, and a free part, which has to look like
+Z to the r for some r. And so it gives us the
+global arithmetic invariants of our elliptic curve. That is the torsion subgroup. It's a group of torsion points. It's a theorem that only finitely many such isomorphic classes of
+finite abelian groups can occur as such a group. And much is known about them. And its rank. Now, the rank. Well, that's, much is known. But much is unknown. For example, is there a finite
+upper bound for these ranks? And there is a conjecture of the people in the two blue lines at
+the bottom of this screen. And that paper's really interesting. Take a look at it. The elliptic curve with
+the highest rank found so far is this thing in red, which I'm sure would've amazed
+Birch and Swinnerton-Dyer, who in the 1950s, did
+their computations where... I don't know. I don't think there's anybody in this room who did computations in the mid 1950s. But they came then, sheafs of paper, leaning in its angle of repose with absolutely illegible numbers on. And you have to figure
+out what you've got. And I got such in my office. Chimura gave me a big
+bookcase full of papers for eigenvalues and Hecke operators. Roughly this, well, a
+little later than this. But pretty much at that time. The curve was recently discovered by Noam. Oh, you're here. There you are. You agree? You discovered this. And Zev. (audience laughing) No, I'm not sure. I'm not sure.
+- [Noam] Clarkburg and I. - [Barry] What? - [Noam] Zev, Clarksburg and I, yes. - [Barry] What? - [Noam] Zev, Clarksburg and I, yes. - [Barry] Yeah, yeah, yeah. Okay, great. Terrific. And it has rank greater
+than or equal to 29. And using GRH, you can prove
+its rank is exactly 29. Now, for the local arithmetic
+invariants of elliptic curve. I'm writing the equations
+that define elliptic curves in the form of that equation. Equation one. And the c's are all rational integers. And you can get any elliptic curve over Q with such an equation. And one often chooses
+such a parametrization with smallest discriminant. The blue subscripts there is to say how the coefficients change
+if you zoom the exponents. So assume we have such a thing. Minimal discriminant. And so that all these c's are integers. So we can, for every prime
+p, we can reduce mod p. We get a cubic curve
+over the prime field, Fp. And if p doesn't divide the discriminant, the curve is an elliptic curve over Fp. So we can play the game of putting Np to be the number of points on
+that elliptic curve over Fp. And the thing in blue is
+what I'm going to take as the ensemble of local
+arithmetic invariants of E. Okay. And you get such a thing for every p, not dividing the discriminant. Now, that comes the first
+classic version of BSD. I say the asymptotics of the local invariants
+seem to determine the rank. And the equation at the bottom
+of this screen simply says that the product of the Np's over p's, for p's less than or equal to X, varies like a power of log X. And that power is the rank. That's their observation and
+conjecture in the initial form. You can take logs. You do that, you get the
+log of that thing is linear. So, to say, is asymptotically
+linear in log log X. And the slope of that
+linearity is the rank. So here are some examples. Look at the elliptic curves,
+Ed, as on the screen. And for the five values
+of d in blue up there, the elliptic curve, Ed, has rank 0 1, 2, 3, and 4 respectively. And here's a picture of X, of log of the product of Np over p for p less than or equal
+to X as a function of X, but graphed over the log, graphed over log log X. There it is. I took it from a paper of
+Karl Ruben, Alice Silverberg. And by golly, the slopes there correspond to the ranks of the five curves. The data for each of the five curves. Looks like the data is
+hovering around the line of the appropriate slope. So all of this seems to be
+in line with Classic BSD. Here's a second classic version. The first thing to say is that the local and arithmetic invariants
+of elliptic curves, well, you'll see. We're going to take
+them not what they are, but just take them as error terms, following the results of Helmut Hasse. Hasse noted that the
+number of rational points of any smooth irreducible curve over a finite field tends to hover around the number of rational points of the line over Fp, namely p + 1. And it does this with
+roughly square root accuracy. This might suggest that if we want to focus our attention more specifically to what's happening, we could renormalize the
+local arithmetic invariants of an elliptic curve by focusing
+on the error term there. And we have Hasse's theorem. Hasse proves, for p not
+dividing the discriminant of E, that if you form this error
+term, ap is 1 + p - Np, it really does grow. You really do get square root accuracy if you take 1 + p. That is to say, the absolute value of ap is less than
+twice the square root p. So we could take this
+ensemble of these error terms, the ap's, as a more focused form of local arithmetic invariants of E. Every once in a while, you're
+going to see a footnote. That will be in my slides in my webpage. Probably more footnotes than are here. But there's a beautiful version of this in the paper that I've
+just footnoted there. And you could take a look at it more specifically in
+the slides on my webpage. But if you replace the Np's
+by these ap's, you get, as a corollary of the analytic
+theory that we will discuss, this formula for the rank of E. That is to say, the limit of
+one over log X times the sum of ap of E log p over
+p's is equal to that. 1/2 minus the rank of E. You should notice that the rank of E comes with a negative sign there. That is to say, the ap's tend to be negative
+if the rank is large. And that makes sense. Because that may means the Np's are large if the rank is large. Third classical version, classic version, and it implies the second one, is by passing to L-functions. Now, I was still using
+the arithmetic behavior of E over finite fields. And we are passing to the
+analytic number theory of E with input from the arithmetic behavior of E over finite field. We do this by the Hasse-Weil L-function, which is an infinite product. At the moment, it's just
+a formal infinite product of mathematical symbols where each of these bracketed things
+are called Euler factors. And there it is as a
+formal infinite product. The epsilon just stands
+for elementary factors. It's not going to play a
+role in anything we say. And if you write it out
+as a Dirichlet series, it's a sum of an over n to the s. The coefficients turn out to be, for n prime, are exactly the ap of E's of the previous version of Classic BSD. So the LE of s is just another way of, so to speak, denoting the
+local arithmetic invariants. But Hasse's Theorem actually tells us that it converges to an analytic function if the real part of s is greater than 3/2. So that's good. It's no longer a mere formal device. It's an analytic function. Real part of s is greater than 3/2. And so we might take that full
+ensemble, an of E for all n, as our third version of local
+arithmetic invariants of E and view them as coefficients of the Dirichlet series
+given in the equation. The great thing though is that L-function admits
+analytic continuation to an analytic function on
+the entire complex plane. And that's not an exercise
+in analytic number theory. It's a consequence of
+the modularity theorem, proven by these people. Okay, so the analytic
+function LE of s around s = 1. Well, it's an analytic function. It has behavior. But even though the
+infinite product expression for the Hasse L-function doesn't converge, that infinite product expression
+doesn't converge at s = 1, the analytic continuation still exists. And so it might be fun to take a look at the Euler factors for p, not dividing the discriminant,
+at that value of s. At s = 1, that's what it looks like. And if you take a look
+at what it looks like, it turns out to be the
+inverse of Np over p. So even though the infinite product of Euler factors doesn't
+converge for s = 1, we can play with it. And we could write LE of 1, there are quotation marks
+around the equal sign, is equal to the product of Np over p, times the harmless factors that
+I ignored before, inversed. And this product is, overall, prime p's. So this doesn't make any sense. But you can view it in this way. You could say the left
+hand side of this equation, it stands for the manner in which the analytic function tends to or doesn't tend to zero as s tends to one. Namely, as a power of s - 1. The power being the multiplicity of the zero of LE of s at s = 1. And, similarly, the right hand
+side stands for the manner in which the inverse of
+the product of Np over p's, for p less equal to X, tends
+to zero as X tends to infinity. And, after all, conjecturally, that's Birch and
+Swinnerton-Dyer conjecture. Asymptotically, it's X
+to the minus rank of E. So that equation that
+doesn't make much sense, except as a goad, suggests that those two powers are equal and gives us the following
+third version of Classic BSD, which I call the Rank =
+Multiplicity Conjecture. The analytic function LE of s has a zero at s = 1 of multiplicity its rank. And we might state it more succinctly if we define ran to be the analytic rank with the multiplicity of zero and ralg, the algebraic rank, to be the rank of the
+group of rational points. And then we could say our ralg is equal, the conjecture is ralg is equal to ran. Now, thanks to work of these people, and I'm not, again, I'm not going to go through it here. But it will be on my webpage in a greater, with more explicit discussion of what each of these people did. We have partial results towards the Rank = Multiplicity Conjecture and towards its substantial
+surrounding mathematics. For example, that Rank =
+Multiplicity Conjecture is true if the analytic rank is
+less than or equal to one. Okay, now, we're ready for Refined BSD. The basic ingredients. The analytic L of E is simply, well, this is defined by assuming the Classic BSD conjecture. So we can write LE of s is equal to some constant, non-zero constant, actually, a real constant, times s - 1 to the r + higher terms. And where the r there is, we were assuming Classic BSD, either the algebraic
+rank or the analytic rank at your pleasure. Now comes a thing that's
+analogous to the class number, except it's analogous to this
+class number in the formula. It's, by no means, analogous
+to the class number in terms of computation. Class number is a sort of
+very friendly invariant. It really wants to be computed. Although it takes some computation. This is a different sort of thing. By definition, an E-torsor over Q is a projective smooth curve over Q that is a homogeneous space with a transitive and free
+action by the elliptic curve where the elliptic curve is viewed as an algebraic group
+acting on that curve. So it's a curve, if you want. Or, as you'll see, we're only interested in
+isomorphic classes of these curves. And I'll call such an E-torsor, a curve, a good E-torsor if it
+has a Qp-rational point for every prime p and a
+rational point over R. May not have a rational point over Q. If it has a rational
+point over Q, this a good, E-torsor is really very good. It's isomorphic to E. If it doesn't, it's interesting. Now, there's a natural
+abelian group structure on the set of isomorphism
+classes of these good E-torsors. And it's denoted by this
+Russian letter, ShaE, and called the
+Shafarevich-Tate group of E. And then there is the conjecture. The Shafarevich-Tate Conjecture
+is that that ShaE is finite. Well, hey, if it's supposed to be analogous to the class
+number, it better be finite. But what's interesting about this conjecture is
+that when it was made, there wasn't a single example where it was known to be finite. So it takes a certain
+amount of daring to make it. On the other hand, if you go to the collected volumes of John Tate or Shafarevich, you won't find it there. They don't own it, exactly. But they clearly have set
+the stage miraculously well to make such a conjecture. Okay, here's the most famous
+example of a good torsor. And it's really the starter
+for studying such torsors and for Selmer groups that we'll be talking
+about in a few minutes. And it's called Selmer's cubic curve. And it's the easiest equation
+you can imagine for a curve. There it is. It has a Qp rational
+point, for a cubic curve. It has a Qp rational point for every prime p and a real point, but no Q-rational point. And it's a homogeneous space
+for the elliptic curve, X cubed + Y cubed + 60 Z cubed = 0. That is to say C is a good E-torsor. Now, there's a E of Q. Let us say the group of rational points of the elliptic curve over Q. There's this ShaE, which
+is conjecturally finite. But we don't know. And you might think, as I say here, on first view, that the various ways of computing rational points on elliptic curves are
+completely different from the ways of computing Sha, which has to do with algebraic curves with action of algebraic groups on them. The first is a problem in arithmetic. And the second being about objects in algebraic geometry, torsors. But, as I say happily, for our subject, there's a natural family of intermediary objects much
+more directly computable than either of these things that plays a role in helping
+compute both of them. Namely, Selmer groups associated
+to the elliptic curve. So what's in that box here is, for every N, you get a group. It's a finite abelian group, SelmerN E. And it's defined very easily in terms of cohomology related to, not even related to all of E. All you need to know is the
+subgroup of N-torsion of E with its Galois action. And you get this group. Well, that you would expect
+it's easily computable. And it is. And there are natural exact sequences that combine rational points and Sha with Selmer in this way. This is rational points, modulo N times rational points. So, for example, if E of
+Q would be Z to the r, then this would be Z mod N to the r. And the brackets N here means the kernel of multiplication by N in Sha. So it's a good piece of Sha if N is large. And, as I say here, it
+plays an important role in understanding both E of Q and ShaE and a strange way of thinking about the group of rational points of E. At least when you tensor it by Qp. And what I'm writing here assumes the Shafarevich-Tate conjecture. That is to say, for every prime p, there's a canonical
+isomorphism between E of Q, well, tensored with Qp, and the limit of these Selmer groups, again, tensored with Qp. Now, that's Sha. That's a discussion of Sha. Now, it's a discussion
+of the regulator of E, corresponding to the
+regulator of the number field. Namely, there's a canonical height pairing on rational points of elliptic curve. And Neron and Tate introduced their canonical height pairing, which is a non-degenerate bilinear pairing on the group of rational
+points of elliptic curves that provides us with a canonical
+embedding of E mod torsion as a lattice in Euclidean space, just like one has units mod torsion as a lattice in Euclidean space. And you take its volume to get the regulator of the number field. Well, the volume of this
+lattice is denoted RegE. And it's called the regulator
+of the elliptic curve. Okay, so here's the refined Birch and Swinnerton-Dyer Conjecture. And it's totally, as I say here, resonant with the classical
+class number formula. The way I put it is,
+as a formula for ShaE, ShaE is elementary terms that don't play that much of a role as a mystery, times the square of the order of the torsion group of
+E of Q, that's like wK, over the regulator of E, that's like the regulator of K, all of it times L of the E. The analytic L of E, that's like the analytic L of K. I said it's resonant with
+class number formula. But there are differences. And here are a few. You might argue that they're not, even though they look
+pretty much the same, they seem to have a slightly
+different structure, if you want. And, also, the full conjectured meaning of the analytic L of E is already embedded in the Refined BSD conjecture. And, also, the Shafarevich-Tate
+conjecture is embedded in it. And, finally, it's the square of the order of the torsion that enters,
+rather than the torsion. But these are, if you
+want, minor differences and set the pattern
+for further expansions. So one can expand further, as I say here, from elliptic curves over Q to abelian varieties over Global fields and by making explicit the role of certain types of rational
+points in the formula. And this brings us to what's
+called Heegner Points. Heegner Point is associated
+to the elliptic curve and an inappropriate auxiliary
+quadratic imaginary field. Now, a choice of Heegner
+Point really introduces the main character in the proof of what I've said before was proof. Namely, the Rank = Multiplicity Conjecture when the analytic rank is
+less than or equal to one. So now, here, I'm quoting from Bryan Birch's "Heegner
+Points: The Beginning." He writes that, in 1982,
+he received a number of letters from Dick Gross, the first of which began, "I recently found an amusing method to study Heegner points on J0 of N." Bryan writes, "It was exciting
+because for the first time, it related the index of
+the Heegner point in E of Q to the order of the
+Tate-Shafarevich group." And he responded to Dick, "You seem to be opening so many doors that I'm almost afraid to push." Bryan recalls that Dick
+translated this into, "Get shoving, you lucky so-and-so." (audience laughing) Okay, so Gross, and Zagier, And Kolyvagin. So suppose we know of the
+Rank = Multiplicity Conjecture and that they're both, rank and algebraic rank and
+analytic rank is equal to one. Suppose we know all that. And then it would follow from
+BSD that there is a point, I mean, after all, if the
+algebraic rank is one, the group of rational points of Q is just Z plus a finite group. So there should be a
+point of infinite order that would be a finite
+index in that group. So you might look for an expression for the Refined BSD in this way. LE equals elementary
+factors times height of P times Sha over the index
+of the group generated by the point in the full group
+of rational points squared. Now, it would be a stronger result if we could actually produce, explicitly, a point P fitting into that equation. And, as I say here, this is exactly what Dick Gross and Don
+Zagier do in their paper. The point being a Heegner point. I have some footnotes here. I say since this talk
+is only an hour long, I'll not get into the elegant
+definition of Heegner points. Think of them as points in E of Q defined and made explicit via their
+structural relationship to the elliptic curve. And now, Kolyvagin's work
+compliments Gross and Zagier by proving that the Heegner
+point P has infinite order and the group it generates in the group of rational points is of finite index if the analytic rank is one. And that is what completes the proof of the Rank = Multiplicity Conjecture when the rank is equal to one. The analytic rank is equal to one. You can go further. They call it the Bloch-Kato Conjecture. You're moving from elliptic curves over Q to algebraic geometry
+over number fields K. So Bloch and Kato, as I say here, they extended the frame of that conjecture from elliptic curves to all smooth proper algebraic varieties over number fields K. As I say here too, this generalization is elegant since, to formulate it, you don't
+even have to know much about the algebraic variety X. They deal with an object V that's just a p-adic Galois representation that comes from the geometry of X. Oops. Oh my god. That might be a sign. This is my last slide. And I see that the time might be such that if I wanted questions,
+the time for questions, this would be a good time to and that I did have a little discussion about Bloch and Kato, which
+will be on my webpage. Okay, what we see here is, circled, the very beginning
+of the story, Np over p. And as I write up there, this is not yet the end of the expansion and evolution of that initial observation of Birch and Swinnerton-Dyer. Okay, and I'm happy that I, at least, I have time for questions. (audience clapping)

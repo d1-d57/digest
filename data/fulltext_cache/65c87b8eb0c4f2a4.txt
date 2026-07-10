@@ -1,0 +1,402 @@
+Snapsho t s o f m o d e r n m athematics                              № 6/2026
+from Ob e r wo l f a c h
+
+
+
+
+                How big is my slice of cheese?
+
+
+                                       Chiara Meroni
+
+
+
+
+       In this snapshot, we introduce the study of slices of
+       polytopes – geometric shapes with flat sides – and
+       examine the area of these slices. This is connected
+       to combinatorics and polynomials and is surprisingly
+       complex, even in three dimensions. Since we are
+       greedy humans, we conclude by finding the largest
+       possible slice of cheese.
+
+
+
+
+                          F i g u r e 1 : Polytope made of Cheddar.
+
+   When I was a kid, my parents would cut the cheese in interesting shapes to
+make me eat it: cubes, pyramids, . . . Throughout this snapshot, let’s assume to
+be my four-year-old self, believing that cheese naturally comes in these shapes,
+which mathematicians call polytopes.
+
+
+                                             1
+1 Polytopal cheese
+
+A polytope is a geometrical object with vertices, edges, and flat faces that has
+no dents, holes, or bumps. Figure 1 exhibits an example. Polytopes are a
+generalization of the famous “Platonic solids”, whose discovery goes back to
+the ancient Greeks.
+   A precise mathematical definition relies on the concept of convexity: A set S
+in three-dimensional space R3 is convex if for every pair of points x, y belonging
+to S, the line segment connecting them is entirely contained in S. Then,
+a polytope is the smallest convex set containing a bunch of given points. In
+particular, a polytope is the smallest convex set containing its vertices. Formally,
+a vertex or corner of a polytope P ⊂ R3 is a point v of P for which there are
+planes in space that intersect the polytope only in the point v. This definition
+makes sense because every plane that intersects the polytope must either cut
+through its interior, contain one of its faces or edges completely, or only touch
+a single corner.
+
+
+
+
+   F i g u r e 2 : Polytopal Parmesan in yellow, with vertices marked in black.
+
+   There is another way to define a polytope, which fits better to the cheese
+analogy we are exploring: Imagine you have an infinite amount of cheese filling
+the whole space. Take a knife and make perfectly straight cuts all the way
+through. After each cut, you choose to keep just one of the two sides of the cut.
+After some steps, you are going to get a finite piece of cheese, which is actually
+a polytope! For instance, with six cuts we can get a piece of Cheddar, as in
+Figure 1. With five cuts we can get a piece of Parmesan, as in Figure 2. From a
+mathematical perspective, each cut with the knife corresponds to a plane, and
+a three-dimensional polytope is the intersection of finitely many half-spaces,
+provided that this set has a finite volume.
+
+
+                                         2
+Figure 3 : A green vector (a, b, c), its associated green plane a x + b y + c z = 0
+           for d = 0, and the blue half-space a x + b y + c z ≥ 0.
+
+
+   A plane in R3 can be identified by a vector (a, b, c) in R3 and a real number d,
+via the equation
+                               ax + by + cz = d
+that is satisfied for all points (x, y, z) in the plane. The vector (a, b, c) points in
+the direction perpendicular to the cutting plane, while d indicates how far from
+the origin the plane is. A half-space is one of the two parts separated by the
+plane, namely the set of points (x, y, z) in R3 that satisfy one of the following
+affine inequalities:
+
+                    a x + b y + c z ≥ d,         a x + b y + c z ≤ d.
+
+A polytope P is then the set of all points (x, y, z) that satisfy a bunch of affine
+inequalities
+
+                              a1 x + b1 y + c1 z ≥ d1 ,
+                              a2 x + b2 y + c2 z ≥ d2 ,
+                                       ...
+                             am x + bm y + cm z ≥ dm
+
+for some vectors (ai , bi , ci ) in R3 and real numbers di . We also require that this
+set has a finite volume. We just saw two equivalent definitions of a polytope,
+namely its v-description, as a convex hull of its vertices, and its h-description,
+as an intersection of half-spaces.
+
+Example (Parmesan cheese). We can use the two definitions to describe
+Parmesan cheese. Consider the six points (±1, ±2, 0) and (±1, 0, 5). They are
+represented as the black dots in Figure 2 and their convex hull is the yellow
+
+
+                                             3
+polytope. On the other hand, the same object is also cut out by the following
+affine inequalities:
+
+
+                        x ≥ −1,    −x ≥ −1,    z ≥ 0,
+                      5y − 2z ≥ −10,   −5y − 2z ≥ −10.
+
+
+    Now that we know what a polytopal cheese is, we can move on to our
+problem: slicing it. We want to cut very very thin, that is, two-dimensional,
+slices of our cheese. Formally, a slice of cheese is the intersection of our original
+polytopal cheese P with a plane H, which we denote by Q = P ∩ H. Using
+the h-description of P , and noticing that a plane is the intersection of the two
+(closed) half-spaces it defines, we conclude that Q is also a polytope! However,
+Q lives in a plane and therefore it is a two-dimensional polytope, commonly
+known as a (convex) polygon.
+   A given polytope P may have infinitely many slices, but many of them look
+alike, namely they have the same number of vertices and edges. A vertical slice
+of Parmesan is going to be a triangle; by moving the vertical plane a little bit,
+we will obtain other triangular slices. On the other hand, a horizontal plane
+will produce a rectangular slice. Technically, we will say that these different
+types of slices have different combinatorial types. You can check that triangles,
+quadrilaterals, and pentagons are actually the only possible combinatorial
+types of slices of Parmesan cheese, as shown in Figure 4. How many different
+combinatorial types of slices does Cheddar have? (See Figure 8 for the answer.)
+
+
+
+
+   Fi g u r e 4 : All the possible combinatorial types of slices of the Parmesan.
+
+
+
+
+                                         4
+2 Tr i angles and areas
+
+Not only do we want to slice our cheese, but also to compute how big the slice is.
+This translates into the computation of the area of the slices. While some slices
+seem nice and regular, such as the rectangular vertical slice of Cheddar, others,
+such as the slice on the right side of Figure 4, are not. How can we compute
+the area of a polygon? For regular polygons there are well known formulas, but
+what if the polygon is not regular at all?
+    One of the possible strategies is to reduce the question to the computation
+of areas of triangles. In order to do this, we have to subdivide the polygon into
+a finite number of triangles; this is known as a triangulation. More precisely, a
+triangulation T of a polygon Q is a set of triangles such that
+1. every triangle in T is a subset of Q;
+2. any two triangles in T have exactly one common edge, one common vertex,
+   or do not intersect at all;
+3. the union of all triangles in T is the polygon Q.
+
+For instance, in order to construct a triangulation of a polygon Q we can use the
+following procedure: We pick a point v inside Q (not on its boundary). Then,
+the triangles in our triangulation are exactly those with one edge of Q and the
+vertex v. In this way, we obtain a triangulation T with as many triangles as
+edges of Q. This is shown on the left side of Figure 5.
+
+
+
+
+             F i g u r e 5 : Two possible triangulations of a polygon.
+
+    However, there are many other possible triangulations of the same polygon Q.
+We can add some requirement that we want T to satisfy. A common one is the
+following:
+        All the vertices of all the triangles in T are also vertices of Q.
+Our previous triangulation does not satisfy this property because the additional
+point v inside Q is a vertex of every triangle, but not of Q. We can construct
+
+
+                                        5
+another triangulation satisfying the extra condition as follows: For a start, we
+enumerate all the vertices of Q counterclockwise and call them v1 , v2 , . . . , vn ,
+starting with our favourite vertex v1 . Then, the triangles in T will be those
+with vertices v1 , vi , and vi+1 , where i goes from 2 to n − 1. This triangulation
+is represented on the right side of Figure 5, where v1 is the lower right vertex.
+Now, the triangulation T has two triangles less than the previous one, and all
+the vertices of the triangles in T are vertices of Q.
+    At this point, we can finally compute the area of our polygon Q. Indeed,
+consider any triangulation T of Q. Then, the area of Q is just the sum of the
+areas of all the triangles in T . And we know at least one formula to compute
+the area of a triangle! For example, we can take half the product of a base
+length and the corresponding height.
+
+Example. Suppose that Q is the quadrilateral with vertices
+
+             v1 = (0, 0),        v2 = (2, 2),   v3 = (1, 5),        v4 = (−4, 4),
+
+as shown in Figure 6. Then the area of Q is not very easy to compute at first
+sight. However, we can divide Q into two triangles:
+
+                            ∆1         with vertices v1 , v2 , v3 ,
+                            ∆2         with vertices v1 , v3 , v4 ,
+
+  Now, any formula for the area of a triangle will tell us that area(∆1 ) = 4
+and area(∆2 ) = 12. Therefore,
+
+                                  area(Q) = 4 + 12 = 16.
+
+
+                                                    y
+                                                         v3
+                            v4
+
+
+                                                               v2
+
+
+
+                                                    v1              x
+
+             F i g u r e 6 : A possible triangulation of a quadrilateral.
+
+
+
+
+                                                6
+3 T h e biggest slice please, I am hungr y!
+
+We learned how to slice some polytopal cheese P and how to measure how big
+the slice is. A natural question arises:
+                         How can we find the largest slice?
+Since there are infinitely many slices, we cannot hope to compute the area
+of every single one of them and compare the numbers. The solution is to
+parametrize the area of the slices. In other words, we would like to write the
+area of the slice Q = P ∩ H as a function of the position of the plane H. Is it
+possible? What kind of function is it?
+   In order to answer this question, let us use the observation we made earlier:
+There are infinitely many slices, but many of them look alike. Indeed, the slice
+of the Parmesan cheese in Figure 7 is very similar, though not identical, to the
+right-most slice displayed in Figure 4. Both slices are pentagons, but this is not
+the only thing that they have in common. The vertices of the two polygons lie
+on the same edges of the Parmesan P . Moreover, one can prove that for any
+generic plane H, all vertices of Q are precisely the points in which the plane
+H defining Q intersects the edges of P . By generic, we mean that H does not
+contain vertices of the polytope P . In Figure 7, the green plane H is generic
+and intersects exactly five edges of P . Hence, the slice Q is a pentagon.
+
+
+
+
+Figure 7 : Another slice (red) of Parmesan, of the same combinatorial type as
+            the one on the right side of Figure 4. The plane that cuts out this
+            slice is shown in green.
+
+    Let us put together all the planes that intersect the same edges of P . Consider
+k edges of P , which we call e1 , . . . , ek , and define H(e1 , . . . , ek ) as the set of
+all planes that intersect these edges. Then, as we already observed, all the
+slices Q cut out by generic planes H in H(e1 , . . . , ek ) are going to have exactly
+k vertices. If we call vi the vertex of Q that lies on the edge ei of P , we can
+
+
+                                            7
+use the triangulation introduced in section 2 where the triangles have vertices
+{v1 , vi , vi+1 }. In this way, with only one choice of triangulation, we managed
+to triangulate all the generic slices Q = P ∩ H where H belongs to the set
+H(e1 , . . . , ek ). Using this fact, we can then find a formula for the area of every
+such slice Q.
+   To keep track of a plane H, remember that it can be described by an equation
+a x + b y + c z = d with real numbers a, b, c, d. We call Qa,b,c,d the slice of P cut
+out by that plane H. Then, one can prove that there is a function f with
+
+           area(Qa,b,c,d ) = f (a, b, c, d)       for all H in H(e1 , . . . , ek ).
+
+Luckily for us, the function f is rational, which means it is the quotient of
+two polynomials, and also describes the area of the non-generic slices correctly.
+This is very convenient when we want to find its maximum. The proof, which
+involves some symbolic determinant computation, is omitted here for simplicity.
+    Finding the biggest slice of a polytope P is more challenging from a com-
+putational point of view, so we will use the help of computer algebra software.
+The idea is as follows: Consider all possible tuples (e1 , . . . , ek ) of edges of P ,
+for all k. For each one, compute the set H(e1 , . . . , ek ) and the rational function
+f (a, b, c, d). Then, an algorithm can find the maximum of the function f and
+hence the maximum of the area of Q, among the slices arising from planes in
+H(e1 , . . . , ek ). Now repeat the process for all other tuples of edges. As the
+number of tuples is not infinite anymore, you will eventually have a list of slices
+that have the maximal area for each type of plane. Choose the largest and you
+have the answer!
+
+
+
+
+Figu r e 8 : A slice of Cheddar can be a triangle, quadrilateral, pentagon or
+           hexagon. The red slice shown here is the biggest one.
+
+
+
+
+                                              8
+4 H i gher-dimensional cheese and beyond
+
+The theory explained in the previous sections is based on discrete geometry,
+semialgebraic geometry, and optimization. One of the topics of discrete geometry
+is the study of polytopes (even when they do not represent cheese!). For
+more details about that we refer to [8] or to other Oberwolfach snapshots like
+[2, 3, 4]. Semialgebraic geometry studies sets defined by polynomial equations
+and inequalities. These include polytopes, since they are defined by linear
+inequalities, which are inequalities involving polynomials of degree one. However,
+semialgebraic sets are not limited to polytopes: they can assume many more
+shapes, while still having useful properties. Their features make them suitable
+for optimization problems and algorithms. This interplay is explained, for
+instance, in [1]. The more specific topic of this snapshot is based on the results
+in [5] and the code for the algorithm in SageMath is available at [6].
+    We have been discussing polytopes in three dimensions and their two-
+dimensional slices, but why not consider higher-dimensional cheese? In fact, all
+the statements in the previous sections have a counterpart in higher dimensions.
+This setting involves a polytope P of dimension d that lives in Rd and planes
+are substituted by (d − 1)-dimensional hyperplanes. In this case, like in three
+dimensions, we can implement an algorithm that answers the question:
+
+                        What is the biggest slice of P ?
+
+The steps of the algorithm rely on the higher-dimensional version of a triangle,
+called a simplex, on higher-dimensional triangulations, and on the symbolic
+computation of determinants of some matrices. See [7] for the shape of all slices
+of cheddar in dimensions four, five, and six.
+    Using the same methods, we can answer similar questions and find the best
+slice of a polytope, for other notions of “best”. For instance, what is the slice
+with the largest number of vertices? Or what if your parents cut the cheese in
+more curvy shapes, like a moon or a ball? What is the best slice of a Mozzarella?
+    There are indeed many more generalizations of this problem that wait to be
+investigated and better understood.
+                                      . . .Yet another Italian talking about food!
+
+Acknowledgements I would like to thank the organizers of the Oberwolfach
+workshop 2312, New Directions in Real Algebraic Geometry, for the invitation
+to prepare this snapshot.
+
+
+I m a g e credits
+
+ All figures were created by the author using Mathematica or Inkscape.
+
+
+                                        9
+R e ferences
+
+[1] S. Basu, R. Pollack, and M. F. Roy, Algorithms in real algebraic geometry,
+    second ed., Algorithms and Computation in Mathematics, vol. 10, Springer,
+    2006.
+[2] S. Böhm, The Five Platonic Solids and their Connection to Root Systems,
+    Snapshots of modern mathematics from Oberwolfach (2025), no. 4, https:
+    //doi.org/10.14760/SNAP-2025-004-EN.
+[3] J. Hofscheier and A. Kasprzyk, Is there a Smooth Lattice Polytope which
+    does not have the Integer Decomposition Property?, Snapshots of modern
+    mathematics from Oberwolfach (2025), no. 8, https://doi.org/10.14760/
+    SNAP-2025-008-EN.
+
+[4] M. Joswig, Convex Polytopes and Linear Programs, Snapshots of modern
+    mathematics from Oberwolfach (2025), no. 2, https://doi.org/10.14760/
+    SNAP-2025-002-EN.
+[5] M.-C. Brandenburg, J. A. De Loera, and C. Meroni, The best ways to slice
+    a polytope, Mathematics of Computation 94 (2025), 1003–1042.
+
+[6]         , MathRepo: Mathematical Research-Data Repository, 2025, https:
+      //mathrepo.mis.mpg.de/BestSlicePolytopes.
+[7] M.-C. Brandenburg and C. Meroni, Combinatorics of slices of cubes,
+    arXiv:2510.09265, 2025.
+
+[8] G. M. Ziegler, Lectures on polytopes, Graduate Texts in Mathematics, vol.
+    152, Springer, 1995.
+
+
+
+
+                                     10
+Chiara M e r o n i i s a Ju n i or Fellow at ETH    Connection s t o o t he r f i e l d s
+Institute f o r T h e o r e t i c a l Studies.      Computer S c i e n c e
+
+Mathem a t i c a l s u b j e c t s                  License
+Discrete M a t h e m a t i c s a nd Foundations,    Creative Co m m o n s B Y- SA 4 . 0
+Geometr y a n d To p o l o g y
+                                                    DOI
+                                                    10.14760/S N A P - 2 0 2 6 - 0 0 6 - E N
+
+
+
+
+Snapshots of modern mathematics from Oberwolfach provide exciting insights into
+current mathematical research. They are written by participants in the scientific
+program of the Mathematisches Forschungsinstitut Oberwolfach (MFO). The
+snapshot project is designed to promote the understanding and appreciation of
+modern mathematics and mathematical research in the interested public worldwide.
+All snapshots are published in cooperation with the IMAGINARY platform and
+can be found on www.imaginary.org/snapshots and on www.mfo.de/snapshots.
+
+ISSN 2626 -1995
+
+
+Junior E d i t o r s                                Mathematis c h e s Fo r s c h u n g s i n s t i t u t
+Mar tin G ü n t h e r a n d R a phael Appenzeller   Oberwolfac h g G m b H
+junior- e d i t o r s @ m f o. d e                  Schwarzwa l d s t r. 9 – 11
+                                                    77709 Obe r wo l f a c h
+Senior E d i t o r                                  Ger many
+Anja Ra n d e cke r
+senior- e d i t o r @ m f o. d e                    Director
+                                                    Gerhard Hu i s ke n
+

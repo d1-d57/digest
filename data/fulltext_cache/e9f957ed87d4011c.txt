@@ -1,0 +1,635 @@
+
+
+From Pentagons to Pentagrams | Azimuth
+
+ 
+
+Azimuth
+
+Home
+About
+
+ 
+
+From Pentagons to Pentagrams
+
+I 
+recently showed you
+ that if you take the 
+regular icosahedron
+:
+
+considered in a coordinate system based on the golden ratio, and then replace √5 by -√5 in all your formulas, you get the 
+great icosahedron
+:
+
+But this fact isn’t an isolated one-off!  If we do the same for the 
+regular dodecahedron
+:
+
+we get the 
+great stellated dodecahedron
+:
+
+There’s also a star polyhedron called the 
+great dodecahedron
+:
+
+and if we play the same game, replacing 
+ by 
+ in all the formulas, we get the 
+small stellated dodecahedron
+:
+
+These six polyhedra form a family; the four nonconvex ones are called the 
+Kepler–Poinsot polyhedra
+.  I never understood what was so great about them, though of course they look ravishingly attractive.  So it was nice to learn that if we include the convex ones, they come in three pairs related by the operation of replacing 
+ by 
+ which is called 
+Galois conjugation
+.  This is mentioned near the end of this book:
+
+•  John Horton Conway, Heidi Burgiel and Chaim Goodman-Strauss, 
+The Symmetries of Things
+, A K Peters, Natick, Massachusetts, 2008.
+
+These authors spend more energy describing 
+three other
+ relations among this family of polyhedra:
+
+But I’m more interested in Galois conjugation, which carries each polyhedron in this picture to the one at the opposite corner of the hexagon.   I got interested in Galois conjugation because it interchanges two kinds of quasiparticles that propagate in icosahedral quasicrystals, called phonons and phasons:
+
+• 
+Phasons in Quasicrystals
+.
+
+But there’s some simple geometry behind it, which I’d like to discuss here.
+
+You’ll notice that in all the examples I gave, Galois conjugation takes regular pentagons to regular pentagrams.  And that turns out to be a general fact!
+
+Let 
+ be the 
+golden field
+: that is, the set of all numbers
+
+with 
+ rational, equipped with the usual addition, multiplication, subtraction and division.   Define 
+Galois conjugation
+
+by
+
+This map preserves all the field operations, and if you apply it twice you get back where you started.   Thus, it’s like complex conjugation in many respects.
+
+The golden field gets its name because it contains the golden ratio
+
+If we apply Galois conjugation to the golden ratio, we get its negative reciprocal:
+
+This suggests that Galois conjugation should somehow map regular pentagons to regular pentagrams!  Why?  Well, in a regular pentagon, each exterior turning angle is 
+:
+
+while in a regular pentagram, each exterior turning angle is 
+
+The cosine of the exterior turning angle for the pentagon is
+
+and we apply Galois conjugation to this, we get the cosine of the exterior turning angle for the pentagram!
+
+This is not quite a 
+proof
+ that Galois conjugation turns regular pentagons into regular pentagrams—indeed, we have to clarify what we even mean by that claim.  But it’s a key ingredient of the proof.
+
+To be more precise, let’s consider a regular pentagon in 
+ whose vertices lie in 
+   Beware: such a pentagon is impossible in the plane!
+
+Puzzle.
+  Show this.
+
+But it’s possible in 3 or more dimensions.   For example:
+
+taken in cyclic order, are the vertices of a regular pentagon in 3 dimensions.  And once you can get one, you can get plenty, by translations and rotations.  It may take a bit of thought to dream up rotation matrices with entries in the golden field, but there are lots: even rotation matrices with 
+rational
+ entries are dense among all rotations.
+
+Now, Galois conjugation acts on 
+ coordinatewise; let’s abuse language and call this map
+
+If we take a regular pentagon and apply this map to its vertices and edges, what do we get?  A regular pentagram, I claim!
+
+We can simplify the proof by noticing that only the cyclic ordering on the vertices is needed to distinguish a regular pentagon and a regular pentagram.
+
+Theorem.
+ Let 
+ be the vertices of a regular pentagon, listed in cyclic order.   Then 
+ listed in the same cyclic order, are the vertices of a regular pentagram.
+
+Proof.
+ Define the edge vectors
+
+All these have the same squared length
+
+The exterior turning angle at each vertex of the pentagon is 
+ so this is the angle between the consecutive edge vectors 
+ and 
+  Since
+
+we have
+
+Now let 
+ and 
+  It is easy to check that the usual dot product of  
+ obeys
+
+so
+
+and
+
+Therefore the cosine of the angle between consecutive edge vectors 
+ is
+
+Since
+
+it follows that the angle between consecutive edge vectors is 
+
+But wait!  The above calculation secretly assumed 
+ is positive, because we claimed that the usual positive square root of 
+ equals 
+ and we also felt free to divide by 
+  Why is 
+ positive?  Writing
+
+with 
+ we have
+
+and thus
+
+This is a sum of squares of real numbers, hence nonnegative. It is strictly positive because 
+ is injective, so the 
+ are not all zero.
+
+The five points 
+ are coplanar, since coplanarity amounts to the vanishing of certain 3 × 3 minors in the matrix of coordinate differences, which is a polynomial condition over 
+ hence preserved by 
+   These points are also distinct, since 
+ is injective.  The edges 
+ thus form a planar closed 
+-gon with equal edge lengths 
+ and constant exterior turning angle 
+ at each vertex.   This is a regular pentagram.      █
+
+The same style of argument shows that applying Galois conjugation to a regular pentagram with vertices in 
+ we get back a regular pentagon.  And if you’re worried about what happened to the plane, fear not!  We 
+can
+ draw regular pentagons in the plane whose vertices have coordinates in a certain quadratic extension of 
+   This larger field again has an automorphism that carries regular pentagons to regular pentagrams.
+
+We can also play similar games with heptagons and the like, using different fields.
+
+ Acknowledgments and addenda 
+
+The red pictures of polyhedra were made using were created using Robert Webb’s 
+Stella software
+ and placed on Wikicommons.  The diagram of Kepler–Poinsot polyhedra was created by 
+Tilman Piesk
+ and placed 
+on Wikicommons
+.
+
+For a description of the small stellated dodecahedron and great dodecahedron as Riemann surfaces—branched coverings of the sphere—try this:
+
+• John Baez, 
+Small stellated dodecahedron
+, 
+Visual Insight
+, 15 June 2016.
+
+I do not know how these branched coverings are related to the Galois theory perspective given here!
+
+On Mastodon, 
+J. M.
+ animated an icosahedron morphing into a great icosahedron:
+
+and a dodecahedron morphing to a great stellated dodecahedron:
+
+Here’s another fun example.  If you take a 
+rhombicosidodecahedron
+ with vertex coordinates all in the golden field:
+
+and apply the Galois transformation 
+ the pentagons turn into pentagrams, while the squares stay squares and the equilateral triangles stay equilateral triangles.  It gets messy if we draw everything, but if we draw just the pentagrams it’s beautiful:
+
+Interestingly the squares and triangles, not drawn, stay the same size—because the squared lengths of their edges are rational!  But the squared lengths of the pentagon edges involve 
+ so they change as they become pentagram edges.
+
+Related
+
+					This entry was posted  on Friday, May 29th, 2026 at 12:00 pm and is filed under 
+mathematics
+.					You can follow any responses to this entry through the 
+RSS 2.0
+ feed.
+											You can 
+leave a response
+, or 
+trackback
+ from your own site.
+					
+					
+
+Post navigation
+
+« Previous Post
+
+Next Post »
+
+4 Responses to 
+From Pentagons to Pentagrams
+
+ 
+Justin
+ 
+says:
+ 
+
+29 May, 2026 at 10:02 pm
+ 
+
+Are there any analogous transformations between the octahedron and the tetrahemihexahedron 
+https://en.wikipedia.org/wiki/Tetrahemihexahedron
+ , or between the octahedron and any other star polyhedron?
+
+Or does this category of transformation only apply to icosahedra and dodecahedra (among the Platonic solids)?
+
+Reply
+
+ 
+Renate Quehenberger
+ 
+says:
+ 
+
+30 May, 2026 at 5:33 am
+ 
+
+Maybe it is also interesting that his 3D animated visualization of the Galois group PSL (2,11) by means of the 3D representation of the Penrose Kites & Darts tiling (a 3D pentagon) leads also to the great dodecahedron:
+
+https://vimeo.com/manage/videos/50231760
+
+Is this correct & can we identify in those 11 permutations the so far “abstract” hendecachoron ?
+
+This first approach to the dynamic visualization of groups was inspired by Kostant and aimed to find a correct way, since group theory, as Poincaré emphasized, requires a five-dimensional space.
+
+Reply
+
+ 
+J. M.
+ 
+says:
+ 
+
+2 June, 2026 at 8:16 am
+ 
+
+I’m glad you were able to use those cartoons for your blog post. :)
+
+Reply
+
+ 
+John Baez
+ 
+says:
+ 
+
+2 June, 2026 at 8:31 am
+ 
+
+Yes, they’re great.  I’m not sure they are “cartoons”, though.
+
+Reply
+
+You can use Markdown or HTML in your comments.  You can also use LaTeX, like this: $latex E = m c^2 $. The word 'latex' comes right after the first dollar sign, with a space after it. 
+Cancel reply
+Your email address will not be published.
+ 
+Required fields are marked 
+*
+Comment 
+*
+ 
+Name 
+*
+ 
+
+Email 
+*
+ 
+
+Website
+ 
+
+ 
+
+ 
+Notify me of new comments via email.
+ 
+Notify me of new posts via email.
+Δ
+
+ 
+
+latest posts:
+
+Octonions and the Standard Model
+
+Interview with Micah Zarin
+
+Summing the Reciprocals of Primes
+
+From Pentagons to Pentagrams
+
+The Great Icosahedron
+
+What Are Atoms Made Of?
+
+Phasons in Quasicrystals
+
+Naturally Occurring Quasicrystals
+
+Freiman’s Constant
+
+Quantum Mechanics of the Inverse Cube Force Law
+
+latest comments:
+
+allenknutson on 
+Octonions and the Standard…
+BLK on 
+Norton’s Dome
+walgaterobert on 
+Octonions and the Standard…
+Phillip Helbig on 
+Octonions and the Standard…
+mitchellporter on 
+Octonions and the Standard…
+John Baez
+ on 
+Octonions and the Standard…
+John Baez
+ on 
+Octonions and the Standard…
+walgaterobert on 
+Octonions and the Standard…
+Jack Hughes on 
+Octonions and the Standard…
+John Baez
+ on 
+Octonions and the Standard…
+ 
+
+How To Write Math Here:
+
+You can 
+include math in your comments using LaTeX
+,  but you need to do it this way:
+
+$latex  E = mc^2$
+
+You need the word 'latex' right after the first dollar sign, and it needs a space after it.  Double dollar signs don't work, and other limitations apply, some described 
+here
+.  You can't preview comments here, but I'm happy to fix errors.
+
+Read Posts On:
+
+art
+ (8)
+
+astronomy
+ (59)
+
+azimuth
+ (65)
+
+biodiversity
+ (41)
+
+biology
+ (114)
+
+carbon emissions
+ (80)
+
+chemistry
+ (92)
+
+climate
+ (162)
+
+computer science
+ (80)
+
+conferences
+ (113)
+
+culture
+ (8)
+
+economics
+ (33)
+
+energy
+ (51)
+
+engineering
+ (12)
+
+epidemiology
+ (22)
+
+game theory
+ (30)
+
+geography
+ (5)
+
+health
+ (7)
+
+history
+ (21)
+
+information and entropy
+ (100)
+
+jobs
+ (17)
+
+journals
+ (5)
+
+mathematics
+ (653)
+
+music
+ (55)
+
+networks
+ (192)
+
+oceans
+ (13)
+
+physics
+ (270)
+
+politics
+ (2)
+
+probability
+ (99)
+
+psychology
+ (6)
+
+publishing
+ (20)
+
+puzzles
+ (14)
+
+quantum technologies
+ (28)
+
+questions
+ (3)
+
+risks
+ (59)
+
+seminars
+ (23)
+
+software
+ (33)
+
+strategies
+ (44)
+
+sustainability
+ (76)
+
+the practice of science
+ (29)
+
+this week's finds
+ (18)
+
+also visit these:
+
+Bit Tooth Energy
+
+Brave New Climate
+
+Do the Math
+
+Dot Earth
+
+Environment 360
+
+Planet3.0
+
+RealClimate
+
+Serendipity
+
+The Science of Doom
+
+Yale Environment 360
+
+RSS feeds:
+
+ 
+RSS - Posts
+ 
+RSS - Comments
+
+Email Subscription:
+
+Enter your email address to subscribe to this blog and receive notifications of new posts by email.
+
+						Email Address:					
+
+ 
+
+ 
+
+						Sign me up!					
+
+					Join 5,451 other subscribers				
+
+SEARCH:
+
+Search
+
+Blog Stats:
+
+5,555,620 hits
+
+Blog at WordPress.com.
+
+ 
+Comment						
+
+Reblog
+
+Subscribe
+
+Subscribed
+
+				Azimuth			
+
+Join 5,451 other subscribers
+
+ 
+
+												Sign me up											
+
+											Already have a WordPress.com account? 
+Log in now.
+ 
+
+ 
+Privacy						
+
+ 
+
+				Azimuth			
+
+Subscribe
+
+Subscribed
+
+Sign up
+
+Log in
+
+Copy shortlink
+
+										Report this content									
+
+										View post in Reader									
+
+Manage subscriptions
+
+Collapse this bar
+
+Loading Comments...
+
+Write a Comment...
+
+Email (Required)
+
+Name (Required)
+
+Website
+
+ 
+

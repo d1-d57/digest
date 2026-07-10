@@ -1,0 +1,1446 @@
+     The AMS is deeply grateful for the support of the Bose, Datta, Mukhopadhyay
+  and Sarkar Fund, which sponsors one lecture at the Current Events Bulletin annually.
+
+The Fund’s purpose is to bring appreciation for mathematics to a broader audience. It was
+ established in 2021 and made possible by the generosity of Dr. Salilesh Mukhopadhyay.
+WHAT IS THE GEOMETRIC LANGLANDS CORRESPONDENCE
+                    ABOUT?
+
+           DAVID BEN-ZVI, WITH ILLUSTRATIONS BY ELLIOT KIENZLE
+
+        Abstract. The recent proof of the unramiﬁed Geometric Langlands Conjec-
+        ture has attracted a lot of publicity, so this seems like a good time to address
+        the title question. In one line, the Geometric Langlands correspondence is an
+        algebraic spectral theorem for a certain class of diﬀerential equations called
+        automorphic sheaves: it asserts they can be decomposed into monochromatic
+        objects, which diagonalize the action of natural symmetries (Hecke operators),
+        and it describes the corresponding colors or frequencies (Langlands parame-
+        ters).
+            The statement is very technical and esoteric sounding, the proof takes thou-
+        sands of pages, and there are relatively few easily stated immediate conse-
+        quences. So what’s the deal? In this brief survey I will present the subject
+        informally as a blueprint for a master plan for the study of nonabelian sym-
+        metry, touching on some of the main motivations, connections and structures
+        that have emerged.
+
+
+
+   The spectral theorem and the Fourier transform are ubiquitous in mathematics
+and physics. Fundamentally they have to do with the diagonalization – or spectral
+decomposition – of abelian symmetries. One can imagine that a counterpart for
+nonabelian symmetry would be even more powerful and important. However, our
+current understanding of nonabelian duality is reminiscent of the parable of the
+blind men and the elephant. Number theorists have discovered a grand vision for
+nonabelian duality, the Langlands program, with echoes throughout representation
+theory and numerous applications (the most famous is the proof of Fermat’s Last
+Theorem). Independently physicists have produced another grand vision, a non-
+abelian form of the electric-magnetic duality of Maxwell theory known as Montonen-
+Olive S-duality, with its own echoes throughout mathematical physics. Thanks to
+research into the geometric Langlands program, we now understand that these two
+communities are in fact exploring the same giant pachyderm, and they are now able
+to share observations and coordinate their explorations. In fact we may now have
+identiﬁed the animal’s beating heart – the circle of ideas surrounding the geometric
+Satake correspondence, factorization and the spectral action.
+   This exploration has reached a major benchmark with the recent proof of the
+unramiﬁed geometric Langlands conjecture by Gaitsgory and Raskin with Arinkin,
+Beraldo, Campbell, Chen, Faergeman, Lin and Rozenbylum. This proof is laid
+out in what amounts to three papers [GR24a, ABC` 24a, GR24b] and a two-volume
+book [ABC` 24b, CCF` 24], all building on a vast body of prior technical work,
+including Lurie’s foundations of higher algebra [Lur09,Lur] and much of Gaitsgory’s
+work over the past twenty years. We will take this occasion to survey what kind of
+statement the Geometric Langlands Correspondence — GLC, from now on — is,
+why we might care, why it is true and what might be next. My emphasis is on the
+parts that make the subject most appealing to me – its multitude of connections
+and perspectives, and the deep underlying structures it has helped uncover.
+                                               1
+2                                  DAVID BEN-ZVI
+
+
+   Caveat emptor: I consistently err on the side of intuition over precision, and
+in references to survey articles over original sources. I have not come close to being
+comprehensive, or even adequate, in referencing relevant papers and important
+developments. I also do not discuss Phase I of the GLC Universe, from the origin
+of the problem in [Dri83, Lau87] to the construction of Hecke eigensheaves for GLn
+in [FGV01, Gai04] – see [Fre04, Gai17a] for earlier surveys of the area – but focus
+on the greatest hits of Phase II, the categorical GLC, from [BD] to its recent proof.
+
+          1. What kind of statement is geometric Langlands?
+   I will describe the geometric Langlands correspondence as a kind of nonabelian
+counterpart to the Spectral Theorem. To set this up, let’s ﬁrst step back and revisit
+the Spectral Theorem. The reader impatient to get to geometric Langlands can skip
+straight to § 1.4.
+
+1.1. The Spectral Theorem. The spectral theorem provides a general theory of
+diagonalization or spectral decomposition for self-adjoint operators H on Hilbert
+spaces H. In ﬁnite dimensions, it says that H decomposes as a direct sum of
+eigenspaces
+                                  H»        Hλ
+                                        à
+                                         λPRt
+
+so that the action of H is given by multiplication by the coordinate function t.
+(Here we’ll denote by Rt a copy of R with coordinate t, our notation for the domain
+of eigenvalues and spectral measures, i.e., momentum space.) In the general case of
+a self-adjoint operator, while H might not have any actual eigenvectors in H, the
+spectral theorem applies measure theory to provide a sense in which we can write all
+vectors in H as continuous linear combinations – integrals over Rt – of eigenvectors
+with eigenvalue λ P Rt . This can be formulated in the language of projection-valued
+measures on H, or more abstractly using measurable ﬁelds Hptqdμptq of Hilbert
+spaces over Rt . We recover the Hilbert space H with the operator H as the direct
+integral (or “global sections”) of the Hilbert-space valued measure
+                                       ż‘
+(1.1)                             H“      Hptqdμptq
+                                       Rt
+
+equipped with the action of the coordinate function t. In other words, we build H as
+an integral of eigenspaces Hptq against a spectral measure dμptq, and the operator
+H is given by the action of the coordinate t.
+   Another point of view on the spectral theorem is that it extends the action of
+the coordinate t on H (acting as the operator H) to a functional calculus on H, an
+action of all bounded measurable functions of t. This is formally expressed in the
+structure of a module (in fact a W ˚-module) for the commutative (von Neumann)
+algebra L8 pRt q. In this language, the projection from H to its integral over an
+interval I is given by the action of the indicator function of I.
+   We can also view the pair (H, H) as describing a unitary representation x ÞÑ eixH
+of the group Rx (a dual copy of R with coordinate x – the position space), and the
+spectral theorem describes the decomposition of unitary representations into irre-
+ducible representations, the eigenspaces Cλ . In this way the spectral theorem gives
+a detailed description of the unitary representation theory of Rx , and it provides
+the blueprint for describing the representation theory of other groups.
+                  THE GEOMETRIC LANGLANDS CORRESPONDENCE                              3
+
+
+   While not usually phrased this way, the spectral theorem in fact deﬁnes an
+equivalence of categories
+
+
+                    tHilbert spaces with a self-adjoint operatoru
+                                         Ù
+                   tmeasurable ﬁelds of Hilbert spaces H
+                                                       p on Rt u
+
+
+   – i.e., we can spectrally decompose not just the objects, unitary representations of
+R (or pairs pH, Hq), into multiplicity spaces (eigenspaces), but also the morphisms,
+unitary maps of representations (or operators commuting with H), as maps between
+their multiplicity spaces. Again this is a model for how we might seek to describe
+other representation theories.
+   Algebra has its own form of spectral decomposition, in which we drop unitarity.
+It takes the form of an equivalence
+
+
+                      tvector spaces with an endomorphismu
+                                         Ù
+                    talgebraic families of vector spaces over A1t u
+
+
+   where we extend a single endomorphism H of a complex vector space V to an
+action on V of the polynomial ring Crts of algebraic functions on the aﬃne line (the
+“functional calculus”). We then use localization to “spread V out” over the t-line
+– to any open subset U Ă A1t deﬁned by the nonvanishing of some polynomial p we
+attach a module VU over functions on U by inverting p – the algebraist’s counterpart
+to acting by indicator functions of intervals. These modules form a sheaf – we can
+recover V and its endomorphism from the modules VUi for an open cover of the line.
+We will encounter such algebraic families repeatedly - they make sense over any
+algebraically deﬁned space X, they have the oﬃcial name quasicoherent sheaves,
+and they form a category we denote QCohpXq.
+
+1.2. The spectral theorem vs. the Fourier transform. The spectral theorem
+has a symbiotic relation with the Fourier transform. On the one hand, arguably
+the fundamental feature of the Fourier transform
+                                                ż
+                   2     „    2
+                 L pRx q Ý
+                         Ñ L pRt q,      f ptq “ f pxqe´2πixt dx
+                                         p
+                                                       R
+is that it takes translation, diﬀerentiation and convolution operators in x into multi-
+plication operators in t – i.e., it simultaneously diagonalizes the action of the group
+R, its Lie algebra and its group algebra. In the language of the spectral theorem,
+the Fourier transform says that the spectral  ş‘decomposition of the regular represen-
+tation Rx œ L2 pRx q is given by L2 pRt q “ Rt Ct dt, the “constant rank one” family
+of Hilbert spaces on Rt , with multiplicity one for every frequency. Said another
+way, Fourier inversion                    ż
+                               f pxq “       fpptqe2πixt dt
+                                         R
+4                                   DAVID BEN-ZVI
+
+
+lets us build functions as superpositions of exponentials, the eigenfunctions for
+translation, which are the pure frequency (monochromatic) waves parametrized by
+frequencies (colors) t.
+   On the other hand, the spectral theorem can itself be seen as a kind of “cate-
+goriﬁed” Fourier transform, taking unitary representations of Rx to Hilbert-space
+valued measures on Rt . This is not (just) a fanciful game – it’s already evident
+in von Neumann’s direct integral notation, equation (1.1) where we integrate not
+scalar- but vector-space-valued functions against a measur. The monochromatic
+waves are now the irreducible (i.e., one-dimensional) representations of Rx , which
+are taken by the spectral theorem to skyscrapers (vector-space valued δ-functions)
+Cλ at λ P Rt . The spectral theorem then lets us write any unitary representation
+as a direct integral (superposition) of the vector space valued function given by its
+eigenspaces. The regular representation L2 pRx q plays the role of white light, a su-
+perposition of all possible frequencies, and indeed its transform L2 pRt q is supported
+everywhere on the t-line.
+
+1.3. Great, but where is Geometric Langlands? Let’s consider the spectral
+theorem for vector spaces with an invertible operator – in other words, representa-
+tions of the group Z, ReppZq. The algebraic spectral theorem identiﬁes these with
+modules for the ring Crt, t´1 s of Laurent polynomials in one variable, i.e., quasico-
+herent sheaves on the punctured complex line A1t zt0u “ Cˆ    t – we have just excluded
+0 from the spectrum. (If we throw in unitarity we get instead families of Hilbert
+spaces over U p1q Ă Cˆ t .)
+    This result has a useful geometric interpretation, illustrated in Figure 1. Let’s
+identify Z with the fundamental group π1 pCˆ     z q of the punctured z-line. Then a
+representation of Z can be described as describing the twisting or monodromy of
+a local system of vector spaces on Cˆ z , a family of vector spaces that are all iden-
+tiﬁed locally but may undergo a twist as we go around a loop. Local systems can
+be understood as capturing the multivaluedness of solutions of algebraic systems
+                            d
+of diﬀerential equations z dz ´ Apzq on Cˆ  z . The eigenspaces (or irreducible repre-
+sentations) Cμ for Z, parametrized by points μ P Cˆ      t . They label the diﬀerential
+equations Lμ “ tz dz d
+                       ´ λu for μ “ exppλq, with solution the multivalued function
+z λ which gets multiplied by a factor μ as we go around the puncture. (These func-
+tions are illustrated as branched covers of Cˆ in the ﬁgure.) The spectral theorem
+then gets reinterpreted as the statement that any algebraic system of diﬀerential
+equations on Cˆ – or, by passing to monodromies, any local system L P LocpCˆ q
+– is realized as a superposition (direct integral) of the Lμ . In other words, any L
+is encoded by the algebraic family μ ÞÑ Lpμq
+                                          p     of multiplicity spaces for μ P Cˆt , and
+we have an equivalence
+
+
+                             z q “ tLocal systems L on Cz u
+                        LocpCˆ                          ˆ
+
+                                         Ù
+
+                        t q “ tquasicoherent sheaves L on Ct u
+                  QCohpCˆ                            p     ˆ
+
+
+
+
+   And there we have it: this equivalence (known as the Mellin transform for
+sheaves) is itself a case of the geometric Langlands correspondence. In the GLC,
+                  THE GEOMETRIC LANGLANDS CORRESPONDENCE                              5
+
+
+
+
+        Figure 1. The Mellin transform for sheaves: Spectres guide
+        monochromatic local systems on Cˆ   z to their colors in Ct . A
+                                                                  ˆ
+
+        skyscraper corresponds to the “color” white.
+
+
+
+we get to ﬁx a group — here the group is GL1 – and a Riemann surface – here Cˆ       z
+(or more oﬃcially, the Riemann sphere P1 with tame ramiﬁcation at 0, 8).
+   What’s special about these monochromatic objects Lμ , the building blocks? Cˆ     z
+is a group, and the Lμ are known as character sheaves since they behave like
+characters of this group – e.g., their solutions z λ are characters. We can express
+this idea as follows: using the group structure we can translate local systems around
+under rotation by w P Cˆ . The Lμ “ tz λ u are the eigensystems, the systems
+consistently isomorphic to their rotation by every w P Cˆ thanks to pwzqλ “ wλ z λ .
+An elaboration of this statement is that the Mellin transform identiﬁes the structure
+of convolution on LocpCˆ  z q, expressing the group structure of C , with the structure
+                                                                  ˆ
+                                                              ˆ
+of multiplication, or pointwise tensor product, on QCohpCt q. In this way it is both
+a form of the spectral theorem and a categoriﬁed Fourier transform.
+   To get more into the spirit, the same basic idea works for any compact Riemann
+surface C of genus g and gives the Betti geometric Langlands correspondence for
+GL1 on C. Instead of the spectral theorem for invertible operators, i.e., representa-
+tions of Z, we consider 2g commuting invertible operators. We can reinterpret these
+operators as the monodromies of a local system (or multivaluedness associated to a
+system of diﬀerential equations) on the Jacobian torus JacpCq „ pS 1 q2g of C. The
+spectral theorem lets us think of these operators as describing a module for the
+ring of Laurent polynomials in 2g variables - or more suggestively, a quasicoherent
+sheaf on the space LocGL1 pCq „ pCˆ q2g of rank one local systems on C (the data
+of a single scalar twisting for every loop). The result is an equivalence
+6                                     DAVID BEN-ZVI
+
+
+
+
+            LocpJacpCqq “ ReppZ2g q ÐÑ QCohppCˆ q2g “ LocGL1 pCqq.
+
+   This equivalence has the property that translation using the group structure
+on the Jacobian is taken to multiplication (tensor product of modules), and that
+“monochromatic objects” – given by a single 2g-tuple pμ1 , . . . , μ2g q of multivalued-
+ness along the 2g circles – are taken to skyscrapers at points of LocCˆ pCq with
+coordinates given by the μi .
+   This ﬁts in a general theme of categorical Fourier transforms – these are equiva-
+lences of (derived) categories of sheaves of various ﬂavors between an abelian group
+and a dual, exchanging convolution and tensor product operations [Lau96]. Exam-
+ples include the Fourier-Malgrange, Fourier-Sato and Fourier-Deligne transforms
+identifying D-modules, constructible sheaves and -adic sheaves (respectively) on
+dual vector spaces over C, R and Fq , and the Fourier-Mukai transform identifying
+coherent sheaves on dual abelian varieties [Muk81]. The challenge of geometric
+Langlands is to develop a nonabelian counterpart to this rich theory.
+
+1.4. The landscape of nonabelian duality. Let’s brieﬂy sketch the landscape
+of nonabelian duality, in both its number theoretic and physical formulations. In
+each, we really have not one conjectural duality statement but an interconnected
+family of conjectures, indexed by the choices of a group and a setting (ﬁeld or
+manifold).
+
+1.4.1. The group. We ﬁrst ﬁx
+   ‚ G a reductive algebraic group - for example GLn , SLn , SO2n , SO2n`1 , . . . ,
+E8 . Over C, where we’ll mostly stay, these are precisely the complexiﬁcations of
+compact Lie groups. (We will only consider connected groups.)
+   Each such G comes together with a “dual” complex1 reductive group, the Lang-
+lands dual group Ǧ. The general idea behind Ǧ is that representations of G of any
+ﬂavor (i.e., maps out of G) should correspond to conjugacy classes in – or more
+generally, homomorphisms into – its dual. It can be deﬁned concretely via the
+combinatorial theory of Lie groups (roots, Dynkin diagrams and so on), by keeping
+the Weyl group of G but dualizing all of the torus and root space combinatorics.
+The groups GLn and SO2n are self-dual, simply connected groups like SLn are
+exchanged with adjoint groups like P GLn , but the odd orthogonal groups SO2n`1
+are exchanged with the symplectic groups Sp2n . As we will see, the geometric
+Langlands correspondence provides a fundamental description of where the dual
+group comes from, see § 4.3.
+
+1.4.2. The setting. Next we need to choose a setting.
+      ‚ For Langlands we get to choose a ﬁeld F – this can be a global ﬁeld like a
+        number ﬁeld, a local ﬁeld like the reals or p-adics, or the ﬁeld of rational
+        functions on an algebraic curve (over a ﬁnite ﬁeld, its algebraic closure, or
+        the complex numbers).
+      ‚ For S-duality we get to choose a manifold M of dimension at most 4.
+
+   1 More generally we get a group over the ﬁeld of deﬁnition k of the representations of G we
+
+wish to study – which we’ll assume (or pretend to assume) is C.
+                  THE GEOMETRIC LANGLANDS CORRESPONDENCE                            7
+
+
+   The parallel between these two worlds is given by the dictionary of arithmetic
+topology, or “knots and primes” analogy [Mor12], in which both number ﬁelds and
+curves over ﬁnite ﬁelds are thought of as a 3-manifolds, while local ﬁeld and curves
+over algebraically closed ﬁelds are thought of as 2-manifolds.
+
+1.4.3. The duality. In each such setting we have a duality identifying two sides:
+   ‚ Automorphic / A-side: this side concerns a version of the representation theory
+of G associated to M or F . This comes in the form of harmonic analysis on a moduli
+space BunG pM q of G-bundles or gauge ﬁelds on M , or on a locally symmetric
+space rGsF associated to G and F . These might sound quite diﬀerent, but have an
+identical nuts and bolts (adèlic) description, going back to A. Weil – morally rGsF
+is a version of “BunG pSpecpOF qq”, the moduli of bundles over the spectrum of the
+ring of integers of F .
+   ‚ Spectral / B-side: involves algebraic geometry of spaces of local systems (or
+Langlands parameters) LocǦ , which are character varieties (spaces of representa-
+tions) of the Galois group of F – or the fundamental group of M – into the dual
+group Ǧ.
+   The settings are all tightly linked, making the situation very constrained.
+   Geometric Langlands is a common special case of both stories – it’s the case of S-
+duality when M “ C is a compact Riemann surface (or smooth complex projective
+algebraic curve), and of the Langlands correspondence over F the ﬁeld of rational
+functions on C. To give a sneak preview of § 3, the GLC asserts that – on the level
+of sheaf theory –
+          the moduli space of bundles BunG pCq behaves like an
+           abelian group, with characters given by the Ǧ-local
+                         systems LocǦ pCq on C.
+   Namely, we study the spectral theory of algebraic system of diﬀerential equations
+on BunG pCq, or equivalently their topological monodromy data, as we did for the
+Jacobian torus parametrizing line bundles (G “ GL1 ). Geometric Langlands spec-
+trally decomposes these data as quasicoherent sheaves over the space LocǦ pCq of
+Ǧ-valued local systems on C. It has the features of a categoriﬁed Fourier transform,
+exchanging convolution and multiplication operators, and thereby writing vector-
+valued functions on BunG pCq as direct integrals of special “monochromatic” ones,
+the eigensheaves, labeled by points of LocǦ pCq.
+
+
+                              2. Why do we care?
+   The Geometric Langlands correspondence has inﬂuenced a broad swath of math-
+ematics. Some of this inﬂuence comes from direct implications. Much more sig-
+niﬁcantly, the geometric Langlands program straddles representation theory, arith-
+metic and quantum ﬁeld theory and serves as a prototype for the general dream of
+nonabelian duality, where most of the key subtleties and roadblocks are apparent
+but one has access to a dizzying array of tools from geometry to overcome them.
+We will also encounter along the way several fundamental ideas and constructions
+that were ﬁrst developed in the study of geometric Langlands, of which arguably
+the most signiﬁcant is the theory of factorization and factorization homology, see
+Section 4.2. Here I give an extremely brief account of some of these motivations.
+8                                   DAVID BEN-ZVI
+
+
+2.1. GLC in low genus. When we restrict to curves of genus zero and one, both
+sides of the correspondence become very explicit and classical objects, for which
+the Langlands dual description provided by geometric Langlands provides deep in-
+sights. For example, in genus one the Langlands parameters are commuting pairs of
+matrices, whose algebraic geometry has long been elusive [LNY24]. On marked or
+punctured curves of genus zero Langlands parameters become meromorphic ODE
+or, in the étale setting, Galois representations of the ﬁeld of rational functions in
+one variable. In this (ramiﬁed) setting, the GLC has been particularly important in
+the study of the special class of rigid local systems [Yun17], including the arithmetic
+of Kloosterman’s exponential sums and Bessel equations [FG09, HNY13, XZ22] and
+combinatorics of Schubert calculus [LT24]. A striking application is Yun’s solution
+of the inverse Galois problem for some ﬁnite reductive groups [Yun14]. In the other
+direction, the automorphic spectral problems studied by the GLC are identiﬁed in
+low genus with the solution of famous quantum integrable systems, such as the
+Gaudin spin chain and the Calogero-Moser particle systems. The GLC then pro-
+vides a general paradigm for solving quantum integrable systems in which the joint
+spectrum of commuting Hamiltonians is given by Langlands parameters [Fre05].
+
+2.2. Representation Theory of Reductive Groups. The most direct points
+of contact of GLC are in representation theory, where it serves as a prototype for
+a spectral theory for representations associated to a reductive group G. What
+makes this ﬁeld remarkable is that the same G has many distinct avatars, which
+nonetheless share the same structural features. At the core of the subject since
+the 1990s is a fundamental triangle of representation theories, linked by a web of
+conjectures of Lusztig [Car06]:
+    (1) quantum groups Uq g
+    (2) loop groups LG and aﬃne Kac-Moody algebras p      g
+    (3) reductive groups and Lie algebras in positive characteristic G, g{Fq
+Ideas from the GLC — speciﬁcally the geometric Satake correspondence [MV07]
+and its “tamely ramiﬁed” reﬁnement [Bez06, Bez16] — have radically transformed
+this area, resulting in some of the greatest advances in 21st century representation
+theory in the works of Bezrukavnikov, Williamson and their collaborators.
+
+2.3. Local Langlands. The local Langlands correspondence provides a conjec-
+tural spectral theory for (complex or -adic) representations of reductive groups
+over local ﬁelds F , like Qp , R and Fq pptqq. In other words it proposes an iden-
+tiﬁcation of representations with families of vector spaces (sheaves of multiplicity
+spaces) over a “spectrum”. Moreover it identiﬁes the parameter space or spectrum
+as a space of Langlands parameters – collections of conjugacy classes in ǦpCq,
+organized as representations of a form of the Galois group of F into ǦpCq.
+   It’s a crucial partner to the global Langlands program, much as the spectral
+theorem is to the Fourier transform: global Langlands concerns the spectral de-
+composition of the particular representation L2 prGsF q of the GpFv q (for v a place
+of a global ﬁeld F ) associated to G and F (for instance, L2 pSL2 pZqzSL2 pRqq).
+   From this perspective we see a close parallel between geometric and local Lang-
+lands, and indeed local Langlands has recently been transformed under the inﬂuence
+of the GLC into a categorical statement. One hint to why comes from the arith-
+metic topology analogy between number ﬁelds and 3-manifolds: here global ﬁelds
+like Q behave like 3-manifolds and local ﬁelds like Qp behave like surfaces forming
+                    THE GEOMETRIC LANGLANDS CORRESPONDENCE                                      9
+
+
+their boundary. This leads one to suspect the Langlands program over a local ﬁeld
+– much more than over a global ﬁeld – should share structural features with the
+Langlands program over a Riemann surface, i.e. GLC.
+   This parallel has become much more direct in the seminal works of Fargues-
+Scholze [FS21] in the p-adic case and Scholze [Sch] in the real case. In these works
+the local Langlands correspondence is literally realized as a case of the (unramiﬁed)
+geometric Langlands correspondence, but in a much more exotic setting than curves
+over a ﬁeld – the Fargues-Fontaine curve and twistor P1 , respectively. Many of the
+ideas developed in the GLC – most notably factorization and the spectral action
+– have already played a crucial role here, notably in establishing the automorphic-
+to-Galois direction of local Langlands [FS21]. This provides a direct path for the
+ideas and techniques of the GLC to impact number theory. This is an extremely
+active area, with new frontiers including an emerging geometric formulation of the
+Langlands correspondence for p-adic analytic representations of p-adic groups.
+   We refer the reader to the excellent overview [Zhu23] for some highlights of the
+steady stream of recent applications of GLC to a wide range of problems in both
+the local and global arithmetic Langlands program.
+2.4. Langlands for Function Fields. A very diﬀerent (and much older) relation
+between geometric and classical Langlands comes from the close analogy (Weil’s
+Rosetta Stone) between number ﬁelds and function ﬁelds of curves over a ﬁnite ﬁeld
+Fq , and between Riemann surfaces and curves over its algebraic closure2 Fq . In this
+analogy vector spaces of automorphic forms arise as decategoriﬁcations of categories
+of automorphic sheaves, via the mechanism of traces of Frobenius (Grothendieck’s
+function-sheaf correspondence). This mechanism is a direct extension of the link
+provided by the Weil conjectures between point counts for varieties over ﬁnite ﬁelds
+with cohomology over their algebraic closure. Under this mechanism, the spectral
+decomposition of automorphic forms (the classical Langlands correspondence) is a
+shadow of the categorical decomposition of automorphic sheaves (geometric Lang-
+lands).
+    The original dream behind developing the GLC is that one might translate one’s
+way back across Weil’s Rosetta Stone, carrying along insights as we pass from Rie-
+mann surfaces to curves over ﬁnite ﬁelds and maybe eventually to number ﬁelds. In-
+deed the development of the GLC has largely taken place in parallel over C and over
+Fq . In this way geometric Langlands ideas were crucial to advances such as Ngô’s
+proof of the Fundamental Lemma [Nad12, Hal12], one of the major breakthroughs
+in the arithmetic Langlands program; V. Laﬀorgue’s work establishing one direc-
+tion of the Langlands correspondence for function ﬁelds [Car, Str17]; the proof by
+Gaitsgory-Lurie of Weil’s Tamagawa number conjecture for function ﬁelds [GL19],
+and the proof by Gaitsgory of de Jong’s conjecture [Gai07] on monodromy over
+ﬁnite ﬁelds.
+    The landmark work [AGK` 20] developed a formulation – the étale or restricted
+form – of the (unramiﬁed) GLC for curves C over Fq . Crucially, this formulation
+actually implies, after taking traces of Frobenius, a signiﬁcantly strengthened form
+of the unramiﬁed Langlands conjecture for function ﬁelds. Now that unramiﬁed
+GLC in characteristic zero is understood, the pendulum has swung back. Very
+recently [GR25] a large part of the positive characteristic version has been proved.
+   2 From the arithmetic topology perspective, this corresponds to thinking of a 2-manifold as the
+
+ﬁber of a ﬁbered 3-manifold.
+10                                    DAVID BEN-ZVI
+
+
+The ICM addresses [Gai25] and [Ras] outline visions for understanding the fully
+ramiﬁed Langlands correspondence over function ﬁelds and for proving some of
+the most important open problems in the theory of automorphic forms in positive
+characteristic, the Ramanujan and Arthur conjectures.
+
+
+2.5. Relations to physics. A lot of what gives the GLC its appeal and power is
+its close ties to questions in physics, which we will only hint at here.
+   Kapustin and Witten [KW07] (see also [Fre10, BZN18]) explained how the GLC
+naturally arises as an aspect of Montonen-Olive S-duality – a conjectural nonabelian
+extension of the electric-magnetic symmetry of Maxwell theory.
+   S-duality is a non-perturbative equivalence between two four-dimensional quan-
+tum ﬁeld theories, the maximally supersymmetric (N “ 4) extensions of Yang-Mills
+theory for two Langlands dual Lie groups. To get to geometric Langlands, we throw
+away more and more information from this incredibly rich statement. First we pass
+to a twist of the theory, meaning that we throw away all of the metric dependence
+of the theory (e.g., dynamics) by passing to cohomology of a suitable diﬀerential.
+We then simplify further by only considering the theory on 4-manifolds of the form
+C ˆ Σ for a ﬁxed Riemann3 surface C. In other words, we extract from the original
+4d gauge theory an assignment from Riemann surfaces to 2d topological quantum
+ﬁeld theories. Finally, we follow the example of homological mirror symmetry and
+focus, for each such 2d TQFT, only on its category of boundary conditions. Thus
+we end up with an assignment from Riemann surfaces to categories (a categorical
+analog of the extremely rich and well-studied notion of 2d conformal ﬁeld theory).
+   Kapustin and Witten discovered that this subsequent simpliﬁcation applied to
+the physical S-duality conjecture produces exactly the kinds of categories appear-
+ing in the geometric Langlands correspondence. Their work, and two decades of
+subsequent work, shows that as we pay attention to more and more of the forgotten
+structure from physics we can see all of the key features of the geometric Langlands
+program emerge as well as remarkable new features.
+   First, the physics derivation from 4d gauge theory (and even further, from 6d
+QFT) provides a uniﬁed framework with which to understand numerous connec-
+tions (many of which predate [KW07]) with 2d conformal ﬁeld theory, classical
+and quantum integrable systems, mirror symmetry, gauge-theoretic invariants in
+topology and the Seiberg-Witten geometry of supersymmetric gauge theory.
+   Second, we ﬁnd that geometric Langlands is just (part of) the 2d part of a
+statement about 4d theories, so extends (conjecturally) to statements involving
+manifolds of every dimension up to four (including with boundaries, corners and
+defects) which are very tightly controlled by the algebraic structure of TQFT.
+   Third, physics demonstrates the full symmetry between the two sides of the
+correspondence – after all, we start with the same 4d QFT applied to two Langlands
+dual groups, a symmetry that’s broken by choices made in the process but can be
+restored by varying those choices, but can then be use to inform our understanding
+of both sides.
+
+
+
+   3 Diﬀerent aspects of the construction depend either on a complex structure on C or just on
+
+the underlying 2-manifold.
+                  THE GEOMETRIC LANGLANDS CORRESPONDENCE                           11
+
+
+                              3. What does it say?
+   We now take a closer look at the actual statement of the geometric Langlands
+correspondence.
+
+3.1. The language: categories and derived categories. We argued that the
+spectral theorem is concerned with a category, namely unitary representations of
+R - we have not only a collection of objects, but they also talk to each other.
+Indeed the basic objects of study in representation theory are categories, arising
+as representations of groups or algebras, and the goal is to describe them in a
+meaningful way, just as spectral theory builds vector spaces with an endomorphism
+out of eigenspaces.
+   On the other hand, the analogy between the spectral theorem and the Fourier
+transform suggests we think of categories as analogues of Hilbert spaces. Indeed
+objects in a category have an “inner product”, their Hom space. Of course it takes a
+lot more than a set with an inner product to make a Hilbert space – we have addition
+and scalar multiplication, topology and completeness. Likewise we don’t just want
+a category but one that has operations like direct sum and a notion of completeness.
+In this analogy homological algebra takes the place of linear algebra over a ﬁeld k:
+the well behaved class of categories in which we can perform basic operations are
+what we will refer to as derived categories (the technical names involve words like
+triangulated dg categories or k-linear stable 8-categories). These basic examples
+are built by starting with abelian categories of modules for k-algebras and then
+“completing for operations of homological algebra”. Homotopical algebra then
+provides counterparts to many basic constructions in functional analysis.
+   Classical harmonic analysis describes the decomposition of vector spaces of func-
+tions under the action of symmetries. In recent decades, a rich categorical harmonic
+analysis has emerged (motivated by a variety of problems in algebraic and analytic
+geometry, homotopy theory, mathematical physics and representation theory) in
+which vector spaces of functions are replaced by derived categories of sheaves (i.e.,
+diﬀerent kinds of vector-space-valued functions). As we mentioned, the direct in-
+tegral formulation of the classical spectral theorem is already an example of this
+fanciful-sounding notion. The growing zoo of diﬀerent sheaf theories (also known as
+six-functor formalisms) provides a counterpart to the menagerie of diﬀerent function
+spaces.
+   Let’s summarize this basic dictionary:
+
+                vector spaces                          categories
+                Hilbert spaces                 derived categories
+                (Unitary) operators              (exact) functors
+                Functions                                 sheaves
+                Integral            pushforward / direct integral
+                multiplication                    tensor product
+                Function spaces     derived categories of sheaves
+
+3.2. The setting: moduli of bundles. We ﬁx a compact Riemann surface
+(smooth complex algebraic curve) C, and a complex reductive group G (which
+the reader is welcomed, without much loss, to take to be the group GLn C of invert-
+ible matrices). We will focus on the unramiﬁed GLC – meaning we don’t puncture
+12                                  DAVID BEN-ZVI
+
+
+C or decorate with extra data at points of C. This is the base case, and also the
+one that’s been proved, though most of the general ideas have ramiﬁed versions.
+   The main object of study is BunG pCq, the moduli space of G-bundles on C
+(denoted BunG when C is implied). This is the object of algebraic geometry which
+parametrizes principal G-bundles on C (i.e., rank n vector bundles for G “ GLn ).
+This means it’s deﬁned by prescribing not just its points but all maps into it —
+to give a map from a variety S to BunG pCq is the same as giving a G-bundle on
+S ˆ C. In other words, it’s an algebraic geometer’s version of a classifying space in
+topology – speciﬁcally, it is the space of algebraic maps from C to the classifying
+space for G.
+   Technically, BunG is not a variety but a stack – a hybrid of classical varieties and
+classifying spaces, which poetically means a variety where the points carry groups
+of automorphisms. It is crucial for GLC to consider BunG with all its warts, rather
+than replacing it by the more concrete and classical projective variety parametrizing
+semistable G-bundles constructed by geometric invariant theory: ﬁrst, we’re doing
+representation theory, so discarding internal groups of symmetries is counter to the
+entire spirit of the subject; second, the variety of semistable bundles itself can be
+singular (unlike BunG ) and, more crucially, has less symmetry: it is not preserved
+by Hecke correspondences, which are the most essential feature of the Langlands
+program.
+
+3.2.1. What does BunG look like? A vision of the moduli space BunG is presented
+in Figure 2. For G “ GL1 , we are parametrizing line bundles, and BunG is the
+Picard group of the Riemann surface — the Jacobian torus of C, times Z for degree
+(and every line bundle carries the multiplicative group as its automorphisms).
+   And that’s the crucial thing: BunGL1 is an abelian group under tensor product
+of line bundles, or at a more granular level, under addition of divisors.
+   For G “ GLn , BunG is the much studied moduli space of rank n vector bundles,
+except we work with bundles as given to us and don’t throw away “unstable” bun-
+dles with lots of automorphisms. Unfortunately, there’s no natural multiplication
+on the collection of rank n bundles, let alone for other G, so BunG is not a group.
+   For G semisimple (e.g., SLn ), ﬁxing a point x P C, BunG can be written like
+a locally symmetric space ΓzH “ ΓzSL2 R{SOp2q in analogy with modular curves,
+namely
+                           BunG pCq “ GpCzxqzLG{LG` .
+Here LG “ M appDˆ , Gq is the loop group of maps from a punctured disc, LG` “
+M appD, Gq is the subgroup of maps that extend to the disc. The space Gr “
+LG{LG` is the aﬃne Grassmannian, a counterpart of the familiar Grassmannians
+in the inﬁnite-dimensional context of loop groups, and we ﬁnd BunG as its quotient
+by the group of maps into G from the punctured curve.
+   For any group BunG (like the modular curves) has an “adèlic” description famil-
+iar [only] to number theorists as a double coset space BunG“GpF qzGpAC q{GpOAC q,
+treating all points democratically (here F is the ﬁeld of rational functions on C).
+This looks unwieldy but gives more insight into the symmetries of BunG . It is the
+nonabelian version of the description of P icpCq as the group of divisors modulo
+principal divisors – those coming from functions, GL1 pF q.
+   The stack BunG is smooth but not quasicompact (open covers need not have ﬁ-
+nite subcovers). This is in close parallel to the noncompactness of modular curves:
+                  THE GEOMETRIC LANGLANDS CORRESPONDENCE                            13
+
+
+
+
+        Figure 2. The moduli of bundles and its cusps, with strata of
+        increasing codimension.
+
+we have a “compact core”, the semistable part Bunss  G that’s close to being a projec-
+tive variety, and inﬁnite “throats” (or cusps) with strata of more and more unstable
+bundles (as seen in the ﬁgure). These throats however have a nice inductive struc-
+ture that contrasts with the irreducible nature of the core: the “least compact”
+(or radial ) part ﬁbers over the space BunT of bundles for the maximal torus of G,
+which is a product of Picard groups. In general there are similar throats associated
+with bundles for other Levi subgroups (block diagonal matrices in the case of GLn ).
+3.3. Sheaf theory. As in any harmonic analysis problem we will study BunG pCq
+by linearizing it – in this case, through categories of sheaves. And we will need to
+pick precisely what kind of “function space” we study.
+   A sheaf on BunG pCq can be thought of as a C-analog of a representation of G
+– indeed sheaves on BunG pptq, which is a single point with G-symmetry, are just
+representations of G.
+   So what is the kind of representation theory we will consider, the automorphic
+sheaves? As we encountered already for the Mellin transform (Section 1.3), there
+are three main ﬂavors:
+      ‚ de Rham (Lie algebra) version: We consider sheaves whose sections on
+        any open are a module over the Lie algebra of vector ﬁelds - so these are
+        sheaves with a notion of diﬀerentiation. Equivalently these are modules
+        for the associative algebra of algebraic diﬀerential operators, i.e., linear
+        systems of PDEs with algebraic coeﬃcients, or D-modules, DmodpBunG q.
+        Like distributions, these equations have “wave front sets” or characteristic
+        directions that are microlocal in nature: they deﬁne subsets of the phase
+        space T ˚ BunG .
+      ‚ Betti (group) version: here we study instead constructible sheaves, vector
+        spaces with notion of parallel transport along paths. The most basic ex-
+        amples are local systems, representations of π1 , which come from solving
+        the parallel transport problem for ﬂat connections (i.e. describing mon-
+        odromy). But (unlike in our study of the Mellin transform) we also need
+14                                     DAVID BEN-ZVI
+
+
+      to allow more singular objects where we only require parallel transport to
+      be invertible in “most” directions. This comes from solving PDEs with
+      characteristic directions that obstruct local solvability. The precise choice
+      of which singularities to allow (the “global nilpotent cone”) is guided by
+      lessons in representation theory going back to Harish-Chandra’s work on
+      distributional characters for Lie groups. The resulting category is denoted
+      ShvN pBunG q. This deﬁnition has a variant using étale topology that makes
+      sense even in positive characteristic (for curves over ﬁnite ﬁelds).
+    ‚ étale (restricted variation) version: this is an intermediate “common core”
+      of the de Rham and Betti categories introduced in [AGK` 20]. It is gener-
+      ated by (equivalently) D-modules or constructible sheaves with nilpotent
+      singular support – in fact it is designed so as to be built discretely rather
+      than continuously out of monochromatic objects. The two key advantages
+      of the étale version are that it forms a conduit between the Betti and de
+      Rham categories, and that it (unlike the other versions) makes sense in the
+      setting of curves over any ﬁeld, in particular in positive characteristic.
+  To avoid cumbersome notation we will refer to all three categories as simply
+ShvpBunG q, except when we need to be more explicit about context.
+3.4. The spectral side. On the other side of the GLC are the spaces of Langlands
+parameters or Ǧ-local systems LocǦ pCq on C. These spaces play the role of the
+space of frequencies or colors Rt in the spectral theorem, with points labeling all
+possible eigenvalues. Just as the sheaf theory we consider on BunG has three main
+ﬂavors, the parameters also come in two corresponding ﬂavors.
+      ‚ de Rham (Lie algebra) version: LocdR        Ǧ
+                                                        parametrizes Ǧ-bundles with a ﬂat
+        connection (so for G “ Ǧ “ GLn , rank n ﬂat vector bundles), i.e., an action
+        of the Lie algebra of vector ﬁelds, rather than the fundamental group. It
+        forms an aﬃne bundle (by forgetting the connection) over a ﬁnite type open
+        subset of BunǦ (in fact a twisted version of the cotangent bundle of BunǦ ).
+      ‚ Betti (group) version: LocB    Ǧ
+                                           is (a variant of) the familiar character variety,
+        parametrizing representations of the fundamental group of C into Ǧ. It is
+        a quotient (in the stacky sense) by Ǧ of the (mildly singular) aﬃne variety
+        of all homomorphisms π1 pCq Ñ Ǧ. Concretely for C of genus g, we can
+        write
+                                                           źg
+             LocǦ pCq “ tA1 , B1 , . . . , Ag , Bg P Ǧ :    rAi , Bi s “ 1u{Ǧ.
+                                                           i
+                                                   4    ˆ 2g
+         Thus for G “ Ǧ “ GL1 this is just pC q , while for genus 1 and G “
+         Ǧ “ GLn this is the space of conjugacy classes of commuting matrices.
+            The Betti and de Rham versions of LocǦ are the same analytically –
+         they are related by an exponential map – but are distinct algebraically. For
+         example for GL1 in genus 1 the former is pCˆ q2 and the latter is a C-bundle
+         over an elliptic curve (a non-aﬃne surface famously considered by Serre). In
+         other words, as far as points (or inﬁnitesimal deformations) are concerned,
+         the two are indistinguishable, but when considering families of local systems
+         we have to take care. I’ll default to suppressing the distinction.
+    4 Or rather, up to the stacky Cˆ of automorphisms, and some “derived correction” to account
+
+for the nontransversality of its deﬁning equation.
+                  THE GEOMETRIC LANGLANDS CORRESPONDENCE                              15
+
+
+      ‚ étale (restricted variation) version: this was introduced in [AGK` 20], again
+        to be a common core for the de Rham and Betti categories and to make
+        sense over any ﬁeld. The idea is to keep all that is common to LocB       Ǧ
+                                                                                     and
+             dR
+        LocǦ : they have the same points, and those points have the same deforma-
+        tion theory, and so the union of all the formal neighborhoods of all points is
+        the same to both. The space Locres   Ǧ
+                                                of local systems of restricted variation
+        is exactly this union for abelian groups, and a little bigger in general. In
+        particular coherent sheaves built in a ﬁnite process out of skyscrapers are
+        the same on all three versions.
+  As with the automorphic sheaf theory, we will default to the neutral notation
+LocǦ for all three ﬂavors of the character variety.
+3.5. The statement. Having introduced the main players, we can now state a
+(mildly incorrect) version of the GLC:
+Theorem ([GR24a, ABC` 24b, CCF` 24, ABC` 24a, GR24b]). There are equiva-
+lences of categories
+                           ShvpBunG q » QCohpLocǦ q
+in the de Rham, Betti and étale settings, as conjectured in [BD, AG15], [BZN18]
+and [AGK` 20] respectively.
+   In other words, the automorphic sheaves, systems of diﬀerential equations or their
+topological monodromy data on BunG , have a spectral decomposition as algebraic
+families of vector spaces over the space of Langlands parameters.
+   Some quick notes: ﬁrst, the theorem is not quite correct as stated – we will need
+to modify our notion of algebraic families due to the singularities of the spaces
+LocǦ , replacing QCoh by a more exotic variant IndCohN , see Section 6.1.
+   Second, for “functional analytic” purposes we have to work everywhere with
+derived categories – though the equivalence is remarkably close to preserving the
+more familiar abelian categories of sheaves (in particular the eigensheaves them-
+selves really are sheaves and not complexes thereof [FrR25]).
+   Third, the theorem as stated is analogous to giving the spectral theorem as an
+abstract matching of two sides without specifying its connection to actual eigenval-
+ues - in other words, we’re still missing the main point of the whole endeavor, that
+this equivalence needs to diagonalize something. This is our next topic.
+
+                    4. Why is it true? The Beating Heart
+  We have now seen the rough shape of BunG . But what is so special about it?
+And why should we study categorical harmonic analysis on it? Here’s the key idea:
+The essence of geometric Langlands:
+
+                 BunG behaves surprisingly like an abelian group.
+
+  This slogan has two deep manifestations that guide the subject:
+    ‚ Hecke Operators: On the level of sheaf theory, BunG has a transitive action
+       of commuting symmetries.
+    ‚ The Hitchin Fibration: On the microlocal level, BunG looks generically like
+       a Picard group.
+16                                   DAVID BEN-ZVI
+
+
+   We’ll start with the ﬁrst of these, which explains at a fundamental level the
+where the dual group and the duality itself come from. The second, which we pick
+up in § 5, is much more geometric (at the cost of working only generically) and lets
+us see concretely what eigensheaves look like.
+4.1. Local symmetries: Hecke operators. To understand the symmetries of
+BunG it’s useful to recall the local origin of the group structure on P icpCq as
+addition of divisors. Given a line bundle L and a point x P C, we can modify L
+just at x by considering sections that are required to vanish (or allowed to ř     have a
+pole) to some order. In other words, we can add a multiple of x to a divisor ni xi
+representing L. This gives an action of a copy of Z on P icpCq via L ÞÑ Lpn ¨ xq,
+and these actions (for varying x) generate the group structure.
+   What is the nonabelian counterpart of this Z? Given a G-bundle P P BunG
+and a point x P C we should ﬁrst parametrize all the modiﬁcations of P at x, i.e.,
+bundles that are identiﬁed with P away from x. Such modiﬁcations are identiﬁed
+with double cosets Gr “ LG` zLG{LG` , i.e. by LG` -orbits (Schubert varieties) on
+the aﬃne Grassmannian Gr. A variant of Gaussian elimination shows that this set
+of orbits is in bijection with Weyl group orbits of characters of the dual Ť of the torus
+T of G (recovering our Z for G “ GL1 ). In other words, the orbits are in bijection
+(via the theory of highest weights) with irreducible complex representations of the
+Langlands dual group Ǧ, deﬁned combinatorially so as to have the dual torus Ť
+and the same Weyl group as G.
+   But these modiﬁcations of bundles are more than just a set: we can compose
+modiﬁcations. Indeed while double cosets in a group don’t themselves form a group,
+the product on the group still has an averaged form on double cosets: convolution
+on the group deﬁnes an associative multiplication on functions of double cosets,
+known as a Hecke algebra.
+   We are interested in linearizing groups using sheaves rather than functions (using
+either D-modules or constructible sheaves). Applying this idea to the double coset
+space Gr gives rise to the spherical Hecke category
+                           Sph “ ShvpGrq “ ShvpGrqLG`
+of all sheaves on double cosets for LG` on LG, or more concretely but less sym-
+metrically, sheaves on the aﬃne Grassmannian Gr which are equivariant for the
+LG` action, or even more concretely, sheaves on Gr which are constant on each
+LG` -orbit. In other words, objects in the Hecke category are weighted sums of pos-
+sible modiﬁcations of bundles at a point, where the weights are vector spaces. The
+Hecke category Sph inherits an associative multiplication from the composition of
+modiﬁcations – it forms a monoidal category. Moreover, Sph acts on ShvpBunG q
+by convolution operators – the Hecke functors: we replace the value of a sheaf at
+P P BunG by its weighted average over bundles diﬀering from P by modiﬁcations
+at x.
+   In the gauge theoretic description of [KW07], taking place in the linearized (or
+“averaged”) setting of quantum ﬁeld theory, Hecke functors are realized as ’t Hooft
+line operators – the modiﬁcation of P at x is achieved by creating a prescribed
+singularity in gauge ﬁelds at x, which corresponds to creating a magnetic monopole
+passing through x.
+4.2. Factorization: the source of commutativity. The unmistakable beating
+heart of the GLC (and arguably of the Langlands program) is the miraculous
+                  THE GEOMETRIC LANGLANDS CORRESPONDENCE                              17
+
+
+commutativity of Hecke modiﬁcations. Hecke algebras in general, being av-
+eraged versions of the multiplication in nonabelian groups, have no reason to be
+commutative. But the physical picture of monopole operators suggests a diﬀerent
+picture for composition, the operator product expansion (OPE): we can perform
+successive observations not at the same point, but at nearby points, and then take
+a limit as the points collide. Unlike the essential noncommutativity of quantum
+mechanics, there’s more room to move operators around each other in higher di-
+mensional quantum ﬁeld theory. In the setting of topological quantum ﬁeld theory,
+where measurements are constant along deformations, this makes the product of
+operators commutative.
+   The same idea is familiar in algebraic topology – the reason π2 of a topological
+space is abelian, unlike π1 , is that we have room to move two-fold loops (maps from a
+disc) into a space around each other. How is this relevant? The aﬃne Grassmannian
+Gr is in fact (thanks to its origin as a space of G-bundles on a surface) the two-
+fold loop space of the classifying space BG, providing it a homotopy-commutative
+multiplication.
+   Beilinson and Drinfeld [BD] discovered this mechanism, known as factorization,
+at work behind the Hecke category Sph. Namely, rather than performing successive
+Hecke modiﬁcations at the same point x P C, we can instead perform the same
+modiﬁcations at two nearby points x, y. The topological nature of the spherical
+category guarantees that the composition stays locally constant as we slide the
+points around each other or take a limit as they collide. The result is that the
+convolution product on Sph is actually commutative – Sph forms a symmetric
+monoidal category.
+   Factorization – an algebraic structure parametrized purely geometrically by con-
+ﬁgurations of points on a manifold and their collisions, rather than by conventional
+composition maps – was a truly revolutionary discovery, the deepest and most in-
+ﬂuential idea to come out of the study of geometric Langlands. Its origins are the
+eﬀorts of Segal, Beilinson and Drinfeld to understand the geometric meaning of
+operator product expansion in 2d conformal ﬁeld theory (as codiﬁed algebraically
+in the theory of vertex algebras), and the close parallels that emerged with the
+algebraic theory of iterated loop spaces (such as Gr) in algebraic topology. Once
+codiﬁed in [BD04], it has provided a uniform perspective on phenomena in physics,
+topology, category theory and number theory. Turning the tables, factorization is
+the deﬁning feature of observables in quantum ﬁeld theory in the general mathe-
+matical framework developed by Costello and Gwilliam [CG17].
+   The commutativity of Hecke operators is arguably the most indispensable aspect
+of the Langlands program – without commuting operators to diagonalize there is
+no spectral decomposition of automorphic forms. However this commutativity is
+proved by a trick, which fails to explain why it’s there or how to turn it into a robust
+and malleable principle. Factorization provides precisely this principle, from which
+one can deduce the more concrete commutativity by decategoriﬁcation, and it has
+now spread to a variety of arithmetic contexts in the work of V. Laﬀorgue, Fargues,
+Scholze, Zhu and many others.
+
+4.3. The birth of the dual group. Now that we know the spherical category
+is commutative, we should look for a Fourier dual description of Sph in terms
+of tensor product rather than convolution. There is already a natural guess: we
+noted a bijection between the double cosets Gr “ LG` zLG{LG` and irreducible
+18                                  DAVID BEN-ZVI
+
+
+representations of the Langlands dual reductive group Ǧ. This guess is borne out
+in the following theorem:
+Theorem (Geometric Satake Correspondence). [Lus83, Gin, MV07]: There is an
+equivalence of symmetric monoidal abelian categories Sph♥ » ReppǦq between [the
+heart of the] spherical category, equipped with convolution, and the representations
+of the Langlands dual group Ǧ, equipped with tensor product.
+   Here we’ve passed from derived categories to abelian C-linear categories, so that
+Sph♥ consists equivalently of LG` -equivariant D-modules or perverse sheaves on
+the aﬃne Grassmanian. It was extended in [MV07] to perverse sheaves (and rep-
+resentations of Ǧ) with coeﬃcients in any ﬁeld, or even over the integers. (There’s
+also an important but more subtle version for the full derived category [BF08].)
+   In fact this theorem is better thought of in reverse: it provides the true deﬁnition
+of the Langlands dual group Ǧ. Just as a commutative ring deﬁnes a geometric
+object, its spectrum, a commutative tensor category like Sph has a spectrum given
+by Tannakian reconstruction. Concretely, we build a group as the automorphism
+group of the functor of total cohomology on Sph (which will correspond to the
+forgetful functor ReppǦq Ñ V ect). There’s then a tautological tensor functor
+from Sph to representations of this group, which we check is an equivalence. The
+beautiful geometry of the Grassmannian and its Schubert stratiﬁcation then forces
+this group to be reductive and lets us calculate its root data to be combinatorially
+dual to that of G.
+4.4. Global symmetries: the spectral action. Thanks to the geometric Sa-
+take correspondence we now ﬁnd a huge collection of commuting operators on
+ShvpBunG q — we get a copy of ReppǦq for every point x P C, and moreover
+they all commute with each other. In other words, we’ve identiﬁed      a nonabelian
+counterpart to the action of the group of divisors DivpCq “ xPC Z on the Picard
+                                                               À
+group.
+   To put these actions all together we need to identify the relations among these
+actions, or geometrically, the spectrum of the “global” Hecke category generated
+by all the local actions on ShvpBunG q. The key to this is again contained in the
+factorization structure: we can move and collide the points at which we insert
+Hecke functors. In other words, we expect that the action of the spherical category
+Sphx depends in a locally constant way on the point x of modiﬁcation, and that
+performing modiﬁcations at two points that collide is the same as composing mod-
+iﬁcations at one point. This informal idea is precisely captured by the notion of
+factorization homology. This idea of Beilinson-Drinfeld [BD04], an abstraction
+of the theory of conformal blocks of vertex algebras, now provides a hugely inﬂuen-
+tial mathematical model for the way global observables in quantum ﬁeld theory are
+assembled from local observables [CG17], and provides a powerful multi-purpose
+tool in topology and higher algebra [AF15, Lur].
+   So the challenge is to describe the globalization (factorization homology) of the
+spherical Hecke category as sheaves on some space with tensor product, which will
+then act by convolution operators on ShvpBunG q. Again there is a natural guess:
+a Ǧ-local system on C is precisely a machine that turns representations of Ǧ into
+locally constant families of vector spaces on C. This leads to the following funda-
+mental theorem, the automorphic-to-Galois direction of the geometric Langlands
+correspondence:
+                  THE GEOMETRIC LANGLANDS CORRESPONDENCE                            19
+
+                                                       Â
+Theorem (The Spectral Action:). The Hecke action of xPC Sphx on ShvpBunG q
+factors through an action of QCohpLocǦ pCqq in all the settings (de Rham [Gai15],
+Betti [NY19], étale [AGK` 20], Fargues-Fontaine curve [FS21]).
+   We are now ﬁnally in a position to really understand the GLC: given the spectral
+action, we can now ask for spectral decomposition: what does ShvpBunG q look
+like as a module for QCohpLocǦ q? The hope is that this action satisﬁes “quantum
+complete integrability”: the joint eigenspaces of all our commuting operators are
+multiplicity free, and the spectrum is LocǦ :
+
+     Hope: The spectral action QCohpLocǦ q œ ShvpBunG q is free of rank one
+
+   This hope means that (after some normalization) we expect to get a spectral
+theorem ShvpBunG q » QCohpLocǦ q. In other words, spelling out the meaning
+of spectral decomposition, we expect that picking a point (the “eigenvalue” or
+Langlands parameter) E P LocǦ there exists a unique object (up to scale) AutE P
+ShvpBunG q on which all Hecke functors act as they do on a skyscraper at E,
+                              F ˚ AutE » F|E b AutE
+Up to some details of “getting the functional analysis right” (see §6.1), this is what
+has now been proved.
+   From the point of view of gauge theory, the geometric Satake correspondence
+identiﬁes the natural observables in the theory of G-bundles (the Hecke = ’t Hooft
+monopole operators) with those in a dual Ǧ-gauge theory, built out of monodromies
+of Ǧ-local systems (Wilson loop operators). The spectral action then asserts that
+the global observables on C act on automorphic sheaves on BunG – in other words,
+it establishes a version of electric-magnetic duality on the level of observables.
+
+                      5. How can we make it concrete?
+   In this section our narrative branches oﬀ on a (co)tangent - we brieﬂy touch on
+Hitchin’s integrable system, which makes parts of geometric Langlands much more
+geometric and explicit.
+5.1. Abelianization. An important lesson from microlocal analysis is that it is
+more important to understand phase space (where Wigner distributions and wave-
+front sets live) than merely position space. In other words, before embarking on
+harmonic analysis there we should really ask what’s special not about BunG but
+about the cotangent bundle T ˚ BunG , which is illustrated in Figure 3.
+   The cotangent bundle T ˚ BunG itself has a moduli space interpretation, as the
+moduli
+                 HiggsG pCq “ tP P BunG , η P ΓpC, ad˚ pPq b Ω1C qu
+of G-Higgs bundles: these are bundles together with a Higgs ﬁeld, an endomorphism-
+valued one-form (section of the coadjoint bundle twisted by 1-forms on C). Again
+we treat HiggsG as a stack, and note that it is mildly singular (like LocG ).
+   Being a cotangent bundle, HiggsG has a natural symplectic structure. Hitch-
+in [Hit87] discovered that it also carries a gorgeous and rareﬁed geometric struc-
+ture, that of a completely integrable Hamiltonian system (instances of which re-
+cover many of the most studied integrable systems). Let us focus for simplicity
+on the case G “ GLn , though the entire theory extends to other groups, see in
+20                                  DAVID BEN-ZVI
+
+
+particular [DM96, DG02]. Namely, we can take the characteristic polynomial of an
+endomorphism-valued one-form to deﬁne a map
+                                                n
+                                                      ΓpC, Ωbi
+                                                à
+                          Hitch : Higgsn ÝÑ                 C q
+                                                i“1
+
+from the moduli of Higgs bundles to a vector space. This map turns out to be a
+Lagrangian ﬁbration, and the connected components of generic ﬁbers Hitch´1 pχq
+are complex tori (abelian varieties), as seen in the ﬁgure.
+   In fact the generic ﬁbers are actually Picard groups (moduli of line bundles) on
+curves. The eigenvalues of a Higgs ﬁeld (as a matrix-valued one-form) cut out a
+curve Cχ Ă T ˚ C which is an n-fold covers of C. The map Hitch takes the Higgs
+ﬁeld to this spectral curve, and the ﬁbers describe the possible eigenspaces for ﬁxed
+eigenvalues, generically a line bundle on the spectral curve. On the other hand the
+0-ﬁber N ilp “ Hitch´1 p0q, the global nilpotent cone [Lau88], consists of nilpotent
+Higgs ﬁelds (see the ﬁgure). This is a reducible variety containing the 0-section
+BunG Ă N ilp Ă T ˚ BunG as irreducible component where the Higgs ﬁeld vanishes
+identically.
+   In other words, the Hitchin ﬁbration manifests BunG as a component of
+a degeneration of a Picard group of a curve — so BunG is viscerally close to
+being an abelian variety, like it is for GL1 . The idea behind this abelian deformation
+of BunG is a geometric implementation of the famous Higgs mechanism for mass
+generation and symmetry breaking in gauge theory, using a generic Higgs ﬁeld η to
+break the symmetry of a bundle to the centralizer of η.
+   Even more strikingly, the spectral side of GLC now starts to look very similar:
+after all, connections on a vector bundle are a twisted form of endomorphism-valued
+1-forms. Namely, the moduli space LocdR    Ǧ
+                                               sits in a one-parameter deformation with
+the space HiggsǦ of Ǧ-Higgs bundles. A discovery of Hausel-Thaddeus [HT03] and
+Donagi-Pantev [DP12] is that the Hitchin systems for the Langlands dual groups
+generically form dual families of abelian varieties over the same vector space – or, in
+the language of physics, are mirrors of each other (see the recent review [Hau23]).
+Indeed [DP12] proves that – generically over the Hitchin base – we have an equiv-
+alence, the Dolbeault GLC,
+(5.1)                   QCohpHiggsG q ÐÑ QCohpHiggsǦ q
+given by a variant of the Fourier-Mukai transform [Muk81] identifying coherent
+sheaves on dual abelian varieties. This suggests that the GLC should manifest as
+a form of mirror symmetry, as was indeed conﬁrmed in [KW07]. It is also closely
+related to Donaldson-Thomas and geometric invariant theory, leading to a new
+more controlled form of the Dolbeault conjecture [PT25].
+
+5.2. Abelianization of sheaves. How does the geometry of the Hitchin system
+relate to the theory of automorphic sheaves?
+   An important insight coming out of algebraic analysis is that sheaves, just like
+generalized functions, have a microlocal nature, with a support in phase space.
+As a consequence one could approach the GLC (as ﬁrst suggested by Donagi) by
+abelianization: reduce the study of sheaf theory on BunG “generically” to the case
+of GL1 using the geometry of the Hitchin ﬁbration.
+   Here’s the picture: in Fourier theory the monochromatic waves, the exponentials
+eiλx , are localized in momentum space, so look microlocally like lines tt “ λu Ă R2x,t .
+                    THE GEOMETRIC LANGLANDS CORRESPONDENCE                                    21
+
+
+
+
+         Figure 3. The Hitchin ﬁbration of the moduli of Higgs bundles,
+         illustrating the zero ﬁber (the nilpotent cone, including BunG ) and
+         Hutchins section (microsupport of the Whittaker sheaf).
+
+Likewise we might expect that the sought-after eigensheaves, the “monochromatic”
+sheaves on BunG , should be localized microlocally along Hitchin ﬁbers,5 and so
+accessible by abelian duality.
+   In their monumental work [BD] establishing the GLC as we know it, Beilinson
+and Drinfeld showed that Hitchin’s hamiltonians can be quantized to diﬀerential
+operators on BunG , allowing one to explicitly write down the diﬀerential equations
+(D-modules) on BunG corresponding to constant sheaves on Hitchin ﬁbers (without
+any winding).
+   There have since been several approaches to making the microlocal picture of
+more general eigensheaves precise.
+   ‚ [Asymptotics] First, diﬀerential operators have a semiclassical limit, where
+they degenerate to their symbols, functions on phase space. This suggests the
+following idea, developed by Arinkin [Ari05]:
+     DmodpBunG q ù QCohpHiggsG q ÐÑ QCohpHiggsǦ q ø QCohpLocǦ q
+Passing to symbols degenerates D-modules on BunG into quasicoherent sheaves on
+HiggsG . We then use the Dolbeault GLC (5.1) to pass from HiggsG to HiggsǦ ,
+and ﬁnally deform from HiggsǦ to LocǦ . This gives a “generic, asymptotic” piece
+of the GLC. Alternatively, reducing diﬀerential operators modulo a prime p also
+    5 A coarser, asymptotic version of this statement is that eigensheaves should have the global
+
+nilpotent cone N ilp as their characteristic variety [Lau87].
+22                                 DAVID BEN-ZVI
+
+
+has the eﬀect of a classical limit (since pth derivatives vanish mod p), and one can
+formulate and prove an analogous piece of geometric Langlands there [BB07, CZ17].
+   ‚ [Fukaya categories and microlocal sheaves:] Kapustin-Witten proposed that
+automorphic sheaves be viewed in the context of symplectic geometry and mirror
+symmetry as A-branes, i.e. objects of the Fukaya category, on T ˚ BunG . These
+objects are precisely represented by Lagrangians – for example, Hitchin ﬁbers
+– equipped with local systems. This had a tremendous inﬂuence on the subse-
+quent understanding of Fukaya categories via microlocal sheaf theory [NZ09,Nad09,
+Kon09, GPS24]. We’ll see these ideas appear in the proof of GLC, § 6.3.
+   ‚ [Nonabelian Hodge theory:] The nonabelian Hodge correspondence on a vari-
+ety X uses harmonic map theory to identify suitable ﬂat connections, or more gen-
+eral D-modules, with Higgs bundles, or coherent sheaves on T ˚ X. Applying these
+ideas to X “ BunG leads to a program by Donagi-Pantev-Simpson [DP22, DPS24]
+to produce the monochromatic D-modules from line bundles on Hitchin ﬁbers.
+
+                              6. How is it proved?
+  In this section I’ll describe some of the main ideas that go into the proof of the
+GLC – starting with getting the exact statement right.
+6.1. First, some functional analysis. Since the GLC is concerned with a form
+of harmonic analysis in which categories of sheaves replace traditional function
+spaces, we should encounter echos of familiar analytic issues – and conversely, GLC
+provides a testing ground for this new kind of categorical analysis. As with the
+harmonic analysis of locally symmetric spaces, the leading issue comes from the
+lack of (quasi)compactness – i.e., what kind of growth conditions should we impose
+at the cusps? What classes of “topological vector spaces” do these choices lead
+to, and what kind of duality and operator theory do they carry? What do these
+questions even mean in the categorical setting??
+   These questions were developed in the series of papers of Gaitsgory with Drin-
+feld and Arinkin including [DG13, DG15, Gai16, Gai17b, AG15], based on the gen-
+eral categorical machinery developed by Lurie [Lur09, Lur]. On the one hand,
+they established that the basic function space in the de Rham GLC, the category
+DmodpBunG q, behaves “miraculously” like a categorical Hilbert space - in partic-
+ular is self-dual.
+   On the other hand, the naive guess for the spectral side needs to be reﬁned. In
+Fourier theory, lack of compact support is dual to lack of smoothness. Thus if we
+choose not to impose any growth conditions on our sheaves on BunG we should
+expect to see singularities appearing in the sheaf theory on LocǦ - i.e., some kind
+of vector-space valued “distributions” rather than “functions”. As it turns out this
+distinction on the level of sheaves is intimately related to the singularities of the
+underlying space LocǦ .
+   This has led to a new chapter in algebraic geometry, the theory of ind-coherent
+sheaves IndCoh [GR17]. The category IndCoh expands QCoh to allow algebraic
+generalized functions. As with distributions, these new objects can be described
+as representing functionals on “test” objects, in this case, as functors on coherent
+sheaves. The diﬀerence between IndCoh and QCoh comes down to the fact that
+coherent sheaves on singular varieties – for example, skyscrapers at singular points
+– don’t admit ﬁnite resolutions by vector bundles, or more geometrically, can’t be
+extended to any inﬁnitesimal deformation of the variety. This leads to the notion
+                   THE GEOMETRIC LANGLANDS CORRESPONDENCE                            23
+
+
+of singular support of ind-coherent sheaves, a precise counterpart of the wave-front
+sets of distributions, which measures the points and deformation directions where
+a given generalized sheaf is obstructed.
+    By analyzing the behavior of singular supports under natural operations on
+sheaves, [AG15] were able to ﬁne-tune exactly what kinds of singularities of ind-
+coherent sheaves match the given sheaf theory on the automorphic side: we should
+allow nilpotent singular support – meaning roughly that we don’t allow any singular-
+ities in directions coming from tori (as in the previously understood case of GL1 ).
+This ﬁnally leads to a precise statement of the unramiﬁed geometric Langlands
+conjecture: it’s an equivalence
+                            ShvpBunG q » IndCohN pLocǦ q
+(in each of the three ﬂavors de Rham, Betti and étale) identifying the spectral action
+of QCohpLocǦ q on the left with its natural tensor action (multiplying distributions
+by functions) on the spectral side.
+    An important advance of [AGK` 20] was the proof that the Betti and de Rham
+versions of GLC are equivalent, by showing they both reduce to the common core
+étale version. This lets us play oﬀ advantages of the two settings – for example the
+Betti character stack LocB  Ǧ
+                               is very simple, as the quotient of an aﬃne variety by
+Ǧ, while the de Rham version LocdR   Ǧ
+                                         is far from aﬃne, meaning that Hom spaces
+between coherent sheaves are ﬁnite dimensional.
+
+6.2. Interlude: Relative Langlands, or, Where have all the L-functions
+gone? The Langlands philosophy doesn’t just predict a relation between automor-
+phic and spectral sides diagonalizing Hecke operators: it comes equipped with a
+huge repertoire of predictions for which measurements should match which. The
+study of these measurements is known as the relative Langlands program, and was
+systematized in [SV17]. The most famous – the matching of automorphic and
+Galois L-functions – is arguably the main feature of the arithmetic Langlands pro-
+gram. L-functions themselves are conspicuously absent from most of the literature
+on the GLC, but similar matching measurements play a major role in normalizing,
+characterizing and proving the GLC.
+   What do we mean by a measurement of automorphic forms? These are linear
+functionals on the vector space of automorphic forms — though we can (and will)
+think of them dually, as represented by inner product with a particular vector,
+or in the geometric context, as Hom spaces from a particular sheaf. The special
+measurements we can make predictions for – the periods 6 – are highly structured:
+they have counterparts in all the diﬀerent settings of the Langlands program (lo-
+cal, global, arithmetic and geometric) and vary well in families. In physics, such
+structured collections of measurements or states is an essential part of any quan-
+tum ﬁeld theory, where they correspond to boundary theories (or codimension one
+defects). In the context of electric-magnetic S-duality their study was pioneered
+by Gaiotto-Witten [GW09b, GW09a], and proposed as a general framework for the
+relative Langlands program in [BZSV24].
+   A basic example is the trivial period – the constant or zero-frequency wave, which
+corresponds to the simplest measurement: taking the average of an automorphic
+form or global cohomology of an automorphic sheaf. This period is already very
+
+  6 Confusingly, not to be confused with periods in algebraic geometry.
+24                                   DAVID BEN-ZVI
+
+
+interesting in the context of GLC. It was studied in in [GL19] and used to prove
+Weil’s Tamagawa Number conjecture for function ﬁelds.
+   In the next three sections, we will look at three important types of measure-
+ments, or periods, whose interplay provides the backbone of the proof of GLC (to
+paraphrase [CCF` 24]). Here we list the names of the matching automorphic and
+spectral measurements and their primary role:
+      ‚ Eisenstein Ø Eisenstein: used to reduce the GLC by induction to its core,
+         the cuspidal case.
+      ‚ Whittaker Ø global sections (Neumann): used for normalization - provides
+         a faithful measurement of cuspidal automorphic sheaves.
+      ‚ Kac-Moody Ø opers: Used for the construction of cuspidal automorphic
+         sheaves.
+   Perhaps the most crucial feature of periods is that they satisfy a strong local-to-
+global compatibility – they are given as Θ-series. The Θ-series (or Poincaré series)
+are generalizations of the classical Riemann θ-function appearing for example in
+Riemann’s integral formula for ζpsq. They are modular and automorphic forms
+that are written as averages of local data over a global symmetry group. This in
+fact provides the most common way to write down automorphic forms.
+   One of the most important features of L-functions is their “local-to-global” de-
+scription as Euler products. In the geometric setting, periods have a loosely analo-
+gous key property – factorization, again. Namely we can attach Θ-series to local
+data at ﬁnitely many points of the curve C, and the construction is compatible
+with collisions of points. This factorization property is the glue that lets us as-
+semble local inputs into a comprehensible global output. It is also technically very
+challenging – a major reason for the length of the proof of GLC (and many of its
+predecessors) is the need to understand holistically local, global and factorizable
+versions of all the constructions.
+6.3. Normalization: the Whittaker period. We know that an eigenvector is
+determined by the corresponding eigenvalue only up to scale, at best, hence the
+need for normalization. For the Fourier transform, we normalize the eigenfunctions
+– scalar multiples of exponential functions – to have value 1 at x “ 0, i.e., by their
+pairing with a delta-function δ0 at x “ 0. This delta-function represents white light
+– it is a superposition of all colors, with Fourier transform the constant function 1.
+This normalization extends readily to more general abelian dualities – we normalize
+eigenfunctions by evaluating at the unit. In other words we stipulate that the
+duality sends the delta-function δe at the unit (a Dirichlet boundary condition) to
+the constant function 1 (a Neumann boundary condition). This is illustrated (in
+the case of the Mellin transform) in Figure 1 by the white pole corresponding to
+the white ﬁeld.
+   In nonabelian duality, the role of white light is played by a less familiar object, the
+Whittaker7 period (or Nahm pole boundary condition [GW09a]). Thus we stipulate
+that duality sends the Whittaker period to the spectral measurement given by total
+integral or global sections (i.e., to the Neumann boundary condition). In other
+words, the sought-after duality should take the representing object, the Whittaker
+sheaf, to the structure sheaf OLocǦ representing spectral global sections.
+
+  7 Named after the mathematician Sir Edmund Whittaker. Whittaker (from Old English),
+
+meaning: White Field.
+                  THE GEOMETRIC LANGLANDS CORRESPONDENCE                             25
+
+
+   What is this Whittaker sheaf? If we think microlocally, it has an appealing
+geometric description, illustrated in Figure 3 – it is represented by the Hitchin
+section [Hit92]. This is a section of the Hitchin integrable system consisting of those
+Higgs ﬁelds which are in rational cyclic form as matrices for G “ GLn (or more
+generally lie in Kostant’s reductive-group generalization of rational cyclic form).
+These correspond to spectral curves equipped with a trivial line bundle, i.e., the
+identity elements of the Hitchin ﬁbers. A key diﬀerence from the abelian case, also
+visible in the ﬁgure, is that the Hitchin section completely misses the zero-section
+BunG Ă T ˚ BunG (since the zero matrix doesn’t admit a cyclic vector).
+   Once we’ve picked out the Whittaker sheaf, we can start to act on it by Hecke
+functors. (Microlocally, this means we move the Hitchin section around by trans-
+lation along the Hitchin ﬁbers). Thanks to the spectral action, this assignment
+determines a functor
+                QCohpLocǦ q Ñ ShvpBunG q,          F ÞÑ F ˚ W hitG
+sending the structure sheaf OLocǦ to the Whittaker sheaf. If we really expected
+the automorphic side to be free of rank one over the spectral action, this would be
+the GLC.
+   However we know this functor can’t be quite right – we need to ﬁx the spectral
+side to the slightly bigger category IndCohN pLocǦ q. This requires some careful
+analysis. The papers [FrR25,NT25] used the microlocal interpretation to show some
+surprisingly nice properties of Whittaker coeﬃcients (the measurement represented
+by the Whittaker sheaf) including exactness on a large subcategory of sheaves.
+These results are combined with further estimates in [GR24a] (concerning cohomo-
+logical boundedness and categorical compactness) to show that testing automorphic
+sheaves against ones of the form F ˚ W hitG (F P QCpLocǦ q) lifts uniquely to a
+functor in the opposite direction
+                                        L   / IndCohN pLoc q
+                     ShvpBunG q
+                               UUUU                         Ǧ
+                                   UUUU
+                                       UUUU
+                                           UUUU
+                                                *   
+                                                QCpLocǦ q.
+
+6.4. The Inductive Step: Eisenstein series. Eisenstein series are simultane-
+ously the easy and the hard part of the theory of automorphic forms. On the one
+hand, the serious need for analysis comes from the continuous spectrum of mod-
+ular curves (and more general arithmetic locally symmetric spaces), an eﬀect of
+their lack of compactness – i.e., from functions not vanishing at inﬁnity (i.e., at the
+cusps). The theory of Eisenstein series provides a construction of this continuous
+spectrum.
+   On the other hand, representation theoretically Eisenstein series provides the
+“non-mysterious” part of the theory – the part coming by parabolic induction. This
+is an elaboration of highest-weight theory which lets us build representations of big
+groups from those of smaller Levi subgroups (for GLn these are the subgroups of
+diagonal or block-diagonal matrices). The guiding light of representation theory
+of reductive groups, Harish-Chandra’s philosophy of cusp forms, says that for each
+group we should ﬁrst sift out the families (or series) of representations coming by
+parabolic induction from smaller groups, leaving only the rare gems – the cuspidal
+representations – which we then carry with us on our journey to ever larger groups.
+26                                     DAVID BEN-ZVI
+
+
+   The entire Langlands program follows this inductive pattern: it dictates that the
+construction of Eisenstein series from Levi subgroups M Ă G should match with
+a similar parabolic induction for the dual Levi subgroup M̌ Ă Ǧ, which precisely
+accounts for the locus of reducible Langlands parameters. This construction is no
+small feat – Langlands’ analytic theory of Eisenstein series for reductive groups is
+one of the most important and challenging chapters in the entire theory of automor-
+phic forms. Thus very roughly once we “subtract” the contributions of Eisenstein
+series we’re reduced to understanding their complement, the cuspidal automorphic
+forms (those with vanishing Eisenstein periods), and match them with irreducible
+Langlands parameters.
+   To make a long and technical story criminally short, the theory of Eisenstein
+series is now very well understood in the geometric setting along these general pat-
+terns, following decades of contributions by Drinfeld, Laumon, Braverman, Gaits-
+gory, Finkelberg, Mirkovic, Bezrukavnikov and others. The monograph [CCF` 24]
+completes the inductive step, showing in particular the compatibility of Eisenstein
+series with the Langlands functor L as above. With this in hand, the proof of GLC
+reduces to the study of the orthogonal complement of Eisenstein series, the cuspidal
+automorphic sheaves.
+6.5. Construction: Kac-Moody localization and opers. Finally, we need to
+ﬁnd some rare gems – cuspidal automorphic sheaves. A lot of them, in fact, to
+account for all irreducible Langlands parameters. As we mentioned, the main tech-
+nique to actually write down automorphic forms is the theory of Θ-series – i.e., to
+start with local data and average. The ace up the sleeve of the de Rham geometric
+Langlands discovered by Beilinson and Drinfeld is a particular type of geometric
+Θ-series, the Kac-Moody period, which has a concrete dual description in terms of
+opers. This construction diﬀers from all the topics we have discussed in that it does
+not have any known direct counterpart in other parts of the Langlands program.
+   Why is it so elusive? The answer is that while the entire de Rham GLC is based
+on representation theory of Lie algebras rather than Lie groups, the Kac-Moody pe-
+riod in particular concerns representations that do not integrate to the group, such
+as the action of g on its enveloping algebra U g itself. This kind of representation
+has no counterpart in the Betti or étale GLC or indeed in the smooth representation
+theory of p-adic groups, the topic of the local Langlands correspondence.8
+   Another form of the answer comes from physics: the Kac-Moody period is not
+topological – it is sensitive to the complex structure on our Riemann surface C.
+As such it is related to the much richer study of conformal or holomorphic quan-
+tum ﬁeld theory rather than the relatively well understood topological ﬁeld the-
+ory [FG20].
+   So what is this Kac-Moody period about? The global version is (up to a correc-
+tion coming from spin structures) the sheaf of diﬀerential operators DBunG itself
+– a very natural object but one that has no analog in the topological world of
+monodromies and constructible sheaves. The local version is the category of repre-
+sentations of the loop Lie algebra gppzqq, or (after correction by a central extension)
+the category of critical level representations of the aﬃne Kac-Moody algebra g  p. The
+local-to-global construction (Θ-series) is given by one of the classics of geometric
+representation theory, Beilinson-Bernstein localization construction: a method of
+   8 There are however counterparts in the rapidly developing world of locally analytic (p-adic)
+
+representations of p-adic groups.
+                  THE GEOMETRIC LANGLANDS CORRESPONDENCE                           27
+
+
+writing systems of diﬀerential equations prescribed by representations of a Lie al-
+gebra. Through this construction, representation theory provides a wealth of fairly
+concrete D-modules on BunG , which Beilinson and Drinfeld realized was the secret
+recipe for building a Langlands correspondence.
+    What does representation theory have to oﬀer here? The starter for this recipe
+is a miraculous theorem of Feigin and Frenkel [FF92] (see also the book [Fre07]),
+using the approach to loop algebras suggested by conformal ﬁeld theory, the theory
+of vertex algebras. They found a form of Langlands correspondence for the critical
+level representations: they are parametrized by a kind of Langlands parameter
+called an oper for the dual group Ǧ. Opers (in the case of GLn ) are connections
+with a choice of cyclic vector for diﬀerentiation – i.e., connections which are in
+rational cyclic form. These are exactly the ﬁrst order systems of n diﬀerential
+equations in one variable we get when we want to solve a single n-th order ODE.
+    In [BD], the Feigin-Frenkel theorem is globalized to provide a spectral decompo-
+sition of some D-modules – those generated by the object DBunG itself – over the
+variety of Ǧ-opers on the curve. This variety is a dual, spectral counterpart of the
+Whittaker period – a version of Hitchin’s section for the space of ﬂat connections.
+    But this is just the beginning: any irreducible local system admits the structure
+of an oper away from ﬁnitely many points [Ari16]. Moreover up to homotopy
+there’s only one such choice (a theorem of [BKS22] for classical groups) – the space
+of choices is contractible. On the other hand, the many-point factorizable version of
+the localization construction produces enough D-modules to “span” [the cuspidal
+part of] sheaves on BunG . Now we’re cooking.
+    In [ABC` 24b] these ingredients are built into a highly structured machine to
+populate the automorphic side with D-modules coming from Kac-Moody local-
+ization, and the spectral side with matching sheaves coming from local systems
+with oper structure. This gives a rich enough repertory of matching objects to see
+the “surjectivity” of the Langlands functor. On the other hand, Faergeman and
+Raskin [FrR25] discovered the key injectivity property: sheaf-theoretic Whittaker
+coeﬃcients don’t vanish on cuspidal sheaves. Namely, we can test any cuspidal
+sheaf faithfully against the Whittaker sheaf and its Hecke translates, so it won’t
+be annihilated by the functor L. Putting all these ingredients together — the
+construction of the Langlands functor [GR24a], the Eisenstein series constructions
+ﬁlling out the continuous spectrum [CCF` 24], and more subtle functional analysis
+of the Langlands functor (it is ambidexterous) [ABC` 24a] — results in the proof
+in [GR24b] that the Langlands functor is indeed an equivalence and the unramiﬁed
+GLC holds.
+
+                                 7. What’s Next
+   Thus after a herculean eﬀort the unramiﬁed geometric Langlands correspondence
+is now a theorem. But as I’ve tried to emphasize the point of the endeavor was not
+solely or even primarily verifying the truth of a particular statement. The long se-
+quence of papers culminating in the proof doesn’t try to follow a geodesic path, but
+rather surrounds the statement and besieges it before eventually breaking in. The
+proof is instead a major benchmark of our understanding of representation theory
+and harmonic analysis, the ﬁrst time a nonabelian duality statement this exhaus-
+tive and general has been proved. It demonstrates that as a community we have
+understood the overarching features of nonabelian duality and have an adequate
+28                                 DAVID BEN-ZVI
+
+
+conceptual framework, centered around factorization, to carry this understanding to
+new contexts. Indeed the main ingredients in the proof - with the critical exception
+of the magic of opers and Kac-Moody representations - are essentially portable.
+    So where do we go from here? Broadly speaking, we can stay put and explore
+further, move towards number theory, or move towards physics. In the arithmetic
+direction, the immediate beneﬁciary of the progress on GLC is the theory of auto-
+morphic forms on function ﬁelds, § 2.4, where many of the big structural questions
+feel within sight. Another is the local Langlands correspondence § 2.3, now under-
+stood as a variant of the unramiﬁed GLC in more exotic settings. Yet another is
+the relative Langlands program § 6.2, motivated by the theory of L-functions.
+    If we choose to stay put, the unramiﬁed GLC has both a degeneration, the
+Dolbeault GLC (§ 5.2), and a deformation, the quantum GLC, that remain open.
+Both have the beautiful feature that they are completely symmetric in G and Ǧ, and
+both appear naturally from the same 4d gauge theory origin (S-duality for N “ 4
+super-Yang-Mills) as the GLC. The latter provides a global geometric context for
+the representation theory of aﬃne Kac-Moody algebras (de Rham) and quantum
+groups (Betti).
+    More ambitiously, the local GLC provides a conjectural spectral decomposition
+for the categorical representation theory of loop groups in terms of Langlands pa-
+rameters given by local systems on the circle . It is fully understood only in the
+tame setting (corresponding to local systems with regular singularities), thanks to
+Bezrukavnikov’s landmark extension of the geometric Satake correspondence men-
+tioned in § 2.2, but that is changing rapidly (see [Gai25]).
+    The local GLC in turn is the glue needed to formulate the full ramiﬁed GLC.
+The latter provides a spectral decomposition for categories of sheaves on moduli of
+bundles equipped with level structure (such as trivializations) near several points
+of the curve: these categories carry loop group actions around the punctures, and
+the expectation is that they can be described, under the local GLC, in terms of
+spaces of local systems on the punctured curve.
+    What does moving towards physics entail? From the point of view of topolog-
+ical QFT following [KW07] (see [BZN18]), one expects an equivalence AG » BǦ
+between two 4d TQFTs, an automorphic theory associated to G and a spectral
+theory associated to Ǧ. The unramiﬁed Betti GLC and local GLC are expected
+to arise by evaluating these TQFTs on C and S 1 , respectively. The B-side TQFT
+is fairly well understood, while the A-side is quite mysterious. However, thanks to
+the proof of GLC we now know remarkable TQFT properties of the categories of
+automorphic sheaves AG pCq “ ShvN pBunG pCqq: for example, they are acted on
+by the mapping class group of C and satisfy simple cut-and-paste rules. However
+there is far more structure in the equivalence of TQFTs than has been spelled out
+so far, especially once we allow defects such as boundary theories (as in § 6.2).
+    Most strikingly, it follows from the proof of GLC that there is a well-deﬁned
+vector space AG pM q of “automorphic forms on a 3-manifold M ”, which can be
+calculated in terms of categories of automorphic sheaves on surfaces using tech-
+niques such as Heegaard splittings. It also satisﬁes a Langlands duality identifying
+it with (a stacky, derived enhancement of) the space of functions on the character
+variety LocǦ pM q (space of representations of π1 pM q into Ǧ). We know very little
+about these spaces directly, but after deforming to the quantum GLC these spaces
+become the famous skein modules of 3-manifolds associated to quantum groups,
+                    THE GEOMETRIC LANGLANDS CORRESPONDENCE                                  29
+
+
+see the review [Jor23]. Another place where the categorical complexity of geomet-
+ric Langlands gives way to concrete isomorphisms of vector spaces is the analytic
+Langlands correspondence [EFK21], a remarkable spectral decomposition for quan-
+tum integrable systems which can be viewed physically (following [GW24]) as an
+instance of the equivalence AG » BǦ on a special 3d conﬁguration.
+    Finally, it is good to recall (§ 2.5) that by looking at topological QFT we’ve really
+only seeing a shadow of the full physical S-duality: we have taken a conjectured
+equivalence of QFTs and passed to cohomology for some diﬀerential, provided to
+us thanks to supersymmetry. The analog for Maxwell theory (the case G “ GL1 )
+is forgetting everything about electromagnetism except for Gauss’ law.
+    What more does the physical theory have to oﬀer the Langlands program? I
+will close with one suggestion. On a Riemann surface C, the supersymmetric QFT
+senses the hyperkähler metric geometry of the moduli of Higgs bundles T ˚ BunG ,
+while the topological theory only sees its holomorphic symplectic structure. On the
+level of categories of sheaves, this allows the physics to distinguish special objects,
+the 1/2 BPS branes, which are roughly D-modules carrying Hodge structures – the
+de Rham avatar of motivic sheaves. Motivic sheaves, like supersymmetric branes,
+have many diﬀerent realizations – rather than picking a cohomology theory (de
+Rham, Betti, Dolbeault, étale) we can try them all at once. They have recently
+come to prominence in the setting of categorical local Langlands [Sch25]. Much
+more broadly, understanding motives themselves is one of the main motivations
+for the entire Langlands program. It’s tempting to dream that the physics of
+supersymmetry and S-duality might have something to say about some of these
+profound questions.
+
+

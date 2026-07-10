@@ -1,0 +1,154 @@
+What Are Lie Groups? | Quanta Magazine
+Home
+What Are Lie Groups?
+Comment
+Save Article
+Read Later
+Share
+Facebook
+Copied!
+Copy link
+Email
+Pocket
+Reddit
+Ycombinator
+Comment
+Comments
+Save Article
+Read Later
+Read Later
+group theory
+What Are Lie Groups?
+By
+Leila Sloman
+December 3, 2025
+By combining the language of groups with that of geometry and linear algebra, Marius Sophus Lie created one of math’s most powerful tools.
+Comment
+Save Article
+Read Later
+Mark Belan/
+Quanta Magazine
+Introduction
+In mathematics,
+ubiquitous objects called groups
+display nearly magical powers. Though they’re defined by just a few rules, groups help illuminate an astonishing range of mysteries. They can tell you which polynomial equations are solvable, for instance, or how atoms are arranged in a crystal.
+And yet, among all the different kinds of groups, one type stands out. Identified in the early 1870s, Lie groups (pronounced “Lee”) are crucial to some of the most fundamental theories in physics, and they’ve made lasting contributions to number theory and chemistry. The key to their success is the way they blend group theory, geometry and linear algebra.
+In general, a group is a set of elements paired with an operation (like addition or multiplication) that combines two of those elements to produce a third. Often, you can think of a group as the symmetries of a shape — the transformations that leave the shape unchanged.
+Consider the symmetries of the equilateral triangle. They form a group of six elements, as shown here:
+Mark Belan/
+Quanta Magazine
+(Since a full rotation brings every point on the triangle back to where it started, mathematicians stop counting rotations past 360 degrees.)
+These symmetries are discrete: They form a set of distinct transformations that have to be applied in separate, unconnected steps. But you can also study continuous symmetries. It doesn’t matter, for instance, if you spin a Frisbee 1.5 degrees, or 15 degrees, or 150 degrees — you can rotate it by any real number, and it will appear the same. Unlike the triangle, it has infinitely many symmetries.
+These rotations form a group called SO(2). “If you have just a reflection, OK, you have it, and that’s good,” said
+Anton Alekseev
+, a mathematician at the University of Geneva. “But that’s just one operation.” This group, on the other hand, “is many, many operations in one package” — uncountably many.
+Each rotation of the Frisbee can be represented as a point in the coordinate plane. If you plot all possible rotations of the Frisbee in this way, you’ll end up with infinitely many points that together form a circle.
+This extra property is what makes SO(2) a Lie group — it can be visualized as a smooth, continuous shape called a manifold. Other Lie groups might look like the surface of a doughnut, or a sphere, or something even stranger: The group of all rotations of a ball in space, known to mathematicians as SO(3), is a complicated three-dimensional shape that lives in nine-dimensional space.
+Whatever the specifics, the smooth geometry of Lie groups is the secret ingredient that elevates their status among groups.
+Off on a Tangent
+It took time for Marius Sophus Lie to make his way to mathematics. Growing up in Norway in the 1850s, he hoped to pursue a military career once he finished secondary school. Instead, forced to abandon his dream due to poor eyesight, he ended up in university, unsure of what to study. He took courses in astronomy and mechanics, and flirted briefly with physics, botany and zoology before finally being drawn to math — geometry in particular.
+In the late 1860s, he continued his studies, first in Germany and then in France. He was in Paris in 1870 when the Franco-Prussian War broke out. He soon tried to leave the country, but his notes on geometry, written in German, were mistaken for encoded messages, and he was arrested, accused of being a spy. He was released from prison a month later and quickly returned to math.
+In particular, he began working with groups. Forty years earlier, the mathematician Évariste Galois had used one class of groups to
+understand the solutions to polynomial equations
+. Lie now wanted to do the same thing for so-called differential equations, which are used to model how a physical system changes over time.
+His vision for differential equations didn’t work out as he’d hoped. But he soon realized that the groups he was studying were interesting in their own right. And so the Lie group was born.
+The manifold nature of Lie groups has been an enormous boon to mathematicians. When they sit down to understand a Lie group, they can use all the tools of geometry and calculus — something that’s not necessarily true for other kinds of groups. That’s because
+every manifold has a nice property
+: If you zoom in on a small enough region, its curves disappear, just as the spherical Earth appears flat to those of us walking on its surface.
+To see why this is useful for studying groups, let’s go back to SO(2). Remember that SO(2) consists of all the rotations of a Frisbee, and that those rotations can be represented as points on a circle. For now, let’s focus on a sliver of the circle corresponding to very small rotations — say, rotations of less than 1 degree.
+Here, the curve of SO(2) is barely perceptible. When a Frisbee rotates 1 degree or less, any given point on its rim follows a nearly linear path. That means mathematicians can approximate these rotations with a straight line that touches the circle at just one point — a tangent line. This tangent line is called the Lie algebra.
+This feature is immensely useful. Math is a lot easier on a straight line than on a curve. And the Lie algebra contains elements of its own (often visualized as arrows called vectors) that mathematicians can use to simplify their calculations about the original group. “One of the easiest kinds of mathematics in the world is linear algebra, and the theory of Lie groups is designed in such a way that it just makes constant use of linear algebra,” said
+David Vogan
+of the Massachusetts Institute of Technology.
+Say you want to compare two different groups. Their respective Lie algebras simplify their key properties, Vogan said, making this task much more straightforward.
+“The interaction between these two structures,”
+Alessandra Iozzi
+, a mathematician at the Swiss Federal Institute of Technology Zurich, said of Lie groups and their algebras, “is something that has an absolutely enormous array of consequences.”
+The Language of Nature
+The natural world is full of the kinds of continuous symmetries that Lie groups capture, making them indispensable in physics. Take gravity. The sun’s gravitational pull on the Earth depends only on the distance between them — it doesn’t matter which side of the sun the Earth is on, for instance. In the language of Lie groups, then, gravity is “symmetric under SO(3).” It remains unchanged when the system it’s acting on rotates in three-dimensional space.
+In fact, all the fundamental forces in physics — gravity, electromagnetism, and the forces that hold together atomic nuclei — are defined by Lie group symmetries. Using that definition, scientists can
+explain basic puzzles about matter
+, like why protons are always paired with neutrons, and why the energy of an atom comes in discrete quantities.
+In 1918, Emmy Noether
+stunned mathematicians and physicists
+by proving that Lie groups also underlie some of the
+most basic laws of conservation
+in physics. She showed that for any symmetry in a physical system that can be described by a Lie group, there is a corresponding conservation law. For instance, the fact that the laws of physics are the same today as they were yesterday and will be tomorrow — a symmetry known as time translation symmetry, represented by the Lie group consisting of the real numbers — implies that the universe’s energy must be conserved, and vice versa. “I think, even now, it’s a very surprising result,” Alekseev said.
+Today, Lie groups remain a vital tool for both mathematicians and physicists. “Definitions live in mathematics because they’re powerful. Because there are a lot of interesting examples and they give you a good way to think about something,” Vogan said. “Symmetry is everywhere, and that’s what this stuff is for.”
+Correction:
+December 4, 2025
+An earlier version of this article stated that the group SO(3) looks like a six-dimensional shape. It is in fact three-dimensional.
+The Quanta Newsletter
+Get highlights of the most important news delivered to your email inbox
+Email
+Subscribe
+Recent newsletters
+Also in
+Mathematics
+After 80 Years, Mathematicians Give Famed ‘Erdős Method’ an Upgrade
+graph theory
+After 80 Years, Mathematicians Give Famed ‘Erdős Method’ an Upgrade
+By
+Leila Sloman
+June 26, 2026
+Comment
+Save Article
+Read Later
+What Is the Positive Grassmannian and Why Does It Show Up Everywhere?
+The Joy of Why
+What Is the Positive Grassmannian and Why Does It Show Up Everywhere?
+By
+Janna Levin
++1 author
+Steven Strogatz
+June 25, 2026
+Comment
+Save Article
+Read Later
+Seven Perfect Shuffles Randomize a Deck of Cards. But How Many Sloppy Ones?
+probability
+Seven Perfect Shuffles Randomize a Deck of Cards. But How Many Sloppy Ones?
+By
+John Pavlus
+June 17, 2026
+Comment
+Save Article
+Read Later
+Comment on this article
+Quanta Magazine moderates comments to facilitate an informed, substantive, civil conversation. Abusive, profane, self-promotional, misleading, incoherent or off-topic comments will be rejected. Moderators are staffed during regular business hours (New York time) and can only accept comments written in English.
+Show comments
+Next article
+‘Reverse Mathematics’ Illuminates Why Hard Problems Are Hard
+Close
+Log in to Quanta
+Use your social network
+Facebook
+Connect with Facebook
+Connect with Google
+or
+email
+password
+Remember me
+Forgot your password ?
+Don't have an account yet?
+Sign up
+Close
+Forgot your password?
+We’ll email you instructions to reset your password
+email
+Close
+Change your password
+Enter your new password
+Password
+Retype new password
+Close
+Sign Up
+First Name
+Last Name
+Email
+Password
+Retype Password
+Creating an account means you accept Quanta Magazine's
+Terms & Conditions
+and
+Privacy Policy

@@ -1,0 +1,1727 @@
+                                                  GREENBERG-SHALOM’S COMMENSURATOR
+                                                     HYPOTHESIS AND APPLICATIONS
+
+                                             NIC BRODY, DAVID FISHER, MAHAN MJ, AND WOUTER VAN LIMBEEK
+
+
+
+
+arXiv:2308.07785v3 [math.GR] 7 Nov 2025
+                                                 Abstract. We discuss many surprising implications of a positive an-
+                                                 swer to a question raised in some cases by Greenberg in the 1970s and
+                                                 more generally by Shalom in the early 2000s. We refer to this posi-
+                                                 tive answer as the Greenberg-Shalom hypothesis. This hypothesis then
+                                                 says that any infinite discrete subgroup of a semisimple Lie group with
+                                                 dense commensurator is a lattice in a product of some factors. For some
+                                                 applications it is natural to extend the hypothesis to cover semisimple
+                                                 algebraic groups over other fields as well.
+
+
+
+
+                                                                             Contents
+                                            1. Introduction                                                                 1
+                                            2. Notation, standing assumptions, and definitions of irreducibility            3
+                                            3. Irreducible groups are lattices                                              6
+                                            4. Coherence                                                                   13
+                                            5. Margulis-Zimmer conjecture                                                  15
+                                            6. Automorphism groups of trees                                                16
+                                            7. Rank gradient and small generating sets                                     20
+                                            Appendix A. Background on algebraic groups, irreducibility and
+                                                          Venkataramana’s Lemma                                            27
+                                            References                                                                     34
+
+
+
+                                                                         1. Introduction
+                                             Let G be a real or p-adic semisimple Lie group with finite center and
+                                          without compact factors, or a finite product of such groups. More precisely,
+                                          we consider G = G(k) where k is a local field of characteristic zero and G is
+                                          either a semisimple algebraic group defined over k or a product of semisimple
+                                             Department of Mathematics, University of California at Santa Cruz, Santa
+                                          Cruz, CA, USA
+                                             Department of Mathematics, Rice University, Houston, TX, USA
+                                             School of Mathematics, Tata Institute of Fundamental Research, Mumbai,
+                                          India
+                                             Department of Mathematics, Statistics, and Computer Science, University
+                                          of Illinois at Chicago, Chicago, IL, USA
+                                             Date: November 10, 2025.
+                                                                                   1
+                    the greenberg-shalom hypothesis                          2
+
+ algebraic groups over possibly different fields of this type. Let Γ ⊆ G be
+ a discrete subgroup with commensurator ∆. Borel proved that if Γ is an
+ arithmetic lattice, then the commensurator contains the rational points of G
+ and in particular is almost dense in G [Bor66]. Here, ‘almost dense’ means
+ its closure has finite index in G. Greenberg (for G = SO(n, 1)) and Shalom
+ (in general) asked whether almost dense commensurator of a discrete, Zariski
+ dense subgroup Γ detects its arithmeticity. We formulate the positive answer
+ to this question as a hypothesis, since here we are primarily interested in
+ the implications if it is true.
+ Hypothesis 1.1 (Greenberg [Gre74], Shalom, see [LLR11]). Let G be a
+ semisimple Lie group with finite center and without compact factors. Sup-
+ pose Γ ⊆ G is a discrete, Zariski dense subgroup of G whose commensurator
+ ∆ ⊆ G is almost dense. Then Γ is an arithmetic lattice in G.
+     We will refer to Hypothesis 1.1 as the Greenberg-Shalom hypothesis. We
+  remark here that the hypothesis seems quite plausible on first encounter,
+  and Greenberg and Shalom both seem inclined to believe it. On the other
+  hand, the many implications of the hypothesis discussed here may cast some
+  doubt on the likelihood that it is correct. The purpose of this article is
+  to exhibit these connections between the hypothesis and other problems,
+  many of which do not a priori involve commensurators. Taken together they
+  indicate a point of view from which one may at least view the problems as
+  connected, whether one views it as evidence for or against the hypothesis or
+  for or against any of the results the hypothesis implies. A short overview of
+  these applications is given below.
+(3.1) A question of Benoist on existence of discrete, irreducible free or sur-
+      face subgroups in products of simple real and p-adic Lie groups (see
+      Corollaries 3.2 and 3.3).
+(3.2) A conjecture of Lyndon-Ullman and Kim-Koberda on groups generated
+      by parabolics (see Theorem 3.10).
+(3.3) Existence of elements with integral traces in hyperbolic 3-manifold
+      groups (see Theorem 3.13).
+  (4) A question of Serre on coherence of SL(2, Z[1/p]) and related groups, and
+      a problem of Wise whether coherence is geometric (see Theorem 4.2).
+  (5) The Margulis-Zimmer conjecture on arithmeticity of commensurated
+      subgroups of S-arithmetic lattices (see Theorem 5.3).
+     We believe that one of the main sources of motivation for Shalom’s ques-
+  tion [LLR11] that led to Hypothesis 1.1 is the Margulis-Zimmer Conjec-
+  ture 5.1 mentioned in Item (5) above. The Margulis-Zimmer Conjecture
+  [SW13] seeks to classify commensurated subgroups of higher rank lattices.
+  In Remark 5.2(3), we shall spell out this connection.
+     A key impetus for this paper is a close connection between commensura-
+  tors and irreducibility. While this idea has been commonplace for lattices,
+  it does not seem to have been noticed in this context before. In section
+  2 we lay out some key definitions for irreducibility and then make the key
+3                 brody, fisher, mj, and van limbeek
+
+connection in Lemma 2.11. In Proposition 3.1 this is used to show that
+the Greenberg-Shalom hypothesis implies that many irreducible groups are
+automatically lattices.
+   To close out this introduction, we discuss the quite limited progress on
+Greenberg-Shalom’s question: First, Margulis proved that non-arithmetic
+lattices have discrete commensurators, thereby resolving Greenberg-
+Shalom’s question for lattices. At roughly the same time and apparently
+unaware of Margulis’ work, Greenberg proved Hypothesis 1.1 for finitely gen-
+erated subgroups of G = SL(2, R) [Gre74]. Building on work by Leininger-
+Long-Reid [LLR11], Mj proved Hypothesis 1.1 for finitely generated sub-
+groups of SL(2, C) [Mj11]. For all other cases of G, as well as general infin-
+itely generated subgroups of the above, Hypothesis 1.1 is open. Koberda-Mj
+proved the hypothesis for normal subgroups Γ of arithmetic lattices in rank
+1 with positive first Betti number [KM21, KM24]. Fisher-Mj-Van Limbeek
+proved the hypothesis for all normal subgroups of lattices [FMvL24]. Green-
+berg (for SO(n, 1)) and Mj (in general) also proved that any group satisfying
+the conditions of the hypothesis has full limit set [Gre74, Mj11].
+
+Acknowledgments. The second author thanks Yves Benoist for a very
+useful conversation in Zurich in January 2019. The authors thank Michael
+Larsen and Sandeep Varma for useful conversations about local fields of
+characteristic p. They also thank Simon Machado for conversations about
+approximate subgroups and commensurated approximate subgroups as well
+as for reminding them of the example of Burger and Mozes. We also thank
+Marco Linton, Sam Mellick and Alan Reid for corrections to and comments
+on a preliminary version of this paper. Finally the authors thank Alan Reid
+for encouragement.
+   David Fisher is supported by NSF DMS-2246556. Mahan Mj is supported
+by the Department of Atomic Energy, Government of India, under project
+no.12-R&D-TFR-5.01-0500; and in part by a DST JC Bose Fellowship, and
+an endowment from the Infosys Foundation. Wouter van Limbeek is sup-
+ported by NSF DMS-2203867.
+
+      2. Notation, standing assumptions, and definitions of
+                           irreducibility
+   In this section, we will fix some standing assumptions that will be in place
+for the rest of this article. Subsequent sections may have further assumptions
+that will be detailed at the beginning of each section.
+Standing assumptions 2.1.
+    • I is a finite set indexing local fields ki , i ∈ I, of characteristic zero.
+    • I also indexes a set of groups Gi which are connected, absolutely
+      simple, isotropic,Qadjoint algebraic groups over ki . We set Gi :=
+      Gi (ki ) and G = i∈I Gi . When not otherwise specified, we equip G
+      with the analytic topology.
+                  the greenberg-shalom hypothesis                            4
+
+Remark 2.2. Much (but not all) of our discussion also applies when ki are
+local fields of positive characteristic, and the Greenberg-Shalom problem
+can be formulated, and is open and interesting, in that setting as well.
+  We now make two definitions:
+Definition 2.3. A subgroup Θ < G is almost dense if its analytic closure
+has finite index in G.
+Definition 2.4. A subgroup Γ < G will be called a standard commensurated
+subgroup if it has unbounded projection to each factor and almost dense
+commensurator ∆ < G.
+Notation 2.5. Let G be as above. For i ∈ I, weQdenote by pri : G → Gi the
+canonical projection. For J ⊆ I, we set GJ := j∈J Gj , and prJ : G → GJ
+denotes the canonical projection.
+  We introduce the following the following irreducibility assumption:
+Definition 2.6. Let G be as in the above standing assumptions and let
+L ⊆ G be a subgroup. We say L is strongly irreducible if for every proper
+subset J ⊊ I, the projection prJ (L) ⊆ GJ is almost dense.
+   From the above definition, it is not at all obvious that questions involving
+general discrete (or closed) groups can be reduced to strongly irreducible
+discrete (or closed) groups, i.e. if Θ ⊆ G is a discrete subgroup, it is not
+clear there exists J ⊆ I such that prJ (Θ) ⊆ GJ is discrete and strongly
+irreducible. We now introduce a notion of irreducibility for which reductions
+are easier. In Appendix A.3, we will prove these are equivalent.
+   To make our second notion of irreducibility precise we need to pass to the
+case where the only fields allowed are Qp and R and not finite extensions
+of those fields. Many readers may already be assuming that and those that
+are need not pay too much attention to the next two paragraphs on a first
+reading.     Q
+   Let G = i Gi be as in Standing Assumptions 2.1, and let Γ ⊆ G be a
+discrete subgroup. We Q want to define what it means for Γ to be irreducible
+in the product G = i Gi . There are two obvious ways one might reduce
+the study of Γ to a simpler scenario, namely by passing to either a quotient
+of G or a subgroup of G. We can pass to a quotient precisely when the
+projection of Γ to some proper subset of factors is discrete. To see when one
+may pass to a subgroup is more involved, and we need to introduce some
+notation.
+   We set Q∞ := R and if p is a finite prime or ∞, we denote by Ip ⊆ I
+the subset of Qp -analytic factors of G (soQI∞ denotes the collection of
+archimedean factors), and we write Gp := i∈Ip Gi for their product. We
+restrict scalars
+         Q       on all factors to Qp , and define the Qp -algebraic group
+Rp G := i∈Ip Rki /Qp Gi . We write Rp G := (Rp G)(Qp ). Of course we have
+Rp G ∼= Gp as Qp -analytic groups, but Rp G comes equipped with a Zariski
+5                 brody, fisher, mj, and van limbeek
+
+topology as a Qp -algebraic group. We will refer to this as the Qp -Zariski
+topology on Gp . Note that given a discrete group Γ ⊆ G, we could first
+project to any subproduct GJ such that prJ (Γ) is discrete, and then pass to
+                    Q          Qp
+the subgroup H := p prJp (Γ) , where the closure is taken with respect to
+the Qp -Zariski topology on Rp G. This motivates the following definition:
+Definition 2.7. A subgroup Θ is irreducible inQG if for every proper subset
+of factors J ⊊ I, the projection of Θ to GJ = j∈J Gj is not discrete, and
+for every p (a finite prime or ∞), the projection of Θ to Gp is Qp -Zariski
+dense.
+   Most irreducible groups we consider will be discrete, but we do not assume
+this for the purposes of the above definition.
+Remark 2.8. If G is simple, then irreducibility is equivalent to Qp -Zariski
+density.
+Lemma 2.9. Any discrete irreducible subgroup Θ ⊆ G has unbounded pro-
+jections to every simple factor Gi . Moreover the set of elements projected to
+any bounded open set in G/Gi is already unbounded in Gi .
+Proof. If G itself is simple, this follows from Zariski density of Θ. If there
+is more than one factor, then for any factor Gi , the image of Θ in G/Gi is
+indiscrete. For any bounded open set U ⊆ G/Gi , the set ΘU of elements of
+Θ with image in U is infinite and has discrete projection to Gi , and therefore
+is unbounded in Gi .                                                         □
+  To clarify the role of having two definitions, note that irreducibility seems
+much easier to establish than strong irreducibility, since the former only
+requires Qp -Zariski density of projections to Rp G, whereas the latter requires
+almost density in the analytic topology of all subproduct projections. On
+the other hand, strong irreducibility is a much more powerful property to
+use in applications. Since we can verify that the two notions are in fact
+equivalent, this apparent discrepancy is very useful.
+Proposition 2.10. A discrete subgroup is irreducible if and only if it is
+strongly irreducible.
+  This proposition will be proved in Appendix A.3 where we will also prove
+the following Lemma which we use frequently in applications and which
+provides the connection between irreducible groups and commensurators.
+Lemma 2.11. Let J index a collection of factors
+                                            Q of G such that the fields ki
+for i ∈ J are all non-archimedean. Let K ⊂ J Gj be a maximal compact
+open. Let ΓK = Γ ∩ (GJ c × K). Then prJc (ΓK ) is a discrete irreducible
+subgroup of GJ c with dense commensurator prJc (Γ).
+  We give here the proof for two factors one of which is a connected real
+Lie group, the other p-adic. This is short, simple, and illustrates the key
+connection. The more involved proof with many factors will be given in
+Appendix A.3.
+                  the greenberg-shalom hypothesis                            6
+
+Proof for two factors. Let G = G1 ×G2 and assume G2 is defined over a non-
+archimedean field and G1 is a connected real Lie group. By van Dantzig’s
+theorem, G2 contains a compact open subgroup K2 which is commensurated
+by G2 , see Proposition A.1. That proposition also implies that ΓK = Γ ∩
+(G1 × K2 ) is commensurated by Γ simply by looking at the projection to
+G2 . Now ΓK projects discretely to G1 since it is discrete in G1 × K2 and
+the fiber of the projection G1 × K2 → G1 is compact. Now pr1 (ΓK ) is
+a discrete group that is unbounded by Lemma 2.9 and has almost dense
+commensurator pr1 (Γ). This implies that the Lie algebra of the Zariski
+closure of pr1 (ΓK ) is invariant under G and hence equals G, i.e. pr1 (ΓK ) is
+Zariski dense, which is all we needed to show.                               □
+
+
+                  3. Irreducible groups are lattices
+3.1. Irreducible groups in products of semisimple Lie groups. We
+can now give the first application of the Greenberg-Shalom hypothesis.
+Aside from its intrinsic interest, this result will provide an important con-
+nection to other applications as well.
+
+Proposition 3.1. Assume the Greenberg-Shalom Hypothesis 1.1. Let G be
+as in Standing assumptions 2.1 with at least two factors, and assume at least
+one factor is nonarchimedean. Then any discrete and irreducible subgroup
+Γ ⊆ G is an irreducible lattice.
+
+Proof. If G has an archimedean factor, let G0 denote the product of all
+archimedean factors and Gna the product of all nonarchimedean factors. If
+there is no archimedean factor, let G0 be one of the nonarchimedean factors
+and Gna the product of the remaining factors. Let pr0 denote the projection
+to G0 .
+   Let Kna ⊆ G+    na be a maximal compact open subgroup. Let Γna ⊆ Γ
+denote the subgroup that maps into Kna under projection to Gna . Then
+pr0 (Γna ) ⊆ G0 is irreducible (by Proposition 2.10), discrete and has commen-
+surator containing the dense subgroup pr0 (Γ) ⊆ G0 . In particular pr0 (Γna )
+is Zariski dense in G0 (see Lemma A.7), and hence by the Greenberg-
+Shalom hypothesis, is a lattice. It then follows that Γ ⊆ G is a lattice
+by Lemma A.18.                                                              □
+
+   We present below two consequences of Proposition 3.1. The proofs are
+postponed to Section 6.2 as in some places they will need some technical
+results on automorphism groups of trees.
+
+Corollary 3.2. Assume the Greenberg-Shalom hypothesis and suppose G
+has no archimedean factors and |I| ≥ 2. Then there is no irreducible discrete
+surface group or irreducible discrete finitely generated free group in G. If in
+addition all simple factors of G have rank one, then there is no discrete
+surface group in G.
+7                 brody, fisher, mj, and van limbeek
+
+   We note here that the first conclusion follows if one knows that an irre-
+ducible lattice in a product cannot be a free or surface group. There are
+many simple ways to verify this.
+   We call a surface group Λ in PSL(2, R) algebraic if Λ < PSL(2, Q). By
+finite generation of surface groups it follows that Λ < PSL(2, k) for some
+number field k. We assume that k is minimal. Let Ok be the ring of integers
+of k. Then we have:
+Corollary 3.3. Let Λ be an algebraic surface group and assume the
+Greenberg-Shalom hypothesis. Then Γ := Λ ∩ PSL(2, Ok ) is infinite, com-
+mensurated by Λ and Zariski dense in PSL(2, k).
+Historical notes and questions:
+We refer the reader to Section 6.2 for proofs of the above two corollaries.
+However, a word is in order regarding the history of the circle of questions
+that leads to Corollaries 3.2 and 3.3.
+   The existence of discrete irreducible surface subgroups in products of p-
+adic groups is a folklore problem that was widely discussed at MSRI in 2015.
+A variant for actions on products of trees was asked explicitly by Fisher-
+Larsen-Spatzier-Stover [FLSS18]. We shall discuss this in Section 6. In a
+conversation in January 2019, Yves Benoist pointed out to the second author
+that it was also unknown if there are irreducible free groups in products of
+real and p-adic Lie groups or irreducible surface groups in products of real
+Lie groups. In fact, Benoist first informally posed this question as far back
+as 2003 or 2004. We thank Tsachik Gelander for first telling us the rough
+age of Benoist’s question.
+   Further, Long and Reid, using some ideas of Magnus [Mag73], constructed
+an explicit surface group in PGL(2, Q2 ) × PGL(2, Q3 ) generated by the two
+matrices:                                    1      
+                              3 0                8   9
+                       a=            ,   b = 1 41
+                              0 31              32   4
+This is an orbifold group with an index 4 subgroup that corresponds to a
+cover by a surface of genus two. Extensive computations by Long-Reid, Agol
+and Brody suggest that this example is a discrete, irreducible subgroup of
+the product but according to Proposition 3.1, this would give a negative
+answer to Greenberg-Shalom’s Question 1.1. It is worth comparing with
+the computer-assisted results of Kim-Koberda [KK22] that are relevant to
+another application below (see Section 3.2), where groups were shown to be
+non-free by finding extremely long relators. In fact, R .Yaari recently showed
+that in that context, groups with arbitrarily long shortest relators necessarily
+occur [Yaa25]. If Hypothesis 1.1 is correct, then the computational evidence
+above about the Long-Reid group only indicates that one needs extremely
+long words in a and b to find elements of integral trace.
+   In Corollaries 3.2 and 3.3, we require at least one factor to be totally
+disconnected (i.e. a p-adic Lie group). As mentioned above, the second
+author learned of variants of this question where both factors are real Lie
+                  the greenberg-shalom hypothesis                           8
+
+groups from Yves Benoist in January 2019. The simplest and perhaps most
+intriguing case is:
+Question 3.4 (Benoist). Is there a free group that acts properly discontin-
+uously and irreducibly on H2 × H2 ?
+   We believe the requirement of a totally disconnected factor in Proposition
+3.1 is an artefact of the method rather than a genuine difference. By analogy
+with Proposition 3.1 we propose the following strengthening of Benoist’s
+question:
+Problem 3.5. Let G1 , G2 be real semisimple Lie groups with finite cen-
+ter and no compact factors, and suppose ∆ ⊆ G1 × G2 is a discrete and
+irreducible subgroup. Is ∆ an arithmetic lattice?
+   Just as in Problem 3.1, irreducible groups ∆ as in the above problem
+give rise to objects in one factor with large commensurator. But since G2
+is no longer totally disconnected, they are no longer groups: More precisely,
+consider Γ := ∆ ∩ (G1 × U ) where U ⊆ G2 is an open neighborhood of
+identity with compact closure. Note that Γ is no longer a subgroup, but only
+an approximate subgroup. This approximate subgroup is commensurated by
+∆ in the sense of [Mac23b, Definition 2.1.5]. For completeness, we include
+the relevant definitions here.
+Definition 3.6. Let Θ be a subset of a locally compact group G. We say
+that Θ is an approximate subgroup if
+   (1) Θ is symmetric, i.e. Θ = Θ−1 ,
+   (2) 1 ∈ Θ, and
+   (3) there exists a finite set F ⊂ G such that Θ2 ⊂ F Θ.
+
+Definition 3.7. Let X, Y be subsets of a locally compact group G. We say
+that X, Y are commensurable if there exists a finite set F ⊂ G such that
+that X ⊂ F Y ∩ Y F and Y ⊂ F X ∩ XF . We say that g ∈ G commensurates
+X if gXg −1 and X are commensurable.
+  By analogy with Proposition 3.1 we suggest the following variation of
+Greenberg-Shalom’s Question 1.1 as a way of approaching Problem 3.5:
+Question 3.8. Let G be as in the Standing Assumptions 2.1 and let Γ be a
+discrete, Zariski dense, approximate subgroup with almost dense commen-
+surator. Is Γ an approximate lattice?
+   We remark here that for approximate subgroups of G, there is a well-
+defined notion of being an approximate lattice and of arithmeticity, and
+Machado (for real higher rank Lie groups) [Mac23a] and Hrushovski (in gen-
+eral) [Hru20] have simultaneously classified approximate lattices in products
+of simple algebraic groups defined over local fields: namely, for any approxi-
+mate lattice Λ ⊆ G, we can decompose G = G1 ×G2 such that Λ is commen-
+surable to a product of a lattice in G1 and an arithmetic approximate lattice
+9                 brody, fisher, mj, and van limbeek
+
+in G2 . Here, an arithmetic approximate lattice in G is either an arithmetic
+lattice or is obtained as the intersection of an irreducible lattice in G × H
+with G × U , where U is an open neighborhood of identity in H. For a thor-
+ough account of the state of the art on approximate lattices, see Machado’s
+recent preprint [Mac23b].
+
+3.2. Groups generated by parabolic elements. For the remainder of
+this section, we discuss applications of rigidity of irreducible groups in
+semisimple Lie groups to problems that do not seemingly involve irreducible
+groups or commensurators. To state this problem, we let q ∈ C be a param-
+eter, and we let ∆q be the group generated by
+                                               
+                            1 0               1 q
+                     a=           ,    bq =         .
+                            1 1               0 1
+The algebraic structure of ∆q , especially whether it is free or not, has been
+the subject of much work, starting with Sanov’s 1947 theorem that ∆4 is
+free [San47], and Brenner’s theorem that ∆q is free and discrete if |q| > 4
+[Bre55], which implies ∆q is free for transcendental values of q. Freeness
+of ∆q for nonzero rational values of q in (−4, 4) is a long-standing open
+problem first mentioned by Brenner and Hirsch. The question was really
+first studied in the work of Lyndon-Ullman, and later a negative answer has
+been conjectured by Kim-Koberda:
+Conjecture 3.9 (Lyndon-Ullman, Kim-Koberda [LU69, KK22]). For
+nonzero rational values of q in (−4, 4), the group ∆q is not free.
+   Kim-Koberda have proved this for numerators up to 24. Further ex-
+perimental results are obtained by Detinko-Flannery-Hulpke [DFH22]. For
+|q| < 4 (not necessarily rational), Knapp has proved that ∆q is discrete if
+and only if 1−q/2 = cos((n−2)π/n) for some integer n ≥ 3 [Kna69]. Indeed,
+note that the element ab−1q has trace |2 − q| < 2, hence it is elliptic. When q
+is a rational non-integer, this must be an elliptic of infinite order. The case
+that ∆q is discrete has been further studied by Agol, showing in particular
+that ∆2 and ∆3 are not free, see [AOP+ 20]. Knapp’s theorem immediately
+implies ∆q is indiscrete for nonintegral rational values with |q| < 4. A com-
+plete description of ∆q up to finite index, and in particular a positive answer
+to the above conjecture, follows from Greenberg-Shalom’s problem:
+Theorem 3.10. Assume the Greenberg-Shalom Hypothesis 1.1. Then for
+every non-integral rational q = r/s ∈ (−4, 4), the group ∆q has finite index
+in SL(2, Z[1/s]). In particular, Conjecture 3.9 is true.
+In this context it is particularly worth mentioning that the work of Detinko-
+Flannery-Hulpke [DFH22] proves that for certain values of q, ∆q is finite
+index in SL(2, Z[1/s]), see [DFH22, Table 1]. There are currently no known
+values of q for which the (conditional) conclusion of Theorem 3.10 fails to
+hold.
+                   the greenberg-shalom hypothesis                            10
+
+Proof. If q = r/s is written in lowest terms
+                                           Q and is not integral, then ∆q is
+a discrete subgroup of G := SL(2, R) × p|s SL(2, Qp ). Let T be a minimal
+subset of factors such that ∆q has discrete projection to GT . Note that
+T consists of at least two factors: The projection of ∆q to SL(2, R) is not
+discrete by the above-mentioned work of Knapp [Kna69], and its projec-
+tion to SL(2, Qp ) is not discrete because a ∈ SL(2, Zp ) has infinite order.
+Further the projections are Zariski dense since their Zariski closures can-
+not be solvable, and SL(2, R) and SL(2, Qp ) do not contain proper Zariski
+closed non-solvable subgroups. Therefore prT (∆q ) ⊆ GT is irreducible, and
+by Proposition 3.1, prT (∆q ) is a lattice in GT . Note Q    that T must con-
+tain ∞, because a generates an indiscrete subgroup of p|s SL(2, Qp ). So
+∆q ⊆ SL(2, Z[1/s]) is T -arithmetic, and is therefore commensurable with
+SL(2, Z[1/t]), where t denotes the product of the finite primes in T .
+   To see that t = s, it suffices to show that ∆q has unbounded projection
+to SL(2, Qp ) for all p | s. Indeed, ab has trace 2 − q = 2 − r/s, and is
+therefore not elliptic in SL(2, Qp ). In particular, ab generates an unbounded
+subgroup.                                                                    □
+
+   In fact, this strategy can handle not just rational, but all algebraic values
+of q:
+
+Theorem 3.11. Assume the Greenberg-Shalom Hypothesis 1.1. Let q ∈ Q
+be an algebraic number that is not an algebraic integer, and let ∆q denote
+the corresponding Lyndon-Ullman group.
+   Then ∆q is free if and only if there is a Galois automorphism σ ∈
+Gal(Q̄/Q) such that ∆σ(q) is free and discrete.
+
+Proof of Theorem 3.11. We first note that for any Galois automorphism σ ∈
+Gal(Q̄/Q), ∆σ(q) is free if and only if ∆q is free. Hence, assume that for any
+Galois automorphism σ ∈ Gal(Q̄/Q), ∆σ(q) is indiscrete. We want to show
+that ∆q is not free.
+   The proof is similar to the previous one. Let k = Q(q). Since q ∈       / Ok ,
+there exists a valuation ν of k such that |q|ν > 1. Let p be the prime such
+that kν is a finite extension of Qp and consider ∆q ⊆ PSL(2, kν ). Note that
+∆q is not discrete since a ∈ ∆q ∩ PSL(2, Oν ) has infinite order. Therefore
+to show ∆q is almost-dense in a semisimple p-adic Lie group, it suffices to
+show its Qp -Zariski closure is semisimple. To see this, it suffices to show the
+Lie algebra gq of the Qp -Zariski closure of ∆q is semisimple.
+   Note that ∆q is kν -Zariski dense in PSL(2, kν ) because it is not virtually
+solvable. This implies the kν -span of gq is all of sl(2, kν ) (because it is a
+∆q -invariant Lie subalgebra), and therefore gq must itself be semisimple:
+The kν -span of its solvable radical would be an ideal in the kν -span of gq .
+   By assumption, for any Galois automorphism σ ∈ Gal(Q̄/Q) ∆σ(q) is
+indiscrete. Hence, by the Greenberg-Shalom hypothesis, ∆q is an arithmetic
+lattice in a semisimple p-adic Lie group H. Note that H has at least two
+11                brody, fisher, mj, and van limbeek
+
+factors because ∆q is not discrete in its Qp -Zariski closure inside PSL(2, kν ).
+In particular, ∆q is a higher rank arithmetic lattice and hence not free. □
+3.3. Arithmetic of hyperbolic 3-manifolds. In this section we let G =
+PO(3, 1) = Isom(H3 ) and discuss an application to hyperbolic 3-manifolds,
+i.e. to manifolds of the form K\G/Λ where Λ is a lattice. It follows from
+[MR03, Corollary 3.2.4] that there is a number field k such that Λ < G(k)
+(after conjugation by an element of G if necessary). More generally, by work
+of Selberg, Calabi, Raghunathan, and Garland [Sel60, Cal61, Rag67, Gar66]
+for G a rank one Lie group, not locally isomorphic to SL(2, R), the same
+statement continues to hold for lattices in G. Unless G is of the form SO(n, 1)
+stronger statements are known. In higher rank Margulis famously showed all
+lattices are arithmetic, a conclusion confirmed also for lattices in Sp(n, 1)
+and F4−20 by Corlette and Gromov-Schoen [Mar75, Cor92, GS92]. Very
+recently, Esnault-Groechenig have shown that all lattices in SU(n, 1) are in
+fact conjugate into the integer points of some number field [EG18]. For an
+account of why the results of that paper imply the desired result the reader
+can see [BFMS23, Theorem 1.(3)] or [BU23, Theorem 4.3].
+   It is a natural and reasonably well-known question to ask whether Λ
+necessarily contains any integral matrices when G = SO(n, 1). We let Ok
+denote the ring of k-integers.
+   For completeness, we first furnish a proof of the following known state-
+ment for non-uniform lattices. We thank Alan Reid for drawing this fact and
+its proof to our attention. We give a statement for non-uniform lattices in
+all rank one Lie groups, even though except in the case of SO(n, 1), stronger
+results are discussed above.
+   For G a rank one Lie group not locally isomorphic to SL(2, R), any lattice
+Λ < G is conjugate into G(k) for some number field k as noted above. We
+assume below that k is a minimal extension of Q.
+Theorem 3.12. Let G be a rank one Lie group not locally isomorphic to
+SL(2, R) and Λ < G a non-uniform lattice. Let k be as above, and Ok its ring
+of integers. Then the subgroup Γ := Λ ∩ G(Ok ) is infinite, commensurated
+by Λ, and Zariski dense in G(k).
+Proof. Since Λ is finitely generated, the set of places S of k such that there
+exists a matrix entry of a generator of Λ with negative valuation is finite.
+It follows immediately that Λ commensurates Γ. Since the commensurator
+of Γ is Zariski dense, as soon as Γ is infinite, Γ itself is Zariski dense (see
+Lemma A.7 and Remark A.9).
+   It thus suffices to show that Γ is infinite. By results of Garland-
+Raghunathan [GR70], we know that for some choice of parabolic P , Γ in-
+tersects the unipotent radical U of P in a lattice. Therefore Γ ∩ Z(U ) is
+also non-trivial where Z(U ) is the center of U . If γ ∈ Z(U )(k) then it is
+elementary that for some n, we have γ n ∈ Z(U )(Ok ) since on the center
+of a unipotent group, multiplication is just addition of matrix coefficients.
+Hence, Γ is infinite.                                                        □
+                   the greenberg-shalom hypothesis                           12
+
+  As an application of our methods, we prove the following more general,
+but conditional statement that holds when Λ is uniform and G = SO(3, 1):
+Theorem 3.13. Assume the Greenberg-Shalom Hypothesis 1.1. For any
+finite volume hyperbolic 3-manifold M = H3 /Λ and k, Ok as above, the
+subgroup Γ := Λ ∩ G(Ok ) is infinite, commensurated by Λ, and Zariski dense
+in G(k).
+Proof. As discussed above, along with the number field k, there exists an
+algebraic group G defined over k such that Λ ⊆ G(k). Here Λ is a lattice
+in G(R) = PO(3, 1), so G is a form of PO(4)(C). As in the proof of Theo-
+rem 3.12, the set of places S of k such that there exists a matrix entry of a
+generator of Λ with valuation > 1, is finite. It follows immediately that Λ
+commensurates Γ. It remains to prove that Γ is infinite.
+   At any place s ∈ / S, we have Λ ⊆ G(Os ). In particular, if S = ∅, then
+Γ = Λ and we are done. Now assume S ̸= ∅. If Λ ⊆ GS is indiscrete, then
+Γ = Λ ∩ G(OS ) is infinite and we are done.
+   Henceforth assume that Λ ⊆ GS is discrete. Since PO(4) is of type D2 and
+any split group of Q type D2 is a product of groups of type A1 (cf. [Bur16]),
+the group
+       Q    G S  :=    s∈S G(ks ) splits as a product of rank one factors, say
+GS = i∈I Gi . Choose a minimal subset J ⊆ I (possibly J = I) such that
+prJ (Λ) ⊆ GJ is discrete. We note that J consists of at least two factors.
+Indeed, since each Gi has rank 1, its Bruhat-Tits building is a tree, and since
+Λ is not virtually free, it cannot act properly discontinuously on a bounded
+degree tree.
+   Since Λ ⊆ G(k), its R-Zariski closure in G(R) is defined over k (see e.g.
+[Zim84, Proposition 3.1.8]). Since Λ ⊆ G(R) is a lattice, it is R-Zariski dense
+in G(R). Combining these two observations, we see that Λ is k-Zariski dense
+in G(k). Restricting scalars from k to Q, we conclude that Λ is Q-Zariski
+dense in (Rk/Q G)(Q).
+   Let Jp ⊂ J denote the indices corresponding to the p-adic factors of GJ
+and GJp denote the product of the p-adic factors of GJ . Then, by restriction
+of scalars as in the discussion following Definition 2.6, GJp is a Qp -algebraic
+group.
+   We claim that Λ is irreducible in GJ . By minimality of J, the projection
+of Λ to any proper subset of factors is indiscrete, so it remains to show that
+Λ is Zariski dense in GJp (Qp ) for every prime p.
+   Now write Sp for the set of p-adic places of S. We have
+                             Y             Y
+                    GS p =       G(ks ) =     (Rk/Q G)(Qp ).
+                           s∈Sp          s∈Sp
+
+We regard GSp as a Qp -algebraic group using the product structure given
+by the right-hand side. Since the diagonal embedding
+                                      Y
+                           Rk/Q G ,→     Rk/Q G
+                                       s∈Sp
+13                brody, fisher, mj, and van limbeek
+
+is defined over QQ and Λ is Q-Zariski dense in (Rk/Q G)(Q), the Q-Zariski
+closure of Λ in s∈Sp (Rk/Q G)(Q) is exactly the diagonal. So the Qp -Zariski
+closure of Λ in GSp contains the diagonally embedded copy G(k). However,
+since G is adjoint, it satisfies weak approximation, so G(k) is (analytically)
+dense in GSp [San81, Corollary 5.8]. Hence the Qp -Zariski closure of Λ in GSp
+(which is of course analytically closed) contains a dense set and therefore
+must be all of GSp . This shows that Λ is Qp -Zariski dense in GSp .
+   Since every factor of GSp is defined over Qp , the projection GSp → GJp is
+also defined over Qp . It follows that the image of Λ in GJp is also Qp -Zariski
+dense.                                                                        □
+
+                               4. Coherence
+   The main result of this section is Theorem 4.2, deducing coherence of
+certain S−arithmetic lattices from the Greenberg-Shalom Hypothesis 1.1.
+Recall the following definition of coherent groups:
+Definition 4.1. A finitely presented group Γ is coherent if any finitely
+generated subgroup of Γ is finitely presented.
+   Free groups and surface groups are coherent, as are abelian and, more
+generally, polycyclic groups. Scott has shown 3-manifold groups are coher-
+ent [Sco73], and since then, coherence has emerged as one of their salient
+properties. On the other hand, F2 ×F2 is incoherent. This was first observed
+by Baumslag, Boone, and Neumann in [BBN59] and this line of inquiry was
+developed by Stallings [Sta63], cf. [Wis20, Section 9.d]. Baumslag-Roseblade
+proved that a subgroup of F2 × F2 is finitely presented if and only if it is a
+finite extension of a finite product of finite rank free groups, and that there
+are many finitely generated subgroups that are not of this form [BR84].
+   See [Wis20] for a survey of coherent groups, as well as many open prob-
+lems. The class of coherent groups is not well-understood: For example,
+Serre famously asked whether SL(2, Z[1/p]) is coherent [Ser74]. Below we
+give a positive answer assuming the Greenberg-Shalom hypothesis. Note
+however that SL(4, Z) is incoherent as it contains the incoherent group
+F2 × F2 . Serre also asked if SL(3, Z) is coherent, and this also remains
+open.
+   The relevance of the Greenberg-Shalom hypothesis to coherence of lat-
+tices is that by Proposition 3.1, irreducible lattices in products do not have
+many subgroups; more precisely either a subgroup is not irreducible or it
+is also a lattice and therefore has finite index. In the following case, we
+have sufficient control over reducible groups that we can conclude they are
+finitely presented:
+Theorem 4.2. Assume the Greenberg-Shalom Hypothesis 1.1. Let S be a
+(nonempty) finite set of places of Q and either assume all places are finite
+or that there are two places, one infinite and one finite, in S. Set Gs :=
+PGL(2, Qs ) and G := GS . Then any S-arithmetic lattice Λ ⊆ G is coherent.
+                   the greenberg-shalom hypothesis                            14
+
+Proof. Let Γ ⊆ Λ be a finitely generated infinite subgroup. Let H denote
+the Q-Zariski closure of Γ. If H is a proper subgroup then it must fix some
+point on G/P since it cannot fix a proper factor. Hence, it is solvable. In
+the case when we have one real and one finite place, this implies that Γ is
+either virtually abelian or virtually contained in a Baumslag-Solitar group
+BS(1, p). In the case where there are no real places, H solvable implies H
+abelian, since all solvable subgroups of the lattice are virtually abelian. In
+all cases, Γ is finitely presented and we are done. So we can assume Γ is
+Q-Zariski dense and so all projections are Zariski dense.
+   Choose a minimal subset T ⊆ S (possibly T = S) such that prT (Γ) ⊆ GT
+is discrete. Then prT (Γ) is irreducible in GT . If |T | ≥ 2, then by Proposition
+3.1, Γ is an irreducible lattice in GT and hence is finitely presented, and the
+proof is complete.
+   It remains to consider the case that Γ projects discretely to a factor Gt ,
+which is either PGL(2, R) or PGL(2, Qp ). In either case, all discrete, finitely
+generated subgroups are finitely presented: In PGL(2, R), any such subgroup
+is a surface group or is virtually free. In PGL(2, Qp ), every such group is
+virtually free.                                                                 □
+
+Remark 4.3. It is clear from the proof that something more general can
+be proven by the same argument. For example, we can consider number
+fields other than Q if we assume all places are finite, as in this case, lattices
+are cocompact and solvable subgroups of Λ are abelian. A similar argument
+might work for (some) other number fields if we allow one infinite place and
+one finite place, provided the solvable subgroups of Λ are coherent. Thus,
+the restrictions really stem from the fact that it is known that SL(2, Z[1/n])
+is not coherent if n is composite [Ser74]. It also clearly follows from the
+Greenberg-Shalom hypothesis that all finitely generated Zariski dense sub-
+groups of SL(2, Q) are finitely presented.
+
+  This also has implications for a fundamental question about coherence, to
+our knowledge first explicitly posed by Wise [Wis20, Problem 9.16], namely
+whether coherence is a geometric (i.e. quasi-isometry invariant) property?
+We note that Wise already explicitly hedges against this.
+
+Corollary 4.4. Assume the Greenberg-Shalom hypothesis. Then coherence
+is not a quasi-isometry invariant.
+
+Proof. Let p, q be distinct primes and consider lattices in G := PGL(2, Qp )×
+PGL(2, Qq ). All such lattices are cocompact and hence quasi-isometric. By
+Theorem 4.2, the irreducible lattices in G are coherent. On the other hand,
+any lattice in PGL(2, Qp ) or PGL(2, Qq ) is virtually free (of rank > 1),
+so G admits reducible lattices that are products Fm × Fn of free groups
+(with m, n > 1). These are incoherent by the previously mentioned result
+of Baumslag-Roseblade [BR84].                                               □
+15                 brody, fisher, mj, and van limbeek
+
+                    5. Margulis-Zimmer conjecture
+   A major motivation for Greenberg-Shalom’s question is the following con-
+jecture advertised by Margulis-Zimmer in the late ‘70s, seeking to classify
+commensurated subgroups of higher rank lattices Λ. Here we say Γ ⊆ Λ is
+commensurated if Λ ⊆ CommG (Γ). The main result of this section is The-
+orem 5.3, deducing the Margulis-Zimmer Conjecture 5.1 below for certain
+S−arithmetic lattices from the Greenberg-Shalom Hypothesis 1.1.
+Conjecture 5.1 (Margulis-Zimmer, see [SW13]). Let G be a semisimple
+algebraic group defined over a number field k and S a finite set of valuations
+of k. Assume G has higher S-rank. Assume Λ = G(OS ) is an S-arithmetic
+lattice in G, then any commensurated subgroup of Λ is either finite or S ′ -
+arithmetic for some S ′ ⊆ S.
+  Here, the S-rank of G is the sum of the kν -ranks over all valuations ν ∈ S,
+and G is said to have higher S-rank if its S-rank is at least 2.
+Remark 5.2.
+(1) For example, if Γ is a commensurated subgroup of SL(n, Z[1/p]) (where
+    n ≥ 2), then Γ is predicted to be either finite, finite-index, or commen-
+    surable to SL(n, Z).
+(2) Conjecture 5.1 is motivated by and strengthens Margulis’ Normal Sub-
+    group Theorem.
+(3) Question 1.1 and Conjecture 5.1 are closely related: For example, if
+    Γ ⊆ G(OS ) is a commensurated subgroup and Γ∩G(O) is infinite, then a
+    positive answer to Question 1.1 proves Γ intersects G(O) in a lattice. S ′ -
+    arithmeticity of Γ then follows from Venkataramana’s result (see [LZ01,
+    Proposition 2.3]) that the only intermediate subgroups between G(O)
+    and G(OS ) are S ′ -arithmetic for some S ′ ⊆ S, which proves Conjecture
+    5.1 for such groups.
+   Using well-chosen unipotent generating sets, Venkataramana has proven
+the Margulis-Zimmer Conjecture for arithmetic lattices Γ = G(Z) in sim-
+ple groups defined over Q [Ven87]. Shalom-Willis have proved Conjecture
+5.1 in more instances, including the first that are not simple [SW13]. Their
+proof crucially relies on fine arithmetic properties for lattices in these groups,
+namely bounded generation by unipotents. As it is now known that bounded
+generation is not a common property for higher rank lattices [CRRZ22], dif-
+ferent approaches are needed. The results in [FMvL24] yield partial results
+on this conjecture and the first that do not depend on unipotent elements,
+see Corollary 1.5 in that paper. This summarizes all prior work on Conjec-
+ture 5.1.
+   We now deduce a special case of Conjecture 5.1 assuming the Greenberg-
+Shalom hypothesis. Namely we deduce the case where G has at least two
+factors, at least one of which is non-archimedean. The deduction of this case
+of the Margulis-Zimmer conjecture from the Greenberg-Shalom hypothesis
+                  the greenberg-shalom hypothesis                          16
+
+is quite simple modulo arguments we have already made. The existence of
+at least two factors is essential to the argument, but the requirement of a
+non-archimedean one can be removed if the Greenberg-Shalom hypothesis
+is strengthened to cover approximate groups (see Question 3.8), but we do
+not pursue Q this here.                                            P
+   Let G = I Gi be as in 2.1. We denote the rank of G by rk(G) = i∈I ki -
+rk(Gi (ki )) and assume that rk(G) ≥ 2. Let Gna denote the product of
+Gi ’s over all non-archimedean factors. We establish the following case of
+Conjecture 5.1.
+Theorem 5.3. Assume the Greenberg-Shalom hypothesis and suppose Gna
+is non-trivial and |I| ≥ 2. Let Λ denote an irreducible lattice in G, and
+Γ ⊂ Λ be an infinite subgroup commensurated by Λ. Then there exists J ⊂ I
+such that prJ (Γ) (isomorphic to Γ under prJ ) is a lattice in GJ .
+Proof. If Γ is irreducible, it is a lattice by Proposition 3.1.
+   Assume therefore that Γ is reducible. Hence there exists a minimal subset
+J ⊊ I such that prJ (Γ) is discrete. Irreducibility of Λ implies that prJ (Λ)
+is dense in GJ . Note also that prJ is injective on Λ, and hence on Γ. Thus,
+prJ (Γ) ⊂ GJ is an infinite discrete subgroup commensurated by prJ (Λ),
+where the latter is almost dense. Then the Greenberg-Shalom hypothesis
+implies that prJ (Γ) ⊂ prJ (G) is a lattice.                               □
+   One might want to reverse this implication, but it is not immediate. If
+one assumes that Γ < G as in Greenberg-Shalom’s Question 1.1 is contained
+in an arithmetic lattice G(O) ⊆ G (where O is the ring of integers of a
+number field k), then it follows from an old argument of Borel that the
+commensurator Λ := CommG (Γ) is contained in G(k) see [Bor66] or [Zim84,
+Prop. 6.2.2]. (In [Zim84, Prop. 6.2.2] this is stated for arithmetic lattices,
+but the only property used is that Γ is a Zariski dense subgroup of an
+arithmetic lattice). Then Λ contains finitely generated subgroups that are
+dense in G and contained in S-arithmetic lattices G(OS ), where S is a finite
+set of places of k. It is, however, not at all clear in general how to force Λ
+to contain an S-arithmetic lattice without already proving Γ is a lattice. In
+this sense, the Greenberg-Shalom hypothesis is a strengthening of a special
+case of the Margulis-Zimmer conjecture.
+
+                  6. Automorphism groups of trees
+   Going beyond semisimple Lie groups, one can study discrete irreducible
+subgroups of automorphism groups of products of trees. Their irreducible
+lattices are known to exhibit rigidity by the work of Burger-Mozes [BM00a,
+BM00b]. In this setting we have the following questions due to Fisher-
+Larsen-Spatzier-Stover:
+Question 6.1 (Fisher-Larsen-Spatzier-Stover [FLSS18]). Let Γ be a surface
+group of genus g ≥ 2.
+(1) Does there exist ρ : Γ → Aut(T1 × · · · × Tk ) with discrete image?
+17                 brody, fisher, mj, and van limbeek
+
+(2) Does there exist ρ as in (1) where ρ takes values in a product G1 ×
+    · · · × Gk where each Gi is a rank one simple algebraic group over a
+    non-archimedean local field?
+(3) Can Γ be faithfully represented into PGL(2, K) for some global field K
+    of positive characteristic?
+
+If there is an action as in (1), then on a subgroup of finite index, ρ is
+the diagonal embedding from homomorphisms ρi : Γ → Aut(Ti ). Question
+6.1(2) is only implicit in [FLSS18]. In [FLSS18], it is shown a positive
+answer to the third question gives a positive answer to the first and second.
+Questions 6.1(1) and (2) are clearly related to Corollary 3.2. We remark
+here that a negative answer to the analogue of Greenberg-Shalom’s question
+for automorphism groups of trees is given by Burger and Mozes in [BM96,
+Proposition 8.1], and that one can also construct irreducible subgroups in
+products of trees as done by e.g. the third author and Huang in [HM23].
+However, Question 6.1(1) is still open as is the corresponding question for
+finitely generated free groups.
+   In this section we shall first prove an improvement of [FLSS18, Theorem
+15] and use it to prove Corollary 3.2 and from that Corollary 3.3. The
+improvement is minor and the main ideas are present in [FLSS18] but we
+need a stronger statement than given there and expect it to be needed in
+other applications. For the purposes of this section, we shall use the following
+terminology. Let T denote a tree, and ∂T its Gromov boundary. Then any
+p ∈ ∂T will be referred to as a point at infinity of T .
+
+6.1. On a theorem from [FLSS18].
+Theorem 6.2. Suppose that Λ is a torsion free hyperbolic group that is not
+free. Let
+                              X = T1 × · · · × Tn
+                                                                      Q
+be a product of finite-valence trees, set Gi := Aut(Ti ), and G := Gi . Let
+pri denote the projection of G onto Gi . If ρ : Λ → G is a discrete and faithful
+representation, then there are at least two values of i such that ρi := pri ◦ρ is
+faithful and has indiscrete image. Moreover, suppose ρ1 , . . . , ρr are faithful
+representations and the other ρi are not. Then the representation
+                      ρ1 × · · · × ρr : Λ → G1 × · · · × Gr
+is discrete and faithful. If we further assume ρ1 × · · · × ρr is minimal for the
+property of having discrete image, then for all i, ρi (Λ) does not fix a point
+at infinity on Ti .
+Proof. The only new statement is the last one concerning no fixed points
+at infinity. Assume the action on one tree T1 fixes a point at infinity, that
+all ρi are faithful, that r > 1 and that (ρ2 × · · · × ρr )(Λ) is not discrete. If
+we fix a point η at infinity on T1 , we have a height, or Busemann, function
+                    the greenberg-shalom hypothesis                                 18
+
+bη : T1 → Z. It is easy and standard that if ρ1 (Λ) fixes η and x0 ∈ T1 is
+chosen such that bη (x0 ) = 0, then the map
+                                 Bη :Λ −→ Z
+                                     λ 7−→ bη (λx0 )
+is a homomorphism.
+   Let K = ker(Bη ). Observe that since G1 has no parabolic elements, any
+λ ∈ K fixes a point in T1 . Now fix a vertex v in T2 × · · · × Tr and let ∆ be
+the stabilizer of v in Λ under the action defined by ρ2 × · · · × ρr . Note ∆ is
+non-trivial by hypothesis.
+   It suffices to show that K ∩∆ is nonempty and this is done almost exactly
+as in [FLSS18]. Consider x ∈ K and y ∈ ∆. As K is normal in Λ, the
+commutators [x, y n ] = x(y n x−n y −n ) belong to K for any n ∈ Z. It suffices
+to find values of n such that the commutator also belongs to ∆. As in
+[FLSS18], we see that since y fixes v, the points y n x−1 y −n · v = y n x−1 · v
+all lie in a ball centered at v of radius d(v, x−1 · v). Since all trees are
+finite valence, this ball is a finite set and so there are n1 ̸= n2 ∈ Z such that
+y n1 x−1 ·v = y n2 x−1 ·v this implies xy n1 −n2 x−1 v = v, so that [x, y n1 −n2 ] ∈ ∆.
+This contradicts discreteness of (ρ1 × · · · × ρr )(Λ).                              □
+6.2. Proof of Corollaries 3.2 and 3.3. With Theorem 6.2 in place,
+we are finally in a position to prove Corollary 3.2, whose proof we had
+postponed.
+Proof of Corollary 3.2: The first statement follows e.g. from the fact that
+a surface group Λ can only be a lattice in a semisimple algebraic group if
+the group is locally isomorphic to PSL(2, R) and that a finitely generated
+free group Fk is only a lattice in a simple algebraic group of rank one over
+a non-archimedean field or a group locally isomorphic to PSL(2, R).Q
+   For the second point, we have a surface group Λ < G where G = i∈I Gi
+where each Gi is a rank one pi -adic group whose Bruhat-Tits building is
+a tree. After some initial reductions, we will argue that Λ is irreducible.
+First, by Theorem 6.2 (or [FLSS18, Theorem 15]), there is a subset J ⊂ I
+such that theQprojection of Λ to each Gj is faithful and indiscrete where
+Λ < GJ = j∈J Gj is discrete and |J| ≥ 2. We fix a subset J that is
+minimal with respect to these properties.
+   For j ∈ J, the Qpj -Zariski closure of the projection of Λ to Gj is simple.
+Otherwise it would, up to finite index, fix a point at infinity, but Theorem 6.2
+shows that the projection of finite index subgroups of Λ to each Gj do not
+fix a point at infinity.
+   We now replace every Gj by the Qpj -Zariski closure of the projection of
+Λ, and argue that Λ ⊆ GJ is irreducible. Henceforth we will regard Gj
+as a Qpj -algebraic group, and omit the field when referring to its Zariski
+topology.
+   Recall that for each prime p, theQcollection of p-adic factors of GJ is
+indexed by Jp , and we write Gp := j∈Jp Gj for the product of the p-adic
+19                brody, fisher, mj, and van limbeek
+
+factors of GJ . By minimality of J, for every J ′ ⊊ J, the projection of Λ to
+GJ ′ is indiscrete.
+   Therefore it remains to show that for every prime p, the projection of Λ
+to Gp is Zariski dense. Let Hp be the Zariski closure of the projection of Λ,
+and let Jp′ ⊆ Jp be those values of j such that Gj ⊆ Hp . We will argue by
+contradiction that Jp′ = Jp , and this will complete the proof.
+   Suppose therefore that Jp′ is a proper subset of Jp . Let Hp = Hp /GJp′ .
+Consider now the image of Hp in the product of the remaining factors
+GJp /GJp′ . Since for every j ∈ Jp , the projection of Λ to Gj is Zariski dense,
+the image of Hp surjects onto (but does not contain) Gj for j ∈ Jp \Jp′ . In
+particular, GJp /GJp′ consists of at least two factors.
+   Fix one such factor Gj0 . Since the kernel of the projection of Hp to Gj0
+would be normal in the remaining factors, it is a product of some subset of
+them. But since Hp does not contain any factors of GJp /GJp′ , we conclude
+that Hp projects isomorphically onto Gj0 .
+   Therefore the projection
+                Hp × GJp′ × GJ /GJp → Gj0 × GJp′ × GJ /GJp
+that replaces Hp by Gj0 is a topological isomorphism. Since (the projection
+of) Λ is discrete in the former, it is also discrete in the latter. However,
+since Jp \Jp′ consists of at least two factors, this contradicts minimality of J.
+                                                                               □
+   With Corollary 3.2 in place, we now complete the proof of Corollary 3.3.
+Note first that since Λ is a surface group, it is torsion-free. Hence so is Γ.
+In particular, Γ cannot be a non-trivial finite group.
+Proof of Corollary 3.3: As Λ is finitely generated, there are at most finitely
+many finite places S of k such that there is an element of ΛQof norm greater
+than one in the valuation. Viewing Λ as a subgroup of G := s∈S PSL(2, ks ),
+we see that Γ is the intersection of Λ with a compact open subgroup in G.
+It follows immediately that Λ commensurates Γ and that if Γ is infinite, it is
+Zariski dense (by Lemma A.7 and minimality of k). So it remains to show
+Γ is infinite. Corollary 3.2 implies that Λ is not discrete in G and so Γ is
+infinite.                                                                   □
+Remark 6.3. Note that in the above proof, we allow for the possibility that
+the image of Λ is bounded. In this case, Γ is of finite index in Λ. Indeed, if
+Λ itself is arithmetic, this is exactly what the above proof furnishes. In this
+case, Γ is also arithmetic.
+Remark 6.4. For each of the places s, there is a compact open subgroup
+Qs ⊂ PSL(2, ks ). Also, if prs denotes the projection of G onto PSL(2, ks ),
+let Γs = Λ ∩ pr−1
+               s (Qs ). Then Γ = ∩s Γs . The subgroup Γs detects density at
+s. What the proof of Corollary 3.3 in fact shows is that Γ detects density
+simultaneously at all s.
+                   the greenberg-shalom hypothesis                           20
+
+            7. Rank gradient and small generating sets
+   For a finitely generated group Γ, the rank rk(Γ) is the minimal number
+of generators in a generating set for Γ. It is interesting to consider ranks of
+finite index subgroups of Γ. Writing Γ as a quotient of a free group Fr of
+rank r := rk(Γ), the pre-image of a finite index subgroup Θ ⊆ Γ in Fr is a
+free subgroup of index [Γ : Θ], and therefore has rank [Γ : Θ](rk(Γ) − 1) + 1.
+In particular,
+(7.1)                  rk(Θ) − 1 ≤ (rk(Γ) − 1)[Γ : Θ],
+so rk(Θ) − 1 grows at most linearly in [Γ : Θ]. Given a chain of finite index
+subgroups
+                        Γ = Γ0 ⊇ Γ1 ⊇ Γ2 ⊇ . . . ,
+the rank gradient of Γ with respect to the chain (Γn )n is
+                                          rk(Γn ) − 1
+                      rg(Γ, (Γn )n ) := lim           .
+                                       n→∞ [Γ : Γn ]
+
+   In the context of lattices in semisimple Lie groups it seems possible that
+all statements about rank gradient are actually consequences of a stronger
+property.
+Definition 7.1. We say Γ has arbitrarily small k generated finite index
+subgroups if given any finite index subgroup Γ′ < Γ there is a further finite
+index subgroup Γ′′ that has a k element generating set.
+   In this section we explain some history of the notions mentioned above,
+some results on them and their connections to both the Greenberg-Shalom
+hypothesis and one another.
+   The main theorem of this section is Theorem 7.3, which asserts that
+assuming
+Q          the Greenberg-Shalom hypothesis, the following holds. For G =
+  i G i a product  of r ≥ 2 factors as in Standing assumptions 2.1, and Gi
+corresponding to different places pi of Q, (pi ≤ ∞), any irreducible lattice
+Γ ⊆ G contains arbitrarily small r-generated finite index subgroups.
+
+7.1. Historical remarks and motivation. Lackenby introduced rank
+gradient as a generalization of Heegaard gradient, which is an invariant for
+3-manifolds [Lac05]. Abert-Nikolov proved that if the chain (Γn )n is Farber
+(e.g. if Γn are contained in a chain of normal subgroups of Γ that has trivial
+intersection), then the rank gradient computes the cost of the action of Γ on
+the boundary of the coset tree associated to the chain, i.e. the profinite space
+lim Γ/Γn [AN12]. Cost is more generally defined for probability measure-
+←−
+preserving Borel actions of Γ, and the fixed price problem asks whether the
+cost of an action only depends on Γ and not on the action itself. A posi-
+tive answer for many groups, including higher rank nonuniform irreducible
+lattices in real Lie groups has been given by Gaboriau [Gab00]. Abert-
+Gelander-Nikolov have given a positive answer for right-angled lattices in
+21                 brody, fisher, mj, and van limbeek
+
+such Lie groups, which includes the first uniform examples [AGN17]. (Re-
+call [AGN17] that a group Γ is right-angled if it admits a finite generating
+set {γ1 , · · · , γn } such that each γi is non-torsion, and γi , γi+1 commute for
+i = 1, · · · , n − 1.) Recently, Fraczyk-Mellick-Wilkens have positively an-
+swered the question for all lattices in higher rank real Lie groups [FMW23].
+In all of these results, the cost is 1, which implies vanishing of the rank
+gradient for any Farber sequence. Some further results relevant here are
+contained in an even more recent preprint of Mellick [Mel23]. It is possible
+that the strongest results on rank gradient that one can obtain conditionally
+on the Greenberg-Shalom hypothesis will soon be known by other methods.
+   However in the context of lattices in semisimple Lie groups, oftentimes
+one can find many finite index subgroups with a uniformly bounded number
+of generators. This is not the case for lattices in SL(2, R), since those surject
+onto free groups, and so do some lattices in other rank 1 groups. However,by
+combining work of Raghunathan, Tits, and Venkataramana, one can prove
+that for a nonuniform higher rank arithmetic lattice Γ in a Q-simple real Lie
+group G, there exists k ≥ 2 such that Γ has arbitrarily small k-generated
+finite index subgroups (see [SV05, Remark 3]). In particular, the cost of
+Farber chains is always 1. Sarma-Venkataramana have shown that one can
+take k = 3 [SV05]. Sarma has studied the same problem for S-arithmetic
+lattices, and in particular has proven that for an S-arithmetic lattice in
+SL(2, K), where K is a number field and |S| ≥ 2, one can take k = 3 [Sar06].
+For SL(n, Z), n ≥ 3, Lubotzky has asked whether one can take k = 2,
+i.e. whether SL(n, Z), n ≥ 3, has “arbitrarily small 2-generator finite index
+subgroups” [Lub86], and this was proven by Meiri [Mei17]. The analogue of
+Lubotzky’s question is open for all other commensurability classes of higher
+rank lattices, including S-arithmetic ones.
+
+7.2. The Greenberg-Shalom hypothesis and rank. We start with the
+following observation.
+
+Remark 7.2. Suppose that the Greenberg-Shalom Hypothesis 1.1 holds.
+Then for N ≥ 2 and Γ =    Q SL(2, Z[1/N ]), the Lyndon-Ullman group ∆1/N
+is a lattice in SL(2, R) × p|N SL(2, Qp ) (see Theorem 3.10). It is therefore
+a finite index 2-generated subgroup of SL(2, Z[1/N ]). This shows that the
+Greenberg-Shalom Hypothesis in at least some cases implies k = 2 even
+when the number of places is greater than 2.
+
+   Heuristically, under the Greenberg-Shalom hypothesis, for irreducible lat-
+tices Γ ⊆ G (where G consists of at least 2 factors) one should indeed have
+k = 2, and in particular, the cost of Farber chains is always 1: namely, it
+is plausible that a generic pair of elements generates an irreducible group,
+which would have finite index by Proposition 3.1. The following result shows
+that one can indeed make such an argument (with k given by the number
+of factors):
+                  the greenberg-shalom hypothesis                         22
+                                                                       Q
+Theorem 7.3. Assume the Greenberg-Shalom hypothesis. Let G = i Gi
+be a product of r ≥ 2 factors as in Standing assumptions 2.1, and assume
+Gi correspond to different places pi of Q, with pi ≤ ∞. Then any irreducible
+lattice Γ ⊆ G contains arbitrarily small r-generated finite index subgroups.
+Corollary 7.4. Assume the Greenberg-Shalom hypothesis.                 Γ =
+SL(n, Z[1/p]) contains arbitrarily small 2-generated finite index subgroups.
+   To prove Theorem 7.3, we start with some preliminaries. First, we re-
+call some facts about Jordan projections and loxodromic elements (see e.g.
+[BQ16, Chapter 6]). For a connected simple algebraic group H over a local
+field of characteristic 0, every nontrivial element admits a Jordan decom-
+position g = ge gh gu as a product of a commuting triple consisting of an
+elliptic element ge , a hyperbolic element gh , and a unipotent element gu .
+An element g ∈ H is called loxodromic if gh is regular, i.e. conjugate into
+exp a+ , where a+ is the (open) positive Weyl chamber. Any loxodromic
+element g is semisimple, i.e. gu = e, and is therefore conjugate to an ele-
+ment of the form m exp(X) where X ∈ a+ and m ∈ ZK (A) centralizes the
+maximal torus A = exp a. If H is real, then for any Zariski dense subgroup
+Θ ⊆ H, the set Θlox of loxodromic elements is also Zariski dense (and, in
+particular, nonempty) in H (see e.g. [BQ16, Theorem 6.36]). If H is p-adic,
+this is true under the additional assumption that every simple root of H
+is unbounded on the set of Cartan projections of Θ (see [BQ16, Lemma
+9.2]). These existence results will be useful to us because, by the following
+lemma, a loxodromic element and a generic element generate a Zariski dense
+subgroup.
+Lemma 7.5. Let H be a connected simple algebraic group over a local field
+of characteristic 0, and let h ∈ H be nontrivial. Assume that either
+  (i) h is loxodromic, or
+ (ii) H is nonarchimedean and h belongs to a compact, open, torsion-free
+      subgroup that is contained in the image of the exponential map.
+Then there exists a nonempty Zariski open (and in particular, open and
+dense) set S ⊆ H such that for g ∈ S, the group ⟨g, h⟩ is Zariski dense in
+H.
+   We postpone the proof of Lemma 7.5 till after that of Theorem 7.3. Hence-
+forth we will refer to the Qpi -Zariski topology on Gi simply as Q
+                                                                 the Zariski
+topology, and likewise for the product Zariski topology on G = i Gi .
+   To find elements in the Zariski open sets given by the above lemma, we
+need to establish Zariski density of suitable subsets of Γ. This is accom-
+plished by the following lemma:
+Lemma 7.6. Assume the notation of Theorem 7.3. Fix j ∈ I and let
+U ⊆ G/Gj be an open neighborhood of identity. Denote by Γj ⊆ Γ the
+subset consisting of elements γ ∈ Γ whose projection mod Gj lies in U .
+  Then
+23                 brody, fisher, mj, and van limbeek
+
+  (i) prj (Γj ) is Zariski dense in Gj , and
+ (ii) If Gj is p-adic for some p, then every simple root of Gj is unbounded
+      on the Cartan projections of prj (Γj ).
+
+  We also postpone the proof of Lemma 7.6 till after that of Theorem 7.3.
+With these preliminary facts stated, we can start the proof of Theorem 7.3
+proper:
+Proof of Theorem 7.3. Index the factors by a set of primes and possibly ∞.
+If there is no archimedean factor, relabel one of the finite primes (formally) to
+be ∞. Then for p ̸= ∞, let Kp ⊆ Gp be a compact open subgroup      Q contained
+in the image of the exponential map on Gp and set K := p̸=∞ Kp . For
+any p, let qp : G → G/Gp ∼
+                                     Q
+                                  = ℓ̸=p Gℓ be the quotient mod Gp , and define
+the subgroup ΓK := Γ ∩ q∞         −1 (K) consisting of those elements of Γ whose
+
+projection mod G∞ lies in K. By Lemma 7.6, pr∞ (ΓK ) is Zariski dense in
+G∞ , and hence contains a loxodromic element. Let a ∈ ΓK be such that
+pr∞ (a) is loxodromic.
+    We will now show that for every p ̸= ∞, there exists bp ∈ Γ such that
+   (i) ⟨a, bp ⟩ is indiscrete mod Gp , and
+  (ii) ⟨a, bp ⟩ has Zariski dense projections to G∞ and to Gp .
+Assuming existence of such bp , it is easy to see ⟨a, bp | p ̸= ∞⟩ is irreducible in
+G. Indeed, the projections mod Gp are indiscrete for p ̸= ∞ by Property (i).
+The projection mod G∞ is indiscrete because q∞ (a) belongs to the compact
+torsion-free subgroup K. Finally, projections to any factor are Zariski dense
+by Property (ii).
+    So it remains to establish existence of elements bp ∈ Γ with the above
+Properties (i) and (ii). By Lemma 7.5 above, for every factor Gℓ (including
+G∞ ) there exists an open dense set Sℓ ⊆ Gℓ such that for any gℓ ∈ Sℓ ,
+Q group ⟨gQ
+the              ℓ , prℓ (a)⟩ is Zariski dense in Gℓ . For every p ̸= ∞, Q  the set
+   ℓ̸=p Sℓ ⊆        ℓ̸=p Gℓ is open and dense, so we can choose gp ∈         ℓ̸=p Sℓ
+sufficiently close to identity so that iterated commutators of gp and qp (a)
+converge to the identity in G/Gp . Since the subsets     Q Sℓ ⊆ Gℓ , ℓ ̸= p, are
+open, there is an open neighborhood Vp of gp ∈ ℓ̸=p Gℓ such that these
+properties hold for any element of Vp . To summarize, we have that for any
+g ∈ Vp , the group ⟨g, qp (a)⟩ is indiscrete in G/Gp , and has Zariski dense
+projection to Gℓ for all ℓ ̸= p.          Q
+    Since Γ has dense projection to ℓ̸=p Gℓ , we can choose γp ∈ Γ such that
+qp (γp ) ∈ Vp . Further choose Wp ∋ e an open neighborhood of the identity
+in G/Gp such that qp (γp )Wp ⊆ Vp . Let Γp := Γ ∩ qp−1 (Wp ) consist of those
+elements of Γ whose projection mod Gp lies in Wp .
+    We now consider elements bp of the form γp ηp , where ηp ∈ Γp . For such
+elements, the projection to G∞ lies in S∞ , so ⟨a, bp ⟩ has Zariski dense pro-
+jection to G∞ . Further, iterated commutators of qp (bp ) and qp (a) converge
+to the identity in G/Gp , and they cannot terminate since then ⟨a, bp ⟩ would
+be nilpotent and in particular not Zariski dense in G∞ . This establishes
+                   the greenberg-shalom hypothesis                            24
+
+both claimed Properties (i) and (ii) of bp except the Zariski density of the
+projection to Gp , so we will now show we can choose bp to guarantee this as
+well.
+   This last property exactly means that we require prp (bp ) ∈ Sp . On the
+other hand, the possible choices of prp (bp ) are among prp (γp ) prp (Wp ). This
+latter set is Zariski dense by Lemma 7.6 (applied with U = Wp ), and since
+Sp is nonempty and Zariski open, we have Sp ∩ prp (γp ) prp (Wp ) ̸= ∅, so that
+there exists a satisfactory choice of bp .                                     □
+  Corollary 7.4 immediately follows from the proof of Theorem 7.3 above.
+
+
+7.3. Proofs of Lemma 7.5 and Lemma 7.6. We now furnish the post-
+poned proofs of Lemma 7.5 and Lemma 7.6.
+Proof of Lemma 7.5: The idea is to consider the set of elements g such that
+Ad(g) and Ad(h) have no joint invariant subspace in the Lie algebra h of
+                                                              Z
+H. Then for such g, as long as the Lie algebra of ⟨g, h⟩ is nontrivial, it
+must be all of h, and this will imply ⟨g, h⟩ is Zariski dense. However, we will
+actually work with a smaller set of g that we can prove is Zariski open.
+    To define this set, for g ∈ H and 0 < d < dim h, let Ig (d) denote the
+collection of d-dimensional Ad(g)-invariant subspaces of h, and let Ig :=
+∪d Ig (d) denote the collection of all proper Ad(g)-invariant subspaces of h.
+Note that Ig (d) is a Zariski closed subset of the Grassmannian Grd (h). Let
+Sd be the set of all elements g ∈ H such that Ad(g)Ih (d) ∩ Ih (d) = ∅,
+so the complement of Sd consists of those g ∈ H such that there exists
+x ∈ Ih (d) with gx ∈ Ih (d). Note also that, as promised, we indeed have
+Ig (d) ∩ Ih (d) = ∅ for all g ∈ Sd .
+    Let
+                        πH : H × Grd (h) × Grd (h) → H
+be the projection onto the first factor. In terms of this map, we have
+       Sdc = πH ({(g, x, gx) ∈ H × Grd (h) × Grd (h) | x, gx ∈ Ih (d)}).
+Let α : H × Grd (h) → Grd (h) denote the action map α(g, x) := gx. Then
+we have
+                  Sdc = πH (Graph(α) ∩ (H × Id (h) × Id (h))).
+Using this description, we will show that Sdc is Zariski closed. A projection
+X ×Y → X of varieties is a closed map (with respect to the Zariski topology
+on X × Y ) if Y is a projective variety, so πH is a closed map. Of course
+H × Id (h) × Id (h) is Zariski closed, so it remains to show Graph(α) is Zariski
+closed. This is a special case of the general fact that the graph of a surjective
+algebraic map F : X → Y to a projective variety Y is Zariski closed in X ×Y .
+We have shown Sd is Zariski open, and therefore so is S = ∩d Sd .
+   Next, we show that S ̸= ∅. For this, we use the following property of h
+that holds under the assumption that either h is loxodromic or sufficiently
+close to identity: there exists X ∈ h such that Ih is contained in the collection
+25                brody, fisher, mj, and van limbeek
+
+IX of ad(X)-invariant proper subspaces of h. We prove this by considering
+the cases that (i) h is loxodromic, and (ii) h is contained in a compact open
+torsion-free subgroup.
+   In Case (i), h is conjugate by some c ∈ H to an element of the form
+m exp(X), where m is elliptic and centralizes A, and X ∈ a+ is regular.
+By inspecting the action of Ad(m) and Ad(exp X) relative to the root space
+decomposition of h, we see that Im exp(X) ⊆ Iexp X and also that Iexp X = IX .
+Therefore Ih ⊆ Ic−1 exp(X)c . We can write c−1 exp(X)c = exp(Ad(c)−1 X),
+and therefore Ih ⊆ IAd(c)−1 X . This completes Case (i).
+   In Case (ii), we can write h = exp(X). Then of course any ad(X)-
+invariant subspace is Ad(h)-invariant. For the converse, note that if H is
+                   n              n→∞
+p-adic, we have hp = exp(pn X) −→ Id, and
+                                  1
+                 ad(X)v = lim       (Ad(exp(pn X)) − Id) v.
+                             n→∞ pn
+                                                                    n
+Now let V be an Ad(h)-invariant subspace. Then V is also Ad(hp )-invariant
+for any n, and by the above formula, is also ad(X)-invariant.
+   Finally, by a theorem of Bois [Boi09], the Lie algebra h is 1.5-generated,
+i.e. for every 0 ̸= A ∈ h there exists B ∈ h such that {A, B} generates h as
+a Lie algebra. Further, the set of B with this property is Zariski open (see
+[Boi09, Proposition 1.1.3]). Choose Y such that {X, Y } generates h, so that
+IX ∩ IY = ∅. Since the set of possible choices of Y is Zariski open, we can
+choose such Y that is loxodromic, i.e. Y = E + A where A is regular and E
+is elliptic centralizing the maximal torus containing A. As we commented
+before, for such elements we have Iexp Y ⊆ IA . Since exp(Y ) is loxodromic,
+Ad exp Y contracts towards IY , so that after possibly replacing Y by a large
+scalar multiple, Ad(exp Y )IX is contained in a neighborhood of IY disjoint
+from IX , so exp Y ∈ S.
+   It remains to show that for g ∈ S, the group ⟨g, h⟩ ⊆ H is Zariski dense.
+Let g ∈ S and note that ⟨g, h⟩ is infinite (because h has infinite order),
+and hence its Zariski closure has nontrivial Lie algebra, which is of course
+                                                                   Z
+⟨Ad(g), Ad(h)⟩-invariant. It follows that the Lie algebra of ⟨g, h⟩ is all of h,
+         Z
+i.e. ⟨g, h⟩ is open. However, any proper Zariski closed subgroup is nowhere
+                               Z
+dense, so we must have ⟨g, h⟩ = H.                                             □
+
+Proof of Lemma 7.6:
+Proof of (i): As U decreases, so does the Zariski closure of prj (Γj ) in Gj . By
+the Noetherian property of Gj (Lemma A.6), these Zariski closures eventu-
+ally stabilize, so we can assume stabilization has occurred at U , and denote
+the corresponding Zariski closure by Hj ⊆ Gj . Then choosing V ⊆ U sym-
+metric such that V 2 ⊆ U , it is easy to see that Hj2 ⊆ Hj and Hj−1 = Hj ,
+i.e. Hj is a group. Further, if γ ∈ Γ is fixed, we can choose Vγ ⊆ U such
+that γVγ γ −1 ⊆ U . It follows that Hj is normalized by prj (γ). Since γ ∈ Γ
+was arbitrary, we conclude that Hj is normalized by prj (Γ), which is Zariski
+                   the greenberg-shalom hypothesis                            26
+
+dense in Gj . Since Hj is Zariski closed, this implies that Hj is normal in
+Gj , and since Hj is infinite, we must have G+                                +
+                                                    j ⊆ Hj . Finally, since Gj is
+Zariski dense (see Theorem A.4.(i)), we conclude that so is Hj .
+   Proof of (ii): Let κj (Γj ) be the set of Cartan projections of prj (Γj ), and
+let α be any simple root of Gj . We need to show that α is unbounded
+on κj (Γj ). First note that prj (Γj ) is unbounded (since any sequence of
+elements whose projections converge to the identity in G/Gj must diverge
+in Gj ). Therefore κj (Γj ) is unbounded as well, and since the Weyl group
+orbit of α spans the dual a∗ , there exists a Weyl group element w ∈ W such
+that wα is unbounded on κj (Γj ).
+   By a result of Tits [Tit66], there exists a finite extension W
+                                                                f of W contained
+in G such that if w e ∈ W has image w ∈ W , then Ad( e
+                         f                                  w) coincides with the
+Weyl group action of w on a. After possibly conjugating by an element of
+A, we can assume W   f is contained in the maximal compact subgroup Kj of
+Gj . Since Γ has dense projection to Gj and Kj is open, we can choose γ ∈ Γ
+such that prj (γ) ∈ we−1 Kj , say prj (γ) = we−1 k for some k ∈ Kj . Now choose
+γn ∈ Γj converging to the identity in Gj and such that (wα)(κj (γn )) → ∞.
+For n ≫ 1, we have qj (γγn γ −1 ) ∈ U , so γγn γ −1 ∈ Γj . Let
+                               prj (γn ) = ln an ln′
+be the Cartan decomposition of prj (γn ). Then we simply compute
+                      prj (γγn γ −1 ) = w
+                                        e−1 kln an ln′ k −1 e
+                                                           w.
+           f ⊆ Kj , we see that the Cartan projection of prj (γγn γ −1 ) is
+Using that W
+given by
+                       κj (γγn γ −1 ) = w
+                                        e−1 an e
+                                              w.
+and
+                          e−1 an e
+                        α(w     w) = (wα)(γn ) → ∞.
+                                                                               □
+
+7.4. Application and question.
+Question 7.7. Let G and Γ be as in Theorem 7.3, and assume r > 2. Does
+Γ even contain a single k-generated finite index subgroup for some k < r?
+Does Γ admit arbitrarily small k-generated subgroups for some k < r? E.g.
+for k = 3 as in the results of Sarma-Venkataramana and Sarma mentioned
+above? Or even k = 2 as in Lubotzky’s question and Meiri’s theorem?
+   An elementary argument shows that if a chain of finite index subgroups
+(Γn )n admits a refinement with uniformly bounded rank (in fact o([Γ : Γn ])
+suffices), then (Γn )n has vanishing rank gradient. We include it for com-
+pleteness:
+Proposition 7.8. Let Γ be a finitely generated group. Let (Γn )n be a de-
+creasing chain of finite index normal subgroups. Let (Γ′n ) be a decreasing
+27                 brody, fisher, mj, and van limbeek
+
+chain of finite index subgroups such that Γ′n ⊆ Γn for all n, and rk(Γ′n ) ≤ r
+is uniformly bounded. Then the rank gradient of (Γn )n vanishes.
+Proof. Let ε > 0 and let m ≥ n ≥ 1 be sufficiently large (we will specify how
+large in a moment). First we bound the rank of Γ′n ∩ Γm using the trivial
+bound as a finite index subgroup of Γ′n (see Equation (7.1)), and we find
+                   rk(Γ′n ∩ Γm ) − 1 ≤ (r − 1)[Γ′n : Γ′n ∩ Γm ]
+                                     ≤ (r − 1)[Γn : Γm ],
+                                         (r − 1)
+                                     ≤             [Γ : Γm ],
+                                         [Γ : Γn ]
+where for the second estimate we used that m ≥ n so that Γm ⊆ Γn and
+Γ′n /(Γ′n ∩ Γm ) ,→ Γn /Γm . In particular, by choosing n ≥ 1 such that (r −
+1)[Γ : Γn ]−1 < ε, we see Γ′n ∩ Γm is generated by at most ε[Γ : Γm ] many
+elements. Now we need to show that by not adding too many generators,
+we can actually generate all of Γm . For this we simply use the trivial bound:
+                   rk(Γm ) ≤ [Γm : Γ′n ∩ Γm ] + rk(Γ′n ∩ Γm ).
+Since Γm /(Γ′n ∩ Γm ) ,→ Γ/Γ′n , we can estimate the first term by [Γ : Γ′n ].
+So far we have only used m ≥ n, but now take m sufficiently large so that
+[Γ : Γm ] > ε−1 [Γ : Γ′n ]. Then we have rk(Γm ) ≤ 2ε[Γ : Γm ], as desired. □
+     Therefore we have the following application of Theorem 7.3:
+Corollary 7.9. Assume the Greenberg-Shalom hypothesis, and let G be as
+in Standing Assumptions 2.1 with simple factors corresponding to different
+places of Q, and Γ ⊆ G an irreducible lattice. Then the rank gradient of Γ
+with respect to any infinite chain of finite index normal subgroups vanishes.
+
+
+   As mentioned earlier, Fraczyk-Mellick-Wilkens have proven this result
+unconditionally for higher rank lattices in real Lie groups and Mellick has
+extended this to the case of at least some products with rank one factors. It
+seems plausible (but we do not know) that their methods extend to the
+setting of lattices as in the corollary as well. Those techniques do not
+seem capable of addressing the more refined question of arbitrarily small
+k-generated finite index subgroups.
+
+ Appendix A. Background on algebraic groups, irreducibility
+                     and Venkataramana’s Lemma
+   We collect in this appendix a variety of results and proofs all of which
+depend heavily on the theory of algebraic groups. We hope this makes the
+main body of the paper more readable for audiences not familiar with these
+ideas.
+   We begin with a pair of important facts that drive our entire exploration.
+One is classical, the other elementary.
+                  the greenberg-shalom hypothesis                          28
+
+Proposition A.1. Every totally disconnected locally compact group G con-
+tains a compact open subgroup K. Furthermore G commensurates K.
+Proof. The first statement is van Dantzig’s theorem see e.g. [Pon54, Theo-
+rem 16]. The second statement can be proven by covering any conjugate of
+K by finitely many K cosets, using that K is compact and open.          □
+A.1. Preliminaries on simple algebraic groups. We will now review
+classical results in the study of simple algebraic groups used in the main
+body of the paper, and end by proving that under Standing Assumptions
+2.1, the projections of Γ are Zariski dense. We start by fixing some notation:
+Assumptions A.2. For the rest of this section, k denotes a local field of
+characteristic zero, and H denotes a connected semisimple adjoint algebraic
+group defined over k such that H(k) does not have compact factors.
+  We write H := H(k). Let us start with the following useful definition:
+Definition A.3. H + denotes the group generated by unipotent elements
+of H.
+  It is not necessary to assume k is a local field of characteristic zero, but
+the definition of H + is more difficult in general. To simplify the discussion
+and since we only need this notion for local fields of characteristic zero, we
+will only give this definition (but see e.g. [Mar91, Section I.1.5]). We have
+the following result due to Borel-Tits:
+Theorem A.4 (Borel-Tits [BT73, 6.7, 6.9, and 6.14]).
+  (i) H + ⊆ H is Zariski dense and (analytically) open. In particular H +
+      has finite index in H.
+ (ii) H + does not contain any proper subgroup of finite index. Hence every
+      finite index subgroup of H contains H + .
+   If k = R, then H + is the connected component of H that contains the
+identity (see again [BT73, 6.14]). In particular, any open subgroup of H con-
+tains H + . A nonarchimedean analogue is the following unpublished result
+of Tits, with a published proof due to Prasad:
+Theorem A.5 (Tits-Prasad [Pra82]). Assume in addition that H is almost
+simple. Then any noncompact, open subgroup of H contains H + .
+ In view of the above results, a subgroup ∆ < H is almost dense if and only
+if its closure contains H + . Since the analytic closure is contained in the
+algebraic closure and H + is Zariski dense, it follows that any almost dense
+group is Zariski dense.
+   The following general and basic fact will be used a number of times in
+the sequel. We therefore separate it out for easy reference.
+Lemma A.6. Let G be an algebraic group. Let Γ1 ⊃ Γ2 ⊃ · · · be a de-
+                                                               Z
+scending sequence of (possibly discrete) subgroups of G. Let Γi denote the
+29                brody, fisher, mj, and van limbeek
+                                                                      Z          Z
+Zariski closure of Γi in G. Then, there exists N ∈ N such that Γi         = Γj
+for all i, j ≥ N .
+                                                Z        Z
+Proof. Since Γ1 ⊃ Γ2 ⊃ · · · , it follows that Γi ⊇ Γi+1 for all i ≥ 1. Since
+       Z
+each Γi is Zariski closed, the Lemma follows from the Noetherian property
+for Zariski closed subsets of G.                                           □
+  Now, let us return to the situation of groups with almost dense commen-
+surators and prove the following straightforward lemma:
+Lemma A.7. Suppose Θ ⊆ H is an infinite subgroup with Zariski dense
+commensurator ∆. Then, possibly after passing to a finite index subgroup,
+there is a subset of factors HJ ⊆ H containing Θ and Θ ⊆ HJ is Zariski
+dense.
+Remark A.8. In the above lemma, we do not assume that Θ is a discrete
+subgroup of H.
+Proof. Consider the Zariski closures of finite index subgroups of Θ, partially
+                                                                  Z     Z
+ordered by inclusion. We say Θ′ ⊆ Θ is Zariski dense in Θ if Θ′ = Θ . By
+(Lemma A.6), there is a finite index subgroup Θ′ of Θ such that any finite
+index subgroup Θ′′ ⊆ Θ′ is Zariski dense in Θ′ . Let L be the Zariski closure
+of Θ′ in H.
+   We claim that ∆ normalizes L: Indeed, for any δ ∈ ∆, there is some finite
+index subgroup Θ′δ ⊆ Θ′ with δΘ′δ δ −1 ⊆ Θ′ . Since both Θ′δ and δΘ′δ δ −1 are
+Zariski dense in Θ′ , it follows that δ normalizes L. Since ∆ is Zariski dense
+and L is Zariski closed, it follows that H normalizes L. Since H is adjoint,
+we have L = HJ for some collection of factors J.
+   Finally, we conclude that Θ is contained in HJ : Indeed, the image of Θ in
+the remaining factors HJ c is finite and normalized by the projection prJ c (∆).
+A finite index subgroup ∆′ of ∆ has projection to HJ c that centralizes the
+image of Θ and is still Zariski dense, so that the image of Θ is central in
+HJ c . Finally, since H is adjoint, HJ c is centerless.                       □
+Remark A.9. The proof does not use the analytic topology on k, so the
+statement is still true if k is a number field.
+Lemma A.10. If G is as in Standing Assumptions 2.1 and Γ is a dis-
+crete subgroup with unbounded projection to each factor and almost dense
+commensurator, then for every i ∈ I, the projection pri (Γ) ⊆ Gi is Zariski
+dense.
+Proof. By assumption pri (Γ) has almost dense (and hence Zariski dense)
+commensurator. Since pri (Γ) is unbounded, it is infinite, so Lemma A.7
+implies it is Zariski dense.                                         □
+   We end this subsection by giving the general proof of our key lemma
+relating irreducibility and commensurators.
+                   the greenberg-shalom hypothesis                             30
+
+Proof of Lemma 2.11. Since GJ c × K is commensurated by G, we see that
+ΓK is commensurated by Γ. Since Γ is discrete in G, we see that ΓK is
+discrete in GJ c × K and since K is compact πJ c (ΓK ) is discrete in GJ c .
+Let I ⊂ J c be any subset of indices. Assuming πI (ΓK ) is discrete, we
+will show that this implies πI×J (Γ) is discrete, contradicting irreducibility.
+Take a sequence γi ∈ Γ such that πI×J (γi ) → 1. Then it is also true that
+prJ (γi ) → 1 or that γi is eventually in ΓK . Since we assume ΓK is discrete in
+GI×J this implies that γi is eventually the identity, the desired contradiction
+to irreducibility.
+   Now we consider the Zariski closure L of prJ c (ΓK ). Since Γ has dense
+projection in GJ and commensurates ΓK , we see L is normalized by GJ . By
+Lemma A.7, L is a product of factors of GJ . Thus there is an isomorphic
+projection of L onto some subcollection of factors GI of GJ . Since ΓK is
+discrete and contained in its own Zariski closure, this implies the projection
+of ΓK to GI is discrete. As above this is a contradiction unless I = J, in
+which case ΓK is Zariski dense.                                               □
+
+A.2. Further theory of p-adic Lie groups. We will now discuss some
+standard material on p-adic Lie groups that we need. A good reference
+containing this material is [Ser06]. For p a prime, the field Qp of p-adic
+numbers is the completion of Q with respect to the norm ∥xpk ∥p := p−k
+where k ∈ Z and x ∈ Q has numerator and denominator coprime to p. Qp
+is a locally compact field of characteristic zero.
+   A p-adic analytic manifold of dimension n is a topological space with an
+atlas of charts valued in Qnp , such that transition functions are analytic. It is
+a p-adic Lie group if group multiplication and inversion are analytic maps.
+In particular Qnp (as well as its open subgroup Znp ) and GL(n, Qp ) are p-adic
+analytic groups. Several pertinent results behave as for real Lie groups:
+Theorem A.11 (Cartan’s subgroup theorem [Ser06, Corollary, p. 155]).
+Any closed subgroup of a p-adic Lie group is itself a p-adic Lie group.
+   In particular, the Qp -points of an algebraic group, which is a closed sub-
+group of GL(N, Qp ) for some N , forms a p-adic Lie group.
+   Further, p-adic groups have Lie algebras. See [Ser06, Section V.1] for the
+construction of Lie algebras for p-adic groups.
+   A key difference between p-adic and real Lie groups is the structure of
+open neighborhoods of identity: For connected real Lie groups, any open
+neighborhood of identity generates the entire group. However, in the p-adic
+setting, already Zp ⊆ Qp is an open subgroup. Furthermore, the decreasing
+sequence of subgroups pk Zp , k ≥ 0, form a basis of the topology at the
+identity. Similarly, GL(n, Zp ) ⊆ GL(n, Qp ) is a compact open subgroup, and
+the congruence subgroups GL(n, Zp )[pk ] := ker(GL(n, Zp ) → GL(n, Z/pk Z))
+form a basis of compact open subgroups at the identity.
+   Therefore any p-adic linear group G admits a basis at the identity con-
+sisting of compact open subgroups, namely G ∩ GL(n, Zp )[pk ], k ≥ 1. (The
+31                brody, fisher, mj, and van limbeek
+
+assumption that the group be linear is actually superfluous, but we will not
+need the result in this increased generality.)
+   Open subgroups as above yield an especially strong form of the Lie group-
+Lie algebra correspondence over the p-adics:
+Theorem A.12 (p-adic Lie group-Lie algebra correspondence (see [Ser06,
+Theorem 3, p. 152, and Corollary 1, p. 156])). Two p-adic Lie groups
+have isomorphic Lie algebras if and only if they contain isomorphic open
+subgroups.
+   Every finite-dimensional p-adic Lie algebra is realized by a p-adic Lie
+group.
+   Note that in [Ser06], the language of analytic group chunks is used, but in
+the case of p-adics, every analytic group chunk contains an open subgroup
+(see [Ser06, Corollary 1, p. 117] and also [Ser06, Corollary, p. 141]), yielding
+the above simplified formulation of the correspondence.
+   A last fact we will need is the metric behavior of power maps µd : x 7→
+xd , d ≥ 1, near identity:
+Proposition A.13. Let G be a linear p-adic group and d ≥ 1. Then on a
+sufficiently small neighborhood U of identity, the map x 7→ xd is
+  (i) a contraction if p | d, and
+ (ii) an isometry if p, d are coprime.
+  In fact, as the proof will show, it suffices to take U to be the first con-
+gruence subgroup. The statement is also true more generally for all p-adic
+groups, but we will not need it.
+Proof. Write G ⊆ GL(N, Qp ). We work with the induced metric from
+M (N, Zp ) given by the maximal distance between entries. Then an ele-
+ment with distance p−k to the identity is of the form 1 + pk A for some
+A ∈ M (N, Zp ) that is not divisible by p. For (i), note that
+                     (1 + pk A)p = 1 + pk+1 A + O(p2k ),
+which is at distance p−(k+1) from identity. So the pth power map is a
+contraction.
+  On the other hand, for (ii), we have
+                      (1 + pk A)d = 1 + pk dA + O(p2k ),
+which remains at distance p−k from the identity. So dth power preserves
+distance to the identity.                                            □
+A.3. Notions of irreducibility. In this subsection we prove Proposition
+2.10 showing that irreducibility and strong irreducibility are equivalent. Re-
+call that for a subset of factors J ⊊ I, we write prJ : G → GJ for the natural
+projection. Our goal will be to prove that projections of irreducible groups
+to proper subsets of factors do not merely fail to be discrete, but are in fact
+almost dense:
+                   the greenberg-shalom hypothesis                           32
+
+Proposition A.14. Let Γ ⊆ G be discrete and irreducible. Then for any
+proper subset J ⊊ I, the closure prJ (Γ)contains G+
+                                                  J.
+  We will often use the following observation without explicit comment:
+Remark A.15. For a connected semisimple algebraic group H defined over
+a field k of characteristic zero, passing from H(k) to H(k)+ commutes with
+restriction of scalars (see [Mar91, Section I.1.7]), so that (Rp G)+ = G+
+                                                                        p.
+Proof of Proposition 2.10 from Proposition A.14. Recall that we defined Γ
+to be strongly irreducible if it has almost dense projections. Since G+
+                                                                      J ⊆ GJ
+has finite index by Theorem A.4.(i), we see that Proposition A.14 shows that
+any irreducible group is strongly irreducible. Conversely, since for all p, G+
+                                                                             p
+is Qp -Zariski dense in Gp by Theorem A.4.(i), the projection of a strongly
+irreducible group to Gp is Qp -Zariski dense (and indiscrete), and therefore
+any strongly irreducible group is, as the name suggests, irreducible.        □
+   We start by proving Proposition 2.10 in the ‘pure’ case where all factors
+of J are analytic over the same field. We will actually prove the following
+stronger statement that will be used in the general case.
+Lemma A.16. Let Γ ⊆ G be discrete and irreducible. Let p be a finite
+prime or ∞ and let H ⊆ Gp be a closed, indiscrete subgroup normalized by
+Γ. Then there is a subset IH ⊆ Ip such that G+
+                                             IH is an open subgroup of H.
+Proof. Since H is a closed subgroup of the analytic group Gp , its Lie algebra
+h is well-defined, and since H is not discrete, h is nontrivial. Since h is
+Ad(prIp (Γ))-invariant and prIp (Γ) is Qp -Zariski dense in Gp , it follows that
+h is an ideal in the Lie algebra of Gp . Hence there is a nonempty subset
+IH ⊆ Ip such that h = ⊕i∈IH gi . We will show that H contains G+      IH .
+   To start, note that H ∩ GIH is open and closed in GIH . Openness fol-
+lows from the fact that H ∩ GIH has the same Lie algebra as GIH . In the
+archimedean case, H therefore contains the connected component of iden-
+tity, which coincides with G+ IH . In the nonarchimedean case, it suffices to
+prove H ∩ Gi is noncompact for every i ∈ IH , since then Theorem A.5 shows
+that H ∩ Gi contains G+ i . To establish noncompactness, note that H ∩ Gi is
+normalized by pri (Γ), which is unbounded by Lemma 2.9). Now notice that
+any bounded open subgroup O has bounded normalizer by an application of
+the Bruhat-Tits fixed point theorem. Openness implies that the fixed set of
+O in the Bruhat-Tits building is itself bounded and so the normalizer fixes
+its barycenter. So H ∩ Gi must be unbounded as well.                          □
+Remark A.17. In the pure case, the the above lemma indeed shows irre-
+ducibility implies strong irreducibility: Letting Γ be discrete and irreducible,
+J ⊊ I, and taking H := prJ (Γ), the above Lemma gives a subset IH ⊆ J
+such that G+   IH ⊆ H is open. In fact we must have IH = J: Since H/GIH
+                                                                             +
+
+is finite, if there exists j ∈ J\IH , then prj (H) and hence prj (Γ) would be
+discrete, but this contradicts irreducibility of Γ. This shows G+  J ⊆ prJ (Γ)
+and hence the latter has finite index in GJ .
+33                 brody, fisher, mj, and van limbeek
+
+  We will complete the proof of Proposition 2.10 in the general, possibly
+mixed, case.
+Proof. Write J = ⊔p∈PJ Jp where Jp consists of the Qp -analytic factors in J
+and PJ is a finite subset of primes and possibly ∞. Let H denote the closure
+of prJ (Γ). By passing to a finite index subgroup of Γ, we can assume that
+H ⊆ G+                                    +
+        J and we aim to show H = GJ . First, suppose that the connected
+component of identity H ◦ of H is nontrivial (so that necessarily J∞ ̸= ∅).
+We apply Lemma A.16 to the subgroup H ◦ and obtain that there is a subset
+JH,∞ ⊆ J∞ such that G+               ◦
+                         JH ,∞ ⊆ H is open. Therefore we can project to the
+factors given by J\JH,∞ and assume JH,∞ = ∅.
+   We will aim to show that after the above reduction, PJ consists of finite
+primes and H contains G+     Jp for every p ∈ PJ . Since H is locally compact
+and totally disconnected, it contains a compact open subgroup K. Because
+K is compact and totally disconnected, its image in GJ∞ is finite, so that by
+possibly shrinking K, we can assume K projects trivially to the archimedean
+factors GJ∞ and therefore H has discrete projection. However, this is im-
+possible because the projection of Γ ⊆ H to GJ∞ is indiscrete, so we must
+have J∞ = ∅.
+   It remains to show that H contains G+    Jp for every p ∈ PJ . For any integer
+                              d
+d define a map µd : x 7→ x of K to itself. Let Kp be the projection of K
+to GJp for p ∈ PJ . By possibly shrinking K further, we can assume that
+the mapQ µp is a contraction on Kp for all p ∈QPJ . Then we claim that
+K = p∈PJ Kp . Indeed, let k = (kp )p ∈ K ⊆ p Kp . Fix p and let d be
+the product of the remaining primes. Since µd is an isometry on Kp but a
+contraction on Kℓ for all ℓ ̸= p, there is some sequence nm → ∞ such     Q that
+ d nm      nm                           dnm
+kp     = µd (kp ) → kp and hence k           → (kp , e, . . . , e) ∈ Kp × ℓ̸=p Kℓ .
+Since K is closed, we see that Kp ⊆ K for all p ∈ PJ , as desired.
+   Further, we claim that Kp is nondiscrete for all p ∈ PJ . Indeed, if the
+image of K in GJp is discrete, then so is the image of H. This follows since
+K contains the intersection of πJp (Γ) with an open neighborhood of the
+identity in GJp . Since we know Γ has Q nondiscrete image this is impossible.
+Since Kp is nondiscrete and K = p Kp is contained in H, it follows that
+for every p, the intersection H ∩ GJp is nondiscrete. We apply Lemma A.16
+to the subgroup H ∩ GJp and obtain that for every p ∈ PJ , there is a subset
+JH,p ⊆ Jp such that G+  JH ,p ⊆ H is open.
+   Set JH := ⊔p∈PJ JH,p . To complete the proof, we show JH = J: We have
+shown above that G+   JH is an open subgroup of H, so the image of H in the
+complementary factors GJ\JH is discrete. This contradicts irreducibility of
+Γ.                                                                              □
+
+A.4. A lemma of Venkataramana. In this subsection we prove Lemma
+A.18 below, which we have used in the proof of Proposition 3.1. The argu-
+ment below is similar to the proof of a lemma of Venkataramana’s first stated
+as [LZ01, Lemma 2.3] and generalized in [FMvL24, Lemma 4.1]. The latter
+                    the greenberg-shalom hypothesis                                 34
+
+applies to subgroups Γ of S-arithmetic lattices containing a T -arithmetic
+lattice for T ⊆ S. Here we need a slightly different version where Γ is not
+given as a subgroup of a lattice, so we include it for completeness. Unlike
+the citations above, what we need here does not requires any approximation
+theorems. We shall use the following notation that is based on the proof of
+Proposition 3.1:
+    (1) G is as in Proposition 3.1.
+    (2) Γ ⊆ G is a discrete and irreducible subgroup.
+    (3) Gna is a non-empty product of nonarchimedean factors of G.
+    (4) G0 is the product of the other factors of G and assume that G0 is
+         non-trivial.
+    (5) Kna ⊆ G+  na is a maximal compact open subgroup.
+    (6) prna denotes the projection to Gna .
+    (7) Γna ⊆ Γ denotes the subgroup that maps into Kna under the projec-
+         tion prna to Gna .
+    (8) pr0 denotes the projection to G0 .
+Lemma A.18. Let G, Γ, Gna , G0 , Kna , Γna , pr0 be as above. Assume that
+    • prna (Γna ) is dense in Kna .
+    • pr0 (Γna ) is a lattice in G0 .
+Then Γ ⊆ G is a lattice.
+Proof. By passing to a finite index subgroup, we can assume without loss
+of generality that Γ ⊆ G+ . Let F ⊆ G+     0 be a fundamental domain for
+                           +
+the lattice pr0 (Γna ) ⊆ G0 . As in Venkataramana’s lemma and [FMvL24,
+Lemma 4.1], to show Γ ⊆ G is a lattice, we will show that F × Kna is a
+fundamental domain for Γ ⊆ G+ .
+   First we show the Γ-translates of F × Kna are disjoint: If γ(F × Kna ) ∩
+(F × Kna ) ̸= ∅, then by projecting to the second factor and using that Kna
+is a group, we see that γ ∈ Kna , and hence γ ∈ Γna . But then by projecting
+to the first factor, we see that γF ∩ F ̸= ∅, and since F is a fundamental
+domain for Γna , we conclude that γ = e.
+   Next, we show that Γ(F × Kna ) = G. Since Kna is prna (Γna )-invariant
+and F ⊆ G0 is a fundamental domain for pr0 (Γna ), it suffices to show that
+prna (Γ)Kna = G. But this is immediate because prna (Γ) ⊆ G+ na is dense and
+Kna is open.                                                               □
+
+                                   References
+[AGN17]   M. Abert, T. Gelander, and N. Nikolov. Rank, combinatorial cost, and homol-
+          ogy torsion growth in higher rank lattices. Duke Math. J., 166(15):2925–2964,
+          2017.
+[AN12]    M. Abért and N. Nikolov. Rank gradient, cost of groups and the rank versus
+          Heegaard genus problem. J. Eur. Math. Soc. (JEMS), 14(5):1657–1677, 2012.
+[AOP+ 20] H. Akiyoshi, K. Ohshika, J. Parker, M. Sakuma, and H. Yoshida. Classification
+          of non-free Kleinian groups generated by two parabolic transformations. 2020.
+          arXiv:2001.09564.
+35                  brody, fisher, mj, and van limbeek
+
+[BBN59]  Gilbert Baumslag, W. W. Boone, and B. H. Neumann. Some unsolvable prob-
+         lems about elements and subgroups of groups. Math. Scand., 7:191–201, 1959.
+[BFMS23] Uri Bader, David Fisher, Nicholas Miller, and Matthew Stover. Arithmeticity,
+         superrigidity and totally geodesic submanifolds of complex hyperbolic mani-
+         folds. Invent. Math., 233(1):169–222, 2023.
+[BM96]   M. Burger and S. Mozes. CAT(-1)-spaces, divergence groups and their com-
+         mensurators. J. Amer. Math. Soc., 9(1):57–93, 1996.
+[BM00a] M. Burger and S. Mozes. Groups acting on trees: from local to global structure.
+         Inst. Hautes Études Sci. Publ. Math., (92):113–150 (2001), 2000.
+[BM00b] M. Burger and S. Mozes. Lattices in product of trees. Inst. Hautes Études Sci.
+         Publ. Math., (92):151–194 (2001), 2000.
+[Boi09]  J.-M. Bois. Generators of simple Lie algebras in arbitrary characteristics. Math.
+         Z., 262(4):715–741, 2009.
+[Bor66]  A. Borel. Density and maximality of arithmetic subgroups. J. Reine Angew.
+         Math., 224:78–89, 1966.
+[BQ16]   Y. Benoist and J.-F. Quint. Random walks on reductive groups, volume 62
+         of Ergebnisse der Mathematik und ihrer Grenzgebiete. 3. Folge. A Series of
+         Modern Surveys in Mathematics [Results in Mathematics and Related Areas.
+         3rd Series. A Series of Modern Surveys in Mathematics]. Springer, Cham,
+         2016.
+[BR84]   G. Baumslag and J. Roseblade. Subgroups of direct products of free groups. J.
+         London Math. Soc. (2), 30(1):44–52, 1984.
+[Bre55]  J. L. Brenner. Quelques groupes libres de matrices. C. R. Acad. Sci. Paris,
+         241:1689–1691, 1955.
+[BT73]   A. Borel and J. Tits. Homomorphismes “abstraits” de groupes algébriques
+         simples. Ann. of Math. (2), 97:499–571, 1973.
+[BU23]   Gregorio Baldi and Emmanuel Ullmo. Special subvarieties of non-arithmetic
+         ball quotients and Hodge theory. Ann. of Math. (2), 197(1):159–220, 2023.
+[Bur16]  D        Burde.       https://math.stackexchange.com/questions/1616270/
+         even-orthogonal-lie-algebra-d2. Stack Exchange Network, 2016.
+[Cal61]  E. Calabi. On compact, Riemannian manifolds with constant curvature. I. In
+         Proc. Sympos. Pure Math., Vol. III, pages 155–180. American Mathematical
+         Society, Providence, R.I., 1961.
+[Cor92]  Kevin Corlette. Archimedean superrigidity and hyperbolic geometry. Ann. of
+         Math. (2), 135(1):165–182, 1992.
+[CRRZ22] Pietro Corvaja, Andrei S. Rapinchuk, Jinbo Ren, and Umberto M. Zannier.
+         Non-virtually abelian anisotropic linear groups are not boundedly generated.
+         Invent. Math., 227(1):1–26, 2022.
+[DFH22] A. S. Detinko, D. L. Flannery, and A. Hulpke. Freeness and S-arithmeticity of
+         rational Möbius groups. 2022. arXiv:2203.17201.
+[EG18]   Hélène Esnault and Michael Groechenig. Cohomologically rigid local systems
+         and integrality. Selecta Math. (N.S.), 24(5):4279–4292, 2018.
+[FLSS18] D. Fisher, M. Larsen, R. Spatzier, and M. Stover. Character varieties and
+         actions on products of trees. Israel J. Math., 225(2):889–907, 2018.
+[FMvL24] David Fisher, Mahan Mj, and Wouter van Limbeek. Commensurators of normal
+         subgroups of lattices. J. Éc. polytech. Math., 11:1099–1122, 2024.
+[FMW23] M. Fraczyk, S. Mellick, and A. Wilkens. Poisson-Voronoi tessellations and fixed
+         price in higher rank. 2023. arXiv:2307.01194.
+[Gab00]  D. Gaboriau. Coût des relations d’équivalence et des groupes. Invent. Math.,
+         139(1):41–98, 2000.
+                     the greenberg-shalom hypothesis                                    36
+
+[Gar66]  H. Garland. On deformations of lattices in Lie groups. In Algebraic Groups and
+         Discontinuous Subgroups (Proc. Sympos. Pure Math., Boulder, Colo., 1965),
+         pages 400–404. Amer. Math. Soc., Providence, R.I., 1966.
+[GR70]   H. Garland and M. S. Raghunathan. Fundamental domains for lattices in (R-
+         )rank 1 semisimple Lie groups. Ann. of Math. (2), 92:279–326, 1970.
+[Gre74]  L. Greenberg. Commensurable groups of Moebius transformations. In Discon-
+         tinuous groups and Riemann surfaces (Proc. Conf., Univ. Maryland, College
+         Park, Md., 1973), pages 227–237. Ann. of Math. Studies, No. 79, 1974.
+[GS92]   Mikhail Gromov and Richard Schoen. Harmonic maps into singular spaces and
+         p-adic superrigidity for lattices in groups of rank one. Inst. Hautes Études Sci.
+         Publ. Math., (76):165–246, 1992.
+[HM23]   J. Huang and M. Mj. Indiscrete common commensurators. to appear in Israel
+         Journal of Mathematics, arXiv:2310.04876, 2023.
+[Hru20]  E. Hrushovski. Beyond the Lascar group. 2020. arXiv:2011.12009.
+[KK22]   S.-H. Kim and T. Koberda. Non-freeness of groups generated by two parabolic
+         elements with small rational parameters. Michigan Math. J., 71(4):809–833,
+         2022.
+[KM21]   Thomas Koberda and Mahan Mj. Commutators, commensurators, and
+         PSL2 (Z). J. Topol., 14(3):861–876, 2021.
+[KM24]   Thomas Koberda and Mahan Mj. Commensurators of thin normal subgroups
+         and abelian quotients. Algebr. Geom. Topol., 24(4):2149–2170, 2024.
+[Kna69]  A. W. Knapp. Doubly generated Fuchsian groups. Michigan Math. J., 15:289–
+         304, 1969.
+[Lac05]  M. Lackenby. Expanders, rank and graphs of groups. Israel J. Math., 146:357–
+         370, 2005.
+[LLR11] C. Leininger, D. Long, and A. Reid. Commensurators of finitely generated
+         nonfree Kleinian groups. Algebr. Geom. Topol., 11(1):605–624, 2011.
+[LU69]   R. C. Lyndon and J. L. Ullman. Groups generated by two parabolic linear
+         fractional transformations. Canadian J. Math., 21:1388–1403, 1969.
+[Lub86]  A. Lubotzky. Dimension function for discrete groups. In Proceedings of
+         groups—St. Andrews 1985, volume 121 of London Math. Soc. Lecture Note
+         Ser., pages 254–262. Cambridge Univ. Press, Cambridge, 1986.
+[LZ01]   A. Lubotzky and R. Zimmer. Arithmetic structure of fundamental groups and
+         actions of semisimple Lie groups. Topology, 40(4):851–869, 2001.
+[Mac23a] S. Machado. Approximate lattices in higher-rank semi-simple groups. Geom.
+         Func. Anal., 2023.
+[Mac23b] Simon Machado. Approximate lattices: structure in linear groups, definition(s)
+         and beyond. preprint arXiv:2306.09899, 2023.
+[Mag73] W. Magnus. Rational representations of Fuchsian groups and non-parabolic
+         subgroups of the modular group. Nachr. Akad. Wiss. Göttingen Math.-Phys.
+         Kl. II, pages 179–189, 1973.
+[Mar75]  G. Margulis. Discrete groups of motions of manifolds of nonpositive curvature.
+         In Proceedings of the International Congress of Mathematicians (Vancouver,
+         B.C., 1974), Vol. 2, pages 21–34, 1975.
+[Mar91]  G. Margulis. Discrete subgroups of semisimple Lie groups, volume 17 of Ergeb-
+         nisse der Mathematik und ihrer Grenzgebiete (3) [Results in Mathematics and
+         Related Areas (3)]. Springer-Verlag, Berlin, 1991.
+[Mei17]  C. Meiri. Generating pairs for finite index subgroups of SL(n, Z). J. Algebra,
+         470:420–424, 2017.
+[Mel23]  S. Mellick. Gaboriau’s criterion and fixed price one for locally compact groups.
+         arXiv:2307.11728, 2023.
+[Mj11]   M. Mj. On discreteness of commensurators. Geom. Topol., 15(1):331–350, 2011.
+37                 brody, fisher, mj, and van limbeek
+
+[MR03]    Colin Maclachlan and Alan W. Reid. The arithmetic of hyperbolic 3-manifolds,
+          volume 219 of Graduate Texts in Mathematics. Springer-Verlag, New York,
+          2003.
+[Pon54]   L. S. Pontryagin. Nepreryvnye gruppy. Gosudarstv. Izdat. Tehn.-Teor. Lit.,
+          Moscow, 1954. 2d ed.
+[Pra82]   Gopal Prasad. Elementary proof of a theorem of Bruhat-Tits-Rousseau and of
+          a theorem of Tits. Bull. Soc. Math. France, 110(2):197–202, 1982.
+[Rag67]   M. S. Raghunathan. Cohomology of arithmetic subgroups of algebraic groups.
+          II. Ann. of Math. (2), 87:279–304, 1967.
+[San47]   I. N. Sanov. A property of a representation of a free group. Doklady Akad.
+          Nauk SSSR (N. S.), 57:657–659, 1947.
+[San81]   J.-J. Sansuc. Groupe de Brauer et arithmétique des groupes algébriques
+          linéaires sur un corps de nombres. J. Reine Angew. Math., 327:12–80, 1981.
+[Sar06]   R. Sarma. On virtual 3-generation of S-arithmetic subgroups of SL2 . Asian J.
+          Math., 10(4):749–756, 2006.
+[Sco73]   G. P. Scott. Finitely generated 3-manifold groups are finitely presented. J.
+          London Math. Soc. (2), 6:437–440, 1973.
+[Sel60]   Atle Selberg. On discontinuous groups in higher-dimensional symmetric spaces.
+          In Contributions to function theory (internat. Colloq. Function Theory, Bom-
+          bay, 1960), pages 147–164. Tata Institute of Fundamental Research, Bombay,
+          1960.
+[Ser74]   J.-P. Serre. Problems. In Proc. Conf. Canberra (1973), volume 372 of Lecture
+          Notes in Math., pages 734–735. Springer, Berlin, 1974.
+[Ser06]   Jean-Pierre Serre. Lie algebras and Lie groups, volume 1500 of Lecture Notes
+          in Mathematics. Springer-Verlag, Berlin, 2006. 1964 lectures given at Harvard
+          University, Corrected fifth printing of the second (1992) edition.
+[Sta63]   John Stallings. A finitely presented group whose 3-dimensional integral homol-
+          ogy is not finitely generated. Amer. J. Math., 85:541–543, 1963.
+[SV05]    R. Sharma and T. N. Venkataramana. Generations for arithmetic groups.
+          Geom. Dedicata, 114:103–146, 2005.
+[SW13]    Y. Shalom and G. Willis. Commensurated subgroups of arithmetic groups, to-
+          tally disconnected groups and adelic rigidity. Geom. Funct. Anal., 23(5):1631–
+          1683, 2013.
+[Tit66]   J. Tits. Normalisateurs de tores. I. Groupes de Coxeter étendus. J. Algebra,
+          4:96–116, 1966.
+[Ven87]   T. N. Venkataramana. Zariski dense subgroups of arithmetic groups. J. Algebra,
+          108(2):325–339, 1987.
+[Wis20]   D. T. Wise. An invitation to coherent groups. In What’s next?—the mathemat-
+          ical legacy of William P. Thurston, volume 205 of Ann. of Math. Stud., pages
+          326–414. Princeton Univ. Press, Princeton, NJ, 2020.
+[Yaa25]   Rotem Yaari. Long relators in groups generated by two parabolic elements.
+          Groups, Geometry and Dynamics, Online First, 2025.
+[Zim84]   R. Zimmer. Ergodic theory and semisimple groups, volume 81 of Monographs
+          in Mathematics. Birkhäuser Verlag, Basel, 1984.
+

@@ -1,0 +1,503 @@
+Snapsho t s o f m o d e r n m athematics                                        № 5/2025
+from Ob e r wo l f a c h
+
+
+
+
+                             Tr isections of
+                       four-dimensional spaces
+
+
+                                    Sarah Blackwell 1
+
+
+
+
+       This snapshot introduces the theory of trisections of
+       smooth 4-manifolds, an area of exploration in low-
+       dimensional topology aiming to make four-dimensional
+       spaces more understandable. Along the way, we dis-
+       cuss the concepts of topology, dimension, manifolds,
+       and more!
+
+1 T h e myster ious four th dimension
+
+Four-dimensional spaces are notoriously hard to study. One might think that
+the higher the dimension, the harder it is to study, but strangely enough, this is
+not the case. 2 Above dimension 4, loosely speaking, there is enough “room” to
+study these spaces by moving around lower-dimensional spaces within them. 3
+Dimensions 1, 2, and 3 have the benefit of being easy to visualize, and much
+work has been done classically in these dimensions. However, dimension 4
+remains mysterious, acting as a sort of “phase change” between lower and higher
+dimensions: it is both too big and not big enough.
+
+ 1 The author would like to thank the Max Planck Institute for Mathematics in Bonn for
+
+its financial support and hospitality, Arunima Ray for her mentorship and careful reading of
+an initial draft, and the snapshot editors for their suggestions. She is supported by an NSF
+Postdoctoral Fellowship under the grant DMS-2303143.
+ 2 From certain perspectives. The author discloses that she does not personally study
+
+dimensions higher than four and is thus highly biased.
+ 3 This is a vague reference to a theorem called the h-cobordism theorem.
+
+
+
+
+                                             1
+Figu r e 1 : A coffee mug morphing continuously into a doughnut. A very nice
+              animation of this can be found at the top of the Wikipedia page for
+              homeomorphism [30].
+
+
+   The study of the fourth dimension is of inherent interest to pure mathemati-
+cians, but there are applications of this study outside of theoretical mathematics
+as well. For instance, physicists use four-dimensional space to model space-time,
+with three dimensions representing “space” and one dimension representing
+“time”. So, research that helps demystify the fourth dimension is of broad
+interest to the scientific community.
+
+
+2 Setting the stage
+
+One subfield of pure mathematics that is especially invested in the study of the
+fourth dimension is low-dimensional topology, where dimensions 4 and less count
+as “low”. Topology is the study of continuous deformations of geometric objects;
+a long-running joke says that topologists cannot tell the difference between a
+doughnut and a coffee mug, because (if they were made out of playdough) one
+could be molded continuously (without breaking or gluing) into the other, as
+in Figure 1.
+
+2.1 T h e m a i n c h a ra c t e r s : m a n i f o l d s
+
+The main characters in the field of low-dimensional topology, that is, the objects
+primarily being studied, are called “manifolds”. Of all of the kinds of geometric
+objects that might exist, manifolds are particularly nice, as they have certain
+properties that make them appealing and accessible for research. They are also
+natural in some sense, showing up in other disciplines, such as physics, and
+“real world” situations, as we will see shortly.
+    Readers may recall the term Euclidean space from a high school or college
+mathematics course. One-dimensional Euclidean space is a line extending
+infinitely in both directions. If one chooses an origin, one can associate a real
+number to each point on the line. That is why one-dimensional Euclidean space
+is also called the real number line. Two-dimensional Euclidean space may be
+particularly familiar; this is the plane on which equations are graphed using
+Cartesian coordinates. In other words, the plane is obtained by taking two real
+
+
+                                                      2
+Figure 2 : From left to right: models for one-, two-, and three-dimensional
+            Euclidean space. Each is built from the previous one by adding a
+            new axis.
+
+
+number lines and intersecting them at their origin. The position of each point
+in the plane is then determined by two real numbers, read from the two axes.
+Three-dimensional Euclidean space takes the Cartesian plane and adds a third
+axis; see Figure 2. Beyond three dimensions, we lose the ability to visualize this
+space, but the definition can be extended similarly. Four-dimensional Euclidean
+space is thus spanned by four axes, and one needs four real numbers to locate a
+point in four-dimensional space.
+    Euclidean space is, in some sense, extremely manageable. For instance, this
+is the setting in which we learn calculus. Manifolds are, in some sense, the next
+best thing; these are objects which locally look like Euclidean space, even though
+they might globally look like something else. This means that around each point
+on a manifold, there is a small region that can be continuously deformed (like
+the coffee mug in Figure 1) so that it looks like a region in Euclidean space.
+For example, the surface of the Earth is a two-dimensional 4 manifold called a
+sphere. The reason is that locally, the Earth looks like a flat plane; when we
+stand on the Earth’s surface and look in all directions, it looks flat to us, and
+indeed humanity thought the Earth was flat for a large part of our existence.
+However, we now know that the Earth is indeed curved, and if we were to view
+the Earth from outer space, we could see this curvature; see Figure 3.
+    Two important types of manifolds, which often serve as building blocks for
+constructing more complicated manifolds, are genus g surfaces and handlebodies.
+Surfaces are two-dimensional manifolds described as follows. The genus 0 surface
+is the sphere, and the genus 1 surface is the torus, which resembles an inner tube.
+
+ 4 Some readers may object to “two-dimensional”, as opposed to “three-dimensional”. This
+
+is because outside of research mathematics, it is a common practice to refer to spheres (and
+certain other shapes) as three-dimensional because they are being thought of as sitting inside
+three-dimensional space. However, inherently the sphere is a two-dimensional object because
+it locally looks like a plane, which is two-dimensional Euclidean space. It should also be noted
+that while the surface of the Earth is a two-dimensional space, the Earth itself (including all
+the stuff below the surface) is three-dimensional.
+
+
+                                               3
+Figu r e 3 : An observer (not to scale) standing on the surface of the Earth,
+              which is a sphere. A small region around the observer is a disk, and
+              although in reality it is curved like a contact lens, it can be flattened
+              out continuously to look like a region in two-dimensional Euclidean
+              space.
+
+
+For g > 0, genus g surfaces are obtained by sticking g copies of the torus together;
+see Figure 4 (top row). The non-negative integer g then counts the number of
+“holes” in the surface. A handlebody is a three-dimensional manifold obtained
+by “filling in” a two-dimensional genus g surface; see Figure 4 (bottom row).
+
+
+2.2 Two f l avo r s : s m o o t h ve r s u s t o p o l o g i c a l
+
+There are some other technicalities involved in the precise definition of a
+manifold, but for this article, it is mostly enough to think of manifolds as objects
+that locally look like Euclidean space. However, when thinking about four-
+dimensional manifolds, or 4-manifolds, there is one other technical consideration
+to take into account. There are different flavors of manifolds, and two of the most
+important types to consider in this dimension are called smooth and topological.
+In dimensions 1, 2, and 3, there is no difference between a smooth and a
+topological manifold, 5 but in dimension 4, there can be quite a large difference,
+and in fact, this is one of the reasons why dimension 4 is so mysterious!
+   The distinction between the two – in a very broad sense – is that we can do
+calculus on smooth manifolds, but not on topological manifolds. All smooth
+manifolds are also topological manifolds, but not all topological manifolds are
+smooth manifolds; topological manifolds allow “corners” which mess up our
+ability to do calculus. Readers might remember a classic example from their
+calculus class: the absolute value function y = |x| is not differentiable at the
+corner (0, 0). Therefore, the graph of this function is not a smooth 1-manifold,
+but it is still a topological manifold, as the corner can be continuously deformed
+so that it looks like one-dimensional Euclidean space again.
+
+5 More explicitly, in these dimensions, two manifolds cannot be topologically the same but
+
+smoothly different. However, this phenomenon can happen in dimension 4!
+
+
+                                                     4
+Figure 4 : Genus g surfaces (top row) and handlebodies (bottom row). The
+               surfaces in the top row do not have “stuff” inside them; for instance,
+               think of the second picture as an inner tube. The handlebodies in
+               the bottom row are obtained by “filling in” the surfaces; for instance,
+               think of the second picture as a solid doughnut. Left to right, the
+               genera of the surfaces shown are 0, 1, 2, and 3.
+
+
+   Both topological and smooth manifolds are of interest to low-dimensional
+topologists, but in this article we focus on smooth manifolds, as this is the
+setting in which we can enact our chosen methodology for studying the fourth
+dimension: trisections! 6 7
+
+
+2.3 Th e m e t h o d o l o g y : t r i s e c t i o n s
+
+Often the techniques used in the study of four-dimensional spaces are inspired
+by techniques that have worked in three dimensions. In the study of three-
+dimensional manifolds, or 3-manifolds, it is often useful to consider decomposi-
+tions called Heegaard splittings. Every 3-manifold admits a splitting into two
+“nice” pieces, and this decomposition allows the 3-manifold to be described by
+diagrams consisting of curves on a surface. A trisection is the four-dimensional
+analogue of this idea; a trisection decomposes a 4-manifold into three “nice”
+pieces, with the complexity of the manifold relegated to the way these pieces
+are glued together, and allows a similar diagram.
+   The theory of trisections, first introduced in 2012 by Gay and Kirby [12],
+is a relatively new field which has inspired a great amount of work in the
+
+ 6 Additionally, what is widely considered to be the most important open problem in the
+
+field of low-dimensional topology deals with smooth 4-manifolds. Grigori Perelman famously
+solved the Poincaré conjecture – and subsequently declined a Fields Medal and Millennium
+Prize for this breakthrough – which was a conjecture about 3-manifolds. The conjecture
+had previously been posed and partially answered for other dimensions and categories of
+manifolds, but it is still not known whether it is true for smooth 4-manifolds.
+ 7 For further reading on the distinction between smooth and topological, see for instance
+
+the general audience articles [13, 14] from Quanta Magazine.
+
+
+                                                         5
+years since its introduction. These decompositions are useful in the study of
+4-manifolds as they provide a way to turn smooth information (the 4-manifold)
+into combinatorial data (the diagram). An especially intriguing aspect of
+trisections is their apparent ability to encode geometric information efficiently,
+as evidenced by much recent work developing the connections between trisections
+and other subfields of pure mathematics such as complex geometry and symplectic
+geometry [10, 3, 9, 19, 20, 16, 18, 4].
+
+
+3 Getting into the details
+
+Originally [12], trisections were defined for smooth 4-manifolds which also
+satisfied the following properties: “closed”, “connected”, and “orientable”. Sub-
+sequently, the definition has been extended to include 4-manifolds that do not
+have some of these properties [6, 7, 8, 27], as well as various other settings such
+as dimensions other than 4. We will expand briefly on this later.
+
+3.1 T h e d e f i n i t i o n
+
+For now, we focus on the original setting – smooth 4-manifolds which are
+also “closed”, “connected”, and “orientable”. Roughly speaking, closed means
+that the manifold has no boundary and can be contained inside of a ball
+(that is, it does not extend forever), 8 connected means that it consists of only
+one piece, and orientable 9 means that it has an “inside” and an “outside”. 10
+However, requiring these properties is not very restrictive; there are many closed,
+connected, orientable, smooth 4-manifolds.
+   As described previously, a trisection is a decomposition of a 4-manifold into
+three “nice” pieces. This is often represented with the schematic in Figure 5. The
+disk altogether represents the 4-manifold which we call X, 11 and the sectors
+represent the three pieces, which are also four-dimensional and which we call X1 ,
+X2 , and X3 . These pieces are required to be four-dimensional handlebodies. 12
+
+8 For example, the disk is not closed while the sphere is closed, because an observer walking
+
+on the surface of the Earth will never reach a boundary (as would be the case with walking
+on a disk). The Earth itself as a 3-manifold is not closed: it is bounded by the sphere.
+9 Two well-known surfaces which are non-orientable are the Möbius strip, which has a
+
+boundary, and the Klein bottle, which does not have a boundary.
+10 All the surfaces shown in Figure 4 are closed, connected and orientable, while the handle-
+
+bodies are connected and orientable, but not closed, as they have boundaries.
+11 This schematic is a bit misleading, because the manifold we are considering does not have
+
+a boundary, while the disk does have a boundary. A better schematic would be a trisected
+sphere, but this is harder to draw and digest.
+12 Technically speaking, these are called four-dimensional one-handlebodies, as there are
+
+different types of handlebodies in this dimension. But we will not discuss this in more depth,
+so we remove the “one” for convenience.
+
+                                              6
+Figure 5 : A schematic representing a 4-manifold X which has been split into
+           three pieces X1 , X2 , and X3 .
+
+
+We will not define them here, but one can think of them as four-dimensional
+analogues of the three-dimensional handlebodies. The three spokes in the disk,
+colored red, blue, and green, represent the intersections of the four-dimensional
+pieces: X1 ∩ X2 (red), X2 ∩ X3 (blue), and X3 ∩ X1 (green). These intersections
+are three-dimensional pieces which are required to be handlebodies. The point
+in the center of the disk where the spokes meet is the triple intersection of the
+four-dimensional pieces: X1 ∩ X2 ∩ X3 . This must be a genus g surface, which
+is referred to as the central surface. The non-negative integer g is called the
+trisection genus.
+
+
+
+3.2 So m e mu s i n g s
+
+This decomposition of a 4-manifold into four-dimensional handlebodies is par-
+ticularly nice for two reasons: (1) it is well-understood what “four-dimensional
+handlebodies” look like (although we will not go into detail about this here),
+and (2) due to a result by Laudenbach and Poénaru [22], the two- and three-
+dimensional pieces determine the four-dimensional pieces. 13
+   When Gay and Kirby defined trisections, they proved that every 4-manifold
+(with the extra properties noted above) admits such a decomposition, and
+furthermore, this decomposition is unique up to a “stabilization” operation. This
+means that although a given 4-manifold does not admit one unique trisection
+on the nose, the different trisections it admits can all be related by stabilization.
+We will not define it here, but this operation increases the trisection genus
+in a natural way, and mirrors a similar operation in the setting of Heegaard
+splittings.
+
+13 A common way of saying this is that given the two- and three-dimensional stuff, the
+
+four-dimensional handlebodies can be “glued in” uniquely.
+
+
+                                          7
+Figu r e 6 : Some examples of genus 0, 1, and 2 trisection diagrams. The sphere
+            without curves is a very special case; in general, a genus g surface
+            will require g red, blue, and green curves each in a diagram.
+
+
+
+3.3 D i a gra m s
+
+
+The fact that trisections are completely determined by their two- and three-
+dimensional parts allows us to represent a trisected 4-manifold by a diagram
+consisting of curves on the central surface. This is particularly useful, as the
+fourth dimension is naturally very difficult to visualize, and these diagrams
+allow us to see how the 4-manifold is built in dimensions that we understand.
+Some examples of trisection diagrams are given in Figure 6.
+   Roughly speaking, the curves on the central surface show how to “glue in”
+the three-dimensional handlebodies; 14 in this way, the colors of the curves in
+Figure 6 (red, blue, and green) correspond to the colors of the handlebodies
+in Figure 5 (red, blue, and green). Once we know how the handlebodies
+are attached to the central surface, we have determined the entire trisected
+4-manifold, by Laudenbach and Poénaru [22].
+    Given a value g of the trisection genus, not every 4-manifold is guaranteed to
+admit a trisection of this genus, although it is guaranteed that the 4-manifold
+admits a trisection of some genus. The stabilization operation increases the
+genus by one, which means that while the genus can always be increased, for
+each 4-manifold there is a minimal genus for which the 4-manifold admits a
+trisection of that genus. The diagrams shown in Figure 6 are the only genus 0, 1,
+and 2 trisection diagrams. 15 16 This is not very difficult to prove for the genus 0
+and 1 cases, but solving the genus 2 case required a considerable amount of
+effort [25]. Such a classification for genus 3 and higher is unknown, although due
+to work of Meier [23], in stark contrast with the situation for genus 2 and lower,
+it is known that infinitely many smooth 4-manifolds admit genus 3 trisections!
+
+14 We will not explain how that works here, but it is interesting that the three-dimensional
+
+handlebodies can be determined with just one-dimensional curves!
+15 This is up to certain moves on the diagrams which preserve the trisection of the 4-manifold.
+16 By an operation called “connected sum”, one can build higher genus diagrams from
+
+multiple smaller genus diagrams. Technically, the diagrams in Figure 6 are the only irreducible
+diagrams, meaning they are not the connected sum of smaller genus diagrams.
+
+
+                                              8
+4 O d ds and ends
+
+4.1 Wh a t o t h e r k i n d s o f t h i n g s c a n b e t r i s e c t e d ?
+
+The notion of trisections has been extended to many other settings; we will briefly
+mention a few here. The study of so-called “knotted surfaces” in 4-manifolds is
+akin to the study of knots in three-dimensional spaces. A knotted surface sitting
+inside of a 4-manifold can always be put into a position such that it inherits a
+trisection of its own [24, 26, 15]. Another extension is the algebraic setting of
+“group trisections”, in which an algebraic object called a “fundamental group”,
+corresponding to a 4-manifold or knotted surface, is trisected [1, 5]. Finally,
+extensions to various higher-dimensional settings have also been considered
+[21, 28, 2].
+
+4.2 Wh a t i s s o s p e c i a l a b o u t t h e nu m b e r t h r e e ?
+
+In short, nothing. Islambouli and Naylor generalized the notion of trisections
+to “multisections” [17], in which the number of pieces the manifold is split into
+increases. One benefit of using more pieces is that generally, as the number
+of pieces increases, the multisection genus decreases, which might be desirable
+depending on the context. However, going smaller than three – trying to “bisect”
+a 4-manifold – is where one runs into problems. Generally, at least three pieces
+are required in order for this decomposition to work, although the notion of a
+“bisection” has been explored in various special settings [17, 18].
+
+4.3 So yo u wa n t t o b e a t o p o l o g i s t ?
+
+For those interested in further reading, there are many great places to look. For
+an excellent introduction to the world of topology with a low barrier to entry,
+check out “The Shape of Space” by Weeks [31]. An advanced undergraduate
+student or graduate student interested in the fourth dimension may wish to check
+out “The Wild World of 4-Manifolds” by Scorpan [29]. Finally, for the graduate
+student or mathematics researcher looking for an introduction to trisections,
+the paper “From Heegaard splittings to trisections; porting 3-dimensional ideas
+to dimension 4” by Gay may be of interest [11].
+
+
+R e f e rences
+
+ [1] A. Aaron, D. Gay, and R. Kirby, Group trisections and smooth 4-manifolds,
+     Geometry & Topology 22 (2018), no. 3, 1537–1545.
+ [2] F. B. Aribi, S. Courte, M. Golla, and D. Moussard, Multisections of higher-
+     dimensional manifolds, arXiv preprint, arXiv:2303.08779 (2023).
+
+
+                                                       9
+ [3] R. İnanç Baykur and O. Saeki, Simplified broken Lefschetz fibrations and
+     trisections of 4-manifolds, Proceedings of the National Academy of Sciences
+     115 (2018), no. 43, 10894–10900.
+
+ [4] S. Blackwell, D. Gay, and P. Lambert-Cole, Constructing Lagrangians from
+     triple grid diagrams, arXiv preprint, arXiv:2306.16404 (2023).
+
+ [5] S. Blackwell, R. Kirby, M. Klug, V. Longo, and B. Ruppik, A group-theoretic
+     framework for low-dimensional topology, arXiv preprint, arXiv:2301.05685
+     (2023).
+
+ [6] N. Castro, Relative trisections of smooth 4-manifolds with boundary, PhD
+     thesis, University of Georgia, 2016.
+
+ [7] N. Castro, D. Gay, and J. Pinzón-Caicedo, Diagrams for relative trisections,
+     Pacific Journal of Mathematics 294 (2018), no. 2, 275–305.
+
+ [8]         , Trisections of 4-manifolds with boundary, Proceedings of the
+       National Academy of Sciences 115 (2018), no. 43, 10861–10868.
+
+ [9] N. Castro and B. Ozbagci, Trisections of 4-manifolds via Lefschetz fibra-
+     tions, Mathematical Research Letters 26 (2019), no. 2, 383–420.
+
+[10] D. Gay, Trisections of Lefschetz pencils, Algebraic & Geometric Topology
+     16 (2016), no. 6, 3523–3531.
+
+[11]           , From Heegaard splittings to trisections; porting 3-dimensional
+       ideas to dimension 4, Winter Braids Lecture Notes 5 (2018), 1–19.
+
+[12] D. Gay and R. Kirby, Trisecting 4-manifolds, Geometry & Topology 20
+     (2016), no. 6, 3097–3132.
+
+[13] K. Hartnett, New Math Book Rescues Landmark Topology Proof,
+     Quanta      Magazine   (2021),   https://www.quantamagazine.org/
+     new-math-book-rescues-landmark-topology-proof-20210909/, visited on
+     April 4, 2024.
+
+[14]           , Surfaces So Different Even a Fourth Dimension Can’t Make Them
+       the Same, Quanta Magazine (2022), https://www.quantamagazine.org/
+       special-surfaces-remain-distinct-in-four-dimensions-20220616/, visited on
+       April 4, 2024.
+
+[15] M. C. Hughes, S. Kim, and M. Miller, Isotopies of surfaces in 4-manifolds
+     via banded unlink diagrams, Geometry & Topology 24 (2020), no. 3, 1519–
+     1569.
+
+
+                                       10
+[16] G. Islambouli, H. Karimi, P. Lambert-Cole, and J. Meier, Toric multi-
+     sections and curves in rational surfaces, Indiana University Mathematics
+     Journal 73 (2024), no. 4, 1269–1306.
+[17] G. Islambouli and P. Naylor, Multisections of 4-manifolds, Transactions of
+     the American Mathematical Society 377 (2024), no. 2, 1033–1068.
+[18] G. Islambouli and L. Starkston, Multisections with divides and Weinstein
+     4-manifolds, The Journal of Symplectic Geometry 22 (2024), no. 2, 223–266.
+[19] P. Lambert-Cole and J. Meier, Bridge trisections in rational surfaces,
+     Journal of Topology and Analysis (2020), 1–54.
+[20] P. Lambert-Cole, J. Meier, and L. Starkston, Symplectic 4-manifolds admit
+     Weinstein trisections, Journal of Topology 14 (2021), no. 2, 641–673.
+[21] P. Lambert-Cole and M. Miller, Trisections of 5-manifolds, 2019-20 MA-
+     TRIX Annals (2021), 117–134.
+[22] F. Laudenbach and V. Poénaru, A note on 4-dimensional handlebodies,
+     Bulletin de la Société Mathématique de France 100 (1972), 337–344.
+[23] J. Meier, Trisections and spun 4-manifolds, Mathematical Research Letters
+     25 (2018), no. 5, 1497–1524.
+[24] J. Meier and A. Zupan, Bridge trisections of knotted surfaces in S 4 , Transac-
+     tions of the American Mathematical Society 369 (2017), no. 10, 7343–7386.
+[25]           , Genus-two trisections are standard, Geometry & Topology 21
+       (2017), no. 3, 1583–1630.
+[26]          , Bridge trisections of knotted surfaces in 4-manifolds, Proceedings
+       of the National Academy of Sciences 115 (2018), no. 43, 10880–10886.
+[27] M. Miller and P. Naylor, Trisections of Nonorientable 4-Manifolds, Michigan
+     Mathematical Journal (2023), 1–45.
+[28] J. H. Rubinstein and S. Tillmann, Generalized trisections in all dimensions,
+     Proceedings of the National Academy of Sciences 115 (2018), no. 43,
+     10908–10913.
+[29] A. Scorpan, The Wild World of 4-Manifolds, American Mathematical
+     Society, 2022.
+[30] L. Vieira, Mug and torus morph.gif, https://en.wikipedia.org/wiki/File:
+     Mug_and_Torus_morph.gif, visited on April 4, 2024.
+[31] J. R. Weeks, The Shape of Space, CRC Press, 2001.
+
+
+
+                                        11
+Sarah B l a ck we l l i s a n NSF Postdoctoral   License
+Fellow a t t h e U n i ve r s ity of Virginia.   Creative C o m m o n s B Y- S A 4 . 0
+
+Mathe m a t i c a l s u b j e c ts               DOI
+Geom e t r y a n d To p o l ogy                  10.1476 0 / S N A P - 2 0 2 5 - 0 0 5 - E N
+
+
+
+
+Snapshots of modern mathematics from Oberwolfach provide exciting insights into
+current mathematical research. They are written by participants in the scientific
+program of the Mathematisches Forschungsinstitut Oberwolfach (MFO). The
+snapshot project is designed to promote the understanding and appreciation of
+modern mathematics and mathematical research in the interested public worldwide.
+All snapshots are published in cooperation with the IMAGINARY platform and
+can be found on www.imaginary.org/snapshots and on www.mfo.de/snapshots.
+
+ISSN 2626 -1995
+
+
+Junio r E d i t o r                              Mathema t i s c h e s Fo r s c h u n g s i n s t i t u t
+Elisa b e t h a u s d e m S i epen               Oberwol f a c h g G m b H
+junio r - ed i t o r s @ m f o. de               Schwarz wa l d s t r. 9 – 11
+                                                 77709 O b e r wo l f a c h
+Senio r E d i t o r                              Ger many
+Anja R a n d e cke r
+senio r - ed i t o r @ m f o. d e                Director
+                                                 Gerhard H u i s ke n
+

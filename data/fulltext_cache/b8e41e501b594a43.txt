@@ -1,0 +1,1153 @@
+AMS :: Notices of the American Mathematical Society
+
+AMS Website Down
+
+Notice: All AMS websites will be down for maintenance on Saturday, July 11 from 8 am until 1 pm. 
+
+PDFLINK
+
+What is ...
+
+Teichmüller Theory? With a Review of 
+Teichmüller Theory
+ vols. 1–3 by John H. Hubbard
+Danny Calegari
+Communicated by 
+Notices
+ Associate Editor Emily J. Olson
+
+Teichmüller Theory
+ is the title of a three-volume work by John Hamal Hubbard. So as not to leave the reader in suspense, let me begin by saying that this is one of the best math books I have ever read. Reading this book is like carrying on a long illuminating conversation with an infinitely patient ideal graduate advisor. The author (Hubbard) is always drawing your attention to small but pivotal details, and generously explaining how he always found X confusing until he realized Y, and incidentally while we’re on the subject, did you know Z, and W?
+
+Teichmüller Theory
+ is about Teichmüller theory—but if you already know what Teichmüller theory is you probably also know who John Hubbard is, and were going to buy and read this book anyway. So for everyone else I will spend the first part of this article giving an informal sense of what the subject is about, and only delve into the specific delights of Hubbard’s book toward the end.
+
+Teichmüller theory is the branch of complex analysis that deals with 
+marked Riemann surfaces
+. A Riemann surface is a manifold with an atlas of charts modeled on open subsets of 
+$\mathbb{C}$
+ with holomorphic transition functions between charts on their overlaps; a 
+marking
+ of a Riemann surface is a homotopy class of homeomorphisms to some fixed reference surface. A marking gives labels to the topological features of a Riemann surface. To put it more poetically: the miscellaneous item of clothing your crazy uncle knits you for your birthday is a Riemann surface; it becomes a 
+marked
+ Riemann surface when you decide which limb—neck, arm, leg, tail, etc.—goes in which aperture. Riemann surfaces often arise in finite-dimensional families, whose continuous invariants (
+moduli
+) such as the lattice of periods and the spectrum of the Laplacian are parameterized by 
+moduli spaces
+. A 
+marking
+ on a Riemann surface is a further discrete invariant, and the marked Riemann surfaces of a fixed topological type are parameterized by a 
+Teichmüller space
+. Forgetting the marking gives a projection from Teichmüller space to moduli space that is essentially the universal covering map.
+
+The simplest example of a Teichmüller space is the space of marked elliptic curves over the complex numbers. An elliptic curve 
+$E$
+ is a closed Riemann surface homeomorphic to a torus, with a marked point 
+.
+$p$
+ The universal cover of such a surface is isomorphic as a Riemann surface to 
+,
+$\mathbb{C}$
+ and the deck group of the cover, i.e., the fundamental group 
+,
+$\pi _1(E,p)$
+ is a doubly periodic and discrete group of translations. As an abstract group the deck group is isomorphic to 
+,
+$\mathbb{Z}^2$
+ but there is no 
+canonical
+ choice of such an isomorphism. Such an isomorphism is determined by a choice of oriented basis, and a 
+marking
+ in this context is equivalent to such a choice. After choosing free abelian generators 
+$m,l$
+ for the deck group, one may choose holomorphic coordinates on the universal cover of 
+$E$
+ for which 
+$m$
+ acts as translation by 
+$1$
+ and 
+$l$
+ acts as translation by 
+,
+$\tau$
+ a complex number with positive imaginary part. Conversely, for any such 
+$\tau$
+ the additive subgroup 
+$\langle 1,\tau \rangle$
+ of 
+$\mathbb{C}$
+ acts discretely and cocompactly on 
+$\mathbb{C}$
+ with quotient an elliptic curve. Thus the Teichmüller space 
+$\mathcal{T}$
+ of marked elliptic curves is isomorphic to the upper half space 
+$\mathbb{H}$
+ consisting of complex numbers with positive imaginary part, and the moduli space 
+$\mathcal{M}$
+ is obtained from 
+$\mathcal{T}$
+ by quotienting out by the discrete group 
+,
+$\mathrm{SL}(2,\mathbb{Z})$
+ which freely permutes the different choices of marking—i.e., the different choices of oriented bases for the deck group. This action is properly discontinuous on 
+$\mathbb{H}$
+ but not quite free, since finitely many conjugacy classes of torsion elements in 
+$\mathrm{SL}(2,\mathbb{Z})$
+ have fixed points in 
+$\mathbb{H}$
+ that project to nonsmooth “orbifold points” in moduli space.
+
+Even in this example one may see certain advantages of Teichmüller space over moduli space, including:
+
+(1)
+
+Teichmüller spaces are easy to understand topologically; they are diffeomorphic to finite-dimensional Euclidean spaces, whereas moduli spaces are orbifolds that can have complicated topology, even locally;
+
+(2)
+
+Teichmüller spaces have many automorphisms: the 
+mapping class group
+ of a surface 
+$S$
+ is the group of homotopy classes of orientation-preserving self-homeomorphisms, and this group acts as a discrete group of symmetries of the Teichmüller space of 
+$S$
+ by permuting the markings.
+
+In fact, and this is actually the key point, Teichmüller spaces admit many interesting self-maps beyond these automorphisms. Morally speaking, any “interesting” topological relationship between a surface and itself gives rise to a holomorphic endomorphism of a Teichmüller space. We give two elementary examples.
+
+(1)
+
+Let 
+$A$
+ be a 
+$2\times 2$
+ integer matrix with determinant a squarefree integer 
+.
+$d>1$
+ Let 
+$E=\mathbb{C}/\Lambda$
+ be an elliptic curve marked by an isomorphism 
+.
+$\mathbb{Z}^2 \to \Lambda$
+ Then the image of 
+$A\mathbb{Z}^2$
+ is a subgroup 
+$\Lambda '$
+ of 
+$\Lambda$
+ of index 
+,
+$d$
+ which is a new lattice that determines an elliptic curve 
+$E'=\mathbb{C}/\Lambda '$
+ and a degree 
+$d$
+ quotient map 
+.
+$E' \to E$
+ Thus the map sending 
+$E$
+ to 
+$E'$
+ induced by 
+$A$
+ gives an endomorphism (actually, an isomorphism) of the Teichmüller space of elliptic curves. A fixed point for this endomorphism, that may or may not exist depending on 
+,
+$A$
+ is called an elliptic curve with complex multiplication.
+
+(2)
+
+A quadratic polynomial of the form 
+$f:z \to z^2 + c$
+ has a unique critical point (i.e., root of 
+)
+$f'$
+ namely 
+.
+$0$
+ If 
+$c$
+ is real, so are the iterates 
+,
+$0$
+
+,
+$f(0)$
+
+$f(f(0))$
+ and so on. Let’s write the 
+th
+$n$
+ iterate as 
+.
+$f^n(0)$
+ For certain values of 
+$c$
+ the sequence of iterates 
+$0,f(0),f^2(0),\cdots$
+ is periodic, and many interesting topological features of these special 
+$f$
+ are governed by the order of this sequence of real numbers.
+Suppose we want to find a real number 
+$c<0$
+ so that 
+,
+$f^3(0)=0$
+ and so that
+$$\begin{equation*} f(0) < 0 = f^3(0) < f^2(0). \end{equation*}$$
+In other words, we are looking for a real root 
+$c$
+ of the polynomial 
+$(c^2+c)^2+c$
+ satisfying 
+.
+$c < 0 < c^2+c$
+ If we had such a 
+,
+$c$
+ then we could construct a double branched cover of 
+$\mathbb{CP}^1$
+ on which the function 
+$z \to \sqrt {z-c}$
+ has a single valued lift, and in this branched cover the preimages of 
+$\infty ,c,0,c^2+c$
+ would consist of six points, and omitting two of these would recover the points 
+.
+$\infty ,c,0,c^2+c$
+ Thus we may define an iterative scheme to find 
+.
+$c$
+ Choose any initial guess 
+,
+$c_0$
+ and look at the preimages of 
+$\infty ,c_0,0,c_0^2+c_0$
+ under 
+.
+$z \to \sqrt {z-c_0}$
+ A suitable subset of these four points may be arranged by a Möbius transformation (i.e., an automorphism of the Riemann sphere of the form 
+$z \to (az+b)/(cz+d)$
+ for suitable constants 
+)
+$a,b,c,d$
+ in the configuration 
+$\infty ,c_1,0,c_1^2+c_1$
+ and the process may be iterated. Keeping track of which are the branch points and which preimages to forget at each stage is topological data that is encoded in a marking of 
+$\mathbb{CP}^1$
+ minus four points, and what we are secretly doing is iterating an endomorphism on Teichmüller space.
+To bring this down to earth: what this amounts to numerically is making some initial guess 
+$c_0 < 0$
+ and defining successive guesses by
+$$\begin{equation*} c_{j+1} = -\sqrt {\sqrt {-c_j}-c_j} \end{equation*}$$
+where 
+$\sqrt {}$
+ always means the positive real square root of a positive real number. Starting with 
+$c_0=-1$
+ (for example) a couple of minutes with a pocket calculator yields the sequence 
+,
+$-1$
+
+,
+$-\sqrt {2}$
+
+,
+$-1.61351$
+
+,
+$-1.69816$
+
+,
+$-1.73242$
+
+,
+$-1.74603$
+
+$-1.75140$
+ …which converges at a geometric rate to 
+.
+$c=-1.754877\cdots$
+
+In each of these examples we start with a topological description of some dynamics and try to realize the dynamics geometrically, which is to say holomorphically. In the first case we are looking for a holomorphic endomorphism of an elliptic curve 
+$E$
+ realizing a particular matrix as the induced map on 
+;
+$\pi _1(E)$
+ in the second case we are looking for a degree 2 polynomial endomorphism 
+$f$
+ of the Riemann sphere for which the orbit of the unique root of 
+$f'$
+ realizes a specific topological itinerary. These are examples of so-called 
+geometrization problems
+. One of the key technical innovations in the celebrated work of William Thurston in the 1970s and 80s was to formulate the solution of certain deep geometrization problems in terms of the existence of fixed points for endomorphisms of Teichmüller spaces, and it is the goal of Hubbard’s book to present full and detailed proofs of these theorems of Thurston together with all the background necessary to understand and appreciate them.
+
+Before going into more detail, it is worth discussing why one should expect any given endomorphism of a Teichmüller space to have a fixed point. The reason is that endomorphisms of Teichmüller spaces are typically distance decreasing for a certain metric, and are therefore subject to the contraction mapping principle.
+
+Let me explain in more detail. Moduli spaces have natural complex analytic structures, and the same is therefore true of Teichmüller spaces. On 
+any
+ complex analytic manifold there is a canonical (Finsler) pseudometric, called the 
+Kobayashi metric
+, and whenever this metric is nondegenerate, any holomorphic endomorphism is distance nonincreasing. The simplest example is the Poincaré (hyperbolic) metric 
+$d_\mathbb{D}$
+ on the unit disk 
+.
+$\mathbb{D}\subset \mathbb{C}$
+ This is given infinitesimally by the quadratic form
+
+$$\begin{equation*} ds^2 = \frac{4 dz d\bar{z}}{(1-|z|^2)^2} \end{equation*}$$
+
+and its geodesics are straight lines or arcs of round circles that meet 
+$\partial \mathbb{D}$
+ orthogonally. The fact that every analytic map 
+$\mathbb{D}\to \mathbb{D}$
+ is distance nonincreasing in the Poincaré metric is equivalent to the Schwarz lemma. For an arbitrary complex analytic manifold 
+,
+$X$
+ the Kobayashi “metric” is the largest pseudometric 
+$d_X$
+ for which 
+$d_X(f(x),f(y)) \le d_\mathbb{D}(x,y)$
+ for all holomorphic maps 
+.
+$f:\mathbb{D}\to X$
+ From this it follows that any holomorphic map between complex analytic manifolds is nonincreasing in their respective Kobayashi pseudometrics; in particular, any endomorphism 
+$f:X \to X$
+ is distance nonincreasing.
+
+To apply this observation to a given example, one must show that the Kobayashi metric is nondegenerate, i.e., that it is an actual metric. Royden did precisely this: he showed that the Kobayashi metric on Teichmüller space is nondegenerate, and in fact he identified it with the so-called 
+Teichmüller metric
+, which can be defined as follows. A conformal map between Riemann surfaces takes infinitesimal round circles to infinitesimal round circles; a 
+quasiconformal map
+ takes infinitesimal round circles to infinitesimal ellipses with 
+bounded aspect ratio
+. The data of this distortion is represented by a (measurable) field of infinitesimal ellipses on the surface called a 
+Beltrami differential
+, and the quasiconformal map can be recovered up to isomorphism from this differential. If 
+$f:R \to S$
+ is a quasiconformal homeomorphism between Riemann surfaces, let’s denote by 
+$K(f)$
+ the maximal aspect ratio of such infinitesimal ellipses. The logarithm of 
+$K(f)$
+ is called the 
+dilatation
+ of 
+;
+$f$
+ it is zero if and only if 
+$f$
+ is conformal. Let 
+$R$
+ and 
+$S$
+ be marked Riemann surfaces in some Teichmüller space 
+.
+$\mathcal{T}$
+ Then the marking determines a homotopy class of homeomorphism between them, and the 
+Teichmüller distance
+ from 
+$R$
+ to 
+$S$
+ is the infimum of the dilatation 
+$\log K(f)$
+ over all quasiconformal maps in this distinguished homotopy class.
+
+It turns out that for any marked Riemann surfaces 
+$R$
+ and 
+,
+$S$
+ there always exists a unique map realizing the infimal dilatation, and indeed this map has a rather special form. Such maps can be described in terms of 
+quadratic holomorphic differentials
+. A quadratic holomorphic differential 
+$q$
+ on a marked Riemann surface 
+$R$
+ is something that can be expressed in terms of any local holomorphic coordinate 
+$z$
+ in the form 
+,
+$q = q(z) dz^2$
+ where 
+$q(z)$
+ is a holomorphic function of 
+.
+$z$
+ Away from the zeros of 
+,
+$q$
+ a quadratic holomorphic differential admits a square root unique up to sign, which is just a holomorphic 1-form that may be paired with (real) tangent vectors to give complex numbers. By abuse of notation we denote this equivalence class of 1-forms by 
+,
+$\sqrt {q}$
+ though as we stress it is only well defined up to multiplication by 
+.
+$\pm 1$
+ Thus, away from the zeros of 
+,
+$q$
+ the tangent space of 
+$R$
+ admits a canonical real splitting into tangent directions that pair with the 1-form 
+$\sqrt {q}$
+ to give real numbers, and tangent directions that pair with 
+$\sqrt {q}$
+ to give purely imaginary numbers; and these real subbundles may be integrated to give a pair of singular foliations on 
+,
+$R$
+ transverse to each other like a coordinate grid. For any real 
+$\lambda > 1$
+ one may deform the complex structure on 
+$R$
+ by stretching the leaves of the real foliation by a factor of 
+$\lambda$
+ and compressing the leaves of the imaginary foliation by a factor of 
+.
+$1/\lambda$
+ This gives a new complex structure on 
+$R$
+ that may be interpreted as a new marked Riemann surface 
+,
+$S$
+ and thereby defines a so-called 
+Teichmüller map
+ from 
+$R$
+ to 
+.
+$S$
+ By varying 
+$\lambda$
+ and multiplying 
+$q$
+ by a complex number of absolute value 
+,
+$1$
+ one obtains a 1-complex-dimensional family of such Teichmüller maps whose images sweep out a totally geodesic 
+$\mathbb{D}$
+ in 
+$\mathcal{T}$
+ called a 
+Teichmüller disk
+ on which the Teichmüller metric and the intrinsic hyperbolic metric agree. Comparing metrics on arbitary holomorphic maps of 
+$\mathbb{D}$
+ into 
+$\mathcal{T}$
+ with these special “Teichmüller disks” one may show that holomorphic maps from 
+$\mathbb{D}$
+ into 
+$\mathcal{T}$
+ are distance nonincreasing, and Royden’s theorem follows.
+
+The conclusion is that any holomorphic endomorphism 
+$\varphi :\mathcal{T}\to \mathcal{T}$
+ is distance nonincreasing, and in fact is strictly distance decreasing everywhere unless it is an automorphism induced by a mapping class. In particular, any endomorphism that is not an automorphism either has a unique fixed point, or the image of any point under iterates of 
+$\varphi$
+ must eventually leave every compact subset (i.e., 
+$\varphi$
+ is “proper”).
+
+What are the specific geometrization problems of Thurston covered in Hubbard’s book? There are three of them:
+
+(1)
+
+the classification of homeomorphisms of surfaces;
+
+(2)
+
+the topological characterization of postcritically finite rational maps; and
+
+(3)
+
+the hyperbolization theorem for Haken 3-manifolds.
+
+The last of these problems splits rather naturally into the fibered and the nonfibered cases. In order to emphasize the unity of the subject, we shall focus on the second problem and the nonfibered case of the third problem. We also note that the complete proof of the nonfibered case of the hyperbolization theorem is projected to appear in volume 4 of Hubbard’s book, which at the time of this review is not yet completed.
+
+Let us first discuss the second problem, that of the topological characterization of postcritically finite rational maps. “Rational maps” here just means holomorphic endomorphisms of 
+,
+$\mathbb{CP}^1$
+ i.e., maps of the form 
+$f:z \to p(z)/q(z)$
+ where 
+$p$
+ and 
+$q$
+ are polynomials. The 
+critical points
+ of a holomorphic map 
+$f$
+ between Riemann surfaces 
+$f$
+ are the points at which 
+$df$
+ vanishes. Geometrically these are the points near which 
+$f$
+ looks locally like a branched cover 
+$z \to z^n$
+ for some 
+;
+$n>1$
+ in algebraic geometry one calls these the 
+ramification points
+. A rational map of degree 
+$d$
+ has 
+$2d-2$
+ critical points counted with multiplicity, and it turns out that the dynamics of 
+$f$
+ is largely governed by the orbits of the critical points under repeated application of 
+.
+$f$
+ This is roughly because holomorphic maps of Riemann surfaces without critical points are covering maps, which tend to be dynamically uninteresting, and thus the “interesting” behavior can be localized to the orbits where some branching is observed. A rational map is said to be 
+postcritically finite
+ if the critical points are preperiodic; equivalently, if their forward orbits are all finite sets. This behavior may be imposed by 
+$2d-2$
+ equations, one for each critical point. On the other hand, a rational map 
+$z \to p(z)/q(z)$
+ is determined by 
+$2d+1$
+ coefficients if we normalize 
+$q$
+ to be monic; conjugation by the (3-complex-dimensional) group of Möbius transformations 
+$z \to (az+b)/(cz+d)$
+ therefore reduces the complex dimension of the space of isomorphism classes of degree 
+$d$
+ rational maps to 
+.
+$2d-2$
+ Thus by a naive dimension count, one expects to be able to manufacture rational maps that are postcritically finite, i.e., maps whose critical points are all preperiodic. Furthermore, at least locally, one expects that postcritically finite maps should be holomorphically rigid up to conjugacy.
+
+Now, suppose that 
+$f:\mathbb{CP}^1 \to \mathbb{CP}^1$
+ is a postcritically finite map. Let 
+$C$
+ denote the set of critical points of 
+,
+$f$
+ and let 
+$P$
+ denote the (finite!) set of forward orbits of elements of 
+.
+$C$
+ Then we obtain a topological invariant of 
+$f$
+ by taking the relative isotopy class of the map of pairs 
+.
+$g:(\mathbb{CP}^1,P) \to (\mathbb{CP}^1,P)$
+ Of course 
+$\mathbb{CP}^1$
+ is topologically just the 2-sphere 
+,
+$S^2$
+ and the relative isotopy class of 
+$g:(\mathbb{CP}^1,P) \to (\mathbb{CP}^1,P)$
+ only “sees” the topological structure of 
+.
+$\mathbb{CP}^1$
+ So we may ask the converse question: given a (topological) oriented branched covering map 
+$g:S^2 \to S^2$
+ for which the forward orbit 
+$P$
+ of the set of branch points 
+$C$
+ is finite, one may form the relative isotopy class 
+$g:(S^2,P) \to (S^2,P)$
+ and ask whether there is a postcritically finite rational map 
+$f$
+ realizing this topological data; and if so whether it is unique up to conjugacy. This is a geometrization problem in the above sense.
+
+Here is Thurston’s solution. A marked conformal structure on 
+$S^2 - P$
+ pulls back under 
+$g^{-1}$
+ to a marked conformal structure on 
+$S^2 - g^{-1} P$
+ that may be filled in over the points of 
+$g^{-1}(P) - P$
+ to give a new marked conformal structure on 
+.
+$S^2 - P$
+ Thus 
+$g$
+ determines an endomorphism 
+$\sigma _g$
+ of 
+,
+$\mathcal{T}$
+ the Teichmüller space of marked conformal structures on a sphere minus 
+$|P|$
+ points. A solution to the realization problem is equivalent to a fixed point for 
+.
+$\sigma _g$
+ Under modest topological conditions, always satisfied for example if 
+,
+$|P|>4$
+ the endomorphism 
+$\sigma _g$
+ turns out to be a 
+strict contraction
+ of the Teichmüller metric; and furthermore, the infinitesimal contraction factor at some marked conformal structure only depends on the image of that point in moduli space, i.e., the conformal structure obtained by ignoring the marking. It follows that either a fixed point exists and is unique, or the orbit of any marked conformal structure, respectively its unmarked image, is proper in Teichmüller space, respectively in moduli space. A sequence of conformal structures on a Riemann surface can only diverge in moduli space if the surface develops “thin necks”—i.e., if it contains essential embedded annuli whose moduli go to infinity. The cores of such annuli form a 
+-
+$g$
+invariant system of essential simple closed curves—a 
+multicurve
+—that constitute a topological obstruction to existence of a rational map 
+.
+$f$
+ In brief: Thurston reformulates the geometrization problem as a fixed point problem for an endomorphism of a Teichmüller space, and either a fixed point exists, or its failure to exist reveals a topological obstruction.
+
+The nonfibered case of the hyperbolization theorem for Haken 3-manifolds has a similar structure, although the details are immensely more complicated, both topologically and analytically. One starts with a compact oriented 3-manifold 
+$M$
+ and asks when its interior may be realized up to homeomorphism as a quotient 
+,
+$\mathbb{H}^3/\Gamma$
+ where 
+,
+$\Gamma$
+ which is isomorphic to 
+,
+$\pi _1(M)$
+ is a discrete torsion-free finite covolume subgroup of the group of isometries of hyperbolic 3-space. Hyperbolic 3-space may be compactified by a copy of 
+,
+$\mathbb{CP}^1$
+ and (orientation-preserving) hyperbolic isometries of 
+$\mathbb{H}^3$
+ extend to holomorphic automorphisms of 
+$\mathbb{CP}^1$
+ and vice versa. Thus the existence of a hyperbolic structure on 
+$M$
+ is equivalent to the existence of a faithful holomorphic action of 
+$\pi _1(M)$
+ on 
+$\mathbb{CP}^1$
+ of a certain kind. A 3-manifold is said to be 
+Haken
+ if it is 
+irreducible
+—i.e., if every embedded 2-sphere bounds a 3-ball—and if it can be inductively cut open along a sequence of properly embedded (homotopically) essential surfaces into polyhedral 3-balls. “Essential” here means that the inclusion of the surface 
+$S$
+ into the 3-manifold 
+$M$
+ induces an injective map 
+.
+$\pi _1(S) \to \pi _1(M)$
+ Not every irreducible 3-manifold is Haken, but many are; for example, every nontrivial knot complement in 
+$S^3$
+ is Haken. Thurston’s strategy is to find a hyperbolic structure inductively. Suppose 
+$M$
+ is Haken and 
+$S\subset M$
+ is an essential embedded surface. If we could find a hyperbolic structure on 
+,
+$M$
+ then the universal cover 
+$\tilde{M}$
+ would be isometric to 
+,
+$\mathbb{H}^3$
+ and the preimage of 
+$S$
+ in this universal cover would be a system of properly embedded topological planes in 
+.
+$\mathbb{H}^3$
+ If 
+$S$
+ were the fiber of a fibration 
+,
+$M \to S^1$
+ then these topological planes would be very badly distorted in the geometry of 
+,
+$\mathbb{H}^3$
+ so that the closure of each of them in the compactification would contain the entire 
+.
+$\mathbb{CP}^1$
+ But if 
+$S$
+ is not a fiber, then the closure of each plane is a closed (topological) disk, intersecting 
+$\mathbb{CP}^1$
+ in a topological circle. If 
+$M=\mathbb{H}^3/\Gamma$
+ and 
+$\Gamma _S$
+ is the image of some conjugate of 
+$\pi _1(S)$
+ in 
+,
+$\pi _1(M)$
+ then 
+$\Gamma _S$
+ stabilizes one of these topological circles 
+.
+$L \subset \mathbb{CP}^1$
+ The complement 
+$\mathbb{CP}^1 - L$
+ consists of two open topological disks 
+$\Omega ^+$
+ and 
+,
+$\Omega ^-$
+ and 
+$\Gamma _S$
+ acts freely and properly by holomorphic automorphisms on each of them, with quotient a pair of Riemann surfaces 
+,
+$R^\pm$
+ each marked by an isomorphism of their fundamental groups with 
+,
+$\pi _1(S)$
+ one in an orientation-reversing way. In other words, every (nonfiber) essential surface 
+$S$
+ in a hyperbolic 3-manifold determines a point 
+$(R^+,R^-)$
+ in a product of Teichmüller spaces 
+.
+$\mathcal{T}(S)\times \mathcal{T}(\bar{S})$
+
+Now suppose 
+$N$
+ is the 3-manifold obtained by cutting 
+$M$
+ along 
+.
+$S$
+ The boundary of 
+$N$
+ consists of two copies of 
+,
+$S$
+ call them 
+$S_0$
+ and 
+,
+$S_1$
+ and 
+$M$
+ is obtained from 
+$N$
+ by gluing these surfaces by some orientation-reversing homeomorphism 
+$\varphi :\partial N \to \partial N$
+ interchanging these two components. The manifold 
+$N$
+ has boundary, but we can look for a complete hyperbolic structure on the interior of 
+$N$
+ of a particular kind. In a rather ad hoc way we obtain a new noncompact 3-manifold 
+$E$
+ from 
+$N$
+ by attaching an 
+open
+ product collar to the boundary. Thus 
+$E$
+ is homeomorphic to the interior of 
+,
+$N$
+ and 
+$N \subset E$
+ is a compact subset. Now suppose we have a complete hyperbolic structure on 
+,
+$E$
+ and we make the identification 
+$E = \mathbb{H}^3/\Gamma _N$
+ where 
+$\Gamma _N$
+ is isomorphic to 
+$\pi _1(E)$
+ which in turn is isomorphic to 
+.
+$\pi _1(N)$
+ The compact manifold 
+$N$
+ sits inside 
+,
+$E$
+ and the universal cover 
+$\tilde{N}$
+ sits inside 
+,
+$\mathbb{H}^3$
+ bounded by proper planes which are copies of the universal covers of 
+.
+$S^\pm$
+ Suppose each of these planes of 
+$\partial \tilde{N}$
+ is compactified by a topological circle in 
+;
+$\mathbb{CP}^1$
+ one says the hyperbolic structure on 
+$N$
+ is 
+geometrically finite
+. The closure of 
+$\tilde{N}$
+ in 
+$\mathbb{CP}^1$
+ is typically a complicated closed fractal set 
+$\Lambda$
+ of zero area called the 
+limit set
+, and the complement 
+$\Omega : = \mathbb{CP}^1 - \Lambda$
+ is a disjoint union of (typically infinitely many) disks, each stabilized by a conjugate of 
+$\pi _1(S_0)$
+ or 
+,
+$\pi _1(S_1)$
+ and permuted by other elements of 
+.
+$\pi _1(N)$
+ The quotient 
+$\Omega /\Gamma _N$
+ has two components, each a Riemann surface, one marked by 
+$S_0$
+ and one by 
+;
+$S_1$
+ in other words, the hyperbolic structure on 
+$N$
+ determines a point in 
+.
+$\mathcal{T}(S_0)\times \mathcal{T}(S_1)$
+ A fundamental theorem of Morrey—the “measurable Riemann mapping theorem”—plus foundational work of Ahlfors–Bers implies that once we have found one geometrically finite structure on 
+,
+$N$
+ the space 
+$\mathcal{GF}(N)$
+ of all such structures is canonically identified with 
+.
+$\mathcal{T}(S_0)\times \mathcal{T}(S_1)$
+
+Now let’s consider a subgroup 
+$\Gamma _{S_0}$
+ of 
+$\Gamma _N$
+ corresponding to a conjugacy class of 
+$\pi _1(S_0)$
+ in 
+.
+$\pi _1(N)$
+ This subgroup stabilizes some topological circle 
+.
+$L_0 \subset \Lambda$
+ The complement 
+$\mathbb{CP}^1 - L_0$
+ consists of two disks 
+;
+$\Omega ^\pm$
+ one of these (say 
+)
+$\Omega ^+$
+ is a single component of 
+,
+$\Omega$
+ but the other is tiled by infinitely many distinct components of 
+,
+$\Omega$
+ each stabilized either by a conjugate of 
+$\pi _1(S_1)$
+ or by some other conjugate of 
+.
+$\pi _1(S_0)$
+ The conformal structure on 
+$\Omega ^-/\pi _1(S_0)$
+ determines a point in 
+.
+$\mathcal{T}(\bar{S_0})$
+ Repeating the same procedure with 
+$S_1$
+ in place of 
+$S_0$
+ determines a point in 
+.
+$\mathcal{T}(\bar{S_1})$
+ In other words, 
+the topological manifold 
+$N$
+, together with the Ahlfors–Bers isomorphism 
+,
+$\mathcal{T}(S_0)\times \mathcal{T}(S_1) \to \mathcal{GF}(N)$
+ determines a map
+
+$$\begin{equation*} \mathcal{T}(S_0)\times \mathcal{T}(S_1) \to \mathcal{GF}(N) \to \mathcal{T}(\bar{S_0}) \times \mathcal{T}(\bar{S_1}). \end{equation*}$$
+
+On the other hand, the orientation reversing homeomorphism 
+$\varphi :\partial N \to \partial N$
+ acts on markings to induce isomorphisms 
+$\mathcal{T}(\bar{S_0}) \to \mathcal{T}(S_1)$
+ and 
+.
+$\mathcal{T}(\bar{S_1}) \to \mathcal{T}(S_0)$
+ Composing these maps gives rise to Thurston’s 
+skinning map
+
+$$\begin{equation*} \sigma _N:\mathcal{T}(S_0)\times \mathcal{T}(S_1) \to \mathcal{T}(S_0)\times \mathcal{T}(S_1), \end{equation*}$$
+
+and a fixed point for 
+$\sigma _N$
+ is a geometrically finite structure on 
+$N$
+ that can be glued up to obtain a hyperbolic structure on 
+.
+$M$
+
+If 
+$S$
+ is not a fiber so that 
+$N$
+ is not a product, a theorem of McMullen implies that 
+$\sigma _N$
+ is strictly distance decreasing. Thus either a (unique) fixed point exists, or every orbit of 
+$\sigma _N$
+ must enter a specific region of Teichmüller space. Just as in the case of postcritically finite rational maps, this latter possibility certifies the existence of a topological obstruction to the solution of a geometrization problem: in this case, the existence of a hyperbolic structure on 
+,
+$M$
+ namely a system of essential annuli connecting pairs of curves on 
+$\partial N$
+ that glue together to produce a nonempty family of essential tori in 
+.
+$M$
+
+Previous steps in the gluing can be reduced to this last gluing step by a trick (the “orbifold trick”) and the base step of the induction is to realize the polyhedral balls into which 
+$M$
+ is ultimately decomposed by virtue of its Hakenness as right-angled hyperbolic polyhedra; this is accomplished via a result known as Andreev’s theorem.
+
+I would now like to move on to a more detailed discussion of Hubbard’s book, its style, its focus, and its point of view. This discussion will necessarily become somewhat technical, and I apologize in advance to the nonspecialist who has read this far; hopefully you have already been persuaded of the beauty and utility of the subject and need no further inducement to buy the book.
+
+Perhaps the first thing I should say is that the book is very long, though it is usefully divided into three volumes, the first of which contains most of the technical background, and the latter two which contain the proofs of Thurston’s theorems. The first time that I read the book, I read it cover to cover, all 1300 pages in serial order. I am convinced this is not the right order to read the book, and I strongly suspect that it was not the order in which the book was written, particularly the first volume.
+
+This is how one should read the book. Suppose you want to know the proof of Royden’s theorem (discussed above) that the Teichmüller metric and the Kobayashi metrics on Teichmüller space coincide. This is Theorem 6.10.6 in Hubbard’s book. The proof given is 
+not
+ Royden’s proof that we sketched earlier, but an alternate proof due to Earle–Kra–Krushkal that we now describe. If 
+$E$
+ and 
+$F$
+ are 1-dimensional complex vector spaces, let 
+$L^+_\mathbb{R}(E,F)$
+ denote the space of orientation-preserving real linear isomorphisms from 
+$E$
+ to 
+,
+$F$
+ and let 
+$L_{\mathbb{C}}(E,F)$
+ denote the space of complex linear isomorphisms. The coset space 
+$L^+_\mathbb{R}/L_{\mathbb{C}}$
+ measures the failure of a real linear map to be complex linear. It is a homogeneous space isomorphic to 
+,
+$\mathrm{SL}(2,\mathbb{R})/\mathrm{SO}(2,\mathbb{R})$
+ and may naturally be identified with a copy of the hyperbolic plane, which is the same thing as the unit disk 
+$\mathbb{D}$
+ with the Poincaré metric. Thus the Beltrami differential 
+$\mu$
+ of a quasiconformal map 
+$f:R \to S$
+ may be thought of as a measurable section of a certain 
+$\mathbb{D}$
+ bundle over 
+$R$
+ which for concreteness we will denote by 
+.
+$\mathcal{D}$
+ A conformal map corresponds to the zero section, and the quantity 
+,
+$\log K(f)$
+ which one minimizes over all suitable maps 
+$f$
+ to compute the Teichmüller distance from 
+$R$
+ to 
+,
+$S$
+ is the essential supremum over 
+$p\in R$
+ of the hyperbolic distance from 
+$\mu (p)$
+ to 
+$0$
+ in the fiber 
+$\mathcal{D}_p$
+ over 
+.
+$p$
+
+Thus the “hard direction” of Royden’s theorem, i.e., that 
+$d_\mathcal{T}(g(x),g(y)) \le d_\mathbb{D}(x,y)$
+ for any holomorphic 
+,
+$g:\mathbb{D}\to \mathcal{T}$
+ may be proved as follows. Suppose for any holomorphic 
+$g:\mathbb{D}\to \mathcal{T}$
+ taking 
+$g(0)$
+ to 
+$R$
+ there is a lift of 
+$g$
+ to a map 
+$\tilde{g}$
+ from 
+$\mathbb{D}$
+ to Beltrami differentials on 
+$R$
+ with a certain property. For each 
+$x \in \mathbb{D}$
+ and each 
+$p\in R$
+ the Beltrami differential 
+$\tilde{g}(x)$
+ may be identified as above with a measurable section of 
+,
+$\mathcal{D}$
+ and the restriction of this section to 
+$p$
+ gives a point in 
+;
+$\mathcal{D}_p$
+ hence 
+$\tilde{g}$
+ determines, for each 
+,
+$p\in R$
+ a map 
+$\tilde{g}_p:\mathbb{D}\to \mathcal{D}_p$
+ taking 
+$0$
+ to 
+.
+$0$
+ The property we want is that for each 
+,
+$p\in R$
+ the map 
+$\tilde{g}_p$
+ should be holomorphic; for in that case, since 
+$\mathcal{D}_p$
+ is isomorphic to 
+,
+$\mathbb{D}$
+ the desired inequality follows immediately from the Schwarz Lemma. Note that the “easy direction” of the theorem follows from the existence of Teichmüller disks as discussed earlier.
+
+The existence of such a lift from 
+$g$
+ to 
+$\tilde{g}$
+ follows from the 
+equivariant Slodkowski’s theorem
+—Theorem 5.2.13 in Hubbard—as follows. By the Bers embedding theorem, a special case of the Ahlfors–Bers theorem discussed previously, a map 
+$g:\mathbb{D}\to \mathcal{T}=\mathcal{T}(R)$
+ determines a map
+
+$$\begin{equation*} \psi :\mathbb{D}\to \mathcal{GF}(R\times I) = \mathcal{T}(R)\times \mathcal{T}(\bar{R}) \end{equation*}$$
+
+which is constant and equal to 
+$\bar{R}$
+ on the second factor. If we normalize coordinates so that the limit circle for the representation 
+$\psi (0)$
+ is the round 
+$\mathbb{RP}^1$
+ in 
+$\mathbb{CP}^1$
+ and 
+$\Omega ^-(\psi (0))$
+ is the lower half plane 
+,
+$\bar{\mathbb{H}}$
+ we get a holomorphic family of maps 
+$\mathbb{D}\times \bar{\mathbb{H}} \to \mathbb{CP}^1$
+ where 
+$p\times \bar{\mathbb{H}}$
+ maps conformally and 
+-
+$\pi _1(R)$
+equivariantly to 
+.
+$\Omega ^-(\psi (p))$
+ Slodkowski’s theorem says that such 
+holomorphic motions
+ can be (equivariantly) extended to 
+$\mathbb{D}\times \mathbb{C} \to \mathbb{CP}^1$
+ which can then be restricted to a family of maps 
+$\mathbb{D}\times \mathbb{H}\to \mathbb{CP}^1$
+ taking 
+$p\times \mathbb{H}\to \Omega ^+(\psi (p))$
+ or, after taking the quotient by 
+,
+$\pi _1(R)$
+ taking 
+$R$
+ to the surface 
+.
+$g(p)\in \mathcal{T}(R)$
+ The (so-called) 
+-
+$\lambda$
+lemma of Mañe–Sad–Sullivan
+ says amongst other things that this holomorphic extension is quasiconformal, and its Beltrami differential gives the desired lift 
+,
+$\tilde{g}$
+ proving Royden’s theorem.
+
+The 
+-
+$\lambda$
+lemma of Mañe–Sad–Sullivan is Theorem 5.2.3 in Hubbard and the proof given depends on a characterization of quasiconformal maps (Theorem 4.5.4) in terms of a property called 
+skewness
+. Given three distinct complex numbers 
+$a,b,c\in \mathbb{C}$
+ the quantity 
+$\mathrm{skew}(a,b,c)$
+ is the ratio of the longest to the shortest side of the triangle they determine. A homeomorphism 
+$f:U \to V$
+ between open domains in 
+$\mathbb{C}$
+ is 
+quasisymmetric
+ if the skewness of triples has uniformly controlled distortion under 
+$f$
+ and 
+;
+$f^{-1}$
+ Theorem 4.5.4 is the fact that quasisymmetric maps are quasiconformal and vice versa. The direction we need is that quasisymmetric implies quasiconformal, and amounts to showing that if 
+$f$
+ is quasisymmetric, then on sufficiently small triangles 
+$\Delta$
+ in an equilateral mesh, the square of the diameter of 
+$f(\Delta )$
+ is bounded by a constant times the area of 
+.
+$f(\Delta )$
+ After giving the proof Hubbard remarks that the proof of this theorem “explains” why in the definition of quasiconformal maps the distributional directional derivatives of a quasiconformal map are required to be locally in 
+$L^2$
+ rather than, e.g., in 
+,
+$L^1$
+ because one needs to control the 
+area
+ of the image rather than the length. I will admit that at this point I went back to the analytic definition of quasiconformal maps (Definition 4.1.1) and the subsequent sections and tried to think through what could go wrong with derivatives that were merely locally 
+.
+$L^1$
+
+OK, so if one really just wants to verify the proof of the equality of the Teichmüller and Kobayashi metrics this is hardly a direct route. Why go to all this bother? If you examine the contents of a mathematician’s head you will find several different categories of mathematial knowledge. Part of this knowledge consists of facts—theorems that a mathematician “knows,” or at least believes, to be true. For some of these theorems the mathematician will know a proof, or a sketch of a proof, or a sketch of a proof that appeals to some “standard” background material that belongs to another subdiscipline and is therefore someone else’s responsibility. And in some small subset of cases the mathematician will really be able to fill in all the details, or at least have been exposed to them at some point in their education. Much rarer is real 
+understanding
+, in which we perceive all the elements of a mathematical theory as part of an integrated sensible whole. If you are impatient to tick off a checklist of “big theorems,” read another book; for real understanding, stick with Hubbard. After reading this book once forward and then one more time (mostly) backward, I have begun to get some glimmers of this understanding; in particular I now feel like I “get” Royden’s theorem and a few others in a way that I never did before.
+
+Perhaps the reader wants to know how this book compares to other well-known books on Teichmüller theory and related topics. So as not to be rude, I will only say that if Hubbard’s book had been available when I was a graduate student, I would probably now have a dozen fewer books in my math library. The book is at its best when it discusses analytic aspects of the theory in geometric terms; this is a perspective that harmonizes perfectly with my own, and I could not imagine a better source from which to learn the subject. There are literally hundreds of illustrations (Figure 2.1.3 in volume 1 is one of my favorites) and numerous beautiful exercises. I should emphasize that no important result used anywhere depends on a fact whose proof is left as an exercise. I suppose there might be mathematicians who do not care for this approach—to them I say: 
+de gustibus non est disputandum
+.
+
+Some books transcend their specialty and become universal classics that every mathematician should read; for example, Serre’s 
+A Course in Arithmetic
+, Milnor’s 
+Morse Theory
+, and a few others. Hubbard’s 
+Teichmüller Theory
+ belongs in this category.
+
+Danny Calegari is a professor of mathematics at the University of Chicago. His email address is 
+[email protected]
+
+Article DOI: 
+10.1090/noti3281
+Credits
+
+Book covers are courtesy of Matrix Editions.
+
+Author photo is courtesy of Danny Calegari.

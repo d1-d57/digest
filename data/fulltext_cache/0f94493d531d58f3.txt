@@ -1,0 +1,176 @@
+First Shape Found That Can’t Pass Through Itself | Quanta Magazine
+Quanta Homepage
+About Quanta
+Search
+Newsletter
+Get the latest news delivered to your inbox.
+Recent newsletters
+Follow Quanta
+Facebook
+Youtube
+Instagram
+RSS
+An editorially independent publication supported by the Simons Foundation.
+Type search term(s)
+and press enter
+Home
+First Shape Found That Can’t Pass Through Itself
+Comment
+Save Article
+Read Later
+Share
+Facebook
+Copied!
+Copy link
+Email
+Pocket
+Reddit
+Ycombinator
+Comment
+Comments
+Save Article
+Read Later
+Read Later
+geometry
+First Shape Found That Can’t Pass Through Itself
+By
+Erica Klarreich
+October 24, 2025
+After more than three centuries, a geometry problem that originated with a royal bet has been solved.
+Comment
+Save Article
+Read Later
+The Platonic solids that have six, eight, 12 and 20 sides can pass through themselves.
+David Renshaw
+Introduction
+Imagine you’re holding two equal-size dice. Is it possible to bore a tunnel through one die that’s big enough for the other to slide through?
+Perhaps your instinct is to say “Surely not!” If so, you’re not alone. In the late 1600s, an unidentified person placed a bet to that effect with Prince Rupert of the Rhine. Rupert — a nephew of Charles I of England who commanded the Royalist forces in the English Civil War — spent his sunset years studying metallurgy and glassmaking in his laboratory at Windsor Castle.
+Rupert won the bet. The mathematician John Wallis, recounting the story in 1693, didn’t say whether Rupert wrote a proof or bored a hole through an actual cube. But Wallis himself proved mathematically that, if you drill a straight tunnel in the direction of one of the cube’s inner diagonals, it can be made wide enough to allow another cube through. It’s a tight squeeze: If you make the second cube just 4% larger, it will no longer fit.
+It’s natural to wonder which other shapes have this property. “I think of this problem as being quite canonical,” said
+Tom Murphy
+, a software engineer at Google who has explored the question extensively in his free time. It “would have gotten rediscovered and rediscovered — aliens would have come to this one.”
+Tip a cube on its corner, and another can pass through.
+Mark Belan/
+Quanta Magazine
+The full menagerie of shapes is too diverse to get a handle on, so mathematicians tend to focus on convex polyhedra: shapes, like the cube, that have flat sides and no protrusions or indentations. When such a shape is much wider in some directions than others, it’s usually easy to find a straight tunnel that will allow another copy of the shape to pass through. But many famous convex polyhedra — for instance the dodecahedron, or the truncated icosahedron, the shape that forms a soccer ball — are highly symmetric and difficult to analyze. Among these, “for hundreds of years we only knew of the cube,” said Jakob Steininger, a mathematician at Statistics Austria, Austria’s federal statistics organization.
+Then, in 1968, Christoph Scriba proved that the
+tetrahedron and octahedron
+also have the “Rupert property,” as mathematicians now call it. And in a burst of activity over the past decade, professional mathematicians and hobbyists have found Rupert tunnels through many of the most widely studied convex polyhedra, including the
+dodecahedron, icosahedron
+and
+soccer ball
+.
+The Rupert property appeared to be so widespread that mathematicians conjectured a general rule: Every convex polyhedron
+will have the Rupert property
+. No one could find one that didn’t — until now.
+The Noperthedron. To date, it’s the only shape proved to not have Rupert’s property.
+In a paper posted online in August, Steininger and
+Sergey Yurkevich
+— a researcher at A&R Tech, an Austrian transportation systems company — describe a shape with 90 vertices and 152 faces that they’ve named the
+Noperthedron
+(after “Nopert,” a coinage by Murphy that combines “Rupert” and “nope”). Steininger and Yurkevich proved that no matter how you bore a straight tunnel through a Noperthedron, a second Noperthedron cannot fit through.
+The proof required a mix of theoretical advances and massive computer calculations, and relies on a delicate property of the Noperthedron’s vertices. “It’s a miracle that it works,” Steininger said.
+Passing Through the Shadows
+To see how one cube can pass through another, imagine holding a cube over a table and examining its shadow (assuming it’s illuminated from above). If you hold the cube in the standard position, the shadow is a square. But if you point one of the corners directly upward, the shadow is a regular hexagon.
+In 1693, Wallis showed that the square shadow fits inside the hexagon, leaving a thin margin. That means that if you point a cube’s corner upward, you can bore a vertical tunnel that’s big enough for a second cube to pass through. About a century later, Pieter Nieuwland showed that a different orientation casts an even better shadow — one that can accommodate a cube more than 6% larger than the cube with the tunnel.
+Mark Belan/
+Quanta Magazine
+Every subsequent analysis of more complicated shapes has relied on this process of turning the shape in different directions and looking for one shadow that fits inside another. With the aid of computers, mathematicians have found Rupert passages through a wide variety of shapes. Some are incredibly tight fits — for instance, the passage in a “triakis tetrahedron” has a margin that’s only about 0.000002 times the length of the shape’s radius. “The world of mixing computation and discrete geometry has flowered to make these kinds of calculations possible,” said
+Joseph O’Rourke
+, an emeritus professor at Smith College.
+Researchers who have written algorithms to find Rupert passages have noticed a curious dichotomy: For any given convex polyhedron, the algorithm seems to either find a passage almost immediately, or not find one at all. In the past five years, mathematicians have accumulated a small collection of holdout shapes for which no passage has been found.
+“I’ve had my desktop churn for two weeks on trying the rhombicosidodecahedron,” said
+Benjamin Grimmer
+, an applied mathematician at Johns Hopkins University, referring to a solid made of 62 regular triangles, squares and pentagons. “That one just seems to resist any attempt.”
+The rhombicosidodecahedron is a leading Nopert candidate.
+But such resistance doesn’t prove that a shape is a Nopert. There are infinitely many ways to orient a shape, and a computer can only check finitely many. Researchers don’t know whether the holdouts are true Noperts or just shapes whose Rupert passages are hard to find.
+What they do know is that candidate Noperts are incredibly rare. Starting last year, Murphy began to
+construct hundreds of millions of shapes
+. These include random polyhedra, polyhedra whose vertices lie on a sphere, polyhedra with special symmetries, and polyhedra in which he moved one vertex to intentionally mess up a previous Rupert passage. His algorithm easily found Rupert tunnels for nearly every one.
+The contrast between these quick results and the stubbornness of the Nopert holdouts made some mathematicians suspect that true Noperts do exist. But until August, all they had were suspicions.
+No Passage
+Steininger, now 30, and Yurkevich, 29, have been friends since they participated together as teenagers in mathematics Olympiad competitions. Even though both eventually left academia (after a doctorate for Yurkevich and a master’s for Steininger), they have continued to explore unsolved problems together.
+“We just had pizza three hours ago, and we talked about math almost the whole time,” Steininger told
+Quanta
+. “That’s what we do.”
+Five years ago, the pair happened upon a YouTube video of one cube passing through another, and they were instantly smitten. They developed an algorithm to search for Rupert tunnels and soon became convinced that some shapes were Noperts. In a 2021 paper, they conjectured that
+the rhombicosidodecahedron is not Rupert
+. Their work, which preceded Murphy’s and Grimmer’s recent explorations, was, “I think, the first to conjecture that there might be solids that don’t have this property,” Steininger said.
+If you want to prove that a shape is a Nopert, you must rule out Rupert tunnels for every possible orientation of the two shapes. Each orientation can be written down as a collection of rotation angles. This collection of angles can then be represented as a point in a higher-dimensional “parameter space.”
+Sergey Yurkevich (left) and Jakob Steininger, friends since their teenage years, enjoy working on math problems together, even though neither has remained in academia.
+Florentina Stadlbauer; Courtesy of Jakob Steininger
+Suppose you choose an orientation for your two shapes, and the computer tells you that the second shadow sticks out past the border of the first shadow. This rules out one point in the parameter space.
+But you may be able to rule out much more than a single point. If the second shadow sticks out significantly, it would require a big change to move it inside the first shadow. In other words, you can rule out not just your initial orientation but also “nearby” orientations — an entire block of points in the parameter space. Steininger and Yurkevich came up with a result they called their global theorem, which quantifies precisely how large a block you can rule out in these cases. By testing many different points, you can potentially rule out block after block in the parameter space.
+If these blocks cover the entire parameter space, you’ll have proved that your shape is a Nopert. But the size of each block depends on how far the second shadow sticks out beyond the first, and sometimes it doesn’t stick out very far. For instance, suppose you start with the two shapes in exactly the same position, and then you slightly rotate the second shape. Its shadow will at most stick out just a tiny bit past the first shadow, so the global theorem will only rule out a tiny box. These boxes are too small to cover the whole parameter space, leaving the possibility that some point you’ve missed might correspond to a Rupert tunnel.
+To deal with these small reorientations, the pair came up with a complement to their global theorem that they called the local theorem. This result deals with cases where you can find three vertices (or corner points) on the boundary of the original shadow that satisfy some special requirements. For instance, if you connect those three vertices to form a triangle, it must contain the shadow’s center point. The researchers showed that if these requirements are met, then any small reorientation of the shape will create a shadow that pushes at least one of the three vertices further outward. So the new shadow can’t lie inside the original shadow, meaning it doesn’t create a Rupert tunnel.
+If your shape casts a shadow that lacks three appropriate vertices, the local theorem won’t apply. And all the previously identified Nopert candidates have at least one shadow with this problem. Steininger and Yurkevich sifted through a database of hundreds of the most symmetric and beautiful convex polyhedra, but they couldn’t find any shape whose shadows all worked. So they decided to generate a suitable shape themselves.
+They developed an algorithm to construct shapes and test them for the three-vertices property. Eventually, the algorithm produced the Noperthedron, which is made of 150 triangles and two regular 15-sided polygons. It looks like a rotund crystal vase with a wide base and top; one fan of the work has already 3D-printed a copy to use as a
+pencil holder
+.
+Prince Rupert of the Rhine, a 17th-century army officer, naval commander, colonial governor and gentleman scientist, won a bet about whether it’s possible to pass a cube through another.
+Peter Lely
+Steininger and Yurkevich then divided the parameter space of orientations into approximately 18 million tiny blocks, and tested the center point of each block to see if its corresponding orientation produced a Rupert passage. None of them did. Next, the researchers showed that each block satisfied either the local or global theorem, allowing them to rule out the entire block. Since these blocks fill out the entire parameter space, this meant that there is no Rupert passage through the Noperthedron.
+The “natural conjecture has been proved false,” O’Rourke said.
+It remains to be seen whether mathematicians can use the new method to generate other Noperts, or if they can find a different local theorem that can handle candidates like the rhombicosidodecahedron. But now that mathematicians know that Noperts do exist, “we’re on sound footing to study other shapes,” Murphy said.
+Murphy, who like Steininger and Yurkevich has been exploring the question for its own sake, independent of his day job, feels a kinship across the centuries with Prince Rupert. “I like that he chose to use his retirement to do math and science in his castle,” he said.
+Meanwhile, Steininger and Yurkevich are on the lookout for new questions to tackle. “We’re just humble mathematicians — we love working on such problems,” Steininger said. “We’ll keep doing that.”
+The Quanta Newsletter
+Get highlights of the most important news delivered to your email inbox
+Recent newsletters
+Also in
+Mathematics
+After 80 Years, Mathematicians Give Famed ‘Erdős Method’ an Upgrade
+graph theory
+After 80 Years, Mathematicians Give Famed ‘Erdős Method’ an Upgrade
+By
+Leila Sloman
+June 26, 2026
+Comment
+Save Article
+Read Later
+What Is the Positive Grassmannian and Why Does It Show Up Everywhere?
+The Joy of Why
+What Is the Positive Grassmannian and Why Does It Show Up Everywhere?
+By
+Janna Levin
++1 author
+Steven Strogatz
+June 25, 2026
+Comment
+Save Article
+Read Later
+Seven Perfect Shuffles Randomize a Deck of Cards. But How Many Sloppy Ones?
+probability
+Seven Perfect Shuffles Randomize a Deck of Cards. But How Many Sloppy Ones?
+By
+John Pavlus
+June 17, 2026
+Comment
+Save Article
+Read Later
+Comment on this article
+Quanta Magazine moderates comments to facilitate an informed, substantive, civil conversation. Abusive, profane, self-promotional, misleading, incoherent or off-topic comments will be rejected. Moderators are staffed during regular business hours (New York time) and can only accept comments written in English.
+Show comments
+Next article
+The Game Theory of How Algorithms Can Drive Up Prices
+Close
+Log in to Quanta
+Use your social network
+Facebook
+Connect with Facebook
+Connect with Google
+or
+Don't have an account yet?
+Sign up
+Close
+Forgot your password?
+We’ll email you instructions to reset your password
+Close
+Change your password
+Enter your new password
+Close
+Sign Up
+Creating an account means you accept Quanta Magazine's
+Terms & Conditions
+and
+Privacy Policy

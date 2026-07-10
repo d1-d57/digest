@@ -1,0 +1,491 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN" "http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg-flat.dtd" >
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+
+<title>The Univalence Principle | The n-Category Caf&#xE9;</title>
+
+<meta name="ICBM" content="30.2893, -97.7367" />
+<meta name="DC.title" content="The n-Category Caf&#xE9;" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<style type="text/css" media="all" title="The n-Category Caf&#xE9; Stylesheet">@import url("/category/styles-site.css");</style>
+<link rel="stylesheet" href="/category/print.css" type="text/css" media="print" />
+
+<link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="/category/atom10.xml" />
+<link rel="alternate" type="application/atom+xml" title="Atom 1.0 Comments Feed" href="/category/comments.atom" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="/category/rsd.xml" />
+<link rel="shortcut icon" type="image/x-icon" href="/category/images/favicon.ico" />
+<link rel="icon" type="image/x-icon" href="/category/images/favicon2.ico" />
+<link rel="pgpkey" href="/category/urs.asc" title="Urs Schreiber's PGP Public Key" />
+<link rel="start" href="/category/" title="Home" />
+<link rel="search" href="/cgi-bin/MT-3.0/mt-search.cgi?IncludeBlogs=3&amp;Template=category" title="Search" />
+<link rel="contents" href="/category/archives.html" title="Comprehensive List of Blog Entries" />
+
+
+<link rel="bookmark" href="#content" title="Main Content" />
+<link rel="bookmark" href="#comments" title="Comments" />
+<link rel="bookmark" href="#search" title="Search Box" />
+<link rel="bookmark" href="#related" title="Related entries" />
+<link rel="bookmark" href="#AccessKeyList" title="AccessKeys" />
+<link rel="prev" href="/category/2026/01/categorifying_riemanns_functio.html" title="Categorifying Riemann's Functional Equation" />
+<link rel="next" href="/category/2026/03/a_typed_language_for_agent_coordination.html" title="A Typed Language for Agent Coordination" />
+<link rel="up" href="/category/2026/02/" title="February, 2026" />
+
+<script type="text/javascript" src="/category/prototype.js"></script>
+<script type="text/javascript" src="/category/ie.js"></script>
+<script type="text/x-mathjax-config">
+  <!--//--><![CDATA[//><!--
+    MathJax.Hub.Config({
+      MathML: { useMathMLspacing: true },
+      "HTML-CSS": { scale: 90,
+                    noReflows: false,
+                    extensions: ["handle-floats.js"],
+                    linebreaks: { width: "container" }
+       }
+    });
+    MathJax.Hub.Queue( function () {
+       var fos = document.getElementsByTagName('foreignObject');
+       for (var i = 0; i < fos.length; i++) {
+         MathJax.Hub.Typeset(fos[i]);
+       }
+    });
+  //--><!]]>
+</script>
+<script type="text/javascript">
+  <!--//--><![CDATA[//><!--
+  window.addEventListener("DOMContentLoaded", function () {
+    var div = document.createElement('div');
+    var math = document.createElementNS('http://www.w3.org/1998/Math/MathML', 'math');
+    document.body.appendChild(div);
+    div.appendChild(math);
+  // Test for MathML support comparable to WebKit version https://trac.webkit.org/changeset/203640 or higher.
+    div.setAttribute('style', 'font-style: italic');
+    var mathml_unsupported = !(window.getComputedStyle(div.firstChild).getPropertyValue('font-style') === 'normal');
+    div.parentNode.removeChild(div);
+    if (mathml_unsupported) {
+      // MathML does not seem to be supported...
+      var s = document.createElement('script');
+      s.src = "/wiki/MathJax/MathJax.js?config=MML_HTMLorMML-full";
+      document.querySelector('head').appendChild(s);
+    } else {
+      document.head.insertAdjacentHTML("beforeend", '<style>svg[viewBox] {max-width: 100%}</style>');
+    }
+  });
+  //--><!]]>
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="https://golem.ph.utexas.edu/category/2026/02/the_univalence_principle.html"
+    trackback:ping="https://golem.ph.utexas.edu/cgi-bin/MT-3.0/dxy-tb.fcgi/3629"
+    dc:title="The Univalence Principle"
+    dc:identifier="https://golem.ph.utexas.edu/category/2026/02/the_univalence_principle.html"
+    dc:subject="Homotopy type theory"
+    dc:description="Making precise the idea that equivalent structures are indistinguishable."
+    dc:creator="Mike Shulman"
+    dc:date="2026-02-11T02:26:50+00:00" />
+</rdf:RDF>
+-->
+
+
+</head>
+
+<body>
+
+<div class="frame">
+
+<div id="banner">
+<h1><a href="/category/" accesskey="1" title="Jump to the blog main page">The n-Category Caf&#xE9;</a></h1>
+<div class="description">A group blog on math, physics and philosophy</div>
+</div>
+
+
+<h2 class="skip">Skip to the Main Content</h2>
+<div class="skip">
+<a href="#content" accesskey="2">Enough, already! Skip to the content.</a>
+</div>
+<p style="display:none;">
+<strong>Note:</strong>These pages make extensive use of the latest XHTML and CSS <a href="http://www.w3.org">Standards</a>. They ought to look great in any standards-compliant modern browser. Unfortunately, they will probably look horrible in older browsers, like Netscape 4.x and IE 4.x. Moreover, many posts use MathML, which is, currently <em>only</em> supported in Mozilla. My best suggestion (and you will <em>thank</em> me when surfing an ever-increasing number of sites on the web which have been crafted to use the new standards) is to upgrade to the latest version of your browser. If that's not possible, consider moving  to the Standards-compliant and open-source <a href="http://www.mozilla.org">Mozilla</a> browser.
+</p>
+
+
+<div class="blog">
+
+<div><div id='menu'>
+<a href='/category/2026/01/categorifying_riemanns_functio.html' accesskey='p'>&#xab; Categorifying Riemann&#x2019;s Functional Equation</a> |
+
+<a href='/category/'>Main</a>
+| <a href='/category/2026/03/a_typed_language_for_agent_coordination.html' accesskey='n'>A Typed Language for Agent Coordination &#xbb;</a>
+
+</div>
+
+<h2 class='date'>February 11, 2026</h2>
+
+<div id='content' class='blogbody'>
+
+<h3 class='title'>The Univalence Principle</h3>
+
+<h4 class='posted'>Posted by Mike Shulman</h4>
+
+<div><a href='http://golem.ph.utexas.edu/~distler/blog/mathml.html' onclick='window.open(this.href, &#x27;MathML&#x27;, &#x27;width=310,height=150,scrollbars=no,resizable=yes,status=no&#x27;); return false;' onkeypress='if(window.event.keyCode == 13){window.open(this.href, &#x27;MathML&#x27;, &#x27;width=310,height=150,scrollbars=no,resizable=yes,status=no&#x27;); return false;}'><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p><em>(guest post by Dimitris Tsementzis, about joint work with Benedikt Ahrens, Paige North, and Mike Shulman)</em></p>
+
+<p>The Univalence Principle is the informal statement that equivalent mathematical structures are indistinguishable. 
+There are various ways of making this statement formally precise, and a long history of work that does so.
+In our recently-published (but long in the making!) <a href='https://arxiv.org/abs/2102.06275'>book</a> we proved to our knowledge the most general version of this principle, which applies to set-based, categorical, and higher-categorical structures defined in a non-algebraic and space-based style, as well as models of higher-order theories such as topological spaces.</p>
+
+<p>This work achieves three main goals. 
+Firstly, it greatly extends the &#x201c;Structure Identity Principle&#x201d; from <a href='https://homotopytypetheory.org/book'>the original HoTT book</a>, to include any (finite) level of structure, instead of just set-based structures, thus establishing in the strongest sense yet made precise that the Univalent Foundations provide an equivalence-invariant foundation for higher-categorical mathematics.
+Secondly, it provides very general novel definitions of equivalence between structures and between objects in a given structure that &#x201c;compile&#x201d; to most known notions of equivalence in known cases, but which can also be used to suggest notions in new settings; in doing so it extends M. Makkai&#x2019;s classic work on <a href='https://www.math.mcgill.ca/makkai/folds/foldsinpdf/FOLDS.pdf'>First Order-Logic with Dependent Sorts (FOLDS)</a>.
+Thirdly, the setting in which our result is proved (a form of <a href='https://arxiv.org/abs/1705.03307'>Two-Level Type Theory</a>) provides a framework in which to do <em>metamathematics</em> in the Univalent Foundations/HoTT, i.e. carry out the mathematical study of how mathematics is formalized in UF/HoTT.
+The Univalence Principle we prove is a foundational metamathematical result in that sense.</p>
+
+
+<div id='more'>
+<div><a href='http://golem.ph.utexas.edu/~distler/blog/mathml.html' onclick='window.open(this.href, &#x27;MathML&#x27;, &#x27;width=310,height=150,scrollbars=no,resizable=yes,status=no&#x27;); return false;' onkeypress='if(window.event.keyCode == 13){window.open(this.href, &#x27;MathML&#x27;, &#x27;width=310,height=150,scrollbars=no,resizable=yes,status=no&#x27;); return false;}'><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<h2>Setting the Stage</h2>
+
+<p>Any &#x201c;Univalence Principle&#x201d; type of result has the following form:</p>
+
+<p><math xmlns="http://www.w3.org/1998/Math/MathML" display='block'><semantics><mrow><mo>&#x2200;</mo><mi>M</mi><mo>,</mo><mi>N</mi><mo>&#x2208;</mo><mi>Structures</mi><mo stretchy='false'>(</mo><mi>&#x2112;</mi><mo stretchy='false'>)</mo><mo>,</mo><mo stretchy='false'>(</mo><mi>M</mi><msub><mo>&#x2243;</mo> <mi>&#x2112;</mi></msub><mi>N</mi><mo stretchy='false'>)</mo><mo>&#x2243;</mo><mo stretchy='false'>(</mo><mi>M</mi><mo>=</mo><mi>N</mi><mo stretchy='false'>)</mo></mrow><annotation encoding='application/x-tex'>
+\forall M, N \in Structures(\mathcal{L}), (M \simeq_\mathcal{L} N) \simeq (M = N) 
+</annotation></semantics></math></p>
+
+<p>The result gains in strength if the class of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>Structures</mi><mo stretchy='false'>(</mo><mi>&#x2112;</mi><mo stretchy='false'>)</mo></mrow><annotation encoding='application/x-tex'>Structures(\mathcal{L})</annotation></semantics></math> is as large as possible, and the notion of equivalence <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>M</mi><msub><mo>&#x2243;</mo> <mi>&#x2112;</mi></msub><mi>N</mi></mrow><annotation encoding='application/x-tex'>M \simeq_{\mathcal{L}} N</annotation></semantics></math> between them coincides with known notions of equivalence in practice (where <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x2112;</mi></mrow><annotation encoding='application/x-tex'>\mathcal{L}</annotation></semantics></math> is a placeholder for a notion of signature in terms of which <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>M</mi></mrow><annotation encoding='application/x-tex'>M</annotation></semantics></math> and <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>N</mi></mrow><annotation encoding='application/x-tex'>N</annotation></semantics></math> are structures).
+Such a result also gains in strength if the middle notion of equivalence is as &#x201c;structural&#x201d; as possible, ensuring that not only properties of the structures are preserved, but also constructions built on top of them. 
+This last feature can only really be pursued within a univalent type theory, like HoTT.</p>
+
+<p>In our work, we define: diagrammatic signatures <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x2112;</mi></mrow><annotation encoding='application/x-tex'>\mathcal{L}</annotation></semantics></math> as inverse categories of finite height, <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x2112;</mi></mrow><annotation encoding='application/x-tex'>\mathcal{L}</annotation></semantics></math>-structures as Reedy-fibrant functors <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x2112;</mi><mo>&#x2192;</mo><mi>&#x1d4b0;</mi></mrow><annotation encoding='application/x-tex'>\mathcal{L} \to \mathcal{U}</annotation></semantics></math>, and a notion of <em>indiscernibility</em> relating objects <em>within</em> structures, which yields a derived notion of equivalence <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msub><mo>&#x2243;</mo> <mi>&#x2112;</mi></msub></mrow><annotation encoding='application/x-tex'>\simeq_{\mathcal{L}}</annotation></semantics></math> <em>between</em> structures (essentially structure-preserving bijections up to indiscernibility). 
+The primitive notions <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mo>&#x2243;</mo></mrow><annotation encoding='application/x-tex'>\simeq</annotation></semantics></math> and <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mo>=</mo></mrow><annotation encoding='application/x-tex'>=</annotation></semantics></math> are given by equivalence and equality in 2LTT, appropriately defined.  </p>
+
+<h2>Signatures, Structures (and where they live)</h2>
+
+<h3>Two-level type theory (2LTT)</h3>
+
+<p>In 2LTT, there is an <em>external</em> level for <strong>exo-types</strong> and other exo-gizmos (allowing strictly functorial constructions), and the usual <strong>fibrant</strong> (HoTT/UF) level where mathematical objects live.
+The external level is the metamathematical or syntactic level, where a strict equality exists that allows us to define syntax and symbols.
+Our exo-gizmos are analogous to sets of syntactical symbols used to define signatures in first-order logic.</p>
+
+<p>Such syntax consists of categories with strict equality on composition, which we call <strong>exo-categories</strong>.
+Equalities here are strict (exo-equalities), while the internal world has homotopical paths.
+The 2LTT setting is convenient for type-theoretic reasoning, and allows us to neatly separate the various notions of equality at play.</p>
+
+<h3>Diagram signatures are inverse categories of finite height</h3>
+
+<p>A <strong>diagram signature</strong> <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x2112;</mi></mrow><annotation encoding='application/x-tex'>\mathcal{L}</annotation></semantics></math> is an <strong>inverse exo-category of finite height</strong> equipped with a rank functor
+<math xmlns="http://www.w3.org/1998/Math/MathML" display='block'><semantics><mrow><mi mathvariant='normal'>rk</mi><mo>:</mo><mi>&#x2112;</mi><mo>&#x27f6;</mo><mo stretchy='false'>(</mo><msup><mi>&#x2115;</mi> <mi mathvariant='normal'>exo</mi></msup><msup><mo stretchy='false'>)</mo> <mi mathvariant='normal'>op</mi></msup></mrow><annotation encoding='application/x-tex'>
+\mathrm{rk}:\mathcal{L} \longrightarrow (\mathbb{N}^{\mathrm{exo}})^{\mathrm{op}}
+</annotation></semantics></math>
+that reflects identities. Objects of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x2112;</mi></mrow><annotation encoding='application/x-tex'>\mathcal{L}</annotation></semantics></math> are the <strong>sorts</strong> (analogous to &#x201c;sorts&#x201d; in first-order logic); morphisms encode <strong>dependencies</strong> (&#x201c;an arrow depends on a pair of objects,&#x201d; etc.). Inverse-ness gives <strong>matching objects</strong> and allows Reedy methods to apply.</p>
+
+<p>To illustrate the idea, take the example of a reflexive graph. The diagram signature for reflexive graphs would be given by the following inverse (exo-)category</p>
+
+<p><math xmlns="http://www.w3.org/1998/Math/MathML" display='block'><semantics><mrow><mrow><mtable><mtr><mtd><mi>I</mi></mtd></mtr> <mtr><mtd><msup><mo stretchy='false'>&#x2193;</mo> <mi>i</mi></msup></mtd></mtr> <mtr><mtd><mi>A</mi></mtd></mtr> <mtr><mtd><msub><mo stretchy='false'>&#x2193;</mo> <mi>c</mi></msub><mspace width='0.27778em' /><mspace width='0.27778em' /><msub><mo stretchy='false'>&#x2193;</mo> <mi>d</mi></msub></mtd></mtr> <mtr><mtd><mi>O</mi></mtd></mtr></mtable></mrow></mrow><annotation encoding='application/x-tex'>
+\array{
+I \\
+\downarrow^i \\
+A \\
+\downarrow_{c} \;\; \downarrow_{d} \\
+O
+}
+</annotation></semantics></math></p>
+
+<p>where <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>c</mi><mi>i</mi><mo>=</mo><mi>d</mi><mi>i</mi></mrow><annotation encoding='application/x-tex'>c i = d i</annotation></semantics></math>. The intuition is that we have a sort <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>A</mi></mrow><annotation encoding='application/x-tex'>A</annotation></semantics></math> of &#x201c;arrows&#x201d; between any two objects, and a predicate <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>I</mi></mrow><annotation encoding='application/x-tex'>I</annotation></semantics></math> (&#x201c;identity&#x201d;) that can be used to select which arrows are identity arrows with the relation ensuring that this predicate can only be &#x201c;asked&#x201d; of loops. </p>
+
+<h3>Structures are Reedy fibrant diagrams over these signatures</h3>
+
+<p>Given this notion of a signature, a structure in our sense is simply a (Reedy fibrant) functor <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x2112;</mi><mo>&#x2192;</mo><mi>&#x1d4b0;</mi></mrow><annotation encoding='application/x-tex'>\mathcal{L} \to \mathcal{U}</annotation></semantics></math>. In more detail, a raw <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x2112;</mi></mrow><annotation encoding='application/x-tex'>\mathcal{L}</annotation></semantics></math>-diagram is an exo-functor 
+<math xmlns="http://www.w3.org/1998/Math/MathML" display='block'><semantics><mrow><mi>M</mi><mo>:</mo><mi>&#x2112;</mi><mo>&#x2192;</mo><msup><mi>&#x1d4b0;</mi> <mi mathvariant='normal'>exo</mi></msup></mrow><annotation encoding='application/x-tex'>
+M:\mathcal{L}\to\mathcal{U}^{\mathrm{exo}}
+</annotation></semantics></math>
+For each sort <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>K</mi></mrow><annotation encoding='application/x-tex'>K</annotation></semantics></math>, the <strong>matching object</strong> <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msub><mi>&#x1d544;</mi> <mi>K</mi></msub><mi>M</mi></mrow><annotation encoding='application/x-tex'>\mathbb{M}_{K}M</annotation></semantics></math> collects the compatible lower-rank data needed to specify the &#x201c;boundary&#x201d; for an element of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>M</mi><mi>K</mi></mrow><annotation encoding='application/x-tex'>M K</annotation></semantics></math>. The <strong>Reedy fibrancy</strong> condition is: the canonical boundary map <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msub><mi>M</mi> <mi>K</mi></msub><mo>&#x2192;</mo><msub><mi>&#x1d544;</mi> <mi>K</mi></msub><mi>M</mi></mrow><annotation encoding='application/x-tex'>M_K\to \mathbb{M}_{K}M</annotation></semantics></math> is a fibration (i.e., a dependent type) for each <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>K</mi></mrow><annotation encoding='application/x-tex'>K</annotation></semantics></math>.
+The category of such Reedy-fibrant diagrams then forms a fibrant type <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi mathvariant='normal'>Str</mi><mo stretchy='false'>(</mo><mi>&#x2112;</mi><mo stretchy='false'>)</mo></mrow><annotation encoding='application/x-tex'>\mathrm{Str}(\mathcal{L})</annotation></semantics></math> whose points are the <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x2112;</mi></mrow><annotation encoding='application/x-tex'>\mathcal{L}</annotation></semantics></math>-<strong>structures</strong>. </p>
+
+<p>To illustrate with the example of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msub><mi>&#x2112;</mi> <mi>rg</mi></msub></mrow><annotation encoding='application/x-tex'>\mathcal{L}_{rg}</annotation></semantics></math> from above, an <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msub><mi>&#x2112;</mi> <mi>rg</mi></msub></mrow><annotation encoding='application/x-tex'>\mathcal{L}_{rg}</annotation></semantics></math>-structure <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>G</mi></mrow><annotation encoding='application/x-tex'>G</annotation></semantics></math> in our sense would be given by the following data, in type-theoretic notation:</p>
+
+<ul>
+<li>A type  <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>GO</mi><mo>:</mo><mi>&#x1d4b0;</mi></mrow><annotation encoding='application/x-tex'>GO:\mathcal{U}</annotation></semantics></math></li>
+<li>A family <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>GA</mi><mo>:</mo><mi>GO</mi><mo>&#xd7;</mo><mi>GO</mi><mo>&#x2192;</mo><mi>&#x1d4b0;</mi></mrow><annotation encoding='application/x-tex'>GA: GO\times GO\to\mathcal{U}</annotation></semantics></math> dependent on <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>GO</mi></mrow><annotation encoding='application/x-tex'>GO</annotation></semantics></math> </li>
+<li>A family <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>GI</mi><mo>:</mo><msub><mo lspace='0.16667em' rspace='0.16667em'>&#x220f;</mo> <mi>x</mi></msub><mi>GA</mi><mo stretchy='false'>(</mo><mi>x</mi><mo>,</mo><mi>x</mi><mo stretchy='false'>)</mo><mo>&#x2192;</mo><mi>&#x1d4b0;</mi></mrow><annotation encoding='application/x-tex'>GI:\prod_x GA(x,x)\to\mathcal{U}</annotation></semantics></math> for the &#x201c;identity&#x201d;</li>
+</ul>
+
+<p>The trick here is to ensure the repeated <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>x</mi></mrow><annotation encoding='application/x-tex'>x</annotation></semantics></math> in the definition of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>GI</mi></mrow><annotation encoding='application/x-tex'>GI</annotation></semantics></math>, obeying the relations of the signature.
+This is what the matching object machinery achieves for arbitrary signatures.</p>
+
+<p>Other examples of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x2112;</mi></mrow><annotation encoding='application/x-tex'>\mathcal{L}</annotation></semantics></math>-structures include: categories (with sorts for objects and morphisms), groupoids, <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>n</mi></mrow><annotation encoding='application/x-tex'>n</annotation></semantics></math>-categories for any <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>n</mi></mrow><annotation encoding='application/x-tex'>n</annotation></semantics></math>, preorders, and models of higher-order theories like topological spaces and sup-lattices.
+Furthermore, all of what we say applies to theories with axioms (not just structures), which we define in the book too.</p>
+
+<h2>Indiscernibility and local univalence</h2>
+
+<p>With our formal set-up complete, we address the central question: for arbitrary signatures <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x2112;</mi></mrow><annotation encoding='application/x-tex'>\mathcal{L}</annotation></semantics></math>, when are two &#x201c;objects&#x201d; in an <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x2112;</mi></mrow><annotation encoding='application/x-tex'>\mathcal{L}</annotation></semantics></math>-structure equivalent?
+Such an &#x201c;object&#x201d; could be a categorical (or higher-categorical) gadget itself when <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x2112;</mi></mrow><annotation encoding='application/x-tex'>\mathcal{L}</annotation></semantics></math> has height <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mo>&gt;</mo><mn>2</mn></mrow><annotation encoding='application/x-tex'>\gt 2</annotation></semantics></math>, e.g. the &#x201c;objects&#x201d; of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mstyle mathvariant='bold'><mrow><mn>2</mn><mo>&#x2212;</mo></mrow></mstyle><mstyle mathvariant='bold'><mi>Cat</mi></mstyle></mrow><annotation encoding='application/x-tex'>\mathbf{2-}\mathbf{Cat}</annotation></semantics></math> are themselves categories, which are <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x2112;</mi><mo>&#x2032;</mo></mrow><annotation encoding='application/x-tex'>\mathcal{L}'</annotation></semantics></math>-structures for an <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x2112;</mi><mo>&#x2032;</mo></mrow><annotation encoding='application/x-tex'>\mathcal{L}'</annotation></semantics></math> of lower height.
+The key idea is: two &#x201c;objects&#x201d; are indiscernible if nothing in the signature can distinguish them&#x2026;up to indiscernibility!</p>
+
+<h3>Indiscernibilities and Local Univalence</h3>
+
+<p>Fix a signature <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x2112;</mi></mrow><annotation encoding='application/x-tex'>\mathcal{L}</annotation></semantics></math>, an <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x2112;</mi></mrow><annotation encoding='application/x-tex'>\mathcal{L}</annotation></semantics></math>-structure <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>M</mi></mrow><annotation encoding='application/x-tex'>M</annotation></semantics></math>, a rank <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mn>0</mn></mrow><annotation encoding='application/x-tex'>0</annotation></semantics></math> (&#x201c;bottom&#x201d;) sort <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>K</mi><mo>:</mo><mi>&#x2112;</mi><mo stretchy='false'>(</mo><mn>0</mn><mo stretchy='false'>)</mo></mrow><annotation encoding='application/x-tex'>K: \mathcal{L}(0)</annotation></semantics></math>, and elements <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>a</mi><mo>,</mo><mi>b</mi><mo>:</mo><mi>M</mi><mi>K</mi></mrow><annotation encoding='application/x-tex'>a,b:M K</annotation></semantics></math>.
+Think of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>K</mi></mrow><annotation encoding='application/x-tex'>K</annotation></semantics></math> as a &#x201c;set&#x201d; of objects (e.g. of a category) on top of which properties and structures are defined.</p>
+
+<p>To define when <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>a</mi></mrow><annotation encoding='application/x-tex'>a</annotation></semantics></math> and <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>b</mi></mrow><annotation encoding='application/x-tex'>b</annotation></semantics></math> are indiscernible, we package together everything that could distinguish them. The intuition is: if there is an equivalence between &#x201c;everything you can say about <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>a</mi></mrow><annotation encoding='application/x-tex'>a</annotation></semantics></math>&#x201d; and &#x201c;everything you can say about <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>b</mi></mrow><annotation encoding='application/x-tex'>b</annotation></semantics></math>&#x201d; (outside of directly referencing <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>a</mi></mrow><annotation encoding='application/x-tex'>a</annotation></semantics></math> or <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>b</mi></mrow><annotation encoding='application/x-tex'>b</annotation></semantics></math> themselves), then they are indiscernible.
+We achieve this through a formal definition of a &#x201c;boundary&#x201d; <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msub><mo>&#x2202;</mo> <mi>a</mi></msub><mi>M</mi></mrow><annotation encoding='application/x-tex'>\partial_a M</annotation></semantics></math>, which one can think of as the <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x2112;</mi></mrow><annotation encoding='application/x-tex'>\mathcal{L}</annotation></semantics></math>-structure that contains everything that could distinguish <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>a</mi></mrow><annotation encoding='application/x-tex'>a</annotation></semantics></math> in <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>MK</mi></mrow><annotation encoding='application/x-tex'>MK</annotation></semantics></math> from anything else in <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>MK</mi></mrow><annotation encoding='application/x-tex'>MK</annotation></semantics></math>. 
+Which naturally leads us to the following definitions.</p>
+
+<p><strong>Definition (Indiscernibility).</strong> We say that <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>a</mi><mo>,</mo><mi>b</mi><mo>:</mo><mi>MK</mi></mrow><annotation encoding='application/x-tex'>a,b : MK</annotation></semantics></math> are <strong>indisernible</strong>, written <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>a</mi><mo>&#x2248;</mo><mi>b</mi></mrow><annotation encoding='application/x-tex'>a\approx b</annotation></semantics></math>, iff there is a levelwise equivalence <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msub><mo>&#x2202;</mo> <mi>a</mi></msub><mi>M</mi><mo>&#x2243;</mo><msub><mo>&#x2202;</mo> <mi>b</mi></msub><mi>M</mi></mrow><annotation encoding='application/x-tex'>\partial_a M \simeq \partial_b M</annotation></semantics></math> that is coherent in the right way.</p>
+
+<p><strong>Definition (Univalent Structure).</strong> We say that <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>M</mi></mrow><annotation encoding='application/x-tex'>M</annotation></semantics></math> is <strong>locally univalent at K</strong> if the canonical map
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display='block'><semantics><mrow><mo stretchy='false'>(</mo><mi>a</mi><mo>=</mo><mi>b</mi><mo stretchy='false'>)</mo><mspace width='0.27778em' /><mo>&#x27f6;</mo><mspace width='0.27778em' /><mo stretchy='false'>(</mo><mi>a</mi><mo>&#x2248;</mo><mi>b</mi><mo stretchy='false'>)</mo></mrow><annotation encoding='application/x-tex'>
+  (a=b) \;\longrightarrow\; (a\approx b)
+  </annotation></semantics></math>
+  is an equivalence. We then say a structure <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>M</mi></mrow><annotation encoding='application/x-tex'>M</annotation></semantics></math> is <strong>univalent</strong> if this holds at all rank-0 sorts and (recursively) for all sorts of higher rank.</p>
+
+<p>We prove our main results for univalent <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x2112;</mi></mrow><annotation encoding='application/x-tex'>\mathcal{L}</annotation></semantics></math>-structures. These are quite special in that they are &#x201c;saturated&#x201d; in their equivalence information: two indistinguishable gizmos are actually equal. Or, put differently: when there is not &#x201c;enough&#x201d; structure to distinguish two gizmos, there is always enough to prove them equivalent. Some examples to illustrate (see Part 2 of the book for many more!):</p>
+
+<ul>
+<li>In a reflexive graph structure, two nodes <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>a</mi></mrow><annotation encoding='application/x-tex'>a</annotation></semantics></math> and <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>b</mi></mrow><annotation encoding='application/x-tex'>b</annotation></semantics></math> are indiscernible iff they have the same number of arrows coming in and out, and the same number of loops that are identities.</li>
+<li>In a category, two objects are indiscernible iff they are isomorphic. A <a href='https://ncatlab.org/nlab/show/univalent+category'><em>univalent category</em></a> is precisely a category (precategory in UF) that is locally univalent at the sort of its objects.</li>
+<li>In an appropriately defined bicategory, an indiscernibility amounts to a pair of coherent adjoint equivalenes, as expected. </li>
+</ul>
+
+<h2>Equivalences of structures</h2>
+
+<p>We are almost there! On to the final missing piece: equivalences between structures themselves.
+Let <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>f</mi><mo>:</mo><mi>M</mi><mo>&#x2192;</mo><mi>N</mi></mrow><annotation encoding='application/x-tex'>f:M\to N</annotation></semantics></math> be a morphism of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x2112;</mi></mrow><annotation encoding='application/x-tex'>\mathcal{L}</annotation></semantics></math>-structures, defined in the expected way (as a natural transformation between the corresponding <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x1d4b0;</mi></mrow><annotation encoding='application/x-tex'>\mathcal{U}</annotation></semantics></math>-valued functors). Then, for each sort <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>K</mi></mrow><annotation encoding='application/x-tex'>K</annotation></semantics></math>, we have a matching square</p>
+
+<p><math xmlns="http://www.w3.org/1998/Math/MathML" display='block'><semantics><mrow><mrow><mtable><mtr><mtd><mi>MK</mi></mtd> <mtd><mover><mrow><msub><mi>f</mi> <mi>K</mi></msub></mrow><mo>&#x2192;</mo></mover></mtd> <mtd><mi>NK</mi></mtd></mtr> <mtr><mtd><mo stretchy='false'>&#x2193;</mo></mtd> <mtd></mtd> <mtd><mo stretchy='false'>&#x2193;</mo></mtd></mtr> <mtr><mtd><msub><mi>&#x1d544;</mi> <mi>KM</mi></msub></mtd> <mtd><mover><mrow><msub><mi>&#x1d544;</mi> <mi>K</mi></msub><mi>f</mi></mrow><mo>&#x2192;</mo></mover></mtd> <mtd><msub><mi>&#x2115;</mi> <mi>KN</mi></msub></mtd></mtr></mtable></mrow></mrow><annotation encoding='application/x-tex'>
+\array{
+MK &amp; \overset{\rightarrow}{f_K} &amp; NK\\
+\downarrow &amp; &amp; \downarrow \\
+\mathbb{M}_KM &amp; \overset{\rightarrow}{\mathbb{M}_K f} &amp; \mathbb{N}_KN
+}
+</annotation></semantics></math></p>
+
+<p>and for each &#x201c;context&#x201d; <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>z</mi><mo>:</mo><msub><mi>&#x1d544;</mi> <mi>KM</mi></msub></mrow><annotation encoding='application/x-tex'>z: \mathbb{M}_KM</annotation></semantics></math> an induced <strong>fiber map</strong>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display='block'><semantics><mrow><msub><mi>f</mi> <mrow><mi>K</mi><mo>,</mo><mi>z</mi></mrow></msub><mo>:</mo><mo stretchy='false'>(</mo><mi>MK</mi><msub><mo stretchy='false'>)</mo> <mi>z</mi></msub><mo>&#x27f6;</mo><mo stretchy='false'>(</mo><mi>NK</mi><msub><mo stretchy='false'>)</mo> <mrow><mspace width='0.16667em' /><msub><mi>&#x1d544;</mi> <mi>K</mi></msub><mi>f</mi><mo stretchy='false'>(</mo><mi>z</mi><mo stretchy='false'>)</mo></mrow></msub><mo>.</mo></mrow><annotation encoding='application/x-tex'>
+f_{K,z}: (MK)_z \longrightarrow (NK)_{\,\mathbb{M}_K f(z)}.
+</annotation></semantics></math>
+Write <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mo>&#x2248;</mo></mrow><annotation encoding='application/x-tex'>\approx</annotation></semantics></math> for <strong>indiscernibility</strong> at sort <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>K</mi></mrow><annotation encoding='application/x-tex'>K</annotation></semantics></math> (as above). Then, what we really want to say now is: <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>M</mi></mrow><annotation encoding='application/x-tex'>M</annotation></semantics></math>, <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>N</mi></mrow><annotation encoding='application/x-tex'>N</annotation></semantics></math> are equivalent if they are &#x201c;level-wise equivalent up to indiscernibility&#x201d;. This idea gives us the <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msub><mo>&#x2243;</mo> <mi>&#x2112;</mi></msub></mrow><annotation encoding='application/x-tex'>\simeq_{\mathcal{L}}</annotation></semantics></math> from the beginning, and we define it as follows:</p>
+
+<p><strong>Definition (Equivalence of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x2112;</mi></mrow><annotation encoding='application/x-tex'>\mathcal{L}</annotation></semantics></math>-structures).</strong>  <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>f</mi></mrow><annotation encoding='application/x-tex'>f</annotation></semantics></math> is an <strong>equivalence</strong> if, for <strong>every</strong> sort <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>K</mi></mrow><annotation encoding='application/x-tex'>K</annotation></semantics></math>, <strong>every</strong> <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>z</mi><mo>:</mo><msub><mi>&#x1d544;</mi> <mi>KM</mi></msub></mrow><annotation encoding='application/x-tex'>z : \mathbb{M}_KM</annotation></semantics></math>, and <strong>every</strong> <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>y</mi><mo>:</mo><mo stretchy='false'>(</mo><msub><mi>N</mi> <mi>K</mi></msub><msub><mo stretchy='false'>)</mo> <mrow><msub><mi>&#x1d544;</mi> <mi>K</mi></msub><mi>f</mi><mo stretchy='false'>(</mo><mi>z</mi><mo stretchy='false'>)</mo></mrow></msub></mrow><annotation encoding='application/x-tex'>y : (N_K)_{\mathbb{M}_K f(z)}</annotation></semantics></math>, there <strong>exists a specified</strong> <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>x</mi><mo>:</mo><mo stretchy='false'>(</mo><mi>MK</mi><msub><mo stretchy='false'>)</mo> <mi>z</mi></msub></mrow><annotation encoding='application/x-tex'>x : (MK)_z</annotation></semantics></math> with
+  <math xmlns="http://www.w3.org/1998/Math/MathML" display='block'><semantics><mrow><msub><mi>f</mi> <mrow><mi>K</mi><mo>,</mo><mi>z</mi></mrow></msub><mo stretchy='false'>(</mo><mi>x</mi><mo stretchy='false'>)</mo><mspace width='0.27778em' /><mo>&#x2248;</mo><mspace width='0.27778em' /><mi>y</mi></mrow><annotation encoding='application/x-tex'>
+  f_{K,z}(x)\;\approx\; y
+  </annotation></semantics></math>
+  i.e., <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msub><mi>f</mi> <mrow><mi>K</mi><mo>,</mo><mi>z</mi></mrow></msub></mrow><annotation encoding='application/x-tex'>f_{K,z}</annotation></semantics></math> is <strong>essentially split surjective up to indiscernibility</strong> on each fiber. We write <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>M</mi><msub><mo>&#x2243;</mo> <mi>&#x2112;</mi></msub><mi>N</mi></mrow><annotation encoding='application/x-tex'>M \simeq_{\mathcal{L}} N</annotation></semantics></math> for the type of equivalences.</p>
+
+<p>The key innovation is the &#x201c;up to indiscernibility&#x201d; part; it makes our notion significantly weaker than usual notions, and hence the final result stronger.
+Note that we have not been able to prove our result without a splitness condition in the definition of equivalence, and to our mind this remains an open problem.</p>
+
+<p>Our definition is related to Makkai&#x2019;s original notion of FOLDS equivalence, but Makkai was not able to define a general notion of non-surjective equivalence directly, relying instead on spans. Our notion of indiscernibility circumvents this difficulty and allows us to consider the whole structure of equivalences between structures.</p>
+
+<h2>The Univalence Principle</h2>
+
+<p>With all our apparatus in place we prove our main result, a very general form of a univalence principle, as promised.</p>
+
+<p><strong>Theorem (&#x201c;The Univalence Principle&#x201d;).</strong>
+For a signature <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x2112;</mi></mrow><annotation encoding='application/x-tex'>\mathcal{L}</annotation></semantics></math> and <strong>univalent</strong> <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x2112;</mi></mrow><annotation encoding='application/x-tex'>\mathcal{L}</annotation></semantics></math>-structures <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>M</mi><mo>,</mo><mi>N</mi></mrow><annotation encoding='application/x-tex'>M,N</annotation></semantics></math>, the canonical map
+<math xmlns="http://www.w3.org/1998/Math/MathML" display='block'><semantics><mrow><mo stretchy='false'>(</mo><mi>M</mi><mo>=</mo><mi>N</mi><mo stretchy='false'>)</mo><mspace width='0.27778em' /><mo>&#x27f6;</mo><mspace width='0.27778em' /><mo stretchy='false'>(</mo><mi>M</mi><msub><mo>&#x2243;</mo> <mi>&#x2112;</mi></msub><mi>N</mi><mo stretchy='false'>)</mo></mrow><annotation encoding='application/x-tex'>
+(M = N) \;\longrightarrow\; (M \simeq_{\mathcal{L}} N)
+</annotation></semantics></math>
+is an equivalence of types. In other words,
+<math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mo stretchy='false'>(</mo><mi>M</mi><mo>=</mo><mi>N</mi><mo stretchy='false'>)</mo><mo>&#x2243;</mo><mo stretchy='false'>(</mo><mi>M</mi><msub><mo>&#x2243;</mo> <mi>&#x2112;</mi></msub><mi>N</mi><mo stretchy='false'>)</mo></mrow><annotation encoding='application/x-tex'>(M = N) \simeq (M \simeq_{\mathcal{L}} N)</annotation></semantics></math>.</p>
+
+<p>The proof proceeds by induction on the height of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x2112;</mi></mrow><annotation encoding='application/x-tex'>\mathcal{L}</annotation></semantics></math>. The key insight is that level-wise equivalences between univalent structures must &#x201c;reflect indiscernibilities&#x201d;: if <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>f</mi></mrow><annotation encoding='application/x-tex'>f</annotation></semantics></math> doesn&#x2019;t preserve the ability to distinguish elements, then whatever structure distinguishes them in the source would transfer to structure distinguishing their images in the target, contradicting the equivalence.
+With the splitness assumption in the map and the assumption of univalence (of our <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x2112;</mi></mrow><annotation encoding='application/x-tex'>\mathcal{L}</annotation></semantics></math>-structure), we are able to achieve the lifting of the indiscernibility.</p>
+
+<p>Our result is actually proved for an even more general class of signatures called <strong>functorial signatures</strong>, which strictly extends diagram signatures and covers &#x201c;higher-order&#x201d; situations (topological spaces, suplattices, DCPOs, etc.).
+We have stuck to the diagrammatic view in this post for intuition, but all results and definitions carry over to this more general notion.</p>
+
+<h2>Conclusion</h2>
+
+<p>In the course of this work there were quite a few questions we tried to answer, but could not. To mention a couple: Can we define a Rezk completion for arbitrary structures, providing a universal way to turn any structure into a univalent one? Can we remove the splitness condition from our definition of equivalence between structures? We list more open problems at the end of the book.</p>
+
+<p>Beyond our specific result, the framework in which it is proven establishes a way to answer metamathematical questions around the univalence axiom in a precise and fruitful way.
+It is important to emphasize that carrying out this type of mathematical study does not require choosing one foundation over the other. 
+In any setting that interprets the fibrant part of 2LTT, the univalence principle will hold, including in set theory.</p>
+
+<p>The metamathematics of UF is the mathematical study of formalizing mathematics in terms of a hierarchy of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>h</mi></mrow><annotation encoding='application/x-tex'>h</annotation></semantics></math>-levels vs. a cumulative hierarchy of sets.
+Formalizing mathematics in this way has all sorts of unique mathematical properties.
+The Univalence Principle is one of them.</p>
+
+</div>
+
+
+<span class='posted'>Posted at February 11, 2026  2:26 AM UTC
+</span>
+</div>
+
+<p class='trackback-url'>TrackBack URL for this Entry:&#xa0;&#xa0; https://golem.ph.utexas.edu/cgi-bin/MT-3.0/dxy-tb.fcgi/3629</p>
+
+
+<h2 class='comments-head' id='related'>Some Related Entries</h2>
+
+<div id='pane'>
+
+<form method='get' action='/cgi-bin/MT-3.0/mt-search.cgi'>
+<fieldset class='search'>
+  <input type='hidden' name='IncludeBlogs' value='3' />
+  <input type='hidden' name='Template' value='category' />
+  <label for='search' accesskey='4'>Search for other entries:</label><br />
+  <input id='search' name='search' size='25' /><br />
+  <input type='submit' value='Search' />
+</fieldset>
+</form>
+
+
+
+</div>
+
+<ul class='blogbody related'>
+
+   <li><a href='/category/2024/04/semi-simplicial_types_part_ii_the_main_results.html'>Semi-Simplicial Types, Part II: The Main Results</a> &#x2014;
+<i>Apr 15, 2024</i></li>
+   <li><a href='/category/2024/03/semisimplicial_types_part_i_mo.html'>Semi-Simplicial Types, Part I: Motivation and History</a> &#x2014;
+<i>Mar 09, 2024</i></li>
+   <li><a href='/category/2021/01/postdoctoral_position_in_hott.html'>Postdoctoral Position in HoTT at Johns Hopkins University</a> &#x2014;
+<i>Jan 03, 2021</i></li>
+   <li><a href='/category/2019/09/homotopy_type_theory_electroni_1.html'> Homotopy Type Theory Electronic Seminar Talks</a> &#x2014;
+<i>Sep 06, 2019</i></li>
+   <li><a href='/category/2019/04/univalence_in_1toposes.html'>Univalence in (&#x221e;,1)-toposes</a> &#x2014;
+<i>Apr 17, 2019</i></li>
+   <li><a href='/category/2018/02/homotopy_type_theory_electroni.html'>Homotopy Type Theory Electronic Seminar </a> &#x2014;
+<i>Feb 08, 2018</i></li>
+   <li><a href='/category/2017/11/internal_languages_of_higher_c_1.html'>Internal Languages of Higher Categories II</a> &#x2014;
+<i>Nov 22, 2017</i></li>
+   <li><a href='/category/2017/05/a_type_theory_for_synthetic_ca.html'>A Type Theory for Synthetic &#x221e;-Categories</a> &#x2014;
+<i>May 24, 2017</i></li>
+
+</ul>
+</div>
+
+<h2 class="comments-head" id="comments">4 Comments &amp; 0 Trackbacks</h2>
+
+<div class="blogbody">
+
+<div class="comments-body" id="c069166">
+<h3 class="title">Re: The Univalence Principle</h3>
+
+<div><div><a href="http://golem.ph.utexas.edu/~distler/blog/mathml.html"><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>Why is this published today in 2026 when the <a href="https://arxiv.org/abs/2102.06275">book</a> it links to is a 2022 arXiv  submission?</p>
+
+<p>well, AMS just published the <a href="https://bookstore.ams.org/memo-305-1541">book in softcover</a></p>
+</div>
+<div class="comments-post">Posted by:
+RodMcGuire on February 12, 2026  7:59 PM | <a href="/category/2026/02/the_univalence_principle.html#c069166" title="URL for comment by RodMcGuire [February 12, 2026  7:59 PM]">Permalink</a>
+
+| <a href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3631;parent_id=69166" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}" title="Respond to comment by RodMcGuire [February 12, 2026  7:59 PM]">Reply to this</a>
+</div>
+</div>
+
+<div class="comments-nest-box">
+<div class="comments-body" id="c069167">
+<h3 class="title">Re: The Univalence Principle</h3>
+
+<div><div><a href="http://golem.ph.utexas.edu/~distler/blog/mathml.html"><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>I think you answered your own question.  Four years from preprint to publication is a bit long, but it (and even longer delays) happen.  And there are also delays in getting from publication to blog post&#8230;</p>
+</div>
+<div class="comments-post">Posted by:
+<a title="http://www.sandiego.edu/~shulman" href="http://www.sandiego.edu/~shulman" rel="nofollow">Mike Shulman</a> on February 12, 2026  8:08 PM | <a href="/category/2026/02/the_univalence_principle.html#c069167" title="URL for comment by Mike Shulman [February 12, 2026  8:08 PM]">Permalink</a>
+
+| <a href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3631;parent_id=69167" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}" title="Respond to comment by Mike Shulman [February 12, 2026  8:08 PM]">Reply to this</a>
+</div>
+</div>
+
+
+<div class="comments-body" id="c069168">
+<h3 class="title">Re: The Univalence Principle</h3>
+
+<div><div><a href="http://golem.ph.utexas.edu/~distler/blog/mathml.html"><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>Correct, &#8220;recently published&#8221; should be read more as &#8220;recently (with respect to preprint completion) published&#8221;&#8230;</p>
+</div>
+<div class="comments-post">Posted by:
+Dimitris on February 13, 2026  6:05 PM | <a href="/category/2026/02/the_univalence_principle.html#c069168" title="URL for comment by Dimitris [February 13, 2026  6:05 PM]">Permalink</a>
+
+| <a href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3631;parent_id=69168" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}" title="Respond to comment by Dimitris [February 13, 2026  6:05 PM]">Reply to this</a>
+</div>
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="comments-body" id="c069172">
+<h3 class="title">Re: The Univalence Principle</h3>
+
+<div><div><a href="http://golem.ph.utexas.edu/~distler/blog/mathml.html"><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>OT: OT as only result for any of my posts due to relative mathematical ignorance.</p>
+
+<p>I just wanted to say something about a musing of mine own that &#8216;seems&#8217; to conflate with general math knowledge. You be the judge. Then a question to which I own no right to a reply.</p>
+
+<p>Was reading for the first time about what HoTT purports to be. Came the feeling that an UV-crisis might be sitting there, and did any real mathers say anything like that. My suspicion lay with TT and its seeming gumption to say it CAN type without knowing all types.</p>
+
+<p>Long Google story short: I think a reportable percentage of Mathemeticians also wonder about the soundness of the TT part of HoTT. </p>
+
+<p>My query to Google:
+Do any recognized voices within the Mathematics community suggest that Type Theory suffers from a form of &#8220;UV Crisis&#8221;?</p>
+
+<p>Google&#8217;s reply (AI overview):
+While &#8220;UV Crisis&#8221; (or Ultraviolet Catastrophe) is a term specifically from 20th-century physics&#x2014;referring to the classical prediction of infinite energy at short wavelengths&#x2014;there are recognized voices within the foundations of mathematics and computer science who argue that Type Theory (particularly Homotopy Type Theory or Intensional Type Theory) faces a similar &#8220;metamathematical catastrophe&#8221; regarding the difficulty of managing its consistency and semantic interpretation as it scales to match set theory.</p>
+
+<p>My question: Knowing there are numerous logics and maths that have been applied to TT I feel it is likely that such efforts have shrunk the space for contradictions, especially the maths involving coherence issues. Still, not to be loud and question this without better understanding FIRST, but since better understanding is an iffy thing with me I ask:</p>
+
+<p>Do we not require more assurance that Type Theory is not sorta Ad Hoc?</p>
+
+<p>If this question is worth reply then I pre-emptively ask that the reply be to your fellow mathematicians and not myself. Math On!</p>
+</div>
+<div class="comments-post">Posted by:
+Kevin MacDonald on February 21, 2026  1:34 AM | <a href="/category/2026/02/the_univalence_principle.html#c069172" title="URL for comment by Kevin MacDonald [February 21, 2026  1:34 AM]">Permalink</a>
+
+| <a href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3631;parent_id=69172" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}" title="Respond to comment by Kevin MacDonald [February 21, 2026  1:34 AM]">Reply to this</a>
+</div>
+</div>
+
+
+
+
+</div>
+<p class="newpost"><a class="comments-post" href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3631" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}">Post a New Comment</a></p>
+
+</div>
+
+<div id="footer">   
+<h2>Access Keys:</h2>
+
+<dl id="AccessKeyList">
+<dt>0</dt><dd><a href="/category/accessibility.html" accesskey="0">Accessibility Statement</a></dd>
+<dt>1</dt><dd>Main Page</dd>
+<dt>2</dt><dd>Skip to Content</dd>
+<dt>3</dt><dd>List of Posts</dd>
+<dt>4</dt><dd>Search</dd>
+<dt>p</dt><dd>Previous (individual/monthly archive page)</dd>
+<dt>n</dt><dd>Next (individual/monthly archive page)</dd>
+</dl>
+<a href="/category/archives.html" accesskey="3"></a>
+</div>
+
+
+</div>
+
+</body>
+</html>

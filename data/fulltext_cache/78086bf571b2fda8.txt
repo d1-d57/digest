@@ -1,0 +1,42 @@
+I’ve been working recently on trying to understand exactly how Wick rotation works in two-dimensional conformal field theory. There is an analog there of some of the issues with Wick rotation of spinors and twistors in four dimensions that I’ve been struggling with.
+One of the few times I’ve tried to get help from an AI agent, I asked it to point me to discussions of this topic in the literature.  It gave me a bunch of suggestions I already knew about, then emphasized that the two best places were a certain textbook and another set of lecture notes.  Since I hadn’t heard of these, this was exciting news, so I immediately went to look them up. Hallucinations, they don’t exist.
+In what I have been reading, I’ve repeatedly come up against what has become a pet peeve, related to the second pet peeve discussed
+here
+. In the 2d conformal field theory literature, one is continually told that one is dealing with functions of $z$ and $\overline z$, but $z$ is independent of $\overline z$.   $\overline z$ appears to mean something that sometimes is the complex conjugate of $z$, sometimes unrelated to $z$.  What’s really going on here???
+What’s going on is that one needs to complexify something that is already complex.  One can do this by thinking of the underlying real object and complexifying that.  When you do this, you end up with a pair of complex objects, with a conjugation map that relates them.
+If you start with a real vector space $V$, which also happens to come with a complex structure (a notion of how to multiply elements by $i$), then its complexification will be
+$$V\otimes_{\mathbf R}\mathbf C=V \oplus \overline V$$
+where $\overline V$ is a copy of $V$ with the opposite complex structure, and you have a map
+$$\sigma : V\rightarrow \overline V$$
+that satisfies $\sigma^2=1$ and is anti-linear
+$$\sigma (cv)=\overline c \sigma (v)$$
+Things get confusing once one has $V\oplus \overline V$ because one sometimes wants to think of $v\in V$ as the pair $(v,0)$, independent of things of the form $(0,v)$, but sometimes as pairs $(v,\sigma (v))$.  The second interpretation is useful, because then $V\subset V\oplus \overline V$ as the set of fixed points of $\sigma$.  $\sigma$ is the conjugation map on the complex vector space $V\oplus\overline V$, so its set of fixed points is the real subspace.
+In my earlier pet peeve posting, I write about one example of this.  Lie algebras in general are real vector spaces, and to study them, one often needs to complexify.  Sometime this is straightforward, for instance
+$$\mathfrak{sl}(2,\mathbf R)\otimes_{\mathbf R}\mathbf C=\mathfrak{sl}(2,\mathbf  C)$$
+sometimes a bit less so
+$$\mathfrak{su}(2)\otimes_{\mathbf R}\mathbf C=\mathfrak{sl}(2,\mathbf  C)$$
+(Note that two different “real forms” have the same complexification).
+If one wants to study a complex Lie algebra like $\mathfrak{sl}(2,\mathbf  C)$, one often has to think of it as a real Lie algebra and complexify, finding
+$$\mathfrak{sl}(2,\mathbf C)\otimes_{\mathbf R}\mathbf C=\mathfrak{sl}(2,\mathbf  C)\oplus \overline{\mathfrak{sl}(2,\mathbf  C)}$$
+This comes up in the Wick rotation context, where $\mathfrak{sl}(2,\mathbf C)$ is the Lie algebra of the Lorentz group, and to Wick rotate to Euclidean spacetime, one is supposed to analytically continue in the complexification.
+A second context in which this same problem appears is in the quantization of the harmonic oscillator.  If one starts with a real oscillator degree of freedom (e.g. a real scalar field mode of momentum $\mathbf p$), quantization using annihilation and creation operators involves identifying the phase space $\mathbf R^2$ with $\mathbf C$ and then complexifying
+$$\mathbf C\otimes_\mathbf R\mathbf C=\mathbf C \oplus \overline{\mathbf C}$$
+with the first term in the sum corresponding to creation operators, the second to annihilation operators.
+But what if you are dealing with a complex scalar field?  Then the phase space of a momentum mode is $\mathbf C^2$ and when you complexify
+$$ \mathbf C^2\otimes_\mathbf R\mathbf C=\mathbf C^2 \oplus \overline{\mathbf C^2}$$
+You now have two kinds of creation operators and two kinds of annihilation operators. One can organize these into annihilation and creation operators for harmonic oscillator states of two kinds, related by conjugation.  These are the particle and anti-particle states, which are distinct in the complex scalar field case, identified in the real scalar field case.
+Finally getting to 2d conformal field theory, one sees the same kind of issue, but now not for vector spaces but for manifolds.  One is looking at real two-dimensional space-time manifolds $\Sigma$ and would like to complexify to do Wick rotation. But it’s useful to start by thinking of $\Sigma$ as a complex manifold, a Riemann surface. So, again one faces the question of how to complexify something already complex.
+This starts to get much trickier to make precise than the vector space case, but it does make sense to think of the complexification of the Riemann sphere as
+$$S^2\times \overline {S^2}$$
+where $\overline {S^2}$ is the Riemann sphere with the opposite complex structure to that of $S^2$.  Then one has pairs of coordinates and is now in the situation where people start talking about coordinates $(z,\overline z)$ where $z$ and $\overline z$ are independent.
+By the way, this corresponds to a nice two-dimensional analog of the 4d twistor story.  There one looks at compactified, complexified spacetime, with the complex conformal group $SL(4,\mathbf C)=Spin(6,\mathbf C)$ acting, with real forms $Spin(4,2)$ in the Minkowski case, $Spin(5,1)$ in the Euclidean case and $Spin(3,3)$ in the split signature case.  Here the 2d compactified, complexified spacetime is $S^2\times S^2$, with a global conformal group
+$$SL(2,\mathbf C) \times SL(2,\mathbf C)$$
+acting, one factor on each $S^2$ factor.  The Minkowski real form is $SL(2,\mathbf R)\times SL(2,\mathbf R)$, the Euclidean real form is $SL(2,\mathbf C)$ and it is for this second real form that one is complexifying something complex.
+For some more about this, see chapter 3 of Graeme Segal’s manuscript
+“The definition of conformal field theory”
+, where he discusses the infinite-dimensional conformal groups that appear, and his remarkable idea that one should take the complexification of $Diff(S^1)$ to be the semigroup of annuli.
+Share this:
+Share on Mastodon (Opens in new window)
+Mastodon
+Share on Bluesky (Opens in new window)
+Bluesky

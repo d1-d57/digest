@@ -1,0 +1,1402 @@
+
+
+Quantitative correlations and some problems on prime factors of consecutive integers | What's new
+
+What's new
+
+Updates on my research and expository papers, discussion of open problems, and other maths-related topics.  By Terence Tao
+
+Home
+
+About
+
+Career advice
+
+On writing
+
+Books
+
+Mastodon+
+
+Applets
+
+Subscribe to feed
+
+Quantitative correlations and some problems on prime factors of consecutive integers
+
+1 December, 2025 in 
+math.NT
+, 
+paper
+ | Tags: 
+correlation
+, 
+Joni Teravainen
+, 
+prime divisors
+ | by 
+Terence Tao
+
+Joni Teravainen
+ and I have uploaded to the arXiv our paper “
+Quantitative correlations and some problems on prime factors of consecutive integers
+“. This paper applies modern analytic number theory tools – most notably, the Maynard sieve and the 
+recent correlation estimates
+ for bounded multiplicative functions of Pilatte – to resolve (either partially or fully) some old problems of Erdős, Strauss, Pomerance, Sárközy, and Hildebrand, mostly regarding the prime counting function 
+
+ and its relatives. The famous 
+Hardy–Ramanujan
+ and 
+Erdős–Kac laws
+ tell us that asymptotically for 
+, 
+ should behave like a gaussian random variable with mean and variance both close to 
+; but the question of the 
+joint
+ distribution of consecutive values such as 
+ is still only partially understood. Aside from some lower order correlations at small primes (arising from such observations as the fact that precisely one of 
+ will be divisible by 
+), the expectation is that such consecutive values behave like independent random variables. As an indication of the state of the art, it was recently 
+shown by Charamaras and Richter
+ that any bounded observables 
+, 
+ will be asymptotically decorrelated in the limit 
+ if one performs a logarithmic statistical averaging. Roughly speaking, this confirms the independence heuristic at the scale 
+ of the standard deviation, but does not resolve finer-grained information, such as precisely estimating the probability of the event 
+.
+
+Our first result, 
+answering a question of Erdős
+, shows that there are infinitely many 
+ for which one has the bound 
+
+ for all 
+. For 
+, such a bound is already to be expected (though not completely universal) from the Hardy–Ramanujan law; the main difficulty is thus with the short shifts 
+. If one only had to demonstrate this type of bound for a bounded number of 
+, then this type of result is well within standard sieve theory methods, which can make any bounded number of shifts 
+ “almost prime” in the sense that 
+ becomes bounded. Thus the problem is that the “sieve dimension” 
+ grows (slowly) with 
+. When writing about this problem in 1980, Erdős and Graham write “we just know too little about sieves to be able to handle such a question (“we” here means not just us but the collective wisdom (?) of our poor struggling human race)”.
+
+However, with the advent of the Maynard sieve (also sometimes referred to as the Maynard–Tao sieve), it turns out to be possible to sieve for the conditions 
+ for all 
+ simultaneously (roughly speaking, by sieving out any 
+ for which 
+ is divisible by a prime 
+ for a large 
+), and then performing a moment calculation analogous to the standard proof (due to Turán) of the Hardy–Ramanujan law, but weighted by the Maynard sieve. (In order to get good enough convergence, one needs to control fourth moments as well as second moments, but these are standard, if somewhat tedious, calculations).
+
+Our second result, which answers a separate 
+question of Erdős
+, establishes that the quantity 
+
+ is irrational; this had recently been 
+established by Pratt
+ under the assumption of the prime tuples conjecture, but we are able to establish this result unconditoinally. The binary expansion of this number is of course closely related to the distribution of 
+, but in view of the Hardy–Ramanujan law, the 
+ digit of this number is influenced by about 
+ nearby values of 
+, which is too many correlations for current technology to handle. However, it is possible to do some “Gowers norm” type calculations to decouple things to the point where pairwise correlation information is sufficient. To see this, suppose for contradiction that this number was a rational 
+, thus 
+
+ Multiplying by 
+, we obtain some relations between shifts 
+: 
+
+ Using the additive nature of 
+, one then also gets similar relations on arithmetic progressions, for many 
+ and 
+: 
+
+ Taking alternating sums of this sort of identity for various 
+ and 
+ (in analogy to how averages involving arithmetic progressions can be related to Gowers norm-type expressions over cubes), one can eventually arrive eliminate the contribution of small 
+, and arrive at an identity of the form 
+
+ for many 
+, where 
+ is a parameter (we eventually take 
+) and 
+ are various shifts that we will not write out explicitly here. This looks like quite a messy expression; however, one can adapt proofs of the Erdős–Kac law and show that, as long as one ignores the contribution of really large prime factors (of order 
+, say) to the 
+, that this sort of sum behaves like a gaussian, and in particular once one can show a suitable local limit theorem, one can contradict 
+(1)
+. The contribution of the large prime factors does cause a problem though, as a naive application of the triangle inequality bounds this contribution by 
+, which is an error that overwhelms the information provided by 
+(1)
+. To resolve this we have to adapt the pairwise correlation estimates of Pilatte mentioned earlier to demonstrate that the these contributions are in fact 
+. Here it is important that the error estimates of Pilatte are quite strong (of order 
+); previous correlation estimates of this type (such as those used in 
+this earlier paper with Joni
+) turn out to be too weak for this argument to close.
+
+Our final result concerns the asymptotic behavior of the density 
+
+ (we also address similar questions for 
+ and 
+). Heuristic arguments led 
+Erdős, Pomerance, and Sárközy to conjecture
+ that this quantity was asymptotically 
+. They were able to establish an upper bound of 
+, while Hildebrand obtained a lower bound of 
+, due to 
+Hildebrand
+. Here, we obtain the asymptotic for almost all 
+ (the limitation here is the standard one, which is that the current technology on pairwise correlation estimates either requires logarithmic averaging, or is restricted to almost all scales rather than all scales). Roughly speaking, the idea is to use the circle method to rewrite the above density in terms of expressions 
+
+ for various frequencies 
+, use the estimates of Pilatte to handle the minor arc 
+, and convert the major arc contribution back into physical space (in which 
+ and 
+ are now permitted to differ by a large amount) and use more traditional sieve theoretic methods to estimate the result.
+
+Share this:
+
+Print (Opens in new window)
+
+Print
+
+Email a link to a friend (Opens in new window)
+
+Email
+
+More
+
+Share on X (Opens in new window)
+
+X
+
+Share on Facebook (Opens in new window)
+
+Facebook
+
+Share on Reddit (Opens in new window)
+
+Reddit
+
+Share on Pinterest (Opens in new window)
+
+Pinterest
+
+Like
+
+Loading...
+
+Recent Comments
+
+Anonymous on 
+Books
+Terence Tao
+ on 
+Long gaps in sieved sets
+Anonymous on 
+Long gaps in sieved sets
+Will Sawin
+ on 
+A digestion of unit distance…
+Terence Tao
+ on 
+275A, Notes 5: Variants of the…
+Anonymous on 
+275A, Notes 5: Variants of the…
+Cosmin Pohoata
+ on 
+A digestion of unit distance…
+Will Sawin
+ on 
+A digestion of unit distance…
+Will Sawin
+ on 
+A digestion of unit distance…
+Anonymous on 
+Modular Arithmetic Challenge
+Anonymous on 
+275A, Notes 5: Variants of the…
+Ben Johnsrude
+ on 
+A digestion of unit distance…
+Terence Tao
+ on 
+Almost all Collatz orbits atta…
+Anonymous on 
+275A, Notes 0: Foundations of…
+Pantelis Rodis on 
+A digestion of unit distance…
+
+Top Posts
+A digestion of unit distance constructions
+Career advice
+Books
+Does one have to be a genius to do maths?
+On writing
+About
+Work hard
+Long gaps in sieved sets
+Analysis I
+A mathematical formalisation of dimensional analysis
+Archives
+
+July 2026
+ (1)
+
+June 2026
+ (3)
+
+May 2026
+ (1)
+
+March 2026
+ (4)
+
+February 2026
+ (3)
+
+January 2026
+ (4)
+
+December 2025
+ (5)
+
+November 2025
+ (5)
+
+September 2025
+ (1)
+
+August 2025
+ (3)
+
+July 2025
+ (1)
+
+June 2025
+ (2)
+
+May 2025
+ (5)
+
+April 2025
+ (2)
+
+March 2025
+ (1)
+
+February 2025
+ (3)
+
+January 2025
+ (1)
+
+December 2024
+ (3)
+
+November 2024
+ (4)
+
+October 2024
+ (1)
+
+September 2024
+ (4)
+
+August 2024
+ (3)
+
+July 2024
+ (3)
+
+June 2024
+ (1)
+
+May 2024
+ (1)
+
+April 2024
+ (5)
+
+March 2024
+ (1)
+
+December 2023
+ (2)
+
+November 2023
+ (2)
+
+October 2023
+ (1)
+
+September 2023
+ (3)
+
+August 2023
+ (3)
+
+June 2023
+ (8)
+
+May 2023
+ (1)
+
+April 2023
+ (1)
+
+March 2023
+ (2)
+
+February 2023
+ (1)
+
+January 2023
+ (2)
+
+December 2022
+ (3)
+
+November 2022
+ (3)
+
+October 2022
+ (3)
+
+September 2022
+ (1)
+
+July 2022
+ (3)
+
+June 2022
+ (1)
+
+May 2022
+ (2)
+
+April 2022
+ (2)
+
+March 2022
+ (5)
+
+February 2022
+ (3)
+
+January 2022
+ (1)
+
+December 2021
+ (2)
+
+November 2021
+ (2)
+
+October 2021
+ (1)
+
+September 2021
+ (2)
+
+August 2021
+ (1)
+
+July 2021
+ (3)
+
+June 2021
+ (1)
+
+May 2021
+ (2)
+
+February 2021
+ (6)
+
+January 2021
+ (2)
+
+December 2020
+ (4)
+
+November 2020
+ (2)
+
+October 2020
+ (4)
+
+September 2020
+ (5)
+
+August 2020
+ (2)
+
+July 2020
+ (2)
+
+June 2020
+ (1)
+
+May 2020
+ (2)
+
+April 2020
+ (3)
+
+March 2020
+ (9)
+
+February 2020
+ (1)
+
+January 2020
+ (3)
+
+December 2019
+ (4)
+
+November 2019
+ (2)
+
+September 2019
+ (2)
+
+August 2019
+ (3)
+
+July 2019
+ (2)
+
+June 2019
+ (4)
+
+May 2019
+ (6)
+
+April 2019
+ (4)
+
+March 2019
+ (2)
+
+February 2019
+ (5)
+
+January 2019
+ (1)
+
+December 2018
+ (6)
+
+November 2018
+ (2)
+
+October 2018
+ (2)
+
+September 2018
+ (5)
+
+August 2018
+ (3)
+
+July 2018
+ (3)
+
+June 2018
+ (1)
+
+May 2018
+ (4)
+
+April 2018
+ (4)
+
+March 2018
+ (5)
+
+February 2018
+ (4)
+
+January 2018
+ (5)
+
+December 2017
+ (5)
+
+November 2017
+ (3)
+
+October 2017
+ (4)
+
+September 2017
+ (4)
+
+August 2017
+ (5)
+
+July 2017
+ (5)
+
+June 2017
+ (1)
+
+May 2017
+ (3)
+
+April 2017
+ (2)
+
+March 2017
+ (3)
+
+February 2017
+ (1)
+
+January 2017
+ (2)
+
+December 2016
+ (2)
+
+November 2016
+ (2)
+
+October 2016
+ (5)
+
+September 2016
+ (4)
+
+August 2016
+ (4)
+
+July 2016
+ (1)
+
+June 2016
+ (3)
+
+May 2016
+ (5)
+
+April 2016
+ (2)
+
+March 2016
+ (6)
+
+February 2016
+ (2)
+
+January 2016
+ (1)
+
+December 2015
+ (4)
+
+November 2015
+ (6)
+
+October 2015
+ (5)
+
+September 2015
+ (5)
+
+August 2015
+ (4)
+
+July 2015
+ (7)
+
+June 2015
+ (1)
+
+May 2015
+ (5)
+
+April 2015
+ (4)
+
+March 2015
+ (3)
+
+February 2015
+ (4)
+
+January 2015
+ (4)
+
+December 2014
+ (6)
+
+November 2014
+ (5)
+
+October 2014
+ (4)
+
+September 2014
+ (3)
+
+August 2014
+ (4)
+
+July 2014
+ (5)
+
+June 2014
+ (5)
+
+May 2014
+ (5)
+
+April 2014
+ (2)
+
+March 2014
+ (4)
+
+February 2014
+ (5)
+
+January 2014
+ (4)
+
+December 2013
+ (4)
+
+November 2013
+ (5)
+
+October 2013
+ (4)
+
+September 2013
+ (5)
+
+August 2013
+ (1)
+
+July 2013
+ (7)
+
+June 2013
+ (12)
+
+May 2013
+ (4)
+
+April 2013
+ (2)
+
+March 2013
+ (2)
+
+February 2013
+ (6)
+
+January 2013
+ (1)
+
+December 2012
+ (4)
+
+November 2012
+ (7)
+
+October 2012
+ (6)
+
+September 2012
+ (4)
+
+August 2012
+ (3)
+
+July 2012
+ (4)
+
+June 2012
+ (3)
+
+May 2012
+ (3)
+
+April 2012
+ (4)
+
+March 2012
+ (5)
+
+February 2012
+ (5)
+
+January 2012
+ (4)
+
+December 2011
+ (8)
+
+November 2011
+ (8)
+
+October 2011
+ (7)
+
+September 2011
+ (6)
+
+August 2011
+ (8)
+
+July 2011
+ (9)
+
+June 2011
+ (8)
+
+May 2011
+ (11)
+
+April 2011
+ (3)
+
+March 2011
+ (10)
+
+February 2011
+ (3)
+
+January 2011
+ (5)
+
+December 2010
+ (5)
+
+November 2010
+ (6)
+
+October 2010
+ (9)
+
+September 2010
+ (9)
+
+August 2010
+ (3)
+
+July 2010
+ (4)
+
+June 2010
+ (8)
+
+May 2010
+ (8)
+
+April 2010
+ (8)
+
+March 2010
+ (8)
+
+February 2010
+ (10)
+
+January 2010
+ (12)
+
+December 2009
+ (11)
+
+November 2009
+ (8)
+
+October 2009
+ (15)
+
+September 2009
+ (6)
+
+August 2009
+ (13)
+
+July 2009
+ (10)
+
+June 2009
+ (11)
+
+May 2009
+ (9)
+
+April 2009
+ (11)
+
+March 2009
+ (14)
+
+February 2009
+ (13)
+
+January 2009
+ (18)
+
+December 2008
+ (8)
+
+November 2008
+ (9)
+
+October 2008
+ (10)
+
+September 2008
+ (5)
+
+August 2008
+ (6)
+
+July 2008
+ (7)
+
+June 2008
+ (8)
+
+May 2008
+ (11)
+
+April 2008
+ (12)
+
+March 2008
+ (12)
+
+February 2008
+ (13)
+
+January 2008
+ (17)
+
+December 2007
+ (10)
+
+November 2007
+ (9)
+
+October 2007
+ (9)
+
+September 2007
+ (7)
+
+August 2007
+ (9)
+
+July 2007
+ (9)
+
+June 2007
+ (6)
+
+May 2007
+ (10)
+
+April 2007
+ (11)
+
+March 2007
+ (9)
+
+February 2007
+ (4)
+
+Categories
+
+expository
+ (321)
+
+tricks
+ (13)
+
+guest blog
+ (10)
+
+Mathematics
+ (917)
+
+math.AC
+ (9)
+
+math.AG
+ (42)
+
+math.AP
+ (115)
+
+math.AT
+ (17)
+
+math.CA
+ (196)
+
+math.CO
+ (206)
+
+math.CT
+ (9)
+
+math.CV
+ (39)
+
+math.DG
+ (37)
+
+math.DS
+ (90)
+
+math.FA
+ (24)
+
+math.GM
+ (16)
+
+math.GN
+ (21)
+
+math.GR
+ (90)
+
+math.GT
+ (17)
+
+math.HO
+ (14)
+
+math.IT
+ (13)
+
+math.LO
+ (54)
+
+math.MG
+ (48)
+
+math.MP
+ (31)
+
+math.NA
+ (26)
+
+math.NT
+ (211)
+
+math.OA
+ (22)
+
+math.PR
+ (110)
+
+math.QA
+ (6)
+
+math.RA
+ (49)
+
+math.RT
+ (21)
+
+math.SG
+ (4)
+
+math.SP
+ (48)
+
+math.ST
+ (11)
+
+non-technical
+ (208)
+
+admin
+ (48)
+
+advertising
+ (77)
+
+diversions
+ (7)
+
+media
+ (14)
+
+journals
+ (3)
+
+obituary
+ (15)
+
+opinion
+ (37)
+
+paper
+ (272)
+
+book
+ (23)
+
+Companion
+ (13)
+
+update
+ (26)
+
+question
+ (128)
+
+polymath
+ (87)
+
+talk
+ (69)
+
+DLS
+ (20)
+
+teaching
+ (190)
+
+245A – Real analysis
+ (11)
+
+245B – Real analysis
+ (22)
+
+245C – Real analysis
+ (6)
+
+246A – complex analysis
+ (11)
+
+246B – complex analysis
+ (5)
+
+246C – complex analysis
+ (5)
+
+247B – Classical Fourier Analysis
+ (5)
+
+254A – analytic prime number theory
+ (19)
+
+254A – ergodic theory
+ (18)
+
+254A – Hilbert's fifth problem
+ (12)
+
+254A – Incompressible fluid equations
+ (5)
+
+254A – random matrices
+ (14)
+
+254B – expansion in groups
+ (8)
+
+254B – Higher order Fourier analysis
+ (9)
+
+255B – incompressible Euler equations
+ (2)
+
+275A – probability theory
+ (6)
+
+285G – poincare conjecture
+ (20)
+
+Logic reading seminar
+ (8)
+
+The sciences
+ (1)
+
+travel
+ (26)
+
+additive combinatorics
+
+approximate groups
+
+arithmetic progressions
+
+Artificial Intelligence
+
+Ben Green
+
+Cauchy-Schwarz
+
+Cayley graphs
+
+central limit theorem
+
+Chowla conjecture
+
+compressed sensing
+
+correspondence principle
+
+cosmic distance ladder
+
+distributions
+
+divisor function
+
+eigenvalues
+
+Elias Stein
+
+Emmanuel Breuillard
+
+entropy
+
+equidistribution
+
+Erdos
+
+ergodic theory
+
+Euler equations
+
+exponential sums
+
+finite fields
+
+Fourier transform
+
+Freiman's theorem
+
+Gowers uniformity norm
+
+Gowers uniformity norms
+
+graph theory
+
+Gromov's theorem
+
+GUE
+
+Hilbert's fifth problem
+
+ICM
+
+incompressible Euler equations
+
+inverse conjecture
+
+Joni Teravainen
+
+Kaisa Matomaki
+
+Kakeya conjecture
+
+Lie algebras
+
+Lie groups
+
+Liouville function
+
+Littlewood-Offord problem
+
+Maksym Radziwill
+
+Mobius function
+
+Navier-Stokes equations
+
+nilpotent groups
+
+nilsequences
+
+nonstandard analysis
+
+Paul Erdos
+
+politics
+
+polymath1
+
+polymath8
+
+Polymath15
+
+polynomial method
+
+polynomials
+
+prime gaps
+
+prime numbers
+
+prime number theorem
+
+random matrices
+
+randomness
+
+Ratner's theorem
+
+regularity lemma
+
+Ricci flow
+
+Riemann zeta function
+
+Schrodinger equation
+
+Shannon entropy
+
+sieve theory
+
+structure
+
+Szemeredi's theorem
+
+Tamar Ziegler
+
+ultrafilters
+
+universality
+
+Van Vu
+
+wave maps
+
+Yitang Zhang
+
+The Polymath Blog
+Polymath News and AI
+Polymath projects 2021
+A sort of Polymath on a famous MathOverflow problem
+Ten Years of Polymath
+Updates and Pictures
+Polymath proposal: finding simpler unit distance graphs of chromatic number 5
+A new polymath proposal (related to the Riemann Hypothesis) over Tao’s blog
+Spontaneous Polymath 14 – A success!
+Polymath 13 – a success!
+Non-transitive Dice over Gowers’s Blog
+
+4 comments
+
+Comments feed for this article
+
+2 December, 2025 at 1:01 am
+
+J.P. McCarthy
+
+This and the previous post refer to “my paper”. I think you might prefer to write “our paper”.
+
+[Corrected, thanks – T.]
+
+Reply
+
+2 December, 2025 at 5:04 am
+
+Anonymous
+
+“Platt” -> “Pratt”
+
+[Corrected, thanks -T.]
+
+Reply
+
+2 December, 2025 at 6:24 am
+
+Jon Awbrey
+
+Hi T² —
+
+Here’s a related line of inquiry you might like to take up —
+
+• 
+https://oeis.org/wiki/Riffs_and_Rotes
+
+Reply
+
+7 December, 2025 at 2:30 am
+
+Robert D. Silverman
+
+May I suggest that it would be nice to find improvements in methods for finding prime divisors? It’s been 35 years since we had a new algorithm  (NFS).
+
+Reply
+
+Leave a comment 
+Cancel reply
+
+Δ
+
+For commenters
+
+To enter in LaTeX in comments, use $latex 
+<Your LaTeX code>
+$ (without the < and > signs, of course; in fact, these signs should be avoided as they can cause formatting errors). Also, backslashes \ need to be doubled as \\.  See the 
+about page
+ for details and for other commenting policy.
+
+«
+ Growth rates of sequences governed by the squarefree properties of its translates
+
+The story of Erdős problem #1026 
+»
+
+Blog at WordPress.com.
+Ben Eastaugh and Chris Sternal-Johnson. 
+
+Subscribe to feed.
+
+Comment						
+
+Reblog
+
+Subscribe
+
+Subscribed
+
+				What's new			
+
+Join 12,140 other subscribers
+
+												Sign me up											
+
+											Already have a WordPress.com account? 
+Log in now.
+
+Privacy						
+
+				What's new			
+
+Subscribe
+
+Subscribed
+
+Sign up
+
+Log in
+
+Copy shortlink
+
+										Report this content									
+
+										View post in Reader									
+
+Manage subscriptions
+
+Collapse this bar
+
+%d
+

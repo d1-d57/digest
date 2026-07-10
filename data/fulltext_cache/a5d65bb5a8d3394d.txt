@@ -1,0 +1,504 @@
+- So good afternoon. I'm Dan Freed. It's my pleasure to
+welcome you to this sixth of seven lectures about the
+Millennium Prize problems. As you know, these problems
+were proposed at the turn of the millennium 25 years ago, and we're having this lecture series to celebrate these problems
+and to learn about progress. The series is jointly sponsored by the Harvard Mathematics Department, by the Harvard Center of Mathematical Sciences and Applications, and by the Clay Mathematics Institute. We're very happy to have one
+of my core organizers here, Martin Bridson, who's president of the Clay Mathematics Institute, third co-organizer Mike
+Hopkins is out of town today. So today we have Javier Gómez-Serrano. He's at Brown University, and he's going to tell us about Navier-Stokes Existence or Breakdown. - Thank you. Yeah, so thank you everyone
+for coming to this lecture. And yeah, thank you Dan and Martin and all the organizers
+for inviting me here to give this lecture. And I have to admit that
+when I saw the list, I was dubious, like why
+did they talk to me? Because the list is
+frankly quite impressive. So yeah, thanks a lot
+for really counting on me for this job. And yeah, I was told that I should give a
+talk to a broad audience. I still don't know what
+that is, so I'll try to give a talk in a way that everybody gets something out of it. Okay? So bear with me and if it is too easy, stay until the end and we'll see. Okay. So my plan for today is
+to talk about progress or recent progress in particular about the Navier-Stokes
+Existence or Breakdown problem, which is one, as you know, one of the seven Clay Prize problems. So yeah, 25 years ago, I mean, I wasn't doing math or I was doing maybe a very different kind of math, the Clay Institute kind of bet one million with all the mathematicians in the world that we couldn't solve this problem. And well, so far, I came here to report that they're winning. And if we were to adjust for inflation and for the number of mathematicians and we divide by that, then
+this is roughly about, yeah, three cents per failure attempt. So especially now these days. So this is the good
+thing about this problem is that it has really gotten
+a lot of momentum lately and people or the community
+is very, very excited and there is a lot of things going on, and I hope to convince you
+that this is maybe a good time to follow this problem or even try to do
+something along the lines of this direction because really things are getting quite hot in this field, okay? So hopefully in less than 25 years maybe this problem gets solved. Okay, so I'm going to start like giving like an extremely broad
+overview of what the history of this problem has been. And I'll start from Leonardo. So Leonardo, 1500, was the first person who was looking at fluids and he even coined the term turbulence, which in Italian he coined "turbolenza" and he wrote it in his book. So on the left, we can see his drawings of water like in a pool and really kind of capturing
+these sort of eddies at very different scales
+as the water moves. So he was in a sense
+seeing how the water went from large scales to small scales. And he even writes about it
+saying, observe the motion of the surface of the water,
+which resembles that of hair. The water has eddying
+motions, one part of which is due to the principle current and the other to the
+random and reverse motion. Okay, so in a way he
+was seeing some kind of multi-scale phenomena, at well, in 1500 and he was trying to describe
+what he was seeing with words. So it took, well more than 400 years, to kind of formalize this kind of theory or these kind of
+observations in particular by Kolmogorov in the 1940s. Okay, well Leonardo was kind of putting in writing what each of us can see when we look at the water. A few hundred years later, Bernoulli kind of again
+based on like observations that if you had like higher velocity, this is related to having lower pressure. And in particular, this
+explains why airplane wings generate lift and he wrote about it in his PDE, Hydrodynamica. Then d'Alembert, 1752, tried to explain the drag and he was arguing that
+if you had a fluid, which is frictionless, it
+doesn't have any viscosity, then you should expect zero drag. But on the other hand,
+he was seeing that ships were having some drag, so he was not able to explain sort of why he was
+seeing something in nature and why the equations were sort of suggesting something else. So Euler then a few years after wrote in fact this is what is now known as the Euler equation, was
+the second PDE ever written by Euler where he described
+the motion of fluid. Or in, again, the same setting where there is no viscosity, there is no friction
+against the particles. And this would correspond,
+let's say later on to what we know as the
+Navier-Stokes equation with the viscosity set to zero. So the Euler equation,
+it's a very close cousin to the Navier-Stokes equation in the context of no viscosity. And then Prandtl many, many years later, this is at the beginning
+of the 20th century, explained the d'Alembert paradox by formalizing or
+describing what is now known as boundary layer theory. So that even if you have
+a little bit of viscosity, a little bit of a viscus layer,
+you're going to have drag. So these were mostly observations or the very early beginning of let's say the mathematical foundations of the mathematical fluid
+mechanics as we know them now. Okay, so these are the
+Euler, incompressible Euler and the incompressible
+Navier-Stokes equations. And we're going to see several terms here. On the right hand side, rho is density, let's take rho to be one. P is the pressure, nu is the viscosity, and F is some external forces. So on the right hand side,
+we see external forces. On the left hand side,
+essentially we see acceleration. So we're going to see something of the type F equals MA
+corresponding to the second, the second Newton's law. And the second equation
+essentially describes the incompressibility condition. So the divergence of the
+velocity is equal to zero, the fluid, it conserves the volume, or if I were to sort of squish my fluid, then I cannot really compress it or sort of either towards
+itself or towards the outside. So moving on, I'm going to be talking about the Euler equations whenever I set nu in this
+equation there to be equal to zero, and I'm going to be talking about Navier-Stokes equations whenever I set nu to be any positive real number. Okay, so as I said before, this is essentially describing F equals MA in the context of a fluid. Okay? So at every point what we are looking here being modeled is that at every point in time and at every point in space,
+if I look at the forces on a small fluid elements
+coming from the pressure coming from external
+forces such as gravity, coming from friction
+against the particles, that balance of forces has
+to balance the acceleration of the particles at that
+point in space time. And if I were to write and develop the equation F
+is equal to MA, then I get what we saw on the previous slide, okay? Now the heart of the matter and what really makes this a challenge is the non-linear term. If the PDE was linear, then probably we would have a
+better understanding by now. But the fact that there
+is a nonlinear term essentially doesn't help or raises the question
+whether you may have finite time blow up or if things are sort of aligned the proper way. And so you would have
+the derivative in time of U is essentially like U squared and therefore you will
+get finite time blow up or on the other hand that things
+don't really align so well. And even though you have
+a quadratic structure, it's still going to prevent or any sort of blow up is
+never going to happen due to the particular nature
+of the quadratic structure. So the velocity is going to influence or the velocity field
+is going to influence the derivative in time
+of the velocity field. The equations are nonlinear. Again, that really makes the
+analysis quite challenging. And on the other hand, if you start with small perturbations,
+this can lead into like big, big changes in the
+evolution of the fields, let's say for a much longer time. OSo that's part of,
+let's say the main body, the main F is equal to MA description of the equation. And then we have on the other hand the divergence free condition. So the second equation
+divergence of U is equal to zero accounts for incompressibility. And as I said, sort of
+if I were to have a fluid and if I were to exert some kind of force or some kind of pressure on
+the particles in one direction, then I cannot really sort of
+arrange my particles in a way that they're going to sort
+of collide onto each other. If I try to do that, then they're going to sort of escape in another direction. I cannot really sort of put or arrange things in a way that they all sort of try to get together. If two particles try to get together, then there may be some escape route due to the incompressibility condition. It's not like for example, in a gas, where we can compress the gas and sort of create maybe
+some implosion phenomena or any sort of like blow up behavior coming from the
+compressibility of such gas. So many physicists have looked
+at the problem of turbulence. I won't be talking at all
+about turbulence today, but also just to point out
+the connection between fluids and turbulence. And I think this is kind
+of gathered quite well by sort of these two citations and it's also a testament of
+the difficulty of the problem from many physicists back then, but even many physicists now. So Feynman said that turbulence
+is the most important unsolved problem in classical physics and Lamb, even though
+sometimes this is attributed to Heisenberg said that
+if I died, if he died and he went to heaven, he
+would want to know about QED and he would also want
+to know about turbulence in the context of fluids. But he then added that
+about the former problem, he was rather optimistic
+implying that turbulence is quite difficult and it's
+difficult to get a hold of it and understand it. Okay, so here's the million dollar problem in a kind of a summarized form as stated in the 2000 version of the Clay problems, this was written by Charlie
+Fefferman for the CMI and essentially it says the following. So if I take the PDE
+that I described before with some initial data, smooth, and I look at the evolution of that data either in the whole space in R3 or on a periodic box in T3, then either one of these options is going to happen, for all time, for all initial data, the
+solution is going to be smooth and therefore, life is good. So nothing bad is going to happen. Nothing is going to become infinity, there won't be any singularities no matter how long the time. So that's option one. And then option two is that maybe I can cook up some initial data such that which is again, smooth such that as I evolve the PDE starting
+from that initial data, then a singularity is
+going to be developed and a singularity means either velocity or derivatives of velocity are going to become infinite in finite time. And we can think of like
+kind of the mental model as maybe some kind of vortex
+emerging from the fluid or maybe the formation of a tornado or other sort of phenomena that we see everyday in nature corresponding to some
+sort of abrupt change in either the velocity or the derivatives of velocity. So it's either A or B, either everything is good or something is bad, okay? And this is kind of a rendition to the way the problem was set up 25 years ago, okay? And as I said in the
+beginning, nobody has been able to decide whether the
+outcome is either option A or option B with the other thing that this is like a
+really, really old problem. So Euler is 250 years old, the Euler equation is 250 plus years old. The Navier-Stokes equations
+are roughly 200 plus years old. So this problem understanding
+this kind of equation has been open for more than 200 years, both in the context of
+Euler and the context of Navier-Stokes despite the setting and the writeup of the problem
+being just for Navier-Stokes. But the case of Euler is also open, let's say, in the general form. Okay, so there are three
+basic scenarios here that I'm going to be describing and I will say more about them before. So I talked about two because that's the way the
+Clay problem was set up. But the community has
+kind of been looking at sort of three possibilities
+or three different scenarios. The first one is the easy one,
+which means that you start with a smooth solution, everything is good and the equation can be
+continued for all time and nothing bad happens. So this is sort of the
+green scenario on the left. The second scenario is there may be two solutions or there may
+be a problem in the form of a singularity, but nonetheless, there is uniqueness of solutions. So the solution may develop singularities, but there is uniqueness of solutions. And the scenario three,
+which is even more radical, is that there are singularities. And on top of that,
+there is no uniqueness. So the Clay problem
+essentially sort of asks whether the situation was
+either one or two or three or one versus two or three. And then there is sort of
+a slightly different setup that I'm going to talk in the next slides. That is kind of the point
+of view from Ladyzhenskaya where she suggested that
+instead of that the way or another way to looking at
+this problem was either one, one or two, sorry, versus three. So she was essentially kind
+of raising the question of non-uniqueness. Either solutions are
+unique and then there may or may not be singularities or they are non-unique as in case three. So I'm also going to be
+talking about weak solutions and I'm going to be defining
+what a weak solution is. So a weak solution is a
+weaker notion of a solution and essentially is that in
+order to require the solution to solve point wise the PDE,
+what we're going to do is to multiply the PDE by
+a smooth test function and integrate by parts. And since phi is very smooth,
+we're going to be able to move the derivatives
+from the U into the phis. So essentially what
+the weak solution needs to satisfy is the
+equation that I wrote down on the slide, for every smooth, let's say compact supported phi such that it has divergence equal to zero. So this is a weaker notion
+of a strong solution, a strong solution meaning
+a point wise solution. Every point wise, every
+strong solution is weak, but not every weak solution is strong. So mentally, what is happening here is that we are instead of
+checking kind of the equation at every single point, we
+are in some sense averaging the equation among all
+possible sort of perturbations. And perturbations here means integrating against all possible suitably smooth test functions, test functions phi, okay? So this is what we're going to be defining as a weak solution. And I'm also going to be talking about a Leray-Hopf weak solution,
+which is a particular type of weak solution that on top
+of being a weak solution, satisfies the energy inequality. So the norm of U or the energy of U is bounded in this way by the energy or by the other norm of the gradient of U. So the fluid is allowed to lose energy, but it can never gain any of
+it sort of spontaneously, okay? So I'm going to talk about
+the Leray-Hopf solutions, the Leray-Hopf weak solutions,
+which are weak solutions that satisfy this kind of
+inequality for all time. So why so? Why are these things important? So Leray-Hopf solutions, the term was coined by Leray and Hopf. So Leray proved that in the 30s even before the theory of distributions was developed, that if you start with a
+Leray-Hopf weak solution, then these solutions are
+going to exist globally in the context of 3D Navier-Stokes. So if the initial data is
+a Leray-Hopf weak solution, those solutions will exist globally. So then Hopf extended the proof of Leray to bounded domains. Okay, so far so good. So these solutions are
+going to exist globally, but what we don't know is that
+even if they exist globally, they may develop finite time singularities because the definition is weak enough that it could allow for the solutions to develop singularities. So whether, if we, for example,
+if we were able to prove that Leray-Hopf weak
+solutions are actually strong, then we're done because then they're going
+to be global in time. But so far, that's not known. Okay, so I mentioned Ladyzhenskaya before. So this is a picture of Olga Ladyzhenskaya who grew up in the Soviet Union, and in '58-'59, she was able to prove the following sort of foundational
+result that essentially showed global existence and uniqueness to the incompressible
+Navier-Stokes equations in dimension two. So in dimension two, and use techniques that are now known as Ladyzhenskaya's inequalities that essentially allow you to control ordered terms in two dimensions and the exponents are good enough and the proof goes through. In 3D, the exponents
+of these sort of norms that one needs to put in
+order to do this control are not good enough. And then the proof sort
+of breaks down for 3D in the sense that the techniques that work in the 2D case
+do not work in 3D anymore. And this is why the 3D problem is still an open question in this context. So she was able to prove the case of 2D. So for 2D, we know everything and we know that we have global solutions for Navier-Stokes. Okay, how about partial regularity? So can we understand, let's
+say, assume that things go wrong and let's try to do some analysis about how bad is the set of solutions, how bad is the set where
+the solutions go wrong and develop singularities. So this is a problem that
+was studied in the 70s and then into the 80s. First by Scheffer who
+proved that if you look at the set where singularities
+are present, then this set needs to have a Hausdorff dimension smaller or equal than two. And this was later improved by Caffarelli, Kohn and Nirenberg that the proof, that the set of possible singularities in again, in kind of space time has one dimensional
+parabolic Hausdorff measure equal to zero. Okay, so simplifying sort
+of the language a lot, we should expect the problematic points to be just points, okay? So we're not going to expect
+things to go very wrong along the curve, for example. So the set of of things
+going wrong is fairly small. And this somehow prompted, or at least the community,
+I mean, I wasn't there to check it, but the community in the 90s was thinking more along the
+lines of global existence with respect to like these two scenarios that Scheffer now proposed. I would say that the majority
+of the community believed that the true answer was global existence. And it was just simply hard or technical to prove it, but the sort of the overall
+belief was in the direction of global existence. An important object in
+all of these business is what is known as the vorticity. So the vorticity omega is the curl of U, and in 2D, this is the component
+in the third direction. So it's a scalar, and
+in 3D, it's a vector. Now studying the vorticity is interesting because one can transform
+the equations into something slightly easier to understand, and in particular the
+pressure is going to drop from the equation. So we are not going to need to say anything about the pressure when looking at the
+equation in vorticity form. So what's the difference
+between the left and the right? Besides that the left is in
+2D and the right is in 3D? So the point is that if we look at what is happening on the left, we see that vorticity is
+transported by the velocity U and since this is a transport equation, the vorticity is not going to grow. So that's good because
+we know that we are going to have some control on the vorticity, whereas in 3D, this is not guaranteed. And then because of the stretching term that appears on the right hand side, the vorticity, a priori could be amplified and in principle it could
+become infinite in finite time. So that's, let's say, a
+highly summarized version of why things are nice in 2D versus why things may not be so nice in 3D. And in fact, one can
+obtain initial conditions for which at least for some time, there is some amplification
+of the vorticity. So there is no guarantee or no need to expect that
+the vorticity is going to behave a priori nicely. Maybe it does, but we don't know, okay? Whereas in the left, the
+vorticity is going to be, is going to be transported, So yet another example of why these kind of equations are hard, and this is something
+that people have managed to use in other contexts
+for other equations, which is somehow some conservation law or some monotonicity quantity that if I know a prioria,
+they have control, that they have good
+control for all time of it, then I can say something
+about the solution. So the canonical functional and the canonical, let's say quantity to use in this case is
+the energy of the system. But the energy of the
+system is super critical. And if one looks at
+the energy conservation and the kind of gain that one obtains by looking at the energy
+conservation, this is not enough. And in particular, we
+cannot infer too much just from energy conservation as to what it means for the solution to develop a finite
+time singularity or not. In particular, this means that if we want to give any sort of proof
+of global existence, we need to use some deeper
+structural properties of the nonlinearity. It's not just that there
+is conservation of energy or even that the nonlinearity is quadratic or it is of the form something or the function times the gradient. And I will present more examples where this is even more evident. So energy conservation doesn't help enough and therefore we are at a loss and we are kind of back to square one whether there is global
+existence or blow up. And chronologically, this is
+kind of the type of things that people were trying in the
+early days of the equation. So what do we know up until now? We know that if we start
+with weak solutions, they're going to be existing for all time. We also know that if we
+start with smooth solutions, they're going to exist
+at least for short time. And if anything is to
+develop a singularity, it's going to be difficult. It's going to be the
+singularities are going to be very sparse in space time. And it's conceivable that
+finding these candidates is going to be elusive and it's going to be difficult
+to cook up a scenario where things go wrong. So it's kind of sort of
+inviting to point out that the right direction
+should be global existence. But who knows? And again, this is kind
+of maybe the point of view 20 or maybe 30 years ago. So what we don't know and
+we still don't know yet is whether smooth solutions
+exist for all time in three dimensions. Okay, this is sort of like what was known, let's say up when the problem was posed And let me talk now about
+more modern developments and what has been going on over the last, let's say 25 years. And here, it's going to go
+from regularity criteria to something called complex integration. And on the computational side, which has been quite productive, going from computational blow up to even AI discover singularities, okay, so again, let's try to go again in
+the direction of trying to prove global existence. So again, we have this
+in mind that if we start with a Leray-Hopf solution,
+maybe we can prove that these solutions are
+actually better than that and they're actually smooth. So if a Leray-Hopf solution is in this mixed space,
+LPT, LQX with that condition between P and Q, then U is smooth, okay? So that's a strong theorem proved besides the endpoint
+case by Brody, Seregin and Ladzyhenskaya, okay? The endpoint case, it's
+much more challenging. It had to wait until the
+work of Escauriaza, Seregin and Sverak in the year 2003 using much more complicated estimates like troublesome estimates and sort of parabolic estimates. Now, why is this useful? Can we say something
+sort of in these lines if we have this sort of enhancement of regularity from Leray-Hopf
+to smooth, it may not help us to sort of bootstrapping
+this kind of thing because the argument is circular, but it may help us to derive
+contradiction arguments as to if things go wrong,
+how wrong can they be? Namely the argument could go assume that, that the solution blows up and then something is going to contradict this condition. In particular, one of the
+most established criteria going by Beale, Kato and Majda says that if there is a
+finite time singularity, then this integral in
+time of the vorticity has to be equal to infinity. So if we ever want to find
+a finite time singularity, and this is going to be
+quite important later when the numerics kick in, then the vorticity needs to
+blow up at the blow up time. And there is a more refined criterion by Constantin and Fefferman that where they say that
+the direction of vorticity has to change quite rapidly in order for the solution to blow up. So out of these kind of ideas, we can develop better blow up criteria. There is now people started to push on what is sort of the largest
+good space that I can find where I can find global solutions or maybe unique solutions. And one of the landmark
+papers in this context is by Koch and Tataru and where they prove that if your initial
+data is in BMO minus one, then the Navier-Stokes equations
+have a unique global mild, but you know, then enter into
+what mild means, solution. And BMO minus one is essentially sort of the best you can do up to
+very, very small refinements and Bourgain and Pavlovic sort
+of prove kind of the opposite that if you step out a little bit then the equations are imposed. So as I said, BMO minus one is
+essentially a sharp criteria. Germain, Pavlovic and Staffilani proved that Koch-Tartaru
+solutions are real analytic for positive T. So in a nutshell, if
+we are at BMO minus one or below, solutions are good, and if we are above it, we don't know, but this is sort of our
+refinement on how far can we go in this space. Okay, let's go now to the computational, the computational stuff. So with the advent of
+computers in the 90s, it's very tempting to try to say, well maybe I can try to find some candidate
+computationally, what happens? And so there are many, there have been many candidates in history where there were many claims and then the computations were refined. This is an example where in '93, Kerr did a very detailed for
+his time computational study where he started with
+anti-parallel vortex tubes and the numerical studies suggested a finite time
+singularity at some time. And then many years later, Hou and Li repeated his calculation with better computers because time had passed, higher resolution and found no singularity. So essentially, the quantities
+that Kerr was monitoring went up, up, up, up, suggested sort of like
+a finite time blow up. But in reality if you were able to push the solution a bit
+more, then you could see that they sort of went down and depleted and there was no singularity at all. There are other examples of
+these anti-parallel vortex tubes or variations thereof, for example, by Brenner, Hormoz and Pumir and where they sort of devise sort of a more complicated mechanism involving like a cascade of these kind of sheets folding and kind of circling at
+very different scales that could potentially lead
+to finite time blow up. Okay, so the equations are fighting back and finding candidates is tough, okay? Even from a computational point of view with the power of computers. So again, the computational
+challenge is okay, you have the advantage of
+having maybe a supercomputer where you can launch
+many of these experiments and you can try many these
+conditions and see what happens. So there are things that are going to be sort of very delicate in this context. The first one is that if you're tracking and if you're trying to find a singularity for which some things
+go wrong, in particular, if some things are meant to be infinity, then as you approach that, even in the best case, you're going to lose resolution, the
+errors will take over and then your solution is
+going to be and the result and potentially give you
+maybe false indications as to what you're looking for. One way to potentially overcome this is to use some form of
+numerical viscosity. There are many different
+tricks in this regard, but if you put some viscosity
+then like artificially, then maybe you may be misled by that and maybe you're not
+really simulating like the honest equation and
+you're getting sort of a different outcome than what
+the equation should give. And if you ever expect to use numerics to prove global regularity,
+then this is not going to happen because it's going to be difficult to span all the set of initial data. And even you can sort of bounce
+things up to a certain time, there's no guarantee that at
+a later time things are going to get any better. So some kind of evolution of this paradigm got into computer assisted proofs where one can overcome these
+sort of numerical phenomena and numerical errors by
+using rigorous error bounds. And this is kind of a technique that has been picked
+up over the last years. So what's a computer assisted
+proof in this context? It's more or less the
+following sort of set up. Suppose that my numerical method gives me an approximate solution that
+has the behavior that I want and what I want to prove is to upgrade that numerical candidate by
+means of a fixed point theorem to prove that the true solution exists close to the approximation. So that's kind of the game
+that I'm going to play. And in order to do so, I'm going to need to quantify potentially many constants that appear in my problem. And in order to prove like rigorous bounds on those constants, I will
+propagate all the errors done by the computer using interval arithmetic instead of floating point arithmetic. So this is a technique that was first developed in
+the 80s, Lanford, for example, was one of the ones that did it for the Feigenbaum conjectures. And in fluids, due to,
+again, better hardware, better software, better theory. It hasn't been until the
+last sort of 10 years or so or 15 years where people
+had transitioned from mostly the study of finite
+dimensional dynamical systems to more into like the PDE world and the study of like infinite dimensional
+problems in a way. So this is kind of close to my heart. This is the type of
+mathematics that I was trained and now I'm very, very happy
+to see that it has been picked up and has been quite powerful in the last 10 years or so. Okay, so still, we are still stubborn and we think that there
+is global regularity for this equation. So Tao wrote a post in 2007 explaining why the problem is hard. So as I said before, the
+energy is super critical. So if you try to understand and to use energy
+conservation to say something, you're not going to be able to do that. If you try to use another quantity, then there's no other quantity
+known that can help you in that regard, at least up to now. So either you find a new
+control critical quantity like a new Leray-Hopf function or some kind of conservation law which hasn't happened
+before, hasn't happened yet. Or you need to really
+understand the structure beyond sort of the scaling analysis or beyond like linear versus nonlinear or linear versus quadratic kind of thing. Any generic argument is not going to work. So Tao proved global regularity. For example, for
+logarithmically super critical Navier-Stokes equation where
+you don't put the Laplacian, you put a little bit
+more than the Laplacian like the Laplacian to the five four. So even more dissipation
+than what you have for Navier-Stokes. And again, if you try
+to use soft techniques, this is really not going to work. If you use soft techniques
+of a slightly different form, they're also not going to work. So also Tao now considered some kind of average
+Navier-Stokes equation that had good properties
+like energy identity, Sobolev bounds and right symmetries and for which he could prove
+blow up in finite time. How did he do that? This is going to be relevant later. He sort of created some kind, he call it a von Neumann machine because it was sort of
+understood in the context of finite automata, but it's essentially some kind of self-replicating structure that can transfer energy from small scales to large scales, sorry, the way around, from large scales to small scales. And what this shows is that for this, you cannot really
+distinguish Navier-Stokes from sort of a model like this, just from soft properties. So if you ever try to to
+do that, you really need to understand much better, the structure, the structure of the equation. Okay, now let's look at something that has also been interesting, which is something called
+the Onsager conjecture. So Onsager conjecture and a new method called convex integration. So this is in the context of
+very low regularity solutions to Euler, 3D Euler or 3D Navier-Stokes. So Onsager conjecture is the following, you take a weak solution that has called the regularity
+alpha greater than 1/3, then it will conserve energy. And 1/3 is important because that's kind of the threshold where you can do integration
+by parts in a let's say, proper way versus where you cannot. Now if alpha is smaller
+than 1/3, you can do things that are very, very strange
+like solutions to 3D Euler that are meant to conserve energy. They could dissipate energy, okay? And the threshold 1/3 is important for many reasons. So the first result was the
+legitimate result in the 90s where you can actually prove
+that under that condition, like all the integration
+byproducts are justified and therefore you get
+conservation of energy. And in order to solve
+the flexibility part, this really spanned a
+series of many papers and many developments starting
+from the work of De Lellis and Szekelyhidi who sort of developed something called convex integration that was stemming from the
+work of Nash and of Gromov and sort of ported into the
+context of fluid dynamics. So this led to sort of
+improvements on this alpha where first the flexibility
+was proved for very small alpha and then gradually improved
+all the way up to the work of Phil Isett who completed the program and in 2018 proved Onsager's conjecture. There is another follow
+up paper by Buckmaster, De Lellis, Szekelyhili and Vicol where they extended this proof to sort of construct solutions that could do sort of wild things and in fact satisfy any
+prescribed energy profile. So that was Euler. What about Navier-Stokes? In the context of Navier-Stokes,
+Buckmaster and Vicol proved that if you have weak solutions
+like rough weak solutions, you have non uniqueness and even more so you can
+match the energy profile to do whatever you want. And they sort of, again, building up on this
+convex integration scheme, they develop something called
+intermittent Beltrami waves that sort of was the building block to allow to overcome the dissipation. Now this could potentially
+answer Ladyzhenskaya's question, but these solutions are too rough, so these solutions are too
+rough to be Leray-Hopf. So this doesn't say anything in the context of Leray-Hopf. Okay, let's move on to other type of computational blow up. Now we are in 2014. So there have been like many
+attempts throughout the years on sort of trying to find
+out potential candidates of the Euler and Navier-Stokes solutions for which there could be
+a finite time singularity. However, in 2014, Luo and Tom Hou did a very good computation and a very compelling
+argument where they took 3D Euler in the context of a cylinder. So if you take like a glass
+and you have like walls and the fluid is confined to be inside, forget about the lid, then numerically, they could observe and assume that the solution
+is actually symmetric, massive growth of the
+vorticity on the plane Z is equal to zero, R is equal to one, namely on the boundary. And they conjecture that
+based on their simulations and the vorticity would
+blow up at a certain rate and the numerics look plausible. Now what what this was
+hinting is like let's take problems with boundary and let's look at what
+happens on the boundary. And the boundary in fact helps to find finite time blow up. This is a picture taken from Quanta where you essentially see
+sort of the Luo-Hou scenario and how like the flow is
+spinning one way at the top, spinning the opposite at the bottom and this creates secondary
+recurrence that eventually lead to finite time blow up
+like on this circle, R is equal to one, Z is equal to zero. Okay, how about the sort of
+the Ladyzhenskaya problem? So in 2022, Albritton,
+Brue and Colombo proved that there is non-uniqueness for Leray-Hopf solutions
+for3D Navier-Stokes, but with a caveat that you need to put an external
+forcing on the equations and that external forcing is
+tailored to the type of data that they pick related to
+some prior construction of Vishik in 2D that was
+later expanded to 3D. So these ideas, they all come or they are all heavily
+influenced by the work of Jia and Scerak that sort of
+had outlined the program saying that all you need to do is to find a linearly unstable
+self similar solution and then you can undergo a bifurcation and have non uniqueness of
+these Leray-Hopf solutions. So using this type of program and improving on it, then
+Albritton, Brue and Colombo were able to prove non
+uniqueness with an external force and there has been a lot
+of activity in this sort of direction, especially
+in the last four years, sort of culminating with an
+announcement in September 2025 by Hou, Wang and Yang where they claimed that the unforced Leray-Hopf solutions are non-unique using the program
+outlined by Jia and Sverak and also like numerics based
+on the work of Jia and Sverak and involving a computer assisted proof. The computer assisted
+proof is still ongoing the verification, but nonetheless, this is
+the announcement out there about six months ago. There is also further work
+by Colculescu and Palasek proving sort of non
+uniqueness in this space, BMO minus one and even very recent work by Albritton, Guillod, Korobkov and Ren looking at the problem in 2D. Okay, how about blow up? So I talked before about
+the Luo-Hou scenario in the interior of the cylinder. So that was a numerical
+calculation in 2014. So it it had to happen 10 years until Chen and Hou in a series of papers posted in 2023 proved actually that there
+is a finite time blow up for the incompressible 3D Euler equations in the context of the
+interior of a cylinder. So they could prove that starting from smooth initial data with finite energy in
+a cylindrical domain, the 3D Euler equation develops
+a finite time singularity, which is of nearly of similar type. And in order to do that, they went through a
+computer assisted proof constructing an approximate
+self similar profile, proving some form of
+stability in inequalities and then verifying everything
+through interval arithmetic and guaranteeing all
+the quantitative bounds that were present in the problems. So does this solve anything
+related to the Clay problem or even to the Euler equation? Not really, the boundary, it
+plays a massive role here. The boundary really stabilizes the singularity and this
+result does not address the Navier-Stokes case and it does not address
+even the Euler case in the context of the full space. So working on one domain or another really makes a difference here in the context of a proof. It's also if you think about it, if you take a cylinder and you look at the
+particle on the boundary, then the particle on the
+boundary can essentially go in one direction or in two directions, in one if you're symmetric, but it cannot cross. So then it can only go
+up or along the boundary. And then this constraint in the movement of the particles allow you to pin down much better the scenario and to sort of fabricate
+an initial condition that can lead to finite time singularity. Okay, so Hou has been working
+on more numerical scenarios and presenting them in a series of papers, one suggesting blow up
+for 3D Navier-Stokes in some kind of tornado style singularity where he claimed that the vorticity was amplified
+by 10 to the seven, and another one which
+had an interesting idea, which is using the
+dimension as a parameter. So he was able to come up with an equation where the dimension is a free parameter and it's something that
+one is allowed to pick and then he numerically
+obtained some candidate that would be the solution to Navier-Stokes in dimension 3.1888. So this is the solution of some nonlinear eigenvalue
+problem that turns out to have that solution. So this is not Navier-Stokes, it's an interesting exercise suggesting that more likely there is one dimension that is one sort of cancellation that you need to obtain via some parameter or some form of additional structure. In this case, he used the dimension. This also suggests that
+the blow up is probably quite unstable and in order to stabilize it, you can use this kind of artificial parameter,
+which in this case was taken as the dimension. So let's fast forward and let's look at neural networks and sort of AI in this context. So a neural network is sort of a nice pictorial representation of a function that is obtained by
+composing on a fine map with some non-linear activation
+function, for example, like the hyperbolic tangent. So at every layer at, you
+compose these two things, the fine map that has some free parameters and the nonlinear activation function. And at the end of the
+day, you're representing your favorite function using an extremely nonlinear representation. Why is this useful? Well, these nonlinear representations seem to require far fewer
+parameters than let's say, other representations such
+as linear for approximation and in particular for discovery. So the way one solves
+PDE using this paradigm is to try to minimize a loss
+function over these sets of parameters, namely the weights and the biases coming from the fine maps that appear on every sort
+of little arrow joining every two neurons. So there is one method
+which is known as PINNs or physics informed neural
+networks that essentially you train, you sort of
+minimize these loss functions over this set of parameters until the PDE residual or maybe the derivatives
+of the PDE residual or perhaps other terms are small enough. So there is no mesh here,
+no discretization, no data and you use the equation to guide you through the set of parameters. Now empirically, what it seems to happen
+is that for discovery, this representation
+seems to work very well and in fact in a series of work with Wang, Lai, Buckmaster, Cao0Labora, in a bigger collaboration
+with Google DeepMind, we were able to use this kind of paradigm and variations thereof to discover self-similar blow up profiles that were unstable for
+3D axisymmetric Euler, something called the CCF equation and something called the incompressible porous media equations, which hadn't been observed
+before in many cases, also with quite high precision in terms of like the
+residual being satisfied up to a very, very low number. Now does this solve the Millennium problem or even hint to anything in that matter? No, because these equations
+are not Navier-Stokes, okay? So these equations are related equations that share some structure with
+fluid equations like Euler or Navier-Stokes, but
+they're not Navier-Stokes. So maybe one can learn something from this paradigm. Let's look more into
+self-similar singularities. So self-similar singularities
+are the kind of solutions that we found that could potentially lead or that lead to finite time blow up. Okay, why, let's go back
+in time now 25 years. So this is a quote from Luis
+Caffarelli in the context of lectures on the Millennium problems at UT 25 years ago. And he said, if I were
+to find singularities for Navier-Stokes, a traditional way of finding them would be to find self similar solutions. However, you're not going to succeed if you do it like straight away because it has been proved
+by Necas, Ruzieka and Sverak this is not possible. So if you want to find a
+singularity for Navier-Stokes, then what you need to find is
+first a singularity for Euler so that the self similarity
+scales with the Eulerian scaling and then show that the viscosity is a lower order there. And he claimed that this
+was the only possibility that he saw back then in constructing singularities for Navier-Stokes. Okay, so the path that
+Caffarelli was seeing back then was to understand first the
+finite time singularities for Euler and then use
+that as building block to construct finite time
+singularities for Navier-Stokes. So what is a self similar solution? It's kind of the following. So take our solution in XT coordinates on the left and let time evolve up to the
+singularity time so we can see that slowly, things are
+going to be developing some kind of gradient or some kind of function is going to go to infinity. Now, if I were to zoom
+in at the right scale relative to time, and
+if I rescale properly, then if I have a self similar solution, then all my profiles look
+like the ones on the right. And in fact, converge to some fixed point in these new rescaled coordinates, C, tau. So the point is that, I mean this is great because things on the left
+are going to become infinite, whereas things on the right
+are going to become fixed point and they're not going to move too much and they're going to
+be much more tractable, much more amenable to be found. So if we postulate that our solution little U has this structure in terms
+of capital U with beta and gamma to be determined,
+then maybe it is easier to catch this capital U. Okay, so how would one go from say, a self similar solution
+to a singularity proof? This is sort of the program. Well step one, find such a
+approximate self similar solution you not even numerically it should be, it should be good enough. So let's say you have an approximately numerically self similar solution
+up to very high precision. Now what you can do is to linearize around that profile, show good
+spectral properties, some form of stability in some sense and upgrade those properties
+to nonlinear properties. Then once you do that and once you track all
+your estimates using a computer assisted proof
+methods, then you can sort of go back to XT and
+recover the blowup in XT. Several caveats, as I pointed before, not every exponent is admissible in the context of Navier-Stokes by proof, by the people that I mentioned before. And there is a very recent paper by Constantin, Ignatova and Vicol where they proved bounds on the exponent for Eulers. So they prove that in general, gamma needs to be greater or equal than 2/5 and in the axisymmetric
+case, gamma needs to be greater or equal than than 1/2. And this exponent is relevant because it has to do with
+the Navier-Stokes scaling. Okay, this is another
+strategy sort of again, trying to go in the direction
+of finite time singularity. So Elgindi was able to relax the problem and starting from non smooth
+but not terribly rough data. So C1 alpha data, he was able
+to prove finite time blow up for 3D Euler in the whole space without any boundary, but with the caveat that the initial data is not
+as smooth as we would like and this was further improved by Elgindi, Ghoul and Massmoudi proving the stability of those profiles. So that was a great idea, that was really a breakthrough and it
+influenced a lot further works by other people, including other papers by Elgindi-Pasqualotto and Cordoba, Martinez, Zoroa and Zheng using some sort of like
+multiscale approach to constructing these singularities. So the question here is, can one go from this C1 alpha solution and sort of improve them a bit so that one can get like C
+infinity regularity everywhere. So that could be
+potentially another strategy into constructing, let's
+say finite time blow up from structures kind
+of similar to this one. Okay, so if I were to
+summarize now how things stand, then we can see the gold
+line is sort of what we knew before the Clay problem was written down and sort of below the golden
+line is what we know now. There are still many open questions that we don't know
+despite knowing a lot more than 25 years ago. And in particular we still
+don't know if smooth flow may break down or not. So what's going to
+happen, what's the future? Well, if we were try to go in the global existence direction, then we need to come up with something beyond energy methods and something that uses
+heavily the structure of the Navier-Stokes equation. We could go in understanding
+finite time blow up in related systems either
+by relaxing the conditions or either by changing a bit the equation. If we were to try to go
+through Leray-Hopf solutions, this is unlikely to work as is. We may need to develop new solutions and sort of new sort of
+conditions of solutions to be able to be compatible here. Nobody knows how the
+impact of AI is going to, is going to be in this, well,
+in mathematics in general, but in this context in concretely and computer assisted proofs seem to start playing a prominent
+role in this sort of approach and these kind of techniques. So the million dollar
+question still stands. And do we have smooth initial data that can produce a finite time singularity or will we always have smooth solutions? So after Euler, Navier,
+Leray and Ladyzhenskaya and 200 plus years of the
+greatest mathematical minds, nobody knows, a million dollar awaits. Thank you. (audience applauding)

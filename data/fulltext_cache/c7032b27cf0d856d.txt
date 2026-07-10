@@ -1,0 +1,762 @@
+
+
+Notices of the American Mathematical Society
+
+Welcome to the 
+Notices of the American Mathematical Society
+.
+With 
+support from AMS membership
+, we are pleased to share the journal with the global mathematical community.
+
+PDFLINK
+
+History
+
+200 Years Ago: Abel’s Resolution of the Quintic Question
+Adrian Rice
+
+1
+.
+
+Introduction
+
+Anyone who has studied mathematics at school will associate the word algebra with the study of equations, and in particular, methods for solving them. However, those who take algebra at university encounter a very different subject, in which the solution of equations is overshadowed entirely by the far more abstract study of groups, rings and other structures. What most undergraduates miss is how the “theory of equations”—which is basically what algebra was until about 1800—evolved to become the modern algebra of today. That process of transformation was in its early stages two hundred years ago when an unknown Norwegian mathematician named Niels Henrik Abel (1802–1829) published a proof that the general quintic equation was unsolvable by purely algebraic means. This proof not only answered a question that had been unsolved for nearly three centuries, but also served as a catalyst for the groundbreaking work of Évariste Galois, the birth of group theory and, subsequently, the genesis of modern abstract algebra.
+
+The name of Abel has long been immortalized in mathematics: Abel’s summation formula; Abel’s limit theorem for power series; abelian integrals; abelian varieties; and most recently, the Abel Prize, which is awarded to one or more outstanding mathematicians every year. Perhaps the most common use of Abel’s name, certainly among undergraduates, is in the area of group theory, in which a group is called 
+abelian
+ if the group operation is commutative. This is somewhat ironic, since groups did not appear explicitly in mathematics until after Abel’s death in 1829, when they were introduced by Galois in the early 1830s. A further irony is that the algebraic unsolvability of the quintic, which Abel famously proved in 1826, is now usually presented in the language of groups, but comparatively few mathematicians will have read Abel’s original argument, which used completely different methods. This article will present a summary of Abel’s proof, in the style in which he presented it, in which it will be seen both as the culmination of a long story in the history of mathematics and the beginning of a new one.
+
+Figure 1
+.
+Niels Henrik Abel (1802–1829).
+
+2
+.
+
+Algebraic Equations up to 1545
+
+Methods for solving linear and quadratic equations date back to antiquity. Indeed, cuneiform clay tablets from the second millennium BCE show that the Mesopotamians used algorithms which were in practice equivalent to special cases of the quadratic formula 
+6
+, 
+pp. 20–31
+
+$$\begin{equation*} x=\frac{-b\pm \sqrt {b^2-4ac}}{2a}. \end{equation*}$$
+
+Of course, symbolic expressions like this did not exist at the time, with problems and their methods of solution being represented entirely in words. (Recognizable algebraic notation would not emerge until the 17th century 
+6
+, 
+pp. 249–52, 264
+.) Nevertheless, through such scholars as the Greek mathematician Diophantus (c. 250 CE) and the Islamic polymath Al-Khwārizmī (c. 820 CE), techniques for the formulation, classification, and solution of linear and quadratic equations were created and refined. But, although credited in older works on the history of mathematics as “The Father of Algebra,” Al-Khwārizmī’s work on equations exhibited certain features we might not perhaps expect, not the least of which was a complete lack of recognition of negative (and complex) numbers. And despite the efforts of several medieval scholars, such as Omar Khayyam (1048–1131), higher-order equations such as cubics remained impervious to attempts to deduce a general algebraic formula for their solution 
+6
+, 
+pp. 165–72
+.
+
+A breakthrough finally came in 1545 when the Italian mathematician Girolamo Cardano (1501–1576) published the first universal method for solving the general cubic equation
+
+$$\begin{equation*} ax^3+bx^2+cx+d=0. \end{equation*}$$
+
+By use of the clever substitution 
+,
+$x=y-b/3a$
+ this equation could be simplified to the form
+
+$$\begin{equation*} y^3+py+q=0 \end{equation*}$$
+
+for which the solutions were found using the new cubic formula:
+
+$$\begin{equation*} y=\sqrt [3]{-\frac{q}{2}+\sqrt {\frac{q^2}{4}+\frac{p^3}{27}}}+\sqrt [3]{-\frac{q}{2}-\sqrt {\frac{q^2}{4}+\frac{p^3}{27}}}. \end{equation*}$$
+
+Although Cardano succeeded in publicizing and building on this discovery, the method was not in fact due to him, and the story of its creation and the subterfuge surrounding its eventual publication is one of the most fascinating and controversial episodes in the history of mathematics (for details, see 
+6
+, 
+pp. 215–19
+). Nevertheless, Cardano’s work on the cubic equation did have a number of beneficial effects. First, it spurred the gradual acknowledgement and acceptance of negative and complex numbers into mainstream mathematical thinking. And second, it prompted the almost immediate discovery—by one of Cardano’s students, Lodovico Ferrari (1522–1565)—of a method for solving the quartic equation.
+
+By now it was clear that, for all algebraic equations of degree 
+,
+$n\leq 4$
+ increasingly sophisticated general formulae could be found that would give the solutions in terms of expressions involving the coefficients of the original equation, combined using only the operations of addition, subtraction, multiplication, division, and the extraction of roots. Such techniques became known as solving an equation “by radicals.” The obvious task now was to find a formula for the general quintic.
+
+3
+.
+
+The Quest for the Quintic
+
+The next 250 years would see tremendous advances in the development of algebra. In 1629 Albert Girard formulated what came to be known as the Fundamental Theorem of Algebra, which Gauss finally proved in 1799, while 1637 saw Descartes’ introduction of the 
+$x,y,z$
+ style of symbolic notation still used today. But despite significant contributions to the theory of equations from the likes of Viète, Tschirnhaus, Bézout, and Euler, by the mid-18th century the goal of finding a general algebraic solution to the quintic equation remained elusive. In a monumental paper of 1770, Joseph-Louis Lagrange (1736–1813) produced a masterful survey of all the methods that had been devised over the past two centuries to tackle cubic and quartic equations. This paper marked a sea-change in attitudes toward the quintic, for although Lagrange was able to codify and systematize the key techniques that had been used to solve equations of degree up to 4, he also demonstrated that none of them would work when applied to those of degree 5 
+6
+, 
+pp. 295–8
+. For the first time, the idea began to emerge that a general algebraic formula for the solution of the quintic equation might not exist.
+
+Figure 2
+.
+Joseph-Louis Lagrange (1736–1813).
+
+The first attempt to prove that the general quintic equation cannot be solved by radicals came in 1799, when the Italian mathematician Paolo Ruffini (1765–1822) published 
+Teoria Generale delle Equazioni, in cui si dimostra impossibile la soluzione algebraica delle equazioni generali di grado superiore al quarto
+ (General Theory of Equations, in which the algebraic solution of general equations of degree higher than four is proved impossible). Ruffini’s proof was exceptionally complicated and lengthy, and despite two subsequent revisions and republications, failed to convince the wider mathematical community. Most significantly, it was rejected by the Académie des Sciences in Paris, then widely recognized as the center of the mathematical world. It is now agreed that, although somewhat convoluted, Ruffini’s argument was basically correct, but that it contained lacunae 
+4
+.
+
+Figure 3
+.
+Paolo Ruffini (1765–1822).
+
+His proof did, however, manage to persuade one major French mathematician of its validity. The famous analyst Augustin-Louis Cauchy (1789–1857) was convinced by Ruffini’s work, which inspired him to develop an aspect of it in more detail. In his proof, Ruffini had employed one of the most crucial ideas from Lagrange’s paper of 1770, namely that the algebraic solvability of equations was strongly connected to permutations of their roots. It had been known for some time that coefficients of the general monic equation
+
+$$\begin{equation*} x^{n} +a_{n-1} x^{n-1} +\cdots + a_{2} x^{2} + a_{1}x + a_{0}=0 \end{equation*}$$
+
+could be expressed as functions of its roots 
+.
+$x_1,x_2,\cdots ,x_n$
+ For example,
+
+$$\begin{equation*} x_1+x_2+\cdots +x_n=-a_{n-1} \end{equation*}$$
+
+and
+
+$$\begin{equation*} x_1 x_2\cdots x_n=(-1)^n a_0 . \end{equation*}$$
+
+Moreover, since addition and multiplication are commutative operations over real numbers, these functions are 
+symmetric
+; in other words, they remain unchanged if the roots are interchanged or permuted. Cauchy now investigated the subject of permutations in great detail, publishing an important paper in 1815 in which, among other things, he proved that if a rational function of 
+$n$
+ objects takes fewer values than the largest prime less than 
+$n$
+ when the 
+$n$
+ quantities are permuted, it can take at most two different values 
+5
+, 
+p. 9
+.
+
+The theory of permutations proved essential to the early development of group theory, inasmuch as in Galois’ work, the groups considered were groups of permutations of the roots of algebraic equations. And of course, it is the language of groups and Galois theory that is commonly used today to prove the unsolvability by radicals of the quintic equation. Given any equation, one can define its associated Galois group 
+.
+$G$
+ Such a (finite) group is called 
+solvable
+ if there is a sequence of subgroups
+
+$$\begin{equation*} \{e\}=G_{0} \subseteq G_{1} \subseteq G_{2} \subseteq \cdots \subseteq G_{n-1}\subseteq G_{n} = G \end{equation*}$$
+
+such that each 
+$G_i$
+ is a normal subgroup of 
+$G_{i+1}$
+ and each quotient 
+$G_{i+1}/G_{i}$
+ is abelian. If the Galois group is solvable, this implies that its associated algebraic equation is solvable by radicals.
+
+In the case of the general cubic equation, its Galois group is 
+,
+$S_3$
+ the group of all permutations of three objects. Its normal subgroup is 
+,
+$A_3$
+ the alternating group of even permutations, whose sole normal subgroup is the trivial group 
+,
+$\{e\}$
+ consisting only of the identity element. Now, since
+
+$$\begin{equation*} \{e\}\subseteq A_{3} \subseteq S_{3} \end{equation*}$$
+
+and 
+$S_3 /A_3$
+ and 
+$A_3 /\{e\}=A_3$
+ are both abelian, this means that 
+$S_3$
+ is solvable, and hence the general cubic equation is solvable by radicals.
+
+In the case of the general quartic equation, we produce the chain
+
+$$\begin{equation*} \{e\}\subseteq \langle g \rangle \subseteq K_{4}\subseteq A_{4}\subseteq S_{4} \end{equation*}$$
+
+of normal subgroups, where 
+$K_{4}=\{e,g,h,gh\}$
+ is the Klein 4-group. Again, 
+,
+$S_{4}/A_{4}$
+
+,
+$A_{4}/K_{4}$
+
+$K_{4}/\langle g\rangle$
+ and 
+$\langle g\rangle /\{e\}$
+ are all abelian, and thus the general quartic is solvable by radicals.
+
+However, when we come to the general quintic, we find that the process breaks down. The only proper normal subgroup of 
+$S_5$
+ is the alternating group 
+,
+$A_5$
+ which has 
+$\{e\}$
+ as its only normal subgroup. This produces the unique chain
+
+$$\begin{equation*} \{e\}\subseteq A_{5}\subseteq S_{5}. \end{equation*}$$
+
+But in this case 
+$A_5/\{e\}=A_5$
+ is non-abelian, which means that the group 
+$S_5$
+ is not solvable, and hence the general quintic equation cannot be solved by radicals.
+
+Although this is the result that Abel proved in 1826, he did it in an entirely different way, in large part because the whole notion of groups had yet to be invented. So how did he prove the algebraic impossibility of solving the quintic equation?
+
+4
+.
+
+Abel’s Proof
+
+Ironically, Abel had originally approached the problem from the opposite direction. He initially thought that he had come up with a general solution of the quintic equation; but when pressed for further details, he realized that he was mistaken, so he turned instead to try to prove its impossibility. In 1824, Abel published the first version of his proof that the general quintic equation was unsolvable by radicals 
+1
+. It was printed as a small booklet at his own expense, with the intention of using it in the manner of a business card to attract the attention of the great mathematicians of Europe, whose ranks he wished to join. The expense of printing was considerable, however, so in order to economize, Abel condensed his argument down to the main points, not all of which were proved in the space available. Luckily, he soon gained the friendship and support of the German mathematician August Leopold Crelle (1780–1855), who in 1826 published a greatly expanded version of Abel’s paper in the first volume of his 
+Journal für die reine und angewandte Mathematik
+, or 
+Crelle’s Journal
+ as it became widely known. This paper contained the full proof, with the details explained and proved at length 
+2
+. And although there remained a few minor gaps, all of which were later filled, it was this proof that was eventually accepted by the mathematical community at large. Here then is a summary of Abel’s main argument.⁠
+Footnote
+1
+1
+An excellent, and far more detailed, analysis of Abel’s proof is contained in 
+7
+, while 
+8
+ features a more modern presentation of its principal ideas in the language of field theory.
+✖
+
+He started by assuming that the general quintic equation 
+is
+ solvable by radicals. This means, in the most general case, that all roots will be different. Taking a general 
+th-
+$n$
+degree equation
+
+1
+
+$$\begin{equation} a_{n} x^n + a_{n-1} x^{n-1} +\cdots + a_{2}x^{2} + a_{1}x + a_{0} = 0, \cssId{texmlid1}{\tag{1}} \end{equation}$$
+
+where 
+$n$
+ is a prime number, so that it cannot be factored, he proved that all algebraic solutions to it can be expressed in the form
+
+$$\begin{equation*} x=p+p_{1}R^{\frac{1}{n}}+p_{2}R^{\frac{2}{n}}+\cdots +p_{n-1}R^{\frac{n-1}{n}}, \end{equation*}$$
+
+where 
+$p, p_{1}, p_{2}, \dots , p_{n-1}$
+ are finite sums of radicals and polynomials, and the 
+th-
+$n$
+roots of 
+$R$
+ are irrational functions of the coefficients of the original equation. Abel, however, chose to express this as
+
+2
+
+$$\begin{equation} x=p+R^{\frac{1}{n}}+p_{2}R^{\frac{2}{n}}+\cdots +p_{n-1}R^{\frac{n-1}{n}}, \cssId{texmlid2}{\tag{2}} \end{equation}$$
+
+incorporating the 
+$p_1$
+ into the function 
+$R$
+ by writing this function as 
+.
+$p_{1}^n R$
+
+Now, substituting this version of 
+$x$
+ into the original equation 
+1
+ and reducing the resulting expression to the form in 
+2
+, he obtained
+
+3
+
+$$\begin{equation} P=q+q_{1}R^{\frac{1}{n}}+q_{2}R^{\frac{2}{n}}+\cdots +q_{n-1}R^{\frac{n-1}{n}}, \cssId{texmlid5}{\tag{3}} \end{equation}$$
+
+which, since the expression in 
+1
+ was set to zero, will also equal zero. Abel then used a very clever argument to prove that, in order for this to be true, all of the 
+’s
+$q$
+ must equal zero as well. This then enabled him to conclude that any solution 
+$x$
+ of the form 
+2
+ can be expressed purely in terms of rational functions of the roots. This fact, which needed to be proved, had merely been assumed by Ruffini, resulting in one of the chief flaws of the earlier proof.
+
+At this point, the reader will probably appreciate a simple example, so consider the quadratic equation
+
+4
+
+$$\begin{equation} x^2 + bx+c=0. \cssId{texmlid3}{\tag{4}} \end{equation}$$
+
+Abel claimed that its solution would be in the form 
+,
+$x=p+R^{\frac{1}{2}}$
+ so let’s verify this. Substituting 
+$x=p+R^{\frac{1}{2}}$
+ into 
+4
+ gives
+
+$$\begin{equation*} \left(p^{2}+R+bp+c\right)+\left(2p+b\right) R^{\frac{1}{2}}=0. \end{equation*}$$
+
+Now, in order for this to equal zero, both coefficients must also be zero, which means, first of all, that
+
+$$\begin{equation*} p=-\frac{b}{2} \end{equation*}$$
+
+and secondly that
+
+$$\begin{equation*} R=\frac{b^2}{4}-c. \end{equation*}$$
+
+From the quadratic formula, we know that all solutions of equation 
+4
+ will be of the form
+
+$$\begin{equation*} x=\frac{-b\pm \sqrt {b^2 - 4c}}{2}, \end{equation*}$$
+
+which, if we write it as
+
+$$\begin{equation*} x=-\frac{b}{2}\pm \sqrt {\frac{b^2 - 4c}{4}} \end{equation*}$$
+
+does indeed confirm that solutions of quadratic equations can be expressed in the form 
+.
+$x=p+R^{\frac{1}{2}}$
+
+How then does this enable us to infer that solutions of this form can be expressed purely in terms of rational functions of the roots? In particular, how can it be possible for the 
+$R^{\frac{1}{2}}$
+ term (which is after all an 
+irrational
+ function of the original equation’s coefficients) to be a 
+rational
+ function of the roots?
+
+Consider the two roots we have just found, namely
+
+$$\begin{equation*} x_1 =-\frac{b}{2}+ \sqrt {\frac{b^2 - 4c}{4}} {\text{ and }} x_2 =-\frac{b}{2}- \sqrt {\frac{b^2 - 4c}{4}}, \end{equation*}$$
+
+which of course are functions of the form 
+.
+$x=p+R^{\frac{1}{2}}$
+ Taking each of the components of 
+$x$
+ in turn, we find, first of all, that
+
+$$\begin{equation*} p=-\frac{b}{2}=\frac{x_1 + x_2}{2}, \end{equation*}$$
+
+which is obviously a rational function of the roots. It’s also clear that 
+,
+$x_1-x_2=\sqrt {b^2-4c}$
+ so
+
+$$\begin{equation*} \left(x_1-x_2\right)^2=b^2-4c=4\left(\frac{b^2}{4}-c\right)=4R, \end{equation*}$$
+
+and therefore
+
+$$\begin{equation*} R^{\frac{1}{2}}=\frac{x_1-x_2}{2}. \end{equation*}$$
+
+We thus see that any solution 
+$x=p+R^{\frac{1}{2}}$
+ can be expressed as a perfectly rational function of the roots 
+$x_1$
+ and 
+$x_2$
+ of the original quadratic equation.
+
+In the case of a quintic equation, according to 
+2
+, its solutions should be of the form
+
+5
+
+$$\begin{equation} x=p+R^{\frac{1}{5}}+p_{2}R^{\frac{2}{5}}+p_{3}R^{\frac{3}{5}}+p_{4}R^{\frac{4}{5}}. \cssId{texmlid4}{\tag{5}} \end{equation}$$
+
+By virtue of what Abel had already proved, this would mean that all of its component parts—the 
+,
+$p, p_{2}, p_{3}, p_{4}$
+ and the various integer powers of 
+—must
+$R^{\frac{1}{5}}$
+ be rational functions of the roots of the quintic equation.
+
+Now came a stroke of genius. Recalling Cauchy’s theorem on permutations from 1815, Abel considered the special case when 
+.
+$n=5$
+ This gave him the following result 
+2
+, 
+p. 77
+:
+
+If a rational function of five quantities takes fewer than five values when the five quantities are permuted, it can either take two different values or one value.
+
+In his 1824 publication, he only had space to cite Cauchy’s 1815 paper, but in his expanded paper of 1826, he provided a complete proof, giving due credit to Cauchy. He then turned his attention to the hypothetical solution 
+5
+ of the general quintic, each part of which is a rational function of the roots. By the Fundamental Theorem of Algebra, this solution could have no more than five values. Taking one of its components, 
+,
+$R^{\frac{1}{5}}$
+ he considered what would happen if the five roots were permuted.
+
+Figure 4
+.
+Augustin-Louis Cauchy (1789–1857).
+
+Generally speaking, 
+$R^{\frac{1}{5}}$
+ cannot take only one value, since this could lead to a single solution, not five, which he had assumed to be distinct. By Cauchy’s theorem, this meant that 
+$R^{\frac{1}{5}}$
+ could thus take either two or five values. In the latter case, Abel showed that this would lead to an equation in which one side with five possible values would equal an expression with 120 different values, which is clearly impossible. This just left the case in which 
+$R^{\frac{1}{5}}$
+ took two values. But when the roots were permuted this time, Abel proved that a different equation arose in which one side had 120 possible values, while the other had only ten. Therefore, no matter which possibility he chose, a contradiction was unavoidable. Abel was thus able to conclude: “It is impossible to solve the general equation of the fifth degree by radicals.” 
+2
+, 
+p. 84
+ As a final note, he observed: “It follows immediately from this theorem that it is similarly impossible to solve general equations of higher degree than the fifth by radicals.”
+
+We leave the proof of this corollary as a simple exercise for the reader.
+
+5
+.
+
+What Happened Next?
+
+As with so many famous problems in mathematics, the successful resolution of one question invariably opens up a number of others, and Abel’s proof was no exception. It was now known that for 
+,
+$n\geq 5$
+ equations of degree 
+$n$
+ could not, in general, be solved by radicals. This then prompted two further questions: how to find all equations of a given degree that are algebraically solvable; and given any 
+th-
+$n$
+degree equation, how can we tell whether or not it is solvable by radicals? These were the questions that Abel set about trying to answer. He already knew that, if an equation were solvable by radicals, any two roots would be related by a rational function, so all the roots are rational functions of each other. In a paper of 1829 
+3
+, he examined equations of composite degree and discovered that if 
+$x_1$
+ is a root of such an equation and two other roots are given by 
+$\theta _1\left(x_1\right)$
+ and 
+,
+$\theta _2\left(x_1\right)$
+ which are two (possibly distinct) rational functions of 
+,
+$x_1$
+ then the equation is solvable if
+
+$$\begin{equation*} \theta _1 \left(\theta _2 \left(x_1 \right)\right)=\theta _2 \left(\theta _1 \left(x_1 \right)\right). \end{equation*}$$
+
+In other words, Abel found an explicit connection between the algebraic solvability of equations and the commutativity of composition of functions. And it is for this reason that groups with commutative binary operations are today called abelian.
+
+Sadly, Abel never lived to see this recognition. His resolution of one of the most outstanding problems of the time failed to bring him the mathematical reputation or academic position he sought. He died of tuberculosis in April 1829 at the age of 26.⁠
+Footnote
+2
+ It was only posthumously that his pioneering work—and that of another brilliant mathematician who suffered a similarly untimely death—was finally recognized. Fourteen years later, at a meeting of the Académie des Sciences in Paris on July 4, 1843, the mathematician Joseph Liouville announced that “among the papers of Évariste Galois I have found a solution, as precise as it is profound, of this beautiful problem: whether or not [a polynomial equation] is solvable by 
+radicals
+”
+$\dots$
+
+9
+, 
+p. xxiii
+. This was the beginning of a process that would result in the posthumous publication of Galois’ groundbreaking work on the theory of equations, introducing the mathematical world to the concept of groups, and ultimately transforming algebra from a collection of methods for analyzing and solving equations into today’s modern study of abstract structures.
+2
+For further biographical details, see for example 
+10
+.
+✖
+
+But that’s another story….
+
+References
+[
+1
+]
+ N. H. Abel, 
+Mémoire sur les équations algébriques où on démontre l’impossibilité de la résolution de l’équation générale du cinquième dégré
+
+(
+French
+)
+, Facsimile edition, University of Oslo, Faculty of Science, The Librarian, Oslo, 1957. MR
+81258
+, 
+
+AMSref
+
+\bib{Abel1824}{book}{
+ author={Abel, N. H.},
+ title={M\'{e}moire sur les \'{e}quations alg\'{e}briques o\`u on d\'{e}montre l'impossibilit\'{e} de la r\'{e}solution de l'\'{e}quation g\'{e}n\'{e}rale du cinqui\`eme d\'{e}gr\'{e}},
+ language={French},
+ edition={Facsimile edition},
+ publisher={University of Oslo, Faculty of Science, The Librarian, Oslo},
+ date={1957},
+ pages={8},
+ review={\MR {81258}},
+}
+
+[
+2
+]
+ N. H. Abel, 
+Beweis der Unmöglichkeit, algebraische Gleichungen von höheren Graden als dem vierten allgemein aufzulösen
+
+(
+German
+)
+, J. Reine Angew. Math. 
+1
+ (1826), 65–84, DOI 
+10.1515/crll.1826.1.65
+. MR
+1577598
+, 
+
+AMSref
+
+\bib{Abel1826}{article}{
+ author={Abel, N. H.},
+ title={Beweis der Unm\"{o}glichkeit, algebraische Gleichungen von h\"{o}heren Graden als dem vierten allgemein aufzul\"{o}sen},
+ language={German},
+ journal={J. Reine Angew. Math.},
+ volume={1},
+ date={1826},
+ pages={65--84},
+ issn={0075-4102},
+ review={\MR {1577598}},
+ doi={10.1515/crll.1826.1.65},
+}
+
+[
+3
+]
+ N. H. Abel, 
+Mémoire sur une classe particulière d’équations résolubles algébriquement
+
+(
+French
+)
+, J. Reine Angew. Math. 
+4
+ (1829), 131–156, DOI 
+10.1515/crll.1829.4.131
+. MR
+1577723
+, 
+
+AMSref
+
+\bib{Abel1829}{article}{
+ author={Abel, N. H.},
+ title={M\'{e}moire sur une classe particuli\`ere d'\'{e}quations r\'{e}solubles alg\'{e}briquement},
+ language={French},
+ journal={J. Reine Angew. Math.},
+ volume={4},
+ date={1829},
+ pages={131--156},
+ issn={0075-4102},
+ review={\MR {1577723}},
+ doi={10.1515/crll.1829.4.131},
+}
+
+[
+4
+]
+ Raymond G. Ayoub, 
+Paolo Ruffini’s contributions to the quintic
+, Arch. Hist. Exact Sci. 
+23
+ (1980/81), no. 3, 253–277, DOI 
+10.1007/BF00357046
+. MR
+606270
+, 
+
+AMSref
+
+\bib{Ayoub}{article}{
+ author={Ayoub, Raymond G.},
+ title={Paolo Ruffini's contributions to the quintic},
+ journal={Arch. Hist. Exact Sci.},
+ volume={23},
+ date={1980/81},
+ number={3},
+ pages={253--277},
+ issn={0003-9519},
+ review={\MR {606270}},
+ doi={10.1007/BF00357046},
+}
+
+[
+5
+]
+ Augustin-Louis Cauchy, 
+Mémoire sur le nombre des valeurs qu’une fonction peut acquérir, lorsqu’on y permute de toutes les manières possibles les quantités qu’elles renferme
+, Journal de l’École Polytechnique 
+10
+ (1815), no. 17, 1–28., 
+
+AMSref
+
+\bib{Cauchy}{article}{
+ author={Cauchy, Augustin-Louis},
+ title={M\'{e}moire sur le nombre des valeurs qu'une fonction peut acqu\'{e}rir, lorsqu'on y permute de toutes les mani\`{e}res possibles les quantit\'{e}s qu'elles renferme},
+ date={1815},
+ journal={Journal de l'\'{E}cole Polytechnique},
+ volume={10},
+ number={17},
+ pages={1\ndash 28},
+}
+
+[
+6
+]
+ Victor J. Katz and Karen Hunger Parshall, 
+Taming the unknown
+: 
+A history of algebra from antiquity to the early twentieth century
+, Princeton University Press, Princeton, NJ, 2014, DOI 
+10.1515/9781400850525
+. MR
+3237138
+, 
+
+AMSref
+
+\bib{KatzParshall}{book}{
+ author={Katz, Victor J.},
+ author={Parshall, Karen Hunger},
+ title={Taming the unknown},
+ subtitle={A history of algebra from antiquity to the early twentieth century},
+ publisher={Princeton University Press, Princeton, NJ},
+ date={2014},
+ pages={xvi+485},
+ isbn={978-0-691-14905-9},
+ review={\MR {3237138}},
+ doi={10.1515/9781400850525},
+}
+
+[
+7
+]
+ Peter Pesic, 
+Abel’s proof
+: 
+An essay on the sources and meaning of mathematical unsolvability
+, MIT Press, Cambridge, MA, 2003. MR
+1980425
+, 
+
+AMSref
+
+\bib{Pesic}{book}{
+ author={Pesic, Peter},
+ title={Abel's proof},
+ subtitle={An essay on the sources and meaning of mathematical unsolvability},
+ publisher={MIT Press, Cambridge, MA},
+ date={2003},
+ pages={viii+213},
+ isbn={0-262-16216-4},
+ review={\MR {1980425}},
+}
+
+[
+8
+]
+ Michael I. Rosen, 
+Niels Hendrik Abel and equations of the fifth degree
+, Amer. Math. Monthly 
+102
+ (1995), no. 6, 495–505, DOI 
+10.2307/2974763
+. MR
+1336636
+, 
+
+AMSref
+
+\bib{Rosen}{article}{
+ author={Rosen, Michael I.},
+ title={Niels Hendrik Abel and equations of the fifth degree},
+ journal={Amer. Math. Monthly},
+ volume={102},
+ date={1995},
+ number={6},
+ pages={495--505},
+ issn={0002-9890},
+ review={\MR {1336636}},
+ doi={10.2307/2974763},
+}
+
+[
+9
+]
+ Ian Stewart, 
+Galois Theory
+, 3rd ed., Chapman & Hall/CRC Mathematics, Chapman & Hall/CRC, Boca Raton, FL, 2004. MR
+2008456
+, 
+
+AMSref
+
+\bib{Stewart}{book}{
+ author={Stewart, Ian},
+ title={Galois Theory},
+ series={Chapman \& Hall/CRC Mathematics},
+ edition={3},
+ publisher={Chapman \& Hall/CRC, Boca Raton, FL},
+ date={2004},
+ pages={xxxvi+288},
+ isbn={1-58488-393-6},
+ review={\MR {2008456}},
+}
+
+[
+10
+]
+ Arild Stubhaug, 
+Niels Henrik Abel and his times
+: 
+Called too soon by flames afar
+, Springer-Verlag, Berlin, 2000. Translated from the second Norwegian (1996) edition by Richard H. Daly, DOI 
+10.1007/978-3-662-04076-8
+. MR
+1762652
+, 
+
+AMSref
+
+\bib{Stubhaug}{book}{
+ author={Stubhaug, Arild},
+ title={Niels Henrik Abel and his times},
+ subtitle={Called too soon by flames afar},
+ note={Translated from the second Norwegian (1996) edition by Richard H. Daly},
+ publisher={Springer-Verlag, Berlin},
+ date={2000},
+ pages={x+580},
+ isbn={3-540-66834-9},
+ review={\MR {1762652}},
+ doi={10.1007/978-3-662-04076-8},
+}
+
+Adrian Rice is the Dorothy and Muscoe Garnett Professor of Mathematics at Randolph-Macon College. His email address is 
+[email protected]
+.
+
+Article DOI: 
+10.1090/noti3264
+Credits
+
+Figures 1–4 are public domain via Wikimedia Commons.
+
+Photo of Adrian Rice is courtesy of Nick Ruxton.
+

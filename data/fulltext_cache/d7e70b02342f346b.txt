@@ -1,0 +1,773 @@
+
+
+Achieving Fairness – Feature Column
+
+Skip to content
+
+Achieving Fairness
+
+In:
+
+2025
+, 
+Joseph Malkevitch
+, 
+Math and Social Sciences
+
+Tagged:
+
+fair division
+, 
+voting
+
+What may surprise you is the extent to which mathematicians (and computer scientists) have systematically studied issues involving fairness...
+
+Achieving Fairness
+
+Joe Malkevitch
+
+York College (CUNY)
+
+Introduction
+
+The experience of being alive begins with the fact
+that no matter how hard one may try to put oneself in the position of
+another person, for each of us, we are the center of our
+existence. As a person ages from childhood we become aware there are
+people close to us like our parents or guardians, possible siblings, and other
+family members. We quickly learn that there other people and that in
+some cases these people seem to be "better off" than we are.
+Dad seems to treat me better than sister Alice while Mom seems to treat
+brother Bob better than me or Alice, but Grandpa Charles seems to treat
+us all equally well. We quickly develop a sense of whether we are being
+treated fairly and this, as we age extends to the markers that we label
+ourselves with—woman, living in the US but born in Somalia, etc.
+Hopefully, whatever groups we identify with we come to have
+empathy for other human beings, in particular those that are further
+removed from those people we interact with regularly.
+
+This child is looking for a fair way to share ice cream. Photo by 
+Aaron Concannon
+, 
+CC BY-NC-ND 2.0
+.
+
+If you
+have a question about an illness, about what caused the recent flooding
+in your neighborhood, why the price of eggs has suddenly changed and
+that your favorite cereal seems no longer easily available for purchase,
+you learn who are the "experts" on questions of this
+particular type. Similarly, if your toilet overflows or if as a home
+owner your roof develops a leak, you learn in both of these cases it is
+not a carpenter or mathematician whose services are needed but in the
+first case you should call a plumber and the second a roofer. But who
+are the "experts" on fairness? Perhaps when you were young, if
+you felt that you were not being treated fairly you might
+turn to a parent, grandparent, close friend, or a member of the clergy
+for advice about what to do about your concern. More abstractly, you
+might think that philosophers, lawyers, politicians, or judges might be
+people who had wisdom about fairness. Are there areas of academia where
+the issues of fairness are addressed? What may surprise you is the
+extent to which mathematicians (and computer scientists) have
+systematically studied issues involving fairness. While the mathematical tools used to get
+insights into these fairness questions covers a large range, a
+surprisingly large amount of the scholarly fairness literature is
+readable by individuals with a relatively small amount of mathematical
+background. Many of these fairness questions emerge from issues related
+to trying to run countries committed to democracy in a way that respects
+the rights of its citizens and seeks input from society members with
+different views and values.
+
+Sample Fairness Questions/Situations
+
+What follows are a small sample of
+fairness questions/situations that have been studied to varying degrees
+by the mathematics community. Many of these settings overlap in the way
+that mathematics can be used in getting insights into the problem.
+Historically, progress on one kind of fairness problem has often brought
+about progress in how to be fair in other situations. New fairness
+problems lead to new methods useful in older problems and sometimes new
+problems lead to new methods and insights useful to problems studied in
+the past. Rarely does mathematical progress close off a field of
+research. Each new result typically spawns new questions that foster
+new progress and in turn new problems to address.
+
+Apportionment
+
+The US Constitution requires that a census be
+taken. The number of Senators that each state has is two regardless
+of the population of the state, as a way to recognize that geographic
+regions to some extent affect the interests of the people in rural and
+low density parts of the US and those living in high population cities
+such as Los Angeles or Chicago. However, one might argue that it is not
+fair to the people of California that Hawaii and Idaho have two Senators
+just the way that California does.
+
+In the other part of the US
+legislative system, the House of Representatives, the 
+Fourteenth Amendment
+ directs, "Representatives shall be apportioned among the several states according to their respective numbers, counting the whole number of persons in each state."  However, there is the mathematical issue that if a
+state has 10 percent of the US population it is currently entitled to 43.5 seats
+in the House of Representatives. Should it get 43, 44 or some other
+integer number of seats? A fraction of a person can't be sent to the
+House of Representatives. Mathematicians have developed a rich
+collection of insights into different ways that seats might
+be distributed.
+
+Disaster relief 
+
+After a natural
+disaster caused by a hurricane, flooding, earthquake or wildfire,
+sometimes funds are set aside to help those harmed to recover and
+rebuild their lives. If the claims made against the disaster relief fund
+exceed the funds available, what might be a fair way to distribute the
+funds?
+
+Food Banks
+
+In many parts of the United States, there are organizations that
+help provide food to the hungry. These organizations sometimes are known as food banks. Food banks
+have to decide how to allocate the food that they get to the
+outlets that actually distribute the food. The issue arises
+how such allocations can be done fairly. (The 
+February 2021 Feature Column
+ discusses another mathematical question involving food banks: what is the best way to allocate volunteers?)
+
+Estate division
+
+In some situations, when a person dies the person's
+heirs are to share the proceeds of the dead person's estate. This estate
+may be only money or it may be a mixture of money and other possessions—a house, art collection, rugs, etc. How can the estate be fairly
+divided where there are several heirs? Similar issues arise in settling
+how to distribute jointly owned items in a divorce settlement.
+
+Fair matchings
+
+Given two equal-sized groups of claimants,
+where each group has provided strict rankings of the members of the
+other group, when can the two groups be paired off so that the result is
+stable? Here stable means that no pair of claimants matched can do
+better by agreeing to swap the partners that they were
+assigned. One of the best-known examples of such a system is the system
+that is used by hospitals who need to have residencies filled and many
+medical school graduates who need a residency assignment to complete
+their medical school training. Other applications include assigning
+workers to jobs. Mathematicians and other scholars have developed many
+variants of the original work due to Dave Gale (1921-2008) and Lloyd
+Shapely (1923-2016). Thus, there might be a difference in size between
+the two groups to be matched or the rankings might not be strict and
+allow ties.
+
+Fair games
+
+While the history of using
+mathematics to get insight into games has many roots in many cultures,
+in relatively recent times the major catalyst in setting of interest in
+games was the Hungarian-born mathematician John von Neumann (1903-1957).
+
+Photo of John von
+Neumann, 
+by permission of Los Angeles National Security
+.
+
+John von Neumann collaborated with the economist Oskar Morgenstern (1902-1977)
+in writing a book entitled 
+Games and Economic Behavior,
+ which set off a
+torrent of interest in studying games and fairness questions. 
+As children and adults we often get to play various games. Many of these games involve a mixture of luck and
+skill. Mathematicians have looked at the issue of
+determining if various classes of games are fair. To make it
+easier to answer fairness questions about games, mathematicians work with
+stylized settings where competition occurs
+between two or more players. These games are often shown (modeled) as a
+table with choices for one player (claimant) set out in rows, and the
+choices for the other player tied to the choice of a column. An entry in
+the table (matrix) such as $(-5, 6)$ means the choices of actions by the
+players result in the outcome of -5 to the row player, and an outcome of
+6 to the column player. What units are these payoffs in? Here we
+interpret -5 as Row losing 5 dollars and 6 as winning 6 dollars. The
+stakes that change hands in the game might just as easily be chocolate bars or jelly
+beans.
+
+In the diagram below, the players Row and Column simultaneously
+choose Row 1 or Row 2 and Column I or Column II, respectively—thus, if Row chooses Row 2 and Column chooses Column I, then Row
+loses 15 and Column wins 15. 
+
+Column I 
+
+ Column II 
+
+ Row 1 
+
+ $(3, -3)$ 
+
+ $(-2,
+2)$
+
+ Row 2 
+
+ $(-15, 15)$ 
+
+ $(10, -10)$
+
+ This game is special because it is zero-sum, i.e.,
+gains by Row correspond on each play (the game may be played several
+times, one round after another) and the lose to Column add to zero. The
+game might be played once or over and over again. When Row wins, Row
+gets either 3 or 10 while when Column wins Column gets 2 or 15. It might
+appear because 13 is less than 17 that Column has an advantage in this
+game. But this game, if played many times, on average the amount of
+money that changes changes hands is zero, and most people would thus
+regard it as a fair game.
+
+ Fair elections
+(voting)
+
+In many situations there are actions (or candidates to
+be chosen) which must be selected by a group of people who have
+different views. In such situations, one
+can conduct a vote or an election. Each eligible voter is
+asked to produce a ballot which captures their views about the
+alternative actions (candidates or choices) and based on these ballots
+an election decision method or algorithm is decided on in
+advance of the voting. Mathematicians (and political scientists,
+philosophers and economists) have developed many different types of
+ballots to evaluate or rank the candidates or actions and many different
+decision methods, tied to the kind of ballot used to find the winner
+(winners) or declare a tie. Usually, the decision method is
+designed to be decisive, meaning that there is a single
+outcome selected by the voters as the choice for society.
+
+Different election decision methods will select a single
+winner based on this set of ballots:
+
+Which candidate in your view most deserves to win this election?
+What method of choosing a winner will result in this candidate winning?
+What fairness properties does your algorithm (method) for picking a
+winner obey?
+
+Fair Allocation
+
+What is an
+allocation situation?
+
+A limited supply of
+items or prizes (e.g. money, food, legislative seats, etc.) is
+to be distributed fairly to $m$ claimants, based on some
+collection of claims each made by a single claimant. Different claimants
+may have different views about what it means to be treated fairly, and
+the different individuals or institutions that might be trying to be
+fair might not agree what constitutes being fair.
+
+How should we allocate slices from a pizza with different toppings? (Photo by 
+Hajime Nakano
+, 
+CC-BY 2.0
+.)
+
+One of the
+first useful things that a mathematical analysis brings about is making
+sure that the terminology used in the problem setting is clear and
+precise. How many claimants are there? What one might do could vary
+significantly depending on whether there were 2 claimants, 10 claimants,
+or 50,000 claimants. What is the nature of the prizes or items that are
+to be distributed? Though money is easily divisible, one can't divide art works (paintings,
+rugs, books, houses) into fractional parts. It would not make much sense
+for a painting by Van Gogh to be cut up into three parts of the same
+area. Sometimes there may be several identical non-subdividable items
+that are to be distributed, but what is much more common is that there
+are indivisible items which can be sensibly assigned a value, and that
+while only one person gets each indivisible item, the claimants can get
+a "fair share" of the items in terms of the total
+value of what was distributed. Sometimes all of the claimants and
+the size of their claims is known in advance but in some problems, known
+as online situations, the claims arrive one at a time and one has to
+have a scheme in which one tries to be fair in this environment. Another
+issue to be considered when evaluating fairness methods is how much
+computational difficulty there is in finding or computing the
+answer, even when one can prove that there is a fair
+solution. Issues of computational complexity come into play in addition
+to the question of whether one can prove that there is a fair solution.
+Sometimes one feasible fair solution can be found quickly while a
+different fair solution might not be practical to find. Sometimes
+approximate fair solutions can be proved to exist—no claimant is
+treated significantly worse than another, and one can find such an
+approximate solution rapidly even when the number of claimants or the
+number of prizes (chores) is very large.
+
+What characteristics
+do the claimants have? Rarely is it the case that claimants
+are completely identical. Sometimes claimants are people, sometimes
+states, sometimes corporations, etc. If the claimants are
+people, some claimants may be old and some may be young; in
+fact, some claimants may be so young that they are being
+represented by someone (or a legal entity) other than
+themselves. 
+
+Typically some kind of procedure or algorithm is
+used to assign the prizes to the claimants. There are many issues
+related to the nature of these procedures.
+
+Does the procedure
+have some kind of built-in bias? Some procedures may not
+treat people of different genders equally. Some procedures may treat poor people
+differently from rich people, and there may be different approaches to
+being fair for people under the age of 18 and over the age of 75. Thus,
+a commuter railroad may have one price for children under 5 and special
+discounts for people who are over 70.
+
+For now, consider
+allocation problems where the items to be allocated can not be
+subdivided. Each item must be assigned to one claimant.
+Imagine we have a collection of claimants and that the items to be
+allocated have been assigned. The items being allocated could have
+positive value to the claimant or negative value
+to the claimant. Sometimes items to be allocated that have negative
+value are referred to as being "chores," while those with
+positive value are called "prizes." In some settings a mixture
+of prizes and chores are called 
+manna
+. These environments turn out to
+have rather different challenges for obtaining fairness
+results.
+
+Theoretical mathematical analysis typically proceeds
+by having a collection of undefined terms, a collection of defined words
+building on these undefined terms, and a collection of rules or axioms
+involve these undefined terms. Now one takes this framework
+and using the laws of logic makes deductions of theorems,
+based on the axioms. In this spirit, here are some of the terms that have
+been defined to investigate fairness issues for allocation
+situations.
+
+a. Proportionality
+
+In a fairness situation
+where one can assign to the prizes or chores a value, a distribution of
+the items is said to be proportional if, when there are $n$
+claimants, each claimant gets at least $1/n$ of the total value of the
+manna—chores or prizes.
+
+b. Envy free
+
+An
+envy free assignment of items in a fairness situation occurs when each
+claimant $i$ accepts the items assigned, rather than claimant $i$ saying they
+would rather have the assignment that was given to claimant $j$. In some
+cases, claimant $i$ will not envy claimant $j$ when the amount $i$ gets is
+equal to the amount claimant $j$ got. If there are two claimants and only one
+positively valued indivisible prize to be distributed, then there is no
+system of allocating the prize which will be envy free—the claimant
+who does not get the prize will always envy the person who does. For
+some situations, however, an envy free solution will be possible, and
+this is a desirable feature of fair allocations.
+
+c. EF1
+
+ Since there are situations where envy free allocations to the
+claimants are not possible, scholars have to consider the notation of
+how the envy free requirement, as desirable as this unobtainable goal
+might be, be relaxed so that a "fair" allocation can be
+carried out.
+
+The EF1 rule is obeyed when if one specific fixed
+item is disregarded when analyzing whether or not a particular
+allocation is viewed as envy free. Thus, while claimant $i$ will envy
+claimant $j$ when item $I$ is part of what is assigned to claimant $j$, if $i$
+disregards that $I$ was given to $j$, $i$ is no longer envious of what
+claimant $j$ got. 
+
+One can modify the EF1 "rule" or
+axiom in various ways. One way is known as EFX or EFx, where instead of
+considering envy with regard to a fixed particular item, one ranges over
+being envy free with regard to any single item rather than one
+particular item. One can consider algorithms that produce envy free
+allocations when several items rather than one specific item $i$ or any
+specific item is taken into consideration. Another approach is that of
+taking a pair of items in an allocation and swapping them. Thus, if item
+$U$ was assigned to claimant $i$ and $V$ was assigned to claimant $j$ and the
+total allocation (the way all items were allocated) was envied by one of
+the claimants, would that individual cease to envy the other person when
+the item $U$ went to $j$ and item $V$ went to $i$? 
+
+Conclusion
+
+The range of examples
+where fairness situations come into play is vast. Mathematicians and computer scientists have played a growing
+role in trying to understand and solve fairness problems. Perhaps you
+can provide some examples of situations where communities could get new mathematical insight into questions of fairness. 
+
+References
+
+Aziz, H., Rauchecker, G., Schryen, G., and
+Walsh, T. (2017). Approximation 
+ algorithms for max-min share
+allocations of indivisible chores and goods. In Proceedings of the
+Thirty-First AAAI Conference on Artificial Intelligence, pages
+335–341.
+
+M. Balinski and H. Young, Fair Representation,
+2nd edition, Brookings Institution, Washington, 2001.
+
+Brams,
+S.J. and A.D. Taylor (1999) : “ The Win-Win Solution: Guaranteeing
+Fair Shares to Everybody”, New York: W.W. Norton.
+
+Budish, E. (2011). The combinatorial assignment problem: Approximate
+competitive equilibrium from equal incomes. Journal of Political
+Economy, 119(6):1061–1103.
+
+P. di Cortona, C. Manzi, A.
+Pennisi, F. Ricca, and B. Simeone, Evaluation and Optimization of
+Electoral Systems, SIAM, Philadelphia, 1999. 
+
+Edelman, P. and
+P.C. Fishburn (2001): “ Fair Division of Indivisible Items
+Among People with Similar Preferences”, Mathematical Social
+Sciences, Vol. 
+ 41, 327-347.
+
+Gale, D., and L. Shapley
+(1962): "College Admissions and the Stability of 
+Marriage", American Mathematical Monthly, Vol. 69, 9-15.  
+
+Luce, R. Duncan and H. Raiffa, Games and Decisions, Revised edition,
+1989.
+
+Malkevitch, J., 
+Rationality and Game Theory
+.
+
+Evangelos Markakis. 2017. Approximation Algorithms and Hardness
+Results for Fair Division with Indivisible Goods. In Trends in
+Computational Social Choice, Ulle Endriss (Ed.). AI Access, Chapter 12,
+231–247.
+
+Ariel D. Procaccia. 2016. Cake Cutting
+Algorithms. In Handbook of Computational Social Choice, Felix Brandt,
+Vincent Conitzer, Ulle Endriss, Jérôme Lang, and Ariel D.
+Procaccia (Eds.). Cambridge University Press, Chapter 13,
+311–329.
+
+Rapoport, A. and M. Guyer, D. Gordon, The 2x2
+game, U. Michigan Press, 1976.
+
+Jack M. Robertson and William A.
+Webb. 1998. Cake-Cutting Algorithms—Be Fair if You Can. A K
+Peters.
+
+Roth, Alvin E., and Marilda Sotomayor, Two-sided
+matching, Handbook of Game Theory with Economic Applications 1 (1992):
+485-541.
+
+A. Sen, Inequality Reexamined, Harvard U. Press,
+Cambridge, 1992.
+
+Hugo Steinhaus. 1948. The Problem of Fair
+Division. Econometrica 16 (1948), 101–104.
+
+Straffin,
+P., Game Theory and Strategy, Mathematical Association of America,
+1993.
+
+Warut Suksompong. 2017. Fairly Allocating Contiguous
+Blocks of Indivisible Items. In Proceedings of the 10th
+International Symposium on Algorithmic Game Theory (SAGT’17).
+333–344.
+
+Share this:
+
+Share on Facebook (Opens in new window)
+
+Facebook
+
+Share on X (Opens in new window)
+
+X
+
+Like this:
+Like
+
+Loading…
+
+2025-11-01
+
+Previous Post: 
+The Hypergeometric Flower Pot
+Next Post: 
+Everything I Need to Know About Polygons I Learned from My Pre-Kindergartner
+
+1 Comment
+
+This may be the first time I have read a serious mathematical article without formulas, that anyone should be able to understand. This shows how far reaching mathematics is, and also the author’s skill.
+
+To be fair, I must point out that the first sentence in the conclusion should end with “is vast”, not “are vast”.
+
+Leave a Reply 
+Cancel reply
+Your email address will not be published.
+
+Required fields are marked 
+*
+Comment 
+*
+
+HTML tags are not allowed.
+Name 
+*
+
+Email 
+*
+
+Save my name, email, and website in this browser for the next time I comment.
+
+85,090 Spambots Blocked by 
+Simple Comments
+
+Notify me of follow-up comments by email.
+
+Notify me of new posts by email.
+ Notify me of followup comments via e-mail. You can also 
+subscribe
+ without commenting.
+
+JavaScript must be turned on to leave a comment.
+
+Search
+Subscribe to Feature Column via Email
+
+Enter your email address to subscribe to Feature Column and receive notifications of new posts by email.
+
+							Email Address						
+
+							Subscribe						
+
+Recent Posts
+Another Look at Circles and Squares
+
+The Shapley Value, or How to Split a Bill in n! Easy Steps
+
+The Story Your Ballot Doesn’t Tell
+
+Weekly Maintenance Message
+
+Puzzling Like the Seventeenth Century
+
+Categories
+
+2020
+
+2021
+
+2022
+
+2023
+
+2024
+
+2025
+
+2026
+
+Adam A. Smith
+
+Adriana Salerno
+
+Algebra and Number Theory
+
+Allechar Serrano López
+
+Anil Venkatesh
+
+Anna Haensch
+
+Archive
+
+Audrey St. John
+
+Bevin Maultsby
+
+Bianca Thompson
+
+Bill Casselman
+
+Colm Mulcahy
+
+Courtney Gibbons
+
+David Austin
+
+Deepayan Sarkar
+
+Diana Davis
+
+Discrete Math and Combinatorics
+
+Étienne Ghys
+
+Geometry and Topology
+
+Guillermo Fereyra
+
+History of mathematics
+
+Holley Friedlander
+
+Jessica Sidman
+
+John Eggers
+
+Joseph Malkevitch
+
+Josh Leys
+
+Math and Arts/Humanities
+
+Math and Social Sciences
+
+Math and Technology
+
+Math and the Sciences
+
+Mathematics and Biology
+
+Moira Chas
+
+Noah Giansiracusa
+
+Patrick Ion
+
+Probability and Statistics
+
+Real and Complex Analysis
+
+Sara Chari
+
+Sara Stoudt
+
+Sarah Wolff
+
+Steven H. Weintraub
+
+Sunil Chebolu
+
+Tamsyn Morrill
+
+Teaching and Learning Mathematics
+
+Tony Phillips
+
+Uncategorized
+
+Ursula Whitcher
+
+Tags
+5G
+
+Alan Turing
+
+algebraic geometry
+
+ams
+
+astronauts
+
+Branko Grünbaum
+
+cantor set
+
+chess
+
+Claude Shannon
+
+computability
+
+cryptography
+
+Desargues
+
+economics
+
+elliptic curves
+
+epidemic
+
+Euclidean geometry
+
+feature column history
+
+games
+
+game theory
+
+generating functions
+
+genetics
+
+Geoffrey Colin Shephard
+
+herd immunity
+
+Higgs boson
+
+information theory
+
+lattices (groups)
+
+Lie groups
+
+Machine learning
+
+measles
+
+medieval
+
+partitions
+
+periods
+
+persi diaconis
+
+physics
+
+poetry
+
+polytopes and polyhedra
+
+primes
+
+probability
+
+SEIR model
+
+statistics
+
+string theory
+
+tic-tac-toe
+
+tilings
+
+video games
+
+voting
+
+Meta
+
+Log in
+
+Entries feed
+
+Comments feed
+
+WordPress.org
+
+					 Designed using 
+Hoot Business
+. Powered by 
+WordPress
+.				
+
+%d
+

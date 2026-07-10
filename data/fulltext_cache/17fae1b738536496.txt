@@ -1,0 +1,624 @@
+Snapsho t s o f m o d e r n m athematics                                     № 8/2025
+from Ob e r wo l f a c h
+
+
+
+
+             Is there a smooth lattice polytope
+                  which does not have the
+              integer decomposition proper ty?
+
+
+             Johannes Hofscheier 1 • Alexand e r K a s p r z y k 2
+
+
+
+
+       We introduce Tadao Oda’s famous question on lattice
+       polytopes which was originally posed at Oberwolfach
+       in 1997 and, although simple to state, has remained
+       unanswered. The question is motivated by a discus-
+       sion of the two-dimensional case – including a proof
+       of Pick’s Theorem, which elegantly relates the area
+       of a lattice polygon to the number of lattice points it
+       contains in its interior and on its boundary.
+
+1 I n t roduction
+
+Lattice polytopes are fundamental objects in mathematics and play a crucial
+role in a broad range of subjects such as discrete and algebraic geometry, algebra,
+combinatorics, coding theory, and optimisation theory. They arise naturally in
+a variety of unexpected or even surprising ways. Consider the following classical
+question from enumerative combinatorics, for instance.
+
+Question 1. How many monomials in three variables of a given degree m are
+there?
+1   Johannes Hofscheier was supported by a Nottingham Research Fellowship.
+2   Alexander Kasprzyk was supported by EPSRC Fellowship EP/N022513/1.
+
+
+                                           1
+                                                                            x3
+
+                                        x2                           x2 z   x2 y
+
+                 x                xz    xy                  xz 2     xyz    xy 2
+
+       z         y          z2    yz    y2             z3   yz 2     y2 z   y3
+
+
+
+
+           (a)                    (b)                              (c)
+
+Figu r e 1 : Interpreting monomials in three variables x, y, and z as lattice points
+            in a triangle, for (a) degree 1, (b) degree 2, and (c) degree 3.
+
+
+   A monomial is a product of (powers of) certain variables; its degree is the
+sum of the exponents as they appear in the product. We thus wish to find the
+total number of all triples of non-negative integers whose sum equals a given
+integer m.
+   Let x, y, and z be the three variables in Question 1. We consider some
+examples first, and we obtain three monomials of degree 1, six monomials of
+degree 2, and ten monomials of degree 3; see Figure 1. In the process, we see
+that the monomials in x, y, and z of degree m can be arranged in a triangular
+shape where the exponent of x decreases from the top down, and the exponent
+of z decreases from the left to the right. The exponent of the remaining variable
+y is completely determined by the two other exponents and the total degree m.
+We conclude that the number of monomials in three variables of a given degree
+equals the number of points in a certain triangle, as illustrated by Figure 1.
+   More precisely, the number of monomials in x, y, and z of degree m equals
+the number of lattice points – that is, points with integer-valued coordinates – in
+the triangle with vertices at (0, 0), (m, 0), and (m, m). In other words, let T be
+the triangle with the vertices (0, 0), (1, 0), and (1, 1), let mT = {mv | v ∈ T } be
+the m-th dilation of T , and let LT (m) = |mT ∩ Z2 | count the number of lattice
+points in mT . Then, the number of monomials in three variables of degree m
+equals LT (m).
+
+
+                                         2
+    In order to answer Question 1, we thus wish to find a formula for LT (m).
+The set of all lattice points contained in the triangle mT can be constructed by
+removing the diagonal from a square of side length m + 1 and, subsequently,
+discarding one of the two resulting congruent triangles. 3 From this construction,
+it can be seen that a formula as desired is given by
+                                (m + 2)2 − (m + 2)         1       3
+                 LT (m) =                              = m2 + m + 1 .
+                                         2                 2       2
+Notice that the leading coefficient coincides with the area of T . This is not a
+coincidence but part of a bigger story known as Ehrhart theory.
+   Our goal is to introduce a famous question asked by Tadao Oda at Ober-
+wolfach in 1997. Roughly speaking, Oda wondered whether the lattice points
+within a polytope, given that it is of a certain type, always satisfy an elegant
+counting property; see Question 2 at the end of this snapshot for a precise
+statement. It will become apparent that a certain instance of this problem is
+related to Question 1 in that, in view of how we counted the monomials, it
+amounts to the question whether each monomial of degree m can be written as
+a product of m variables. Of course, one immediately sees that this is the case.
+However, Oda’s question is not so easy in full generality; although simple to
+state, it remains unanswered.
+   Let us now introduce the general picture. We work with the lattice of integral
+points Zd ⊂ Rd , that is, the set which consists of all points in d-dimensional
+space whose coordinates are integers. A subset C ⊂ Rd is called convex if every
+straight line segment which connects two points in C lies entirely within C.
+The convex hull of a set of points B ⊂ Rd is the inclusion-wise smallest subset
+conv(B) ⊂ Rd which is convex and contains B. For B = {v1 , . . . , vn }, an
+alternative description is as follows:
+                                  ( n                                  n
+                                                                               )
+                                   X                                   X
+         conv(v1 , . . . , vn ) =      λi vi λ1 , . . . , λn ∈ [0, 1],   λi = 1 .
+                                  i=1                              i=1
+
+The term lattice polytope shall describe the convex hull P = conv(v1 , . . . , vn )
+of a finite number of lattice points v1 , . . . , vn .
+   As before, the m-th dilation of P is the polytope mP = {mv | v ∈ P }. The
+value of the Ehrhart function LP at m ∈ Z≥0 is defined to be the number of
+lattice points LP (m) = |mP ∩ Zd | in mP . The dimension of P , denoted by
+dim(P ), is the dimension of the smallest affine subspace containing P . 4
+
+3 Note that a square with side length m + 1 contains (m + 2)2 lattice points. The diagonal
+
+contains m + 2 lattice points.
+4 The term affine subspace refers to a point, line, plane, . . . in Rd . For example, a non-
+
+degenerate triangle is contained in a plane but in no line; therefore, such a triangle is of
+dimension 2.
+
+
+                                             3
+Figu r e 2 : Computing the area of a lattice polygon using Pick’s Theorem. There
+          are 23 interior lattice points and 16 boundary lattice points.
+
+
+Theorem 1 (see [3, 4]). There exists a polynomial f of degree dim(P ) with
+rational coefficients such that LP (m) = f (m) for all m ∈ Z≥0 . Furthermore,
+the leading coefficient of f coincides with the Euclidean volume vol(P ) of P .
+
+    Theorem 1 allows us to interpret LP as a polynomial of degree dim(P ) which
+we call the Ehrhart polynomial of P . That the leading coefficient coincides with
+the volume of the polytope P is surprising. However, if P is a polygon, that is,
+if P is a polytope of dimension 2, then the relationship between the area of P
+and the lattice points it contains can be made even more precise.
+
+Theorem 2 (Pick’s Theorem). For a lattice polygon P ⊂ R2 , the Euclidean
+volume vol(P ) is given by the formula
+
+                                               |∂P ∩ Z2 |
+                     vol(P ) = |P ◦ ∩ Z2 | +              − 1.
+                                                   2
+
+Here, |P ◦ ∩ Z2 | denotes the number of interior lattice points, and |∂P ∩ Z2 |
+denotes the number of boundary lattice points of P .
+
+   Let us use Pick’s Theorem to compute the area of the polygon P shown in
+Figure 2. It can be seen that P has 23 interior lattice points and 16 boundary
+lattice points, so its area is given by
+
+                                            16
+                          vol(P ) = 23 +       − 1 = 30 .
+                                            2
+
+                                        4
+2 P r oof of Pick’s Theorem
+
+The proof of Pick’s Theorem contains numerous beautiful ideas and constructions
+from Ehrhart theory. Since several of these play an important role in motivating
+Oda’s Oberwolfach question, we give a proof here. The fundamental idea is to
+proceed by induction on the number of lattice points |P ∩ Z2 |. 5
+
+2.1 Th e b a s e c as e
+
+We assume that P is a triangle whose vertices v1 , v2 , and v3 are its only lattice
+points; that is, |P ∩ Z2 | = 3. Such triangles are called empty. We will show
+that, in this case, v1 , v2 , and v3 constitute an affine basis of Z2 ; that is, the
+difference vectors v1 − v3 and v2 − v3 form a lattice basis of Z2 . 6 Let us assume
+this for a moment and show how it implies Pick’s Theorem in the base case.
+    By assumption, v1 − v3 and v2 − v3 form a lattice basis of Z2 . The
+2 × 2-matrix A whose rows are these difference vectors is invertible over Z. In
+other words, there exists another 2 × 2-matrix B with entries in Z such that the
+matrix product AB equals the identity matrix, and thus the determinant 7 of
+A must itself be invertible over Z; that is, the determinant of A is 1 or −1. It
+is a geometrical fact that the absolute value of the determinant det( ba ) of the
+2 × 2-matrix with rows a, b ∈ Z2 equals the area of the parallelogram spanned
+by a and b. Hence, the area of P equals 1/2| det(A)| = 1/2 = 0 + 3/2 − 1, as
+desired.
+    It remains to show that v1 , v2 , and v3 together form an affine basis of Z2 .
+Let P denote the parallelogram spanned by v1 − v3 and v2 − v3 ; that is,
+
+                   P = {λ1 v1 + λ2 v2 − (λ1 + λ2 )v3 | 0 ≤ λi ≤ 1} .
+
+Such a parallelogram is shown in Figure 3. We claim that the only lattice
+points contained in P are its vertices 0, v1 − v3 , v2 − v3 , and v1 + v2 − 2v3 .
+Indeed, the triangle with the vertices 0, v1 − v3 , and v2 − v3 is empty, and so
+its opposite triangle, that is, the triangle with the vertices v1 − v3 , v2 − v3 ,
+and v1 + v2 − 2v3 which covers the other half of P, is also empty. Certainly,
+
+5 This means that the theorem is first proved for polygons containing exactly three lattice
+
+points (Section 2.1). In a second step, it is proved that if the statement of the theorem holds
+for all polygons which contain at most N lattice points, then it also holds for all polygons
+containing N + 1 lattice points, where N ≥ 3 is any integer (Section 2.2). As a consequence,
+the theorem must then hold for all integers N ≥ 3.
+6 The vectors v , . . . , v ∈ Zd are said to form a lattice basis if each vector v ∈ Zd
+                       1      d
+admits a unique representation of the form v = λ1 v1 + · · · + λd vd for λ1 , . . . , λd ∈ Z; the
+d + 1 elements v1 , . . . , vd+1 ∈ Zd are said to form an affine basis if the difference vectors
+v1 − vd+1 , . . . , vd − vd+1 form a lattice basis.        
+7 The value of the determinant of a 2 × 2-matrix a b
+                                                       c d is given by the expression ad − bc.
+
+
+
+                                               5
+                                               v2 − v3      v1 + v2 − 2v3
+
+
+
+                                 0
+                                       v1 − v3
+
+
+
+
+Figu r e 3 : Tiling the plane with translations of a parallelogram which comes
+              from an empty triangle with the vertices v1 , v2 , v3 .
+
+
+the set {P + v | v ∈ Z2 } of all translations of P tiles the plane, as illustrated
+in Figure 3, from which we may observe that every lattice point in Z2 is a
+vertex of a lattice translation of P. Hence, each x ∈ Z2 can be expressed as a
+linear combination x = k1 (v1 − v3 ) + k2 (v2 − v3 ) for k1 , k2 ∈ Z. Moreover, this
+representation is unique, so v1 , v2 , and v3 together form an affine basis of Z2 .
+
+2.2 T h e i n d u c t i ve s t e p
+
+Let us assume Pick’s Theorem is valid for all lattice polygons Q ⊂ R2 with
+|Q ∩ Z2 | ≤ N for some N ≥ 3. We need to show that it then holds for all lattice
+polygons P with |P ∩ Z2 | = N + 1. Let P be such a polygon. The inductive
+step splits into two cases: either there are exactly three lattice points on the
+boundary ∂P of P , or |∂P ∩ Z2 | > 3.
+   If |∂P ∩ Z2 | = 3, then the interior P ◦ of P contains at least one lattice
+point v. The three line segments connecting v with the three vertices of P split
+the polygon into three subpolygons P1 , P2 , and P3 , as illustrated by Figure 4.
+We shall count the lattice points in each of the Pk , k = 1, 2, 3, and relate
+these counts to the number of lattice points in P . Let ik = |Pk◦ ∩ Z2 |, and let
+bk = |∂Pk ∩ P ◦ ∩ Z2 | = |∂Pk ∩ Z2 | − 2, for k = 1, 2, 3.
+   Since |Pk ∩ Z2 | ≤ N for k = 1, 2, 3, we can apply our initial assumption on
+the validity of Pick’s Theorem for lattice polygons containing at most N lattice
+points to each of the polygons P1 , P2 , P3 , and we obtain
+
+                                                       |∂Pk ∩ Z2 |
+                            vol(Pk ) = |Pk◦ ∩ Z2 | +               −1
+                                                           2
+                                              bk + 2
+                                     = ik +          − 1.
+                                                 2
+
+
+                                                6
+                                                                            P1
+                                       P2
+
+
+
+
+             v
+
+                                                                  P3
+              (a)                                      (b)
+
+Figure 4 : A lattice polygon (a) with exactly three boundary lattice points is
+           cut (b) into three subpolygons P1 , P2 , and P3 . Here, b1 = 4, b2 = 3,
+           b3 = 2, i1 = 1, and i2 = i3 = 0.
+
+
+The area of P equals the sum of the areas of the subpolygons P1 , P2 , and P3 . By
+further counting the lattice points in each of the three subpolygons separately,
+we arrive at the following chain of equalities:
+                                 3
+                                 X
+                     vol(P ) =         vol(Pk )
+                                 k=1
+                                 3
+                                 X                
+                                          bk + 2
+                             =       ik +        −1
+                                             2
+                               k=1
+                                3        P3
+                               X               bk
+                             =     ik + k=1
+                                             2
+                                 k=1
+                                            1
+                             = |P ◦ ∩ Z2 | +
+                                            2
+                                  ◦    2    3
+                              = |P ∩ Z | + − 1
+                                            2
+                                  ◦    2    |∂P ∩ Z2 |
+                              = |P ∩ Z | +             − 1.
+                                                2
+Notice that each lattice point which
+                                   P3lies on the interior parts of the dissecting
+lines is counted twice by the term k=1 bk , except for v, which is counted three
+times. This is accounted for by the addition of 1/2 in the fourth line.
+
+                                            7
+                                                                                 P2
+
+
+    v                            w
+                                                                                 P1
+
+                  (a)                                         (b)
+
+Figu r e 5 : A lattice polygon (a) with four or more lattice points on its boundary
+           can be split (b) into two subpolygons P1 and P2 . Here, i1 = 4,
+           i2 = 14, b1 = 7, b2 = 11, and i = 5.
+
+
+   If |∂P ∩ Z2 | > 3, we can find v, w ∈ ∂P ∩ Z2 such that the line segment
+connecting v and w divides P into two subpolygons P1 and P2 with |Pk ∩Z2 | ≤ N
+for k = 1, 2. This is illustrated by Figure 5. We again count the number of
+lattice points in the subpolygons P1 and P2 , and we relate these counts to the
+number of lattice points in P . Let ik = |Pk◦ ∩ Z2 |, and let bk = |(∂Pk \ P ◦ ) ∩ Z2 |
+be the number of boundary lattice points of Pk that are not contained in the
+interior of P . By i we denote the number of interior lattice points in the
+line segment from v to w. Since |Pk ∩ Z2 | ≤ N , we can apply the inductive
+hypothesis to obtain
+                                            bk + i
+                           vol(Pk ) = ik +          − 1.
+                                               2
+The area of P equals the sum of the areas of P1 and P2 ; hence,
+
+                vol(P ) = vol(P1 ) + vol(P2 )
+                                                              
+                                 b1 + i                 b2 + i
+                        = i1 +           − 1 + i2 +            −1
+                                    2                      2
+                                          b1 + b2
+                        = (i1 + i2 + i) +          −2
+                                              2
+                                        |∂P ∩ Z2 |
+                        = |P ◦ ∩ Z2 | +            − 1.
+                                            2
+
+Regarding the final equality, notice that i1 + i2 + i = |P ◦ ∩ Z2 |, whereas b1 + b2
+counts the lattice points on the boundary of P , counting v and w twice, however.
+
+
+                                          8
+                                z
+
+
+
+                                                    3T × {3}
+
+                                               2T × {2}
+                            y
+                                         T × {1}
+                                                          x
+
+
+
+Figure 6 : The cone CT over the empty triangle T , affinely embedded into R3 .
+
+
+3 O d a’s Oberwolfach question
+
+Recall our reinterpretation of Question 1 as a problem on the number of lattice
+points in dilations of the empty triangle T with vertices at (0, 0), (1, 0), and (1, 1);
+the lattice points contained in the set T ∩ Z2 each correspond to a monomial of
+degree 1. We now construct a single combinatorial object which simultaneously
+encodes the lattice points (and hence their counts) in all dilations mT , m ∈ Z≥0 .
+   We begin by identifying R2 with the subset R2 × {1} of R3 ; in other words,
+we think of the plane as lying inside 3-dimensional space at height 1. In
+this copy of R2 , we consider the triangle T . The cone over T is defined as
+CT = {λ(x, 1) | λ ∈ R≥0 , x ∈ T }; it is depicted in Figure 6. We may think
+of CT as the union of all half-lines that start at the origin and pass through a
+point in T × {1}. The cross-section of CT at height m ∈ Z≥0 , or, more precisely,
+CT ∩ {(x, y, z) | z = m} = (mT, m), can be identified with the dilation mT of T .
+Hence, the cone CT encodes the lattice points in all dilations of T .
+   This construction can be generalised to arbitrary lattice polytopes P ⊂ Rd .
+Indeed, the cone over P can be defined as
+
+                         CP = R≥0 (P × {1})
+                             = {λ(x, 1) | λ ∈ R≥0 , x ∈ P } .
+
+As before, the cross-section of CP at height m ∈ Z≥0 can be identified with the
+dilation mP .
+
+
+                                           9
+Figu r e 7 : Every two-dimensional polygon can be covered by empty triangles.
+
+
+3.1 T h e i n t e g e r d e c o m p o s i ti o n p r o p e r t y
+
+A lattice polytope P ⊂ Rd is said to have the integer decomposition property
+if each lattice point in CP at height m can be written as the sum of m (not
+necessarily distinct) lattice points at height 1.
+Example 1. If the polytope under consideration is an empty triangle T , this
+means that for all (x, m) ∈ CT ∩ Z3 there exist (not necessarily distinct) points
+(x1 , 1), . . . , (xm , 1) ∈ CT ∩ Z3 such that (x, m) = (x1 , 1) + · · · + (xm , 1). Indeed,
+every empty triangle T has the integer decomposition property; the interested
+reader is invited to think about why this is the case.
+    It is natural to ask which other lattice polytopes have the integer decompo-
+sition property. Let us study some important classes of lattice polytopes for
+which this question has been resolved.
+Example 2. We generalise empty lattice triangles to arbitrary dimension. If
+v0 , . . . , vd form an affine basis of Zd , their convex hull S = conv(v0 , . . . , vd ) is
+called a d-dimensional unimodular simplex. We claim that such a simplex S has
+the integer decomposition property. Indeed, since v0 , . . . , vd is an affine basis
+of Zd , it follows that (v0 , 1), . . . , (vd , 1) is a lattice basis of Zd+1 . Hence, every
+lattice point (x, m) in the cone CS can be expressed as a linear combination
+               Pd
+(x, m) = i=1 λi (vi , 1), where λi ∈ Z. Since (x, m) is in CS , it follows that
+λi ≥ 0, and thus S has the integer decomposition property.
+
+Example 3. Every two-dimensional lattice polygon can be covered by empty
+lattice triangles; Figure 7 provides an example of how this can be achieved.
+
+
+                                                       10
+                                                                                    CS2
+
+
+
+                                CS1
+
+
+
+
+                                        y
+
+         S1
+
+               S2                                                       x
+
+            (a)                                            (b)
+
+Figure 8 : If (a) triangles Si cover a polygon P , then (b) the cones CSi cover CP .
+
+
+
+More generally, suppose P is a lattice polytope in Rd which is covered by
+unimodular simplices S1 , . . . , Sn ; that is, P = S1 ∪ · · · ∪ Sn . Such a covering is
+called a unimodular covering of P . The cone CP over P is covered by the cones
+CS1 , . . . , CSn over the simplices Si ; Figure 8 illustrates this for the case d = 2.
+Hence, every lattice point in CP at height m can be written as a sum of m
+lattice points at height 1, namely those which are located at height 1 in the
+corresponding cone CSi . In particular, all two-dimensional lattice polygons have
+the integer decomposition property, since they admit a unimodular covering. In
+higher dimensions, it is typically very hard to determine whether a unimodular
+covering even exists. 8
+
+Example 4. Reeve [10] describes an infinite family of tetrahedra whose members
+we now call the Reeve tetrahedra; see Figure 9. Let
+                    Rr = conv((0, 0, 0), (1, 0, 0), (0, 1, 0), (1, 1, r))
+
+8 The unimodular coverings in Figures 7 and 8 have the property that the simplices intersect
+
+along common faces. Such coverings are called triangulations. In dimension 2, a unimodular
+triangulation always exists. However, there exist higher-dimensional lattice polytopes that
+admit a unimodular covering but no unimodular triangulation [5, Example 10].
+
+
+                                            11
+                                       z
+
+                                     r
+
+
+
+
+                                                                   x
+
+
+                             y
+
+                        F i g u r e 9 : The Reeve tetrahedron Rr .
+
+
+for some r ∈ Z≥1 . The Reeve tetrahedron Rr contains exactly four lattice
+points, has no interior lattice points, and vol(Rr ) = r/6. Moreover, the number
+of lattice points in its m-th dilation is given by
+                                 r                 r
+                     LRr (m) = m3 + m2 + 2 −           m + 1.
+                                 6                  6
+   It is readily seen that Rr does not admit a unimodular covering when r > 1,
+as its four vertices do not form an affine lattice basis in this case. This
+stands in contrast with the two-dimensional case, where every empty triangle
+is unimodular. The existence of empty simplices whose vertices do not form
+an affine basis is what makes the study of higher-dimensional lattice polytopes
+much richer – and harder – than that of polygons. In particular, we should not
+expect a direct analogue of Pick’s Theorem in dimension 3 or more.
+   We now show that Rr does not satisfy the integer decomposition property.
+Let Cr be the cone over Rr . The set of lattice points Cr ∩ Z4 forms a semigroup
+with Z≥0 -basis given by
+         
+         (0, 0, 0, 1), (1, 0, 0, 1), (0, 1, 0, 1), (1, 1, 1, 1)
+                                                                if r = 1, or
+         (0, 0, 0, 1), (1, 0, 0, 1), (0, 1, 0, 1), (1, 1, r, 1),
+                                                                      if r > 1.
+         (1, 1, 1, 2), . . . , (1, 1, r − 1, 2)
+        
+
+In particular, for r > 1 the point (1, 1, 1, 2) ∈ Cr at height 2 cannot be written
+as the sum of two points at height 1.
+
+
+                                               12
+3.2 Th e s m o o t h c a s e
+
+Let ei ∈ Rd denote the i-th standard basis vector, and let us write
+                               ( n                                          )
+                                X
+                cone(X) =             λi xi   n ∈ Z≥0 , λi ∈ R≥0 , xi ∈ X
+                                i=1
+
+
+for the convex cone generated by a (not necessarily finite) subset X ⊂ Rd . A
+cone C ⊂ Rd is called smooth if it can be identified with cone(e1 , . . . , ed ) via
+a change of basis of Zd . In other words, it is called smooth if there exists a
+lattice basis b1 P   , . . . , bd of Zd with the property that the map Zd → Zd sending
+                          d
+(x1 , . . . , xd ) 7→ k=1 xk bk ∈ Zd is invertible and sends cone(e1 , . . . , ed ) to C.
+    A lattice polytope P ⊂ Rd is called smooth if cone(P − v) is smooth for
+every vertex v of P . Oda’s Oberwolfach question now asks whether smoothness
+is a sufficient condition for a lattice polytope to have the integer decomposition
+property.
+
+Question 2 (Oda’s Oberwolfach question [9]). Does every smooth lattice
+polytope have the integer decomposition property?
+
+   An indication that this may indeed be the case lies in the fact that the
+smoothness property of a polytope P ensures that each of its corners is covered
+by a dilation of a unimodular simplex, and in the speculation that it should
+be possible to extend these corner covers sufficiently far inside so as to yield a
+unimodular covering of the polytope P .
+   Despite many efforts to answer Question 2, it is still wide open. Moreover,
+there is currently no general consensus on the likely answer. Substantial efforts
+have been made in order to find a counterexample; for instance, such an effort
+is due to Bruns [2]. Meanwhile, the study of Oda’s Oberwolfach question has
+led to a considerable number of beautiful results on lattice polytopes which
+were obtained by a variety of authors [1, 6, 7, 8].
+
+
+R e f e rences
+
+ [1] M. Beck, C. Haase, A. Higashitani, J. Hofscheier, K. Jochemko, L. Katthän,
+     and M. Michałek, Smooth centrally symmetric polytopes in dimension 3
+     are IDP, Annals of Combinatorics 23 (2019), no. 2, 255–262.
+
+ [2] W. Bruns, The quest for counterexamples in toric geometry, Commutative
+     algebra and algebraic geometry (CAAG-2010), Lecture Notes Series of the
+     Ramanujan Mathematical Society 17 (2013), 45–61.
+
+
+                                               13
+ [3] E. Ehrhart, Sur les polyèdres homothétiques bordés à n dimensions, Comptes
+     Rendus Hebdomadaires des Séances de l’Académie des Sciences 254 (1962),
+     988–990.
+ [4]          , Sur un problème de géométrie diophantienne linéaire, II. Systèmes
+       diophantiens linéaires, Journal für die Reine und Angewandte Mathematik
+       227 (1967), 25–49.
+ [5] R. T. Firla and G. M. Ziegler, Hilbert bases, unimodular triangulations,
+     and binary covers of rational polyhedral cones, Discrete and Computational
+     Geometry 21 (1999), no. 2, 205–216.
+
+ [6] J. Gubeladze, Convex normality of rational polytopes with long edges,
+     Advances in Mathematics 230 (2012), no. 1, 372–389.
+ [7] C. Haase and J. Hofmann, Convex-normal (pairs of) polytopes, Canadian
+     Mathematical Bulletin 60 (2017), no. 3, 510–521.
+
+ [8] C. Haase, A. Paffenholz, L. C. Piechnik, and F. Santos, Existence of
+     unimodular triangulations – positive results, Memoirs of the American
+     Mathematical Society 270 (2021), no. 1321.
+ [9] T. Oda, Problems on Minkowski sums of convex lattice polytopes,
+     arXiv:0812.1418, 2008.
+
+[10] J. E. Reeve, On the volume of lattice polyhedra, Proceedings of the London
+     Mathematical Society, Third Series 7 (1957), 378–395.
+
+
+
+
+                                        14
+Johanne s H o f s c h e i e r i s an Assistant      Mathematic a l s u b j e c t s
+Profess o r i n G e o m e t r y at the University   Algebra and N u m b e r T h e o r y, D i s c r e t e
+of Nottin g h a m .                                 Mathematic s a n d Fo un d a t i o n s, G e o m e t r y
+                                                    and Topolo g y
+Alexand e r K a s p r z y k i s a Reader in Pure
+Mathematics at the University of Warwick.           License
+                                                    Creative Co m m o n s B Y- SA 4 . 0
+
+                                                    DOI
+                                                    10.14760/S N A P - 2 0 2 5 - 0 0 8 - E N
+
+
+
+
+Snapshots of modern mathematics from Oberwolfach provide exciting insights into
+current mathematical research. They are written by participants in the scientific
+program of the Mathematisches Forschungsinstitut Oberwolfach (MFO). The
+snapshot project is designed to promote the understanding and appreciation of
+modern mathematics and mathematical research in the interested public worldwide.
+All snapshots are published in cooperation with the IMAGINARY platform and
+can be found on www.imaginary.org/snapshots and on www.mfo.de/snapshots.
+
+ISSN 2626 -1995
+
+
+Junior E d i t o r                                  Mathematis c h e s Fo r s c h u n g s i n s t i t u t
+Manuel S t a i g e r                                Oberwolfac h g G m b H
+junior- e d i t o r s @ m f o. d e                  Schwarzwa l d s t r. 9 – 11
+                                                    77709 Obe r wo l f a c h
+Senior E d i t o r                                  Ger many
+Anja Ra n d e cke r
+senior- e d i t o r @ m f o. d e                    Director
+                                                    Gerhard Hu i s ke n
+

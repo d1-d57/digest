@@ -1,0 +1,1765 @@
+AMS :: Notices of the American Mathematical Society
+
+AMS Website Down
+
+Notice: All AMS websites will be down for maintenance on Saturday, July 11 from 8 am until 1 pm. 
+
+PDFLINK
+
+Voting on Relations Using Pairs Information
+Karl-Dieter Crisman
+Erin M. McNicholas
+Kathryn L. Nyman
+Michael E. Orrison
+
+1
+.
+
+Introduction
+
+Aggregation procedures—methods for combining multiple inputs into a single output or outcome—date back as far as ancient Greece. While methods such as majority vote as a mechanism of social choice and mean as a measure of central value have been in use for millennia, with few exceptions, the study of aggregation methods in and of themselves is comparatively modern. Llull, Borda, Condorcet, and other early pioneers of the field were motivated by specific instances of social choice, such as electing officers of the church or new members of the Academy of Sciences 
+MUH95
+. Their work, and the majority of work in social choice theory, proceeds by analyzing a given set of voting procedures against some set of desiderata. Our focus is different. Rather than analyzing the attributes of voting procedures, we present a common framework within which to understand and juxtapose various methods. This framework allows us to draw surprising connections between disparate procedures presented in a wide range of papers spanning several decades.
+
+We believe this article will be of interest to anyone who enjoys linear algebra, graph theory, harmonic analysis, or applications of those fields to voting theory. Additionally, voting theorists may be intrigued to see familiar procedures that are unalike on the surface presented within a unifying framework. Finally, data scientists interested in aggregation procedures may be interested in the 16-parameter family of voting procedures we describe, which can be fine-tuned to match parameters in data generation models.
+
+1.1
+.
+
+Aggregation problem
+
+From aggregating the preferences of an electorate to finding the most likely signal amidst noisy data, the problem of finding the “best” representative or outcome is ubiquitous. Consider a few possible scenarios:
+
+•
+
+A streaming service wants to rank movies based on subscribers’ one to five-star reviews.
+
+•
+
+A hiring committee is tasked with determining which candidates from a large pool will move on to the next stage, after splitting the applications among its members for evaluation.
+
+•
+
+A sports league is in charge of ranking the top three teams based on full or partial tournament results from the season.
+
+•
+
+A company wants to use crowdsourcing to create large amounts of labeled data for training their machine learning models 
+SZ20
+.
+
+In each of these situations, decisions are based on relational information about a subset of alternatives. While there are many choices one can make when aggregating ballot information, in all of these cases it is possible to use 
+only
+ binary relation information on the pairs of alternatives to come up with interesting, and often well-known, aggregation procedures.
+
+In this brief survey, we examine aggregation methods based on 
+pairs
+ information. As many of these methods are framed as voting procedures, we will use the terms “aggregation procedure” and “voting procedure” somewhat interchangeably. In our setting, voters submit ballots that are reflexive relations on a set of alternatives, and procedures output the relation or relations that best represent the voter input. This perspective allows us to address a variety of aggregation methods within one large framework.
+
+Moreover, by considering voting methods as linear operators on the space of functions on all reflexive relations, we are able to shed new light on results that seem less natural in restricted situations, such as voting on only full rankings or partial orderings. The structure revealed by this framing leads to simple, elegant, and highly interpretable eigenspace decompositions of the domain space. This in turn leads to new and generative ways of analyzing a large family of voting procedures.
+
+1.2
+.
+
+Preferences as relations
+
+Given a set 
+$A$
+ of alternatives, for any pair of elements 
+$a,b\in A$
+,
+ a voter’s opinion about their relative position may fall into one of four 
+pair-preference classes
+. They can prefer 
+$a$
+ to 
+$b$
+,
+ denoted 
+$a\succ b$
+,
+ or 
+$b$
+ to 
+$a$
+,
+
+$a\prec b$
+.
+ They can find the two options completely incomparable, 
+$a|b$
+,
+ or feel they are so similar as to be tied, 
+$a\sim b$
+.
+
+The totality of a voter’s pairs-based preferences can then be naturally recorded as a binary relation 
+$R$
+ on 
+$A$
+ as follows:
+
+•
+
+$a \sim b \quad \Leftrightarrow \quad (a,b) \in R$
+ and 
+$(b,a) \in R$
+
+•
+
+$a \succ b\quad \Leftrightarrow \quad (a,b) \in R$
+ and 
+$(b,a) \notin R$
+
+•
+
+$a \prec b\quad \Leftrightarrow \quad (a,b) \notin R$
+ and 
+$(b,a) \in R$
+
+•
+
+$a |b\quad \Leftrightarrow \quad (a,b) \notin R$
+ and 
+$(b,a) \notin R$
+.
+
+We assume each option 
+$a$
+ is tied with itself, i.e., 
+$(a,a)\in R$
+.
+ Thus, our binary relations are all reflexive. To some extent, this choice is arbitrary and you could repeat most of what follows assuming irreflexive relations, or extend the discussion to include all binary relations. The assumption that our relations are reflexive has the added benefit of allowing us to work with a variety of binary relations on 
+$A$
+ that appear often in the voting theory literature, including
+
+•
+
+partial orders (or “posets”), which are reflexive, antisymmetric, and transitive relations, and often denoted using Hasse diagrams, as in the labels in Figures 
+1
+ and 
+2
+,
+
+•
+
+bucket orders, which are partial orders with the property that 
+$A$
+ can be written as a union 
+$A = B_1 \cup \cdots \cup B_k$
+ of nonempty pairwise disjoint subsets called 
+buckets
+, and for all 
+$a,b \in A$
+,
+
+$a \succ b$
+ if and only if 
+$a \in B_i$
+ and 
+$b \in B_j$
+ for some 
+$i < j$
+,
+ and
+
+•
+
+linear orders, which are bucket orders with the property that every bucket has size one, and are used when voters are asked to rank the entire set of alternatives from first to last without ties.
+
+We will examine aggregation procedures based solely on pair-preference classes, focusing on two overlapping categories—median procedures and scoring methods.
+
+2
+.
+
+Median Procedures
+
+A number of aggregation methods, including some of the most common voting procedures, fall under the general classification of what we will call 
+median procedures
+. These are procedures that return outputs whose distance from the collection of voter preferences is minimized under some metric. This is a slight extension of “the” median procedure, introduced in the foundational paper 
+BM80
+ and examined in Section 
+2.1
+, which uses the symmetric difference metric.
+
+Let 
+$A = \{ a_1, \dots , a_n \}$
+ be the set of alternatives in question, and let 
+$\mathcal{U}$
+ be the set of all reflexive relations defined on 
+$A$
+.
+ We will suppose we have 
+$m$
+ voters. Their associated 
+profile
+ is a list
+
+$$\begin{equation*} \Pi = (R_1, \dots , R_m), \end{equation*}$$
+
+where 
+$R_k$
+ is the relation chosen by the 
+$k$
+th
+ voter.
+
+Suppose we have a metric
+
+$$\begin{equation*} d \colon \mathcal{U} \times \mathcal{U} \to \mathbb{R} \end{equation*}$$
+
+defined on 
+$\mathcal{U}$
+.
+ We will define the 
+remoteness
+ between a relation 
+$R$
+ and the profile 
+$\Pi$
+ to be
+
+$$\begin{equation*} \rho ( R, \Pi ) = \sum _{k = 1}^m d(R, R_k). \end{equation*}$$
+
+Let 
+$\mathcal{I}$
+ and 
+$\mathcal{O}$
+ denote the subsets of 
+$\mathcal{U}$
+ equal to the set of allowable 
+inputs
+ and 
+outputs
+, respectively. We say that 
+$\Pi$
+ is an 
+$\mathcal{I}$
+-
+profile if each relation in 
+$\Pi$
+ is in 
+$\mathcal{I}$
+,
+ i.e., 
+$\Pi \in \mathcal{I}^m$
+.
+ We say that a relation 
+$M \in \mathcal{O}$
+ is an 
+$\mathcal{O}$
+-
+median
+ of 
+$\Pi$
+ if
+
+$$\begin{equation*} \rho ( M, \Pi ) = \min _{ R \in \mathcal{O}} \ \rho ( R, \Pi ). \end{equation*}$$
+
+The 
+median procedure
+ from 
+$\mathcal{I}$
+ to 
+$\mathcal{O}$
+ then takes 
+$\mathcal{I}$
+-
+profiles and outputs the associated set of 
+$\mathcal{O}$
+-
+medians.
+
+For example, if we restrict 
+$\mathcal{I}$
+ and 
+$\mathcal{O}$
+ to the set of linear orders on the candidates, we can recover the Kemeny rule 
+KS62
+ as follows: Create a graph on the set of linear orders, with an edge between two linear orders if and only if they differ by transposing the ranking of two alternatives adjacent in the respective linear orders (see Figure 
+1
+). The Kemeny rule is the median procedure which minimizes distance on this graph.
+
+Figure 1
+.
+The graph associated with the Kemeny rule for 
+$n=3$
+.
+ The vertex labels on the left indicate the number of times each linear order appears in a sample profile 
+$P$
+,
+ while the vertex labels on the right give the remoteness of each linear order from 
+$P$
+.
+ The circled vertex corresponds to the median linear order, which minimizes the distance to the profile 
+$P$
+.
+
+2.1
+.
+
+The symmetric difference metric
+
+When dealing with general relations 
+$R$
+ and 
+$Q$
+,
+ the most common measure of their distance is the cardinality of their symmetric difference, which we denote by 
+$\delta (R,Q)$
+:
+
+$$\begin{align*} \delta (R, Q) &= | R - Q | + | Q - R |. \end{align*}$$
+
+Given that relations are sets of ordered pairs, this is an intuitive metric. It is just the minimum number of ordered pairs you would need to add or remove to move from one relation to another. Restricting our relations to linear orders, the symmetric difference median procedure is just the Kemeny rule discussed before. Allowing as inputs and outputs all partially ordered sets of the candidates, the symmetric difference median procedure returns the winning poset(s) which minimize the sum of the distances on the graph examined by Bogart in 
+Bog73
+ (see Figure 
+2
+).
+
+Figure 2
+.
+Given that 
+$\mathcal{I}$
+ and 
+$\mathcal{O}$
+ are the set of all posets on 
+$n=3$
+ alternatives, and given a profile which consists of one each of the green highlighted posets, the symmetric difference median procedure returns the winning poset circled in red. Labels give the remoteness of each partial order.
+
+As is true of other procedures that form the focus of this paper, symmetric difference median procedures, like those examined in 
+BM80
+, depend only on pair-preference classes. To explain, suppose 
+$a_i$
+ and 
+$a_j$
+ are distinct alternatives with 
+$i < j$
+.
+ For any relation 
+$R$
+,
+ we can look at the subset 
+$R|_{ij}$
+ of ordered pairs involving only 
+$a_i$
+ and 
+$a_j$
+,
+ and find the cardinality of the symmetric difference between 
+$R$
+ and another relation 
+$Q$
+ by first calculating 
+$\delta _{ij}(R,Q)=\delta (R|_{ij},Q|_{ij})$
+,
+ and then taking the sum
+
+$$\begin{equation*} \delta (R,Q) = \sum _{i < j} \delta _{ij}(R,Q). \end{equation*}$$
+
+In other words, for each 
+$i<j$
+ pair, we find which pair-preference class 
+(
+$a_i\sim a_j$
+,
+
+$a_i\succ a_j$
+,
+
+$a_i\prec a_j$
+,
+ or 
+$a_i|a_j$
+)
+
+$R$
+ and 
+$Q$
+ fall into, find the distance between these categories, and then sum. We can capture the distance 
+$\delta _{ij}$
+ between the pair-preference classes using a convenient four-by-four matrix 
+$D$
+:
+
+$$\begin{equation*} \vcenter{\img[][78pt][59pt][{\renewcommand{\arraystretch}{1} \setlength{\unitlength}{1.0pt} \setlength{\extrarowheight}{0.0pt}\begin{blockarray} {ccccc} & \sim& \succ& \prec& | \\ \begin{block}{c[cccc]} \sim& 0 & 1 & 1 & 2 \\ \succ& 1 & 0 & 2 & 1 \\ \prec& 1 & 2 & 0 & 1 \\ | & 2 & 1 & 1 & 0 \\ \end{block} \end{blockarray}}]{Images/img103b38d74101d8cbfc9a48a69889a452.svg}} . \end{equation*}$$
+
+It is helpful to recognize that the matrix 
+$D$
+ is the distance matrix for the cycle graph in Figure 
+3
+.
+
+Figure 3
+.
+Cycle graph on 4 nodes.
+
+The Cartesian product of 
+$n(n-1)/2$
+ such graphs, one for each unordered pair of alternatives, is isomorphic to a hypercube graph on 
+$2^{n(n-1)}$
+ vertices, with each vertex corresponding to a relation in 
+$\mathcal{U}$
+ (see Figure 
+4
+). In this graph, two relations 
+$R$
+ and 
+$Q$
+ are adjacent if and only if they differ by exactly one ordered pair, i.e., if 
+$\delta (R,Q) = 1$
+.
+ Thus, the cardinality of the symmetric difference between two relations is the same as the distance between their corresponding nodes in this graph. Moreover, the Bogart graph is a subgraph of this hypercube with the property that distances between nodes in the subgraph and in the full hypercube are the same (see Figure 
+5
+). This property ensures that the symmetric difference median procedure run on the hypercube with inputs and outputs restricted to partially ordered sets, or some subclass of partial orders, returns the same results as the symmetric difference median procedure run on the Bogart graph.
+
+Figure 4
+.
+Hypercube on 3 candidates. Front to back, left to right and top to bottom faces are distance 1 from each other.
+
+Figure 5
+.
+The subgraph of asymmetric relations in the hypercube and the embedded graph of posets on three candidates (shown in orange). The green vertices correspond to non-transitive relations; for example, an arrow from 
+$a$
+ to 
+$b$
+ indicates 
+$a \succ b$
+.
+
+2.2
+.
+
+Pair-preference based metrics
+
+The process of constructing the hypercube as a Cartesian product of graphs, each of which defines the distance between the pair-preference classes for a specific set of alternatives, extends beyond the symmetric difference to other median procedures. While the symmetric difference metric corresponds to an underlying cycle graph, we could build median procedures using other definitions of distance between pair-preference classes. For example, by using different sets of axioms to arrive at different ways of measuring distance between ballots, Cook et al. 
+CKS86b
+CKS86a
+ propose aggregation procedures based on the distance matrices of the graphs shown in Figures 
+6
+ and 
+7
+.
+
+Figure 6
+.
+Graph and associated distance matrix examined in 
+CKS86a
+.
+
+Figure 7
+.
+Graph and associated distance matrix examined in 
+CKS86b
+.
+
+We can also define a pair-preference metric as a 
+$4\times 4$
+ distance matrix 
+$D$
+ without having an underlying graph in mind. Here, 
+$D_{\alpha ,\beta }=d(\alpha ,\beta )$
+ for all 
+$\alpha , \beta \in \{\sim , \succ , \prec , |\}$
+.
+ The definition of a metric puts certain conditions on the set of possible matrices. They must be symmetric with zeros along the diagonal, and have strictly positive entries off the diagonal. In addition, to satisfy the triangle inequality, we require that
+
+$$\begin{equation*} d(\alpha ,\beta ) + d(\beta ,\gamma ) \geq d(\alpha ,\gamma ) \qquad \forall \alpha , \beta , \gamma . \end{equation*}$$
+
+To satisfy 
+neutrality
+, a condition which states a permutation of candidate labels should result in output relations having candidates permuted in the same way, we also require
+
+$$\begin{equation*} d(\succ ,\sim ) = d(\prec ,\sim ) {\text{\textrm{ and }}} d(\succ , |)= d(\prec , |). \end{equation*}$$
+
+Not only can many median procedures be defined in terms of pair-preference class distance, but framing them this way in the context of the full set 
+$\mathcal{U}$
+ of relations allows us to see relationships between procedures we might otherwise miss. (See the example in Section 
+3.4
+.)
+
+For example, in 
+RS93
+, Roy and Słowiński introduce a family of distance matrices of the form
+
+$$\begin{equation*} \begin{bmatrix} 0 & 2 & 2 & x \\ 2 & 0 & 4 & y \\ 2 & 4 & 0 & y \\ x & y & y & 0 \end{bmatrix}, \end{equation*}$$
+
+where 
+$0 < \max \{2, x \} \le y \le \min \{4, 2 + x \}$
+.
+ When 
+$x = y = 2$
+,
+ the resulting matrix is twice the distance matrix in 
+CKS86a
+, and when 
+$x = 2$
+ and 
+$y = 4$
+,
+ the resulting matrix is twice the distance matrix in 
+CKS86b
+. Similarly, in 
+BKM01
+, Khelifa and Martel define a pair-preference metric using a matrix, which when doubled, corresponds to setting 
+$x = \frac{8}{3}$
+ and 
+$y = \frac{10}{3}$
+ in 
+RS93
+. Thus, applied to the full set of relations, the metrics used in 
+CKS86a
+, 
+CKS86b
+, and 
+BKM01
+ return the same set of median relations as distance matrices in the Roy and Słowiński family. On the other hand, in 
+JMBK04
+, Jabeur et al. use the matrix
+
+$$\begin{equation*} \begin{bmatrix} 0 & 1 & 1 & \frac{4}{3} \\[5.0pt] 1 & 0 & \frac{5}{3} & \frac{4}{3} \\[5.0pt] 1 & \frac{5}{3} & 0 & \frac{4}{3} \\[5.0pt] \frac{4}{3} & \frac{4}{3} & \frac{4}{3} & 0 \end{bmatrix} \end{equation*}$$
+
+which does not correspond to a matrix in the family of matrices in 
+RS93
+.
+
+Sometimes, only a subset of the entries of distance matrix are explicitly discussed. For example, in 
+FKM
+$^{+}$
+06
+ the focus is on bucket orders only, so ties are not addressed. This leads to a partial filling of a distance matrix where 
+$\frac{1}{2} \leq p \leq 1$
+:
+
+$$\begin{equation*} \begin{bmatrix} \cdot & \cdot & \cdot & \cdot \\ \cdot & 0 & 1 & p \\ \cdot & 1 & 0 & p \\ \cdot & p & p & 0 \end{bmatrix} . \end{equation*}$$
+
+To place these methods within the framework of aggregation methods on relations, we can fill in the missing entries in a variety of ways. For example, we could fill in the missing entries as follows:
+
+$$\begin{equation*} \begin{bmatrix} 0 & p & p & 1 \\ p & 0 & 1 & p \\ p & 1 & 0 & p \\ 1 & p & p & 0 \end{bmatrix} . \end{equation*}$$
+
+This gives us a metric on all of 
+$\mathcal{U}$
+.
+ Interestingly, setting 
+$p = 1$
+ yields the distance matrix for a complete graph, while setting 
+$p = \frac{1}{2}$
+ yields a matrix that is 
+$\frac{1}{2}$
+ times the distance matrix for the graph in Figure 
+3
+ used in the symmetric difference median procedure.
+
+3
+.
+
+Scoring Methods and Matrices
+
+In this section, we continue to focus on pair-preference based procedures, but we drop the metric requirement. In some sense, this shift marks a change of perspective from the geometric approach of measuring distance to the purely linear algebraic perspective of scoring matrices.
+
+To start, we define a 
+scoring method
+ to be an aggregation procedure built on some underlying point allocation function 
+$s:\mathcal{U}\times \mathcal{U}\rightarrow \mathbb{R}$
+.
+ The score assigned to relation 
+$R$
+ by the profile 
+$\Pi = (R_1, \dots , R_m)$
+ is
+
+$$\begin{equation*} \sigma (R,\Pi )=\sum _{k=1}^m s(R,R_k). \end{equation*}$$
+
+We define a relation 
+$M\in \mathcal{O}$
+ to be an 
+$\mathcal{O}$
+-
+winner
+ of 
+$\Pi$
+ if
+
+$$\begin{equation*} \sigma (M,\Pi )=\max _{R\in \mathcal{O}}\ \sigma (R,\Pi ). \end{equation*}$$
+
+Generalized scoring rules
+, in which each ballot distributes points to every possible outcome, such that the outcome with the greatest score wins, were introduced for linear orders in 
+CRX09
+ and 
+Zwi08
+. The scoring rules were extended to general relations in 
+Zwi14
+ and also abstracted to apply to unstructured inputs and outputs in 
+Zwi08
+.
+
+Our focus is on scoring methods that arise from comparing pair-preference classes among relations for each pair of candidates. As with the median procedures discussed in Section 
+2
+, the underlying point allocation functions for such scoring methods are given by sums
+
+$$\begin{equation*} s(R,Q)=\sum _{i<j}s_{ij}(R,Q), \end{equation*}$$
+
+where the number of points 
+$s_{ij}(R,Q)$
+ is determined by the pair-preference classes of 
+$a_i$
+ and 
+$a_j$
+ in 
+$R$
+ and 
+$Q$
+.
+
+Analogous to the distance matrices for pair-preference based median procedures, points assigned to one pair-preference class by another in a pair-preference scoring method can be organized into a 
+$4\times 4$
+ scoring matrix 
+$S$
+:
+
+$$\begin{equation*} S=\vcenter{\img[][88pt][59pt][{\renewcommand{\arraystretch}{1} \setlength{\unitlength}{1.0pt} \setlength{\extrarowheight}{0.0pt}\begin{blockarray} {ccccc} & \sim& \succ& \prec& | \\ \begin{block}{c[cccc]} \sim& \alpha_0 & \beta_0 & \gamma_0 & \epsilon_0 \\ \succ& \alpha_1 & \beta_1 & \gamma_1 & \epsilon_1 \\ \prec& \alpha_2 & \beta_2 & \gamma_2 & \epsilon_2 \\ | & \alpha_3 & \beta_3 & \gamma_3 & \epsilon_3 \\ \end{block} \end{blockarray}}]{Images/img44ada2a971187632c06c032bda5054c0.svg}} . \end{equation*}$$
+
+One could define a scoring method which seeks to minimize scores (as median procedures do), but as the relations that maximize scores relative to a scoring matrix 
+$S$
+ are the same as those minimizing scores relative to the scoring matrix 
+$-S$
+,
+ we take as our convention that the winning relations of a scoring method are those that maximize the score. Going forward, we will therefore focus on scoring methods as they offer a more expansive framework for discussing pair-preference based procedures.
+
+3.1
+.
+
+The underlying linear algebra
+
+Given the appearance of matrices above, it is perhaps unsurprising that we gain additional insights when we view these scoring methods as linear transformations. To that end, let 
+$L(\mathcal{U})$
+ be the vector space of all real-valued functions defined on the set 
+$\mathcal{U}$
+ of relations. Define an inner product 
+$\langle \cdot , \cdot \rangle$
+ on 
+$L(\mathcal{U})$
+ by setting
+
+$$\begin{equation*} \langle f, g \rangle = \sum _{R \in \mathcal{U}} f(R) g(R) \end{equation*}$$
+
+for all 
+$f, g \in L(\mathcal{U})$
+.
+
+Given a profile 
+$\Pi = (R_1, \dots , R_m)$
+,
+ define the 
+profile function
+
+$\pi \in L(\mathcal{U})$
+ as
+
+$$\begin{equation*} \pi (R) = | \{ k \ : \ R_k = R \} |. \end{equation*}$$
+
+Put simply, for every relation 
+$R \in \mathcal{U}$
+,
+
+$\pi (R)$
+ is the number of voters who voted for 
+$R$
+.
+ Note that for all relations 
+$R \in \mathcal{U}$
+,
+
+$$\begin{align*} \sigma ( R, \Pi ) &= \sum _{k = 1}^m s(R, R_k) \\ &= \sum _{R' \in \mathcal{U}} \pi (R') s(R, R')\\ &= \langle \pi ,s(R,\cdot )\rangle . \end{align*}$$
+
+We are interested in the linear transformation 
+$T \colon L(\mathcal{U}) \to L(\mathcal{U})$
+ with the property that for all profiles 
+$\Pi$
+ and all relations 
+$R \in \mathcal{U}$
+,
+
+$$\begin{equation*} T(\pi )(R) = \sigma (R, \Pi ). \end{equation*}$$
+
+In other words, the linear transformation 
+$T$
+ maps a profile function to the function that gives the score of each relation. The winning relations are therefore the relations 
+$M$
+ with the property that 
+$T(\pi )(M)$
+ is maximized.
+
+If 
+$\sigma$
+ is a pair-preference based scoring method, we can view 
+$T$
+ as a sum of simple linear transformations, one for each pair of alternatives 
+$a_i$
+ and 
+$a_j$
+.
+ To explain, we first define four types of indicator functions, one for each of the pair-preference classes.
+
+Let 
+$i, j \in \{1, \dots , n \}$
+ where 
+$i < j$
+.
+ If 
+$R$
+ is an arbitrary relation in 
+$\mathcal{U}$
+,
+ then we define
+
+$$\begin{gather*} f_{i \sim j}(R) = \begin{cases} 1, & {\text{if $(a_i, a_j) \in R$ and $(a_j, a_i) \in R$}} \\ 0, & {\text{otherwise}}, \end{cases} \\ f_{i \succ j}(R) = \begin{cases} 1, & {\text{if $(a_i, a_j) \in R$ and $(a_j, a_i) \notin R$}} \\ 0, & {\text{otherwise}}, \end{cases} \\ f_{i \prec j}(R) = \begin{cases} 1, & {\text{if $(a_i, a_j) \notin R$ and $(a_j, a_i) \in R$}} \\ 0, & {\text{otherwise}}, \end{cases} \end{gather*}$$
+
+and
+
+$$\begin{equation*} f_{i | j}(R) = \begin{cases} 1, & {\text{if $(a_i, a_j) \notin R$ and $(a_j, a_i) \notin R$}} \\ 0, & {\text{otherwise}}. \end{cases} \end{equation*}$$
+
+Note that the inner product of 
+$\pi$
+ with any of these indicator functions is simply the number of times the associated 
+$i,j$
+ pair-preference class was chosen by voters. For example, 
+$\langle \pi , f_{i \succ j} \rangle$
+ is the number of 
+$R_k$
+ in the profile 
+$\Pi = (R_1, \dots , R_m)$
+ such that 
+$(a_i, a_j) \in R_k$
+ and 
+$(a_j, a_i) \notin R_k$
+,
+ or equivalently, the number of voters who prefer 
+$a_i$
+ to 
+$a_j$
+.
+
+Consider the generic pair-preference scoring matrix from before,
+
+$$\begin{equation*} S= \begin{bmatrix} \alpha _0 & \beta _0 & \gamma _0 & \epsilon _0 \\ \alpha _1 & \beta _1 & \gamma _1 & \epsilon _1 \\ \alpha _2 & \beta _2 & \gamma _2 & \epsilon _2 \\ \alpha _3 & \beta _3 & \gamma _3 & \epsilon _3 \end{bmatrix} . \end{equation*}$$
+
+For 
+$i < j$
+,
+ let 
+$T_{ij} \colon L(\mathcal{U}) \to L(\mathcal{U})$
+ be the linear transformation with the property that for all profiles 
+$\Pi$
+,
+
+$$\begin{align*} T_{ij}(\pi ) &= \\ &\langle \pi , f_{i \sim j} \rangle \left( \alpha _0 f_{i \sim j} + \alpha _1 f_{i \succ j} + \alpha _2 f_{i \prec j} + \alpha _3 f_{i | j} \right) \\ &+ \\ & \langle \pi , f_{i \succ j} \rangle \left( \beta _0 f_{i \sim j} + \beta _1 f_{i \succ j} + \beta _2 f_{i \prec j} + \beta _3 f_{i | j} \right) \\ &+ \\ & \langle \pi , f_{i \prec j} \rangle \left( \gamma _0 f_{i \sim j} + \gamma _1 f_{i \succ j} + \gamma _2 f_{i \prec j} + \gamma _3 f_{i | j} \right) \\ &+ \\ & \langle \pi , f_{i | j} \rangle \left( \epsilon _0 f_{i \sim j} + \epsilon _1 f_{i \succ j} + \epsilon _2 f_{i \prec j} + \epsilon _3 f_{i | j} \right). \end{align*}$$
+
+Note that 
+$T_{ij}(\pi )$
+ is simply the function that assigns scores to all of the relations in 
+$\mathcal{U}$
+ based on the restriction of 
+$\Pi$
+ to the pair 
+$\{ a_i, a_j \}$
+.
+ Summing these functions gives us 
+$T( \pi )$
+,
+ and thus
+
+$$\begin{equation*} T = \sum _{i < j} T_{ij}. \end{equation*}$$
+
+We will refer to 
+$T$
+ as the 
+global scoring operator
+ associated to 
+$S$
+.
+
+Thus, just as the distance metrics and scoring functions simplified into sums over pairs of candidates, so too does the corresponding linear transformation 
+$T$
+ when the associated aggregation method 
+$\sigma$
+ is a pair-preference based method.
+
+3.2
+.
+
+A family of scoring matrices
+
+Consider the scoring matrices
+
+$$\begin{equation*} \begin{bmatrix} q + 2s + t & q - t & q - t & q - 2s + t \\ q-t & q + 2r + t & q - 2r + t & q-t \\ q-t & q - 2r + t & q + 2r + t & q-t \\ q - 2s + t & q - t & q - t & q + 2s + t \end{bmatrix} \end{equation*}$$
+
+parameterized by the real values 
+$q$
+,
+
+$r$
+,
+
+$s$
+,
+ and 
+$t$
+,
+ and denoted 
+$S(q,r,s,t)$
+.
+ As we will see in Section 
+3.3
+, the eigenspaces of the global scoring operators associated with this family of matrices are meaningful from a voting theoretic point of view, and make it possible to tune the parameters of the scoring matrix in ways which amplify or diminish various attributes of voters’ pair-preferences.
+
+Scoring matrices associated with some of the voting procedures mentioned in Section 
+2
+ are contained in this family. For example, if we set 
+$q = t = 0$
+ and 
+$r = s = 1$
+,
+ we get a scoring matrix related to the distance matrix of a cycle graph on four nodes (i.e., the outcomes of the associated voting procedures will be exactly the same). Similarly, if we set 
+$q = 0$
+ and 
+$r = s = t = 1$
+,
+ we get a scoring matrix related to the distance matrix of the complete graph on four nodes.
+
+By setting 
+$q = s = t = 0$
+ and 
+$r = 1$
+,
+ we get the scoring matrix
+
+$$\begin{equation*} S(0,1,0,0) = \begin{bmatrix} 0 & 0 & 0 & 0 \\ 0 & 2 & -2 & 0 \\ 0 & -2 & 2 & 0 \\ 0 & 0 & 0 & 0 \end{bmatrix} . \end{equation*}$$
+
+This scoring matrix, which appears implicitly in 
+Zwi18
+, and more or less explicitly in 
+Zwi14
+, does not correspond to a metric. Nonetheless, the associated voting procedure is meaningful. As can be seen in the scoring matrix, it is based only on the margins by which each candidate is beating or losing to other candidates, and it ignores all information about ties or incomparability.
+
+In 
+Zwi18
+, Zwicker uses constraints imposed by the choice of inputs, 
+$\mathcal{I}$
+,
+ and outputs, 
+$\mathcal{O}$
+,
+ to show that several well-known aggregation procedures can be realized as scoring methods using 
+$S(0,1,0,0)$
+.
+ These include approval voting, the mean rule, the Borda count, and plurality voting. See Table 2 of 
+Zwi18
+ for a more complete list of aggregation rules based on the matrix 
+$S(0,1,0,0)$
+.
+
+3.3
+.
+
+Diagonalizability
+
+It turns out that scoring matrices of the form 
+$S(q,r,s,t)$
+ are simultaneously diagonalizable. Interestingly, their associated global scoring operators are also simultaneously diagonalizable. Furthermore, the eigenspaces in question have a meaningful description.
+
+To explain, for each 
+$i < j$
+,
+ first consider the following functions in 
+$L(\mathcal{U})$
+:
+
+$$\begin{align*} e_{ij}^{(0)} &= f_{i \sim j} + f_{i \succ j} + f_{i \prec j} + f_{i | j}, \\ e_{ij}^{(1)} &= f_{i \succ j} - f_{i \prec j}, \\ e_{ij}^{(2)} &= f_{i \sim j} - f_{i | j}, \\ e_{ij}^{(3)} &= f_{i \sim j} - f_{i \prec j} - f_{i \succ j} + f_{i | j}. \end{align*}$$
+
+These functions arise naturally enough in our setting:
+
+•
+
+$\langle \pi ,e_{ij}^{(0)}\rangle$
+ is simply the total number of voters,
+
+•
+
+$\langle \pi ,e_{ij}^{(1)}\rangle$
+ measures the margin by which candidate 
+$a_i$
+ is winning versus losing to candidate 
+$a_j$
+,
+
+•
+
+$\langle \pi ,e_{ij}^{(2)}\rangle$
+ measures the margin by which voters believe the candidates are tied versus incomparable,
+
+•
+
+$\langle \pi ,e_{ij}^{(3)}\rangle$
+ measures the margin by which voters are expressing a lack of preference versus a preference between the two candidates.
+
+Figure 8
+.
+Table of scores for a specific profile under three nested voting procedures.
+
+Next, for each 
+$k \in \{0, 1, 2, 3 \}$
+,
+ let 
+$E_k$
+ be the span of all of the 
+$e_{ij}^{(k)}$
+.
+ One may show that
+
+•
+
+$\dim E_0 = 1$
+,
+
+•
+
+$\dim E_1 = \dim E_2 = \dim E_3 = \frac{n(n-1)}{2}$
+,
+ and
+
+•
+
+the 
+$E_k$
+ are pairwise orthogonal.
+
+Letting 
+$K$
+ be the orthogonal complement of 
+$E_0 \oplus E_1 \oplus E_2 \oplus E_3$
+ in 
+$L(\mathcal{U})$
+,
+ we get an orthogonal decomposition of 
+$L(\mathcal{U})$
+:
+
+$$\begin{equation*} L(\mathcal{U}) = E_0 \oplus E_1 \oplus E_2 \oplus E_3 \oplus K. \end{equation*}$$
+
+Note that 
+$K$
+ captures higher-order, non-pairwise information in the profile, which we are ignoring when using our pair-preference scoring methods.
+
+Finally, one may show that if 
+$T \colon L(\mathcal{U}) \to L(\mathcal{U})$
+ is the global scoring operator associated to 
+$S(q,r,s,t)$
+ and
+
+•
+
+if 
+$f \in E_0$
+,
+ then 
+$T(f) = \left( \frac{n(n-1)}{2} 2^{n(n-1)} q \right) f$
+
+•
+
+if 
+$f \in E_1$
+,
+ then 
+$T(f) = \left( 2^{n(n-1)} r \right) f$
+
+•
+
+if 
+$f \in E_2$
+,
+ then 
+$T(f) = \left( 2^{n(n-1)} s \right) f$
+
+•
+
+if 
+$f \in E_3$
+,
+ then 
+$T(f) = \left( 2^{n(n-1)} t \right) f$
+
+•
+
+if 
+$f \in K$
+,
+ then 
+$T(f) = \mathbf{0}$
+.
+
+In other words, 
+$T$
+ is orthogonally diagonalizable, and the eigenspaces of 
+$T$
+ are direct sums of subsets of 
+$E_0$
+,
+
+$E_1$
+,
+
+$E_2$
+,
+
+$E_3$
+,
+ and 
+$K$
+,
+ with any nonzero eigenvalues of 
+$T$
+ being simple scalar multiples of some of the parameters 
+$q$
+,
+
+$r$
+,
+
+$s$
+,
+ and 
+$t$
+.
+ This means that the voting procedure based on the scoring matrix 
+$S(q,r,s,t)$
+ depends simply on weighted orthogonal projections of a profile function 
+$\pi$
+ onto the 
+$E_k$
+.
+ Furthermore, by choosing different values of 
+$q$
+,
+
+$r$
+,
+
+$s$
+,
+ and 
+$t$
+,
+ the effects of these highly interpretable projections may easily be amplified, lessened, removed, or left intact. (See the example in Section 
+3.4
+.) In that sense, such voting procedures are akin to filters in signal processing, where in our case 
+$\pi$
+ is the signal and 
+$T(\pi )$
+ is the result of filtering 
+$\pi$
+.
+
+The use of ideas from signal processing, and more generally, from harmonic analysis, appears to be uncommon in voting theory. In our experience, however, such ideas can be quite helpful. For example, the statements above about the dimensions and pairwise orthogonality of the 
+$E_k$
+ can be seen as relatively straightforward statements concerning characters of finite abelian groups, which are foundational objects in harmonic analysis. In particular, 
+$e_{ij}^{(0)}$
+,
+
+$e_{ij}^{(1)} + e_{ij}^{(2)}$
+,
+
+$e_{ij}^{(1)} - e_{ij}^{(2)}$
+,
+ and 
+$e_{ij}^{(3)}$
+ may all be viewed as characters of the finite abelian group
+
+$$\begin{equation*} \underbrace{\mathbb{Z}/2\mathbb{Z} \times \cdots \times \mathbb{Z}/2\mathbb{Z}}_{n(n-1)} = \left( \mathbb{Z}/2\mathbb{Z} \right)^{n(n-1)} \end{equation*}$$
+
+and it is well-known that distinct characters (given the appropriate inner product) are pairwise orthogonal functions. This seems to only scratch the surface, though, and we suspect there are many other fruitful connections yet to be made between voting theory and harmonic analysis.
+
+3.4
+.
+
+A simple example
+
+To get a better feel for what happens when we use different values of 
+$q$
+,
+
+$r$
+,
+
+$s$
+,
+ and 
+$t$
+,
+ consider the example in Figure 
+8
+, where the inputs and outputs are partial orders on three alternatives. The first row records the number of times each poset was chosen in our example profile, and the next three rows record the scores for each poset when using 
+$S(0,1,0,0)$
+,
+
+$S(0,1,1,0)$
+,
+ and 
+$S(0,1,1,1)$
+,
+ respectively.
+
+First, note that choosing different values of 
+$q$
+ just raises or lowers the resulting scores for every relation by the same amount under the 
+$S(q,r,s,t)$
+ scoring method, and thus has no effect on the outcome. We have therefore chosen to set 
+$q = 0$
+,
+ mostly for convenience.
+
+Figure 9
+.
+Distinct results for the nested scoring rules 
+$S(0,1,0,0)$
+ (red), 
+$S(0,1,1,0)$
+ (yellow), and 
+$S(0,1,1,1)$
+ (blue). 
+
+Next, as noted earlier, when 
+$S(0,1,0,0)$
+ is used, the outcome is based only on the margins by which each candidate is beating or losing to other candidates. In contrast, when 
+$S(0,1,1,0)$
+ is used, additional information about ties and incomparabilities is incorporated. Incomparabilities between candidates in our sample ballots help explain why the outcome when using 
+$S(0,1,0,0)$
+ is the strict linear order
+
+whereas the outcome when using 
+$S(0,1,1,0)$
+ is the partial order
+
+It essentially comes down to the fact that several voters think certain pairs of alternatives (e.g., 
+$b$
+ and 
+$c$
+)
+ are incomparable, and that information is ignored when using 
+$S(0,1,0,0)$
+,
+ but it is taken into account when using 
+$S(0,1,1,0)$
+.
+
+Finally, recall that the scoring matrix 
+$S(0,1,1,0)$
+ is equivalent to the distance matrix of a cycle on four nodes. In contrast, the scoring matrix 
+$S(0,1,1,1)$
+ is equivalent to the distance matrix of a complete graph on four nodes. All pair-preference differences are therefore weighted equally when using 
+$S(0,1,1,1)$
+.
+ Interestingly, the outcome when using 
+$S(0,1,1,1)$
+ is the partial order
+
+which is in a sense (that could be made precise) between the two other outcomes (see Figure 
+9
+).
+
+Note that all three of these results are near each other in the hypercube of relations. This will not be the case in general. It therefore seems like a worthwhile project to explore the extent to which outcomes might differ when using various values of 
+$r$
+,
+
+$s$
+,
+ and 
+$t$
+,
+ and when restricting to various inputs and outputs.
+
+4
+.
+
+Further Directions
+
+While we have just scratched the surface of voting on relations, it is worth pointing out a few interesting directions we see this research going.
+
+First, though we have taken an expansive view in considering inputs and outputs to be all relations, the insights of this paper can be made more specific and specialized by restricting these sets to highly structured combinatorial domains. This is the focus of several chapters in 
+BCE
+$^{+}$
+16
+. One topic in particular that has received much attention lately is that of committees, which in our framework can be encoded as restricting the outputs to bucket orders with two buckets, one for alternatives on the committee, and one for alternatives not on the committee.
+
+Along somewhat different lines, one might want to go beyond using just pair-preference information. While the plurality rule can be recovered in the pair-preference framework (
+Zwi18
+), other point-allocating procedures for linear orders inherently use more information. If the ballots provided by voters are to be more fully incorporated, then it makes sense to consider using some of the higher-order information found in the subspace 
+$K$
+,
+ such as information about sub-relations on triples or quadruples of alternatives. (See, for example, 
+NO24
+ for work in this direction.) The linear algebraic approach taken in this paper seems well-positioned to handle such an approach.
+
+Finally, there are more computational connections to explore. Consider ballots as 
+noisy estimates of truth
+, rather than as inherently messy preferences. Then data estimation paradigms such as the maximum likelihood align closely with median and scoring procedures. (See approaches as varied as 
+BM80
+, 
+You95
+, and 
+CRX09
+.) This connection bears study with respect to many different ballot types.
+
+Another connection is the question of 
+tractability
+ or 
+complexity
+, which 
+Zwi18
+ engages with. One can ask questions about tractability of strategic voting (see 
+BCE
+$^{+}$
+16
+) or even the tallying of results. Here the literature often considers the effect of various restrictions on allowable profiles.
+
+While we do not address any of these concerns in this short article, we hope it inspires more research into the algebra of voting and aggregation.
+
+Acknowledgment
+
+This work was supported by a SQuaRE grant from the American Institute of Mathematics. We also appreciate the careful reading and valuable feedback from an anonymous reviewer.
+
+References
+[
+BCE
+$^{+}$
+16
+]
+ Felix Brandt, Vincent Conitzer, Ulle Endriss, Jérôme Lang, and Ariel D. Procaccia (eds.), 
+Handbook of computational social choice
+, Cambridge University Press, New York, 2016, DOI 
+10.1017/CBO9781107446984
+. MR
+3587842
+, 
+
+Show raw
+AMSref
+
+\bib{handbook-2016}{collection}{
+  title={Handbook of computational social choice},
+  editor={Brandt, Felix},
+  editor={Conitzer, Vincent},
+  editor={Endriss, Ulle},
+  editor={Lang, J\'{e}r\^{o}me},
+  editor={Procaccia, Ariel D.},
+  publisher={Cambridge University Press, New York},
+  date={2016},
+  pages={xv+535},
+  isbn={978-1-107-06043-2},
+  review={\MR {3587842}},
+  doi={10.1017/CBO9781107446984},
+}
+
+[
+BKM01
+]
+ Slim Ben Khelifa and Jean-Marc Martel, 
+A distance-based collective weak ordering
+, Group Decision and Negotiation 
+10
+ (2001), no. 4, 317–329, DOI 
+10.1023/A:1011257109771
+., 
+
+Show raw
+AMSref
+
+\bib{benkhelifa-martel-2001}{article}{
+  author={Ben~Khelifa, Slim},
+  author={Martel, Jean-Marc},
+  title={A distance-based collective weak ordering},
+  date={2001},
+  journal={Group Decision and Negotiation},
+  volume={10},
+  number={4},
+  pages={317\ndash 329},
+  doi={10.1023/A:1011257109771},
+}
+
+[
+BM80
+]
+ Jean-Pierre Barthélémy and Bernard Monjardet, 
+The median procedure in cluster analysis and social choice theory
+, Math. Social Sci. 
+1
+ (1980/81), no. 3, 235–267, DOI 
+10.1016/0165-4896(81)90041-X
+. MR
+616379
+, 
+
+Show raw
+AMSref
+
+\bib{barthelemy-monjardet-1981}{article}{
+  author={Barth\'{e}l\'{e}my, Jean-Pierre},
+  author={Monjardet, Bernard},
+  title={The median procedure in cluster analysis and social choice theory},
+  journal={Math. Social Sci.},
+  volume={1},
+  date={1980/81},
+  number={3},
+  pages={235--267},
+  issn={0165-4896},
+  review={\MR {616379}},
+  doi={10.1016/0165-4896(81)90041-X},
+}
+
+[
+Bog73
+]
+ Kenneth P. Bogart, 
+Preference structures. I. Distances between transitive preference relations
+, J. Mathematical Sociology 
+3
+ (1973), 49–67, DOI 
+10.1080/0022250x.1973.9989823
+. MR
+395936
+, 
+
+Show raw
+AMSref
+
+\bib{bogart-1973}{article}{
+  author={Bogart, Kenneth P.},
+  title={Preference structures. I. Distances between transitive preference relations},
+  journal={J. Mathematical Sociology},
+  volume={3},
+  date={1973},
+  pages={49--67},
+  review={\MR {395936}},
+  doi={10.1080/0022250x.1973.9989823},
+}
+
+[
+CKS86a
+]
+ Wade D. Cook, Moshe Kress, and Lawrence M. Seiford, 
+An axiomatic approach to distance on partial orderings
+
+(
+English, with French summary
+)
+, RAIRO Rech. Opér. 
+20
+ (1986), no. 2, 115–122, DOI 
+10.1051/ro/1986200201151
+. MR
+860910
+, 
+
+Show raw
+AMSref
+
+\bib{cook-kress-seiford-1986}{article}{
+  author={Cook, Wade D.},
+  author={Kress, Moshe},
+  author={Seiford, Lawrence M.},
+  title={An axiomatic approach to distance on partial orderings},
+  language={English, with French summary},
+  journal={RAIRO Rech. Op\'{e}r.},
+  volume={20},
+  date={1986},
+  number={2},
+  pages={115--122},
+  issn={0399-0559},
+  review={\MR {860910}},
+  doi={10.1051/ro/1986200201151},
+}
+
+[
+CKS86b
+]
+ Wade D. Cook, Moshe Kress, and Lawrence M. Seiford, 
+Information and preference in partial orders: a bimatrix representation
+, Psychometrika 
+51
+ (1986), no. 2, 197–207, DOI 
+10.1007/BF02293980
+. MR
+848105
+, 
+
+Show raw
+AMSref
+
+\bib{cook-kress-seiford-1986-bimatrix}{article}{
+  author={Cook, Wade D.},
+  author={Kress, Moshe},
+  author={Seiford, Lawrence M.},
+  title={Information and preference in partial orders: a bimatrix representation},
+  journal={Psychometrika},
+  volume={51},
+  date={1986},
+  number={2},
+  pages={197--207},
+  issn={0033-3123},
+  review={\MR {848105}},
+  doi={10.1007/BF02293980},
+}
+
+[
+CRX09
+]
+ Vincent Conitzer, Matthew Rognlie, and Lirong Xia, 
+Preference functions that score rankings and maximum likelihood estimation
+, Proceedings of the 21st International Joint Conference on Artificial Intelligence, 2009, pp. 109–115, DOI 
+10.5555/1661445.1661464
+., 
+
+Show raw
+AMSref
+
+\bib{conitzer-etal-2009}{inproceedings}{
+  author={Conitzer, Vincent},
+  author={Rognlie, Matthew},
+  author={Xia, Lirong},
+  title={Preference functions that score rankings and maximum likelihood estimation},
+  date={2009},
+  booktitle={Proceedings of the 21st {I}nternational {J}oint {C}onference on {A}rtificial {I}ntelligence},
+  series={IJCAI'09},
+  publisher={Morgan Kaufmann Publishers Inc.},
+  address={San Francisco, CA, USA},
+  pages={109--115},
+  doi={10.5555/1661445.1661464},
+}
+
+[
+FKM
+$^{+}$
+06
+]
+ Ronald Fagin, Ravi Kumar, Mohammad Mahdian, D. Sivakumar, and Erik Vee, 
+Comparing partial rankings
+, SIAM J. Discrete Math. 
+20
+ (2006), no. 3, 628–648, DOI 
+10.1137/05063088X
+. MR
+2272220
+, 
+
+Show raw
+AMSref
+
+\bib{fagin-etal-2006}{article}{
+  author={Fagin, Ronald},
+  author={Kumar, Ravi},
+  author={Mahdian, Mohammad},
+  author={Sivakumar, D.},
+  author={Vee, Erik},
+  title={Comparing partial rankings},
+  journal={SIAM J. Discrete Math.},
+  volume={20},
+  date={2006},
+  number={3},
+  pages={628--648},
+  issn={0895-4801},
+  review={\MR {2272220}},
+  doi={10.1137/05063088X},
+}
+
+[
+JMBK04
+]
+ Khaled Jabeur, Jean-Marc Martel, and Slim Ben Khelifa, 
+A distance-based collective preorder integrating the relative importance of the group’s members
+, Group Decision and Negotiation 
+13
+ (2004), no. 4, 327–349, DOI 
+10.1023/B:GRUP.0000042894.00775.75
+., 
+
+Show raw
+AMSref
+
+\bib{jabeur-martel-Khelifa-2004}{article}{
+  author={Jabeur, Khaled},
+  author={Martel, Jean-Marc},
+  author={Ben~Khelifa, Slim},
+  title={A distance-based collective preorder integrating the relative importance of the group's members},
+  date={2004},
+  journal={Group Decision and Negotiation},
+  volume={13},
+  number={4},
+  pages={327\ndash 349},
+  doi={10.1023/B:GRUP.0000042894.00775.75},
+}
+
+[
+KS62
+]
+ John G. Kemeny and J. Laurie Snell, 
+Mathematical models in the social sciences
+, Introductions to Higher Mathematics, Ginn and Company, Boston, Mass.-New York-Toronto, 1962. MR
+140375
+, 
+
+Show raw
+AMSref
+
+\bib{kemeny-snell-1962}{book}{
+  author={Kemeny, John G.},
+  author={Snell, J. Laurie},
+  title={Mathematical models in the social sciences},
+  series={Introductions to Higher Mathematics},
+  publisher={Ginn and Company, Boston, Mass.-New York-Toronto},
+  date={1962},
+  pages={vii+145},
+  review={\MR {140375}},
+}
+
+[
+MUH95
+]
+ Iain McLean, Arnold B. Urken, and Fiona Hewitt, 
+Classics of social choice
+, University of Michigan Press, 1995., 
+
+Show raw
+AMSref
+
+\bib{mclean1995classics}{book}{
+  author={McLean, Iain},
+  author={Urken, Arnold~B.},
+  author={Hewitt, Fiona},
+  title={Classics of social choice},
+  publisher={University of Michigan Press},
+  date={1995},
+}
+
+[
+NO24
+]
+ Hiroki Nishimura and Efe A. Ok, 
+A class of dissimilarity semimetrics for preference relations
+, Math. Oper. Res. 
+49
+ (2024), no. 4, 2249–2270, DOI 
+10.1287/moor.2022.0351
+. MR
+4838260
+, 
+
+Show raw
+AMSref
+
+\bib{nishimura-ok-2024}{article}{
+  author={Nishimura, Hiroki},
+  author={Ok, Efe A.},
+  title={A class of dissimilarity semimetrics for preference relations},
+  journal={Math. Oper. Res.},
+  volume={49},
+  date={2024},
+  number={4},
+  pages={2249--2270},
+  issn={0364-765X},
+  review={\MR {4838260}},
+  doi={10.1287/moor.2022.0351},
+}
+
+[
+RS93
+]
+ B. Roy and R. Słowiński, 
+Criterion of distance between technical programming and socio-economic priority
+
+(
+English, with English and French summaries
+)
+, RAIRO Rech. Opér. 
+27
+ (1993), no. 1, 45–60, DOI 
+10.1051/ro/1993270100451
+. MR
+1209111
+, 
+
+Show raw
+AMSref
+
+\bib{roy-slowinski-1993}{article}{
+  author={Roy, B.},
+  author={S\l owi\'{n}ski, R.},
+  title={Criterion of distance between technical programming and socio-economic priority},
+  language={English, with English and French summaries},
+  journal={RAIRO Rech. Op\'{e}r.},
+  volume={27},
+  date={1993},
+  number={1},
+  pages={45--60},
+  issn={0399-0559},
+  review={\MR {1209111}},
+  doi={10.1051/ro/1993270100451},
+}
+
+[
+SZ20
+]
+ Nihar B. Shah and Dengyong Zhou, 
+Approval voting and incentives in crowdsourcing
+, ACM Trans. Econ. Comput. 
+8
+ (2020), no. 3, Art. 13, 40, DOI 
+10.1145/3396863
+. MR
+4169958
+, 
+
+Show raw
+AMSref
+
+\bib{shah-zhou-2020}{article}{
+  author={Shah, Nihar B.},
+  author={Zhou, Dengyong},
+  title={Approval voting and incentives in crowdsourcing},
+  journal={ACM Trans. Econ. Comput.},
+  volume={8},
+  date={2020},
+  number={3},
+  pages={Art. 13, 40},
+  issn={2167-8375},
+  review={\MR {4169958}},
+  doi={10.1145/3396863},
+}
+
+[
+You95
+]
+ Peyton Young, 
+Optimal voting rules
+, Journal of Economic Perspectives 
+9
+ (1995), no. 1, 51–64., 
+
+Show raw
+AMSref
+
+\bib{young-1995}{article}{
+  author={Young, Peyton},
+  title={Optimal voting rules},
+  date={1995},
+  journal={Journal of Economic Perspectives},
+  volume={9},
+  number={1},
+  pages={51\ndash 64},
+}
+
+[
+Zwi08
+]
+ William S. Zwicker, 
+Consistency without neutrality in voting rules: When is a vote an average?
+, Math. Comput. Modelling 
+48
+ (2008), no. 9-10, 1357–1373, DOI 
+10.1016/j.mcm.2008.05.031
+. MR
+2459706
+, 
+
+Show raw
+AMSref
+
+\bib{zwicker-2008}{article}{
+  author={Zwicker, William S.},
+  title={Consistency without neutrality in voting rules: When is a vote an average?},
+  journal={Math. Comput. Modelling},
+  volume={48},
+  date={2008},
+  number={9-10},
+  pages={1357--1373},
+  issn={0895-7177},
+  review={\MR {2459706}},
+  doi={10.1016/j.mcm.2008.05.031},
+}
+
+[
+Zwi14
+]
+ William S. Zwicker, 
+Universal and symmetric scoring rules for binary relations
+, Proceedings of the Fifth International Workshop on Computational Social Choice, 2014, 
+https://www.cs.cmu.edu/~arielpro/comsoc-14/program.html
+., 
+
+Show raw
+AMSref
+
+\bib{zwicker-2014}{inproceedings}{
+  author={Zwicker, William~S.},
+  title={Universal and symmetric scoring rules for binary relations},
+  date={2014},
+  booktitle={Proceedings of the {F}ifth {I}nternational {W}orkshop on {C}omputational {S}ocial {C}hoice},
+  url={https://www.cs.cmu.edu/~arielpro/comsoc-14/program.html},
+}
+
+[
+Zwi18
+]
+ William S. Zwicker, 
+Cycles and intractability in a large class of aggregation rules
+, J. Artificial Intelligence Res. 
+61
+ (2018), 407–431, DOI 
+10.1613/jair.5657
+. MR
+3786028
+, 
+
+Show raw
+AMSref
+
+\bib{zwicker-2018}{article}{
+  author={Zwicker, William S.},
+  title={Cycles and intractability in a large class of aggregation rules},
+  journal={J. Artificial Intelligence Res.},
+  volume={61},
+  date={2018},
+  pages={407--431},
+  issn={1076-9757},
+  review={\MR {3786028}},
+  doi={10.1613/jair.5657},
+}
+
+Karl-Dieter Crisman is a professor of mathematics and computer science at Gordon College. His email address is 
+[email protected]
+.
+
+Erin M. McNicholas is a professor of mathematics at Willamette University. Her email address is 
+[email protected]
+.
+
+Kathryn L. Nyman is a professor of mathematics at Willamette University. Her email address is 
+[email protected]
+.
+
+Michael E. Orrison is a professor of mathematics at Harvey Mudd College. His email address is 
+[email protected]
+.
+
+Article DOI: 
+10.1090/noti3251
+Credits
+
+All figures are courtesy of the authors.
+
+Photo of Karl-Dieter Crisman is courtesy of Gordon College.
+
+Photo of Erin M. McNicholas is courtesy of Erin M. McNicholas.
+
+Photo of Kathryn L. Nyman is courtesy of Kathryn L. Nyman.
+
+Photo of Michael E. Orrison is courtesy of Michael E. Orrison.

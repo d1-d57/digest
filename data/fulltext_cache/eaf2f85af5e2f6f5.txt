@@ -1,0 +1,1880 @@
+
+
+A digestion of unit distance constructions | What's new
+
+What's new
+
+Updates on my research and expository papers, discussion of open problems, and other maths-related topics.  By Terence Tao
+
+Home
+
+About
+
+Career advice
+
+On writing
+
+Books
+
+Mastodon+
+
+Applets
+
+Subscribe to feed
+
+A digestion of unit distance constructions
+
+3 July, 2026 in 
+expository
+, 
+math.CO
+, 
+math.NT
+ | Tags: 
+AI
+, 
+Erdos distance problem
+, 
+number field
+ | by 
+Terence Tao
+
+Suppose that one has a set 
+ of 
+ points in the plane, which we will think of as the complex plane 
+. Let 
+ denote the number of unit distances determined by these points, i.e., pairs of points 
+ whose displacement 
+ obeys the equation 
+
+(It makes little difference for the asymptotics, but we will count the pair 
+ separately from 
+ here.)
+
+The Erdös unit distance problem
+ asks, for a given large number 
+, what is the largest possible value of 
+ amongst all sets 
+ of cardinality 
+?
+
+For instance, if one takes 
+ to be 
+ equally spaced collinear points with unit spacing, one can obtain a linear construction with 
+. Erdös observed that one can improve this construction asymptotically:
+
+Theorem 1 (Erdös construction)
+ There exists point sets 
+ of arbitrarily large cardinality 
+ such that 
+ for some absolute constant 
+. 
+
+In fact, in the construction one could take 
+ arbitrarily close to 
+. Erdös famously asked whether 
+ had to be bounded above by 
+; and for decades there was significant effort expended on upper bounding 
+, with the best known upper bound being 
+, established by 
+by Spencer, Szemerédi, and Trotter
+ in 1984. We will note here that it seems extremely difficult to improve this upper bound. One reason for this is that if one replaces the equation 
+(1)
+ with the superficially similar equation 
+
+(i.e., replace the unit circle 
+ by a standard parabola), then the 
+ bound is best possible, as can be seen by taking 
+ to be a rectangle in the Gaussian integers of width 
+ and height 
+. Hence any improvement of the 
+ bound would have to exploit some special property of the unit circle that is not shared by the parabola.
+
+It came as some surprise recently when a team from OpenAI 
+resolved the question of Erdös
+:
+
+Theorem 2 (OpenAI construction)
+ There exists point sets 
+ of arbitrarily large cardinality 
+ such that 
+ for some absolute constant 
+. 
+
+The optimal value of 
+ is still unknown, but the best upper and lower bounds on 
+ are tracked at 
+this page
+; currently we know that 
+.
+
+The construction in Theorem 
+2
+ is a heavily modified version of that in Theorem 
+1
+, and uses some non-trivial amount of algebraic number theory, in particular the device of Golod–Shafarevich towers of field extensions. However, it was 
+later observed
+ using the Mythos AI that one could get a weaker bound with less algebraic number theory, which after optimizing parameters yields the following intermediate result between Theorem 
+1
+ and Theorem 
+2
+:
+
+Theorem 3 (Mythos construction)
+ There exists point sets 
+ of arbitrarily large cardinality 
+ such that 
+ for some absolute constant 
+. 
+
+Furthermore, by inserting Golod–Shafarevich towers back into the Mythos construction, one can recover the full strength of Theorem 
+2
+.
+
+These results already have a number of expositions; see for instance 
+this article of Alon et al.
+, or 
+this blog post of Bloom
+. As an exercise for myself, I recently spent some time trying to “digest” these constructions and place them on a common footing, with an emphasis on trying to find the minimal route to either heuristically or rigorously recovering these results relying on as little algebraic number theory as possible. The post here is a writeup of this exercise. (Disclosure: AI tools were useful for providing initial summaries of these arguments, as well as on explaining various fundamentals of algebraic number theory to me.)
+
+The first (trivial) observation is that one can use rescaling to replace the unit distance by any other fixed distance. In particular, for any positive real 
+, if we let 
+ denote the number of pairs 
+ whose displacement 
+ obeys the equation 
+
+then it is clear that any construction of a point set 
+ with a given value of 
+ can be rescaled to another point set 
+ of the same cardinality with the corresponding value of 
+. It turns out to be convenient to work with values of 
+ that are asymptotically large, for instance the product of several large primes.
+
+All the constructions of good point sets 
+ basically involve taking all the elements of a certain ring 
+ of algebraic integers up to some height. In the original construction of Erdös, 
+ was chosen to be the ring of Gaussian integers 
+, but in fact any ring of integers in a non-trivial bounded degree field extension of 
+ would suffice to recover Theorem 
+1
+ (though always with the constant 
+ not exceeding 
+). To go beyond this, one has to start considering number fields of unbounded degree. As it turns out, the field extensions arising from Golod–Shafarevich towers are the most efficient for this purpose, and lead to Theorem 
+2
+; but one can work with the more elementary construction of number fields generated by many square roots of medium-sized primes, and this suffices for the intermediate result in Theorem 
+3
+.
+
+The numerology can be explained as follows. Take 
+ to be a ring of integers in some number field of degree 
+, and suppose for sake of argument that 
+ is the product of 
+ (rational) primes 
+, which for simplicity we will assume to all have comparable magnitude, thus 
+ for some 
+ and all 
+. Thus, 
+ is roughly of the size of 
+. In practice one wants to impose some additional “splitting” conditions on these primes 
+, but the prime number theorem, as well as variants such as the Chebotarev density theorem, suggest that we should be able to keep 
+ reasonably close to 
+ in size; for instance, if we select primes greedily then we can have 
+. In particular we expect to have 
+ in practice.
+
+By construction, 
+ splits into the product of 
+ rational primes. Moving up to the degree 
+ extension, one can optimistically hope that 
+ splits further into the product of 
+ primes in 
+. Using conjugation symmetry, these primes might split into 
+ conjugate pairs 
+. By selecting one element from each pair and multiplying, this generates 
+ solutions to 
+(3)
+ in 
+. These solutions 
+ will of course have complex magnitude 
+; one can optimistically hope that they in fact have “height” 
+ in some sense.
+
+To take advantage of this, take 
+ to be the set of points in 
+ of height 
+. As 
+ has rank 
+, we therefore expect the size 
+ of this set to be roughly 
+
+(For this heuristic discussion I will be deliberately vague about what the symbol 
+ means.) Meanwhile, using our solutions to 
+(3)
+, we expect to have 
+
+But this can be clarified by the heuristic 
+(4)
+. Taking logarithms, we expect to have 
+
+In the regime where the degree 
+ of the number field is held fixed, we thus expect 
+ to exhibit logarithmic type growth in 
+, and on inserting this back into 
+(5)
+ we (heuristically) recover Theorem 
+1
+ (with the natural constant 
+). In fact it is not hard to turn the above heuristics into a rigorous argument, by setting 
+ equal the Gaussian integers 
+ and selecting all the primes 
+ to be 
+, so that they split completely in 
+ by the 
+Fermat two-square theorem
+.
+
+But if one can permit the degree 
+ to grow in the construction, and in particular be superpolynomial in 
+, then the above heuristics suggest that we can start improving upon Theorem 
+1
+ , and even get all the way to Theorem 
+2
+ if we can make the degree go to infinity while keeping the number of primes 
+ fixed.
+
+If one naively tries this approach by forcing all the primes 
+ to split completely in a very high degree number field, one runs into significant technical difficulties, not least of which is the need to obtain good error terms in the 
+Chebotarev density theorem
+, which touches upon such difficult questions as the Generalized Riemann Hypothesis and the existence of Siegel zeroes. From an algebraic number theory perspective, this is related to the breakdown of unique factorization in such number fields, as measured by the class group. The size of this group is in turn controlled by the discriminant of the field, as per the 
+fundamental theorem of Minkowski
+ in this subject.
+
+But one can hope that the arguments are robust enough to tolerate a little bit of breakdown in unique factorization, so long as the class group is not too large. The most natural way to do this is to use all the standard machinery of algebraic number theory, such as the unique factorization of ideals. But there turns out to be a more elementary (though largely equivalent) approach, which is to weaken the target equation 
+(3)
+ to a congruence equation 
+
+This condition does not pin down the value of 
+ completely, but so long as we can keep the height of 
+ not too much larger than 
+, it does restrict 
+ to a sufficiently small set of possible values that a simple application of the pigeonhole principle can allow one to conclude.
+
+In order for this strategy to work well, one needs to locate high-degree number fields 
+ of controlled discriminant for which it is relatively easy to at least partially split one’s rational primes 
+ into ideals in this field 
+. It turns out that requiring the field to have a tower structure and admit 
+complex multiplication
+ (which basically amounts to it including 
+) is already sufficient to get a satisfactory amount of splitting. To control discriminants, the most efficient choices are the Golod–Shafarevich towers, for which the (root) discriminant stays bounded; but a more naive choice of a tower of quadratic extensions also gives reasonable control on discriminants and is sufficient to establish Theorem 
+3
+.
+
+The three constructions thus sit on a continuum, with the key differences being the selection of the key parameters 
+ (the number of primes multiplied together) and 
+ (the degree). The Erdös construction keeps the degree fixed and sends the number of primes to infinity. The OpenAI construction does the opposite, keeping the set of primes fixed but sending the degree to infinity. The Mythos construction is a compromise, in which the degree and the number of primes both go to infinity in a coupled fashion.  In particular, one could easily imagine an alternate timeline of events in which the Mythos construction was the first to be discovered (by either humans or AI) after the Erdos construction as a reasonably natural modification of the latter, and then subsequently refined (again either by humans or AI) to the OpenAI construction once the significance of Golod–Shafarevich towers was realized.
+
+In 
+this recent paper of Pohoata
+, the terms “horizontal amplification” and “vertical amplification” were proposed for the technique of constructing large configurations by increasing 
+ and 
+, thus the Erdös construction becomes a paradigm for horizontal amplification while the OpenAI construction becomes a paradigm for vertical amplification (and the Mythos construction utilizes both types of amplification). See also 
+this paper of Bloom-Sawin-Schildkraut-Zhelezov
+ for another recent application of vertical amplification.
+
+ —  1. Some more details  — 
+
+Here we sketch how the quadratic extension approach can recover Theorem 
+3
+.
+
+As indicated above, we will work with a product 
+ of 
+ (rational) primes of size 
+. Our only requirements of these primes, beyond their size, will be that they are distinct and equal to 
+ mod 
+, so that they split in the Gaussian integers. By the prime number theorem in arithmetic progressions, this allows us to take 
+ as small as 
+, so in particular 
+.
+
+To construct 
+, we start by taking 
+ distinct medium-sized (rational) primes 
+ of size 
+ for some medium-sized parameter 
+ (eventually, when we optimize parameters, we will take 
+ to be a small multiple of 
+). We will not need any further properties of these primes, so by the prime number theorem we can take 
+ as small as 
+, so in particular 
+. We will take 
+ to be larger than 
+, so that the primes 
+ are distinct from the primes 
+.
+
+We will work in the number field 
+ generated by 
+ and 
+ real square roots 
+. For instance, if 
+ and 
+, a typical element in this field would take the form 
+
+In this particular example, the ring of integers would consist of those elements 
+(8)
+ for which 
+ are rational integers. In general, the ring of integers can be slightly larger than this, but for our purposes we can just work with the “naive” ring of integers 
+ generated by 
+ and 
+. A typical element of this ring then looks like 
+
+ where 
+ are rational integers and we adopt the convention that 
+. Let us define the (naive) height of such a ring element to be 
+. Then the number of elements of 
+ of height at most 
+ is 
+ as long as 
+ is sufficiently large (again I will be vague about what 
+ means here).
+
+Our main goal is to find a large number of solutions 
+ in 
+ to the congruence equation 
+(7)
+. As per the usual 
+Minkowski embedding
+ based on the various ways to embed 
+ into 
+ or 
+, it is convenient to think of 
+ as a lattice in a 
+-dimensional vector space, which (due to the presence of 
+, which excludes purely real embeddings) is naturally thought of as the product of 
+ copies of 
+. For instance, in the running example, one can identify a ring element 
+ with an element 
+
+ of 
+, and with this embedding 
+ becomes a lattice in 
+. In general, the embedding of 
+ into 
+ is essentially the 
+Walsh–Fourier transform
+, weighted by the various square roots of 
+. (The appearance of the Walsh-Fourier transform reflects the fact that the specific number field we are working with is an abelian Galois extension with Galois group 
+.) Because of this, one can readily compute the covolume of the lattice, which up to lower order terms is basically 
+, which with our construction can be crudely bounded by 
+. As long as we keep 
+ small compared to 
+, this covolume will be small compared to 
+ and will end up being a lower order term.
+
+The reason we care about the covolume (whichis essentially the square root of the 
+discriminant
+) is because of Minkowski’s theorem, which we will use in this crude form: 
+Minkowski’s theorem
+: any lattice 
+ in a 
+-dimensional space of covolume 
+ will contain a non-zero lattice vector of length 
+. Thus for instance 
+ will contain some vector of length 
+, and any sublattice of 
+ of index 
+ will contain a vector of length 
+, and thus also of height 
+ by inverting the Walsh-Fourier transform.
+
+Anyway, suppose that we can find some sublattice 
+ (in fact, they will be ideals, but we will not need this) of 
+ for which we can obtain the inclusion 
+
+that is to say one has 
+ for all 
+. Then clearly any element 
+ of 
+ will obey the congruence 
+(7)
+. An obvious choice of 
+ would be 
+, but this is way too sparse: this lattice has index 
+ in 
+, so the shortest vector one can hope to locate in it will have height 
+, which is too large for our purposes. Instead, we would like 
+ to have index 
+ (which is the smallest it can be while still yielding the inclusion 
+(9)
+); then 
+ will contain a non-zero element 
+ of height 
+, which means that 
+ is equal to 
+ times an element of 
+ of height 
+. The number of such elements is 
+, which will end up being a lower order term that we can easily pigeonhole away.
+
+We claim that we can find at least 
+ different sublattices 
+ of index 
+ that obey 
+(9)
+. To verify this claim, it is a straightforward matter to use the Chinese remainder theorem to work “prime by prime”. Indeed, it suffices to show for each of the 
+ primes 
+ dividing 
+, that there are 
+ different sublattices 
+ of 
+ of index 
+ that obey the inclusion 
+
+ We can descend now to the finite ring 
+, which is a 
+-dimensional vector space over the finite field 
+. The complex conjugation operation descends to an involution on this vector space, and we are looking for 
+ subspaces 
+ of dimension 
+ with the property that
+
+So now we just need to understand the structure of 
+. The general 
+Wedderburn–Artin theorem
+ tells us that this ring is the product of finite fields, but we can be much more explicit here in this specific situation. Exactly as Minkowski embedding maps rings in number fields into product of copies of 
+ and 
+ associated to the real and complex embeddings of the ring, we can also embed 
+ into a product of copies of 
+ and 
+, depending on how we assign square roots to 
+ or 
+ in 
+ or the quadratic extension 
+. We can illustrate this with the running example. As 
+ mod 
+, the square roots 
+ of 
+ in 
+ stay in 
+. Suppose first that 
+ also splits into square roots 
+ in 
+. Then we can embed 
+ into 
+ by mapping 
+
+ By counting elements we see that this embedding is in fact an isomorphism. If instead 
+ does not split, so that 
+ now lie in 
+, then we can embed 
+ into 
+ by mapping 
+
+ thus we drop half of the previous embeddings as being conjugate to the half that we retain. Again, counting shows that this is an isomorphism.
+
+In general, one can show that 
+ is isomorphic to either 
+ (if all the 
+ split in 
+) or 
+ (if at least one of the 
+ does not split). Furthermore, in the former case the 
+ copies of 
+ organize into 
+ conjugate pairs (corresponding to flipping 
+ to 
+), and in the latter case the 
+ copies of 
+ organize into 
+ conjugate pairs. By selecting one element from each conjugate pair, and taking 
+ to be the joint kernel of such elements, we can generate either 
+ or 
+ different subspaces 
+ of dimension 
+ with the desired property that 
+. By the aforementioned Chinese remainder argument, this gives the 
+ claimed lattices 
+ of index 
+.
+
+Invoking Minkowski’s theorem, this now generates 
+ non-zero vectors 
+ of height 
+ obeying 
+(7)
+. There is a technical issue that some of these vectors could conceivably collide with each other; however there is a further Chinese remainder theorem argument (which I will omit here) that shows that any such 
+ can belong to at most 
+ such lattices. So the number of distinct 
+ generated by this argument is at least 
+, and by pigeonholing one can now also get at least at least 
+ solutions to the equation 
+
+ of height 
+ for some 
+ of height 
+. As long as we select 
+
+ then the 
+ type factors can be neglected, and we approximately have 
+
+ up to lower order terms. If we choose 
+ to be a small multiple of 
+, then we soon calculate that 
+, and we recover Theorem 
+3
+.
+
+Share this:
+
+Print (Opens in new window)
+
+Print
+
+Email a link to a friend (Opens in new window)
+
+Email
+
+More
+
+Share on X (Opens in new window)
+
+X
+
+Share on Facebook (Opens in new window)
+
+Facebook
+
+Share on Reddit (Opens in new window)
+
+Reddit
+
+Share on Pinterest (Opens in new window)
+
+Pinterest
+
+Like
+
+Loading...
+
+Recent Comments
+
+Terence Tao
+ on 
+Long gaps in sieved sets
+Anonymous on 
+Long gaps in sieved sets
+Will Sawin
+ on 
+A digestion of unit distance…
+Terence Tao
+ on 
+275A, Notes 5: Variants of the…
+Anonymous on 
+275A, Notes 5: Variants of the…
+Cosmin Pohoata
+ on 
+A digestion of unit distance…
+Will Sawin
+ on 
+A digestion of unit distance…
+Will Sawin
+ on 
+A digestion of unit distance…
+Anonymous on 
+Modular Arithmetic Challenge
+Anonymous on 
+275A, Notes 5: Variants of the…
+Ben Johnsrude
+ on 
+A digestion of unit distance…
+Terence Tao
+ on 
+Almost all Collatz orbits atta…
+Anonymous on 
+275A, Notes 0: Foundations of…
+Pantelis Rodis on 
+A digestion of unit distance…
+Anonymous on 
+Analysis II
+
+Top Posts
+A digestion of unit distance constructions
+Career advice
+Books
+Does one have to be a genius to do maths?
+On writing
+Work hard
+A mathematical formalisation of dimensional analysis
+About
+275A, Notes 5: Variants of the central limit theorem
+There’s more to mathematics than rigour and proofs
+Archives
+
+July 2026
+ (1)
+
+June 2026
+ (3)
+
+May 2026
+ (1)
+
+March 2026
+ (4)
+
+February 2026
+ (3)
+
+January 2026
+ (4)
+
+December 2025
+ (5)
+
+November 2025
+ (5)
+
+September 2025
+ (1)
+
+August 2025
+ (3)
+
+July 2025
+ (1)
+
+June 2025
+ (2)
+
+May 2025
+ (5)
+
+April 2025
+ (2)
+
+March 2025
+ (1)
+
+February 2025
+ (3)
+
+January 2025
+ (1)
+
+December 2024
+ (3)
+
+November 2024
+ (4)
+
+October 2024
+ (1)
+
+September 2024
+ (4)
+
+August 2024
+ (3)
+
+July 2024
+ (3)
+
+June 2024
+ (1)
+
+May 2024
+ (1)
+
+April 2024
+ (5)
+
+March 2024
+ (1)
+
+December 2023
+ (2)
+
+November 2023
+ (2)
+
+October 2023
+ (1)
+
+September 2023
+ (3)
+
+August 2023
+ (3)
+
+June 2023
+ (8)
+
+May 2023
+ (1)
+
+April 2023
+ (1)
+
+March 2023
+ (2)
+
+February 2023
+ (1)
+
+January 2023
+ (2)
+
+December 2022
+ (3)
+
+November 2022
+ (3)
+
+October 2022
+ (3)
+
+September 2022
+ (1)
+
+July 2022
+ (3)
+
+June 2022
+ (1)
+
+May 2022
+ (2)
+
+April 2022
+ (2)
+
+March 2022
+ (5)
+
+February 2022
+ (3)
+
+January 2022
+ (1)
+
+December 2021
+ (2)
+
+November 2021
+ (2)
+
+October 2021
+ (1)
+
+September 2021
+ (2)
+
+August 2021
+ (1)
+
+July 2021
+ (3)
+
+June 2021
+ (1)
+
+May 2021
+ (2)
+
+February 2021
+ (6)
+
+January 2021
+ (2)
+
+December 2020
+ (4)
+
+November 2020
+ (2)
+
+October 2020
+ (4)
+
+September 2020
+ (5)
+
+August 2020
+ (2)
+
+July 2020
+ (2)
+
+June 2020
+ (1)
+
+May 2020
+ (2)
+
+April 2020
+ (3)
+
+March 2020
+ (9)
+
+February 2020
+ (1)
+
+January 2020
+ (3)
+
+December 2019
+ (4)
+
+November 2019
+ (2)
+
+September 2019
+ (2)
+
+August 2019
+ (3)
+
+July 2019
+ (2)
+
+June 2019
+ (4)
+
+May 2019
+ (6)
+
+April 2019
+ (4)
+
+March 2019
+ (2)
+
+February 2019
+ (5)
+
+January 2019
+ (1)
+
+December 2018
+ (6)
+
+November 2018
+ (2)
+
+October 2018
+ (2)
+
+September 2018
+ (5)
+
+August 2018
+ (3)
+
+July 2018
+ (3)
+
+June 2018
+ (1)
+
+May 2018
+ (4)
+
+April 2018
+ (4)
+
+March 2018
+ (5)
+
+February 2018
+ (4)
+
+January 2018
+ (5)
+
+December 2017
+ (5)
+
+November 2017
+ (3)
+
+October 2017
+ (4)
+
+September 2017
+ (4)
+
+August 2017
+ (5)
+
+July 2017
+ (5)
+
+June 2017
+ (1)
+
+May 2017
+ (3)
+
+April 2017
+ (2)
+
+March 2017
+ (3)
+
+February 2017
+ (1)
+
+January 2017
+ (2)
+
+December 2016
+ (2)
+
+November 2016
+ (2)
+
+October 2016
+ (5)
+
+September 2016
+ (4)
+
+August 2016
+ (4)
+
+July 2016
+ (1)
+
+June 2016
+ (3)
+
+May 2016
+ (5)
+
+April 2016
+ (2)
+
+March 2016
+ (6)
+
+February 2016
+ (2)
+
+January 2016
+ (1)
+
+December 2015
+ (4)
+
+November 2015
+ (6)
+
+October 2015
+ (5)
+
+September 2015
+ (5)
+
+August 2015
+ (4)
+
+July 2015
+ (7)
+
+June 2015
+ (1)
+
+May 2015
+ (5)
+
+April 2015
+ (4)
+
+March 2015
+ (3)
+
+February 2015
+ (4)
+
+January 2015
+ (4)
+
+December 2014
+ (6)
+
+November 2014
+ (5)
+
+October 2014
+ (4)
+
+September 2014
+ (3)
+
+August 2014
+ (4)
+
+July 2014
+ (5)
+
+June 2014
+ (5)
+
+May 2014
+ (5)
+
+April 2014
+ (2)
+
+March 2014
+ (4)
+
+February 2014
+ (5)
+
+January 2014
+ (4)
+
+December 2013
+ (4)
+
+November 2013
+ (5)
+
+October 2013
+ (4)
+
+September 2013
+ (5)
+
+August 2013
+ (1)
+
+July 2013
+ (7)
+
+June 2013
+ (12)
+
+May 2013
+ (4)
+
+April 2013
+ (2)
+
+March 2013
+ (2)
+
+February 2013
+ (6)
+
+January 2013
+ (1)
+
+December 2012
+ (4)
+
+November 2012
+ (7)
+
+October 2012
+ (6)
+
+September 2012
+ (4)
+
+August 2012
+ (3)
+
+July 2012
+ (4)
+
+June 2012
+ (3)
+
+May 2012
+ (3)
+
+April 2012
+ (4)
+
+March 2012
+ (5)
+
+February 2012
+ (5)
+
+January 2012
+ (4)
+
+December 2011
+ (8)
+
+November 2011
+ (8)
+
+October 2011
+ (7)
+
+September 2011
+ (6)
+
+August 2011
+ (8)
+
+July 2011
+ (9)
+
+June 2011
+ (8)
+
+May 2011
+ (11)
+
+April 2011
+ (3)
+
+March 2011
+ (10)
+
+February 2011
+ (3)
+
+January 2011
+ (5)
+
+December 2010
+ (5)
+
+November 2010
+ (6)
+
+October 2010
+ (9)
+
+September 2010
+ (9)
+
+August 2010
+ (3)
+
+July 2010
+ (4)
+
+June 2010
+ (8)
+
+May 2010
+ (8)
+
+April 2010
+ (8)
+
+March 2010
+ (8)
+
+February 2010
+ (10)
+
+January 2010
+ (12)
+
+December 2009
+ (11)
+
+November 2009
+ (8)
+
+October 2009
+ (15)
+
+September 2009
+ (6)
+
+August 2009
+ (13)
+
+July 2009
+ (10)
+
+June 2009
+ (11)
+
+May 2009
+ (9)
+
+April 2009
+ (11)
+
+March 2009
+ (14)
+
+February 2009
+ (13)
+
+January 2009
+ (18)
+
+December 2008
+ (8)
+
+November 2008
+ (9)
+
+October 2008
+ (10)
+
+September 2008
+ (5)
+
+August 2008
+ (6)
+
+July 2008
+ (7)
+
+June 2008
+ (8)
+
+May 2008
+ (11)
+
+April 2008
+ (12)
+
+March 2008
+ (12)
+
+February 2008
+ (13)
+
+January 2008
+ (17)
+
+December 2007
+ (10)
+
+November 2007
+ (9)
+
+October 2007
+ (9)
+
+September 2007
+ (7)
+
+August 2007
+ (9)
+
+July 2007
+ (9)
+
+June 2007
+ (6)
+
+May 2007
+ (10)
+
+April 2007
+ (11)
+
+March 2007
+ (9)
+
+February 2007
+ (4)
+
+Categories
+
+expository
+ (321)
+
+tricks
+ (13)
+
+guest blog
+ (10)
+
+Mathematics
+ (917)
+
+math.AC
+ (9)
+
+math.AG
+ (42)
+
+math.AP
+ (115)
+
+math.AT
+ (17)
+
+math.CA
+ (196)
+
+math.CO
+ (206)
+
+math.CT
+ (9)
+
+math.CV
+ (39)
+
+math.DG
+ (37)
+
+math.DS
+ (90)
+
+math.FA
+ (24)
+
+math.GM
+ (16)
+
+math.GN
+ (21)
+
+math.GR
+ (90)
+
+math.GT
+ (17)
+
+math.HO
+ (14)
+
+math.IT
+ (13)
+
+math.LO
+ (54)
+
+math.MG
+ (48)
+
+math.MP
+ (31)
+
+math.NA
+ (26)
+
+math.NT
+ (211)
+
+math.OA
+ (22)
+
+math.PR
+ (110)
+
+math.QA
+ (6)
+
+math.RA
+ (49)
+
+math.RT
+ (21)
+
+math.SG
+ (4)
+
+math.SP
+ (48)
+
+math.ST
+ (11)
+
+non-technical
+ (208)
+
+admin
+ (48)
+
+advertising
+ (77)
+
+diversions
+ (7)
+
+media
+ (14)
+
+journals
+ (3)
+
+obituary
+ (15)
+
+opinion
+ (37)
+
+paper
+ (272)
+
+book
+ (23)
+
+Companion
+ (13)
+
+update
+ (26)
+
+question
+ (128)
+
+polymath
+ (87)
+
+talk
+ (69)
+
+DLS
+ (20)
+
+teaching
+ (190)
+
+245A – Real analysis
+ (11)
+
+245B – Real analysis
+ (22)
+
+245C – Real analysis
+ (6)
+
+246A – complex analysis
+ (11)
+
+246B – complex analysis
+ (5)
+
+246C – complex analysis
+ (5)
+
+247B – Classical Fourier Analysis
+ (5)
+
+254A – analytic prime number theory
+ (19)
+
+254A – ergodic theory
+ (18)
+
+254A – Hilbert's fifth problem
+ (12)
+
+254A – Incompressible fluid equations
+ (5)
+
+254A – random matrices
+ (14)
+
+254B – expansion in groups
+ (8)
+
+254B – Higher order Fourier analysis
+ (9)
+
+255B – incompressible Euler equations
+ (2)
+
+275A – probability theory
+ (6)
+
+285G – poincare conjecture
+ (20)
+
+Logic reading seminar
+ (8)
+
+The sciences
+ (1)
+
+travel
+ (26)
+
+additive combinatorics
+
+approximate groups
+
+arithmetic progressions
+
+Artificial Intelligence
+
+Ben Green
+
+Cauchy-Schwarz
+
+Cayley graphs
+
+central limit theorem
+
+Chowla conjecture
+
+compressed sensing
+
+correspondence principle
+
+cosmic distance ladder
+
+distributions
+
+divisor function
+
+eigenvalues
+
+Elias Stein
+
+Emmanuel Breuillard
+
+entropy
+
+equidistribution
+
+Erdos
+
+ergodic theory
+
+Euler equations
+
+exponential sums
+
+finite fields
+
+Fourier transform
+
+Freiman's theorem
+
+Gowers uniformity norm
+
+Gowers uniformity norms
+
+graph theory
+
+Gromov's theorem
+
+GUE
+
+Hilbert's fifth problem
+
+ICM
+
+incompressible Euler equations
+
+inverse conjecture
+
+Joni Teravainen
+
+Kaisa Matomaki
+
+Kakeya conjecture
+
+Lie algebras
+
+Lie groups
+
+Liouville function
+
+Littlewood-Offord problem
+
+Maksym Radziwill
+
+Mobius function
+
+Navier-Stokes equations
+
+nilpotent groups
+
+nilsequences
+
+nonstandard analysis
+
+Paul Erdos
+
+politics
+
+polymath1
+
+polymath8
+
+Polymath15
+
+polynomial method
+
+polynomials
+
+prime gaps
+
+prime numbers
+
+prime number theorem
+
+random matrices
+
+randomness
+
+Ratner's theorem
+
+regularity lemma
+
+Ricci flow
+
+Riemann zeta function
+
+Schrodinger equation
+
+Shannon entropy
+
+sieve theory
+
+structure
+
+Szemeredi's theorem
+
+Tamar Ziegler
+
+ultrafilters
+
+universality
+
+Van Vu
+
+wave maps
+
+Yitang Zhang
+
+The Polymath Blog
+Polymath News and AI
+Polymath projects 2021
+A sort of Polymath on a famous MathOverflow problem
+Ten Years of Polymath
+Updates and Pictures
+Polymath proposal: finding simpler unit distance graphs of chromatic number 5
+A new polymath proposal (related to the Riemann Hypothesis) over Tao’s blog
+Spontaneous Polymath 14 – A success!
+Polymath 13 – a success!
+Non-transitive Dice over Gowers’s Blog
+
+11 comments
+
+Comments feed for this article
+
+3 July, 2026 at 8:29 am
+
+asahay22
+
+A couple of quick things to correct:
+
+(1) You are missing \ in an \in in the first line.
+
+(2) Right after your equation (6), some amount of your text seems to have been eaten up by a link which displays only as a period.
+
+[Corrected, thanks – T.]
+
+Reply
+
+4 July, 2026 at 12:13 pm
+
+Anonymous
+
+Are results known for 3D?
+
+Reply
+
+7 July, 2026 at 11:13 am
+
+Will Sawin
+
+In three dimensions, the best known construction is still a three-dimensional grid. There is a known upper bound, which is closer to the lower bound, but still a gap between them. Thomas Bloom’s 
+Erdős problem website 
+is a good way to learn about the current status of such problems.
+
+It does not seem possible to use “vertical amplification” to improve the lower bound. For an explanation of why see section 7 of 
+Remarks on the disproof of the unit distance conjecture
+.
+
+Reply
+
+7 July, 2026 at 2:18 pm
+
+Cosmin Pohoata
+
+Curiously, if instead one replaces L^2 norm with L^3 norm, it seems to me that a vertical amplification of the proof of Theorem 4.8 from our recent Croot-Mao-Pohoata-Sheffer-Yip paper (
+https://arxiv.org/abs/2606.17487
+) should still produce a set of n points in R^3 with >> n^{1+c} L^3 unit distances, for some absolute constant c > 0. 
+
+I haven’t checked the details, but the argument should be more or less analogous to what we do in this new paper with Sungchul Lee and Daniel Zhu: 
+https://arxiv.org/abs/2607.05374
+ (and, like in R^2, the 3d construction should also have some additional robustness properties). 
+
+Reply
+
+8 July, 2026 at 12:28 pm
+
+Will Sawin
+
+Interesting! For an arbitrary norm, one can always get a constant times n unit distances by putting the points on a line with each one a unit distance from the previous one.
+
+For the usual norm on the plane, the horizontal amplification beats this by an amount less than any power of n, and this is the classical construction, and the vertical amplification beats this by a small power of n. In higher dimensions, for the usual norm, the vertical amplification beats the trivial bound by a small power of n (for example just by restricting to the plane) but now the horizontal amplification beats the trivial bound by a larger power of n since there are many ways of writing an integer as a sum of squares (basically by pigeonhole), so there’s no clear way to improve on the classical construction.
+
+For a generic norm, one can’t beat the trivial bound by any power of n.
+
+However, you observe that one can find norms with enough algebraic structure that vertical amplification beats the trivial bound by a small power of n, but not so much algebraic structure that horizontal amplification beats the trivial bound by a larger power of n. It might be interesting to understand the set of such norms.
+
+Reply
+
+4 July, 2026 at 7:17 pm
+
+Rex
+
+There seems to be a typo in the last sentence of the paragraph
+
+“But if one can permit the degree
+
+to grow in the construction, and in particular be superpolynomial in
+
+, then the above heuristics suggest that we can start improving upon Theorem 
+1
+ , and even get all the way to Theorem 
+2
+ if we can make the degree go to infinity while keeping the number the number of primes
+
+.”
+
+[Corrected, thanks -T.]
+
+Reply
+
+5 July, 2026 at 6:00 pm
+
+garylangford
+
+I found it particularly interesting how your exposition recasts the Erdős, Mythos, and OpenAI constructions as members of a single parameterized family rather than presenting them as three unrelated arguments. The progression through geometry, norm equations, algebraic integers, number fields, lattices, and finite quotients made it seem that the principal advance is not simply a stronger counting argument, but a sequence of increasingly informative mathematical representations. Likewise, viewing the constructions through the parameters (horizontal amplification) and (vertical amplification) provides a common coordinate system in which the three approaches become different regions of the same landscape, rather than fundamentally different methods.
+
+This led me to wonder whether, beyond the parameterization itself, you see a structural invariant that is preserved across all three constructions. Is there an object or organizing principle that you regard as remaining essentially unchanged as one moves from the Erdős construction through Mythos to the OpenAI construction, with  and  serving primarily as coordinates on that underlying structure?
+
+Reply
+
+5 July, 2026 at 7:42 pm
+
+Anonymous
+
+I am an UCLA student. I am finding these tricks found by AI to be  somewhat (or even closely) analogous to algebraic geometric and number theoretic codes and lattices found by Manin, Vladut, Tsfasman and others (
+Algebraic Geometric Codes – Google Books
+ and 
+Algebraic Geometry Codes – Google Books
+). Here also packing is the theme. Broadly speaking has AI unearthed a previously unknown dictionary surreptitiously knowing constructions in these? The number of people studying the intersections of these known constructions and Erdos problems is maybe virtually 0.
+
+Reply
+
+7 July, 2026 at 11:29 am
+
+Will Sawin
+
+The relation to prior work on codes and lattices was pointed out in the paper 
+Remarks on the disproof of the unit distance conjecture
+. It has been somewhat helpful in followup work – the work of Tsfasman on the unit group lattice was one of the inspirations for arguments in Bloom-Sawin-Schildkraut-Zhelezov, and work on codes arising from curves over finite fields was relevant too. 
+
+Indeed, one way to state the insight of the AI is that some of the constructions that work for these packing and coding problems also work for the seemingly different unit distance problem and for others. The sum-product problem might provide the most intuitive explanation of why that is: The crucial thing there is that both the additive group and the multiplicative group of the same number field give reasonably dense packings, which is used to get a set exhibiting both additive and multiplicative structure.
+
+Sets exhibiting additive and multplicative structure can give good unit distance sets basically because two complex numbers have distance 1 if their difference has norm 1 and difference is, up to sign, the same as addition, while norm 1 complex numbers form a multiplicative subgroup.
+
+Certainly now I think people are thinking about the intersection of these topics.
+
+Reply
+
+6 July, 2026 at 5:15 am
+
+Pantelis Rodis
+
+I am especially interested in the algorithmic approach to the unit distance problem and I developed an experimental approach to it; see the paper in 
+arxiv
+. Specifically, the algorithm performs a greedy search on the rational plane and constructs unit-distance graphs that grow at a rate of $n^1.17$ exceeding theoretical limitations, at least in the finite space in which it ran.
+
+Although it does not rest on strong theoretical grounds, it provides some interesting insights. I hope you will find it interesting.
+
+https://arxiv.org/pdf/2606.29415
+
+Reply
+
+7 July, 2026 at 6:23 am
+
+Ben Johnsrude
+
+In your example illustrating the Minkowski embedding, should the second entry have minus signs on the 
+‘s?
+
+[Corrected, thanks – T.]
+
+Reply
+
+Leave a comment 
+Cancel reply
+
+Δ
+
+For commenters
+
+To enter in LaTeX in comments, use $latex 
+<Your LaTeX code>
+$ (without the < and > signs, of course; in fact, these signs should be avoided as they can cause formatting errors). Also, backslashes \ need to be doubled as \\.  See the 
+about page
+ for details and for other commenting policy.
+
+«
+ Third SAIR competition: inverse Galois challenge
+
+Blog at WordPress.com.
+Ben Eastaugh and Chris Sternal-Johnson. 
+
+Subscribe to feed.
+
+Comment						
+
+Reblog
+
+Subscribe
+
+Subscribed
+
+				What's new			
+
+Join 12,135 other subscribers
+
+												Sign me up											
+
+											Already have a WordPress.com account? 
+Log in now.
+
+Privacy						
+
+				What's new			
+
+Subscribe
+
+Subscribed
+
+Sign up
+
+Log in
+
+Copy shortlink
+
+										Report this content									
+
+										View post in Reader									
+
+Manage subscriptions
+
+Collapse this bar
+
+%d
+

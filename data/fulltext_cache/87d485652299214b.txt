@@ -1,0 +1,1962 @@
+
+
+Primitive sets and von Mangoldt chains: Erdős Problem #1196 and beyond | What's new
+
+What's new
+
+Updates on my research and expository papers, discussion of open problems, and other maths-related topics.  By Terence Tao
+
+Home
+
+About
+
+Career advice
+
+On writing
+
+Books
+
+Mastodon+
+
+Applets
+
+Subscribe to feed
+
+Primitive sets and von Mangoldt chains: Erdős Problem #1196 and beyond
+
+3 May, 2026 in 
+math.NT
+, 
+paper
+ | Tags: 
+Boris Alexeev
+, 
+Erdos
+, 
+Jared Lichtman
+, 
+Jibran Iqbal Shah
+, 
+Kevin Barreto
+, 
+Liam Price
+, 
+Markov chains
+, 
+primitive sets
+, 
+Quanyu Tang
+, 
+Yanyang Li
+ | by 
+Terence Tao
+
+Boris Alexeev
+, Kevin Barreto, Yanyang Li, 
+Jared Duker Lichtman
+, Liam Price, Jibran Iqbal Shah, Quanyu Tang, and I have just uploaded to the arXiv our paper 
+Primitive sets and von Mangoldt chains: Erdős Problem #1196 and beyond
+. This paper (which is a work in progress) represents our efforts to digest and document the recent flurry of developments around the 
+following problem of Erdős, Sárközy, and Szemerédi
+ on primitive sets:
+
+Conjecture 1 (Erdős problem #1196)
+
+ Suppose that 
+ is a primitive set of integers, which means that no element of 
+ divides another. Then 
+
+ as 
+. 
+
+One can show that the upper bound of 
+ is best possible up to the 
+ error by taking 
+ to be the set of products of 
+ primes for some suitable parameter 
+. This was one of the most well-known open problems in the study of primitive sets, and had attracted some number of partial results (for instance, Lichtman was able to show the upper bound of 
+). It was thus notable that this problem was 
+first solved by an autonomous AI query
+ (by the fifth author) a few weeks ago. This solution introduced a proof technique – based on Markov chains in the divisibility poset – which in retrospect is very natural for controlling primitive sets, but which had not been explicitly used in previous literature, though in retrospect many of the arguments in that literature involved a specific Markov chain which we call the 
+downwards Mertens chain
+. The proof instead revolved around a different Markov chain, which we call the 
+downwards von Mangoldt chain
+, which manages to neatly avoid the “
+” type losses in the previous Mertens-based arguments, and resolve Conjecture 
+1
+. In this paper we develop the Markov chain approach more systematically, and show that it settles several further conjectures concerning primitive sets, and also provides simpler proofs of some previous results in the literature. More precisely, in addition to Conjecture 
+1
+, we establish the following:
+
+Theorem 2 (Erdős primitive set conjecture, #164)
+
+ For any primitive 
+ consisting of numbers greater than 
+, 
+
+Theorem 3 (Odd Banks–Martin)
+
+ Let 
+ and suppose 
+ is a primitive set consisting of odd numbers with at most 
+ prime factors. Then 
+
+where 
+ denotes the primes appearing as factors of elements of 
+, and 
+ is the collection of products of 
+ primes from 
+. 
+
+Theorem 4 (
+ is Erdős-strong)
+
+ If 
+ is a primitive set consisting of even numbers, then 
+
+Theorem 5 (Ahlswede–Khachatrian–Sárközy)
+
+ If 
+ is a primitive set, then 
+
+ whenever 
+. 
+
+Theorem 6 (Erdős–Sárközy–Szemerédi, #1217)
+
+ Let 
+ be such that the upper doubly logarithmic density 
+
+ is positive. Then there exists a strictly increasing infinite divisibility chain 
+
+ in 
+ such that 
+
+Theorem 
+2
+ and Theorem 
+5
+ had been previously established by Lichtman and Ahlswede–Khachatrian–Sárközy respectively, but the Markov chain formalism gives shorter (and more unified) proofs of both. Theorems 
+3
+, 
+4
+, 
+6
+ were open conjectures that can now be settled by this method. These results were obtained with varying levels of AI involvement, ranging from completely autonomous AI queries to traditional pen-and-paper calculations, to various hybrid approaches (for instance, with humans suggesting key inequalities that could then be rapidly tested numerically or even proved by various AI tools).
+
+ —  1. Chain/antichain duality and Markov chains  — 
+
+I’ll now discuss the basic method of proof and try to motivate the main ideas, which have become much clearer in retrospect. Primitive sets can be viewed as 
+antichains
+ in the divisibility poset 
+, in which the partial ordering is given by the divisibility relation 
+. So, one can pose the following more abstract question: given a general poset 
+ and a weight function 
+, what is the maximal value of 
+ as 
+ ranges over all antichains in 
+?
+
+One can attack this problem using the well known duality between antichains and chains 
+ (totally ordered subsets of 
+): every antichain and chain can meet in at most one point, thus one has 
+
+ for any chain 
+ and any antichain 
+. In particular, if one has a measure 
+ on the space 
+ of all chains (viewed as a compact subspace of the power set of 
+, equipped with the product topology) with the property that 
+
+ for all 
+, then by integrating the previous inequality against 
+ and using Tonelli’s theorem one would obtain the upper bound 
+
+In fact this duality is completely tight:
+
+Proposition 7 (Chain/antichain duality)
+
+ Let 
+ be a poset, let 
+ be a weight function, and let 
+. Then the following are equivalent: 
+
+ (i) 
+ for all antichains 
+. 
+ (ii) There exists a measure 
+ of total mass at most 
+ on the space of chains, such that 
+(1)
+ holds for all 
+. 
+
+Proof:
+  We have already indicated how (ii) implies (i). Now we need to show that (i) implies (ii). A standard compactness argument allows us to reduce to the case when 
+ is finite. If (i) holds, then we also have 
+
+ for all 
+ in the 
+Stanley chain polytope
+, defined as the convex hull of the indicator functions of antichains. By a 
+classic result of Stanley
+, this polytope can also be defined as the space of all 
+ obeying the inequalities 
+
+ and 
+
+ Applying 
+linear programming duality
+ (or the 
+Farkas lemma
+), we conclude that the inequality 
+(2)
+ must be a non-negative linear combination of the inequalities 
+(3)
+, 
+(4)
+ (as well as the trivial inequality 
+). Equivalently, we can find non-negative weights 
+ for each chain 
+ such that 
+
+ and 
+
+ for all 
+. The claim follows by viewing 
+ as a measure on the space of chains. 
+
+Thus, the “universal” problem of obtaining a uniform upper bound on 
+ for all antichains 
+ is replaced with the equivalent “existential” dual problem of exhibiting a single measure 
+ on chains of controlled mass, which hits each element 
+ of the poset with a mass of at least the original weight 
+. Thus, such problems are now reduced to that of finding a sufficiently clever construction of such a measure 
+. If the mass of 
+ was normalized to equal 
+, this becomes a probability problem: find a random chain process in the poset 
+ that hits each element 
+ of the poset with a sufficiently high probability. (Though in our paper we found it more convenient for technical reasons to not normalize the measure, and allow the mass to take values other than 
+.)
+
+It turns out (in a manner that was not explicitly appreciated in past literature) that particularly good choices of random chain to use here can come from 
+Markov chains
+. (Here, the term “chain” is now being used in two different ways, but fortunately the order-theoretic concept of a chain and the Markov process-theoretic concept of a chain will be quite compatible in this discussion.) There will be two types of Markov chains on the poset 
+ that will be relevant: downwards Markov chains and upwards Markov chains. Here is our notation for a downwards Markov chain:
+
+Definition 8 (Downwards Markov chain)
+  Let 
+ be a poset, and suppose we designate some subset 
+ of 
+ to be the “absorbing states” (in practice these will be the minimal elements of 
+, although they do not have to be). A downwards Markov chain on 
+ with absorbing states 
+ is a collection of 
+transition probabilities
+
+ for 
+ obeying the following axioms: 
+
+ (i) 
+, with equality unless 
+ and 
+, or if 
+ and 
+. 
+ (ii) For any 
+, one has 
+. 
+
+ (Thus for instance one has 
+ for any absorbing state 
+.) 
+
+Given such a downwards Markov chain and an initial state 
+, one can generate a random decreasing sequence 
+ by having each 
+ transition to 
+ with probability 
+ after conditioning on the past history 
+ of the chain. This sequence will (almost surely) be strictly decreasing until it hits an absorbing state, in which case it stays there forever, although if the 
+descending chain condition
+ is not satisfied it is also possible for the sequence to be strictly decreasing indefinitely. We let 
+ denote the law of this decreasing sequence. This construction is already enough to recover the 
+Lubell-Yamomoto-Meshalkin (LYM) inequality
+:
+
+Theorem 9 (LYM inequality)
+  If 
+ is the power set of 
+ with the inclusion partial ordering, and 
+ is an antichain in this poset (i.e., a 
+Sperner family
+), then 
+
+Proof:
+  We introduce the downwards Markov chain with absorbing state 
+ in which each non-empty subset of 
+ of some cardinality 
+ transitions to a 
+-element subset chosen uniformly at random (i.e., with probability 
+ of transitioning to each). If we start the descending sequence from the maximal element 
+ of 
+, then one can easily check that each 
+ is hit with probability 
+. Applying Proposition 
+7
+ with 
+, 
+, and 
+, we obtain the claim. 
+
+In the above argument we fixed the initial location 
+ of the Markov chain, but more generally one can start with any source mass 
+ and work with the measure 
+ for the purposes of applying Proposition 
+7
+.
+
+One can also define upwards Markov chains 
+ in exact analogy with downwards Markov chains 
+ (reversing the order in the poset), which now generate random increasing sequences 
+ rather than decreasing sequences. There is a useful 
+adjoint
+ construction that can convert a downwards Markov chain into an upwards Markov chain: if we have a positive weight 
+ which is 
+invariant
+ under the chain in the sense that 
+
+ for any 
+, then we can define an 
+adjoint
+ upwards Markov chain 
+ (with no absorbing state) by the formula 
+
+ for any 
+ in 
+. More generally, if 
+ is merely 
+sub-invariant
+ in the sense that 
+
+ for all 
+, one can still construct an adjoint upwards chain as before, but now one must also add an additional absorbing maximal state 
+ to ensure that the transition probabilities still sum to one.
+
+A downwards or upwards Markov chain, when equipped with an invariant or sub-invariant measure, also induces a 
+flow network
+ on the poset, in which an edge from 
+ to 
+ is assigned a flow capacity of 
+
+ One can rewrite the Markov chain arguments in the paper in terms of such flow networks, in which case the arguments often boil down to an application of the discrete divergence theorem, giving very short proofs of many of the above results; see the paper for more discussion. However, we chose to focus more on the Markov chain approach in our presentation, as this formalism is also natural and could potentially be more flexible for further applications.
+
+ —  2. The Mertens and von Mangoldt chains  — 
+
+For the purpose of analyzing primitive sets, there are two downward chains on the natural numbers (with absorbing state 
+)that, in retrospect, are particularly natural to use:
+
+ The 
+downwards Mertens chain
+, in which each 
+ transitions deterministically to 
+, where 
+ is the largest prime factor of 
+; and 
+ the 
+downwards von Mangoldt chain
+, in which each 
+ transitions to 
+ with probability 
+ for each 
+ dividing 
+, with 
+ the 
+von Mangoldt function
+. 
+
+The von Mangoldt weight 
+ is a natural choice here thanks to the fundamental identity 
+
+ which encodes the fundamental theorem of arithmetic. The two chains are similar in many way to each other: the von Mangoldt process 
+favors
+ the division by the largest prime factor, but does not 
+require it
+.
+
+The Mertens chain generates deterministic downward divisibility chains 
+
+ starting from a product of 
+ primes 
+, and as such this process was implicit in much of the previous literature on primitive sets. However, it does not quite interact well with the 
+ weight, which is not invariant or subinvariant with respect to this process. Intuitively, the process of dividing 
+ by 
+ tends to increasingly select for numbers 
+ for which 
+ is smaller than expected. Instead, the natural invariant measure for this chain is the 
+Mertens weight
+
+ the verification that this is indeed an invariant weight is a nice exercise in telescoping series. Taking the adjoint of the downwards Mertens chain with respect to this weight and running that chain from 
+ gives the 
+upwards Mertens divisibility chain
+
+ in which each 
+ transitions to 
+ for some prime 
+ with probability 
+. A routine induction shows that each 
+ is hit by this chain with a probability of 
+; this for instance gives a weak version 
+
+ of Theorem 
+1
+, and similarly for the other results discussed above.
+
+The key innovation (which was uncovered by the AI-assisted proofs, though not quite in the notation and framework presented here) is to switch to the von Mangoldt chain, which removes the bias towards numbers whose largest prime factor is small. Indeed, the weight 
+ now turns out to be sub-invariant (after removing 
+) under this chain, and there is a modification 
+
+ of this weight which turns out to be perfectly invariant. (We have an interpretation of this formula in terms of a 
+zeta process
+ that couples together various 
+zeta distributions
+ into a continuous divisibility chain; see the paper for further details.) Taking the adjoint with respect to this weight (or with the original weight 
+) can eliminate the 
+ loss in the previous argument, and give one of the proofs of Theorem 
+1
+ recorded in our paper (there are several other variants of this method that we also present).
+
+One slight defect of the von Mangoldt chain, as compared to the Mertens chain, is that it can “jump over” primitive sets (such as the set of products of 
+ primes) due to the fact that it will sometimes multiply or divide by a power of a prime rather than a prime itself. This turns out to be a technical difficulty for many of our applications, resulting in a need to make various small 
+ad hoc
+ modifications to the von Mangoldt chain to eliminate this type of jump.
+
+In order to establish some crucial sub-invariance properties, it turns out (after some standard manipulations) to be useful to obtain good bounds on the negative log-derivative 
+
+ of the Riemann zeta function 
+ in the region 
+. Here it turns out that there is a clean (and rather efficient) upper bound 
+
+ which is equivalent to the non-decreasing nature of the Dirichlet eta function 
+
+ in this region. There are many proofs of this fact in the literature, but I would like to record a particularly cute proof, that is in the spirit of other arguments in the paper: one can interpret 
+ probabilistically as 
+
+ where 
+ is a 
+gamma random variable
+ of shape 
+ and scale 
+. Because the sum of independent copies of 
+ and 
+ has the distribution of 
+, one can couple together all the 
+ so that they are increasing in 
+, at which point the claim follows.
+
+ —  3. Further directions  — 
+
+Will Sawin and Ofir Gorodetsky have obtained analogues of several of the above results for function field models or permutation models respectively; we briefly discuss these in the paper, although we do not plan to cover these models in depth. We also note another 
+recent use of this technique
+ to solve a separate Erdős problem (#858) relating to antichains in a variant of the divisibility poset.
+
+The zeta process that we have discovered hints at an emerging theory of the “developmental anatomy of integers”, which differs from the existing topic of anatomy of integers in that it views a large integer 
+ (and its prime factor “organs”) not as a static entity, but rather as an evolving 
+process
+ in which primes (or powers of primes, in the case of the von Mangoldt process) are added or removed to the integer over time. With this perspective, primitive sets can be viewed as singular moments in such a developmental process, which are only encountered at most once in the life cycle of a given integer. It seems of interest to study this developmental perspective further.
+
+The paper is currently a work in progress; we have released an early version due to the public interest in this problem. We plan to explore some further applications, and also to formalize more of the above results in Lean (currently two of the six main theorems are formalized), before submitting the paper for publication. The situation here highlights a distinction I have 
+recently made
+ between three components of the problem solving process in mathematics, namely proof generation, proof verification, and proof digestion. In this particular case, the first two steps were extremely rapid due to modern AI tools; however, properly digesting the AI-generated proofs into a coherent exposition that places the arguments in context with both past literature and future directions remains a slower process that requires expert human attention.
+
+Share this:
+
+Print (Opens in new window)
+
+Print
+
+Email a link to a friend (Opens in new window)
+
+Email
+
+More
+
+Share on X (Opens in new window)
+
+X
+
+Share on Facebook (Opens in new window)
+
+Facebook
+
+Share on Reddit (Opens in new window)
+
+Reddit
+
+Share on Pinterest (Opens in new window)
+
+Pinterest
+
+Like
+
+Loading...
+
+Recent Comments
+
+Terence Tao
+ on 
+Long gaps in sieved sets
+Anonymous on 
+Long gaps in sieved sets
+Will Sawin
+ on 
+A digestion of unit distance…
+Terence Tao
+ on 
+275A, Notes 5: Variants of the…
+Anonymous on 
+275A, Notes 5: Variants of the…
+Cosmin Pohoata
+ on 
+A digestion of unit distance…
+Will Sawin
+ on 
+A digestion of unit distance…
+Will Sawin
+ on 
+A digestion of unit distance…
+Anonymous on 
+Modular Arithmetic Challenge
+Anonymous on 
+275A, Notes 5: Variants of the…
+Ben Johnsrude
+ on 
+A digestion of unit distance…
+Terence Tao
+ on 
+Almost all Collatz orbits atta…
+Anonymous on 
+275A, Notes 0: Foundations of…
+Pantelis Rodis on 
+A digestion of unit distance…
+Anonymous on 
+Analysis II
+
+Top Posts
+A digestion of unit distance constructions
+Career advice
+Books
+Does one have to be a genius to do maths?
+On writing
+Work hard
+A mathematical formalisation of dimensional analysis
+About
+275A, Notes 5: Variants of the central limit theorem
+There’s more to mathematics than rigour and proofs
+Archives
+
+July 2026
+ (1)
+
+June 2026
+ (3)
+
+May 2026
+ (1)
+
+March 2026
+ (4)
+
+February 2026
+ (3)
+
+January 2026
+ (4)
+
+December 2025
+ (5)
+
+November 2025
+ (5)
+
+September 2025
+ (1)
+
+August 2025
+ (3)
+
+July 2025
+ (1)
+
+June 2025
+ (2)
+
+May 2025
+ (5)
+
+April 2025
+ (2)
+
+March 2025
+ (1)
+
+February 2025
+ (3)
+
+January 2025
+ (1)
+
+December 2024
+ (3)
+
+November 2024
+ (4)
+
+October 2024
+ (1)
+
+September 2024
+ (4)
+
+August 2024
+ (3)
+
+July 2024
+ (3)
+
+June 2024
+ (1)
+
+May 2024
+ (1)
+
+April 2024
+ (5)
+
+March 2024
+ (1)
+
+December 2023
+ (2)
+
+November 2023
+ (2)
+
+October 2023
+ (1)
+
+September 2023
+ (3)
+
+August 2023
+ (3)
+
+June 2023
+ (8)
+
+May 2023
+ (1)
+
+April 2023
+ (1)
+
+March 2023
+ (2)
+
+February 2023
+ (1)
+
+January 2023
+ (2)
+
+December 2022
+ (3)
+
+November 2022
+ (3)
+
+October 2022
+ (3)
+
+September 2022
+ (1)
+
+July 2022
+ (3)
+
+June 2022
+ (1)
+
+May 2022
+ (2)
+
+April 2022
+ (2)
+
+March 2022
+ (5)
+
+February 2022
+ (3)
+
+January 2022
+ (1)
+
+December 2021
+ (2)
+
+November 2021
+ (2)
+
+October 2021
+ (1)
+
+September 2021
+ (2)
+
+August 2021
+ (1)
+
+July 2021
+ (3)
+
+June 2021
+ (1)
+
+May 2021
+ (2)
+
+February 2021
+ (6)
+
+January 2021
+ (2)
+
+December 2020
+ (4)
+
+November 2020
+ (2)
+
+October 2020
+ (4)
+
+September 2020
+ (5)
+
+August 2020
+ (2)
+
+July 2020
+ (2)
+
+June 2020
+ (1)
+
+May 2020
+ (2)
+
+April 2020
+ (3)
+
+March 2020
+ (9)
+
+February 2020
+ (1)
+
+January 2020
+ (3)
+
+December 2019
+ (4)
+
+November 2019
+ (2)
+
+September 2019
+ (2)
+
+August 2019
+ (3)
+
+July 2019
+ (2)
+
+June 2019
+ (4)
+
+May 2019
+ (6)
+
+April 2019
+ (4)
+
+March 2019
+ (2)
+
+February 2019
+ (5)
+
+January 2019
+ (1)
+
+December 2018
+ (6)
+
+November 2018
+ (2)
+
+October 2018
+ (2)
+
+September 2018
+ (5)
+
+August 2018
+ (3)
+
+July 2018
+ (3)
+
+June 2018
+ (1)
+
+May 2018
+ (4)
+
+April 2018
+ (4)
+
+March 2018
+ (5)
+
+February 2018
+ (4)
+
+January 2018
+ (5)
+
+December 2017
+ (5)
+
+November 2017
+ (3)
+
+October 2017
+ (4)
+
+September 2017
+ (4)
+
+August 2017
+ (5)
+
+July 2017
+ (5)
+
+June 2017
+ (1)
+
+May 2017
+ (3)
+
+April 2017
+ (2)
+
+March 2017
+ (3)
+
+February 2017
+ (1)
+
+January 2017
+ (2)
+
+December 2016
+ (2)
+
+November 2016
+ (2)
+
+October 2016
+ (5)
+
+September 2016
+ (4)
+
+August 2016
+ (4)
+
+July 2016
+ (1)
+
+June 2016
+ (3)
+
+May 2016
+ (5)
+
+April 2016
+ (2)
+
+March 2016
+ (6)
+
+February 2016
+ (2)
+
+January 2016
+ (1)
+
+December 2015
+ (4)
+
+November 2015
+ (6)
+
+October 2015
+ (5)
+
+September 2015
+ (5)
+
+August 2015
+ (4)
+
+July 2015
+ (7)
+
+June 2015
+ (1)
+
+May 2015
+ (5)
+
+April 2015
+ (4)
+
+March 2015
+ (3)
+
+February 2015
+ (4)
+
+January 2015
+ (4)
+
+December 2014
+ (6)
+
+November 2014
+ (5)
+
+October 2014
+ (4)
+
+September 2014
+ (3)
+
+August 2014
+ (4)
+
+July 2014
+ (5)
+
+June 2014
+ (5)
+
+May 2014
+ (5)
+
+April 2014
+ (2)
+
+March 2014
+ (4)
+
+February 2014
+ (5)
+
+January 2014
+ (4)
+
+December 2013
+ (4)
+
+November 2013
+ (5)
+
+October 2013
+ (4)
+
+September 2013
+ (5)
+
+August 2013
+ (1)
+
+July 2013
+ (7)
+
+June 2013
+ (12)
+
+May 2013
+ (4)
+
+April 2013
+ (2)
+
+March 2013
+ (2)
+
+February 2013
+ (6)
+
+January 2013
+ (1)
+
+December 2012
+ (4)
+
+November 2012
+ (7)
+
+October 2012
+ (6)
+
+September 2012
+ (4)
+
+August 2012
+ (3)
+
+July 2012
+ (4)
+
+June 2012
+ (3)
+
+May 2012
+ (3)
+
+April 2012
+ (4)
+
+March 2012
+ (5)
+
+February 2012
+ (5)
+
+January 2012
+ (4)
+
+December 2011
+ (8)
+
+November 2011
+ (8)
+
+October 2011
+ (7)
+
+September 2011
+ (6)
+
+August 2011
+ (8)
+
+July 2011
+ (9)
+
+June 2011
+ (8)
+
+May 2011
+ (11)
+
+April 2011
+ (3)
+
+March 2011
+ (10)
+
+February 2011
+ (3)
+
+January 2011
+ (5)
+
+December 2010
+ (5)
+
+November 2010
+ (6)
+
+October 2010
+ (9)
+
+September 2010
+ (9)
+
+August 2010
+ (3)
+
+July 2010
+ (4)
+
+June 2010
+ (8)
+
+May 2010
+ (8)
+
+April 2010
+ (8)
+
+March 2010
+ (8)
+
+February 2010
+ (10)
+
+January 2010
+ (12)
+
+December 2009
+ (11)
+
+November 2009
+ (8)
+
+October 2009
+ (15)
+
+September 2009
+ (6)
+
+August 2009
+ (13)
+
+July 2009
+ (10)
+
+June 2009
+ (11)
+
+May 2009
+ (9)
+
+April 2009
+ (11)
+
+March 2009
+ (14)
+
+February 2009
+ (13)
+
+January 2009
+ (18)
+
+December 2008
+ (8)
+
+November 2008
+ (9)
+
+October 2008
+ (10)
+
+September 2008
+ (5)
+
+August 2008
+ (6)
+
+July 2008
+ (7)
+
+June 2008
+ (8)
+
+May 2008
+ (11)
+
+April 2008
+ (12)
+
+March 2008
+ (12)
+
+February 2008
+ (13)
+
+January 2008
+ (17)
+
+December 2007
+ (10)
+
+November 2007
+ (9)
+
+October 2007
+ (9)
+
+September 2007
+ (7)
+
+August 2007
+ (9)
+
+July 2007
+ (9)
+
+June 2007
+ (6)
+
+May 2007
+ (10)
+
+April 2007
+ (11)
+
+March 2007
+ (9)
+
+February 2007
+ (4)
+
+Categories
+
+expository
+ (321)
+
+tricks
+ (13)
+
+guest blog
+ (10)
+
+Mathematics
+ (917)
+
+math.AC
+ (9)
+
+math.AG
+ (42)
+
+math.AP
+ (115)
+
+math.AT
+ (17)
+
+math.CA
+ (196)
+
+math.CO
+ (206)
+
+math.CT
+ (9)
+
+math.CV
+ (39)
+
+math.DG
+ (37)
+
+math.DS
+ (90)
+
+math.FA
+ (24)
+
+math.GM
+ (16)
+
+math.GN
+ (21)
+
+math.GR
+ (90)
+
+math.GT
+ (17)
+
+math.HO
+ (14)
+
+math.IT
+ (13)
+
+math.LO
+ (54)
+
+math.MG
+ (48)
+
+math.MP
+ (31)
+
+math.NA
+ (26)
+
+math.NT
+ (211)
+
+math.OA
+ (22)
+
+math.PR
+ (110)
+
+math.QA
+ (6)
+
+math.RA
+ (49)
+
+math.RT
+ (21)
+
+math.SG
+ (4)
+
+math.SP
+ (48)
+
+math.ST
+ (11)
+
+non-technical
+ (208)
+
+admin
+ (48)
+
+advertising
+ (77)
+
+diversions
+ (7)
+
+media
+ (14)
+
+journals
+ (3)
+
+obituary
+ (15)
+
+opinion
+ (37)
+
+paper
+ (272)
+
+book
+ (23)
+
+Companion
+ (13)
+
+update
+ (26)
+
+question
+ (128)
+
+polymath
+ (87)
+
+talk
+ (69)
+
+DLS
+ (20)
+
+teaching
+ (190)
+
+245A – Real analysis
+ (11)
+
+245B – Real analysis
+ (22)
+
+245C – Real analysis
+ (6)
+
+246A – complex analysis
+ (11)
+
+246B – complex analysis
+ (5)
+
+246C – complex analysis
+ (5)
+
+247B – Classical Fourier Analysis
+ (5)
+
+254A – analytic prime number theory
+ (19)
+
+254A – ergodic theory
+ (18)
+
+254A – Hilbert's fifth problem
+ (12)
+
+254A – Incompressible fluid equations
+ (5)
+
+254A – random matrices
+ (14)
+
+254B – expansion in groups
+ (8)
+
+254B – Higher order Fourier analysis
+ (9)
+
+255B – incompressible Euler equations
+ (2)
+
+275A – probability theory
+ (6)
+
+285G – poincare conjecture
+ (20)
+
+Logic reading seminar
+ (8)
+
+The sciences
+ (1)
+
+travel
+ (26)
+
+additive combinatorics
+
+approximate groups
+
+arithmetic progressions
+
+Artificial Intelligence
+
+Ben Green
+
+Cauchy-Schwarz
+
+Cayley graphs
+
+central limit theorem
+
+Chowla conjecture
+
+compressed sensing
+
+correspondence principle
+
+cosmic distance ladder
+
+distributions
+
+divisor function
+
+eigenvalues
+
+Elias Stein
+
+Emmanuel Breuillard
+
+entropy
+
+equidistribution
+
+Erdos
+
+ergodic theory
+
+Euler equations
+
+exponential sums
+
+finite fields
+
+Fourier transform
+
+Freiman's theorem
+
+Gowers uniformity norm
+
+Gowers uniformity norms
+
+graph theory
+
+Gromov's theorem
+
+GUE
+
+Hilbert's fifth problem
+
+ICM
+
+incompressible Euler equations
+
+inverse conjecture
+
+Joni Teravainen
+
+Kaisa Matomaki
+
+Kakeya conjecture
+
+Lie algebras
+
+Lie groups
+
+Liouville function
+
+Littlewood-Offord problem
+
+Maksym Radziwill
+
+Mobius function
+
+Navier-Stokes equations
+
+nilpotent groups
+
+nilsequences
+
+nonstandard analysis
+
+Paul Erdos
+
+politics
+
+polymath1
+
+polymath8
+
+Polymath15
+
+polynomial method
+
+polynomials
+
+prime gaps
+
+prime numbers
+
+prime number theorem
+
+random matrices
+
+randomness
+
+Ratner's theorem
+
+regularity lemma
+
+Ricci flow
+
+Riemann zeta function
+
+Schrodinger equation
+
+Shannon entropy
+
+sieve theory
+
+structure
+
+Szemeredi's theorem
+
+Tamar Ziegler
+
+ultrafilters
+
+universality
+
+Van Vu
+
+wave maps
+
+Yitang Zhang
+
+The Polymath Blog
+Polymath News and AI
+Polymath projects 2021
+A sort of Polymath on a famous MathOverflow problem
+Ten Years of Polymath
+Updates and Pictures
+Polymath proposal: finding simpler unit distance graphs of chromatic number 5
+A new polymath proposal (related to the Riemann Hypothesis) over Tao’s blog
+Spontaneous Polymath 14 – A success!
+Polymath 13 – a success!
+Non-transitive Dice over Gowers’s Blog
+
+23 comments
+
+Comments feed for this article
+
+3 May, 2026 at 10:57 pm
+
+Anonymous
+
+Hi, i was just about to ask if you’d usually do a popular science version of this, as this is way beyond most people. anyway i just realized i could use ai to parse it into something more edible, so i guess it’s all okay then :)
+
+Reply
+
+4 May, 2026 at 5:39 am
+
+Anonymous
+
+So amazing.
+
+As an ordinary person and a mother of two little kids, I’ve always found mathematics incredibly charming and fascinating.
+
+Reading your thoughtful writings on mathematics before bedtime is my most precious quiet escape — a gentle, wonderful intellectual adventure for my tired soul. 
+
+I can’t help feeling that the singularity of the mathematical world is coming, or has already arrived.
+
+Thank you so much for your constant sharing, Professor Tao.
+
+Reply
+
+4 May, 2026 at 6:40 am
+
+Anonymous
+
+Dr Tao:
+
+…
+the term “chain” is now being used in two different ways, but fortunately the order-theoretic concept of a chain and the Markov process-theoretic concept of a chain will be quite compatible in this discussion.
+..
+
+After reading this paper, I seem to have mixed up the term “chain” (Though it is compatible). Could you elaborate on how this term differs in each context?
+
+Reply
+
+4 May, 2026 at 6:58 am
+
+Terence Tao
+
+In order theory, a 
+chain
+ is a totally ordered set.  In the theory of Markov processes, a 
+Markov chain
+ is a stochastic process in which each element of the process transitions to the next in a memoryless fashion.  When one iterates a (discrete) Markov process, one gets a sequence of states, but in general there is no reason to expect any ordering on that states that would make that process a chain in the order-theoretic sense.  However, in this paper we restrict ourselves to two special types of Markov chains on posets – upwards Markov chains and downwards Markov chains – in which the sequences produced by the Markov chains are also order-theoretic chains.  Because of this, it is relatively safe to conflate the two (otherwise distinct) notions of “chain” for the purpose of this paper, though if one wished to consider Markov chains that were not upward or downward, or order-theoretic chains that were not generated by Markov processes, then it would be advisable to keep these two notions separate.
+
+Reply
+
+4 May, 2026 at 10:40 am
+
+Ilya Mironov
+
+Am I correct in observing that Adam Kalai’s algorithm (
+here
+) for generating uniform integers with known factorization is effectively the upward Mertens chain with a stopping rule? 
+
+Reply
+
+4 May, 2026 at 4:08 pm
+
+Terence Tao
+
+Nice find!  Yes, it does seem that there is a relation.  Consider the process of generating some non-decreasing sequence of primes such as 
+, where each prime 
+ appears 
+ many times (thus it appears 
+ times with probability 
+).  One can think of this as rolling a 
+-sided die repeatedly until one stops getting a 
+, and taking one copy of 
+ for each 
+ rolled this way.  Exposing this sequence lexicographically (so, in the above example, one would take the sequence 
+, and so forth) is the upwards Mertens process, with each 
+ being hit by this process with a probability of 
+.  
+
+If one fixes a threshold 
+ and takes all the primes in this process up to 
+, one gets a restricted zeta distribution in which every 
+-smooth number 
+ appears with probability proportional to 
+; in particular every number up to 
+ appears in this fashion.  Kalai then uses rejection sampling to adjust this to get a uniform distribution up to 
+.
+
+Reply
+
+5 May, 2026 at 2:38 am
+
+Anonymous
+
+Two thoughts: 
+
+1) I wonder how tough it would be to use this method to make a version of 1196 for the Gaussian integers? From a quick look it looks like just replacing 
+ everywhere with 
+ should be sufficient, but I’m not sure.
+
+2) Since we now have two chains, the Mertens chain and the von Mangoldt chain, can we construct others with number theoretic significance? In particular, is it reasonable to construct other chains that look or act nice and then see what inequalities one can get from them?
+
+Reply
+
+5 May, 2026 at 7:45 am
+
+Terence Tao
+
+1) Yes, one should be able to extend the constructions easily to any number field or function field with unique factorization; Will Sawin has already worked out all the analogues in the simplest function field case of irreducible polynomials over a finite field.  The question of what happens with non-trivial class group is less clear – one could presumably still build some analogues of these processes on ideals rather than individual elements of the ring of integers, but perhaps some additional complications arise.  (Also, for many of the results here, we needed quite precise numerical bounds on the Riemann zeta function; getting the analogous bounds for other zeta functions is in principle possible, but the numerical inequalities one needs to verify may end up being false in some settings.)
+
+2) Certainly!  In one of our applications (the AKS theorem, in Section 8) we use a different upwards chain than either the von Mangoldt or Mertens processes, namely a multiplicative simple random walk where we multiply the current number by a random prime drawn from a zeta-type distribution to get the next number in the sequence, though it took some trial and error to land on this particular choice of process (which was hinted at *very* implicitly in the original AKS paper, but took a while to tease out, as they phrased their argument in terms of a double counting argument involving Sperner type cubes instead).  To prove Sperner’s lemma or the LYM inequality one can use a simple downwards process where one divides out every number by a prime factor chosen uniformly at random (rather than with von Mangoldt weighting); see Example 2.6.    For any given problem one may have to proceed by a trial-and-error process in which one experiments with one type of random chain, identify the places where it is not performing optimally, and tweak the chain as needed to try to address these problems.  For instance in several of our applications we had to modify the von Mangoldt chain to patch the issue that it would sometimes “jump over” the primitive sets we wanted to detect because it would multiply or divide by powers of primes rather than a single prime.
+
+Knowing the anatomy of “typical” elements of the distribution of natural numbers one is trying to emulate can help.  The (normalized) prime factorization of a typical large number is known to follow the Poisson-Dirichlet process (by Billingsley’s theorem), which in turn is well-known to be generated by the 
+stick-breaking process
+.  In retrospect, this was already a large hint that the von Mangoldt chain (which corresponds to the first breaking of the stick) should be relevant for such problems.  But when working with numbers with more unusual anatomy, some other process may be better adapted to understand them.
+
+Reply
+
+6 May, 2026 at 10:40 am
+
+Anonymous
+
+It seems Theorem 4 is stronger than Theorem 5. Set A will be missing some prime number if we use the approximation 1/p = (loglogN_q + err_1)/(loglogN_p + err), where p and q are consecutive prime numbers. And of course 1/p < (loglogN_q)/(loglogN_p). I haven’t tried the best limit of \sum_{n \in A} \frac{1}{n \log n}
+
+Reply
+
+7 May, 2026 at 6:58 am
+
+Anonymous
+
+You should say in Conjecture 1 that A is a set of *integers*
+
+.
+
+[Corrected, thanks -T.]
+
+Reply
+
+12 May, 2026 at 9:02 am
+
+Christopher
+
+properly digesting the AI-generated proofs into a coherent exposition that places the arguments in context with both past literature and future directions remains a slower process that requires expert human attention
+
+How much do current LLMs help with this? Intuitively it seems like they should be quite good at this, since they are designed to process language. On the other hand, digestion is hard to appraise and current LLMs do better with a clear objective function. Maybe literate programming in Lean could help so that at least factual claims in the exposition could be checked for correctness?
+
+Reply
+
+13 May, 2026 at 9:27 am
+
+Christopher
+
+In the inequality after (4), μ(n) doesn’t make sense since μ is a measure over chains. I think it should be μ(C) summed over the chains?
+
+[Corrected, thanks – T.]
+
+Reply
+
+15 May, 2026 at 6:37 pm
+
+Anonymous
+
+Let n> 3. Is it true that the largest prime p dividing N= 1!+2!+…n! occurs only once in the prime factorization of N?
+
+Reply
+
+16 May, 2026 at 6:00 am
+
+Terence Tao
+
+Judging from 
+https://mathoverflow.net/questions/476702/on-the-p-adic-valuation-of-the-sum-of-the-first-n-factorials
+ , this problem remains open; standard probabilistic heuristics suggest that it is overwhelmingly likely to be true, but proving this looks out of reach of current methods.  (As a general rule, multiplicative problems involving factorials are somewhat tractable, but additive problems involving factorials are hopelessly difficult.)
+
+Reply
+
+19 May, 2026 at 10:21 am
+
+Anonymous
+
+If the multiplicative chains 1∣p1∣p1p2∣⋯become additive walks under logarithims, and if the markov chain is able to induce asymptotic drift in log space, then could an inverse counting mechanism induce a floor mechanism similar to that of a beatty sequence ? apologies if this is already a known result
+
+Reply
+
+8 June, 2026 at 1:22 am
+
+Anonymous
+
+Is there a possibility of seeing the original AI reasoning in which this proof occurred? I’m interested in seeing how rigorous the original arguments was, i.e. whether it contained gaps (and which it contained) and how it presented to overall arguments. Thanks in advance!
+
+Reply
+
+8 June, 2026 at 8:59 am
+
+Terence Tao
+
+The original (summarized) chain of thought 
+can be found here
+, though the full trace is not available.  Some discussion of it can be found 
+here
+.
+
+Reply
+
+8 June, 2026 at 4:48 am
+
+Anonymous
+
+I’m interested in how much from the original proof by ChatGPT is actually relevant for the mathematical outcomes described here. As far as I can see it is the main proof technique you described above (the new use of Markov chains) that was taken over, but not all the details? The ChatGPT proof claims to prove a slightly stronger statement but, as far as I can see, that does not appear in the draft you linked. Is this because the stronger statement is not that interesting (mathematically speaking) or just because it has not been fully digested yet? Thanks!
+
+Reply
+
+8 June, 2026 at 9:04 am
+
+Terence Tao
+
+Certainly if the AI-generated proof did not exist, there would not be the impetus for humans to explore these ideas; from our literature searches we were not able to find the key Markov chain idea in previous literature on primitive sets, even though it is rather natural in retrospect (and this field is no stranger to the utilization of other probabilistic tools).
+
+The original GPT proof did involve an additional parameter 
+ but it ends up playing little role; if one optimizes the argument in that parameter one ends up with a bound comparable to the one we have in our paper.  Actually the original proof does give a slightly sharper constant than the one in our paper; see Remark 4.1.  But most likely neither argument is optimal, and further improvements are possible.
+
+Reply
+
+9 June, 2026 at 8:40 am
+
+garylangford
+
+The recent primitive-set work seems to replace a difficult extremal problem with the construction of a suitable chain process. Do you view the chain as the explanation, or as a computational proxy for some deeper invariant structure of the divisibility poset? How do you decide when a proof has identified the underlying object versus merely an effective mechanism?
+
+The notion of a “developmental anatomy of integers” is particularly intriguing. The paper constructs several effective divisibility chains (Mertens, von Mangoldt, modified variants), but this raises a structural question: is there a principle that selects an optimal chain from the anatomy of the integers themselves, rather than through trial-and-error construction? In other words, can the chain be derived from an invariant organizational property of the divisibility poset rather than chosen as an external tool? It seems this could lead to a classification of admissible divisibility processes and perhaps explain why the von Mangoldt chain is so effective.
+
+Reply
+
+9 June, 2026 at 11:08 am
+
+Terence Tao
+
+Well, as discussed in Remark 1.8 of the paper, the duality is basically reversible: any bound on primitive sets is equivalent to the existence of a random process obeying a certain hitting bound.  However, this process is not necessarily Markovian; the fact that Markov processes seem to be a particularly good choice for the dual process certificate is still slightly mysterious, although Markov processes are a natural type of process to consider in other problems and so it is perhaps not extremely surprising in retrospect that they also show up here.
+
+As for why the von Mangoldt process (and its variants) seem particularly well suited for this problem – given the need to “hit” primitive sets such as 
+, it is natural to consider processes that usually just divide out one prime at a time, which the von Mangoldt process comes close to doing.  Asking for near-invariance of the Erdos weight 
+ then boils down to asking for transition probabilities 
+ that approximately obey the equation
+
+Given the shape of this equation, it is plausible that a good choice of transition probability 
+ should depend primarily on the relative sizes of 
+ and 
+, rather than the specific anatomy of 
+.  Due to the identity 
+ (which is morally 
+ if one ignores prime power effects), the von Mangoldt choice (which basically sets 
+ to 
+ if one ignores the effect of prime powers) is then the natural choice here, and happily turns out to work.
+
+To put it another way: most other candidates for processes (such as the Mertens process, which requires 
+ to be the largest prime factor of 
+) are more sensitive to the anatomy of 
+, and will typically show some bias in their invariant weights that depends on that anatomy (e.g., smooth numbers might be weighted more highly than rough numbers, or vice versa).  Since the target invariant weight 
+ depends only on the magnitude of 
+ and not on its anatomy, this then suggests that the most efficient choice of processes are the ones whose transition probabilities depend only on the (log-)magnitude of 
+ and 
+ rather than the anatomy.  This leaves the von Mangoldt family of processes as close to the only available choice in retrospect.
+
+Reply
+
+10 June, 2026 at 3:23 am
+
+Anonymous
+
+Unless n and p aren’t far enough apart?
+
+Reply
+
+12 June, 2026 at 5:00 pm
+
+garylangford
+
+Your explanation suggests that the von Mangoldt kernel is distinguished because it depends primarily on logarithmic magnitude rather than arithmetic anatomy. Has anyone tried to formalize this as a variational principle?
+
+For example, among downward divisibility kernels preserving the Erdős weight, is the von Mangoldt kernel the unique minimizer of some notion of anatomy bias?
+
+Very roughly, one could imagine defining anatomy through statistics such as largest prime factor, smoothness, (\omega(n)), or (\Omega(n)), and then asking whether the von Mangoldt kernel is characterized by minimizing sensitivity to those statistics while still preserving the desired invariant weight.
+
+Reply
+
+Leave a comment 
+Cancel reply
+
+Δ
+
+For commenters
+
+To enter in LaTeX in comments, use $latex 
+<Your LaTeX code>
+$ (without the < and > signs, of course; in fact, these signs should be avoided as they can cause formatting errors). Also, backslashes \ need to be doubled as \\.  See the 
+about page
+ for details and for other commenting policy.
+
+«
+ Products of consecutive integers with unusual anatomy
+
+Modular Arithmetic Challenge 
+»
+
+Blog at WordPress.com.
+Ben Eastaugh and Chris Sternal-Johnson. 
+
+Subscribe to feed.
+
+Comment						
+
+Reblog
+
+Subscribe
+
+Subscribed
+
+				What's new			
+
+Join 12,135 other subscribers
+
+												Sign me up											
+
+											Already have a WordPress.com account? 
+Log in now.
+
+Privacy						
+
+				What's new			
+
+Subscribe
+
+Subscribed
+
+Sign up
+
+Log in
+
+Copy shortlink
+
+										Report this content									
+
+										View post in Reader									
+
+Manage subscriptions
+
+Collapse this bar
+
+%d
+

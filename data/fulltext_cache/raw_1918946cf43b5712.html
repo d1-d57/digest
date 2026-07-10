@@ -1,0 +1,314 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN" "http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg-flat.dtd" >
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+
+<title>Categorifying Riemann's Functional Equation | The n-Category Caf&#xE9;</title>
+
+<meta name="ICBM" content="30.2893, -97.7367" />
+<meta name="DC.title" content="The n-Category Caf&#xE9;" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<style type="text/css" media="all" title="The n-Category Caf&#xE9; Stylesheet">@import url("/category/styles-site.css");</style>
+<link rel="stylesheet" href="/category/print.css" type="text/css" media="print" />
+
+<link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="/category/atom10.xml" />
+<link rel="alternate" type="application/atom+xml" title="Atom 1.0 Comments Feed" href="/category/comments.atom" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="/category/rsd.xml" />
+<link rel="shortcut icon" type="image/x-icon" href="/category/images/favicon.ico" />
+<link rel="icon" type="image/x-icon" href="/category/images/favicon2.ico" />
+<link rel="pgpkey" href="/category/urs.asc" title="Urs Schreiber's PGP Public Key" />
+<link rel="start" href="/category/" title="Home" />
+<link rel="search" href="/cgi-bin/MT-3.0/mt-search.cgi?IncludeBlogs=3&amp;Template=category" title="Search" />
+<link rel="contents" href="/category/archives.html" title="Comprehensive List of Blog Entries" />
+
+
+<link rel="bookmark" href="#content" title="Main Content" />
+<link rel="bookmark" href="#comments" title="Comments" />
+<link rel="bookmark" href="#search" title="Search Box" />
+<link rel="bookmark" href="#related" title="Related entries" />
+<link rel="bookmark" href="#AccessKeyList" title="AccessKeys" />
+<link rel="prev" href="/category/2026/01/coxeter_and_dynkin_diagrams.html" title="Coxeter and Dynkin Diagrams" />
+<link rel="next" href="/category/2026/02/the_univalence_principle.html" title="The Univalence Principle" />
+<link rel="up" href="/category/2026/01/" title="January, 2026" />
+
+<script type="text/javascript" src="/category/prototype.js"></script>
+<script type="text/javascript" src="/category/ie.js"></script>
+<script type="text/x-mathjax-config">
+  <!--//--><![CDATA[//><!--
+    MathJax.Hub.Config({
+      MathML: { useMathMLspacing: true },
+      "HTML-CSS": { scale: 90,
+                    noReflows: false,
+                    extensions: ["handle-floats.js"],
+                    linebreaks: { width: "container" }
+       }
+    });
+    MathJax.Hub.Queue( function () {
+       var fos = document.getElementsByTagName('foreignObject');
+       for (var i = 0; i < fos.length; i++) {
+         MathJax.Hub.Typeset(fos[i]);
+       }
+    });
+  //--><!]]>
+</script>
+<script type="text/javascript">
+  <!--//--><![CDATA[//><!--
+  window.addEventListener("DOMContentLoaded", function () {
+    var div = document.createElement('div');
+    var math = document.createElementNS('http://www.w3.org/1998/Math/MathML', 'math');
+    document.body.appendChild(div);
+    div.appendChild(math);
+  // Test for MathML support comparable to WebKit version https://trac.webkit.org/changeset/203640 or higher.
+    div.setAttribute('style', 'font-style: italic');
+    var mathml_unsupported = !(window.getComputedStyle(div.firstChild).getPropertyValue('font-style') === 'normal');
+    div.parentNode.removeChild(div);
+    if (mathml_unsupported) {
+      // MathML does not seem to be supported...
+      var s = document.createElement('script');
+      s.src = "/wiki/MathJax/MathJax.js?config=MML_HTMLorMML-full";
+      document.querySelector('head').appendChild(s);
+    } else {
+      document.head.insertAdjacentHTML("beforeend", '<style>svg[viewBox] {max-width: 100%}</style>');
+    }
+  });
+  //--><!]]>
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="https://golem.ph.utexas.edu/category/2026/01/categorifying_riemanns_functio.html"
+    trackback:ping="https://golem.ph.utexas.edu/cgi-bin/MT-3.0/dxy-tb.fcgi/3628"
+    dc:title="Categorifying Riemann&apos;s Functional Equation"
+    dc:identifier="https://golem.ph.utexas.edu/category/2026/01/categorifying_riemanns_functio.html"
+    dc:subject="Number Theory"
+    dc:description="David Jaz Myers has some thoughts about Riemann&apos;s functional equation for the zeta function."
+    dc:creator="John Baez"
+    dc:date="2026-01-26T00:19:49+00:00" />
+</rdf:RDF>
+-->
+
+
+</head>
+
+<body>
+
+<div class="frame">
+
+<div id="banner">
+<h1><a href="/category/" accesskey="1" title="Jump to the blog main page">The n-Category Caf&#xE9;</a></h1>
+<div class="description">A group blog on math, physics and philosophy</div>
+</div>
+
+
+<h2 class="skip">Skip to the Main Content</h2>
+<div class="skip">
+<a href="#content" accesskey="2">Enough, already! Skip to the content.</a>
+</div>
+<p style="display:none;">
+<strong>Note:</strong>These pages make extensive use of the latest XHTML and CSS <a href="http://www.w3.org">Standards</a>. They ought to look great in any standards-compliant modern browser. Unfortunately, they will probably look horrible in older browsers, like Netscape 4.x and IE 4.x. Moreover, many posts use MathML, which is, currently <em>only</em> supported in Mozilla. My best suggestion (and you will <em>thank</em> me when surfing an ever-increasing number of sites on the web which have been crafted to use the new standards) is to upgrade to the latest version of your browser. If that's not possible, consider moving  to the Standards-compliant and open-source <a href="http://www.mozilla.org">Mozilla</a> browser.
+</p>
+
+
+<div class="blog">
+
+<div><div id='menu'>
+<a href='/category/2026/01/coxeter_and_dynkin_diagrams.html' accesskey='p'>&#xab; Coxeter and Dynkin Diagrams</a> |
+
+<a href='/category/'>Main</a>
+| <a href='/category/2026/02/the_univalence_principle.html' accesskey='n'>The Univalence Principle &#xbb;</a>
+
+</div>
+
+<h2 class='date'>January 26, 2026</h2>
+
+<div id='content' class='blogbody'>
+
+<h3 class='title'>Categorifying Riemann&#x2019;s Functional Equation</h3>
+
+<h4 class='posted'>Posted by John Baez</h4>
+
+<div><a href='http://golem.ph.utexas.edu/~distler/blog/mathml.html' onclick='window.open(this.href, &#x27;MathML&#x27;, &#x27;width=310,height=150,scrollbars=no,resizable=yes,status=no&#x27;); return false;' onkeypress='if(window.event.keyCode == 13){window.open(this.href, &#x27;MathML&#x27;, &#x27;width=310,height=150,scrollbars=no,resizable=yes,status=no&#x27;); return false;}'><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p><a href='https://www.davidjaz.com/'>David Jaz Myers</a> just sent me some neat comments on this paper of mine:</p>
+
+<ul>
+<li><a href='https://arxiv.org/abs/2502.01833'>Dirichlet species and the arithmetic zeta function</a>,</li>
+</ul>
+
+<p>and he okayed me posting them here.   He&#x2019;s taking the idea of categorifying the Riemann zeta function, explained in my paper, and going further, imagining what it might mean to categorify Riemann&#x2019;s <a href='https://en.wikipedia.org/wiki/Riemann_zeta_function#Riemann&#x27;s_xi_function'>functional equation</a></p>
+
+<p><math xmlns="http://www.w3.org/1998/Math/MathML" display='block'><semantics><mrow><mi>&#x3be;</mi><mo stretchy='false'>(</mo><mi>s</mi><mo stretchy='false'>)</mo><mo>=</mo><mi>&#x3be;</mi><mo stretchy='false'>(</mo><mn>1</mn><mo>&#x2212;</mo><mi>s</mi><mo stretchy='false'>)</mo></mrow><annotation encoding='application/x-tex'>  \xi(s) = \xi(1-s) </annotation></semantics></math></p>
+
+<p>where <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x3be;</mi></mrow><annotation encoding='application/x-tex'>\xi</annotation></semantics></math> is the <a href='https://ncatlab.org/nlab/show/Riemann+zeta+function#TheCompletedZetaFunction'>&#x2018;completed&#x2019; Riemann zeta function</a>, which has an extra factor taking into account the <a href='https://global.oup.com/academic/product/the-mysteries-of-the-real-prime-9780198508687?cc=us&amp;lang=en&amp;#'>&#x2018;real prime&#x2019;</a>:</p>
+
+<p><math xmlns="http://www.w3.org/1998/Math/MathML" display='block'><semantics><mrow><mi>&#x3be;</mi><mo stretchy='false'>(</mo><mi>s</mi><mo stretchy='false'>)</mo><mo>=</mo><msup><mi>&#x3c0;</mi> <mrow><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mi>s</mi><mo stretchy='false'>/</mo><mn>2</mn></mrow></msup><mi>&#x393;</mi><mo stretchy='false'>(</mo><mi>s</mi><mo stretchy='false'>/</mo><mn>2</mn><mo stretchy='false'>)</mo><munder><mo lspace='0.16667em' rspace='0.16667em'>&#x220f;</mo> <mrow><mi>p</mi><mspace width='0.27778em' /><mi>prime</mi></mrow></munder><mfrac><mn>1</mn><mrow><mn>1</mn><mo>&#x2212;</mo><msup><mi>p</mi> <mrow><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mi>s</mi></mrow></msup></mrow></mfrac></mrow><annotation encoding='application/x-tex'> \xi(s) = \pi^{-s/2}\Gamma(s/2) \prod_{p \; prime} \frac{1}{1 - p^{-s}} </annotation></semantics></math></p>
+
+<p>My paper categorified the <a href='https://en.wikipedia.org/wiki/Riemann_zeta_function#Euler&#x27;s_product_formula'>Euler product formula</a> that writes the Riemann zeta function as a product over the <em>usual</em> primes:</p>
+
+<p><math xmlns="http://www.w3.org/1998/Math/MathML" display='block'><semantics><mrow><mi>&#x3b6;</mi><mo stretchy='false'>(</mo><mi>s</mi><mo stretchy='false'>)</mo><mo>=</mo><munder><mo lspace='0.16667em' rspace='0.16667em'>&#x220f;</mo> <mrow><mi>p</mi><mspace width='0.27778em' /><mi>prime</mi></mrow></munder><mfrac><mn>1</mn><mrow><mn>1</mn><mo>&#x2212;</mo><msup><mi>p</mi> <mrow><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mi>s</mi></mrow></msup></mrow></mfrac></mrow><annotation encoding='application/x-tex'> \zeta(s) =  \prod_{p \; prime} \frac{1}{1 - p^{-s}} </annotation></semantics></math></p>
+
+<p>I had nothing to say about the real prime.</p>
+
+<p>But it&#x2019;s the functional equation that sets the stage for focusing on zeroes of the Riemann zeta function with <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mtext>Re</mtext><mo stretchy='false'>(</mo><mi>s</mi><mo stretchy='false'>)</mo><mo>=</mo><mn>1</mn><mo stretchy='false'>/</mo><mn>2</mn></mrow><annotation encoding='application/x-tex'>\text{Re}(s) = 1/2</annotation></semantics></math>&#x2026; and then the Riemann Hypothesis!  So it&#x2019;s worth thinking about.</p>
+
+
+<div id='more'>
+<div><a href='http://golem.ph.utexas.edu/~distler/blog/mathml.html' onclick='window.open(this.href, &#x27;MathML&#x27;, &#x27;width=310,height=150,scrollbars=no,resizable=yes,status=no&#x27;); return false;' onkeypress='if(window.event.keyCode == 13){window.open(this.href, &#x27;MathML&#x27;, &#x27;width=310,height=150,scrollbars=no,resizable=yes,status=no&#x27;); return false;}'><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>David wrote:</p>
+
+<blockquote>
+<p>
+Hi John,
+</p>
+<p>
+Hope you&#x2019;re doing well!
+</p>
+<p>
+I was just thinking about your (and James Dolan&#x2019;s) definition of the zeta functors associated to a finite type scheme (from <a href='https://arxiv.org/abs/2502.01833'>here</a>), and I had a small thought which I figured you might find interesting. 
+</p>
+<p>
+I was thinking about the functional equation of the completed zeta functions; how might we complete the zeta functors in such a way that they satisfy a similar functional equation? I don&#x2019;t know, but I do have an idea for what the transformation <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>s</mi><mo>&#x21a6;</mo><mn>1</mn><mo>&#x2212;</mo><mi>s</mi></mrow><annotation encoding='application/x-tex'>s \mapsto 1 -s</annotation></semantics></math> might mean in this context. I claim that it is given by the reduced suspension. Let me explain.
+</p>
+<p>
+First, I&#x2019;ll want to see the formal power <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msup><mi>n</mi> <mrow><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mi>s</mi></mrow></msup></mrow><annotation encoding='application/x-tex'>n^{-s}</annotation></semantics></math> as the power 
+</p>
+<p>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display='block'><semantics><mrow><msup><mrow><mo>(</mo><mfrac><mn>1</mn><mi>n</mi></mfrac><mo>)</mo></mrow> <mi>s</mi></msup><mo>,</mo></mrow><annotation encoding='application/x-tex'>\left(\frac{1}{n}\right)^s,</annotation></semantics></math> 
+</p>
+<p>
+which I can then categorify by finding a group <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>G</mi></mrow><annotation encoding='application/x-tex'>G</annotation></semantics></math> with cardinality <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>n</mi></mrow><annotation encoding='application/x-tex'>n</annotation></semantics></math> and considering <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>B</mi><msup><mi>G</mi> <mi>S</mi></msup></mrow><annotation encoding='application/x-tex'>B G^S</annotation></semantics></math>. In the case of the Riemann zeta species, <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>n</mi></mrow><annotation encoding='application/x-tex'>n</annotation></semantics></math> is the cardinality of a finite semisimple ring (a product of finite fields, the groupoid of which has cardinality <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mn>1</mn></mrow><annotation encoding='application/x-tex'>1</annotation></semantics></math> for each <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>n</mi></mrow><annotation encoding='application/x-tex'>n</annotation></semantics></math>), and we can simply deloop the additive group of this ring. This gives us a Dirichlet functor <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x3b6;</mi></mrow><annotation encoding='application/x-tex'>\zeta</annotation></semantics></math>
+</p>
+<p>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display='block'><semantics><mrow><mi>S</mi><mo>&#x21a6;</mo><munder><mo lspace='0.16667em' rspace='0.16667em'>&#x2211;</mo> <mrow><mi>k</mi><mspace width='0.27778em' /><mtext>  finite semisimple</mtext></mrow></munder><mi>B</mi><msup><mi>k</mi> <mi>S</mi></msup></mrow><annotation encoding='application/x-tex'>S \mapsto \sum_{k \; \text{  finite semisimple}} B k^S</annotation></semantics></math>
+</p>
+<p>
+which categorifies the Riemann zeta function when <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>S</mi></mrow><annotation encoding='application/x-tex'>S</annotation></semantics></math> is a finite set. 
+</p>
+<p>
+Taking this point of view on the zeta functor, we can ask the question: what is the transformation <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>s</mi><mo>&#x21a6;</mo><mn>1</mn><mo>&#x2212;</mo><mi>s</mi></mrow><annotation encoding='application/x-tex'>s \mapsto 1-s</annotation></semantics></math>? Here&#x2019;s where we can look at the reduced suspension <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x3a3;</mi><msub><mi>S</mi> <mo>+</mo></msub></mrow><annotation encoding='application/x-tex'>\Sigma S_+</annotation></semantics></math>. The universal property of the reduced suspension says that maps <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x3a3;</mi><msub><mi>S</mi> <mo>+</mo></msub><mo>&#x2192;</mo><mi>Y</mi></mrow><annotation encoding='application/x-tex'>\Sigma S_+ \to Y</annotation></semantics></math> correspond to points of the homotopy type
+</p>
+<p>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display='block'><semantics><mrow><mo stretchy='false'>(</mo><mi>x</mi><mo>:</mo><mi>Y</mi><mo stretchy='false'>)</mo><mo>&#xd7;</mo><mo stretchy='false'>(</mo><mi>y</mi><mo>:</mo><mi>Y</mi><mo stretchy='false'>)</mo><mo>&#xd7;</mo><mo stretchy='false'>(</mo><msub><mi>S</mi> <mo>+</mo></msub><mo>&#x2192;</mo><mi>x</mi><mo>=</mo><mi>y</mi><mo stretchy='false'>)</mo></mrow><annotation encoding='application/x-tex'>(x : Y) \times (y : Y) \times (S_+ \to x = y)</annotation></semantics></math>
+</p>
+<p>
+(or, more classically, maps from the terminal morphism <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msub><mi>S</mi> <mo>+</mo></msub><mo>&#x2192;</mo><mn>1</mn></mrow><annotation encoding='application/x-tex'>S_+ \to 1</annotation></semantics></math> to <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mstyle mathvariant='sans-serif'><mi>Path</mi></mstyle><mo stretchy='false'>(</mo><mi>Y</mi><mo stretchy='false'>)</mo><mo>&#x2192;</mo><mi>Y</mi><mo>&#xd7;</mo><mi>Y</mi></mrow><annotation encoding='application/x-tex'>\mathsf{Path}(Y) \to Y \times Y</annotation></semantics></math>). Since homotopy cardinality is multiplicative for fibrations, that type has cardinality 
+</p>
+<p>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display='block'><semantics><mrow><mi>y</mi><mo>&#x22c5;</mo><mi>y</mi><mo>&#x22c5;</mo><msup><mrow><mo>(</mo><mfrac><mn>1</mn><mi>y</mi></mfrac><mo>)</mo></mrow> <mrow><mi>s</mi><mo>+</mo><mn>1</mn></mrow></msup><mo>=</mo><msup><mrow><mo>(</mo><mfrac><mn>1</mn><mi>y</mi></mfrac><mo>)</mo></mrow> <mrow><mi>s</mi><mo>&#x2212;</mo><mn>1</mn></mrow></msup></mrow><annotation encoding='application/x-tex'>y \cdot y \cdot \left(\frac{1}{y}\right)^{s + 1} = \left(\frac{1}{y}\right)^{s -1}</annotation></semantics></math> 
+</p>
+<p>
+(when <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>S</mi></mrow><annotation encoding='application/x-tex'>S</annotation></semantics></math> is a finite set of cardinality <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>s</mi></mrow><annotation encoding='application/x-tex'>s</annotation></semantics></math>). 
+</p>
+<p>
+Taking <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>Y</mi><mo>=</mo><mi>B</mi><mi>k</mi></mrow><annotation encoding='application/x-tex'>Y = B k</annotation></semantics></math> for <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>k</mi></mrow><annotation encoding='application/x-tex'>k</annotation></semantics></math> finite semisimple of cardinality <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>n</mi></mrow><annotation encoding='application/x-tex'>n</annotation></semantics></math>, we see that <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x3a3;</mi><msub><mi>S</mi> <mo>+</mo></msub><mo>&#x2192;</mo><mi>B</mi><mi>k</mi></mrow><annotation encoding='application/x-tex'>\Sigma S_+ \to B k</annotation></semantics></math> has cardinality <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msup><mi>n</mi> <mrow><mi>s</mi><mo>&#x2212;</mo><mn>1</mn></mrow></msup><mo>=</mo><msup><mi>n</mi> <mrow><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mo stretchy='false'>(</mo><mn>1</mn><mo>&#x2212;</mo><mi>s</mi><mo stretchy='false'>)</mo></mrow></msup></mrow><annotation encoding='application/x-tex'>n^{s -1} = n^{-(1 -s)}</annotation></semantics></math>. Therefore, I think the transformation <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>s</mi><mo>&#x21a6;</mo><mn>1</mn><mo>&#x2212;</mo><mi>s</mi></mrow><annotation encoding='application/x-tex'>s \mapsto 1 - s</annotation></semantics></math> in the functional equation may be categorified by <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>S</mi><mo>&#x21a6;</mo><mi>&#x3a3;</mi><msub><mi>S</mi> <mo>+</mo></msub></mrow><annotation encoding='application/x-tex'>S \mapsto \Sigma S_+</annotation></semantics></math>. If this makes sense, it suggests that completing the zeta functors is a form of stabilization. 
+</p>
+<p>
+Cheers,<br />
+David
+</p>
+</blockquote>
+
+<p>And then:</p>
+
+<blockquote>
+<p>
+As for another eyebrow wiggle about the cardinality of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x3a3;</mi><msub><mi>S</mi> <mo>+</mo></msub></mrow><annotation encoding='application/x-tex'>\Sigma S_+</annotation></semantics></math> when <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>S</mi></mrow><annotation encoding='application/x-tex'>S</annotation></semantics></math> is a finite set: we have that <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x3a9;</mi><mi>&#x3a3;</mi><msub><mi>S</mi> <mo>+</mo></msub><mo>=</mo><mo stretchy='false'>&#x27e8;</mo><mi>S</mi><mo stretchy='false'>&#x27e9;</mo></mrow><annotation encoding='application/x-tex'>\Omega \Sigma S_+ = \langle S \rangle</annotation></semantics></math>, the free group on <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>S</mi></mrow><annotation encoding='application/x-tex'>S</annotation></semantics></math> generators. This is of course infinite, but it it is the group completion of the free monoid <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mstyle mathvariant='sans-serif'><mi>List</mi></mstyle><mo stretchy='false'>(</mo><mi>S</mi><mo stretchy='false'>)</mo></mrow><annotation encoding='application/x-tex'>\mathsf{List}(S)</annotation></semantics></math> on <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>S</mi></mrow><annotation encoding='application/x-tex'>S</annotation></semantics></math> generators. Since 
+</p>
+<p>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display='block'><semantics><mrow><mstyle mathvariant='sans-serif'><mi>List</mi></mstyle><mo stretchy='false'>(</mo><mi>S</mi><mo stretchy='false'>)</mo><mo>=</mo><mn>1</mn><mo>+</mo><mi>S</mi><mo>+</mo><msup><mi>S</mi> <mn>2</mn></msup><mo>+</mo><msup><mi>S</mi> <mn>3</mn></msup><mo>+</mo><mi>&#x22ef;</mi><mo>,</mo></mrow><annotation encoding='application/x-tex'>\mathsf{List}(S) = 1 + S + S^2 + S^3 + \cdots,</annotation></semantics></math>
+</p>
+<p>
+it has cardinality <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mfrac><mn>1</mn><mrow><mn>1</mn><mo>&#x2212;</mo><mi>s</mi></mrow></mfrac></mrow><annotation encoding='application/x-tex'>\frac{1}{1 - s}</annotation></semantics></math>. 
+</p>
+<p>
+Maybe it&#x2019;s better to use the &#x201c;free delooping&#x201d; (aka weighted colimit of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mn>1</mn><mo>&#x21c9;</mo><mn>1</mn></mrow><annotation encoding='application/x-tex'>1 \rightrightarrows 1</annotation></semantics></math> by <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>S</mi><mo>&#x21c9;</mo><mn>1</mn></mrow><annotation encoding='application/x-tex'>S \rightrightarrows 1</annotation></semantics></math>) instead of the reduced suspension. This doesn&#x2019;t change the above argument because we&#x2019;re mapping into a groupoid, but now it is true that the Euler characteristic / cardinality of that category is <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mn>1</mn><mo>&#x2212;</mo><mi>s</mi></mrow><annotation encoding='application/x-tex'>1 - s</annotation></semantics></math>.
+</p>
+</blockquote>
+
+</div>
+
+
+<span class='posted'>Posted at January 26, 2026 12:19 AM UTC
+</span>
+</div>
+
+<p class='trackback-url'>TrackBack URL for this Entry:&#xa0;&#xa0; https://golem.ph.utexas.edu/cgi-bin/MT-3.0/dxy-tb.fcgi/3628</p>
+
+
+<h2 class='comments-head' id='related'>Some Related Entries</h2>
+
+<div id='pane'>
+
+<form method='get' action='/cgi-bin/MT-3.0/mt-search.cgi'>
+<fieldset class='search'>
+  <input type='hidden' name='IncludeBlogs' value='3' />
+  <input type='hidden' name='Template' value='category' />
+  <label for='search' accesskey='4'>Search for other entries:</label><br />
+  <input id='search' name='search' size='25' /><br />
+  <input type='submit' value='Search' />
+</fieldset>
+</form>
+
+
+
+</div>
+
+<ul class='blogbody related'>
+
+   <li><a href='/category/2023/07/profinite_group_actions.html'>Profinite Group Actions</a> &#x2014;
+<i>Jul 08, 2023</i></li>
+   <li><a href='/category/2022/02/hardy_ramanujan_and_taxicab_no.html'>Hardy, Ramanujan and Taxi No. 1729</a> &#x2014;
+<i>Feb 28, 2022</i></li>
+   <li><a href='/category/2021/10/firoozbakhts_conjecture.html'>Firoozbakht&#x2019;s Conjecture</a> &#x2014;
+<i>Oct 30, 2021</i></li>
+   <li><a href='/category/2020/08/sphere_spectrum_analogue_of_pg.html'>Sphere Spectrum Analogue of PGL(2,Z) </a> &#x2014;
+<i>Aug 31, 2020</i></li>
+   <li><a href='/category/2019/09/the_riemann_hypothesis_part_3.html'>The Riemann Hypothesis (Part 3)</a> &#x2014;
+<i>Sep 11, 2019</i></li>
+   <li><a href='/category/2019/09/the_riemann_hypothesis_part_2.html'>The Riemann Hypothesis (Part 2)</a> &#x2014;
+<i>Sep 10, 2019</i></li>
+   <li><a href='/category/2019/09/the_riemann_hypothesis_part_1.html'>The Riemann Hypothesis (Part 1)</a> &#x2014;
+<i>Sep 07, 2019</i></li>
+   <li><a href='/category/2019/07/the_riemann_hypothesis_says_50.html'>The Riemann Hypothesis Says 5040 is the Last</a> &#x2014;
+<i>Jul 06, 2019</i></li>
+
+</ul>
+</div>
+
+<h2 class="comments-head" id="comments">0 Comments &amp; 0 Trackbacks</h2>
+
+<div class="blogbody">
+</div>
+<p class="newpost"><a class="comments-post" href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3630" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}">Post a New Comment</a></p>
+
+</div>
+
+<div id="footer">   
+<h2>Access Keys:</h2>
+
+<dl id="AccessKeyList">
+<dt>0</dt><dd><a href="/category/accessibility.html" accesskey="0">Accessibility Statement</a></dd>
+<dt>1</dt><dd>Main Page</dd>
+<dt>2</dt><dd>Skip to Content</dd>
+<dt>3</dt><dd>List of Posts</dd>
+<dt>4</dt><dd>Search</dd>
+<dt>p</dt><dd>Previous (individual/monthly archive page)</dd>
+<dt>n</dt><dd>Next (individual/monthly archive page)</dd>
+</dl>
+<a href="/category/archives.html" accesskey="3"></a>
+</div>
+
+
+</div>
+
+</body>
+</html>

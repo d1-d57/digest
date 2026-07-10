@@ -1,0 +1,399 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN" "http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg-flat.dtd" >
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+
+<title>The Inverse Cube Force Law | The n-Category Caf&#xE9;</title>
+
+<meta name="ICBM" content="30.2893, -97.7367" />
+<meta name="DC.title" content="The n-Category Caf&#xE9;" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<style type="text/css" media="all" title="The n-Category Caf&#xE9; Stylesheet">@import url("/category/styles-site.css");</style>
+<link rel="stylesheet" href="/category/print.css" type="text/css" media="print" />
+
+<link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="/category/atom10.xml" />
+<link rel="alternate" type="application/atom+xml" title="Atom 1.0 Comments Feed" href="/category/comments.atom" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="/category/rsd.xml" />
+<link rel="shortcut icon" type="image/x-icon" href="/category/images/favicon.ico" />
+<link rel="icon" type="image/x-icon" href="/category/images/favicon2.ico" />
+<link rel="pgpkey" href="/category/urs.asc" title="Urs Schreiber's PGP Public Key" />
+<link rel="start" href="/category/" title="Home" />
+<link rel="search" href="/cgi-bin/MT-3.0/mt-search.cgi?IncludeBlogs=3&amp;Template=category" title="Search" />
+<link rel="contents" href="/category/archives.html" title="Comprehensive List of Blog Entries" />
+
+
+<link rel="bookmark" href="#content" title="Main Content" />
+<link rel="bookmark" href="#comments" title="Comments" />
+<link rel="bookmark" href="#search" title="Search Box" />
+<link rel="bookmark" href="#related" title="Related entries" />
+<link rel="bookmark" href="#AccessKeyList" title="AccessKeys" />
+<link rel="prev" href="/category/2025/11/second_quantization_and_the_ke.html" title="Second Quantization and the Kepler Problem" />
+<link rel="next" href="/category/2025/11/beyond_the_geometry_of_music.html" title="Beyond the Geometry of Music" />
+<link rel="up" href="/category/2025/11/" title="November, 2025" />
+
+<script type="text/javascript" src="/category/prototype.js"></script>
+<script type="text/javascript" src="/category/ie.js"></script>
+<script type="text/x-mathjax-config">
+  <!--//--><![CDATA[//><!--
+    MathJax.Hub.Config({
+      MathML: { useMathMLspacing: true },
+      "HTML-CSS": { scale: 90,
+                    noReflows: false,
+                    extensions: ["handle-floats.js"],
+                    linebreaks: { width: "container" }
+       }
+    });
+    MathJax.Hub.Queue( function () {
+       var fos = document.getElementsByTagName('foreignObject');
+       for (var i = 0; i < fos.length; i++) {
+         MathJax.Hub.Typeset(fos[i]);
+       }
+    });
+  //--><!]]>
+</script>
+<script type="text/javascript">
+  <!--//--><![CDATA[//><!--
+  window.addEventListener("DOMContentLoaded", function () {
+    var div = document.createElement('div');
+    var math = document.createElementNS('http://www.w3.org/1998/Math/MathML', 'math');
+    document.body.appendChild(div);
+    div.appendChild(math);
+  // Test for MathML support comparable to WebKit version https://trac.webkit.org/changeset/203640 or higher.
+    div.setAttribute('style', 'font-style: italic');
+    var mathml_unsupported = !(window.getComputedStyle(div.firstChild).getPropertyValue('font-style') === 'normal');
+    div.parentNode.removeChild(div);
+    if (mathml_unsupported) {
+      // MathML does not seem to be supported...
+      var s = document.createElement('script');
+      s.src = "/wiki/MathJax/MathJax.js?config=MML_HTMLorMML-full";
+      document.querySelector('head').appendChild(s);
+    } else {
+      document.head.insertAdjacentHTML("beforeend", '<style>svg[viewBox] {max-width: 100%}</style>');
+    }
+  });
+  //--><!]]>
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="https://golem.ph.utexas.edu/category/2025/11/the_inverse_cube_force_law.html"
+    trackback:ping="https://golem.ph.utexas.edu/cgi-bin/MT-3.0/dxy-tb.fcgi/3621"
+    dc:title="The Inverse Cube Force Law"
+    dc:identifier="https://golem.ph.utexas.edu/category/2025/11/the_inverse_cube_force_law.html"
+    dc:subject="Mathematical Physics"
+    dc:description="Newton&apos;s Principia is famous for his investigations of the inverse square force law for gravity.  But he also studied the inverse cube law.  Why, and what is so good about this law?"
+    dc:creator="John Baez"
+    dc:date="2025-11-05T17:08:14+00:00" />
+</rdf:RDF>
+-->
+
+
+</head>
+
+<body>
+
+<div class="frame">
+
+<div id="banner">
+<h1><a href="/category/" accesskey="1" title="Jump to the blog main page">The n-Category Caf&#xE9;</a></h1>
+<div class="description">A group blog on math, physics and philosophy</div>
+</div>
+
+
+<h2 class="skip">Skip to the Main Content</h2>
+<div class="skip">
+<a href="#content" accesskey="2">Enough, already! Skip to the content.</a>
+</div>
+<p style="display:none;">
+<strong>Note:</strong>These pages make extensive use of the latest XHTML and CSS <a href="http://www.w3.org">Standards</a>. They ought to look great in any standards-compliant modern browser. Unfortunately, they will probably look horrible in older browsers, like Netscape 4.x and IE 4.x. Moreover, many posts use MathML, which is, currently <em>only</em> supported in Mozilla. My best suggestion (and you will <em>thank</em> me when surfing an ever-increasing number of sites on the web which have been crafted to use the new standards) is to upgrade to the latest version of your browser. If that's not possible, consider moving  to the Standards-compliant and open-source <a href="http://www.mozilla.org">Mozilla</a> browser.
+</p>
+
+
+<div class="blog">
+
+<div><div id='menu'>
+<a href='/category/2025/11/second_quantization_and_the_ke.html' accesskey='p'>&#xab; Second Quantization and the Kepler Problem</a> |
+
+<a href='/category/'>Main</a>
+| <a href='/category/2025/11/beyond_the_geometry_of_music.html' accesskey='n'>Beyond the Geometry of Music &#xbb;</a>
+
+</div>
+
+<h2 class='date'>November  5, 2025</h2>
+
+<div id='content' class='blogbody'>
+
+<h3 class='title'>The Inverse Cube Force Law</h3>
+
+<h4 class='posted'>Posted by John Baez</h4>
+
+<div><a href='http://golem.ph.utexas.edu/~distler/blog/mathml.html' onclick='window.open(this.href, &#x27;MathML&#x27;, &#x27;width=310,height=150,scrollbars=no,resizable=yes,status=no&#x27;); return false;' onkeypress='if(window.event.keyCode == 13){window.open(this.href, &#x27;MathML&#x27;, &#x27;width=310,height=150,scrollbars=no,resizable=yes,status=no&#x27;); return false;}'><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>Here&#x2019;s a draft of my next column for the <em>Notices of the American Mathematical Society</em>.   It&#x2019;s about the inverse cube force law in classical mechanics.</p>
+
+
+<div id='more'>
+<div><a href='http://golem.ph.utexas.edu/~distler/blog/mathml.html' onclick='window.open(this.href, &#x27;MathML&#x27;, &#x27;width=310,height=150,scrollbars=no,resizable=yes,status=no&#x27;); return false;' onkeypress='if(window.event.keyCode == 13){window.open(this.href, &#x27;MathML&#x27;, &#x27;width=310,height=150,scrollbars=no,resizable=yes,status=no&#x27;); return false;}'><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>Newton&#x2019;s <em>Principia</em> is famous for his investigations of the inverse square force law for gravity.  But in this book Newton also did something that was rarely discussed until the 1990s.  He figured out what kind of central force exerted upon a particle can rescale its angular velocity by a constant factor without affecting its radial motion.  This turns out to be a force obeying an <i>inverse cube</i> law.</p>
+
+<p>Given a particle in Euclidean space, a <b>central force</b> is a force that points toward or away from the origin and depends only on the particle&#x2019;s distance from the origin.    If the particle&#x2019;s position at time is <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mstyle mathvariant='bold'><mi>r</mi></mstyle><mo stretchy='false'>(</mo><mi>t</mi><mo stretchy='false'>)</mo><mo>&#x2208;</mo><msup><mi>&#x211d;</mi> <mi>n</mi></msup></mrow><annotation encoding='application/x-tex'>\mathbf{r}(t) \in \mathbb{R}^n</annotation></semantics></math> and its mass is some number <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>m</mi><mo>&gt;</mo><mn>0</mn><mo>,</mo></mrow><annotation encoding='application/x-tex'>m \gt 0,</annotation></semantics></math> we have</p>
+
+<p><math xmlns="http://www.w3.org/1998/Math/MathML" display='block'><semantics><mrow><mi>m</mi><mspace width='0.16667em' /><mover><mstyle mathvariant='bold'><mi>r</mi></mstyle><mo>&#xa8;</mo></mover><mo stretchy='false'>(</mo><mi>t</mi><mo stretchy='false'>)</mo><mo>=</mo><mi>F</mi><mo stretchy='false'>(</mo><mi>r</mi><mo stretchy='false'>(</mo><mi>t</mi><mo stretchy='false'>)</mo><mo stretchy='false'>)</mo><mspace width='0.16667em' /><mover><mstyle mathvariant='bold'><mi>r</mi></mstyle><mo stretchy='false'>^</mo></mover><mo stretchy='false'>(</mo><mi>t</mi><mo stretchy='false'>)</mo></mrow><annotation encoding='application/x-tex'>      m \, \ddot{\mathbf{r}}(t) = F(r(t))  \,\hat{\mathbf{r}}(t)  </annotation></semantics></math></p>
+
+<p>where <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mover><mstyle mathvariant='bold'><mi>r</mi></mstyle><mo stretchy='false'>^</mo></mover><mo stretchy='false'>(</mo><mi>t</mi><mo stretchy='false'>)</mo></mrow><annotation encoding='application/x-tex'>\hat{\mathbf{r}}(t)</annotation></semantics></math> is a unit vector pointing outward from the origin at the point <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mstyle mathvariant='bold'><mi>r</mi></mstyle><mo stretchy='false'>(</mo><mi>t</mi><mo stretchy='false'>)</mo><mo>.</mo></mrow><annotation encoding='application/x-tex'>\mathbf{r}(t).</annotation></semantics></math>  A particle obeying this equation always moves in a plane through the origin, so we can use polar coordinates and write the particle&#x2019;s position as <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mo stretchy='false'>(</mo><mi>r</mi><mo stretchy='false'>(</mo><mi>t</mi><mo stretchy='false'>)</mo><mo>,</mo><mi>&#x3b8;</mi><mo stretchy='false'>(</mo><mi>t</mi><mo stretchy='false'>)</mo><mo>.</mo></mrow><annotation encoding='application/x-tex'>(r(t), \theta(t).</annotation></semantics></math>   With some calculation one can show the particle&#x2019;s distance from the origin, <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>r</mi><mo stretchy='false'>(</mo><mi>t</mi><mo stretchy='false'>)</mo><mo>,</mo></mrow><annotation encoding='application/x-tex'>r(t),</annotation></semantics></math> obeys</p>
+
+<p><math xmlns="http://www.w3.org/1998/Math/MathML" display='block'><semantics><mrow><mi>m</mi><mover><mi>r</mi><mo>&#xa8;</mo></mover><mo stretchy='false'>(</mo><mi>t</mi><mo stretchy='false'>)</mo><mo>=</mo><mi>F</mi><mo stretchy='false'>(</mo><mi>r</mi><mo stretchy='false'>(</mo><mi>t</mi><mo stretchy='false'>)</mo><mo stretchy='false'>)</mo><mo>+</mo><mfrac><mrow><msup><mi>L</mi> <mn>2</mn></msup></mrow><mrow><mi>m</mi><mi>r</mi><mo stretchy='false'>(</mo><mi>t</mi><msup><mo stretchy='false'>)</mo> <mn>3</mn></msup></mrow></mfrac><mspace width='2em' /><mspace width='2em' /><mo stretchy='false'>(</mo><mn>1</mn><mo stretchy='false'>)</mo></mrow><annotation encoding='application/x-tex'> m \ddot r(t) = F(r(t)) + \frac{L^2}{m r(t)^3 }  \qquad  \qquad (1) </annotation></semantics></math></p>
+
+<p>Here <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>L</mi><mo>=</mo><mi>m</mi><mi>r</mi><mo stretchy='false'>(</mo><mi>t</mi><msup><mo stretchy='false'>)</mo> <mn>2</mn></msup><mover><mi>&#x3b8;</mi><mo>&#x2d9;</mo></mover><mo stretchy='false'>(</mo><mi>t</mi><mo stretchy='false'>)</mo></mrow><annotation encoding='application/x-tex'>L = m r(t)^2 \dot \theta(t)</annotation></semantics></math>, the particle&#x2019;s <b>angular momentum</b>, is constant in time.  The second term in the equation above says that the particle&#x2019;s distance from the origin changes as if there were an additional force pushing it outward.  This is a &#x201c;fictitious force&#x201d;, an artifact of working in polar coordinates.   It is called the <b>centrifugal force</b>.  And it obeys an inverse cube force law! </p>
+
+<p>This explains Newton&#x2019;s observation.   Let us see why.   Suppose we have two particles moving in two different central forces <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msub><mi>F</mi> <mn>1</mn></msub></mrow><annotation encoding='application/x-tex'>F_1</annotation></semantics></math> and <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msub><mi>F</mi> <mn>2</mn></msub><mo>,</mo></mrow><annotation encoding='application/x-tex'>F_2,</annotation></semantics></math> each obeying a version of equation (1), with the same mass <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>m</mi></mrow><annotation encoding='application/x-tex'>m</annotation></semantics></math> and the same radial motion <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>r</mi><mo stretchy='false'>(</mo><mi>t</mi><mo stretchy='false'>)</mo><mo>,</mo></mrow><annotation encoding='application/x-tex'>r(t),</annotation></semantics></math> but different angular momenta <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msub><mi>L</mi> <mn>1</mn></msub></mrow><annotation encoding='application/x-tex'>L_1</annotation></semantics></math> and <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msub><mi>L</mi> <mn>2</mn></msub><mo>.</mo></mrow><annotation encoding='application/x-tex'>L_2.</annotation></semantics></math>  Then we must have</p>
+
+<p><math xmlns="http://www.w3.org/1998/Math/MathML" display='block'><semantics><mrow><msub><mi>F</mi> <mn>1</mn></msub><mo stretchy='false'>(</mo><mi>r</mi><mo stretchy='false'>(</mo><mi>t</mi><mo stretchy='false'>)</mo><mo stretchy='false'>)</mo><mo>+</mo><mfrac><mrow><msubsup><mi>L</mi> <mn>1</mn> <mn>2</mn></msubsup></mrow><mrow><mi>m</mi><mi>r</mi><mo stretchy='false'>(</mo><mi>t</mi><msup><mo stretchy='false'>)</mo> <mn>3</mn></msup></mrow></mfrac><mo>=</mo><msub><mi>F</mi> <mn>2</mn></msub><mo stretchy='false'>(</mo><mi>r</mi><mo stretchy='false'>(</mo><mi>t</mi><mo stretchy='false'>)</mo><mo stretchy='false'>)</mo><mo>+</mo><mfrac><mrow><msubsup><mi>L</mi> <mn>2</mn> <mn>2</mn></msubsup></mrow><mrow><mi>m</mi><mi>r</mi><mo stretchy='false'>(</mo><mi>t</mi><msup><mo stretchy='false'>)</mo> <mn>3</mn></msup></mrow></mfrac></mrow><annotation encoding='application/x-tex'>       F_1(r(t)) + \frac{L_1^2}{m r (t)^3}  =  F_2(r(t)) + \frac{L_2^2}{m r(t)^3} </annotation></semantics></math> </p>
+
+<p>If the particle&#x2019;s angular velocities are proportional  we must have <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msub><mi>L</mi> <mn>2</mn></msub><mo>=</mo><mi>k</mi><msub><mi>L</mi> <mn>1</mn></msub></mrow><annotation encoding='application/x-tex'>L_2 = k L_1</annotation></semantics></math> for some constant <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>k</mi><mo>,</mo></mrow><annotation encoding='application/x-tex'>k,</annotation></semantics></math> so  </p>
+
+<p><math xmlns="http://www.w3.org/1998/Math/MathML" display='block'><semantics><mrow><msub><mi>F</mi> <mn>2</mn></msub><mo stretchy='false'>(</mo><msub><mi>r</mi> <mn>1</mn></msub><mo stretchy='false'>(</mo><mi>t</mi><mo stretchy='false'>)</mo><mo stretchy='false'>)</mo><mo>&#x2212;</mo><msub><mi>F</mi> <mn>1</mn></msub><mo stretchy='false'>(</mo><mi>r</mi><mo stretchy='false'>(</mo><mi>t</mi><mo stretchy='false'>)</mo><mo stretchy='false'>)</mo><mo>=</mo><mfrac><mrow><mo stretchy='false'>(</mo><mi>k</mi><mo>&#x2212;</mo><mn>1</mn><mo stretchy='false'>)</mo><msub><mi>L</mi> <mn>1</mn></msub></mrow><mrow><mi>m</mi><mi>r</mi><mo stretchy='false'>(</mo><mi>t</mi><msup><mo stretchy='false'>)</mo> <mn>3</mn></msup></mrow></mfrac></mrow><annotation encoding='application/x-tex'>        F_2(r_1(t)) - F_1(r(t)) = \frac{(k - 1)L_1}{m r (t)^3} </annotation></semantics></math></p>
+
+<p>This says that <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msub><mi>F</mi> <mn>2</mn></msub></mrow><annotation encoding='application/x-tex'>F_2</annotation></semantics></math> equals <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msub><mi>F</mi> <mn>1</mn></msub></mrow><annotation encoding='application/x-tex'>F_1</annotation></semantics></math> plus an additional inverse cube force.</p>
+
+<p>There are other interesting things about the inverse cube force law.  Newtonian gravity is an attractive inverse square force, say <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>F</mi><mo stretchy='false'>(</mo><mi>r</mi><mo stretchy='false'>)</mo><mo>=</mo><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mi>c</mi><mo stretchy='false'>/</mo><msup><mi>r</mi> <mn>2</mn></msup></mrow><annotation encoding='application/x-tex'>F(r) = -c/r^2</annotation></semantics></math> with <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>c</mi><mo>&gt;</mo><mn>0</mn><mo>,</mo></mrow><annotation encoding='application/x-tex'>c \gt 0,</annotation></semantics></math>  so in this case we have</p>
+
+<p><math xmlns="http://www.w3.org/1998/Math/MathML" display='block'><semantics><mrow><mi>m</mi><mover><mi>r</mi><mo>&#xa8;</mo></mover><mo stretchy='false'>(</mo><mi>t</mi><mo stretchy='false'>)</mo><mo>=</mo><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mi>c</mi><mo stretchy='false'>/</mo><mi>r</mi><mo stretchy='false'>(</mo><mi>t</mi><msup><mo stretchy='false'>)</mo> <mn>2</mn></msup><mo>+</mo><mfrac><mrow><msup><mi>L</mi> <mn>2</mn></msup></mrow><mrow><mi>m</mi><mi>r</mi><mo stretchy='false'>(</mo><mi>t</mi><msup><mo stretchy='false'>)</mo> <mn>3</mn></msup></mrow></mfrac></mrow><annotation encoding='application/x-tex'>
+   m \ddot r(t) = -c/r(t)^2 + \frac{L^2}{m r(t)^3 }
+</annotation></semantics></math></p>
+
+<p>Because <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mn>1</mn><mo stretchy='false'>/</mo><msup><mi>r</mi> <mn>3</mn></msup></mrow><annotation encoding='application/x-tex'>1/r^3</annotation></semantics></math> grows faster than <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mn>1</mn><mo stretchy='false'>/</mo><msup><mi>r</mi> <mn>2</mn></msup></mrow><annotation encoding='application/x-tex'>1/r^2</annotation></semantics></math> as <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>r</mi><mo stretchy='false'>&#x2193;</mo><mn>0</mn><mo>,</mo></mrow><annotation encoding='application/x-tex'>r \downarrow 0,</annotation></semantics></math> as long as the angular momentum <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>L</mi></mrow><annotation encoding='application/x-tex'>L</annotation></semantics></math> is nonzero the repulsion of the centrifugal force will beat the attraction of gravity for sufficiently small <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>r</mi><mo>,</mo></mrow><annotation encoding='application/x-tex'>r,</annotation></semantics></math> and the particle will not fall in to the origin.   The same is true for any attractive force <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>F</mi><mo stretchy='false'>(</mo><mi>r</mi><mo stretchy='false'>)</mo><mo>=</mo><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mi>c</mi><mo stretchy='false'>/</mo><msup><mi>r</mi> <mi>p</mi></msup></mrow><annotation encoding='application/x-tex'>F(r) = -c/r^p</annotation></semantics></math>  with <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>p</mi><mo>&lt;</mo><mn>3</mn><mo>.</mo></mrow><annotation encoding='application/x-tex'>p \lt 3.</annotation></semantics></math>  But an attractive inverse cube force can overcome the centrifugal force and make a particle fall in to the origin.    </p>
+
+<p>In fact there are three qualitatively different possibilities for the motion of a particle in an attractive inverse cube force <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>F</mi><mo stretchy='false'>(</mo><mi>r</mi><mo stretchy='false'>)</mo><mo>=</mo><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mi>c</mi><mo stretchy='false'>/</mo><msup><mi>r</mi> <mn>3</mn></msup><mo>,</mo></mrow><annotation encoding='application/x-tex'>F(r) = -c/r^3,</annotation></semantics></math> depending on the value of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>c</mi></mrow><annotation encoding='application/x-tex'>c</annotation></semantics></math>.   With work we can solve for <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mn>1</mn><mo stretchy='false'>/</mo><mi>r</mi></mrow><annotation encoding='application/x-tex'>1/r</annotation></semantics></math> as a function of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x3b8;</mi></mrow><annotation encoding='application/x-tex'>\theta</annotation></semantics></math> (which is easier than solving for <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>r</mi></mrow><annotation encoding='application/x-tex'>r</annotation></semantics></math>).  There are three cases depending on the value of</p>
+
+<p><math xmlns="http://www.w3.org/1998/Math/MathML" display='block'><semantics><mrow><msup><mi>&#x3c9;</mi> <mn>2</mn></msup><mo>=</mo><mn>1</mn><mo>&#x2212;</mo><mfrac><mrow><mi>c</mi><mi>m</mi></mrow><mrow><msup><mi>L</mi> <mn>2</mn></msup></mrow></mfrac></mrow><annotation encoding='application/x-tex'>    \omega^2 = 1 - \frac{c m}{L^2}  </annotation></semantics></math></p>
+
+<p>They are vaguely analogous to the elliptical, parabolic and hyperbolic orbits of a particle in an inverse square force law:</p>
+
+<p><math xmlns="http://www.w3.org/1998/Math/MathML" display='block'><semantics><mrow><mfrac><mn>1</mn><mrow><mi>r</mi><mo stretchy='false'>(</mo><mi>&#x3b8;</mi><mo stretchy='false'>)</mo></mrow></mfrac><mo>=</mo><mrow><mo>{</mo><mtable displaystyle='false' rowspacing='0.5ex' columnalign='left center left'><mtr><mtd><mi>A</mi><mi>cos</mi><mo stretchy='false'>(</mo><mi>&#x3c9;</mi><mi>&#x3b8;</mi><mo stretchy='false'>)</mo><mo>+</mo><mi>B</mi><mi>sin</mi><mo stretchy='false'>(</mo><mi>&#x3c9;</mi><mi>&#x3b8;</mi><mo stretchy='false'>)</mo></mtd> <mtd><mtext>if</mtext></mtd> <mtd><msup><mi>&#x3c9;</mi> <mn>2</mn></msup><mo>&gt;</mo><mn>0</mn></mtd></mtr> <mtr><mtd></mtd></mtr> <mtr><mtd><mi>A</mi><mo>+</mo><mi>B</mi><mi>&#x3b8;</mi></mtd> <mtd><mtext>if</mtext></mtd> <mtd><mi>&#x3c9;</mi><mo>=</mo><mn>0</mn></mtd></mtr> <mtr><mtd></mtd></mtr> <mtr><mtd><mi>A</mi><msup><mi>e</mi> <mrow><mi>&#x3c9;</mi><mi>&#x3b8;</mi></mrow></msup><mo>+</mo><mi>B</mi><msup><mi>e</mi> <mrow><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mi>&#x3c9;</mi><mi>&#x3b8;</mi></mrow></msup></mtd> <mtd><mtext>if</mtext></mtd> <mtd><msup><mi>&#x3c9;</mi> <mn>2</mn></msup><mo>&lt;</mo><mn>0</mn></mtd></mtr></mtable></mrow></mrow><annotation encoding='application/x-tex'>  \frac{1}{r(\theta)}  = \left\{ \begin{array}{lcl}
+ A \cos(\omega \theta) + B \sin(\omega \theta) &amp; \text{if} &amp; \omega^2 \gt 0 \\ \\
+ A + B \theta &amp; \text{if} &amp; \omega = 0 \\  \\
+ A e^{\omega \theta} + B e^{-\omega \theta}  &amp; \text{if} &amp; \omega^2 \lt 0
+ \end{array} \right.
+ </annotation></semantics></math></p>
+
+<p>The third case occurs when the attractive inverse cube force is strong enough to overcome the centrifugal force: <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>c</mi><mo>&gt;</mo><msup><mi>L</mi> <mn>2</mn></msup><mo stretchy='false'>/</mo><mi>m</mi><mo>.</mo></mrow><annotation encoding='application/x-tex'>c \gt L^2/m.</annotation></semantics></math>  Then the particle can <i>spiral in to its doom</i>, hitting the origin in a finite amount of time after infinitely many orbits, like this:</p>
+
+<p><img width='350' src='http://math.ucr.edu/home/baez/mathematical/hyperbolic_spiral.png' alt='' /></p>
+
+<p>All three curves in the equation above are called <b>Cotes spirals</b>, after Roger Cotes&#x2019; work on the inverse cube force law, published posthumously in 1722.   Cotes seems to have been the first to compute the derivative of the sine function.   After Cotes&#x2019; death at the age of 33, Newton supposedly said &#x201c;If he had lived we would have known something.&#x201d;  </p>
+
+<p>The subtlety of the inverse cube force law is vastly heightened when we study it using quantum rather than classical mechanics.  Here if <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>c</mi></mrow><annotation encoding='application/x-tex'>c</annotation></semantics></math> is too large the theory is ill-defined, because there is no reasonable choice of self-adjoint Hamiltonian.   If <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>c</mi></mrow><annotation encoding='application/x-tex'>c</annotation></semantics></math> is smaller the theory is well-behaved.   But at a certain borderline point it exhibits a remarkable property: spontaneous breaking of scaling symmetry.  I hope to discuss this in my next column.</p>
+
+<p>For more on the inverse cube force law, see:</p>
+
+<ul>
+<li>N. Grossman, <i>The Sheer Joy of Celestial Mechanics</i>, Birkh&#xe4;user, Basel, 1996, p. 34.</li>
+</ul>
+
+<p>For more on Newton&#x2019;s work involving the inverse cube force law, see:</p>
+
+<ul>
+<li><p>Wikipedia, <a href='https://en.wikipedia.org/wiki/Newton&#x27;s_theorem_of_revolving_orbits'>Newton&#x2019;s theorem of revolving orbits</a>.</p></li>
+<li><p>S. Chandrasekhar, <i>Newton&#x2019;s Principia for the Common Reader</i>, Oxford U. Press, Oxford, 1995, pp. 183&#x2013;200.</p></li>
+</ul>
+
+<p>Cotes&#x2019; book is</p>
+
+<ul>
+<li>Roger Cotes, <i>Harmonia Mensuarum</i>, Cambridge, 1722.</li>
+</ul>
+
+</div>
+
+
+<span class='posted'>Posted at November  5, 2025  5:08 PM UTC
+</span>
+</div>
+
+<p class='trackback-url'>TrackBack URL for this Entry:&#xa0;&#xa0; https://golem.ph.utexas.edu/cgi-bin/MT-3.0/dxy-tb.fcgi/3621</p>
+
+
+<h2 class='comments-head' id='related'>Some Related Entries</h2>
+
+<div id='pane'>
+
+<form method='get' action='/cgi-bin/MT-3.0/mt-search.cgi'>
+<fieldset class='search'>
+  <input type='hidden' name='IncludeBlogs' value='3' />
+  <input type='hidden' name='Template' value='category' />
+  <label for='search' accesskey='4'>Search for other entries:</label><br />
+  <input id='search' name='search' size='25' /><br />
+  <input type='submit' value='Search' />
+</fieldset>
+</form>
+
+
+
+</div>
+
+<ul class='blogbody related'>
+
+   <li><a href='/category/2025/07/the_duflo_isomorphism_and_the.html'>The Duflo Isomorphism and the Harmonic Oscillator Hamiltonian</a> &#x2014;
+<i>Jul 28, 2025</i></li>
+   <li><a href='/category/2024/10/associahedra_in_quantum_field.html'>Associahedra in Quantum Field Theory</a> &#x2014;
+<i>Oct 17, 2024</i></li>
+   <li><a href='/category/2024/09/the_space_of_physical_framewor_3.html'>The Space of Physical Frameworks (Part 5)</a> &#x2014;
+<i>Sep 30, 2024</i></li>
+   <li><a href='/category/2024/09/the_space_of_physical_framewor_2.html'>The Space of Physical Frameworks (Part 4)</a> &#x2014;
+<i>Sep 15, 2024</i></li>
+   <li><a href='/category/2024/09/the_space_of_physical_framewor_1.html'>The Space of Physical Frameworks (Part 3)</a> &#x2014;
+<i>Sep 09, 2024</i></li>
+   <li><a href='/category/2024/09/the_space_of_physical_framewor.html'>The Space of Physical Frameworks (Part 2)</a> &#x2014;
+<i>Sep 07, 2024</i></li>
+   <li><a href='/category/2024/08/laplace_versus_legendre.html'>The Space of Physical Frameworks (Part 1)</a> &#x2014;
+<i>Aug 31, 2024</i></li>
+   <li><a href='/category/2024/08/two_views_of_stirlings_formula.html'>Stirling&#x2019;s Formula from Statistical Mechanics</a> &#x2014;
+<i>Aug 25, 2024</i></li>
+
+</ul>
+</div>
+
+<h2 class="comments-head" id="comments">5 Comments &amp; 1 Trackback</h2>
+
+<div class="blogbody">
+
+<div class="comments-body" id="c069116">
+<h3 class="title">Re: The Inverse Cube Force Law</h3>
+
+<div><div><a href="http://golem.ph.utexas.edu/~distler/blog/mathml.html"><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>The following comment might put your remarks in context.  If we write the equation for an orbit in the unorthodox form <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>r</mi><mi>f</mi><mo stretchy='false'>(</mo><mi>&#x3b8;</mi><mo stretchy='false'>)</mo><mo>=</mo><mn>1</mn></mrow><annotation encoding='application/x-tex'>r f(\theta)=1</annotation></semantics></math> as you do, then this corresponds to a power law if and only if <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>f</mi><mo>+</mo><msup><mi>D</mi> <mn>2</mn></msup><mi>f</mi></mrow><annotation encoding='application/x-tex'>f+D^2f</annotation></semantics></math> is proportional to a power of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>f</mi></mrow><annotation encoding='application/x-tex'>f</annotation></semantics></math>, more precisely, <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>f</mi><mo>+</mo><msup><mi>D</mi> <mn>2</mn></msup><mo>=</mo><mi>c</mi><msup><mi>f</mi> <mi>&#x3b1;</mi></msup></mrow><annotation encoding='application/x-tex'>f+D^2=c f^\alpha</annotation></semantics></math> for constants <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>c</mi></mrow><annotation encoding='application/x-tex'>c</annotation></semantics></math> and <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x3b1;</mi></mrow><annotation encoding='application/x-tex'>\alpha</annotation></semantics></math>.  This is then an orbit for an <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mfrac><mn>1</mn><mrow><msup><mi>r</mi> <mrow><mi>&#x3b1;</mi><mo>+</mo><mn>2</mn></mrow></msup></mrow></mfrac></mrow><annotation encoding='application/x-tex'>\frac1 {r^{\alpha+2}}</annotation></semantics></math> law.
+We can regard the above as an ODE ( non linear except for two significant values of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x3b1;</mi></mrow><annotation encoding='application/x-tex'>\alpha</annotation></semantics></math>) and we have four parameters in the solution, <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>c</mi></mrow><annotation encoding='application/x-tex'>c</annotation></semantics></math>, <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x3b1;</mi></mrow><annotation encoding='application/x-tex'>\alpha</annotation></semantics></math> and two since second order.  A three parameter family of solutions was already known to the Scottish mathematiciam Maclaurin <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>f</mi><mo stretchy='false'>(</mo><mi>t</mi><mo stretchy='false'>)</mo><mo>=</mo><mi>p</mi><mo stretchy='false'>(</mo><mi>cos</mi><mo stretchy='false'>(</mo><mi>d</mi><mo stretchy='false'>(</mo><mi>t</mi><mo>&#x2212;</mo><msub><mi>t</mi> <mn>0</mn></msub><mo stretchy='false'>)</mo><mo stretchy='false'>)</mo><msup><mo stretchy='false'>)</mo> <mfrac><mn>1</mn><mi>d</mi></mfrac></msup></mrow><annotation encoding='application/x-tex'>f(t)=p(\cos (d(t-t_0)))^{\frac 1 d}</annotation></semantics></math>.  The corresponding curves are known as MacLaurin spirals (although they are not always spirals!).  Thus we have three quarters of the solutions in all cases, i.e., all power laws ( by the way, the same curves are also catenaries and brachistones for suitable power laws).  There are three cases where all solutions can be found explicitly: our universe, i.e.,  the inverse square law, simple harmonic motion, i.e., a linear law, and your case where the equation is <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>f</mi><mo>+</mo><msup><mi>D</mi> <mn>2</mn></msup><mi>f</mi><mo>=</mo><mi>c</mi><mi>f</mi></mrow><annotation encoding='application/x-tex'>f+D^2f=c f</annotation></semantics></math>.  This can, of course, be solved trivially and we, more tidely, have three cases, trigonometric, linear or hyperbolic trigonometric, depending on which side of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mn>1</mn></mrow><annotation encoding='application/x-tex'>1</annotation></semantics></math> <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>c</mi></mrow><annotation encoding='application/x-tex'>c</annotation></semantics></math> lies.</p>
+
+<p>As a coda, related methods can be used to solve the corresponding problem for flat earthers, i.e., to find all curves in the upper half plane which are trajectories to <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msup><mi>y</mi> <mi>&#x3b1;</mi></msup></mrow><annotation encoding='application/x-tex'>y^{\alpha}</annotation></semantics></math> laws.  Again we use special parametrisations to reduce to ode&#x2018;s of a similar type.</p>
+</div>
+<div class="comments-post">Posted by:
+jim cooper on November 20, 2025  8:59 AM | <a href="/category/2025/11/the_inverse_cube_force_law.html#c069116" title="URL for comment by jim cooper [November 20, 2025  8:59 AM]">Permalink</a>
+
+| <a href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3623;parent_id=69116" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}" title="Respond to comment by jim cooper [November 20, 2025  8:59 AM]">Reply to this</a>
+</div>
+</div>
+
+<div class="comments-nest-box">
+<div class="comments-body" id="c069118">
+<h3 class="title">Re: The Inverse Cube Force Law</h3>
+
+<div><div><a href="http://golem.ph.utexas.edu/~distler/blog/mathml.html"><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>Cool!  But what&#8217;s <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>D</mi></mrow><annotation encoding='application/x-tex'>D</annotation></semantics></math>?  You didn&#8217;t say.  </p>
+</div>
+<div class="comments-post">Posted by:
+<a title="http://math.ucr.edu/home/baez/" href="http://math.ucr.edu/home/baez/" rel="nofollow">John Baez</a> on November 23, 2025  2:53 PM | <a href="/category/2025/11/the_inverse_cube_force_law.html#c069118" title="URL for comment by John Baez [November 23, 2025  2:53 PM]">Permalink</a>
+
+| <a href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3623;parent_id=69118" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}" title="Respond to comment by John Baez [November 23, 2025  2:53 PM]">Reply to this</a>
+</div>
+</div>
+
+<div class="comments-nest-box">
+<div class="comments-body" id="c069119">
+<h3 class="title">Re: The Inverse Cube Force Law</h3>
+
+<div><div><a href="http://golem.ph.utexas.edu/~distler/blog/mathml.html"><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p><math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>Df</mi></mrow><annotation encoding='application/x-tex'>Df</annotation></semantics></math> and <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msup><mi>D</mi> <mn>2</mn></msup><mi>f</mi></mrow><annotation encoding='application/x-tex'>D^2f</annotation></semantics></math> are the derivatives of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>f</mi></mrow><annotation encoding='application/x-tex'>f</annotation></semantics></math> ( dashes didn&#x2018;t seem to work). While I am here, &#x201e;tidely&#x201c; should be &#x201e;tidily&#x201c;, &#x201e;Scottish&#x201c; &#x201e;scottish&#x201c;.  A reference would be arXiv: 1108.4760.</p>
+</div>
+<div class="comments-post">Posted by:
+jim cooper on November 23, 2025  7:51 PM | <a href="/category/2025/11/the_inverse_cube_force_law.html#c069119" title="URL for comment by jim cooper [November 23, 2025  7:51 PM]">Permalink</a>
+
+| <a href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3623;parent_id=69119" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}" title="Respond to comment by jim cooper [November 23, 2025  7:51 PM]">Reply to this</a>
+</div>
+</div>
+
+
+<div class="comments-body" id="c069121">
+<h3 class="title">Re: The Inverse Cube And Force Law</h3>
+
+<div><div><a href="http://golem.ph.utexas.edu/~distler/blog/mathml.html"><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>And, of course, the main equation at the beginning should be <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>f</mi><mo>+</mo><msup><mi>D</mi> <mn>2</mn></msup><mi>f</mi><mo>=</mo><mi>c</mi><msup><mi>f</mi> <mi>&#x3b1;</mi></msup></mrow><annotation encoding='application/x-tex'>f+D^2 f=c f^\alpha</annotation></semantics></math>.</p>
+</div>
+<div class="comments-post">Posted by:
+jim cooper on November 24, 2025 11:46 AM | <a href="/category/2025/11/the_inverse_cube_force_law.html#c069121" title="URL for comment by jim cooper [November 24, 2025 11:46 AM]">Permalink</a>
+
+| <a href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3623;parent_id=69121" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}" title="Respond to comment by jim cooper [November 24, 2025 11:46 AM]">Reply to this</a>
+</div>
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="trackback" id="p47354">
+Read the post <a href="https://golem.ph.utexas.edu/category/2026/04/the_quantum_mechanics_of_the_i.html">The Quantum Mechanics of the Inverse Cube Law</a><br />
+<b>Weblog:</b> The n-Category Caf&#xE9;<br />
+<b>Excerpt:</b>  In the last episode of my column in Notices of the American Mathematical Society, I looked at a particle moving in an attractive central force whose strength is proportional to the inverse cube of the distance from the origin....<br />
+<b>Tracked:</b> April 30, 2026 12:06 AM</div>
+
+
+
+<div class="comments-body" id="c069189">
+<h3 class="title">Re: The Inverse Cube Force Law</h3>
+
+<div><div><a href="http://golem.ph.utexas.edu/~distler/blog/mathml.html"><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>For more on Cotes, see my answer and comments to the MathOverflow question <a href="https://mathoverflow.net/questions/382121/what-are-some-of-the-earliest-examples-of-analytic-continuation">What are some of the earliest examples of analytic continuation?</a></p>
+</div>
+<div class="comments-post">Posted by:
+Tom Copeland on May 10, 2026  1:42 AM | <a href="/category/2025/11/the_inverse_cube_force_law.html#c069189" title="URL for comment by Tom Copeland [May 10, 2026  1:42 AM]">Permalink</a>
+
+| <a href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3623;parent_id=69189" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}" title="Respond to comment by Tom Copeland [May 10, 2026  1:42 AM]">Reply to this</a>
+</div>
+</div>
+
+
+
+
+</div>
+<p class="newpost"><a class="comments-post" href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3623" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}">Post a New Comment</a></p>
+
+</div>
+
+<div id="footer">   
+<h2>Access Keys:</h2>
+
+<dl id="AccessKeyList">
+<dt>0</dt><dd><a href="/category/accessibility.html" accesskey="0">Accessibility Statement</a></dd>
+<dt>1</dt><dd>Main Page</dd>
+<dt>2</dt><dd>Skip to Content</dd>
+<dt>3</dt><dd>List of Posts</dd>
+<dt>4</dt><dd>Search</dd>
+<dt>p</dt><dd>Previous (individual/monthly archive page)</dd>
+<dt>n</dt><dd>Next (individual/monthly archive page)</dd>
+</dl>
+<a href="/category/archives.html" accesskey="3"></a>
+</div>
+
+
+</div>
+
+</body>
+</html>

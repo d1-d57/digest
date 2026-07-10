@@ -1,0 +1,76 @@
+The mystery was this: In the 1950s, a physicist at Bell Labs named George Feher was injecting silicon with tiny quantities of other elements, such as phosphorus or arsenic. When he put a little in, the electrons would move freely through the resulting material. But as he added more, the material’s internal structure became more random, impeding the electrons’ motion. Rather than happening gradually, as one might expect, this obstruction occurred suddenly when the concentration passed a particular point, trapping the electrons. Then their movement stopped entirely.
+“It was conducting, conducting, conducting, and it no longer conducts,” said
+Yan Fyodorov
+, a physicist at King’s College London. What was intriguing was that the sharp change in behavior was reminiscent of phase transitions like the sudden freezing of water at zero degrees Celsius. “Physicists love transitions,” said Fyodorov.
+Soon, Philip W. Anderson — another Bell Labs physicist — developed a model to describe the puzzling behavior. He hoped to rigorously prove that his model behaved just as Feher’s experiments had. That is, he wanted to show that once a material’s structure was random enough, its electrons would shift from being free-moving, or “delocalized,” to being completely stuck, or “localized.”
+Anderson would later win a Nobel Prize, in part for this work, and as he recounted
+in his Nobel lecture
+, his efforts to find this proof made him “a nuisance to everyone.”
+But a rigorous proof would ultimately elude him.
+It has also eluded other researchers for decades, but this past year, researchers have posted
+a string of results
+that
+mark the most significant advances
+on the problem since the 1980s.
+Quanta Audio Edition
+A recent mathematical breakthrough may help inspire more realistic models for how electrons behave in semiconductors.
+Their techniques aren’t just promising for analyzing models of electron behavior like Anderson’s. The work also taps into a longtime quest to understand systems that aren’t entirely random or entirely ordered.
+“I’m actually very excited,” said
+Horng-Tzer Yau
+of Harvard University, who has been working on the problem for most of his career. When it comes to these challenging kinds of models, “I feel this is the first time we have a method that will have a huge impact.”
+Through Thick and Thin
+Anderson thought of a material as a grid of points that an electron can randomly hop around on. If an electron hops around a lot, the material conducts. If it can’t hop around, it insulates.
+To understand the electron’s overall behavior, you can use an array of numbers called a matrix to compute lists of values. These lists of values are called the eigenfunctions.
+In a relatively pure material, nearly all of the eigenfunctions have values that are, on average, very small. This tells you that the electron has a relatively equal chance of hopping to a variety of different spots on the grid. It’s delocalized.
+Anderson said that for matrices that describe materials with enough randomness, each eigenfunction should see some of its values suddenly get very large, while others drop to zero. This means that the electron is now trapped in a particular region of the grid. It’s localized.
+The problem is that it’s very difficult to calculate the eigenfunctions for the type of matrix that Anderson used. They sit awkwardly out of reach of the standard methods.
+That’s where band matrices come in.
+“Band” refers to a sprinkling of numbers along the diagonal of the matrix — a hallmark of Anderson’s matrices. If the only nonzero numbers in a matrix are on the line that runs from its upper lefthand corner to its lower righthand corner, that matrix has a band of width 1. Additional nonzero numbers around that diagonal make the band wider. The matrices in Anderson’s model always have a very thin band. The eigenfunctions of such thin matrices are hard to calculate.
+The band width acts like a reflection of how far the electron can move: If the band is wider, the electron can teleport to more distant points on the grid. (This is not a very realistic model, but it’s still a useful one.)
+In Anderson’s matrices, some entries are random, and others aren’t. But in 1990, physicists noticed that band matrices where all the entries were random also displayed a localization transition: Wide bands meant delocalized electrons, thinner bands localized ones. Unlike in Anderson’s model, this transition was slow, rather than sudden. But researchers could still detect a threshold — a band width that separated delocalized states from localized ones. And so, as with Anderson’s model, mathematicians wanted to pinpoint that threshold. That is, they wanted to find the slimmest possible band matrices in which the eigenfunctions’ values remained small.
+That was still difficult to do, because the thinner the band, the harder it is to analyze the matrix’s eigenfunctions. But it was potentially easier than computing the eigenfunctions for Anderson’s thin-banded matrices. And if mathematicians could prove this new threshold, maybe it would help them make sense of those more difficult matrices.
+Out of Control
+The physicists who uncovered the transition in band matrices started out with an even simpler model. They imagined a material like an infinitely thin wire — a one-dimensional version of the problem. They then used numerical experiments to pinpoint the precise threshold between localization and delocalization.
+But these experiments were not the same as mathematical proof. “They are based on totally uncontrolled approximations which, while plausible, are often very difficult to make rigorous,” said
+Antti Knowles
+of the University of Geneva. So mathematicians kept band matrices on their to-do list, hoping to turn the theories into theorems. Among them were Yau and his then-postdoc,
+Jun Yin
+.
+Yin joined Yau’s group in 2008, after finishing a Ph.D. in Princeton University’s physics department. The pair started with the one-dimensional case. By 2013, working with Knowles and
+László Erdős
+, they were able to
+prove that most eigenfunctions are delocalized
+once the band is very wide. But this width was still much greater than the threshold that physicists had predicted.
+For years, they explored all sorts of ways to show that the eigenfunctions remain small for smaller band widths. They even
+took a detour
+into a seven-dimensional version of the problem, a setting which has little bearing on physics but which they hoped would yield mathematical insight.
+But after a decade of work, they had only gotten a smidge closer to their goal.
+It seemed they’d tried everything. Then, in the spring of 2024, they realized that a method they’d previously dismissed might be useful after all.
+Nightmare Loop
+The method Yau and Yin had originally discounted is an old, well-worn one in random matrix theory: Carefully tweak a stubborn, difficult matrix to get a new matrix that’s easier to work with. This turned one hard problem — studying the eigenfunctions of a band matrix — into two more manageable ones. First, the mathematicians would need to prove that their process for massaging the matrix didn’t affect its eigenfunctions too much. Then they’d have to show that the new matrix’s eigenfunctions are small — that the electron is delocalized.
+But when Yau and Yin applied this technique to band matrices, they still had trouble understanding the new matrix’s eigenfunctions. They’d gotten the analysis down to a final step: They had to show that the solution to a particular equation was small.
+But in trying to solve the equation, the pair ended up in a nightmarish loop. Rather than getting a tidy answer, they ended up with a new, even messier equation. And when they tried to solve that, they only got something more difficult to solve.
+“The calculations are getting more and more complicated, so you say, really? That’s your plan? Where can you solve it?” Yin said.
+He toyed with the equations for months, drawing over 200 pages of pictures as he tried to make sense of them. “You have the ideas little by little,” he said. “It takes a long time to get it correct.”
+After months of painstaking exploration, he and Yau figured out how to simplify the equations. This allowed them to complete their proof: They showed that once the band got just a bit wider than the predicted threshold, the
+eigenfunctions’ values had to be small
+. The electron was guaranteed to be delocalized.
+It was the biggest proof of a delocalization phenomenon since Anderson introduced his model.
+Sixteen Winters
+Yau and Yin’s proof dealt with the one-dimensional model. With their new result in hand, they immediately set out to tackle the thresholds of higher-dimensional band matrices. They recruited Yau’s graduate student Sofiia Dubova and his postdoc
+Kevin Yang
+to help. Within a few months, the team was able to adapt Yau and Yin’s techniques to work for an electron hopping around a two-dimensional grid. And last month, Yau, Yin, Dubova and
+Fan Yang
+made
+significant progress on the three-dimensional case
+— the setting that best models our physical, three-dimensional reality.
+Mathematicians have long struggled to make sense of matrices that have just a little bit of randomness. This recent spate of work has provided fresh insights into how to do so. Researchers now hope to apply the methods that Yau, Yin and their colleagues developed to all sorts of other settings. “There’s basically an infinite number of different variants one could define and try to apply these techniques,” Knowles said.
+Still, for mathematicians in this area, the prospect of using band matrices to understand the Anderson model outshines any other goal. “Everyone kind of knew about these problems and that they were not accessible through the conventional technology,” said Amol Aggarwal of Columbia University. “The fact that they can now be understood gives people a lot of excitement about band matrices in general.”
+To this end, Yin and Fan Yang have
+applied their methods
+to another class of matrices that resemble the Anderson model even more closely. And in June, Erdős and
+Volodymyr Riabov
+posted
+a paper
+that reproduces Yau and Yin’s one-dimensional result for a broader class of band matrices. Their proof might be relevant for more realistic models of electron behavior.
+For the first time in half a century, mathematicians are feeling hopeful about their prospects of tackling Anderson’s original problem. Looking back, Yin remembers asking Erdős in 2008 whether their team would finish their paper on band matrices by the end of winter. “He tried to make fun and say, which winter?” Yin said. “I did not realize it would take 16 winters to finally finish it.”

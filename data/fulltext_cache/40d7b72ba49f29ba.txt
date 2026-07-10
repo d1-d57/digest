@@ -1,0 +1,127 @@
+Paul Erdős’s, in his 1946  paper published in the American Mathematical Monthly, posed two general questions about the distribution of distances determined by a finite set of points in a metric space.
+
+1. 
+Unit Distance Problem:
+ At most how many times can the same distance (say, distance 1) occur among a set of n points?
+
+2. 
+Distinct Distances Problem:
+ What is the minimum number of distinct distances determined by a set of n points?
+
+Erdős conjectured that in the plane the number of unit distances determined by n points is at most 
+, for a positive constant c, but the best known upper bound, due to Spencer, Szemeredi, and Trotter is only 
+.
+
+As for the Distinct Distances Problem, the order of magnitude of the conjectured minimum is 
+.  In 2010 a sensational paper of Guth and Katz presents a proof of an almost tight lower bound of the order of 
+ Janos Pach wrote about it
+ in this 2010 post
+. See also 
+this post
+ from 2008, that explains (among other things) the proof for the upper bound.
+
+I have just learned that an internal model of OpenAI have very recently disproved Erdős’ conjecture for the unit distance problem and found an example with more than 
+ unit distances. This is truly amazing. The construction relies on algebraic number theory.
+
+Here is 
+Open AI announcement
+ and 
+technical paper
+.
+
+The proof is presented, explained and discussed in the paper 
+Remarks on the disproof of the unit distance conjecture
+ by Alon, Bloom, Gowers, Litt, Sawin, Shankar,Tsimerman, Wang, and Matchett Wood. (I learned about it from 
+an answer
+ to an MO question on the topic of mathematics and AI.)
+
+Like the computer-based proof of the four color theorem in 1976 by Appel and Haken, this may well be a scientific landmark whose importance goes beyond combinatorics and beyond mathematics. I will add a link to the Open AI document when I will have it. (Done.)
+
+There is also a short 
+Open AI video
+ where the result is presented by Tim Gowers and by four members of the team, Lijie Chen, Mark Sellke, Mehtaab Sawhney, and Sebastien (Seb) Bubeck.
+
+Updates:
+ Will Sawin 
+proved a lower bound
+ of 
+ This was further improved to 
+; There are interesting 
+comments on the ErdosProblems site;
+ The list of best constants so far can be found in 
+Terence Tao’s Github
+. Sawin also proved in the 
+same paper
+ a limit 1.2143 for the new method.
+
+The result is reported and discussed on 
+the Geomblog
+, 
+computational complexity
+, and 
+Shtetl Optimized
+; There is an interesting 
+commentary by Erik Hoel
+. Following the OpenAI result, 
+Anthropic reported being able to autonomously disprove the unit-distance conjecture (in its strongest form) with its system. Inspired by the disproof of Erdős’ unit distance conjecture, Thomas Bloom, Will Sawin, Carl Schildkraut, and Dmitrii Zhelezov 
+disproved
+ Erdős-Szemeredi Sum-Product Conjecture (over the reals). (See the 
+2008 post
+ mentioned above for the statement and connection.) Cosmin Pohoata whote a 
+detailed beautiful post
+ (
+on the sum-product breakthrough)
+ his result inspired by these two breakthroughs: a disproof of the 
+Elekes–Rónyai problem
+.   Thomas Bloom wrote a detailed 
+beautiful blog post
+ about the developments. Here is 
+an interesting videotaped lecture of Noga Alon
+. 
+
+Remarks (about the problem):
+ For an approach to improve the upper bound for the problem see the paper 
+Erdős’s unit distance problem and rigidity
+, by János Pach, Orit E. Raz, József Solymosi  (2025). We discussed a lecture by Orit Raz on the topic in 
+this post
+. Other posts (in “Combinatorics and more”) related to the Erdos distance problem and to related problems are listed in 
+this comment
+.
+
+Remarks (About the AI+math):
+ This breakthrough adds to several others remarkable applications of AI to Math. See for example 
+this post
+ over Terry Tao’s blog on Erdős problem 1196 which was settled by Open AI model a few weeks ago. Very recently, a team at DeepMind  
+used their model
+ to solve several open problems and their proofs come 
+with Lean verification
+.  From ancient times (January 2026) let me mention an interesting blog post 
+Problem 728 and the use of AI on Erdős problems
+, by Kevin Baretto. (June 3, 2026) There is an interesting 
+Leiden Declaration on Artificial Intelligence and Mathematics.
+
+Closer to me personally: Ori Gurel-Gurevich, Asaf Nachmias, and Sushant Sachdeva used an internal model of OpenAI to settle a problem about 
+electrical flow in graphs
+; (I just met Asaf a few days ago in a special Day of Tel-Aviv University devoted to AI and Math.) Pablo Soberón used  LLM-based tools in the brainstorming stage of a recent truly remarkable paper: 
+Tverberg cores and Kalai’s cascade conjecture
+.
+
+Share this:
+
+Share on Facebook (Opens in new window)
+
+Facebook
+
+Share on Reddit (Opens in new window)
+
+Reddit
+
+Share on X (Opens in new window)
+
+X
+
+Like
+
+Loading...
+
+Related

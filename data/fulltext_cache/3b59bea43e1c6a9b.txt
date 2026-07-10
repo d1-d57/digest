@@ -1,0 +1,397 @@
+Shtetl-Optimized  » Blog Archive   » Bipartite matching is in NC!
+Shtetl-Optimized
+The Blog of Scott Aaronson
+If you take nothing else from this blog: quantum computers won't
+solve hard problems instantly by just trying all solutions in parallel.
+«
+Never trust a T-Rex
+My response to the White House executive order on QC
+»
+Bipartite matching is in NC!
+Since I’m a good mood today—at a beautiful science camp with my kids, high in the mountains near Big Bear Lake in California—I thought I’d blog about something positive. Last week, five authors (Chatterjee, Ghosh, Gurjar, Raj, and Thierauf) posted a
+major paper
+to the Electronic Colloquium on Computational Complexity, which shows (or anyway, credibly claims to show) that the
+Bipartite Matching
+problem is in the complexity class
+NC
+. Assuming this stands, it resolves a central problem in parallel algorithms and derandomization that’s been open since the 1980s.
+In Bipartite Matching, you’re given a list of n men and n women, you’re told who’s willing to date whom, and your goal is to
+decide whether it’s possible to pair everyone off with a willing partner, and
+if they are, actually pair them off.
+One of the great early discoveries of combinatorial algorithms, taught in every introductory algorithms course, is that this problem is solvable in time polynomial in n, even though the naïve, brute-force approach would require examining n! possibilities.
+(Note that in the
+bipartite
+version, we assume that the men and women are all straight.  If the men and women can be LGBT, we get the problem of matching in
+general
+graphs, which again turns out to be solvable in polynomial time, but now the algorithm is much more sophisticated, and was a major discovery of Edmonds in the 1960s.)
+Anyway, the question is whether we can do even better than polynomial time: in particular, can we solve the problem in time polynomial in
+log(n)
+, given polynomially many parallel processors?
+Back in the 1980s, first
+Karp, Upfal, and Wigderson
+, and then (via a very different method) Mulmuley, my former PhD adviser Umesh Vazirani, and Umesh’s brother Vijay Vazirani managed to
+show that the answer is yes
+, but only if the parallel processors additionally get access to random bits, and only need to succeed with high probability.
+The new achievement is to derandomize the Mulmuley-Vazirani-Vazirani algorithm, and show that problems 1 and 2 above are both solvable in
+deterministic
+polylogarithmic time with parallel processing (in other words, in the complexity class NC).
+No, I don’t understand how it works yet.  If anyone does, feel free to explain in the comments!  Or ask your favorite AI to generate a summary.  If I run out of options, at some point I might actually try
+reading the paper
+.
+(
+Note:
+Thanks to Gil Kalai for some corrections to an earlier version of this post.)
+One other announcement:
+Today is the day of primary elections in NYC!  Virtually
+all
+of my smartest friends who work on AI governance and safety are extremely excited about the Congressional campaign of
+Alex Bores
+—indeed, it would be little exaggeration to say that they consider him the last best hope of humankind.  Bores has been a national leader on trying to regulate AI, to the extent that Marc Andreessen’s “Leading the Future” anti-AI-regulation PAC has spent millions of dollars trying to sink his candidacy.  Outside of AI, Bores seems like a sane, conventional Democrat, i.e. the kind I like, and much more moderate than his base on Israel (note that his main opponent is also such).  Without commenting on Bores’ views on every possible issue, I’ll simply say: if you live in
+New York’s 12th Congressional District
+(comprising a huge chunk of central Manhattan), and you care about AI safety, please consider a vote for Bores while there’s still time.
+Follow
+This entry was posted
+												on Monday, June 22nd, 2026 at 12:27 pm						and is filed under
+Announcements
+,
+Complexity
+.
+						You can follow any responses to this entry through the
+RSS 2.0
+feed.
+
+													You can
+leave a response
+, or
+trackback
+from your own site.
+42 Responses to “Bipartite matching is in NC!”
+Nabam
+Says:
+Comment #1
+June 22nd, 2026 at 2:07 pm
+Now I might finally get it.
+You really insist that AI must be regulated, despite your polemics
+about the pope and Olah and Anthropic, and despite your melancholy
+views on human irrelevance.
+And that’s a very comforting stance.
+Because unfortunately, contrary to (first glance) appearances, the
+PR pitch of
+“automatization of mathematics” is not provably impossible.
+It “only” provably fails to be falsifiable (by some Kolmogoroff
+complexity or Chaitin number yoga, I’d say everybody will have
+a hard time refuting the idea that whatever AI proves was to
+a non-negligible extent hidden
+in the inputs and won’t be “renewed” if we “switch off” the human
+math researchers. Nor can anybody rule out the contrary).
+Fine. So the PR is not science. Surprise!
+Rather, it’s on a par with: “technically usable nuclear fusion
+is around the corner” or my all-time favorite from the 1970s:
+“We’re close to having the paperless office! It will arrive in no time.”
+Or, if you wish, you could compare it to naive promises of an afterlife.
+But there’s the catch:
+Not even the popes or the church got away with that, at least not in
+the beta version.
+The current pope must have remembered that.
+No. The accelerationists are not invincible. And no, mathematics
+is not about to be automated.
+Can I prove it? No. Nor can I prove that Musk will not introduce an
+atmosphere, plate tectonics, a magnetic field and vulcanism on Mars.
+Or that there is no parallel universe in which I am a fan of Andreessen.
+This is a good time for remembering what it means to be human.
+And that’s no less true just because it’s also written in the pope’s
+encyclica “Magnifica humanitas”.
+Hamish Peter Todd
+Says:
+Comment #2
+June 22nd, 2026 at 3:16 pm
+Yay, an algorithms post!
+Dan
+Says:
+Comment #3
+June 22nd, 2026 at 3:49 pm
+NY-12 voter here – wow, I think this is the first time ever where my vote is actually relevant on the federal stage. This is also one of the truly rare instances where I genuinely like both of the front running candidates, and so the decision has been quite difficult for me.
+I was leaning towards Lasher for a while, but I ended up marking Bores on my ballot because of the breathtaking dishonesty of the attack ads that OpenAI/a16z have been bombarding me with. I wouldn’t even mind if Lasher won, but I just felt like I couldn’t reward Leading The Future’s behavior here.
+Yeyuan Chen
+Says:
+Comment #4
+June 22nd, 2026 at 4:39 pm
+It’s such an exciting result, and I want to comment on two interesting things about it.
+This paper is inspired by our recent work “From Random to Explicit via Subspace Designs With Applications to Local Properties and Matroids” (STOC2026). Our paper is about subspace design, a central combinatorial object in coding theory. Actually, finding the connection between bipartite matching and our work is a very non-trivial observation, but if one is given that as a hint, I feel like the remaining technical work won’t be too hard. It’s a similar wisdom like Ryan found breakthrough in tree evaluation leads to time-space simulation.
+A small advertisement: If you want to know about this connection and where the ideas come from. I kindly inivite you to my talk about this paper at STOC on thursday. I will try to give a gentle introduction. I will explain how the bipartite matching algorithm works.
+Another intersting thing: Before the preprint was posted, I knew this result because authors first annouced it at some workshop and I heard about it. Then after I already knew their work is inspired by our work, I can reproduce their first main result. Again I feel like given the existence of the connection the remaining part shouldn’t be hard. Then, I tried to test GPT5.5pro on whether it could reproduce it GIVEN THE CONNECTION TO OUR PAPER. I expected GPT would succeed but it failed! I was surprised but this time I will say it’s humanity’s success (although maybe just temporary). Huge congrants to the authors! The prompt I used was suggested by Mehtaab Sawhney in the FirstProof report, so it’s not the prompt fault, it’s GPT5.5pro’s weakness. See the chat history:
+https://chatgpt.com/c/6a399010-ab24-83e8-8b1b-992391c2c07f
+(please disregard some summary in Chinese. That’s because GPT detected my computer language is Chinese.)
+Yeyuan Chen
+Says:
+Comment #5
+June 22nd, 2026 at 4:44 pm
+Oh I should use the sharing link:
+https://chatgpt.com/share/6a39ac5d-5c84-83e8-87b2-36af77c46b7d
+Watson Ladd
+Says:
+Comment #6
+June 22nd, 2026 at 6:00 pm
+I think the key bit of the paper is replacing the random weights that Lovasz used with chosen matrices. The nice thing about random weights is that they are random: they don’t satisfy any polynomial identities that aren’t forced to be true by virtue of being polynomial identities, and so looking at the rank gives the size of the matching. If you can find a deterministic encoding to a ring where this will hold you are done, and the paper finds such an encoding.
+Interestingly they don’t seem to talk the algebraic geometry language that’s pretty clearly at work in some of the stuff.
+Matthias
+Says:
+Comment #7
+June 22nd, 2026 at 6:26 pm
+I have recently made some nice progress on a different matching problem. One way to describe it:
+You have a string of open and closing parens like ))((((()()()()(. Each opening paren can be matched with any closing paren to its right in the usual way. Each paren gets a non-negative weight (that is vertices get weights, but edges don’t.)
+Now my result: you can find a maximum weight matching in O(length of the string) in the comparison model.
+Another equivalent formulation: given a sequence of priority queue instructions like ‘insert(X)’ and ‘delete minimum’, we can evaluate in linear time what will.br left over in the resulting priority queue at the end in the comparison model. (However figuring out what gets deleted from the queue _when_ is still O(n log n).)
+The algorithm I found uses soft heaps in some clever ways to repeatedly shrink the problem by a constant factor. And some matroid dualisation for good measure.
+I’m not an academic, so it’s taking me a while to write up the paper. (You can contact me at
+generalbaguette@gmail.com
+if you are interested. Sorry for the throwaway email address in public
+)
+Greg McLellan
+Says:
+Comment #8
+June 23rd, 2026 at 12:01 am
+The first thing which occurred to me when I saw this result was whether the techniques could generalize to an NC solution to the more general matroid intersection problem. Happily, the authors have already charted much of this territory in the paper, finding that their techniques generalize to linear matroids, which take in the two concrete examples of matroid intersection problems I’m familiar with: bipartite matching itself, and the arborescence problem.
+I guess my follow-up question, from the perspective of someone whose matroid theory knowledge is pretty limited, is whether these or other techniques are expected to go further and parallelize the general matroid intersection problem entirely. Are there any special cases of matroid intersection which are known to be P-complete, or otherwise any other known barriers to parallelizing matroid intersection in general?
+Patrick
+Says:
+Comment #9
+June 23rd, 2026 at 12:01 am
+Is there a nice generalization to polyamory which of still in P?
+Scott
+Says:
+Comment #10
+June 23rd, 2026 at 12:11 am
+Patrick #9: The version where you’re trying to get everyone into happy sets of three is called 3-Dimensional Matching, and is already NP-complete.
+Alex Xanthakis
+Says:
+Comment #11
+June 23rd, 2026 at 4:41 am
+Aren’t combinatorics trivially trivial? I thought we already discussed this, unless it has Grothendieck in it I ain’t reading! /sarcasm/
+David Speyer
+Says:
+Comment #12
+June 23rd, 2026 at 5:20 am
+@Greg McLellan How do you specify a general, non-realizable, matroid in a short amount of space? The number of matroids on an n element set is something like 2^((2-o(1))^n), so you need exponentially many bites just to write one down.
+gasarch
+Says:
+Comment #13
+June 23rd, 2026 at 7:01 am
+Are there any problems left for which we have a good (P or NC or whatever notion of goodness you care about) randomized algorithms, but do not yet have a good det algorithm?
+Polynomial Id testing comes to mind, but I don’t know of any other ones.
+Scott
+Says:
+Comment #14
+June 23rd, 2026 at 7:11 am
+gasarch #13: Yeah, polynomial identity testing is the big one, but there are many other examples of randomized algorithms that haven’t yet been successfully derandomized.  One of my personal favorites is Gurvits’s algorithm, for approximating the permanent of a matrix of bounded norm.  Actually Jerrum-Sinclair-Vigoda, for approximating the permanent of a nonnegative matrix (and related Markov Chain Monte Carlo algorithms), is another big example.
+While this is a slightly different example, Dana mentions getting a deterministic linear-time algorithm for Minimum Spanning Tree (as opposed to n times inverse Ackermann of n) as her own favorite.
+Greg McLellan
+Says:
+Comment #15
+June 23rd, 2026 at 8:39 am
+David Speyer #12: I’m not sure you need to for the purposes of my inquiry? Matroid oracles of various kinds are commonplace in algorithmic results on the topic, presumably an NC algorithm for matroid intersection could use the same.
+But if necessary, I’d expect (encodings of) clocked Turing machines which decide whether an input subset is independent, a basis, a circuit, etc. to suffice. Granted we couldn’t reasonably expect general matroid intersection presented in this manner to be P-complete (it appears you would need to go to coNP to verify that a clocked Turing machine decides a system of independent sets), but I did ask whether some special case is known to be P-complete, rather than the general case.
+Ted
+Says:
+Comment #16
+June 23rd, 2026 at 8:52 am
+Mulmuley et al. proved that bipartite matching is in the complexity class “randomized NC” or RNC. Is the relationship between RNC and NC the same as the relationship between BPP and P, or is there some subtle distinction between the concepts of “randomized” and “probabilistic”?
+Also, I believe that most complexity theorists suspect that P = BPP. Do they also suspect that NC = RNC for similar reasons? Or are logarithmic time and polynomial time different enough animals that the heuristic “randomness doesn’t give you a qualitative speedup” doesn’t apply in the log-time case? (I realize that this new paper may affect the answer to that question.)
+Scott
+Says:
+Comment #17
+June 23rd, 2026 at 9:40 am
+Ted #16: The notation is a weird historic quirk, but “R” means that you can only ever err in one direction, not the other one.  So there’s also RP for example, which sits between P and BPP (and gets smushed together with them if P=BPP).  The MVV algorithm happens to be an RNC one, but we could also talk about BPNC.
+Yes, the prevailing belief is that P=RP=BPP and NC=RNC=BPNC, and so on for nearly every other randomized complexity class.  But proving this will presumably entail proving that our candidate pseudorandom generators actually work against all possible randomized algorithms, which we learned 25-30 years is secretly another circuit lower bounds problem (thus, related to P vs. NP and the like).  Elucidating this is part of what Avi Wigderson recently won the Turing Award for.
+anon
+Says:
+Comment #18
+June 23rd, 2026 at 10:57 am
+Lipton seems to be back at blogging after a two year break.
+https://rjlipton.com/
+Maybe he and Ken would write an article on this.
+I totally missed their blog while they were on a break. I hope they find someone going to add to their two passion group so their blog keeps going. Building institutions is important.
+By the way, the link to Alex Bores page on the last part of the post seems broken.
+Hyman Rosen
+Says:
+Comment #19
+June 23rd, 2026 at 4:09 pm
+I am in that NYC congressional district and I did vote for Bores despite my being an all-out AI accelerationist, mostly because current congressman Nadler endorsed his main opponent and had also endorsed Mamdani. I will vote for the Republican in the main if there is one.
+I don’t actually mind voting for an AI doomer, because while I think AI dooming is at best misguided and at worst a grift, I also think that AI will be developed independently all over the world, both by proprietary agents and as open-source, completely behind the ability of would-be gatekeepers to rein in.
+Mihir
+Says:
+Comment #20
+June 23rd, 2026 at 10:59 pm
+Hi Dr. Aaronson,
+I was wondering why your colleagues strongly support Bores, or why the anti-regulation PACs are spending so aggressively to defeat him, when his opponent (Micah Lasher) also supported the RAISE act in its original form / supports AI regulation? (Just was curious, what the differences between them were). Thank you!
+Vladimir
+Says:
+Comment #21
+June 23rd, 2026 at 11:06 pm
+In a surprise to absolutely no one, all three of Mamdani’s picks won their primaries.
+Piyush
+Says:
+Comment #22
+June 24th, 2026 at 8:15 am
+@gasarch In addition to those mentioned by Scott, there are several such approximate counting problems. For example, even the problem of approximately counting all matchings of a graph (not just perfect ones), when the graph degree is not bounded. As far as I know, there is no PTIME derandomozation of the Jerrum-Sinclair algorithm yet for general graphs.
+Justly Censored
+Says:
+Comment #23
+June 24th, 2026 at 9:20 am
+Vladimir #21
+Karma is a bitch, isn’t it?
+Bernie's Left Big Toe
+Says:
+Comment #24
+June 24th, 2026 at 10:35 am
+Vladimir – #21
+Indeed.
+Finally, the liberation from corporations and lobbies, bringing back the democratic party to its true purpose – serving the people of America.
+anon
+Says:
+Comment #25
+June 25th, 2026 at 10:37 am
+Oded’s comments on the NC paper:
+https://www.wisdom.weizmann.ac.il/~oded/MC/426.html
+BB(463)
+Says:
+Comment #26
+June 26th, 2026 at 7:55 am
+Wouldn’t this be related to recent massive speed gains in classic network flow algorithms?
+https://www.quantamagazine.org/researchers-achieve-absurdly-fast-algorithm-for-network-flow-20220608/
+Scott
+Says:
+Comment #27
+June 26th, 2026 at 9:01 am
+BB(463) #26: I don’t see a connection off the top of my head (which is not to say for certain that there isn’t one).  In any case, that was
+another
+major recent development in graph algorithms that solved a longstanding problem!
+BB(463)
+Says:
+Comment #28
+June 26th, 2026 at 12:42 pm
+Scott #27
+Thanks, I only wondered because Bipartite Matching can be solved with network flow algo (but that’s super obvious i guess).
+asdf
+Says:
+Comment #29
+June 26th, 2026 at 5:12 pm
+Scott, and Hyman Rosen #19: I’m not in NY and as a broke-a** nerd I’m not going to vote for any damn Republicans (someone once compared that to a chicken voting for Colonel Sanders), but yeah, I also see AI regulation as a lost cause.  AI is just software right?  Ridiculously inefficient right now (data centers using up the world’s drinking water) but the same thing was once true of radio (megawatt spark gap transmitters instead of today’s cell phones).  So it will be able to run on everyone’s PC.  Good luck regulating.
+Also, the worst people in the world, the ones mostly likely to misuse AI and therefore the ones who the regulations should be targeted at, are the exact ones who will be in charge of it and exempt from the regulations.  Probably better for everyone to have it than only those people.
+Scott
+Says:
+Comment #30
+June 26th, 2026 at 6:01 pm
+BB(463) #28: Ah right!  With network flow, the main game had been to get near linear-time, whereas with bipartite matching it had been to get the problem in NC.  Still, maybe it would now be interesting to ask whether network flow is also in NC?
+EDITED TO ADD: When I asked AI just now, it told me that network flow
+with 0/1 edge capacities (or capacities encoded in unary)
+is indeed now in NC, because Karp-Upfal-Wigderson reduced the problem to bipartite matching.  On the other hand, it says that network flow
+with capacities encoded in binary
+is unlikely to be in NC because it’s P-complete.  Can anyone confirm that?
+Demi Marie Obenour
+Says:
+Comment #31
+June 26th, 2026 at 9:10 pm
+Are there any real-world situations where derandomization is of practical importance?  I would expect that one can always use a CSPRNG with a hash of the inputs and a counter as the seed.  I know that causes problems in certain security proofs, but my understanding is that these problems don’t lead to practical attacks.
+Scott
+Says:
+Comment #32
+June 26th, 2026 at 10:40 pm
+Demi Marie #31: Derandomization is of very little direct practical importance, both because we have excellent random number sources whenever we want them, and because as you say, CPRNGs
+just work
+in practice even when we can’t yet prove that they work.
+Besides intrinsic interest (or the Mount Everest argument, “because it’s there”), probably the main reason why people work on derandomization is that it turns out to be intimately related to circuit lower bounds, and hence to the quest to someday prove things like P≠NP.
+flow
+Says:
+Comment #33
+June 27th, 2026 at 7:29 am
+Scott #30
+I think AI was tripped up by binary capacities vs. binary-encoded capacities.
+1. Maxflow flow with capacities encoded in binary is P-complete (Goldschlager–Shaw–Staples).
+2. Maxflow with capacities encoded in unary is now in NC (via Karp–Upfal–Wigderson).
+3. Maxflow flow with binary (0/1) capacities is in NC (special case of unary encoding).
+Scott
+Says:
+Comment #34
+June 27th, 2026 at 7:51 am
+flow #33: Thanks, fixed!
+Greg McLellan
+Says:
+Comment #35
+June 27th, 2026 at 9:09 am
+Scott #30: yeah, those claims do appear to check out. I was interested in understanding them for myself, so I tracked down the respective sources and read through them. Below are some notes summarizing my understanding of the key ideas behind the respective results. They’re probably a bit of a mess to follow, but you’re probably better off having a crack at the actual papers if you want a better understanding.
+The unary capacities result is outlined in the Karp-Upfal-Wigderson 1986 paper you linked in the initial post. They do give a sketch of a logspace reduction from max flow with edge capacities of 1, to bipartite matching. (You can get from tallystroke edge capacities to edges of capacity 1 by simply adding an amount of duplicate edges equal to the desired capacity.) They seem to think the reduction is a part of the folklore because they’ve called it a “classical” reduction, so they don’t supply a correctness proof, but the idea seems plausible.
+Briefly, the reduction has you matching each flow-carrying edge with whichever edge it “passes” its unit of flow to. Interior edges (i.e. those not incident to the source or sink) can also be matched with themselves, which corresponds to such an edge not carrying a unit of flow at all. You can imagine starting with a default solution which just has all interior edges matched with themselves, and thinking, “how do I grow my solution? Ah, I’ll try to match a source edge with something,” then needing to find a non-self match for the edge you matched the source edge to, and so on, in a cascade which mirrors augmenting a path through the original flow network.
+P-completeness of determining, given a flow network with capacities stated in binary, whether the value of the max flow is *even* (and hence computing the i’th positional bit of the max flow value for each i), was shown by Goldschlager et al, 1982. Determining whether a flow exists with value greater than a specified threshold was later shown to be P-complete in Lengauer et al, 1990. The Lengauer paper introduces what looks like a more complex construction which I have not bothered to make sense of yet, so I’ll just relay my understanding of Goldshlager.
+They reduce from monotone circuit eval with fanout 2. The network introduces a junction vertex for each input and for each internal gate of the original circuit, and I find the design of the junction vertices easiest to understand from the perspective of a hypothetical solver trying to locally fiddle with each junction point in order to increase the flow. For the OR gates, you want to be able and incentivized to saturate *both* output edges if *either* of the input edges is saturated, so a back-to-source edge is provided to route away any excess flow, such that if you’re trying to increase the value of the flow in a given solution then you’ll try to divert any source-bound flow (which is lost for sure) to the output edges instead, in the hope that sending it that way might eventually take it to the sink. For the AND gates, you want to be able and incentivized to saturate *both* output edges only if *both* input edges are saturated, so here an edge directly to sink is provided to incentivize you to leave the output edges unused if only one input is saturated (why chance sending flow down the output edges if you can send it straight to sink and instantly bank it?), such that you’ll only saturate the outputs as well if you have excess flow available, i.e. if both inputs are saturated. If you’re curious where exponentially large capacity values enter the construction in an essential way, for both gate gadgets you want to be able to saturate *two* outputs using the flow from *one* input, so as you scan from the end of the circuit to the beginning you’re needing to successively double the capacities assigned to the edges in the construction.
+The paper gives an explicit construction of the network and a flow (the “simulating flow”) derived from the correct evaluation of the original circuit, then uses an augmenting path argument to establish that the simulating flow is maximal. Personally I found it easier to just confirm that the simulating flow is indeed a flow, and that it saturates the source cut.
+Dacyn
+Says:
+Comment #36
+June 27th, 2026 at 6:03 pm
+asdf #29: Datacenters only use up 1/3 of the water that golf courses do (for example). Also, in areas where water is scarce companies generally have to pay for water rights, so the cost is already taken into account when they make the decision to build there (in economic terms, the cost is internalized). And in any case it’s not like the water just disappears, it goes back into the water cycle (admittedly it doesn’t always come back to where we want it to come back to).
+Sheikh Abdur Raheem Ali
+Says:
+Comment #37
+June 28th, 2026 at 1:29 am
+> Or ask your favorite AI to generate a summary. If I run out of options, at some point I might actually try reading the paper.
+I found it interesting that the authors acknowledge using Gemini Pro 3.1 to produce an extension which directly inspired this result. It’s also cool that the wikipedia page for the complexity class NC now includes “Finding a maximal matching.” on its list of example problems in NC.
+BB(463)
+Says:
+Comment #38
+June 28th, 2026 at 10:51 am
+This is probably obvious to experts, but considering why network flow can be used to solve biparite matching but does not work for tripartite matching is due to the fact that a NOT gate cannot be modeled using a flow graph, there’s just no way to switch its state using a single reversing flow
+https://arxiv.org/pdf/1310.1971v5
+Silas
+Says:
+Comment #39
+June 29th, 2026 at 8:52 am
+Dear Scott:
+Do you believe that the theoretical computer science of these matching algorithms could actually help socially with dating and the incel crisis?
+Scott
+Says:
+Comment #40
+June 29th, 2026 at 10:51 am
+Silas #39: I mean sure, you could imagine a dating service that used a matching or stable marriage algorithm to arrange dates, and you could imagine that being helpful.  (In which case, 70-year-old algorithms should already suffice, rather than the fancy new ones.)
+On the other hand, if you think the core problem is (for example) a large population of men who are unattractive to women, then no clever matching algorithm solves that problem.
+OhMyGoodness
+Says:
+Comment #41
+July 4th, 2026 at 1:19 pm
+Dacyn #36
+My wife has strange ideas about “old water”.  I have explained to her a few times that best evidence indicates the water on Earth, in the majority, is around 4.5 billion years old.  She must have a definition of old water that I don’t understand.  I have no doubt she would consider water used by a data center as “old water”.
+Unrelated-
+My wife recently bought house plants and I am in ever increasing awe of plants.  Sunlight, dirt, and carbon dioxide are input and astounding organic compounds are produced.  It’s amazing to me.   I think the latest count for cannabis is 550 distinct compounds identified.  They are highly efficient chemical complexes.
+My wife is away right now but I will assure her when she returns that I used only “new water” for the plants.  🙂
+Greg McLellan
+Says:
+Comment #42
+July 8th, 2026 at 3:34 am
+Correction on last paragraph of #35: the source cut is not, in general, a min cut of the constructed network. I got thrown because the simulating flow is not in general a sum of path flow patterns from source to sink, but rather a sum of path flows *and* cyclic flows. All edges outbound from source are saturated, but some edges inbound back to source from the OR junctions may also carry non-zero flow values.
+I think the paper’s augmenting path argument is probably the most elegant way to go about proving that the simulating flow is indeed maximal. Implicit in that argument is an invocation of some of the ideas which I outlined in the rest of my comment, which I stand by. It seems that min cuts in the network are generally quite jagged, and probably not a great way of analyzing the simulating flow.
+Leave a Reply
+You can use rich HTML in comments!  You can also use basic TeX, by enclosing it within
+$$ $$
+for displayed equations or
+\( \)
+for inline equations.
+Comment Policies:
+After two decades of mostly-open comments, in July 2024
+Shtetl-Optimized
+transitioned to the following policy:
+All comments are treated, by default, as personal missives to me, Scott Aaronson---with no expectation either that they'll appear on the blog or that I'll reply to them.
+At my leisure and discretion, and in consultation with the
+Shtetl-Optimized
+Committee of Guardians
+, I'll put on the blog a curated selection of comments that I judge to be particularly interesting or to move the topic forward, and I'll do my best to answer those.  But it will be more like Letters to the Editor.  Anyone who feels unjustly censored is welcome to the rest of the Internet.
+To the many who've asked me for this over the years, you're welcome!
+Name (required)
+Mail (will not be published) (required)
+Website
+Δ
+Shtetl-Optimized is proudly powered by
+WordPress
+Entries (RSS)
+and
+Comments (RSS)
+.

@@ -1,0 +1,131 @@
+Rupert’s Property
+You can cut a hole in a cube that’s big enough to slide an identical cube through that hole!   Think about that for a minute—it’s kind of weird.
+Amazingly, nobody could prove any convex polyhedron
+doesn’t
+have this property!  It’s called ‘Rupert’s property’.
+Until this week.
+This week Steininger and Yurkevich proved there is a convex polyhedron that you
+can’t
+cut a hole in big enough to slide the entire polyhedron through the hole.  It has 90 vertices, and
+apparently
+240 edges and 152 faces.
+To prove that no such hole is possible, they had to do a computer search of 18 million different holes, plus use a lot of extra math to make sure they’d checked enough possibilities:
+• Jakob Steininger and Sergey Yurkevich,
+A convex polyhedron without Rupert’s property
+.
+To celebrate their discovery, they gave this polyhedron a silly name.  Since this polyhedron lacks Rupert’s property, they called it a ‘noperthedron’.
+Why is this property called ‘Rupert’s property’?
+Wikipedia
+explains:
+In geometry,
+Prince Rupert’s cube
+is the largest cube that can pass through a hole cut through a unit cube without splitting it into separate pieces. Its side length is approximately 1.06, 6% larger than the side length 1 of the unit cube through which it passes. The problem of finding the largest square that lies entirely within a unit cube is closely related, and has the same solution.
+Prince Rupert’s cube is named after
+Prince Rupert of the Rhine
+, who asked whether a cube could be passed through a hole made in another cube of the same size without splitting the cube into two pieces. A positive answer was given by John Wallis. Approximately 100 years later, Pieter Nieuwland found the largest possible cube that can pass through a hole in a unit cube.
+Here Greg Egan shows how Rupert’s property works for the cube:
+Here he shows how it works for the regular octahedron:
+And finally, here’s a video by David Renshaw showing 26 polyhedra with Rupert’s property… and 5 polyhedra that might lack it:
+The triakis tetrahedron is an extremely close call, but it does have Rupert’s property:
+Related
+This entry was posted  on Thursday, August 28th, 2025 at 7:50 am and is filed under
+mathematics
+.					You can follow any responses to this entry through the
+RSS 2.0
+feed.
+											You can
+leave a response
+, or
+trackback
+from your own site.
+Post navigation
+« Previous Post
+Next Post »
+8 Responses to
+Rupert’s Property
+Julius Jääskeläinen
+says:
+28 August, 2025 at 8:27 am
+your link seems to be broken, I think this is the correct link
+https://arxiv.org/html/2508.18475
+Reply
+John Baez
+says:
+28 August, 2025 at 12:10 pm
+My link was broken—thanks!  I always try to link to the abstract:
+• Jakob Steininger and Sergey Yurkevich,
+A convex polyhedron without Rupert’s property
+.
+You can quickly get the HTML or PDF from the abstract, but half the time reading the abstract is enough for me.
+Reply
+John Baez
+says:
+29 August, 2025 at 7:35 am
+A nice, not hard result of Rahul Narain: there are convex polyhedra with Rupert’s property arbitarily close to spherical in shape.  I’ll leave this one as a puzzle!
+Closeness here is measured using the
+Hausdorff metric
+on compact subsets of
+which is the sort of obvious thing.
+A harder puzzle I don’t know the answer to.  Are there shapes without Rupert’s property that you can pass through a hole in themselves if you turn them while you move them?
+Reply
+Pierre-Alain Fayolle
+says:
+29 August, 2025 at 9:46 am
+The silly name (noperthedron) possibly comes from here (“Nopert”):
+https://sigbovik.org/2025/proceedings.pdf#page=356
+Reply
+John Baez
+says:
+29 August, 2025 at 5:26 pm
+Interesting!  Thanks.
+Reply
+Worley
+says:
+2 September, 2025 at 2:35 pm
+It seems to be taken for granted that we are interested in whether a polyhedron can pass through a hole solely by translation along a line.  Do the answers change if one allows the hole to be non-prismatic or the passing-through polyhedron to rotate or wiggle?
+Reply
+John Baez
+says:
+2 September, 2025 at 9:47 pm
+Worley wrote:
+It seems to be taken for granted that we are interested in whether a polyhedron can pass through a hole solely by translation along a line.
+Right.  The math gets a lot harder otherwise.   See my next comment for a more precise specification of the question people are studying.
+Do the answers change if one allows the hole to be non-prismatic or the passing-through polyhedron to rotate or wiggle?
+I think the answer is “nobody knows”, given that we’re assuming the polyhedra are convex.  I’ve seen various people asking this question, and no answer yet.
+By the way, you can sometimes slip a nonconvex polyhedron A (say one shaped like a boomerang) through a curved hole in a convex polyhedron B, even when it’s impossible to fit A through any straight hole in B.
+Reply
+John Baez
+says:
+2 September, 2025 at 9:49 pm
+I told my friend Michael Fourman about the Noperthedron and he quickly came up with this interesting question:
+Can you make 3 convex polyhedra A,B,C such that
+• you can cut a hole through A big enough to slide B through, but not vice versa
+• you can cut a hole through B big enough to slide C through, but not vice versa
+• you can cut a hole through C big enough to slide A through, but not vice versa
+?
+I have no idea—but if you can, it would be great to use a 3d printer to make these polyhedra, with the holes cut out, and actually slide them through each other!
+Technical note:
+When I say “you can cut a hole through A big enough to slide B through”, here’s how people usually make this precise.  It means you can rotate and translate A in 3d space, and then project A onto the xy plane and get a subset A’ of the plane, and do the same for B to get a subset B’, such that B’ is contained in the interior of A’.
+This means, very roughly, that we can drill a hole
+straight through
+A and then move B
+straight through
+this hole, not turning it or wiggling it as you go.
+Are there convex polyhedra where relaxing this definition and allowing weirder holes, or turning and wiggling, lets us slide B through A when we couldn’t otherwise?   This question has been floating around lately.   I think nobody knows!
+If B is nonconvex, it’s obvious that a curved hole and turning B as you go can help.
+Reply
+You can use Markdown or HTML in your comments.  You can also use LaTeX, like this: $latex E = m c^2 $. The word 'latex' comes right after the first dollar sign, with a space after it.
+Cancel reply
+Your email address will not be published.
+Required fields are marked
+*
+Comment
+*
+Name
+*
+Email
+*
+Website
+Notify me of new comments via email.
+Notify me of new posts via email.
+Δ

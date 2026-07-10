@@ -1,0 +1,1194 @@
+                                                           On Fuglede’s problem on pseudo-balayage
+                                                         for signed Radon measures of infinite energy
+
+                                                                                    Natalia Zorii
+
+                                                                    In memory of Bent Fuglede (1925-2023)
+
+
+                                                Abstract. For suitable kernels on a locally compact space, we develop a theory of inner (outer)
+                                           pseudo-balayage of quite general signed Radon measures (not necessarily of finite energy) onto quite
+
+
+
+
+arXiv:2406.11874v2 [math.CA] 13 Feb 2025
+                                           general sets (not necessarily closed). Such investigations were initiated in Fuglede’s study (Anal.
+                                           Math., 2016), which was, however, mainly concerned with the outer pseudo-balayage of positive
+                                           measures of finite energy. The results thereby obtained solve Fuglede’s problem, posed to the
+                                           author in a private correspondence (2016), whether his theory could be extended to measures of
+                                           infinite energy. An application of this theory to weighted minimum energy problems is also given.
+
+
+
+                                                               1. Introduction and general conventions
+                                               This paper deals with the theory of potentials on a locally compact (Hausdorff)
+                                           space X with respect to a kernel κ, a kernel being thought of as a symmetric, lower
+                                           semicontinuous (l.s.c.) function κ : X × X → [0, ∞]. In more details, for suitable
+                                           X and κ, we establish a theory of inner pseudo-balayage ω      b A of quite a general
+                                           signed Radon measure ω (not necessarily of finite energy) to quite a general set A
+                                           (not necessarily closed), where ωb A is introduced as the solution to the problem of
+                                           minimizing the Gauss functional
+                                                           ˆ                             ˆ
+                                                              κ(x, y) d(µ ⊗ µ)(x, y) − 2 κ(x, y) d(µ ⊗ ω)(x, y),
+
+                                           µ ranging over all positive measures of finite energy concentrated on the set A.
+                                               As a by-product, we provide a generalization of Fuglede’s theory [14] of outer pse-
+                                           udo-balayage ωb ∗A , which was mainly concerned with positive ω of finite energy. The
+                                           results thereby obtained solve Fuglede’s problem, posed to the author in a private
+                                           correspondence, whether his theory could be extended to measures of infinite energy.
+                                               The concept of inner pseudo-balayage is further shown to be a powerful tool in the
+                                           well-known inner Gauss variational problem, see Section 5 for the results obtained.
+                                           1.1. General conventions. In what follows, a locally compact space X is assumed
+                                           to be second-countable. Then it is σ-compact (that is, representable as a countable
+                                           union of compact sets [3, Section I.9, Definition 5]), see [4, Section IX.2, Corollary
+                                           to Proposition 16]; and hence the concept of negligibility coincides with that of local
+                                           negligibility, see [5, Section IV.5, Corollary 3 to Proposition 5].
+                                               The reader is expected to be familiar with principal concepts of the theory of
+                                           measures and integration on a locally compact space. For its exposition we refer to
+                                           Bourbaki [5] or Edwards [11]; see also Fuglede [12] for a brief survey.
+                                               We denote by M the linear space of all (real-valued Radon) measures µ on X,
+                                           equipped with the vague (=weak ∗) topology of pointwise convergence on the class
+                                                2010 Mathematics Subject Classification: Primary 31C15.
+                                                Key words: Radon measures on a locally compact space; energy, consistency, and maximum
+                                           principles; inner and outer pseudo-balayage.
+2                                          Natalia Zorii
+
+C0 (X) of all continuous functions ϕ : X → R of compact support, and by M+ the
+cone of all positive µ ∈ M, where µ is positive if and only if µ(ϕ) ⩾ 0 for all positive
+ϕ ∈ C0 (X). The space X being second-countable, each µ ∈ M has a countable base
+of vague neighborhoods [25, Lemma 4.4], and hence any vaguely bounded subset of M
+has a sequence that is vaguely convergent in M (cf. [5, Section III.1, Proposition 15]).
+    Given µ, ν ∈ M, the mutual energy and the potential are introduced by
+                                   ˆ
+                         I(µ, ν) := κ(x, y) d(µ ⊗ ν)(x, y),
+                                   ˆ
+                           µ
+                          U (x) := κ(x, y) dµ(y), x ∈ X,
+
+respectively, provided the value on the right is well defined as a finite number or ±∞.
+For µ = ν, the mutual energy I(µ, ν) defines the energy I(µ, µ) =: I(µ) of µ ∈ M.
+     Throughout this paper, a kernel κ is assumed to satisfy the energy principle, or
+equivalently to be strictly positive definite, which means that I(µ) ⩾ 0 for all (signed)
+µ ∈ M, and moreover that I(µ) = 0 only for µ = 0. Then all (signed) measures of
+finite energy form a pre-Hilbert
+                          p        space E with the inner product hµ, νi := I(µ, ν) and
+the energy norm kµk := I(µ), cf. [12, Lemma 3.1.2]. The topology on E introduced
+by means of this norm is said to be strong.
+     Another permanent requirement on κ is that it satisfies the consistency principle,
+which means that the cone E + := E ∩ M+ is complete in the induced strong topology,
+and that the strong topology on E + is finer than the vague topology on E + ; such a
+kernel is said to be perfect (Fuglede [12]). Thus any strong Cauchy sequence (net)
+(µj ) ⊂ E + converges both strongly and vaguely to the same unique measure µ0 ∈ E + ,
+the strong topology on E as well as the vague topology on M being Hausdorff.
+     We shall sometimes also need the domination and Ugaheri maximum principles,
+where the former means that for any µ ∈ E + and ν ∈ M+ with U µ ⩽ U ν µ-a.e., the
+same inequality holds on all of X; whereas the latter means that there is h ∈ [1, ∞),
+depending on X and κ only, such that for each µ ∈ E + with U µ ⩽ cµ µ-a.e., where
+cµ ∈ (0, ∞), we have U µ ⩽ hcµ on all of X. When the constant h is specified, we
+speak of h-Ugaheri’s maximum principle, and when h = 1, h-Ugaheri’s maximum
+principle is referred to as Frostman’s maximum principle. See [19, Section 1.2].
+     See Example 1.1 for kernels satisfying some/all of the above principles.
+    Example 1.1. (i) The α-Riesz kernel κα (x, y) := |x − y|α−n of order α ∈ (0, 2],
+α < n, on Rn , n ⩾ 2 (thus in particular the Newtonian kernel κ2 (x, y) on Rn , n ⩾ 3),
+is perfect, and it satisfies the domination and Frostman maximum principles. See
+[18, Theorems 1.10, 1.15, 1.18, 1.27, 1.29].
+    (ii) The same holds true for the associated α-Green kernel on an arbitrary open
+subset of Rn , n ⩾ 2. See [15, Theorems 4.6, 4.9, 4.11].
+    (iii) The (2-)Green kernel on a planar Greenian set is likewise strictly positive def-
+inite [8, Section I.XIII.7] and perfect [10], and it fulfills the domination and Frostman
+maximum principles (see [1, Theorem 5.1.11] or [8, Section I.V.10]).
+    (iv) The restriction of the logarithmic kernel − log |x−y| to a closed disc in R2 of
+radius < 1 satisfies the energy and Frostman maximum principles [18, Theorems 1.6,
+1.16], and hence it is perfect [12, Theorem 3.4.2].1
+
+    1However, the domination principle then fails in general; it does hold only in a weaker sense
+where the measures µ, ν involved in the above-quoted definition meet the additional requirement
+ν(R2 ) ⩽ µ(R2 ), see [20, Theorem II.3.2].
+         On Fuglede’s problem on pseudo-balayage for signed Radon measures of infinite energy        3
+
+     (v) The α-Riesz kernels of order 2 < α < n on Rn , n ⩾ 2, are likewise perfect,
+and satisfy h-Ugaheri’s maximum principle with h := 2n−α , see [18, Theorems 1.5,
+1.15, 1.18].
+     (vi) The Deny kernels, defined with the aid of Fourier transformation (see (A) in
+[7, Section 1], cf. [18, Section VI.1.2]), are perfect as well.
+    For the inner and outer capacities of a set A ⊂ X, denoted by c∗ (A) and c∗ (A),
+respectively, we refer to Fuglede [12, Section 2.3]. If A is capacitable (e.g. open or
+compact), we write c(A) := c∗ (A) = c∗ (A). A proposition P(x) involving a variable
+point x ∈ X is said to hold quasi-everywhere (q.e.) on A if the set N of all x ∈ A
+where P(x) fails, is of outer capacity zero. Replacing here c∗ (N) = 0 by c∗ (N) = 0,
+we arrive at the concept of nearly everywhere (n.e.) on A. See [12, p. 153].
+    For any A ⊂ X, we denote by CA the upward directed set of all compact subsets
+K of A, where K1 ⩽ K2 if and only if K1 ⊂ K2 . If a net (xK )K∈CA ⊂ Y converges to
+x0 ∈ Y , Y being a topological space, then we shall indicate this fact by writing
+                                   xK → x0 in Y as K ↑ A.
+    Given A ⊂ X, let M+ (A) denote the set of all µ ∈ M+ concentrated on A, which
+means that Ac := X \ A is µ-negligible, or equivalently that A is µ-measurable and
+µ = µ|A , µ|A being the trace of µ to A, cf. [5, Section V.5.7]. (If a set A is closed,
+then µ ∈ M+ (A) if and only if S(µ) ⊂ A, where S(µ) denotes the support of µ.)
+    Also define E + (A) := E ∩ M+ (A). As seen from [12, Lemma 2.3.1],
+     c∗ (A) = 0 ⇐⇒ E + (A) = {0} ⇐⇒ E + (K) = {0} for every K ∈ CA .                             (1.1)
+    In what follows, let a set A ⊂ X be fixed. To avoid trivialities, suppose that
+                                             c∗ (A) > 0.                                         (1.2)
+While approximating A by K ∈ CA , we may therefore only consider K with c(K) > 0.
+    Yet another permanent condition imposed on a set A is that the class E + (A) is
+closed in the induced strong topology.2 Being, therefore, a strongly closed subcone
+of the strongly complete cone E + , the cone E + (A) is likewise strongly complete.
+    Also fix ω ∈ M, ω 6= 0. Unless ω ∈ E, assume that (a)–(c) are fulfilled, where:
+    (a) ω + is bounded, i.e. ω + (X) < ∞.3
+                                +
+    (b) For every K ∈ CA , U ω K is upper semicontinuous (u.s.c.), hence continuous;
+        and moreover
+                                MA := sup U |ω| (x) < ∞.                       (1.3)
+                                             x∈A
+
+    (c) κ satisfies h-Ugaheri’s maximum principle.
+     The above-mentioned assumptions on a locally compact space X, a kernel κ, a
+set A, and a measure ω will usually not be repeated henceforth.
+     Note that, if ω ∈ E, then the only requirement imposed on κ is its perfectness.
+Being actually investigated in the author’s recent paper [28], the case where ω ∈ E
+is incorporated in the present study only for the sake of completeness.
+
+  2As shown in [27, Theorem 2.13], this occurs, for instance, if A is quasiclosed (quasicompact), that
+is, if A can be approximated in outer capacity by closed (compact) sets (Fuglede [13, Definition 2.1]).
+We note that, in general, a quasiclosed set is not Borel measurable (Fuglede, private correspondence).
+    3ω + and ω − denote respectively the positive and negative parts of ω in the Hahn–Jordan decom-
+position, see [5, Section III.1, Theorem 2]. We also write |ω| := ω + + ω − .
+4                                              Natalia Zorii
+
+                         2. Inner and outer pseudo-balayage
+    It is often convenient to treat the above measure ω ∈ M as a charge creating the
+external field
+                                       f := −U ω .
+If ω ∈ E, then f is well defined and finite q.e. (hence, n.e.) on X, see [12, Corollary
+to Lemma 3.2.3], while otherwise |f | is well defined and bounded on A, cf. (1.3).
+    We denote by Ef+ (A) the class of all µ ∈ E + (A) such that the external field f is
+µ-integrable, i.e. f ∈ L1 (µ) (see [5, Chapter IV, Sections 3, 4]), and define
+                                     bf (A) :=
+                                     w                inf      If (µ),                          (2.1)
+                                                   µ∈Ef+ (A)
+
+where If (µ) is the so-called Gauss functional,4 introduced by means of the formula
+                                ˆ                   ˆ
+                           2                 2
+             If (µ) := kµk + 2 f dµ = kµk − 2 U ω dµ ∈ (−∞, ∞).                 (2.2)
+
+Then
+                                               bf (A) ⩽ 0,
+                                          −∞ ⩽ w                                                (2.3)
+the upper estimate being caused by the fact that 0 ∈ Ef+ (A), while If (0) = 0.
+    Observe that in the case ω ∈ E, we actually have
+                                           Ef+ (A) = E + (A),                                   (2.4)
+which is clear from the Cauchy–Schwarz (Bunyakovski) inequality, applied to ω ∈ E
+and µ ∈ E + (A), while otherwise Ef+ (A) includes all bounded µ ∈ E + (A), the latter
+being obvious from (1.3) by making use of [5, Section IV.3, Corollary 2 to Theorem 4].
+The same Corollary from [5] also implies that Ef+ (A) is a convex cone.
+    Theorem 2.1. There is one and the same measure ω    b A ∈ Ef+ (A), called the inner
+pseudo-balayage of ω onto A, that satisfies any one of the following three assertions.
+                                                                 b A ∈ Ef+ (A) and
+           b A is the unique solution to problem (2.1), that is, ω
+     (i1 ) ω
+
+                             ω A ) = min
+                         If (b        +
+                                                  bf (A) ∈ (−∞, 0].
+                                         If (µ) = w                                             (2.5)
+                                     µ∈Ef (A)
+
+
+           b A is the only measure in Ef+ (A) having the two properties
+    (ii1 ) ω
+                            ˆ
+                                  A
+                              U ωb −ω dµ ⩾ 0 for all µ ∈ Ef+ (A),                               (2.6)
+                            ˆ
+                                  A
+                              U ωb −ω db
+                                       ω A = 0.                                                 (2.7)
+
+            b A is the only measure in Ef+ (A) having the two properties5
+    (iii1 ) ω
+                                          A
+                                      U ωb ⩾ U ω       n.e. on A,                               (2.8)
+                                          bA
+                                      U   ω
+                                               = Uω    b A -a.e.
+                                                       ω                                        (2.9)
+    4For the terminology used here, see e.g. [18, 19]. In constructive function theory, I (µ) is often
+                                                                                         f
+referred to as the f -weighted energy, see e.g. [2, 20].
+                        bA
+   5In view of (2.8), U ω  ⩾ Uω ωb A -a.e. (Lemma 3.1); hence, (2.9) can be replaced by the apparently
+                   bA
+                   ω       ω                                                   A
+                             b -a.e. Similarly, (2.7) can be replaced by U ωb −ω db
+                               A
+                                                                                     ω A ⩽ 0.
+                                                                          ´
+weaker relation U      ⩽U ω
+        On Fuglede’s problem on pseudo-balayage for signed Radon measures of infinite energy        5
+
+    Remark 2.2. Assume for a moment that the kernel κ satisfies the domination
+principle. If moreover ω is positive, then, by virtue of (2.8) and (2.9),
+                                       A
+                                    U ωb = U ω     n.e. on A,                                  (2.10)
+                                       A
+                                    U ωb ⩽ U ω     on X,
+so that ωb A serves as the inner balayage ω A of ω onto A (cf. [24, 29]). In other
+words, for positive ω, the concept of inner pseudo-balayage, introduced by means
+of Theorem 2.1, represents a natural extension of the concept of inner balayage to
+kernels that do not satisfy the domination principle. However, this is no longer so if
+ω is signed, for the inner balayage of a signed measure is usually defined by linearity:
+                                    ω A = (ω + )A − (ω − )A ,
+and hence it must likewise be signed. Thus, for signed measures ω and kernels κ
+satisfying the domination principle, the theory of inner pseudo-balayage provides an
+alternative approach to inner balayage that is not equivalent to the classical one. For
+further illustrations of this non-equivalence, see Remarks 2.3 and 2.4 below.
+     Remark 2.3. It is obvious from Theorem 2.1 that for any q ∈ (0, ∞),
+                                            ω A = qb
+                                           qc      ωA.
+However, this fails to hold whenever q ∈ (−∞, 0). In fact, if ω = −ω − 6= 0, then
+                                                     A
+                                             \
+                                      b A = (−ω
+                                      ω         − ) = 0,
+
+
+        bf (A) = 0 = If (0), the former equality being clear from 0 ∈ Ef+ (A) and
+because w
+                                  ˆ
+                                       −
+                If (µ) = kµk + 2 U ω dµ ⩾ 0 for all µ ∈ Ef+ (A).
+                             2
+
+
+    Remark 2.4. In general, equality does not prevail in (2.8) (as it does for the
+inner balayage, cf. (2.10)), which is seen by taking ω = −ω − 6= 0, cf. Remark 2.3.
+    Theorem 2.5. If A is Borel, then Theorem 2.1 remains valid with "n.e. on A"
+replaced by "q.e. on A". The measure ωb ∗A , thereby uniquely determined, is said to
+be the outer pseudo-balayage of ω onto A. Actually,
+                                           b ∗A = ω
+                                           ω      b A.                                         (2.11)
+    Remark 2.6. It follows that for Borel A, Remarks 2.2–2.4 remain valid with ωb A,
+ A
+ω , and "n.e. on A" replaced by ωb , ω , and "q.e. on A", respectively, where ω ∗A
+                                  ∗A   ∗A
+
+denotes the outer balayage of ω onto A (cf. [24, Theorem 9.4], [29, Theorem 1.5]).
+    Remark 2.7. If A is quasiclosed and ω ∈ E + , then the existence of the outer
+pseudo-balayage ωb ∗A was established by Fuglede [14, Theorem 4.10]. The methods
+exploited in the present work are substantially different from those in [14], which
+enables us to generalize Fuglede’s result to signed ω of infinite energy (Theorem 2.5)
+as well as to develop the theory of inner pseudo-balayage ω     b A (Theorem 2.1). In
+addition, we also study the strong and the vague continuity of ω            b ∗A under
+                                                                    b A and ω
+approximation of A by monotone families of sets (Theorems 4.1 and 4.2).
+
+                        3. Proofs of Theorems 2.1 and 2.5
+    We quote for future reference some known facts, useful in the sequel. For any
+ν ∈ M+ , let ν ∗ (E), resp. ν∗ (E), stand for the outer, resp. inner, measure of E ⊂ X.
+6                                           Natalia Zorii
+
+A subset of X is said to be universally measurable if it is ν-measurable for every
+ν ∈ M+ , see [5, Section V.3.4].
+   Lemma 3.1. For any E ⊂ X, any µ ∈ E + (E), and any universally measurable
+U ⊂ X such that c∗ (E ∩ U) = 0, we have µ∗ (E ∩ U) = 0.
+Proof. Being the intersection of universally measurable U and µ-measurable E, the
+set E ∩ U is µ-measurable. Since the space X is σ-compact, it is therefore enough to
+show that µ∗ (E ∩ U) = 0, which is however obvious from (1.1).                    
+     Lemma 3.2. For any E ⊂ X and any universally measurable Uj , j ∈ N,
+                         [        X
+                      c∗    E ∩ Uj ⩽      c∗ (E ∩ Uj ).
+                                  j∈N               j∈N
+
+Proof. Since a strictly positive definite kernel is pseudo-positive, cf. [12, p. 150], the
+lemma follows directly from Fuglede [12] (see Lemma 2.3.5 and the remark after it).
+For the Newtonian kernel on Rn , this goes back to Cartan [6, p. 253].                  
+    Lemma 3.3. If a sequence (νj ) ⊂ E converges strongly to ν0 , then there exists
+a subsequence (νjk ) whose potentials converge to U ν0 pointwise n.e. on X.
+Proof. See Fuglede [12], the remark attached to Lemma 3.2.4.                                     
+3.1. Proof of Theorem 2.1. We first note that the uniqueness of the solution
+b A to problem (2.1) within Ef+ (A) can easily be established by means of standard
+ω
+arguments, based on the convexity of the cone Ef+ (A), the parallelogram identity in
+the pre-Hilbert space E, and the energy principle (cf. [21, Proof of Lemma 6]).
+    Fixing ν ∈ Ef+ (A), we further show that (2.8) and (2.9) hold true for ν in place
+   b A if and only if so do (2.6) and (2.7) — again for ν in place of ω
+of ω                                                                   b A . It is enough
+to verify the "if" part of this claim, since the opposite is obvious by noting that for
+                       A
+every µ ∈ Ef+ (A), U ωb −ω is then µ-equivalent to a positive µ-integrable function that
+is defined on all of X (see Lemma 3.1 and [5, Section IV.3, Corollary 2 to Theorem 4];
+for the concept of µ-equivalent functions, see [5, Section IV.2.4]).
+    Assuming, therefore, that (2.6) and (2.7) are fulfilled, suppose to the contrary
+that (2.8) fails. ´Then there exists compact K ⊂ A such that U ν < U ω on K while
+c(K) > 0, hence U ν−ω dτ < 0 for any τ ∈ E + (K), τ 6= 0,6 which however contradicts
+(2.6) for µ := τ . Thus (2.8) does indeed hold, and so, by Lemma 3.1,
+                                        Uν ⩾ Uω       ν-a.e.                                  (3.1)
+                                                                                A
+    Now, assuming to the contrary that (2.9) (with ν in place of ω     b ) fails, we infer
+from (3.1) that there is compact Q ⊂ A such that ν(Q) > 0 while U ν > U ω on Q.
+This together with ´(3.1) implies, again by use of the assertions from [5] mentioned
+in footnote 6, that U ν−ω dν > 0, which is however impossible because of (2.7).
+    The equivalence thereby verified enables us to prove the statement on the unique-
+ness in each of (ii1 ) and (iii1 ). Indeed, assuming that both (2.6) and (2.7) hold for
+each of ν, ν ′ ∈ Ef+ (A), we get, by use of [5, Section IV.4, Corollary 2 to Theorem 1],
+                           ˆ                              ˆ
+                hν, ν i ⩾ U dν = kν k , hν , νi ⩾ U ω dν = kνk2 ,
+                      ′        ω    ′     ′ 2      ′
+
+
+
+    6Here we have used [5, Chapter IV] (see Proposition 10 in Section 1 and Theorem 1 in Section 2).
+Note that such a measure τ does indeed exist because of our convention (1.2), cf. (1.1), and also
+that f ∈ L1 (τ ), τ being bounded and of finite energy.
+         On Fuglede’s problem on pseudo-balayage for signed Radon measures of infinite energy         7
+
+and therefore
+                                                                       
+                0 ⩽ kν − ν ′ k2 = kνk2 − hν ′ , νi + kν ′ k2 − hν, ν ′ i ⩽ 0,
+whence ν = ν ′ , by the energy principle.
+   Consider first the case where ω ∈ E; then the Gauss functional has the form
+                       If (µ) = kω − µk2 − kωk2           for all µ ∈ E + (A),
+whence (2.4). Thus the question on the existence of the solution ωb A to problem (2.1)
+is reduced to that on the existence of the orthogonal projection of ω onto E + (A), i.e.
+                    b A ∈ E + (A) and kω − ω
+                    ω                      b A k = min
+                                                    +
+                                                       kω − µk.
+                                                              µ∈E (A)
+
+The class E + (A) being convex and strongly complete (Section 1.1), applying [11]
+(Theorem 1.12.3 and Proposition 1.12.4(2)) shows that this orthogonal projection
+does exist, and it is uniquely characterized within E + (A) by both (2.6) and (2.7).
+(Here we have utilized the fact that 0 ∈ E + (A) and that E + (A) + E + (A) ⊂ E + (A).)
+In view of the equivalence of (ii1 ) and (iii1 ) proved above, this implies the theorem.7
+    It thus remains to complete the proof in the case of (a)–(c). We begin by showing
+                  b A to problem (2.1) exists if and only if there is the (unique) measure
+that the solution ω
+       +
+µ0 ∈ Ef (A) satisfying (ii1 ) (equivalently, (iii1 ); see above), and then necessarily
+                                                   b A.
+                                              µ0 = ω                                              (3.2)
+                                  A
+    Assume first that this ω b exists. To verify (2.8), suppose to the contrary that
+                                                      A
+there is compact K ⊂ A with c(K) > 0, such that U ωb < U ω on K. A straightforward
+verification then shows that for any τ ∈ E + (K), τ 6= 0, and any t ∈ (0, ∞),8
+                                                          
+                                            ˆ
+                                                  A
+                If (b A
+                    ω + tτ ) − If (b A
+                                   ω ) = 2t   U ωb − U ω dτ + t2 kτ k2 ,       (3.3)
+
+and moreover, similarly as in the third paragraph of this proof,
+                                             
+                               ˆ
+                                       A
+                                   U ωb − U ω dτ < 0.
+
+Thus, the value on the right in (3.3) (hence, also that on the left) must be < 0 when
+t > 0 is small enough, which is however impossible because of ω   b A + tτ ∈ Ef+ (A).
+    Having thus established (2.8), in view of Lemma 3.1 we obtain
+                                          A
+                                       U ωb ⩾ U ω     b A -a.e.
+                                                      ω                                           (3.4)
+    Suppose now that (2.9) fails; then, in consequence of (3.4), there is a compact
+                                          A
+               b A (Q) > 0, such that U ωb > U ω on Q. Denoting υ := ω
+set Q ⊂ A with ω                                                       b A |Q , we have
+  A        +
+b − tυ ∈ Ef (A) for all t ∈ (0, 1), hence
+ω
+                                                        
+                                            ˆ
+                                                  A
+             If (b A
+                 ω − tυ) − If (b  A
+                                ω ) = −2t     U ωb − U ω dυ + t2 kυk2,             (3.5)
+
+which is however again impossible when t is getting sufficiently small.
+    For the "if" part of the above claim, assume that (ii1 ) holds true for some (unique)
+µ0 ∈ Ef+ (A). To show that then necessarily µ0 = ω b A , we only need to verify that
+                            If (µ) − If (µ0 ) ⩾ 0 for any µ ∈ Ef+ (A).                            (3.6)
+  7Cf. [28, Theorem 2.1].
+  8In (3.3) (as well as in (3.5), (3.7), and (3.8)), we use [5, Section IV.4, Corollary 2 to Theorem 1].
+To this end, we observe that f ∈ L1 (τ ), for τ is bounded, being of compact support.
+8                                         Natalia Zorii
+
+But obviously
+                                                        ˆ                     ˆ
+                                               2             ω            2
+            If (µ) − If (µ0 ) = kµ − µ0 + µ0 k − 2 U dµ − kµ0 k + 2               U ω dµ0
+                                              ˆ
+                              = kµ − µ0 k + 2 U µ0 −ω d(µ − µ0 ),
+                                         2
+                                                                                             (3.7)
+
+and applying (2.6) and (2.7), both with µ0 in place of ω b A , gives (3.6), whence (3.2).
+    To complete the proof of the theorem, it thus remains to establish the existence
+                b A to problem (2.1). To this end, assume first that A := K is compact.
+of the solution ω
+As c(K) > 0, we may restrict ourselves to nonzero µ ∈ E + (K), cf. (1.1). For each of
+those µ, there are t ∈ (0, ∞) and τ ∈ E + (K) with τ (K) = 1 such that µ = tτ . The
+potential U |ω| being bounded on K according to (b),
+                                      ˆ                        ˆ
+                           2    2                  2   2             +
+                 If (µ) = t kτ k − 2t U dτ ⩾ t kτ k − 2t U ω dτ
+                                          ω
+
+                                                                       
+                        ⩾ t2 c(K)−1 − 2tMK = t2 c(K)−1 − 2MK t−1 ,                  (3.8)
+MK ∈ (0, ∞) being introduced by (1.3) with A := K. Thus, by virtue of (3.8),
+If (µ) > 0 for all µ ∈ E + (K) having the property
+                             µ(K) > 2MK c(K) =: LK ∈ (0, ∞).
+    On the other hand, w  bf (K) ⩽ 0, cf. (2.3). In view of the above, w
+                                                                       bf (K) would
+                           +
+therefore be the same if Ef (K) in (2.1) were replaced by
+                                                                   
+               EL+K (K) := µ ∈ E + (K) : µ(K) ⩽ LK         ⊂ Ef+ (K) .         (3.9)
+That is,
+                            bf (K) =
+                            w            inf
+                                          +
+                                                             bf,LK (K),
+                                                   If (µ) =: w                              (3.10)
+                                       µ∈EL (K)
+                                          K
+
+and hence
+                            −∞ < −2MK LK ⩽ w      bf (K) ⩽ 0.
+                                                +
+        Choose a (minimizing) sequence (µj ) ⊂ ELK (K) such that
+                                                  bf,LK (K).
+                                   lim If (µj ) = w
+                                   j→∞
+
+Being vaguely bounded in consequence of (3.9), (µj ) is vaguely relatively compact [5,
+Section III.1, Proposition 15], and so there is a subsequence (µjk ) converging vaguely
+to some µ0 ∈ M+ (K). (Here we have used the facts that the vague topology on M is
+first-countable, see Section 1.1, and that M+ (K) is vaguely closed [5, Section III.2,
+Proposition 6].) The energy I(·) being vaguely l.s.c. on M+ [12, Lemma 2.2.1(e)],
+                                   kµ0 k2 ⩽ lim inf kµjk k2 ,
+                                       k→∞
+             +
+and so µ0 ∈ Ef (K). Furthermore, by [5, Section IV.4, Corollary 3 to Proposition 5],
+                       ˆ                           ˆ
+                             ω
+                            U dµ0 ⩾ lim sup            U ω dµjk ∈ (−∞, ∞),
+                                         k→∞
+    ω
+U being bounded and u.s.c. on the (compact) set K, see (b). This altogether gives
+                      bf (K) ⩽ If (µ0 ) ⩽ lim inf If (µjk ) = w
+                      w                                       bf,LK (K),
+                                               k→∞
+
+                                                                b K to problem (2.1).
+which combined with (3.10) shows that µ0 serves as the solution ω
+                     K
+                   b solves the f -weighted minimum energy problem (3.10), for
+Moreover, the same ω
+                           b K (X) = µ0 (X) ⩽ lim inf µjk (X) ⩽ LK ,
+                           ω
+                                                       k→∞
+         On Fuglede’s problem on pseudo-balayage for signed Radon measures of infinite energy        9
+
+the mapping ν 7→ ν(X) being vaguely l.s.c. on M+ [5, Section IV.1, Proposition 4].
+    We next aim to show that a constant LK , satisfying (3.10), can be chosen to be
+independent of K ∈ CA . To this end, we first conclude from (2.9) with A := K that
+                                      K
+                                 U ωb ⩽ U ω                       ω K ),
+                                                        on S := S(b
+                                                                 K
+U ω being u.s.c. on K by virtue of (b), whereas U ωb being l.s.c. on X. This combined
+                     K
+with (2.8) gives U ωb = U ω n.e. on S, hence γS -a.e. (Lemma 3.1), where γS ∈ E + (S)
+denotes the capacitary measure on S.9 Since U γS ⩾ 1 n.e. on S, hence ω        b K -a.e.,
+applying Lebesgue–Fubini’s theorem [5, Section V.8, Theorem 1] yields
+               ˆ             ˆ              ˆ            ˆ             ˆ
+                                  bK
+      K
+    b (X) ⩽ U db
+    ω               γS
+                       ω = U dγS = U dγS = U dω ⩽ U γS dω + .
+                        K         ω              ω             γS
+
+
+As U γS ⩽ 1 on S(γS), we therefore get, by h-Ugaheri’s maximum principle (see (c)),
+                    b K (X) ⩽ hω + (X) =: L ∈ (0, ∞) for all K ∈ CA ,
+                    ω                                                                           (3.11)
+ω + (X) being finite according to (a). Thus,
+                                      b K ∈ EL+ (K) ⊂ Ef+ (K),
+                                      ω
+EL+ (K) being introduced by (3.9) with L in place of LK . This implies
+                                         ωK ) = w
+                          bf,L (K) ⩽ If (b
+                          w                     bf (K) ⩽ w
+                                                         bf,L (K),
+       b K also solves the problem of minimizing If (µ), where µ ranges over EL+ (K).
+and so ω
+   We also remark that
+                    bf (K) = w
+                    w        bf,L (K) ∈ [−2MA L, 0] for all K ∈ CA ,                            (3.12)
+the constants MA , L ∈ (0, ∞) being introduced by (1.3) and (3.11), respectively.
+                                             b A to problem (2.1) for noncompact A, we
+     To prove the existence of the solution ω
+first note that the net wbf,L (K) K∈C decreases, and moreover, by virtue of (3.12),
+                                              A
+
+                                              bf,L (K) ⩽ 0.
+                                      ∞ < lim w                                                 (3.13)
+                                              K↑A
+
+    For any compact K, K ′ ⊂ A such that K ⊂ K ′ ,
+                                                    ′
+                                          b K )/2 ∈ EL+ (K ′ ),
+                                     ωK + ω
+                                    (b
+whence
+                                  ˆ
+                        K′ 2                                 ′                        ′
+             kb K
+                 b k −4
+              ω +ω                    U ω d(b
+                                            ωK + ω        bf,L (K ′ ) = 4If (b
+                                                 b K ) ⩾ 4w                  ω K ),
+                                                                               ′
+                                                             b K ∈ E +,
+                                                        bK , ω
+which yields, by applying the parallelogram identity to ω
+                                          ′                                ′
+                          ωK − ω
+                         kb     b K k2 ⩽ 2If (b
+                                              ω K ) − 2If (b
+                                                           ω K ).                 (3.14)
+                                                                             
+Noting from (3.13) that the net If (b  ω K ) K∈C , being equal to w   bf,L (K) K∈C , is
+                                                 A                                 A
+Cauchy in R, we infer from (3.14) that the net (b  ω )K∈CA is strong Cauchy in E + (A).
+                                                    K
+
+As E + (A) is strongly complete (Section 1.1), there exists ζ ∈ E + (A) such that
+                 bK → ζ
+                 ω             strongly (hence vaguely) in E + (A) as K ↑ A.                    (3.15)
+Moreover, ζ ∈ EL+ (A), since µ 7→ µ(X) is vaguely l.s.c. on M+ ; and so the ζ-meas-
+urable set A is actually ζ-integrable [5, Section IV.5, Corollary 1 to Theorem 5].
+  9See Fuglede [12, Theorem 2.5] for the concept of capacitary measure on a compact set and its
+properties. (For any compact Q ⊂ X, c(Q) < ∞ by the energy principle, and hence γQ ∈ E + (Q)
+does indeed exist. If h = 1, i.e. Frostman’s maximum principle holds, then the capacitary measure
+is usually referred to as the equilibrium measure.)
+10                                                     Natalia Zorii
+
+    We claim that the same ζ serves as the solution ω    b A to problem (2.1). As shown
+                                                                                      b A.
+above, cf. (3.2), this will follow if we prove both (2.8) and (2.9) for ζ in place of ω
+    Clearly, (2.8) only needs to be verified for any given compact subset K0 of A. The
+strong topology on E + being first-countable, in view of (3.15) there is a subsequence
+ ω Kj )j∈N of the net (b
+(b                     ω K )K∈CA such that Kj ⊃ K0 for all j,10 and
+                  b Kj → ζ
+                  ω            strongly (hence vaguely) in E + (A) as j → ∞.                 (3.16)
+Passing if necessary to a subsequence and changing notations, we derive from (3.16),
+by exploiting Lemma 3.3, that
+                                                               Kj
+                                      U ζ = lim U ωb                  n.e. on X.             (3.17)
+                                                   j→∞
+
+Applying now (2.8) to each of ω   b Kj , and then letting j → ∞, we infer from (3.17)
+                                A
+                              b ) does indeed hold n.e. on K0 ,11 whence n.e. on A.
+that (2.8) (for ζ in place of ω
+                                                 b A . The set A being ζ-integrable, there
+     It remains to prove (2.9) for ζ in place of ω
+is a countable union A of pairwise disjoint compact subsets of A such that A \ A′ is
+                         ′
+
+ζ-negligible, cf. [5, Section IV.4, Corollary 2 to Theorem 4]. Thus, by virtue of [5,
+Section IV.4, Proposition 9], it is enough to verify the equality
+                                            Uζ = Uω            ζ-a.e. on K,                  (3.18)
+where K is any given compact subset of A′ . As in footnote 10, there is no loss of
+generality in assuming K ⊂ Kj for all j ∈ N, the sets Kj being the same as above.
+   It is clear from (2.9) applied to each of those Kj that
+                                                  Kj
+                                           U ωb        ⩽ Uω              ω Kj ),
+                                                                    on S(b                   (3.19)
+                                                        b Kj
+U ω being u.s.c. on Kj by (b), while U                  ω
+                                                                     ω Kj ) converges to
+                                           being l.s.c. on X. Since (b
+ζ vaguely, see (3.16), for every x ∈ S(ζ) ∩ K there exist a subsequence (Kjk ) of (Kj )
+and points xjk ∈ S(bω Kjk ) such that xjk → x as k → ∞. Thus, by (3.19),
+                                     Kj
+                              U ωb     k
+                                           (xjk ) ⩽ U ω (xjk ) for all k ∈ N.
+Letting here k → ∞, by the upper semicontinuity of U ω on the compact subsets of A
+and the lower semicontinuity of the mapping (x, µ) 7→ U µ (x) on X × M+ , M+ being
+equipped with the vague topology [12, Lemma 2.2.1(b)], we obtain
+                             U ζ (x) ⩽ U ω (x) for all x ∈ S(ζ) ∩ K,
+                                                                        b A ).
+which combined with (2.8) gives (3.18), whence (2.9) (for ζ in place of ω
+    This implies that
+                                     ζ=ω b A,                                                (3.20)
+thereby completing the proof of the whole theorem.
+      Corollary 3.4. If (a)–(c) are fulfilled, then
+                                       b A (X) ⩽ hω + (X) ∈ (0, ∞),
+                                       ω
+h being the constant appearing in the h-Ugaheri maximum principle.
+Proof. This is seen from (3.11), (3.15), and (3.20) by use of the vague lower semicon-
+tinuity of the mapping ν 7→ ν(X) on M+ .                                            
+     10If this does not hold, we replace C               ′
+                                        A by its subset CA := {K ∪ K0 : K ∈ CA } with the partial
+                                                       ′
+order relation inherited from CA , and then apply to CA the same arguments as just above.
+     11Here we have utilized the countable subadditivity of inner capacity on universally measurable
+sets (see Fuglede [12, Lemma 2.3.5], cf. also Lemma 3.2 above).
+        On Fuglede’s problem on pseudo-balayage for signed Radon measures of infinite energy        11
+
+3.2. Proof of Theorem 2.5. It runs precisely in the same manner as the proof
+of Theorem 2.5 in [28], dealing with ω ∈ E, the only difference being in applying
+Theorem 2.1 of the present paper in place of [28, Theorem 2.1].
+
+  4. Convergence of pseudo-balayage for monotone families of sets
+    Theorem 4.1. ω bK → ω b A strongly and vaguely in E + (A) as K ↑ A. If A is Borel,
+then the same remains valid with ωb K and ω
+                                          b A replaced by ωb ∗K and ω
+                                                                    b ∗A , respectively.
+Proof. On account of Theorem 2.5, the latter claim is reduced to the former. If
+ω ∈ M meets (a)–(c), then the former claim follows, in turn, by substituting (3.20)
+into (3.15). For the remaining case ω ∈ E, see [28, Theorem 4.1].                
+    Theorem 4.2. Consider a decreasing sequence (Aj ) of quasiclosed sets with the
+intersection A of nonzero inner capacity, and a measure ω ∈ M such that either
+ω ∈ E or (a)–(c) are fulfilled with A1 in place of A. Then
+                   b Aj → ω
+                   ω      bA      strongly and vaguely in E + as K ↑ A.                          (4.1)
+                                                                                         Aj
+If moreover the sets Aj , j ∈ N, are Borel, then (4.1) remains valid with ω
+                                                                          b                        bA
+                                                                                               and ω
+            b ∗Aj and ω
+replaced by ω         b ∗A , respectively.
+Proof. To verify the former part of the theorem, note that ω                      b A do
+                                                                b Aj , j ∈ N, and ω
+exist by virtue of Theorem 2.1, a countable intersection of quasiclosed sets being
+likewise quasiclosed [13, Lemma 2.3].12 Moreover, (4.1) does indeed hold whenever
+ω ∈ E, see [28, Theorem 4.2]. It thus remains to consider the case of ω satisfying
+(a)–(c) with A1 in place of A. Clearly, w  bf (Aj ) increases as j → ∞, and does not
+exceed wbf (A), cf. (2.1). Together with (2.5), this gives
+                                −∞ < lim If (b  ω Aj ) ⩽ 0,
+                                         j→∞
+                                     
+and hence the sequence If (b   ω Aj ) is Cauchy in R. As ω  b Aj+1 ∈ Ef+ (Aj+1) ⊂ Ef+ (Aj ),
+      b Aj minimizes If (µ) over µ ∈ Ef+ (Aj ), we conclude, by utilizing the convexity
+while ω
+of the class Ef+ (Aj ) and the parallelogram identity applied to ω b Aj and ωb Aj+1 , that
+                                  b Aj k2 ⩽ 2If (b
+                         ω Aj+1 − ω
+                        kb                       ω Aj+1 ) − 2If (b
+                                                                 ω Aj ),
+and hence the sequence (b ω Aj )j⩾k is strong Cauchy in E + (Ak ) for each k ∈ N. The
+      +
+cone E (Ak ) being strongly closed, hence strongly complete (Section 1.1), there exists
+a measure µ0 which belongs to E + (Ak ) for each k ∈ N, and such that
+                       b Aj → µ 0
+                       ω             strongly (hence, vaguely) in E + .                          (4.2)
+We assert that
+                                               b A,
+                                          µ0 = ω                                    (4.3)
+which substituted into (4.2) would have implied (4.1).
+    To this end, we first note that, being the (countable) union of µ0 -negligible (Ak )c ,
+the set Ac is likewise µ0 -negligible [5, Section IV.2, Proposition 4], and therefore
+                                          µ0 ∈ E + (A).                                          (4.4)
+                                                 Aj              +
+                                      b (X) ⩽ hω (X) < ∞ for all j. Since
+Moreover, by virtue of Corollary 3.4, ω
+b Aj → µ0 vaguely, while ν 7→ ν(X) is vaguely l.s.c. on M+ , the measure µ0 must,
+ω
+therefore, be bounded. Combined with (4.4), this shows that, actually,
+                                          µ0 ∈ Ef+ (A).                                          (4.5)
+  12Recall that for quasiclosed A ⊂ X, E + (A) is strongly closed [27, Theorem 2.13].
+12                                                     Natalia Zorii
+
+Yet another conclusion is that the set A is µ0 -integrable [5, Section IV.5, Corollary 1
+to Theorem 5], the µ0 -measurability of A being clear from (4.4).
+                                           Aj
+                                b Aj , U ωb ⩾ U ω n.e. on Aj , hence n.e. on the (smaller)
+    In view of (2.8) applied to ω
+set A, which yields, by exploiting (4.2) and Lemmas 3.2 and 3.3,
+                                              U µ0 ⩾ U ω           n.e. on A.          (4.6)
+On account of Theorem 2.1(iii1 ), this together with (4.5) implies that (4.3) will be
+established once we verify the equality
+                                                   U µ0 = U ω       µ0 -a.e.           (4.7)
+    As A is µ0 -integrable, utilizing [5, Section IV.4, Corollary 2 to Theorem 4] shows
+that there exists A′ ⊂ A, a countable union of pairwise disjoint compact sets, such
+that A \ A′ is µ0 -negligible. This implies, by use of [5, Section IV.4, Proposition 9],
+that (4.7) only needs to be verified for any given compact K ⊂ A′ .
+    Applying (2.9) to each of the sets Aj , we obtain
+                                              Aj
+                                       U ωb        ⩽ Uω            ω Aj ) ∩ K,
+                                                              on S(b                   (4.8)
+                                                                                b Aj
+U ω being u.s.c. on the compact subsets of A1 , while U                         ω
+                                                                                 ω Aj )
+                                                          being l.s.c. on X. As (b
+converges to µ0 vaguely, for every x ∈ S(µ0 ) ∩ K there exist a subsequence (Ajk ) of
+(Aj ) and points xjk ∈ S(bω Ajk ) ∩ K such that xjk → x when k → ∞. Thus, by (4.8),
+                                      Aj
+                               U ωb     k
+                                            (xjk ) ⩽ U ω (xjk ) for all k ∈ N.
+Letting here k → ∞, in view of the upper semicontinuity of U ω on K and the lower
+semicontinuity of the mapping (x, µ) 7→ U µ (x) on X × M+ , M+ being equipped with
+the vague topology [12, Lemma 2.2.1(b)], we get
+                             U µ0 (x) ⩽ U ω (x) for all x ∈ S(µ0 ) ∩ K,
+which combined with (4.6) gives (4.7), whence (4.1).
+   Substituting (2.11) into (4.1) we obtain the latter claim of the theorem, thereby
+completing the whole proof.                                                        
+
+         5. Pseudo-balayage in the inner Gauss variational problem
+   The aim of the rest of this study is to show that the concept of inner pseudo-bal-
+ayage, introduced by means of Theorem 2.1, serves as a powerful tool in the inner
+Gauss variational problem, the problem on the existence of λA,f ∈ E˘f+ (A) with
+                                If (λA,f ) =            inf        If (µ) =: wf (A).   (5.1)
+                                                      µ∈Ĕf+ (A)
+
+Here If (µ) is the energy of µ evaluated in the presence of the external field f = −U ω ,
+see (2.2), referred to as the Gauss functional or the f -weighted energy, while13
+                                     
+                          Ĕf+ (A) := µ ∈ Ef+ (A) : µ(X) = 1 .
+For the bibliography on this problem, see [2, 9, 19, 20, 26, 27] and references therein.
+    Since f is µ-integrable for each µ from the (nonempty) class Ĕf+ (A), we have
+                                            bf (A) ⩽ wf (A) < ∞,
+                                       −∞ < w                                          (5.2)
+     13Since f is µ-integrable for every µ ∈ Ĕ + (A), we actually have
+                                                   
+                             Ĕf+ (A) = Ĕ + (A) := µ ∈ E + (A) : µ(X) = 1 .
+Note that Ĕ + (A) 6= ∅, for E + (A) 6= {0}, cf. (1.1) and (1.2).
+         On Fuglede’s problem on pseudo-balayage for signed Radon measures of infinite energy   13
+
+the first inequality being clear from (2.5). Thus wf (A) is finite, which enables us to
+prove, by use of the convexity of the class E˘f+ (A) and the pre-Hilbert structure on
+the space E, that the solution λA,f to problem (5.1) is unique (cf. [21, Lemma 6]).
+      As for the existence of λA,f , assume for a moment that A := K is compact. If
+moreover f is bounded and l.s.c. on K (as in the case in question), then λK,f does
+indeed exist, because then the class M̆+ (K) := {µ ∈ M+ (K) : µ(X) = 1} is vaguely
+compact, cf. [5, Section III.1.9, Corollary 3], while If (µ) is vaguely l.s.c. on M+ (K),
+cf. [5, Section IV.1, Proposition 4]. (See [19, Theorem 2.6].) But if any of the above
+two assumptions is not fulfilled, then these arguments, based on the vague topology
+only, fail down, and the problem becomes "rather difficult" (Ohtsuka [19, p. 219]).
+      Our analysis of the inner Gauss variational problem for A and f = −U ω , in-
+dicated in Section 1.1 above, is based on the concept of the inner pseudo-balayage
+b A , introduced in the present study, and is mainly performed with the aid of the
+ω
+approach originated in our recent work [27]. However, [27] was only concerned with
+external fields created by positive measures of finite energy, and exactly this circum-
+stance made it possible to exploit efficiently the two topologies — strong and vague,
+whereas the treatment of the problem for signed ω whose energy might be infinite,
+needs the involvement of more delicate arguments. Because of this obstacle, we have
+to impose on the objects in question some additional requirements.
+      Referring to [28, Section 6.1] for necessary and/or sufficient conditions for the
+solvability of problem (5.1) in the case ω ∈ E, we assume in the sequel that, along
+with the requirements (a)–(c), the following (d)–(f) hold true:
+     (d) κ(x, y) is continuous for x 6= y.
+     (e) When y → ∞X , κ(·, y) → 0 uniformly on compact subsets of X.
+                                         c
+     (f) ω is compactly supported in A , where A := ClX A.
+(Here ∞X denotes the Alexandroff point of X, see [3, Section I.9.8].) These perma-
+nent assumptions will not be repeated henceforth.
+      Then necessary and sufficient conditions for the solvability of problem (5.1) can
+be given in the following rather simple form.
+    Theorem 5.1. For the solution λA,f to exist, it is necessary and sufficient that
+                                               b A (X) ⩾ 1.
+                                 c∗ (A) < ∞ or ω
+If moreover equality prevails in the latter inequality, then actually
+                                                   b A.
+                                            λA,f = ω
+    Corollary 5.2. λA,f does exist whenever A is quasicompact.
+Proof. This is obvious from Theorem 5.1 because a quasicompact set, being approxi-
+mated in outer capacity by compact sets, is of finite outer (hence inner) capacity. 
+    Corollary 5.3. If c∗ (A) = ∞ and ω = −ω − , then problem (5.1) is unsolvable.
+                  b A = 0 (Remark 2.3), this follows directly from Theorem 5.1.
+Proof. Since then ω                                                                             
+    Corollary 5.4. If c∗ (A) = ∞ and ω + (X) < 1/h, h being the constant appearing
+in the h-Ugaheri maximum principle, then problem (5.1) is unsolvable.14
+Proof. This follows by combining Theorem 5.1 with Corollary 3.4.                                
+  14Observe that Corollary 5.4 remains in force when ω − (X) ∈ [0, ∞] becomes arbitrarily large,
+which however agrees with our physical intuition.
+14                                           Natalia Zorii
+                                                                                         +              −
+    Remark 5.5. It is clear from the assumptions (d)–(f) that both U ω and U ω
+are bounded and continuous on A. Furthermore, by virtue of (e) and (f),
+                                                   ±
+                                         lim U ω (x) = 0.                                        (5.3)
+                                        x→∞X
+
+This implies, in particular, that under the permanent requirements (d)–(f), both (a)
+and (b) are necessarily fulfilled, and hence can be omitted.
+    Example 5.6. All the permanent requirements (a)–(f) do hold, for instance, for
+the following kernels:
+     X The α-Riesz kernels κα of arbitrary order α ∈ (0, n) on Rn , n ⩾ 2.
+     X The α-Green kernels, 0 < α ⩽ 2, on an open bounded subset of Rn , n ⩾ 2.
+   Example 5.7. Consider the α-Riesz kernel κα of order 0 < α ⩽ 2, α < n on Rn ,
+n ⩾ 2, a closed set A ⊂ Rn of nonzero capacity, and a positive measure ω, ω 6= 0,
+compactly supported in Ac .
+       Corollary 5.8. Then, the following assertions on the solvability hold true.15
+      (i2 ) If c(A) < ∞, then λA,f does exist for any ω.
+     (ii2 ) If A is not α-thin at infinity, then16
+                                  λA,f exists ⇐⇒ ω(Rn ) ⩾ 1.
+  (iii2 ) Assume that A is α-thin at infinity, c(A) = ∞, and ω(Rn ) ⩽ 1. If moreover
+          Ac is connected unless α < 2, then λA,f fails to exist.
+Proof. We begin by observing that for κ and ω in question, ω  b A is actually the α-Riesz
+            A
+balayage ω (cf. Examples 1.1(i), 5.6 and Remark 2.2), and that (i2 ) is an immediate
+corollary to Theorem 5.1.
+     Assuming now that A is not α-thin at infinity, we get c(A) = ∞, and hence,
+again by Theorem 5.1, λA,f exists if and only if ω A (Rn ) ⩾ 1. As A is not α-thin at
+infinity, µA (Rn ) = µ(Rn ) for every µ ∈ M+ (see [23, Corollary 5.3]), whence (ii2 ).
+     Under the assumptions of (iii2 ), ω A (Rn ) < ω(Rn ) ⩽ 1 by [22, Theorem 8.7] (cf.
+also [23, Definition 2.1]), which according to Theorem 5.1 completes the proof. 
+                                 6. Proof of Theorem 5.1
+6.1. Preparatory results. The following criterion for the existence of the solution
+λA,f to problem (5.1) was discovered in the author’s old work [21]. Nevertheless, it
+is still of importance, serving as an important tool in various researches on this topic
+(see, in particular, the present study as well as [9], [26]–[28]).
+     Theorem 6.1. For µ ∈ Ĕ + (A) to be the (unique) solution λA,f to problem (5.1),
+it is necessary and sufficient that
+                                    ˆ
+                               Uf ⩾ Ufµ dµ n.e. on A,
+                                 µ
+                                                                                (6.1)
+
+     15Being actually valid under much more general assumptions, see [26] (Theorems 2.1, 2.13(b ),
+                                                                                                    1
+and 2.15), Corollary 5.8 is presented here in order to illustrate Theorem 5.1. For another illustration
+of these results, now given in geometrical terms, see also [26, Example 2.24].
+   16By Kurokawa and Mizuta [17, Definition 3.1], A is said to be α-thin at infinity if
+
+                                          X c(Aj )
+                                                        < ∞,
+                                          j∈N
+                                               q j(n−α)
+
+where q ∈ (1, ∞) and Aj := A ∩ {x ∈ Rn : q j ⩽ |x| < q j+1 }. See also Zorii [23, Definition 2.1] and
+Doob [8, pp. 175–176], the latter pertaining to α = 2.
+         On Fuglede’s problem on pseudo-balayage for signed Radon measures of infinite energy      15
+
+or equivalently                          ˆ
+                                 Ufµ =         Ufµ dµ µ-a.e. on X,                              (6.2)
+
+where Ufµ := U µ +f is said to be the f -weighted potential of µ.17 The (finite) constant
+                                          ˆ
+                                              λ
+                                 cA,f := Uf A,f dλA,f                               (6.3)
+
+is referred to as the inner f -weighted equilibrium constant for the set A.
+Proof. See [21] (Theorems 1, 2 and Proposition 1).                                                 
+
+    Definition 6.2. A net (µs ) ⊂ E˘f+ (A) is said to be minimizing if
+                                      lim If (µs ) = wf (A);                                    (6.4)
+                                         s
+
+let Mf (A) stand for the (nonempty) set of all those (µs ).18
+    Lemma 6.3. There is the unique ξA,f ∈ E + (A) such that for every (µs ) ∈ Mf (A),
+                        µs → ξA,f      strongly and vaguely in E + (A);                         (6.5)
+this ξA,f is said to be the extremal measure in problem (5.1).
+Proof. In a manner similar to that in [27, Proof of Lemma 4.1], one can see that for
+any (µs )s∈S and (νt )t∈T from Mf (A),
+                                         lim      kµs − νt k = 0,                               (6.6)
+                                     (s,t)∈S×T
+
+S × T being the product of the directed sets S and T [16, p. 68]. Taking the two
+nets in (6.6) to be equal, we deduce that every (νt )t∈T ∈ Mf (A) is strong Cauchy.
+The cone E + (A) being strongly closed, hence strongly complete (Section 1.1), (νt )t∈T
+must converge strongly to some (unique) ξA,f ∈ E + (A). The same ξA,f also serves
+as the strong limit of any other (µs )s∈S ∈ Mf (A), which is obvious from (6.6). The
+strong topology on E + being finer than the vague topology on E + according to the
+perfectness of the kernel κ, (µs )s∈S must converge to ξA,f also vaguely.             
+    Lemma 6.4. For the extremal measure ξA,f , we have
+                                         If (ξA,f ) = wf (A),                                   (6.7)
+                                         ξA,f (X) ⩽ 1,                                          (6.8)
+whence
+                                             ξA,f ∈ Ef+ (A).
+
+Proof. Fix (µs ) ∈ Mf (A); then µs → ξ := ξA,f strongly and vaguely, which gives
+                                             lim kµs k = kξk                                    (6.9)
+                                              s
+
+  17For f in question and for any ν ∈ E + , U ν is finite n.e. on A, which is obvious in view of the
+                                                  f
+fact that U ν is finite q.e. (hence, n.e.) on X, cf. [12, Corollary to Lemma 3.2.3].
+   18Since the proof of Theorem 5.1 follows in general the scheme suggested in [27], some of its
+parts are quite similar to those in [27, 28], though being performed under other assumptions on the
+external field under consideration. To make the proof of Theorem 5.1 clear and self-contained, we
+briefly represent some of those parts, correspondingly modified.
+16                                               Natalia Zorii
+
+as well as (6.8), the mapping ν 7→ ν(X) being vaguely l.s.c. on M+ . In view of (2.2),
+(6.4), and (6.9), the remaining claim (6.7) is reduced to showing that
+                                  ˆ             ˆ
+                              lim    U dµs = U ω dξ.
+                                      ω
+                                                                               (6.10)
+                                        s
+
+       In fact, if ω ∈ E, then (6.10) is obvious because of
+                          0 ⩽ lim hω, µs − ξi ⩽ kωk · lim kµs − ξk = 0,
+                                s                                s
+
+which is derived from (6.5) and the Cauchy–Schwarz inequality, applied to ω and
+µs − ξ, elements of the space E; while otherwise, (6.10) follows by use of (d)–(f).
+                                                                             ±
+    Indeed, for any given ε > 0, there is a compact set K ⊂ X such that U ω (x) < ε
+for all x 6∈ K (cf. (5.3)), and therefore, on account of (6.8),19
+                    ˆ
+                       U ω (x)1K c (x) d(µs − ξ)(x) < 4ε for all s ⩾ s0 .       (6.11)
+
+There is certainly no loss of generality in assuming that K0 := K ∩ A is nonempty.
+Since Ac is µs + ξ-negligible, (6.11) remains valid with K c replaced by K0c .
+          +           −
+    As U ω , resp. U ω , is continuous on A, the Tietze-Urysohn extension theorem
+[11, Theorem 0.2.13] implies that there exist positive ϕ+ , ϕ− ∈ C0 (X) such that
+                                                    ±
+                                     ϕ± (x) = U ω (x) if x ∈ K0 ,
+                                     ϕ± (x) ⩽ ε otherwise,
+which indicates, in turn, that for all s large enough,
+                                                        
+        ˆ                                   ˆ
+            ω
+           U (x)1K0 (x) d(µs − ξ)(x) =         ϕ − ϕ|K0c d(µs − ξ) < 5ε,                            (6.12)
+
+where ϕ := ϕ+ − ϕ− ∈ C0 (X). (Here we have used the fact that µs → ξ vaguely; see
+also footnote 19.) This combined with (6.11) gives (6.10), whence the lemma.   
+       Corollary 6.5. Problem (5.1) is solvable if and only if equality prevails in (6.8),
+i.e.
+                                               ξA,f (X) = 1,                                        (6.13)
+and in the affirmative case,
+                                                 ξA,f = λA,f .                                      (6.14)
+Proof. Indeed, if (6.13) holds, then ξA,f belongs to Ĕf+ (A), which together with (6.7)
+shows that ξA,f serves as λA,f . Further, if λA,f exists, then the trivial net (λA,f )
+obviously belongs to Mf (A), and hence converges strongly to ξA,f (Lemma 6.3) as well
+as to λA,f . This implies (6.14), the strong topology on E + (A) being Hausdorff. 
+       Lemma 6.6. For the extremal measure ξ := ξA,f ∈ Ef+ (A), we have
+                                        Ufξ ⩾ Cξ        n.e. on A,                                  (6.15)
+                                        Ufξ = Cξ        ξ-a.e. on X,                                (6.16)
+where                                        ˆ
+                                     Cξ :=        Ufξ dξ ∈ (−∞, ∞).                                 (6.17)
+
+     19In (6.11) as well as in (6.12), we have utilized [5, Section IV.4], see Proposition 2 and Corollary 2
+to Theorem 1 therein.
+        On Fuglede’s problem on pseudo-balayage for signed Radon measures of infinite energy       17
+
+Proof. For any K ∈ CA , λK,f does exist, which is clear from Corollary 6.5 by use of
+the vague compactness of the class M̆+ (K), see [5, Section III.1.9, Corollary 3]. We
+assert that those λK,f form a minimizing net, i.e.
+                                      (λK,f )K∈CA ∈ Mf (A).                                    (6.18)
+    On account of Definition 6.2, (6.18) is in fact reduced to
+                                      lim wf (K) = wf (A).                                     (6.19)
+                                      K↑A
+                       
+Since the net wf (K) K∈C obviously decreases and has wf (A) as a lower bound,
+                            A
+
+(6.19) will follow once we show that for any given µ ∈ E˘+ (A),          f
+
+                                      If (µ) ⩾ lim wf (K).                                     (6.20)
+                                                     K↑A
+
+Noting that µ(K) ↑ 1 as K ↑ A, and applying [12, Lemma 1.2.2] to each of the
+                                                 +         −
+(positive, l.s.c., µ-integrable) functions κ, U ω , and U ω , we get
+                   If (µ) = lim If (µ|K ) = lim If (νK ) ⩾ lim wf (K),
+                              K↑A                    K↑A                 K↑A
+
+where νK := µ|K /µ(K) ∈ Ĕ + (K) (K ∈ CA being large enough). This proves (6.20),
+whence (6.18). Therefore, by virtue of Lemma 6.3,
+                λK,f → ξA,f      strongly and vaguely in E + (A) as K ↑ A.                     (6.21)
+    On the other hand, applying (6.1)–(6.3) to each K ∈ CA gives
+                                     λ
+                                    Uf K,f ⩾ cK,f          n.e. on K,                          (6.22)
+                                     λ
+                                    Uf K,f = cK,f          λK,f -a.e.,                         (6.23)
+where                                            ˆ
+                                                       λ
+                                     cK,f :=         Uf K,f dλK,f .                            (6.24)
+Letting K ↑ A in (6.24), we deduce from (6.9) and (6.10) that
+                                           lim cK,f = Cξ ,                                     (6.25)
+                                           K↑A
+
+Cξ being introduced by means of (6.17).
+    Fix K0 ∈ CA . The strong topology on E + being first-countable, one can choose
+a subsequence (λKj ,f )j∈N of the net (λK,f )K∈CA such that
+              λKj ,f → ξ     strongly (hence vaguely) in E + (A) as j → ∞,                     (6.26)
+cf. (6.21). There is certainly no loss of generality in assuming that
+                                         K0 ⊂ Kj       for all j,
+                                                                                    
+for if not, we replace Kj by Kj′ := Kj ∪ K0 ; then, by the monotonicity of wf (K) ,
+the sequence (λKj′ ,f )j∈N remains minimizing, and hence also converges strongly to ξ.
+     Due to the arbitrary choice of K0 ∈ CA , (6.15) will follow once we show that
+                                     Ufξ ⩾ Cξ         n.e. on K0 .                             (6.27)
+Passing if necessary to a subsequence and changing notations, we infer from (6.26),
+by making use of Lemma 3.3, that
+                                U ξ = lim U λKj ,f           n.e. on X.                        (6.28)
+                                         j→∞
+18                                         Natalia Zorii
+
+Now, applying (6.22) to each of Kj , j ∈ N, and then letting j → ∞, in view of (6.25)
+and (6.28) we obtain (6.27). (Here we have utilized the countable subadditivity of
+inner capacity on universally measurable sets [12, Lemma 2.3.5].)
+                                                  λ
+    Since f is continuous on A (Remark 5.5), Uf K,f , where K ∈ CA , is l.s.c. on A,
+which in view of (6.23) yields
+                                   λ
+                               Uf K,f ⩽ cK,f       on S(λK,f ).                 (6.29)
+Since (λKj ,f ) converges to ξ vaguely, cf. (6.26), for every x ∈ S(ξ) there exist a
+subsequence (Kjk ) of the sequence (Kj ) and points xjk ∈ S(λKjk ,f ), k ∈ N, such that
+xjk approach x as k → ∞. Thus, according to (6.29),
+                          λKj ,f
+                         Uf    k
+                                   (xjk ) ⩽ cKjk ,f    for all k ∈ N.
+Letting here k → ∞ and utilizing (6.25), the continuity of f on A, and the lower
+semicontinuity of the mapping (x, µ) 7→ U µ (x) on X × M+ , M+ being equipped with
+the vague topology [12, Lemma 2.2.1(b)], we arrive at the inequality
+                                       Ufξ ⩽ Cξ    on S(ξ),
+which together with (6.15) gives
+                               Ufξ = Cξ      n.e. on S(ξ) ∩ A.
+Applying Lemma 3.1 therefore results in (6.16), ξ being a positive measure of finite
+energy, concentrated on both A (Lemma 6.3) and S(ξ), and hence on S(ξ) ∩ A. 
+6.2. Proof of Theorem 5.1. Let first c∗ (A) < ∞. According to Corollary 6.5,
+problem (5.1) is solvable whenever the extremal measure ξ := ξA,f , uniquely deter-
+mined by means of Lemma 6.3, belongs to the class E˘+ (A). This does indeed hold
+in view of Theorem 6.7, ξ being the strong limit of a minimizing net (µs ) ⊂ Ĕf+ (A).
+     Theorem 6.7. If c∗ (A) < ∞, E˘+ (A) is strongly closed, hence strongly complete.
+Proof. This follows in the same manner as [28, Theorem 7.1], pertaining to quasi-
+closed A.                                                                      
+    Assume now that ω    b A (X) = 1. As ω b A ∈ Ef+ (A) according to Theorem 2.1, then
+         b A ∈ Ĕf+ (A), whence If (b
+actually ω                          ω A ) ⩾ wf (A). Also note from (2.5) and (5.2) that
+                                    ω A) = w
+                                If (b      bf (A) ⩽ wf (A).
+Putting this all together implies that the solution λA,f to problem (5.1) does indeed
+exist, and moreover λA,f = ωb A.
+    We next aim to show that problem (5.1) is unsolvable provided that
+                                             b A (X) < 1.
+                              c∗ (A) = ∞ and ω                                  (6.30)
+The space X being σ-compact, whereas c∗ (A) = ∞, there exist a sequence (Uj ) of
+relatively compact open subsets of X which cover X, such that Uj ⊂ Uj+1 for each j
+[3, Section I.9, Proposition 15], and a sequence (Kj ) of compact sets Kj ⊂ A ∩ Uj+1
+such that Kj ∩ Uj = ∅ and c(Kj ) ⩾ j for each j. If λj := γKj /c(Kj ) ∈ E˘+ (Kj )
+denotes the normalized capacitary measure on Kj , then
+                        kλj k → 0 as j → ∞,                                     (6.31)
+                           λj → 0 vaguely in E + as j → ∞,                      (6.32)
+        On Fuglede’s problem on pseudo-balayage for signed Radon measures of infinite energy       19
+
+where the latter is obvious from the fact that for any compact Q ⊂ X, S(λj ) ∩Q = ∅
+for all j large enough. Noting that ωb A (X) < 1, cf. (6.30), define
+                          b A + qλj ,
+                    µj := ω                               b A (X) ∈ (0, 1].
+                                           where q := 1 − ω                                    (6.33)
+   b A , λj ∈ E + (A), we have µj ∈ E˘+ (A); hence, µj ∈ Ĕf+ (A) for all j, and so
+As ω
+                                   wf (A) ⩽ lim inf If (µj ).                                  (6.34)
+                                                j→∞
+
+On the other hand, (6.33) implies by means of a straightforward verification that
+                                                          ˆ
+                                  2     2       A              −
+                                              b , λj + 2q U ω dλj ,
+                        bf (A) + q kλj k + 2q ω
+             If (µj ) ⩽ w
+
+and applying (5.2), (5.3), and (6.31) therefore gives, by use of the Cauchy–Schwarz
+inequality,
+                              lim sup If (µj ) ⩽ wf (A).
+                                     j→∞
+Combined with (6.34), this shows that the sequence (µj ) is, actually, minimizing,
+and hence converges strongly and vaguely to the extremal measure ξ (Lemma 6.3).
+On account of (6.32) and (6.33), this yields ξ = ωb A , whence ξ(X) < 1 (cf. (6.30)),
+which according to Corollary 6.5 proves the unsolvability of problem (5.1).
+   It remains to verify the solvability of problem (5.1) in the case where
+                                           b A (X) > 1.
+                                           ω                                                   (6.35)
+We first show that
+                                      Cξ 6= 0,                              (6.36)
+where Cξ is given by (6.17). Indeed, assuming to the contrary that Cξ = 0, we infer
+from Lemma 6.6 that
+                                   Uξ ⩾ Uω       n.e. on A,
+                                   Uξ = Uω       ξ-a.e. on X.
+According to Theorem 2.1(iii1 ), then necessarily
+                                               bA,
+                                             ξ=ω
+which is however impossible, since ξ(X) ⩽ 1 while ω b A (X) > 1 by virtue of (6.8) and
+(6.35), respectively. The contradiction thus obtained proves (6.36).
+    Now, integrating (6.16) with respect to ξ, we get
+                                ˆ
+                                   Ufξ dξ = Cξ · ξ(X),
+
+which in view of (6.17) and (6.36) gives ξ(X) = 1. According to Corollary 6.5, this
+implies the solvability of problem (5.1), thereby completing the proof of the theorem.
+                                 7. Acknowledgements
+   This research was supported in part by a grant from the Simons Foundation, the
+USA (1030291, N.V.Z.).
+                          8. A data availability statement
+    This manuscript has no associated data.
+                       9. Funding and Competing interests
+    The author has no relevant financial or non-financial interests to disclose.
+20                                          Natalia Zorii
+
+                                          References
+ [1] Armitage, D.H., Gardiner, S.J.: Classical Potential Theory. Springer, Berlin (2001)
+ [2] Borodachov, S.V., Hardin, D.P., Saff, E.B.: Discrete Energy on Rectifiable Sets. Springer,
+     Berlin (2019)
+ [3] Bourbaki, N.: General Topology. Chapters 1–4. Springer, Berlin (1989)
+ [4] Bourbaki, N.: General Topology. Chapters 5–10. Springer, Berlin (1989)
+ [5] Bourbaki, N.: Integration. Chapters 1–6. Springer, Berlin (2004)
+ [6] Cartan, H.: Théorie générale du balayage en potentiel newtonien. Ann. Univ. Fourier Grenoble
+     22, 221–280 (1946)
+ [7] Deny, J.: Sur la définition de l’énergie en théorie du potentiel. Ann. Inst. Fourier 2, 83–99
+     (1950)
+ [8] Doob, J.L.: Classical Potential Theory and Its Probabilistic Counterpart. Springer, Berlin
+     (1984)
+ [9] Dragnev, P.D., Orive, R., Saff, E.B., Wielonsky F.: Riesz energy problems with external fields
+     and related theory. Constr. Approx. 57, 1–43 (2023)
+[10] Edwards, R.E.: Cartan’s balayage theory for hyperbolic Riemann surfaces. Ann. Inst. Fourier
+     8, 263–272 (1958)
+[11] Edwards, R.E.: Functional Analysis. Theory and Applications. Holt, Rinehart and Winston,
+     New York (1965)
+[12] Fuglede, B.: On the theory of potentials in locally compact spaces. Acta Math. 103, 139–215
+     (1960)
+[13] Fuglede, B.: The quasi topology associated with a countably subadditive set function. Ann.
+     Inst. Fourier Grenoble 21, 123–169 (1971)
+[14] Fuglede, B.: Symmetric function kernels and sweeping of measures. Anal. Math. 42, 225–259
+     (2016)
+[15] Fuglede, B., Zorii, N.: Green kernels associated with Riesz kernels. Ann. Acad. Sci. Fenn. Math.
+     43, 121–145 (2018)
+[16] Kelley, J.L.: General Topology. Princeton, New York (1957)
+[17] Kurokawa, T., Mizuta, Y.: On the order at infinity of Riesz potentials. Hiroshima Math. J. 9,
+     533–545 (1979)
+[18] Landkof, N.S.: Foundations of Modern Potential Theory. Springer, Berlin (1972)
+[19] Ohtsuka, M.: On potentials in locally compact spaces. J. Sci. Hiroshima Univ. Ser. A-I 25,
+     135–352 (1961)
+[20] Saff, E.B., Totik, V.: Logarithmic Potentials with External Fields. Grundlehren der mathema-
+     tischen Wissenschaften, 316. Springer (2024)
+[21] Zorii, N.V.: Equilibrium potentials with external fields. Ukrainian Math. J. 55, 1423–1444
+     (2003)
+[22] Zorii, N.: A theory of inner Riesz balayage and its applications. Bull. Pol. Acad. Sci. Math.
+     68, 41–67 (2020)
+[23] Zorii, N.: Harmonic measure, equilibrium measure, and thinness at infinity in the theory of
+     Riesz potentials. Potential Anal. 57, 447–472 (2022)
+[24] Zorii, N.: Balayage of measures on a locally compact space. Anal. Math. 48, 249–277 (2022)
+[25] Zorii, N.: On the theory of balayage on locally compact spaces. Potential Anal. 59, 1727–1744
+     (2023)
+[26] Zorii, N.: Minimum Riesz energy problems with external fields. J. Math. Anal. Appl. 526,
+     127235 (2023)
+         On Fuglede’s problem on pseudo-balayage for signed Radon measures of infinite energy   21
+
+[27] Zorii, N.: Minimum energy problems with external fields on locally compact spaces. Constr.
+     Approx. 59, 385–417 (2024)
+[28] Zorii, N.: On an extension of Fuglede’s theory of pseudo-balayage and its applications. Expo.
+     Math. 125630 (2024), https://doi.org/10.1016/j.exmath.2024.125630
+[29] Zorii, N.: General theory of balayage on locally compact spaces. Applications to weighted
+     minimum energy problems. arXiv:2401.11043v2
+
+    Institute of Mathematics, Academy of Sciences of Ukraine, Tereshchenkivska 3,
+02000, Kyiv, Ukraine, natalia.zorii@gmail.com
+

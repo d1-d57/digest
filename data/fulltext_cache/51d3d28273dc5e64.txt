@@ -1,0 +1,451 @@
+
+
+Everything I Need to Know About Polygons I Learned from My Pre-Kindergartner – Feature Column
+
+Skip to content
+
+Everything I Need to Know About Polygons I Learned from My Pre-Kindergartner
+
+In:
+
+2025
+, 
+Algebra and Number Theory
+, 
+Courtney Gibbons
+, 
+Discrete Math and Combinatorics
+, 
+Geometry and Topology
+
+Tagged:
+
+polytopes and polyhedra
+
+This fall I woke up to a surprise comprehensive exam, with my toddler as the examiner, starting with the demand for a nonconvex regular [simple] polygon. It was 4:30 am. I had not yet had coffee.
+
+Everything I Need to Know About Polygons I Learned from My Pre-Kindergartner
+
+Courtney Gibbons
+
+Hamilton College
+
+"Mom, more 'gons!" has become a frequent refrain in my house. Having a shape-obsessed child has been a challenge for me, an algebraist with the geometric intuition of a flatlander, but it's also been an adventure.
+
+Parent (or Kid at Heart) Tip:
+ there's a great song (and accompanying music video) called 
+Nonagon
+ by They Might Be Giants (for kids). I also created a worksheet for 3rd-4th graders using the game 
+No Triangles
+ to talk about shapes and counting!
+
+One of the best parts of being a mathematician (and one it shares with parenthood) is that you never know what you'll need to know. My brush with polytopes in grad school gave me enough background to keep up with my child. This column is a journey from polygons to polyhedra to polytopes and beyond.
+
+Polygons
+
+My kid's obsession with polygons traces back to the first time I called a stop sign an octagon. At 16 months, he decided he wanted more 'gons. One of the first things I learned was that ancient Greeks had names for polygons into the hundreds of millions and beyond. The word "polygon" traces back to ancient greek, with "poly" meaning many (as in "polynomial" or many numbers) and "gon" refering to angles. Want a polygon with 100 millions sides? 
+I think
+ it's a 
+myriakismyriagon
+. Want a polygon with infinitely many sides? That's an 
+apeirogon
+ (and it's distinct from a circle!).
+
+Pentagon gets ready for the polygon party. My default doodle is a convex regular $n$-gon for $3 \le n \le 7$.
+
+The definition of a 
+polygon
+ is a just a collection of line segments chained together by their vertices one after another until closing the loop. Technically, the line segments defining a polygon 
+can
+ intersect, but my child only recognizes 
+simple polygons
+ where they don't.
+
+After limiting the scope of conversation to simple polygons, my child discovered irregular polygons (polygons with sides of different lengths or unequal angles), and then nonconvex polygons, where it's possible to draw a line segment from one point within the polygon to another that cuts across the boundary line segments. (Polygons that aren't irregular are called regular, and polygons that aren't nonconvex are said to be convex!) Recently, my 3-year-old defined a "rectangular nonconvex pentagon" and generalized it to "rectangular nonconvex polygon," by which he meant a nonconvex polygon whose convex hull is a rectangle.
+
+What's a convex hull? If you take any shape in the plane and stretch a rubber band around it, then let go, the rubber band snaps into the smallest convex shape that still contains the original one. That rubber-band shape is the 
+convex hull
+. Formally, the convex hull of a set $S$ of points is the smallest convex set containing $S$, or equivalently the set of all convex combinations of points of $S$. For a nonconvex polygon, the hull is what you get by "filling in the chomps," according to my kid. So my child's "rectangular nonconvex polygons" are exactly those whose chomps can be filled in to make a rectangle.
+
+I like this definition, but I'm waiting for him to discover that there's another perspective on convexity that makes the "filling in the chomps" idea more mathematically precise. A (closed) halfspace in $\mathbb{R}^d$ is one side of a hyperplane: a set of the form $\{x : \ell(x) \ge c\}$ for some linear functional $\ell$ and constant $c$. The theorem I'm gesturing at says that convex sets come with two complementary descriptions. On one hand, you can build a convex hull by taking all convex combinations of a generating set of points. On the other, the same convex set can be described as the intersection of all halfspaces that contain it. In two dimensions this is the familiar fact that a convex polygon is the intersection of the half-planes determined by its supporting lines; in higher dimensions it is a cornerstone of polyhedral geometry. I like it because it lets you switch between "points generate the shape" and "inequalities carve out the shape," depending on which viewpoint makes the problem more tractable.
+
+There are some awkward consequences to the exclusion of self-intersecting polygons, though. This fall I woke up to a surprise comprehensive exam, with my toddler as the examiner, starting with the demand for a nonconvex regular [simple] polygon. It was 4:30 am. I had not yet had coffee. In Euclidean space, this is an impossible request, which I consider our first joint conjecture.
+
+These are the kinds of questions that keep me up at night (if they don't wake me up in the morning) drawing geometric figures in my mind. Did Euclid have the same issue?!
+
+Regular polygons in the non-Euclidean hyperbolic space were a source of inspiration for M.C. Escher. Doris Schattschneider reconstructed some of 
+Coxeter's annotations
+ of Escher's circle limits. Bill Casselman also wrote about Escher's work in his 2010 column, 
+How Did Escher Do It?
+
+The author attempted to draw a parabolic plane tiled with hexagons (convex, even if they don't look it!), but she was interrupted by her most junior coauthor.
+
+My kid and I are currently reading 
+A Panoply of Polygons
+ [
+1
+] together. He's frustrated that a given polygon won't necessarily tile the plane, but we've made some exciting progress with pentagons to keep up with the 
+recent literature
+.
+
+My favorite polygon, which gets its fair treatment in the Panoply, is the heptadecagon, 
+which Gauss showed to be constructible with a compass and straightedge
+ (the closest I've ever come to understanding "algebraic" geometry). In particular, he showed that $\cos(2\pi/17)$ is algebraic, meaning that it can be built from integers using addition, multiplication, $n$-th powers, and their inverses. More generally, Gauss proved that a regular $n$-gon is constructible by straightedge and compass exactly when $n$ is a product of a power of $2$ and distinct Fermat primes. Fermat primes are numbers of the form $F_k = 2^{2^k} + 1$; only five are known ($3,5,17,257,65537$), and $17$ is the first "nontrivial" one beyond the pentagon. So the heptadecagon is the first regular polygon whose constructibility isn't obvious from Euclid. (While Gauss is said to have never drawn a regular heptadecagon, I'd like to think I've drawn so many heptadecagons that I probably have, at least by accident)
+
+Mom's take on polygons: polygonal cones.
+ When an algebraist looks at a polygon, the next reflex is to let it generate a cone: take all nonnegative linear combinations of its vertices (or edges, depending on your mood) and you get a 
+polyhedral cone
+. In two dimensions, this is like shining a flashlight through the polygon from the origin and watching the light fill out a wedge-shaped region. Cones are where polygons start acting like grown-ups: they live happily in any dimension, they're naturally described by inequalities, and they are the raw material for fans later on.
+
+My kid has entertained a lot of favorite polygons, but currently he likes regular pentagons and regular trigons--oops, I mean, equilateral triangles. Why?
+
+The Third Dimension
+
+The icosahedron is made of 20 equilateral triangles. Great idea for a group photo with 19 of your friends?
+
+Have you looked at a soccer ball lately? Its surface is tiled with hexagons and pentagons; in fact, it's got 12 pentagons and 20 hexagons. Take a regular icosahedron composed of twenty equilateral triangles, then slice it to remove a vertex. Each vertex is the vertex of five triangles, so this surgery results in a pentagon. Repeat for every vertex and you'll find a truncated icosahedron is just an uptight soccer ball (or a soccer ball is a little bit of a bloated truncated icosahedron). The soccer ball is thus, in my kid's eyes, the magical link between the regular pentagon and the equilateral triangle.
+
+I didn't mean to admit the generalization of polygons to polyhedra, but I inherited a copy of Wenninger's 
+Polyhedral Models
+ [
+2
+] and suddenly we launched into the nuances of truncation, stellation, and the eventual construction of "uniform nonconvex solids." To me, the Euler characteristic is a tool for calculating algebraic invariants. But my kid has an intuitive appreciation for the famous Euler characteristic formula, vertices - edges + faces, and that the formula yields two for any convex polyhedron. Each convex polyhedron also has one "inside space" and one "outside space" and that's how I interpret that two.
+
+What my toddler will eventually appreciate is that if you take a convex polyhedron and forget its edges are straight, its surface is topologically a sphere. For any object whose surface is a sphere, the Euler characteristic is $2$; that's really what the formula is measuring. The miracle isn't the number $2$ itself—it's that no matter how many faces or how weirdly you assemble them, as long as you stay convex, that alternating count refuses to change. (With magnetic tiles, my child and I figured out that a stellated dodecahedron has Euler characteristic six
+-ish
+; he doesn't know negative numbers yet.)
+
+Faces, edges, and vertices are the building blocks for some of my favorite combinatorially defined convex shapes: simplices. For each dimension, there is a standard simplex: a vertex is a zero-dimensional simplex; an edge is a one-dimensional simplex with two vertices as its codimension one facets; an equilateral triangle is a two-dimensional simplex with three edges as its codimension one facets and three vertices as its codimension two facets; and a regular tetrahedron is a three-dimensional simplex with four triangular facets, six edges, and four vertices. In dimension $d$, the standard simplex has $d+1$ vertices, and every subset of those vertices spans a face. So a $4$-simplex has $5$ vertices, $10$ edges, $10$ triangular faces, and $5$ tetrahedral facets. You can't picture it in the same way you can picture a tetrahedron, but you can still count and reason about it as "the simplest possible polytope" in that dimension. Simplices are how polytopes introduce themselves politely.
+
+A polytope is a bounded polyhedron; equivalently, it's the convex hull of finitely many points. Although some folks think of polyhedra as the three-dimensional analogs of polygons, Ziegler's 
+Lectures on Polytopes
+ [
+3
+] describes polyhedra as potentially unbounded intersections of  (hyper)-halfspaces.  Polytopes, like polygons, are bounded.
+
+The connection between all these ideas? For me, it's called a 
+simplicial fan.
+ A 
+cone
+ is a set closed under positive scaling: if $x$ is in the cone, so is $\lambda x$ for every $\lambda\ge 0$. A 
+fan
+
+is a finite collection of polyhedral cones that fit together along shared faces, like a geometric patchwork quilt with a common apex at the origin. Fans show up the moment you stop asking "what is the shape?" and start asking "in which directions does the shape behave the same way?" A fan is 
+simplicial
+ if every cone in it is generated by linearly independent rays—so each cone looks like a higher-dimensional analog of a triangle wedge.
+
+Simplicial fan with a pentagonal positive hull. It's also the intersection of five halfspaces.
+
+This is the moment where everything loops back. Convex hulls as intersections of halfspaces? That's polytopes and their normal fans speaking two dialects of the same language. Polygonal cones? Those are the basic building blocks of fans. Simplices? A simplicial fan is, in some sense, what you get when you triangulate direction-space the way my kid calls an icosahedron a tesselated spheroid. If my child keeps demanding "more 'gons," I suspect the next request will be "more cones," and after that, inevitably, "more fans."
+
+References
+
+[
+1] Alsina, Claudia and Roger B. Nelsen. 
+A Panoply of Polygons
+.
+
+[
+2] Wenninger, Magnus J. 
+Polyhedron Models
+.
+
+[3] Ziegler, Günter M. 
+Lectures on Polytopes
+.
+
+Share this:
+
+Share on Facebook (Opens in new window)
+
+Facebook
+
+Share on X (Opens in new window)
+
+X
+
+Like this:
+Like
+
+Loading…
+
+2025-12-01
+
+Previous Post: 
+Achieving Fairness
+Next Post: 
+Information, Insight, and the Problem With Parameters
+
+1 Comment
+
+Sadly, Claudi Alsina, coauthor of A Panoply of Polygons and other wonderful books, died at 73 in November, 2025.
+
+https://en.ara.cat/society/claudi-alsina-mathematician-and-popularizer-dies-at-age-73_1_5563813.html
+
+Leave a Reply 
+Cancel reply
+Your email address will not be published.
+
+Required fields are marked 
+*
+Comment 
+*
+
+HTML tags are not allowed.
+Name 
+*
+
+Email 
+*
+
+Save my name, email, and website in this browser for the next time I comment.
+
+85,090 Spambots Blocked by 
+Simple Comments
+
+Notify me of follow-up comments by email.
+
+Notify me of new posts by email.
+ Notify me of followup comments via e-mail. You can also 
+subscribe
+ without commenting.
+
+JavaScript must be turned on to leave a comment.
+
+Search
+Subscribe to Feature Column via Email
+
+Enter your email address to subscribe to Feature Column and receive notifications of new posts by email.
+
+							Email Address						
+
+							Subscribe						
+
+Recent Posts
+Another Look at Circles and Squares
+
+The Shapley Value, or How to Split a Bill in n! Easy Steps
+
+The Story Your Ballot Doesn’t Tell
+
+Weekly Maintenance Message
+
+Puzzling Like the Seventeenth Century
+
+Categories
+
+2020
+
+2021
+
+2022
+
+2023
+
+2024
+
+2025
+
+2026
+
+Adam A. Smith
+
+Adriana Salerno
+
+Algebra and Number Theory
+
+Allechar Serrano López
+
+Anil Venkatesh
+
+Anna Haensch
+
+Archive
+
+Audrey St. John
+
+Bevin Maultsby
+
+Bianca Thompson
+
+Bill Casselman
+
+Colm Mulcahy
+
+Courtney Gibbons
+
+David Austin
+
+Deepayan Sarkar
+
+Diana Davis
+
+Discrete Math and Combinatorics
+
+Étienne Ghys
+
+Geometry and Topology
+
+Guillermo Fereyra
+
+History of mathematics
+
+Holley Friedlander
+
+Jessica Sidman
+
+John Eggers
+
+Joseph Malkevitch
+
+Josh Leys
+
+Math and Arts/Humanities
+
+Math and Social Sciences
+
+Math and Technology
+
+Math and the Sciences
+
+Mathematics and Biology
+
+Moira Chas
+
+Noah Giansiracusa
+
+Patrick Ion
+
+Probability and Statistics
+
+Real and Complex Analysis
+
+Sara Chari
+
+Sara Stoudt
+
+Sarah Wolff
+
+Steven H. Weintraub
+
+Sunil Chebolu
+
+Tamsyn Morrill
+
+Teaching and Learning Mathematics
+
+Tony Phillips
+
+Uncategorized
+
+Ursula Whitcher
+
+Tags
+5G
+
+Alan Turing
+
+algebraic geometry
+
+ams
+
+astronauts
+
+Branko Grünbaum
+
+cantor set
+
+chess
+
+Claude Shannon
+
+computability
+
+cryptography
+
+Desargues
+
+economics
+
+elliptic curves
+
+epidemic
+
+Euclidean geometry
+
+feature column history
+
+games
+
+game theory
+
+generating functions
+
+genetics
+
+Geoffrey Colin Shephard
+
+herd immunity
+
+Higgs boson
+
+information theory
+
+lattices (groups)
+
+Lie groups
+
+Machine learning
+
+measles
+
+medieval
+
+partitions
+
+periods
+
+persi diaconis
+
+physics
+
+poetry
+
+polytopes and polyhedra
+
+primes
+
+probability
+
+SEIR model
+
+statistics
+
+string theory
+
+tic-tac-toe
+
+tilings
+
+video games
+
+voting
+
+Meta
+
+Log in
+
+Entries feed
+
+Comments feed
+
+WordPress.org
+
+					 Designed using 
+Hoot Business
+. Powered by 
+WordPress
+.				
+
+%d
+

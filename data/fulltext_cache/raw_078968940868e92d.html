@@ -1,0 +1,370 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN" "http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg-flat.dtd" >
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+
+<title>Coxeter and Dynkin Diagrams | The n-Category Caf&#xE9;</title>
+
+<meta name="ICBM" content="30.2893, -97.7367" />
+<meta name="DC.title" content="The n-Category Caf&#xE9;" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<style type="text/css" media="all" title="The n-Category Caf&#xE9; Stylesheet">@import url("/category/styles-site.css");</style>
+<link rel="stylesheet" href="/category/print.css" type="text/css" media="print" />
+
+<link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="/category/atom10.xml" />
+<link rel="alternate" type="application/atom+xml" title="Atom 1.0 Comments Feed" href="/category/comments.atom" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="/category/rsd.xml" />
+<link rel="shortcut icon" type="image/x-icon" href="/category/images/favicon.ico" />
+<link rel="icon" type="image/x-icon" href="/category/images/favicon2.ico" />
+<link rel="pgpkey" href="/category/urs.asc" title="Urs Schreiber's PGP Public Key" />
+<link rel="start" href="/category/" title="Home" />
+<link rel="search" href="/cgi-bin/MT-3.0/mt-search.cgi?IncludeBlogs=3&amp;Template=category" title="Search" />
+<link rel="contents" href="/category/archives.html" title="Comprehensive List of Blog Entries" />
+
+
+<link rel="bookmark" href="#content" title="Main Content" />
+<link rel="bookmark" href="#comments" title="Comments" />
+<link rel="bookmark" href="#search" title="Search Box" />
+<link rel="bookmark" href="#related" title="Related entries" />
+<link rel="bookmark" href="#AccessKeyList" title="AccessKeys" />
+<link rel="prev" href="/category/2025/12/octonions_and_the_standard_mod_11.html" title="Octonions and the Standard Model (Part 13)" />
+<link rel="next" href="/category/2026/01/categorifying_riemanns_functio.html" title="Categorifying Riemann's Functional Equation" />
+<link rel="up" href="/category/2026/01/" title="January, 2026" />
+
+<script type="text/javascript" src="/category/prototype.js"></script>
+<script type="text/javascript" src="/category/ie.js"></script>
+<script type="text/x-mathjax-config">
+  <!--//--><![CDATA[//><!--
+    MathJax.Hub.Config({
+      MathML: { useMathMLspacing: true },
+      "HTML-CSS": { scale: 90,
+                    noReflows: false,
+                    extensions: ["handle-floats.js"],
+                    linebreaks: { width: "container" }
+       }
+    });
+    MathJax.Hub.Queue( function () {
+       var fos = document.getElementsByTagName('foreignObject');
+       for (var i = 0; i < fos.length; i++) {
+         MathJax.Hub.Typeset(fos[i]);
+       }
+    });
+  //--><!]]>
+</script>
+<script type="text/javascript">
+  <!--//--><![CDATA[//><!--
+  window.addEventListener("DOMContentLoaded", function () {
+    var div = document.createElement('div');
+    var math = document.createElementNS('http://www.w3.org/1998/Math/MathML', 'math');
+    document.body.appendChild(div);
+    div.appendChild(math);
+  // Test for MathML support comparable to WebKit version https://trac.webkit.org/changeset/203640 or higher.
+    div.setAttribute('style', 'font-style: italic');
+    var mathml_unsupported = !(window.getComputedStyle(div.firstChild).getPropertyValue('font-style') === 'normal');
+    div.parentNode.removeChild(div);
+    if (mathml_unsupported) {
+      // MathML does not seem to be supported...
+      var s = document.createElement('script');
+      s.src = "/wiki/MathJax/MathJax.js?config=MML_HTMLorMML-full";
+      document.querySelector('head').appendChild(s);
+    } else {
+      document.head.insertAdjacentHTML("beforeend", '<style>svg[viewBox] {max-width: 100%}</style>');
+    }
+  });
+  //--><!]]>
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="https://golem.ph.utexas.edu/category/2026/01/coxeter_and_dynkin_diagrams.html"
+    trackback:ping="https://golem.ph.utexas.edu/cgi-bin/MT-3.0/dxy-tb.fcgi/3627"
+    dc:title="Coxeter and Dynkin Diagrams"
+    dc:identifier="https://golem.ph.utexas.edu/category/2026/01/coxeter_and_dynkin_diagrams.html"
+    dc:subject="Math"
+    dc:description=" Dynkin diagrams have always fascinated me. They are magically potent language - you can do so much with them!..."
+    dc:creator="John Baez"
+    dc:date="2026-01-06T15:44:13+00:00" />
+</rdf:RDF>
+-->
+
+
+</head>
+
+<body>
+
+<div class="frame">
+
+<div id="banner">
+<h1><a href="/category/" accesskey="1" title="Jump to the blog main page">The n-Category Caf&#xE9;</a></h1>
+<div class="description">A group blog on math, physics and philosophy</div>
+</div>
+
+
+<h2 class="skip">Skip to the Main Content</h2>
+<div class="skip">
+<a href="#content" accesskey="2">Enough, already! Skip to the content.</a>
+</div>
+<p style="display:none;">
+<strong>Note:</strong>These pages make extensive use of the latest XHTML and CSS <a href="http://www.w3.org">Standards</a>. They ought to look great in any standards-compliant modern browser. Unfortunately, they will probably look horrible in older browsers, like Netscape 4.x and IE 4.x. Moreover, many posts use MathML, which is, currently <em>only</em> supported in Mozilla. My best suggestion (and you will <em>thank</em> me when surfing an ever-increasing number of sites on the web which have been crafted to use the new standards) is to upgrade to the latest version of your browser. If that's not possible, consider moving  to the Standards-compliant and open-source <a href="http://www.mozilla.org">Mozilla</a> browser.
+</p>
+
+
+<div class="blog">
+
+<div><div id='menu'>
+<a href='/category/2025/12/octonions_and_the_standard_mod_11.html' accesskey='p'>&#xab; Octonions and the Standard Model (Part 13)</a> |
+
+<a href='/category/'>Main</a>
+| <a href='/category/2026/01/categorifying_riemanns_functio.html' accesskey='n'>Categorifying Riemann&#x2019;s Functional Equation &#xbb;</a>
+
+</div>
+
+<h2 class='date'>January  6, 2026</h2>
+
+<div id='content' class='blogbody'>
+
+<h3 class='title'>Coxeter and Dynkin Diagrams</h3>
+
+<h4 class='posted'>Posted by John Baez</h4>
+
+<div><a href='http://golem.ph.utexas.edu/~distler/blog/mathml.html' onclick='window.open(this.href, &#x27;MathML&#x27;, &#x27;width=310,height=150,scrollbars=no,resizable=yes,status=no&#x27;); return false;' onkeypress='if(window.event.keyCode == 13){window.open(this.href, &#x27;MathML&#x27;, &#x27;width=310,height=150,scrollbars=no,resizable=yes,status=no&#x27;); return false;}'><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>Dynkin diagrams have always fascinated me.  They are magically potent language &#x2014; you can do so much with them!</p>
+
+<p><img width='200' src='http://math.ucr.edu/home/baez/mathematical/dynkin_diagrams.png' alt='' /></p>
+
+
+<div id='more'>
+<div><a href='http://golem.ph.utexas.edu/~distler/blog/mathml.html' onclick='window.open(this.href, &#x27;MathML&#x27;, &#x27;width=310,height=150,scrollbars=no,resizable=yes,status=no&#x27;); return false;' onkeypress='if(window.event.keyCode == 13){window.open(this.href, &#x27;MathML&#x27;, &#x27;width=310,height=150,scrollbars=no,resizable=yes,status=no&#x27;); return false;}'><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>Here&#x2019;s my gentle and expository intro to Dynkin diagrams and their close relative, Coxeter diagrams:</p>
+
+<ul>
+<li><a href='http://math.ucr.edu/home/baez/twf_dynkin.pdf'>Coxeter and Dynkin diagrams</a>.</li>
+</ul>
+
+<blockquote>
+  <p><strong>Abstract.</strong>   Coxeter and Dynkin diagrams classify a wide variety of structures, most notably finite reflection groups, lattices having such groups as symmetries, compact simple Lie groups and complex simple Lie algebras. The simply laced or &#x201c;ADE&#x201d; Dynkin diagrams also classify finite subgroups of SU(2) and quivers with finitely many indecomposable representations. This introductory tour of Coxeter and Dynkin diagrams, based on the column <em>This Week&#x2019;s Finds in Mathematical Physics</em>, is made to accompany <a href='https://math.ucr.edu/home/baez/twf/index.html#dynkin'>a series of five lecture videos</a>.</p>
+</blockquote>
+
+<p>I&#x2019;m a bit sorry that I didn&#x2019;t probe deeper into why Dynkin diagrams are what they are: that is, <em>why these and no others?</em>   I&#x2019;m also sorry I didn&#x2019;t dig into the &#x201c;black magic&#x201d; that I mention at the end: that is, <em>why does this black magic work?</em>   I&#x2019;d also like to include a little comparison of the 4 lattices you get from the Lie algebra of a compact simple Lie group: the weight lattice, the coweight lattice, the root lattice, and the coroot lattice &#x2014; merely because I tend to get them confused, and my exposition needed to say a bit about these.</p>
+
+<p>Luckily I can add these other things later.  And I think keeping it short and snappy has its own charms.</p>
+
+</div>
+
+
+<span class='posted'>Posted at January  6, 2026  3:44 PM UTC
+</span>
+</div>
+
+<p class='trackback-url'>TrackBack URL for this Entry:&#xa0;&#xa0; https://golem.ph.utexas.edu/cgi-bin/MT-3.0/dxy-tb.fcgi/3627</p>
+
+
+<h2 class='comments-head' id='related'>Some Related Entries</h2>
+
+<div id='pane'>
+
+<form method='get' action='/cgi-bin/MT-3.0/mt-search.cgi'>
+<fieldset class='search'>
+  <input type='hidden' name='IncludeBlogs' value='3' />
+  <input type='hidden' name='Template' value='category' />
+  <label for='search' accesskey='4'>Search for other entries:</label><br />
+  <input id='search' name='search' size='25' /><br />
+  <input type='submit' value='Search' />
+</fieldset>
+</form>
+
+
+
+</div>
+
+<ul class='blogbody related'>
+
+   <li><a href='/category/2023/12/seminar_on_this_weeks_finds_1.html'>Seminar on This Week&#x2019;s Finds</a> &#x2014;
+<i>Dec 01, 2023</i></li>
+   <li><a href='/category/2023/08/8_and_24.html'>8 and 24</a> &#x2014;
+<i>Aug 15, 2023</i></li>
+   <li><a href='/category/2023/06/grothendieckgaloisbrauer_theor.html'>Grothendieck&#x2013;Galois&#x2013;Brauer Theory (Part 1)</a> &#x2014;
+<i>Jun 26, 2023</i></li>
+   <li><a href='/category/2023/05/galois_fatal_duel.html'>Galois&#x2019; Fatal Duel</a> &#x2014;
+<i>May 30, 2023</i></li>
+   <li><a href='/category/2022/11/mathematics_for_humanity.html'>Mathematics for Humanity: a Plan</a> &#x2014;
+<i>Nov 27, 2022</i></li>
+   <li><a href='/category/2022/06/compositional_modeling_with_de.html'>Compositional Modeling with Decorated Cospans</a> &#x2014;
+<i>Jun 27, 2022</i></li>
+   <li><a href='/category/2022/06/hong_xun_snh.html'>Ho&#xe0;ng Xu&#xe2;n S&#xed;nh</a> &#x2014;
+<i>Jun 20, 2022</i></li>
+   <li><a href='/category/2021/08/the_two_cultures_challenge_rev.html'>The Two Cultures Challenge Revisited</a> &#x2014;
+<i>Aug 03, 2021</i></li>
+
+</ul>
+</div>
+
+<h2 class="comments-head" id="comments">6 Comments &amp; 0 Trackbacks</h2>
+
+<div class="blogbody">
+
+<div class="comments-body" id="c069150">
+<h3 class="title">Re: Coxeter and Dynkin Diagrams</h3>
+
+<div><div><a href="http://golem.ph.utexas.edu/~distler/blog/mathml.html"><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>Thank you for all of this and making it available. Some things that I find mysterious about this is what do root systems and the like show up in across mathematics and seem to parameterise many different classifications. They are somehow a fundamental notion but do not feel fundamental. The other thing about them is why do we have these exceptional (or sporadic) ones (you can of course ask that in other classifications like finite simple groups). It has a feeling of weird low(ish); dimensional accidents.</p>
+</div>
+<div class="comments-post">Posted by:
+Anonymous  on January  8, 2026  7:12 AM | <a href="/category/2026/01/coxeter_and_dynkin_diagrams.html#c069150" title="URL for comment by Anonymous  [January  8, 2026  7:12 AM]">Permalink</a>
+
+| <a href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3629;parent_id=69150" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}" title="Respond to comment by Anonymous  [January  8, 2026  7:12 AM]">Reply to this</a>
+</div>
+</div>
+
+
+
+
+
+<div class="comments-body" id="c069153">
+<h3 class="title">Re: Coxeter and Dynkin Diagrams</h3>
+
+<div><div><a href="http://golem.ph.utexas.edu/~distler/blog/mathml.html"><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>Do you talk about their connection with the Platonic solids and other regular polytopes?</p>
+
+<p>Do you talk about how they relate to groups appearing in physics, such as SO(n), SU(n), and E8?</p>
+</div>
+<div class="comments-post">Posted by:
+<a title="http://jefferywinkler.com" href="http://jefferywinkler.com" rel="nofollow">Jeffery Winkler</a> on January 13, 2026  7:22 PM | <a href="/category/2026/01/coxeter_and_dynkin_diagrams.html#c069153" title="URL for comment by Jeffery Winkler [January 13, 2026  7:22 PM]">Permalink</a>
+
+| <a href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3629;parent_id=69153" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}" title="Respond to comment by Jeffery Winkler [January 13, 2026  7:22 PM]">Reply to this</a>
+</div>
+</div>
+
+<div class="comments-nest-box">
+<div class="comments-body" id="c069155">
+<h3 class="title">Re: Coxeter and Dynkin Diagrams</h3>
+
+<div><div><a href="http://golem.ph.utexas.edu/~distler/blog/mathml.html"><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>Yes.  </p>
+
+<p>Yes.</p>
+</div>
+<div class="comments-post">Posted by:
+<a title="http://math.ucr.edu/home/baez/" href="http://math.ucr.edu/home/baez/" rel="nofollow">John Baez</a> on January 15, 2026 11:56 PM | <a href="/category/2026/01/coxeter_and_dynkin_diagrams.html#c069155" title="URL for comment by John Baez [January 15, 2026 11:56 PM]">Permalink</a>
+
+| <a href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3629;parent_id=69155" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}" title="Respond to comment by John Baez [January 15, 2026 11:56 PM]">Reply to this</a>
+</div>
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="comments-body" id="c069159">
+<h3 class="title">Generating a group with SO(2)s</h3>
+
+<div><div><a href="http://golem.ph.utexas.edu/~distler/blog/mathml.html"><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>Here&#8217;s something that&#8217;s always bugged me about Dynkin diagrams. </p>
+
+<p>On the one hand, you can use the Serre presentation of the (compact, say) Lie group as freely generated by some SU(2)s, modulo relations that say two SU(2)s generate either an SU(2) x SU(2), or an SU(3), or a Spin(5), or G_2. You don&#8217;t need relations involving three of the SU(2)s.</p>
+
+<p>On the other, you can use the Coxeter presentation of the Weyl group as freely generated by some Z_2s, modulo similar but easier relations.</p>
+
+<p>I would like to think of these as U(1,H) and U(1,R), automorphisms of 1-dimensional quaternionic or real spaces.</p>
+
+<p>But the easiest version should always be the complex one, surely? &#8211; where our group is generated by circle groups U(1,C). And yet nobody seems to talk about this group!</p>
+
+<p>Of course it&#8217;ll be a Lie group. One way to get hold of it as a maximal compact inside the split real group (generated by SL(2,R)s instead of SU(2)s). In particular it may not be simple, but so what.</p>
+
+<p>To the extent that I have a question, perhaps it is: what can we understand about a compact Lie group if, instead of following the usual Dynkin recipe that cooks it up from U(1,H)s, we see it as built out of U(1,C)s?</p>
+</div>
+<div class="comments-post">Posted by:
+Allen Knutson on January 22, 2026  3:36 AM | <a href="/category/2026/01/coxeter_and_dynkin_diagrams.html#c069159" title="URL for comment by Allen Knutson [January 22, 2026  3:36 AM]">Permalink</a>
+
+| <a href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3629;parent_id=69159" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}" title="Respond to comment by Allen Knutson [January 22, 2026  3:36 AM]">Reply to this</a>
+</div>
+</div>
+
+<div class="comments-nest-box">
+<div class="comments-body" id="c069160">
+<h3 class="title">Re: Generating a group with SO(2)s</h3>
+
+<div><div><a href="http://golem.ph.utexas.edu/~distler/blog/mathml.html"><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>That&#8217;s an interesting puzzle.  I don&#8217;t have anything great to say about it.  It reminds me of how people work with compact reductive groups, where you really need some U(1)&#8217;s as well as the usual SU(2)&#8217;s.   Do people use a different color of dots for these U(1)&#8217;s?</p>
+</div>
+<div class="comments-post">Posted by:
+<a title="http://math.ucr.edu/home/baez/" href="http://math.ucr.edu/home/baez/" rel="nofollow">John Baez</a> on January 22, 2026  5:42 AM | <a href="/category/2026/01/coxeter_and_dynkin_diagrams.html#c069160" title="URL for comment by John Baez [January 22, 2026  5:42 AM]">Permalink</a>
+
+| <a href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3629;parent_id=69160" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}" title="Respond to comment by John Baez [January 22, 2026  5:42 AM]">Reply to this</a>
+</div>
+</div>
+
+
+<div class="comments-body" id="c069161">
+<h3 class="title">Re: Generating a group with SO(2)s</h3>
+
+<div><div><a href="http://golem.ph.utexas.edu/~distler/blog/mathml.html"><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>Perhaps a different way of looking at <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>SU</mi><mo stretchy='false'>(</mo><mn>2</mn><mo stretchy='false'>)</mo></mrow><annotation encoding='application/x-tex'>SU(2)</annotation></semantics></math> and <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msub><mi>&#x2124;</mi> <mn>2</mn></msub></mrow><annotation encoding='application/x-tex'>\mathbb{Z}_2</annotation></semantics></math> is as the automorphism groups of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x210d;</mi></mrow><annotation encoding='application/x-tex'>\mathbb{H}</annotation></semantics></math> and <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x2102;</mi></mrow><annotation encoding='application/x-tex'>\mathbb{C}</annotation></semantics></math> as algebras over <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x211d;</mi></mrow><annotation encoding='application/x-tex'>\mathbb{R}</annotation></semantics></math>?
+Which I guess would lead to &#8220;what about dots as copies of the trivial group?&#8221; and &#8220;what about dots as copies of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msub><mi>G</mi> <mn>2</mn></msub></mrow><annotation encoding='application/x-tex'>G_2</annotation></semantics></math>?&#8221;</p>
+</div>
+<div class="comments-post">Posted by:
+Layra on January 23, 2026 12:44 AM | <a href="/category/2026/01/coxeter_and_dynkin_diagrams.html#c069161" title="URL for comment by Layra [January 23, 2026 12:44 AM]">Permalink</a>
+
+| <a href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3629;parent_id=69161" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}" title="Respond to comment by Layra [January 23, 2026 12:44 AM]">Reply to this</a>
+</div>
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+</div>
+<p class="newpost"><a class="comments-post" href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3629" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}">Post a New Comment</a></p>
+
+</div>
+
+<div id="footer">   
+<h2>Access Keys:</h2>
+
+<dl id="AccessKeyList">
+<dt>0</dt><dd><a href="/category/accessibility.html" accesskey="0">Accessibility Statement</a></dd>
+<dt>1</dt><dd>Main Page</dd>
+<dt>2</dt><dd>Skip to Content</dd>
+<dt>3</dt><dd>List of Posts</dd>
+<dt>4</dt><dd>Search</dd>
+<dt>p</dt><dd>Previous (individual/monthly archive page)</dd>
+<dt>n</dt><dd>Next (individual/monthly archive page)</dd>
+</dl>
+<a href="/category/archives.html" accesskey="3"></a>
+</div>
+
+
+</div>
+
+</body>
+</html>

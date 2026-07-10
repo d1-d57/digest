@@ -1,0 +1,403 @@
+Snapsho t s o f m o d e r n m athematics                                № 4/2026
+from Ob e r wo l f a c h
+
+
+
+
+                   Tr iangulations in geometr y:
+                   from Ptolemy to Teichmüller
+
+
+                                   Matthew Pressland
+
+
+
+
+       Ptolemy’s theorem is a classical result from ancient
+       Greek mathematics, concerning the lengths of sides
+       and diagonals of a polygon drawn in a circle. In
+       this snapshot, I will explain why this theorem is still
+       important today through its role in Teichmüller theory,
+       a subject which seeks to describe all possible “shapes”
+       of a surface with boundary.
+
+1 P t olemy’s theorem
+
+It is a famous mathematical fact that any triangle is circumscribed, meaning
+it has a (unique) circle passing through its three corners. How easy it is to
+visualise this circle depends on the shape of the triangle—the centre of the circle
+may fall outside of the triangle, for example—but nevertheless it always exists.
+For shapes with four or more sides, this is no longer the case (see the rightmost
+image in Figure 1), and those which can be circumscribed have very special
+properties.
+    Ptolemy’s theorem is a fact about circumscribed quadrilaterals. It gives the
+formula
+                                   xy = αγ + βδ
+for the product of lengths of the two diagonals of such a quadrilateral in terms
+of the lengths of its sides, as shown in Figure 2. Ptolemy (100–170 CE) was an
+ancient Greek scientist, who discovered this theorem while studying astronomy.
+
+
+                                           1
+   F i g u r e 1 : Every triangle, but not every quadrilateral, is circumscribed.
+
+                                                     β
+                                 α
+
+                                     x
+                                                         γ
+                                                 y
+                                         δ
+
+
+
+
+Figu r e 2 : The lengths and diagonals of a circumscribed quadrilateral always
+           satisfy xy = αγ + βδ; that is, the product of lengths of the diagonals
+           is equal to the sum of products of lengths of opposite sides.
+
+
+   Rearranging the formula, we see that if we know x, α, β, γ, and δ (that is, the
+lengths of the sides and one of the diagonals of our circumscribed quadrilateral),
+we can compute the length y of the remaining diagonal via the formula
+
+                                         αγ + βδ
+                                  y=             .
+                                            x
+    Now consider a more general circumscribed polygon, with n sides. By
+choosing n − 3 diagonals of this polygon which do not cross each other, we may
+divide it up into n − 2 triangles, all inscribed in the same circle. This division
+is called a triangulation. For example, choosing either the diagonal labelled x
+or that labelled y in Figure 2 provides a triangulation of the quadrilateral.
+We cannot choose both x and y, since these diagonals cross: the four small
+triangles appearing in Figure 2 are not inscribed in the same circle as the
+original quadrilateral. A triangulation of a circumscribed pentagon is shown in
+Figure 3. The same figure shows how we may pass from one triangulation to
+another by “flipping” a chosen diagonal: any diagonal is shared by two triangles,
+and these two triangles together form a quadrilateral (whose sides may be either
+edges of the original polygon or other diagonals in the triangulation). Replacing
+the chosen diagonal by the other diagonal of this quadrilateral yields a new
+triangulation.
+
+
+                                             2
+                                       flip
+
+
+
+
+   Figu r e 3 : Flipping the bold diagonal in a triangulation of the pentagon.
+
+
+   If we choose a triangulation and measure the lengths of its diagonals (as
+well as those of the sides of the polygon), we can then start flipping, and
+use Ptolemy’s theorem repeatedly to calculate the lengths of all of the other
+diagonals of the polygon.
+
+
+2 H y perbolic polygons
+
+For polygons drawn on a flat piece of paper, Ptolemy’s theorem may seem to be
+of limited interest. After all, most polygons are not circumscribed, and without
+this property, the theorem does not apply. However, the real power of Ptolemy’s
+theorem appears when considering geometry on the hyperbolic plane, which is a
+curved surface. For an exploration of the foundations of hyperbolic geometry,
+see the snapshot [4]; here I will give a brief introduction.
+    On a flat surface, the shortest curve between two points is always a straight
+line. The hyperbolic plane is curved, so every path within it is as well, but any
+two points are still connected by a curve of shortest length, called a geodesic.
+Much as we draw distorted maps of our spherical planet on flat paper, we may
+represent the hyperbolic plane as a circle in which geodesics are given by circular
+arcs meeting the boundary at right angles (or, as a special case, straight lines
+passing through the centre of the circle); see Figure 4. This is known as the
+Poincaré disc model and was made famous by artist M. C. Escher (1898–1972)
+in his Circle Limit series.
+    Figure 4 (right) shows a tiling of the hyperbolic plane by triangles drawn
+in the Poincaré disc model. Despite appearances, the triangles do not actually
+get smaller near the boundary circle. This reflects the distortion inherent in
+compressing the infinite hyperbolic plane into a finite picture. We think of the
+bounding circle as being “at infinity.” In particular, all of the arcs in Figure 4
+have infinite length.
+    An ideal polygon in the hyperbolic plane consists of a set of points on the
+boundary circle, with neighbouring points connected by geodesics. An example
+of an ideal pentagon is shown in Figure 4 (centre). The word “ideal” here refers
+
+
+                                        3
+Figu r e 4 : Geodesics in the Poincaré disc model of the hyperbolic plane (left),
+           an ideal pentagon in this plane (centre), and a tiling of the hyperbolic
+           plane related to Escher’s Circle Limit series (right).
+
+
+to the fact that the edges of the polygon do not actually meet in the hyperbolic
+plane, since the boundary circle is at infinity.
+    The ideal pentagon shown in Figure 4 is not very symmetric; its sides appear
+to have different lengths, even though they are all infinitely long in the hyperbolic
+plane itself. To make this intuition precise, we cut off the corners of the polygon
+using some additional curves called horocycles; see Figure 5. In the Poincaré
+disc, a horocycle is a circle tangent to the circle at infinity. Then for any side
+or diagonal of the ideal polygon, we may measure its length between the two
+horocycles. This allows us to compute a finite number, called the lambda length
+of the arc, after the Greek letter λ (lambda): if ℓ is the hyperbolic length of
+one of the bold curves in Figure 5, then the corresponding lambda length is eℓ
+if the horocycles do not intersect and e−ℓ if they do.
+    Now something magical happens: these lambda lengths once again satisfy
+Ptolemy’s theorem! Thus, just as for ordinary circumscribed polygons in the
+plane, if we fix a triangulation of the ideal polygon and a set of horocycles at
+its corners, the length of every diagonal in the polygon may be computed from
+the lengths of the arcs in the initial triangulation by flipping.
+
+
+3 Teichmüller space
+
+Our next question is the following: what are all the possible values of the lambda
+lengths of an n-sided ideal polygon in the hyperbolic plane? To answer this, we
+label the corners of our ideal n-gon by the numbers 1 to n (clockwise), and let
+λij denote the lambda length of the geodesic from corner i to corner j. The set
+of all possible values of the λij , from all possible ideal n-gons and choices of
+horocycles, is called the decorated Teichmüller space of ideal n-sided polygons.
+The adjective “decorated” refers to the fact that we choose the horocycles as
+
+
+                                         4
+Figure 5 : Horocycles at the corners of an ideal pentagon. These allow us
+          to assign finite lengths to the sides or diagonals of the pentagon
+          by measuring the signed distance along the curve between the two
+          horocycles, shown here in bold.
+
+
+well as just the polygon. Each “point” in this decorated Teichmüller space is a
+list of numbers which encodes information about a particular ideal n-gon and
+collection of horocycles. Of course, not just any list of numbers will do.
+    In general, a Teichmüller space is an example of a moduli space, a space
+whose points encode all the possible structures or configurations of some type of
+mathematical object. More specifically, a Teichmüller space is a moduli space
+of complex or hyperbolic structures, which can be thought of as coordinate
+systems. Often, moduli spaces have spaces have recognisable structures of their
+own. For instance, the Teichmüller space of nice coordinate systems on the
+torus can be seen as the upper half of the complex plane C.
+    To work out what this particular decorated Teichmüller space is, we first
+observe that for any four distinct numbers i, j, k, and ℓ appearing in this order
+clockwise around the bounding circle, the polynomial equation
+
+                           λik λjℓ = λij λkℓ + λℓi λjk
+
+must hold, because of Ptolemy’s theorem. For example, for ideal quadrilaterals,
+the only such equation is λ13 λ24 = λ12 λ34 + λ14 λ23 .
+   However, not every solution to these equations gives a valid set of lambda
+lengths: for example, the values λ13 = λ24 = −1, λ12 = λ34 = 1, λ14 = 0,
+and λ23 = −8 satisfy the single equation when n = 4, but these cannot be the
+lambda lengths of an ideal quadrilateral since some of them are negative (or
+zero), and hence these values do not give us a point in Teichmüller space. So in
+addition to the equations coming from Ptolemy’s theorem, we also require that
+the length λij ≥ 0 for all vertices i and j of the n-gon. Similarly, Ptolemy’s
+equations have solutions involving complex numbers, but these also cannot
+represent lengths, and so we want to restrict to real number solutions.
+
+
+                                       5
+                                    λ24
+
+
+
+
+                                                  λ13
+
+
+
+
+Figu r e 6 : The Teichmüller space of ideal quadrilaterals with sides of length 1
+           is the set of positive real solutions to the equation λ13 λ24 = 2, that
+           is, the upper-right piece of the plot.
+
+
+   These turn out to be all the conditions we need: that is, the Teichmüller
+space of ideal n-gons is exactly the set of all real and positive solutions to
+Ptolemy’s equations. While we have explained above why these conditions are
+necessary, it is not obvious that any real and positive solution to Ptolemy’s
+equations actually arises as the set of lambda lengths of an ideal n-gon, but
+this is nevertheless true.
+   In particular, the decorated Teichmüller space of ideal quadrilaterals consists
+exactly of real and positive solutions to the equation λ13 λ24 = λ12 λ34 + λ14 λ23 .
+We cannot easily draw this set, since it lives in a six-dimensional space, but
+Figure 6 shows the set of real solutions for which λ12 = λ23 = λ34 = λ41 = 1.
+This consists of two disconnected pieces, but only in one of them are the values
+λ13 and λ24 positive, and so this piece is the decorated Teichmüller space of
+ideal quadrilaterals with sides of length 1.
+
+
+4 Computing with flips
+
+If n is larger than 4, we are presented with a system of many equations. To help
+us find real and positive solutions practically, it is useful to change perspective
+slightly. As we discussed in Section 2, once we know the lambda lengths of
+the arcs in a triangulation of the n-gon, all of the others can be computed by
+flipping diagonals and applying one of Ptolemy’s equations.
+    With this in mind, we pick a triangulation of the n-gon, which we call T; a
+simple example is shown in Figure 7. Any triangulation consists of 2n − 3 arcs
+(including the sides of the n-gon), and so we get a list of 2n − 3 positive real
+numbers, that is, a point in R2n−3
+                                 >0 , by taking the lambda lengths of just the
+arcs in T and forgetting the rest.
+
+
+                                          6
+                                              1
+
+
+                               6
+
+                                                      2
+                              5
+
+
+                                                  3
+                                   4
+
+
+
+
+                F i g u r e 7 : A triangulation of an ideal hexagon.
+
+
+   Now we try to reverse this procedure: given a list of 2n − 3 positive real
+numbers, can we find an ideal n-gon such that the arcs in T have precisely these
+numbers as lambda lengths?
+   If T contains the arc from corner i to j, let’s write ℓij for the lambda length
+we wish to give it. All together, we have 2n − 3 of these initial lengths ℓij . We
+can use these to compute the remaining lambda lengths, one at a time. Since
+none of the arcs in T cross each other, none of Ptolemy’s equations involve
+only the lambda lengths of these arcs, and so these equations do not put any
+constraints on our choice of initial lengths ℓij . Instead, as in Section 2, by
+repeated flipping we can deduce what the lambda lengths of all the other arcs
+in the n-gon must be in terms of the desired lengths ℓij for the arcs in T. As
+discussed in Section 3, we just have to check that Ptolemy’s equations do not
+force some of these other values to be zero, negative, or even complex.
+   However, this turns out not to be an issue. When applying Ptolemy’s
+equation (y = αγ+βδ
+                  x   ) to compute a new length after a flip, we already know
+the values on the right-hand side, and want to compute the remaining value y.
+But the expression only involves multiplication, addition, and division, and so y
+must be real and positive when the other values are. For example, starting from
+the triangulation in Figure 7, we compute that
+
+                           λ12 λ34 + λ23 λ14   ℓ12 ℓ34 + ℓ23 ℓ14
+                   λ24 =                     =                   ,
+                                  λ13                 ℓ13
+
+
+and so λ24 is again real and positive, because all of our chosen values ℓij are.
+Continuing in this way, we see that our computations will never leave the set of
+positive real numbers. It is thus at least plausible that there is an ideal n-gon
+with the correct lambda lengths, and with a bit more work, one can prove that
+such an n-gon really exists. We may thus summarise this result as follows.
+
+
+                                          7
+Theorem. Each triangulation T of an n-gon determines a one-to-one corre-
+spondence between points in the decorated Teichmüller space of ideal n-gons and
+points in the set R2n−3
+                   >0   of lists of 2n − 3 positive real numbers.
+   To illustrate the theorem in the quadrilateral case, we again look at Figure 6,
+in which the upper right part of the plot is the Teichmüller space of ideal
+quadrilaterals with sides of length 1. Since n = 4, we want to show that the
+decorated Teichmüller space corresponds to R5>0 , and if we fix the four lambda
+lengths of the sides of the quadrilateral to 1, that leaves only one degree of
+freedom. For our triangulation T, we have to decide between using the diagonal
+from 1 to 3 or that from 2 to 4. In the first case, we associate a point in the
+Teichmüller space to its λ13 coordinate, which is a positive real number. In the
+second, we instead associate the point to its λ24 coordinate. In either case, we
+produce a one-to-one correspondence between the Teichmüller space and the
+positive real line R>0 , as the theorem predicts.
+
+
+5 Fur ther reading
+
+The decorated Teichmüller space (not just of a disc, but also of a more compli-
+cated surface with boundary) was defined by Robert Penner [7, 8], who proved
+in general that this space is in one-to-one correspondence with RN  >0 , where N is
+the number of arcs needed to triangulate the surface. Ptolemy’s equations are
+examples of exchange relations in Fomin and Zelevinsky’s cluster algebras [3], a
+much bigger family of equations with positivity properties like those we used in
+Section 4. The connection between cluster algebras and Teichmüller space has
+been developed further by Gekhtman, Shapiro, and Vainshtein in [5], Fock and
+Goncharov in [1], and Fomin, Shapiro, and Thurston in [2].
+   Solutions to Ptolemy’s equations over the positive integers (whole numbers),
+or equivalently decorated ideal n-gons with integer lambda lengths, are very
+closely related to frieze patterns, the subject of an earlier snapshot [6]. Indeed,
+a frieze pattern with n − 1 rows, as in [6, Fig. 3], is one way of representing an
+integer point in the Teichmüller space of ideal n-gons.
+
+
+
+
+                                        8
+I m a g e credits
+
+Figure 4 ( r i gh t ) “H2 Checkers 334”. Author: Antonissimo. Entered into the
+       public domain via Wikimedia Commons, https://commons.wikimedia.org/
+       wiki/File:H2checkers_334.png, visited on January 12, 2026.
+
+
+R e f e rences
+
+[1] V. V. Fock and A. B. Goncharov, Cluster ensembles, quantization and
+    the dilogarithm, Annales Scientifiques de l’École Normale Supérieure.
+    Quatrième Série 42 (2009), no. 6, 865–930, http://dx.doi.org/10.1007/
+    978-0-8176-4745-2_15.
+[2] S. Fomin, M. Shapiro, and D. Thurston, Cluster algebras and triangulated
+    surfaces. I. Cluster complexes, Acta Mathematica 201 (2008), no. 1, 83–146,
+    https://doi.org/10.1007/s11511-008-0030-7.
+[3] S. Fomin and A. Zelevinsky, Cluster algebras I: Foundations, Journal of the
+    American Mathematical Society 15 (2002), no. 2, 497–529, http://dx.doi.
+    org/10.1090/S0894-0347-01-00385-X.
+
+[4] H. Gangl, Jewellery from tessellations of hyperbolic space, Snapshots of
+    modern mathematics from Oberwolfach (2022), no. 05, https://doi.org/10.
+    14760/SNAP-2022-005-EN.
+[5] M. Gekhtman, M. Shapiro, and A. Vainshtein, Cluster algebras and Weil–
+    Petersson forms, Duke Mathematical Journal 127 (2005), no. 2, 291–311,
+    https://doi.org/10.1215/S0012-7094-04-12723-X.
+[6] T. Holm, Friezes and tilings, Snapshots of modern mathematics from Ober-
+    wolfach (2015), no. 04, https://doi.org/10.14760/SNAP-2015-004-EN.
+[7] R. C. Penner, Decorated Teichmüller theory of bordered surfaces, Com-
+    munications in Analysis and Geometry 12 (2004), no. 4, 793–820, http:
+    //projecteuclid.org/euclid.cag/1098468019.
+[8]        , Decorated Teichmüller theory, QGM Master Class Series, European
+      Mathematical Society (EMS), Zürich, 2012, https://doi.org/10.4171/075.
+
+
+
+
+                                      9
+Matth ew P r e s s l a n d i s a Maître de       License
+Confé r e n c e s a t t h e Université de Caen   Creative C o m m o n s B Y- S A 4 . 0
+Nor m a n d i e.
+                                                 DOI
+Mathe m a t i c a l s u b j e c ts               10.1476 0 / S N A P - 2 0 2 6 - 0 0 4 - E N
+Algeb ra a n d N u m b e r Theor y, Geometr y
+and To p o l o g y
+
+
+
+
+Snapshots of modern mathematics from Oberwolfach provide exciting insights into
+current mathematical research. They are written by participants in the scientific
+program of the Mathematisches Forschungsinstitut Oberwolfach (MFO). The
+snapshot project is designed to promote the understanding and appreciation of
+modern mathematics and mathematical research in the interested public worldwide.
+All snapshots are published in cooperation with the IMAGINARY platform and
+can be found on www.imaginary.org/snapshots and on www.mfo.de/snapshots.
+
+ISSN 2626 -1995
+
+
+Junio r E d i t o r                              Mathema t i s c h e s Fo r s c h u n g s i n s t i t u t
+Lael E d wa r d s - C o s t a                    Oberwol f a c h g G m b H
+junio r - ed i t o r s @ m f o. de               Schwarz wa l d s t r. 9 – 11
+                                                 77709 O b e r wo l f a c h
+Senio r E d i t o r                              Ger many
+Anja R a n d e cke r
+senio r - ed i t o r @ m f o. d e                Director
+                                                 Gerhard H u i s ke n
+

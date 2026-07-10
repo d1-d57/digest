@@ -1,0 +1,935 @@
+                                    JONATHAN HICKMAN
+
+         Abstract. Roughly speaking, the Kakeya Conjecture asks to what extent
+         lines which point in diﬀerent directions can be packed together in a small space.
+         In R2 , the problem is relatively straightforward and was settled in the 1970s.
+         In R3 it is much more diﬃcult and was only recently resolved in a monumental
+         and groundbreaking work of Hong Wang and Joshua Zahl. This note describes
+         the origins of the Kakeya Conjecture, with a particular focus on its classical
+         connections to Fourier analysis, and concludes with a discussion of elements
+         of the Wang–Zahl proof. The goal is to give a sense of why the problem is
+         considered so central to mathematical analysis, and thereby underscore the
+         importance of the Wang–Zahl result.
+
+
+
+                                      1. Kakeya sets
+1.1. Kakeya’s question. A compact subset of Rn is called a Kakeya set is if it
+contains a line segment of length 1 in every possible direction. To avoid ambiguity,
+we describe this more formally as follows.
+Deﬁnition 1.1. We say a compact set K ⊆ Rn is a Kakeya set if for all directions
+ω ∈ S n−1 , there exists a position a ∈ Rn such that the line segment ω,a := {a+tω :
+0 ≤ t ≤ 1} satisﬁes ω,a ⊆ K.
+   In Figure 1 we illustrate three simple examples of planar Kakeya sets: a disc, an
+equilateral triangle and a deltoid. The most instructive is the equilateral triangle.
+If we imagine pinning one end of a line segment to the top corner, we can then
+sweep it along a 60◦ angle whilst staying within the triangle. This gives 60◦ worth
+of directions pointing upwards and 60◦ worth of directions pointing downwards, so
+a total of 120◦ of directions. We can do this for all three corners of the triangle to
+account for all 360◦ .
+   If we compare the areas of the three Kakeya sets in Figure 1, we see they get
+successively smaller. In fact, the deltoid has half the area of the disc. This means
+that, within the deltoid, we have managed to pack the line segments much more
+tightly. In the early twentieth century, Sōichi Kakeya was interested in these shapes
+and understanding diﬀerent ways to pack lines into small spaces. From his work, a
+natural question arose: what is the smallest possible area of a planar Kakeya set?
+1.2. Besicovitch’s surprising answer. Around the same time, Besicovitch was
+independently thinking about similar questions. He was able to devise new and
+surprising ways to pack lines, which produced planar Kakeya sets with much, much
+smaller area than any example seen before. In fact, he was able to show that
+
+   2020 Mathematics Subject Classiﬁcation. Primary 28A78, 42B99.
+   Supported by New Investigator Award UKRI097. This article expands upon the Oberwolfach
+snapshot [12]. The author thanks Tony Carbery, Tom Leinster, Betsy Stovall and Joshua Zahl for
+helpful comments and feedback on an earlier draft.
+                                                1
+2                                   JONATHAN HICKMAN
+
+
+
+
+                1                                1                                1
+
+
+
+
+    Area: π4 = 0.785 . . .          Area: √13 = 0.577 . . .           Area: π8 = 0.392 . . .
+
+
+                      Figure 1. Three examples of Kakeya sets.
+
+              there exist planar Kakeya sets of arbitrarily small area!
+That is, for any ε > 0, there exists some Kakeya set K ⊆ R2 with |K| < ε. Here
+and below, given E ⊆ Rd for d ∈ N, we let |E| denote the d-dimensional measure
+of E.
+   How is this possible? How can we pack so many line segments into such a tiny
+space?1 To understand this, we go back to the example of the equilateral triangle,
+which we denote by . In Figure 2, we carry out the following ‘cut-and-shift’
+procedure to arrive at a new shape:
+    (a) Cut  into two ‘subtriangles’ 1 and 2 along the vertical midline.
+    (b) Shift 1 and 2 horizontally in opposite directions so that they overlap.
+The key observation is that, as we cut-and-shift, we do not lose any of the line
+segments swept out from the top corner. Furthermore, because of the overlap
+between the shifted subtriangles, the new shape has smaller area than . The
+procedure therefore results in a shape with smaller area than the equilateral triangle
+, but which still contains line segments in 120◦ of directions. This on its own is
+not very impressive. However, if we apply the procedure over and over many times,
+then we can amplify its eﬀect and arrive at a startling conclusion.
+   Rather than cutting  into just two subtriangles, in Figure 3 we cut it into
+2m subtriangles for some large value of m ∈ N. As illustrated, we then shift the
+subtriangles horizontally, ﬁrst to form pairs, and then to form pairs of pairs, and
+then pairs of pairs of pairs and so on. By doing so, we ensure that there is a huge
+amount of overlap. At the end of this process, we arrive at a shape K called a
+Perron tree, represented in Figure 3d. The huge overlap means that the Perron
+tree K has much, much smaller area than the original triangle . By choosing the
+number 2m of subtriangles to be very large, and being careful how we shift, we can
+ensure that the area of K is as small as we wish. As before, K contains (shifted
+versions of) all the line segments spanned by the top corner of , so lines in 120◦
+of directions. We can then take three rotated copies of K to form a true Kakeya
+set containing line segments pointing in all directions.2
+   The Perron tree construction produces a Kakeya set with area smaller than
+any prescribed value. In fact, combining these ideas with a limiting argument,
+   1 Here we sketch a simpliﬁcation of Besicovitch’s argument. A detailed history of the problem,
+
+together with the precise description of the method, can be found in [9, Chapter 7].
+   2 Taking three copies of K will increase the area by a factor of 3, but we can compensate for
+
+this by ensuring that the area of K is three times smaller than our target value.
+                                THE KAKEYA CONJECTURE                                       3
+
+
+
+
+      Cut  into subtriangles 1 , 2 .                Horizontally shift 1 , 2 .
+
+                       Figure 2. The cut-and-shift procedure.
+
+
+Besicovitch was able to go one step further and show there exist Kakeya sets with
+zero area!
+Theorem 1.2 (Besicovitch). There exists a Kakeya set K ⊆ R2 with |K| = 0.
+   Given a Kakeya set K ⊆ R2 , the product K × [0, 1]n−2 is easily seen to be a
+Kakeya set in Rn . Hence, Besicovitch’s theorem also implies that for every n ≥ 2
+there exists a Kakeya set K ⊆ Rn with |K| = 0.
+   Besicovitch’s construction is undoubtedly striking and beautiful. However,
+around the time of their discovery, it is perhaps fair to say that measure zero
+Kakeya sets were something of a curiosity. Besicovitch did apply his construction
+to solve a problem in integration theory, but beyond this it did not appear to have
+much use.
+   Mathematical ideas have a wonderful habit of reappearing in new and seemingly
+unrelated contexts. What was once thought a curiosity can later emerge as a
+profoundly important idea. Kakeya sets are a striking example of this. Fifty years
+after Besicovitch’s work, startling discoveries uncovered their true signiﬁcance.
+
+                     2. Convergence of Fourier integrals
+2.1. Fourier inversion. Fourier analysis is concerned with representing functions
+in terms of sine and cosine waves (or, equivalently, complex exponentials). Ostensi-
+bly, this has little to do with the kind of elementary geometric problems discussed
+above. However, as we shall see, it is within the world of Fourier analysis that the
+true signiﬁcance of Kakeya sets and Besicovitch’s construction comes to light.
+   We begin by recalling some of the basic principles of the Fourier theory. Given
+f ∈ L1 (Rn ), the Fourier transform is deﬁned by3
+                                 
+(2.1)                   f(ξ) :=   e−2πix·ξ f (x) dx,   ξ∈R n.
+                                  Rn
+
+Here we can think of the R     n notation in (2.1) as simply denoting a copy of Rn .
+We include the hat to remind ourselves this is the domain of the Fourier transform,
+since later it will be useful to distinguish the domain of f and the domain of f .
+
+    3 Recall that Lp (Rn ) denotes the space of all measurable functions f : Rn → C satisfying
+                       1/p
+f Lp (Rn ) := Rn |f |p      < ∞.
+4                                 JONATHAN HICKMAN
+
+
+
+
+       Cut  into 2m subtriangles.            Horizontally shift to form 2m−1 pairs.
+
+
+
+
+        Form 2m−2 pairs of pairs. . .                   The ﬁnal shape K.
+
+               Figure 3. Perron tree construction of a Kakeya set.
+
+  Roughly speaking, f(ξ) corresponds to the amplitude of the component of f
+                                                 n . This leads to the fundamental
+which oscillates with ﬁxed frequency vector ξ ∈ R
+Fourier inversion formula.
+Theorem 2.1 (Fourier inversion formula). If f ∈ L1 (Rn ) and f ∈ L1 (R
+                                                                       n ), then
+                   
+(2.2)      f (x) =     e2πix·ξ f(ξ) dξ for almost every x ∈ Rn .
+                         Rn
+   The inversion formula is one realisation of the fundamental principle of Fourier
+analysis. In particular, under the above hypotheses, (2.2) represents f as a super-
+position of simple waves
+                                  x → e2πix·ξ f(ξ).
+Each simple wave oscillates with a ﬁxed frequency |ξ| and has ﬁxed amplitude f(ξ).
+For dimensions n ≥ 2, each wave also has an orientation: the peaks and troughs lie
+orthogonal to ξ. See Figure 4.
+2.2. Shortcomings of the inversion formula. The hypotheses of Theorem 2.1
+require both f ∈ L1 (Rn ) and f ∈ L1 (R   n ). These conditions are natural: we need
+f ∈ L (R ) to deﬁne the integral in (2.1) and we need f ∈ L1 (R
+      1    n                                                           n ) to deﬁne the
+                                                     1 n
+integral in (2.2). Despite this, the condition f ∈ L (R ) is, in some sense, restrictive
+and a severe limitation on the theory. It requires
+                                   
+                                       |f(ξ)| dξ < ∞,
+                                    n
+                                    R
+
+which means f(ξ) has fast decay as |ξ| → ∞. In other words, the high frequency
+components of f must have very small amplitude. Intuitively, the graph of such
+                             THE KAKEYA CONJECTURE                                    5
+
+
+
+                                   ξ               1
+                                  |ξ|             |ξ|
+
+
+                           +−
+                             +−
+                               +−
+                                 +−
+                                   +
+        Figure 4. The level sets of the plane wave x → cos(2πx · ξ),
+        corresponding to the real part of e2πix·ξ . The alternating bands
+        represent regions where the function is either positive or negative.
+        The wave has frequency |ξ|, which means that the wavelength (dis-
+        tance between consecutive peaks) is 1/|ξ|. Each wave also has an
+        orientation: the peaks and troughs lie orthogonal to ξ.
+
+
+a function cannot have sudden jumps, since jumps require high frequencies. This
+forces f to be rather regular, which drastically limits the applicability of Theo-
+rem 2.1. Moreover, often in applications of Fourier analysis, it is critical to un-
+derstand precisely high frequency behaviour. Since the inversion formula does not
+apply to functions with signiﬁcant high frequency components, it is poorly suited
+to many of these applications.
+
+2.3. Convergence of Fourier integrals: one dimensional case. Without the
+strong hypothesis f ∈ L1 (R    n ), the integral formula in (2.2) is not well deﬁned.
+Thus, on the face of it, it is unclear how to make sense of Fourier inversion without
+requiring f ∈ L1 (R
+                    n ). However, restricting to the n = 1 case, we can still make
+sense of the partial Fourier integrals
+                                      R
+(2.3)                  SR f (x) :=        e2πixξ f(ξ) dξ,  R > 0.
+                                     −R
+
+Since the integration now takes place over a bounded interval, the integral in (2.3)
+always converges. Moreover, with a small amount of work, (2.3) can be rewritten
+as the convolution
+                                                              sin(2πRx)
+(2.4)        SR f (x) = DR ∗ f (x)        where   DR (x) :=             .
+                                                                  πx
+The precise formula for DR is not too important for us. However, what is important
+is that (2.4) makes no reference to the Fourier transform of f and, consequently,
+one can easily show SR f is well deﬁned for any f ∈ Lp (R) for 1 ≤ p < ∞ (in
+particular, we no longer require f ∈ L1 (R)). It is natural to ask whether, at this
+level of generality, f can be reconstructed from the partial Fourier integrals SR f .
+Question 2.2. Does SR f → f as R → ∞?
+6                                    JONATHAN HICKMAN
+
+
+   A positive answer to Question 2.2 acts as a surrogate for the inversion formula
+(2.2). However, as stated, the question is somewhat vague. Since we are dealing
+with limits of families of functions, there are many diﬀerent modes of convergence
+to consider. The following theorem, which combines two foundational results in
+Fourier analysis, treats the two most natural modes.
+Theorem 2.3 (Riesz [18], Carleson–Hunt [5, 13]). Let 1 < p < ∞ and f ∈ Lp (R).
+Then
+       i) SR f − f Lp (R) → 0 as R → ∞;
+      ii) SR f (x) → f (x) as R → ∞ for almost every x ∈ R.
+   Theorem 2.3 represents a sweeping and powerful extension of the inversion for-
+mula in the one-dimensional setting. Since the hypotheses only require f ∈ Lp (R)
+(and no additional conditions on the Fourier transform), the results apply in great
+generality, including to very rough functions. The ﬁrst part of Theorem 2.3, due
+to Riesz [18], shows that SR f converges to f with respect to the metric struc-
+ture on Lp (R). Since the Lp -norms involve an integral, this can be interpreted as
+showing convergence holds ‘on average’. The second result, on almost everywhere
+convergence, involves no averaging and is far more subtle. This is the celebrated
+Carleson–Hunt theorem [5, 13], a landmark in twentieth century analysis.
+
+2.4. Convergence of Fourier integrals: Higher dimensions. As soon as we
+move to higher dimensions, convergence of Fourier integrals becomes a much more
+diﬃcult and subtle problem. To begin with, there is no longer a ‘canonical’ choice
+of truncation for deﬁning the partial Fourier integrals SR as in (2.3). For instance,
+two natural choices are given by the square and ball partial integrals4
+                                                            
+                          2πix·ξ 
+ SRsquare
+          f (x) :=       e                        ball
+                                f (ξ) dξ and SR f (x) :=             e2πix·ξ f(ξ) dξ,
+                     [−R,R]n                                            B(0,R)
+
+respectively. The above deﬁnitions coincide for n = 1, but are diﬀerent beasts in
+                                                                      square
+higher dimensions. Taking the limit of the partial Fourier integrals SR      f and
+SR f as R → ∞ corresponds to two diﬀerent summation methods for f : that is,
+  ball
+
+diﬀerent ways to attempt to reconstruct f from its Fourier transform.
+
+Square summation. The summation method for the square partial integrals is rel-
+atively easy to understand. In this setting, the one-dimensional theory from Theo-
+rem 2.3 extends directly to higher dimensions.
+Theorem 2.4. For n ≥ 1, let 1 < p < ∞ and f ∈ Lp (Rn ). Then
+            square
+       i) SR       f − f Lp (Rn ) → 0 as R → ∞;
+           square
+      ii) SR      f (x) → f (x) as R → ∞ for almost every x ∈ Rn .
+   Since the square [−R, R]n is formed by a product of intervals [−R, R], the square
+                            square
+partial integral operators SR      have an underlying tensor product structure. Us-
+                                             square
+ing this, the norm convergence problem for SR       immediately reduces to the n = 1
+case. A similar, but this time somewhat non-trivial, reduction applies to almost
+everywhere convergence [11]. In this way, Theorem 2.4 can be derived as a corollary
+of Theorem 2.3.
+
+    4 Here B(0, R) denotes the Euclidean ball centred at the origin of radius R.
+                             THE KAKEYA CONJECTURE                                  7
+
+
+Ball summation. In contrast with the previous case, the ball partial integral oper-
+        ball
+ators SR     do not possess a tensor structure. Consequently, there is no obvious or
+easy way to reduce the convergence problem for the ball summation method to the
+n = 1 case. This situation is ‘genuinely’ higher dimensional.
+                                                         ball
+   Understanding the norm convergence problem for SR          was a major open prob-
+lem in the 1960s. Using Plancherel’s theorem, it is a trivial matter to see that norm
+convergence holds for p = 2; that is,
+            ball
+           SR    f − f L2 (Rn ) → 0    as R → ∞          for all f ∈ L2 (Rn ).
+However, the behaviour for p = 2 is much less clear. It came as a great surprise
+when, in 1971, Charles Feﬀerman [10] produced a counterexample showing that
+norm convergence holds only in the trivial p = 2 case!
+Theorem 2.5 (Feﬀerman [10]). For n ≥ 2 and 1 ≤ p ≤ ∞ with p = 2, there exists
+some f ∈ Lp (Rn ) such that
+                        ball
+                       SR    f − f Lp (Rn ) → 0      as R → ∞.
+In particular, norm convergence holds only for p = 2.
+   Feﬀerman’s theorem also rules out almost everywhere convergence for p = 2.
+These results illustrate a remarkable diﬀerence between the square and ball sum-
+mation methods. Whilst the square Fourier integrals have a robust convergence
+theory and behave just about as well as one could hope for, the ball Fourier inte-
+grals behave just about as badly as one could dread!
+   Feﬀerman’s theorem is celebrated not only for its startling conclusion, but also
+for the powerful ideas used in the proof. In particular, his counterexample relies
+heavily on Besicovitch’s construction of a measure zero Kakeya set! Moreover, as
+we shall see, the proof of Theorem 2.5 revealed a profound relationship between the
+geometry of Kakeya sets and the theory of the Fourier transform in two and higher
+dimensions. This marked a tremendous shift in perspective, and the ramiﬁcations
+of Feﬀerman’s insight remain a central and intensely active topic of contemporary
+research in the modern Fourier analysis and beyond.
+
+  3. Fefferman’s counterexample: Why Kakeya sets are important
+   Here we provide a non-rigorous sketch of the proof of Theorem 2.5, focusing on
+how Kakeya sets arise in Feﬀerman’s counterexample. We shall focus on the planar
+case n = 2, which already contains all the essential ideas. Moreover, once the n = 2
+case is known, standard arguments easily lift the result to higher dimensions.
+3.1. A low pass ﬁlter. Consider the partial integral operator S := S1ball , given by
+                                 
+                        Sf (x) =        e2πix·ξ f(ξ) dξ.
+                                      B(0,1)
+
+This has a natural interpretation as a low pass ﬁlter. It acts on an input function
+f by removing all high frequency components, which corresponds to multiplying
+f against the characteristic function χB(0,1) of the unit ball. A basic question
+is to understand the continuity of this ﬁltering operation. Given 1 ≤ p ≤ ∞,
+the continuity of S on the metric space Lp (R2 ) is equivalent to the existence of a
+constant C > 0 such that
+(3.1)             Sf Lp (R2 ) ≤ C f Lp (R2 )      for all f ∈ Lp (R2 ).
+8                                 JONATHAN HICKMAN
+
+
+  The question of whether S is continuous on Lp (R2 ) is closely related to the
+question of whether Lp convergence
+(3.2)         ball
+             SR    f − f Lp (R2 ) → 0      as R → ∞       for all f ∈ Lp (R2 )
+holds. To understand this relationship, note:
+      i) Lp convergence always holds for smooth, rapidly decaying functions g. In-
+         deed, in this case g and g are both well behaved and one may establish con-
+         vergence via elementary tools such as the inversion formula (Theorem 2.1).
+     ii) Any f ∈ Lp (R2 ) can be approximated to arbitrary accuracy in Lp (R2 ) by
+         some smooth, rapidly decaying function g ∈ Lp (R2 ).
+Together, i) and ii) tell us that the limit identity in (3.2) holds for all f belonging to
+a dense subspace of Lp (R2 ). If the operators (SR ball
+                                                        )R>0 were (equi)continuous, then
+one could take limits and pass from the dense subspace to all Lp (R2 ) functions.
+More precisely, suppose we have an inequality of the form
+(3.3)              ball
+                  SR    f Lp (R2 ) ≤ C f Lp (R2 )   for all f ∈ Lp (R2 ),
+where the constant C > 0 is uniform in R. This is a statement about the conti-
+                                           ball
+nuity of the family of linear operators (SR     )R>0 on Lp (R2 ). Following the above
+discussion, the inequality (3.3) implies the Lp convergence result (3.2).
+   It turns out that the converse of the above observation is also true. That is, if
+Lp convergence result (3.2) holds, then the inequality (3.3) must also be true. This
+implication is deeper, relying on the principle of uniform boundedness; we do not
+discuss the details here. The key takeaway is that, in order to prove Feﬀerman’s
+theorem that the Lp convergence result (3.2) fails, it suﬃces to show that the
+inequality (3.3) fails for all p = 2. We shall demonstrate this failure for R = 1, in
+which case (3.3) agrees with (3.1). Thus, matters are reduced to showing that
+                        the inequality (3.1) fails for all p = 2.
+This is the goal for the remainder of the section.
+3.2. Elementary properties of the Fourier transform. Feﬀerman’s argument
+relies on two elementary properties of the Fourier transform.
+The uncertainty principle. Rather than a single result or set of results, the un-
+certainty principle is a guiding heuristic which permeates all aspects of Fourier
+analysis. Loosely speaking, it says that:
+        Localising f in the frequency domain forces f to spread out in the
+        spatial domain.
+To illustrate this idea on the real line, for a small number r > 0, consider the
+scaled Gaussian fr (x) := re−πr x with variance 1/r 2 . Then fr (ξ) = e−πx /r is
+                                  2 2                                       2 2
+
+
+a Gaussian with variance r 2 . The variance of fr and the variance fr satisfy a
+reciprocal relationship. By shrinking r, the distribution of fr becomes narrower
+(more certain) whilst the distribution of fr becomes wider (more uncertain). This
+behaviour is a manifestation of the uncertainty principle.
+   We are interested in a two-dimensional variant of the above example. For small
+numbers r, s > 0, let θ ⊆ R2 be a rectangle of dimensions r × s, with arbitrary
+centre and orientation. We deﬁne the dual rectangle T ⊆ R2 to be the 1/r × 1/s
+rectangle centred at the origin with the same orientation as θ. We illustrate this
+deﬁnition in Figure 5.
+                                  THE KAKEYA CONJECTURE                                           9
+
+
+
+
+         Figure 5. The uncertainty principle in R2 . The Fourier transform
+         gT is a bump adapted to the r × s rectangle θ. The function gT is
+         a normalised bump adapted to the 1/r × 1/s dual rectangle T .
+
+
+   Suppose gT is a function on R2 whose Fourier transform gT is a bump adapted to
+the rectangle θ. By this, we mean that gT looks like5 a smoothed out version of the
+characteristic function χθ . Then the uncertainty principle tells us that the support
+of gT spreads out over the dual rectangle T . This is a two-dimensional analogue
+of the Gaussian example above. In particular, if we think of gT as a smoothed out
+version of the characteristic function χθ of θ, then, at least morally, |gT | should be
+a smoothed out version of the normalised characteristic function |T |−1 χT .67
+
+Translation vs modulation symmetry. Given y ∈ R2 , the Fourier transform inter-
+twines the translation and modulation operations
+              (τy f )(x) := f (x − y)       and       Mody h(ξ) := e−2πy·ξ h(ξ).
+In particular, the integral formula (2.1), together with a change of variables, implies
+                                                    
+ (τy f )(ξ) =     e −2πix·ξ
+                             f (x − y) dx = e−2πiy·ξ
+                                                       e−2πix·ξ f (x) dx = Mody f(ξ).
+                  Rn                                        Rn
+
+Thus, translating the function f in the physical domain corresponds to modulating
+f in the frequency domain.
+
+3.3. The counterexample. We now have all the ingredients we need to sketch
+Feﬀerman’s argument. We break the proof into steps.
+
+    5 We intentionally keep the discussion vague here to avoid technicalities. For the purposes of
+
+this exposition, one could simply think of gT = χθ . However, in practice, it is useful to take a
+smoothed out version of the characteristic function, since the Fourier transform is poorly behaved
+in the presence of discontinuities.
+    6 The normalising factor |T |−1 naturally appears owing to the scaling properties of the Fourier
+
+transform. It plays the same role as the r factor in the deﬁnition of fr in the Gaussian example.
+    7 This discussion applies to the absolute value |g |. The function g itself carries some oscil-
+                                                      T                  T
+lation, which is dictated by the location of θ in the frequency domain.
+10                                JONATHAN HICKMAN
+
+
+Step 0 (Recap). We begin by recalling what it is we wish to prove. As above, S
+denotes the low pass ﬁlter
+                                    
+                          Sf (x) :=     e2πix·ξ f(ξ) dξ.
+                                        B(0,1)
+
+This removes components of f oscillating with frequency |ξ| > 1. By our earlier
+reductions, our goal is to show
+
+(3.4)               Sf Lp (R2 ) ≤ C f Lp (R2 )     for all f ∈ Lp (R2 )
+
+fails whenever p = 2. Suppose, to the contrary, that the inequality (3.4) holds.
+What does this tell us?
+   The Lp norms are sensitive to the distributional properties (that is, the shape
+of the graph) of a given function. Since L∞ functions are by deﬁnition bounded,
+their distributions are typically broad and ﬂat. On the other hand, L1 functions
+are deﬁned in terms of the convergence of an integral, which requires some decay at
+∞, so their distributions are typically tall and narrow. A function in Lp for some
+1 < p < ∞ lies in a spectrum between these two extreme cases.
+   If the inequality (3.4) were to hold, say for large p > 2, then this would tell us that
+the ﬁlter S preserves certain distributional properties of the input. In particular, if
+the input function f is broad and ﬂat, then the output function Sf should also be
+broad and ﬂat. Therefore, to disprove the inequality, we shall construct an input
+function f whose distributional properties change signiﬁcantly under ﬁltering:
+        • The input f will have a broad, ﬂat distribution;
+        • The output Sf will have a tall, narrow distribution.
+This kind of behaviour is incompatible with (3.4) for p > 2 and therefore provides a
+counterexample for this exponent regime. A similar dual construction can be used
+to rule out (3.4) for p < 2.
+
+Step 1 (Arrange frequency support). We now turn to constructing the counterex-
+ample. That is, we set about ﬁnding a function f with the above properties. Fix a
+small parameter 0 < r < 1. As illustrated in Figure 6a, we place r × r 2 rectangles
+θ tangentially to the unit circle ∂B(0, 1) in the frequency domain R   2 . The choice
+of side lengths r × r reﬂects the curvature of the circle: with this choice, the θ can
+                     2
+
+be arranged to ﬁt neatly around the circle and form an eﬃcient covering.
+
+Step 2 (Initial physical support). Given θ, let T denote the corresponding 1/r×1/r 2
+dual rectangle, which is centred at the origin. The collection of all such dual
+rectangles is illustrated in Figure 6b. By the uncertainty principle, we can ﬁnd
+a function gT such that gT is a bump adapted to θ and      gT is a normalised bump
+adapted to T . We initially consider the function g := T gT . The two sides of
+Figure 6 then provide a schematic of the frequency support of g (the support of g
+    2 ) and physical support of g (the support of g itself in R2 ).
+in R
+
+Step 3 (Rearrange physical support). Using translation vs modulation sym-
+metry, by independently modulating each gT , we translate the gT in physical
+space. This corresponds to translating the underlying supporting rectangles T . We
+rearrange the T so, rather than all passing through the origin, they are disjoint.
+Moreover, as illustrated in Figure 7a, we strategically place the T below the base of
+                                THE KAKEYA CONJECTURE                                        11
+
+
+
+
+                                                                  
+   Schematic for g =     T . Each gT is       Schematic for g = T gT . Each gT is es-
+                        T g
+   supported on some r×r2 rectangle θ tan-       sentially supported on a 1/r × 1/r2 rec-
+   gent to the boundary of B(0, 1).              tangle T through the origin.
+
+
+         Figure 6. The function g from Step 2 of Feﬀerman’s construction,
+         viewed from both the frequency and physical domain. Each spatial
+         rectangle T in Figure 6b is dual to some frequency rectangle θ in
+         Figure 6a.
+
+                                                                           
+a Perron tree.8 We let fT denote the corresponding translate of gT and f = T fT .
+Figure 7a then provides a schematic of the physical support of f .
+   Recall that fT is obtained by modulating gT . Modulation does not alter the
+support of a function so fT and gT share the same same support.
+                                                                  Thus, Figure
+                                                                            6a
+provides a schematic of the frequency support of both g = T gT and f = T fT .
+Step 4 (Apply the operator). We now consider what happens when      we apply the
+ﬁlter S to the function f constructed above. By linearity, Sf = T SfT and so it
+suﬃces to study the individual fT .
+   We ﬁrst describe the action of S from the perspective of the frequency domain.
+Recall that fT is supported on a frequency rectangle θ, arranged along the boundary
+of the ball as in Figure 6a. The rectangle θ is tangential to the unit circle, and the
+ﬁlter S acts by cutting oﬀ frequencies to the unit ball. Consequently, S eﬀectively
+cuts the support θ of fT in half.
+   We now consider the action of S from the perspective of the spatial domain.
+As discussed above, S eﬀectively halves the frequency support of fT . By the
+uncertainty principle, halving the frequency support causes the physical support
+to double. Consequently, in the spatial domain, each SfT spreads out over a double
+of T . This phenomenon is illustrated in Figure 7.
+Step 5 (Conclusion). As we can see in Figure 7b, the strategic placement of the
+rectangles T causes the doubles to pile up on top of one another. Moreover, since
+the Perron tree packs lines in diﬀerent directions into a tiny space, the pile up
+between the doubles is enormous. This pile up is key.
+   From the previous steps we know:
+
+  8 Since a single Perron tree only accounts for lines in 120◦ of directions, in practice we use
+
+multiple rotated Perron trees. However, for the sake of simplicity we ignore this minor detail.
+12                                   JONATHAN HICKMAN
+
+
+
+
+                                                                        
+     Schematic for f = T fT , viewed in the        Schematic for Sf =       T SfT . Morally,
+     physical domain. Each fT is essentially       each SfT is essentially supported on a
+     supported in a rectangle T lying below        double of T . The enlarged rectangles
+     the Perron tree. These rectangles are         have huge overlap owing to the proper-
+     disjoint.                                     ties of the Perron tree.
+
+          Figure 7. Applying the operator S to the function f . The rectan-
+          gles on the left represent the support of the input f . The rectangles
+          on the right represent the support of the output Sf .
+
+      • The disjoint rectanglesin Figure 7a correspond to the supports of the func-
+         tions fT forming f = T fT ;
+      • The piled-up doubles in Figure
+                                        7b correspond to the supports of the func-
+         tions SfT forming Sf = T SfT .
+Comparing both sides of Figure 7, we pass from an input function f with a broad,
+ﬂat distribution to an output function Sf with a tall, narrow distribution. Thus,
+S fails to preserve the distributional properties of the input, and therefore cannot
+be bounded on Lp .
+   The above argument is a rough sketch, and for the sake of brevity omits some
+details.9 Nevertheless, it serves to highlight the essential role of the geometry of
+the Kakeya sets in Feﬀerman’s argument. It is only by arranging the rectangles in
+relation to (an approximation of) a measure zero Kakeya set that the pile up eﬀect
+is suﬃcient to prove the theorem.
+   Feﬀerman’s profound discovery showed that the geometry of Kakeya sets un-
+derpins Fourier analysis in two and higher dimensions. Since Fourier analysis is
+so central to the study of many physical processes, it soon became apparent that
+Kakeya sets were also deeply connected to the theory of many important equations
+governing the laws of nature. This includes the wave equation, which describes a
+diverse range of phenomena such as water waves, seismic waves and sound waves,
+and also Schrödinger’s famous equation from quantum mechanics [19, 25]. Kakeya
+   9 A signiﬁcant omission is the eﬀect of the oscillation of the individual terms of the sum
+      
+Sf = T SfT . If there were a lot of destructive interference between the SfT , then this could, in
+principle, cancel out the eﬀect of the pile up of the supports. However, it is reasonably straight-
+forward to understand and control the oscillation in the proof.
+                                THE KAKEYA CONJECTURE                                           13
+
+
+
+
+                 −R                                                    R               ξ
+
+         Figure 8. A radial slice of mα   R (ξ) := (1 − |ξ| /R ) χB(0,R) (ξ)
+                                                           2   2 α
+
+         from the deﬁnition of the Bochner–Riesz means. Here α = 1/4. In
+         general, for small α > 0, the function is continuous but fails to be
+         smooth around the boundary of the B(0, R).
+
+sets, which were once was a curiosity, suddenly became one of the most important
+objects in mathematical analysis!
+
+                      4. The next steps in Fourier analysis
+4.1. A possible ﬁx: The Bochner–Riesz Conjecture. Feﬀerman’s example
+demonstrated a dramatic and highly unexpected failure of the ball Fourier summa-
+tion method. In response to this, the hunt was on for a possible ﬁx. A natural can-
+didate is to consider slightly smoothed out versions of the ball summation method.
+Given α ≥ 0, we deﬁne the Bochner–Riesz means
+                          
+             BRα
+                 f (x) :=        e2πix·ξ (1 − |ξ|2 /R2 )α f(ξ) dξ, R > 0.
+                            B(0,R)
+                                           ball
+When α = 0, this deﬁnition agrees with SR       f . However, for α > 0, the Bochner–
+                α
+Riesz mean BR f replaces the rough frequency cutoﬀ χB(0,R) in the deﬁnition of
+                                           R (ξ) := χB(0,R) (ξ)(1 − |ξ| /R ) . The
+ ball
+SR    f with the smoothed out version mα                                2   2 α
+                                                                     α
+graph of this function is sketched in Figure 8. For α > 0 small, mR is continuous,
+but fails to be diﬀerentiable at the boundary of B(0, R). As α increases, it becomes
+more and more regular along the boundary of the ball.
+   The Bochner–Riesz means provide a natural molliﬁcation of the ball summation
+method. Given 1 ≤ p ≤ ∞, this prompts the question of whether
+(4.1)         α
+             BR f − f Lp (Rn ) → 0         as R → ∞         holds for all f ∈ Lp (Rn ).
+As for the ball summation method, Plancherel’s theorem shows (4.1) is trivially
+true for p = 2. The Bochner–Riesz Conjecture asserts that, as soon as α > 0, there
+is a range10 of exponents p for which (4.1) holds, beyond the trivial p = 2 case.
+4.2. A counterexample to the Bochner–Riesz Conjecture? One lesson of
+Feﬀerman’s work is that it is healthy to have a good dose of scepticism. Rather
+than try to prove a positive result on the Bochner–Riesz Conjecture, we could ﬁrst
+try to construct a counterexample.
+    As it stands, Feﬀerman’s argument, based on the Perron tree construction of a
+Kakeya set of measure zero, is too weak to contradict the Bochner–Riesz Conjecture.
+Any tiny additional degree of smoothing (that is, any choice of α > 0) is enough to
+dampen and overcome the pile up eﬀect described in §3. But what would happen
+if there was a way to construct even smaller Kakeya sets?
+   10 The precise statement of the conjecture posits that this should hold for    2n          2n
+                                                                                 n+1
+                                                                                       < p < n−1 ,
+but we shall not concern ourselves with the exact numerology here.
+14                                       JONATHAN HICKMAN
+
+
+   Despite having zero measure, the planar Kakeya set arising from Perron tree
+construction is still relatively large: it has dimension 2. Here dimension can either
+refer to the Minkowski or the Hausdorﬀ dimension. We shall (brieﬂy and infor-
+mally) review these concepts in §5.3 below. For our present purposes, however, it
+suﬃces to intuitively think of a 2-dimensional subset of R2 as large and ﬁlling out
+space (whilst still possibly having zero measure).
+   Suppose there exists a Kakeya set K ⊆ Rn which not only has measure zero,
+but is lower dimensional; say the Minkowski dimension of K is less than n. This
+pathological object would pack all the line segments into a truly tiny space. We
+could then apply Feﬀerman’s argument to this Kakeya set. The pile up eﬀect for
+our new K would be monstrous: far worse than the Perron tree construction. In
+particular, it would overwhelm the eﬀect of smoothing, at least for small values of
+α > 0, and give a counterexample to the Bochner–Riesz Conjecture.
+
+                                5. Dimensions of Kakeya sets
+5.1. The Kakeya Conjecture. The existence of low dimensional Kakeya sets
+would have profound consequences for harmonic analysis, providing counterexam-
+ples to many important problems, including the Bochner–Riesz Conjecture dis-
+cussed above. However, it seems very diﬃcult to construct a Kakeya set which is
+signiﬁcantly smaller than that coming from the Perron tree construction. This led
+to the widely held belief that low dimensional Kakeya sets do not exist.
+Conjecture 5.1. Any Kakeya set K ⊆ Rn has dimension n.
+   Here, as before, dimension refers either to the Minkowski or the Hausdorﬀ di-
+mension. At its heart the meaning of the conjecture is simple: although Kakeya
+sets can have measure zero, they cannot be too small.
+   If the Kakeya Conjecture failed, then there would exist a Kakeya set in Rn of
+small dimension (less than n). Following the discussion of the previous section, this
+set could be used to produce a Feﬀerman-style counterexample to the Bochner–
+Riesz Conjecture. In this way, we see that
+(5.1)         Bochner–Riesz Conjecture                 =⇒          Kakeya Conjecture.
+Many other central conjectures in Fourier analysis are known to imply the Kakeya
+Conjecture, following a similar scheme. But the signiﬁcance of the Kakeya Conjec-
+ture stretches far beyond Fourier analysis! There are important problems in PDE,
+combinatorics and number theory which are also known to either imply the Kakeya
+Conjecture or some variant.
+   The Kakeya Conjecture in the plane is not too diﬃcult. In the 1970s, Davies
+[7] and later Córdoba [6] gave two very diﬀerent proofs showing that any planar
+Kakeya set has dimension 2.11 Correspondingly, the Bochner–Riesz Conjecture is
+also known to be true in two dimensions, and in general we have a relatively good
+understanding of Fourier analysis in the planar setting. By contrast, the Kakeya
+Conjecture in three (and higher) dimensional space is much, much harder. The
+additional directions in three dimensions complicate matters enormously. Corre-
+spondingly, our understanding of many central questions in Fourier analysis in R3
+
+     11 See, for instance, [25] and [17] for expositions of these results.
+                                THE KAKEYA CONJECTURE                                        15
+
+
+is severely lacking. The Kakeya Conjecture in higher dimensions has been a ma-
+jor bottleneck in harmonic analysis over the last 50 years. For this reason, it is
+considered one of the most important open problems in the area.
+5.2. Spectacular progress. Many mathematicians have studied the Kakeya Con-
+jecture in three (and also higher) dimensions over the last 50 years. By their ef-
+forts, deep connections were discovered between the problem and questions in PDE,
+arithmetic combinatorics, number theory, and beyond [14, 25]. Partial results on
+the Kakeya Conjecture have led to dramatic breakthroughs on other problems.12
+However, despite remarkable successes, a full solution, even for n = 3, always ap-
+peared far out of reach. The Kakeya Conjecture achieved a certain notoriety and
+became a byword for a diﬃcult, near impossible challenge. This was the state of
+aﬀairs until February 2025, when Hong Wang and Joshua Zahl [22] announced the
+ﬁnal piece of a spectacular full solution of the three dimensional problem!
+Theorem 5.2 (Wang–Zahl [21, 22]). Any Kakeya set K ⊆ R3 has dimension 3.
+   The monumental proof of Theorem 5.2 is hundreds of pages long and is spread
+over multiple papers. It combines a rich array of ideas, and relies on contributions
+from many diﬀerent mathematicians over the last 30 years. However, their argu-
+ments also incorporate a wealth of new and deep insights and mark a major leap in
+our understanding. The work of Wang and Zahl is a great and historic achievement
+in modern mathematics.
+5.3. Elements of the proof. We conclude with a discussion of some of the features
+of the Wang–Zahl proof. Given the length and complexity of their arguments, we
+only provide the roughest of sketches.
+Discretisation. The ﬁrst step is a standard reformulation of the problem. Suppose
+K ⊆ R3 is a Kakeya set and, for 0 < δ < 1, let Nδ K denote the δ-neighbourhood
+of K. We may assume K has measure zero (since otherwise it automatically has
+dimension 3). It then follows that
+(5.2)                           |Nδ K| → 0        as δ → 0+ ,
+where here the notation | · | is used to denote 3-dimensional volume.
+   The Minkowski dimension quantiﬁes the rate of convergence in (5.2). In order
+to prove our Kakeya set K has Minkowski dimension 3, given ε > 0, we need to
+show that there exists some constant cε > 0 such that
+(5.3)                         |Nδ K| ≥ cε δ ε      for all δ > 0.
+In particular, although |Nδ K| → 0 as δ → 0+ , the rate of convergence is much
+slower than any power of δ. In this sense, K is ‘large’. We remark that Hausdorﬀ
+dimension provides a more nuanced notion of size, which relies on analysing K
+simultaneously at many scales, rather than just one ﬁxed scale δ. For the purposes
+of this sketch, however, we stick to the simpler notion of Minkowski dimension.
+   When we form the δ-neighbourhood Nδ K of K, each line segment in K fattens
+up into a solid shape which is roughly a cylinder of length 1 and radius δ. We call
+these cylinders δ-tubes. We expect many of the δ-tubes formed from lines in K
+   12 To highlight one particularly striking instance, the multilinear Kakeya theory of Bennett–
+
+Carbery–Tao [1] led to the resolution of the longstanding main conjecture in Vinogradov’s mean
+value theorem [4] in analytic number theory.
+16                                     JONATHAN HICKMAN
+
+
+to essentially coincide. For this reason, we sample from K a ﬁnite family of line
+segments L with directions forming a maximal, δ-separated set. The corresponding
+δ-tubes are then essentially distinct (they diﬀer signiﬁcantly from one another). To
+succinctly describe this setup, we make the following deﬁnition.
+Deﬁnition 5.3. For 0 < δ < 1, we say that a set T of δ-tubes is direction-separated
+if the directions of the core lines of the tubes in T form a δ-separated set.
+     In light of the above, the proof of (5.3) reduces to showing the following.
+Theorem 5.4 (Kakeya Conjecture, discretised version [21, 22]). Given any ε > 0,
+there exists some cε > 0 such that for all 0 < δ < 1 the inequality
+                                              
+                                     
+(5.4)                              T  ≥ cε δ ε   |T |
+                                       T ∈T             T ∈T
+
+holds whenever T is a direction-separated set of δ-tubes in R3 .
+                                                                
+   If the tubes in T were disjoint, then we would have  T ∈T T  = T ∈T |T |. Thus,
+(5.4) can be interpreted as saying the tubes in T are ‘almost’ disjoint.
+   To pass from (5.4) to (5.3), we simply take T to be the set of tubes formed
+from
+                                                          On the one hand, Nδ K ⊇
+       the line segments belonging to L as deﬁned earlier. 
+  T ∈T  T . On  the other hand,  maximality  ensures that    T ∈T |T | ∼ 1. These ob-
+servations combine with (5.4) to give (5.3). The advantage of the reformulation in
+Theorem 5.4 is that, rather than studying a continuum of line segments in K, here
+we study a ﬁnite set of δ-tubes. This is a form of discretisation, a common tool in
+Fourier analysis and geometric measure theory.13
+Exploiting distinct directions. It is surprisingly diﬃcult to directly leverage the
+direction-separated hypothesis from the Kakeya set deﬁnition. In practice, one
+often works with weaker, and more malleable, conditions. We noted earlier that
+direction-separated tubes are essentially distinct. This is formally deﬁned as follows.
+Deﬁnition 5.5. Let 0 < δ < 1 and T be a set of δ-tubes. We say the tubes in T
+are essentially distinct if |T1 ∩ T2 | ≤ |T1 |/2 for all T1 , T2 ∈ T with T1 = T2 .
+   It is natural to ask whether the conclusion of Theorem 5.4 continues to hold
+under the weaker hypothesis that the tubes in T are essentially distinct. However,
+there is an easy counterexample. Assume 0 < δ < 1 satisﬁes δ −1 ∈ N and let
+          A := {(δj, 0, 0) : 1 ≤ j ≤ δ −1 } and B := {(δj, 1, 0) : 1 ≤ j ≤ δ −1 }
+be sets of equally spaced points along a pair of parallel lines in S := [0, 1]2 × {0}.
+Form a family L of δ −2 line segments by joining every point in A to a point in B. If
+T denotes the corresponding set of δ-tubes, then #T = δ −2 and the tubes
+                                                                        in T are
+essentially distinct. However, T ⊆ Nδ S for all T ∈ T and, moreover, | T ∈T T | ∼ δ.
+Thus, (5.4) fails in this case.
+   In the above example, the δ-tubes concentrate in Nδ S, which is essentially a
+1 × 1 × δ rectangular prism. What happens if we rule out this behaviour?
+Deﬁnition 5.6 ([24]). A set T of δ-tubes in R3 satisﬁes the Wolﬀ axiom if
+(5.5)                             #{T ∈ T : T ⊆ R} ≤ δ −2 |R|
+holds whenever R ⊆ R3 is a rectangular prism.
+     13 We also saw an instance of discretisation in the construction of the Feﬀerman counterexample.
+                               THE KAKEYA CONJECTURE                                    17
+
+
+   If T is direction-separated, then it is not diﬃcult to see that T automatically
+satisﬁes the Wolﬀ axiom. It is natural to ask whether the Wolﬀ axiom is suﬃcient
+to ensure the conclusion of Theorem 5.4. It turns out that this is indeed the case.
+Theorem 5.7 (Strong Kakeya Conjecture [21–23]). Given any ε > 0, there exists
+some cε > 0 such that for all 0 < δ < 1 the inequality
+                                              
+                                     
+(5.6)                              T  ≥ cε δ ε   |T |
+                                   T ∈T              T ∈T
+
+holds whenever T is a collection of δ-tubes in R3 which satisfy the Wolﬀ axiom.
+   At this point we encounter the ﬁrst major indication of the subtlety of the Kakeya
+problem: Theorem 5.7 fails over the complex ﬁeld! In [15, §13], authors considered
+the compact piece of the Heisenberg group in C3 , deﬁned by
+           H := (z1 , z2 , z3 ) ∈ C3 : I(z1 ) = I(z2 z 3 ), |z1 |, |z2 |, |z3 | ≤ 2 .
+It is easy to see that H contains a 4 (real) parameter family of complex line segments
+                  a,b,w := {(z, w + az, zw + b) : z ∈ C, |z| ≤ 1/2},
+where a, b ∈ R and w ∈ C with |a|, |b|, |w| ≤ 1. From this, one may construct a set
+T of complex δ-tubes with #T ∼ δ −4 which satisﬁes the natural complex analogue
+of theWolﬀ axiom. Since each complex δ-tube T has measure |T | ∼    δ 4 , it follows
+                                                                                 
+that T ∈T |T | ∼ 1. However, T ⊆ Nδ H for all T ∈ T and, morover,  T ∈T T  ∼ δ.
+Thus, T fails (5.6).
+   In light of the above example, any proof of Theorem 5.7 must somehow distin-
+guish between the real and complex ﬁeld. The deﬁnition of the Heisenberg group
+relies on the notion of the real and imaginary parts of a complex number, and the
+accompanying conjugation operator z → z̄. These deﬁnitions in turn rest on the
+existence of the half-dimensional subﬁeld R ⊆ C. There is no apparent analogue
+of this structure in the real line. Indeed, a famous result of Edgar–Miller [8] shows
+that any Borel subring of R either has Hausdorﬀ dimension 0 or is the whole of R.
+This fact will play an important role later in the proof.
+Reducing to a symmetric case. To prove Theorem 5.7, we can attempt to     isolate
+conﬁgurations of tubes which are extremal, or optimal, in the sense that  T ∈T T 
+is minimal over all sets of tubes T of a ﬁxed cardinality satisfying the Wolﬀ ax-
+iom. If we can prove that the Strong Kakeya Conjecture holds for such extremal
+conﬁgurations, it will automatically hold in all cases.
+   It is natural to expect an optimal conﬁguration of tubes should saturate the
+Wolﬀ axiom hypothesis of Theorem 5.7. Indeed, if there was any leeway in our
+hypotheses, we could hope to exploit it to construct a tighter packing of tubes.
+This leads to the deﬁnition of a sticky set of tubes.
+Deﬁnition 5.8 (Sticky, informal). For each intermediate scale δ ≤ ρ ≤ 1, we
+consider fattening the δ-tubes T into ρ-tubes Tρ . We expect many of the ρ-tubes
+formed in this way to essentially coincide. We therefore extract a maximal family
+of essentially distinct ρ-tubes Tρ . We say the collection of δ-tubes is sticky if
+(5.7)      #{T ∈ T : T ⊆ Tρ } ∼ (ρ/δ)2            for all Tρ ∈ Tρ and all δ ≤ ρ ≤ 1.
+In other words, each ρ-tube in Tρ contains the maximal number of δ-tubes permitted
+by the Wolﬀ axiom condition (5.5).
+18                              JONATHAN HICKMAN
+
+
+   Sticky sets of tubes are highly symmetric from the perspective of metric dimen-
+sion. The condition (5.7) relates the distribution of the tubes T at diﬀerent scales
+δ ≤ ρ ≤ 1 and is an example of statistical self-similarity: while the set is not liter-
+ally self-similar (in the sense of the middle third Cantor set, for example), certain
+quantitative properties of the set are identical at many diﬀerent scales. Our ex-
+perience and intuition suggest optimal conﬁgurations should be highly symmetric.
+Moreover, the Kakeya Conjecture is both a quantitative and a multi-scale problem:
+we are interested in the size, and not the exact shape, of Kakeya sets and we need to
+prove results for all scales δ. The relevant notions of symmetry should reﬂect these
+fundamental features. This inexorably leads to statistical self-similarity. Thus,
+sticky sets of tubes arise as a natural and important special case in the study of
+the Kakeya Conjecture.
+
+Theorem 5.9 (Sticky reduction [22]). In order to prove Theorem 5.7, it suﬃces
+to assume, in addition to the existing hypotheses, that T is sticky.
+
+   This is the most signiﬁcant innovation in the work of Wang–Zahl. Loosely speak-
+ing, Theorem 5.9 formalises our intuition that optimal conﬁgurations of tubes for
+Theorem 5.7 correspond to the highly symmetric arrangements for which the Wolﬀ
+axiom is saturated. However, making this intuition precise is monumentally chal-
+lenging. Reduction to the sticky case was previously explored by Wolﬀ and Katz–
+Laba–Tao [15] in the early 2000s, but with limited success. Since then very little
+progress had been made on this problem. Indeed, prior to Wang–Zahl [22], there
+was no hint of a viable mechanism for reducing to the sticky case; to the contrary,
+evidence was mounting [16] that such a reduction was infeasible. The proof of
+Theorem 5.9 forms the entirety of the 127 page preprint [22] and introduces very
+important new ideas.
+   It is unfortunately outside the modest scope of this article to delve into the proof
+of Theorem 5.9. However, we mention that it relies on an intricate induction or
+self-improving mechanism. For this reason, it is essential to work with the Wolﬀ
+axiom formulation of the problem as in the Strong Kakeya Conjecture. Indeed, the
+hypotheses must be suﬃciently general in order to close the inductive arguments.
+
+Forbidden symmetries. It remains to prove the Strong Kakeya Conjecture under
+the additional hypothesis that the set of tubes T is sticky. To treat this case,
+Wang–Zahl [21, 23] were inspired by an approach originally proposed by Katz and
+Tao, and shared with the public in 2014 in a talk and blogpost [20] by Tao. At
+that time, Katz–Tao were unable to rigorously implement their proposal. Indeed,
+the implementation in Wang–Zahl [21] involves substantial new ideas and the use
+of mathematical tools and techniques which were unavailable back in 2014.
+   Katz–Tao proposed a proof by contradiction. We assume there exists a sticky set
+of tubes T which
+              satisﬁes the hypotheses of the Strong Kakeya Conjecture, but for
+which K := T ∈T T has very small volume. Moreover, we may assume the volume
+of K is minimal over all such sets of tubes T of a ﬁxed cardinality.
+   The stickiness hypothesis means that K is highly symmetric. Under the mini-
+mal volume condition, the symmetries are further ampliﬁed. In particular, following
+landmark ideas introduced by Katz–Laba–Tao [15], one can show the tubes in T
+must have extremely rich structural properties. Katz–Tao [20] proposed using these
+structural properties to encode highly symmetric algebraic structures inside the set
+                                 THE KAKEYA CONJECTURE                                         19
+
+
+K. This is in part motivated by the earlier observation that any proof of Theo-
+rem 5.7 must distinguish between the real and complex ﬁeld (and, consequently, it
+is natural to expect algebra to play a role at some level).
+   One of the most symmetric objects in mathematics is a commutative ring: it
+simultaneously admits two symmetry groups! By analysing the interplay between
+the structure of the Kakeya set at two diﬀerent scales, Katz–Tao [20] sketched a
+method for encoding a ring-like object R into K. More precisely, they proposed
+encoding an approximate subring R of R into K. This is a set which is approxi-
+mately closed under the addition and multiplication operations, in the sense that
+sum set R + R := {x + y : x, y ∈ R} and product set R · R := {x · y : x, y ∈ R} have
+size comparable to that of R. Furthermore, this approximate subring would have
+Hausdorﬀ dimension 0 < dimH R < 1.
+   At this point, the proof sketch is nearing its endgame. We have already men-
+tioned that the Edgar–Miller theorem [8] rules out the existence of subrings of in-
+termediate Hausdorﬀ dimension. This would give the desired contradiction, except
+we are dealing with approximate subrings rather than bona ﬁde subrings. However,
+there is a more quantitative version of the Edgar–Miller theorem called Bourgain’s
+sum-product theorem [2, 3], which does apply in the approximate setting. Using
+this, Katz–Tao hoped to obtain a contradiction and thereby conclude the proof of
+the Strong Kakeya Conjecture in the sticky case.
+   As mentioned earlier, the rigorous proof in [21] diﬀers signiﬁcantly from that
+originally envisioned by Katz–Tao [20]. Most notably, the connection with approx-
+imate subrings is far less direct. Rather than appeal to Bourgain’s sum-product
+theorem [3], Wang–Zahl [21] invoke various recent results in projection theory, a
+subﬁeld of geometric measure theory, to arrive at a contradiction. These tools ul-
+timately do rely on Bourgain’s sum-product theorem [3] but, taken as a whole, the
+scheme of the proof is far more complex than that sketched in [20].
+
+
+                                        References

@@ -1,0 +1,762 @@
+arXiv:2409.09644v2 [math.OA] 24 Sep 2024
+
+The Space of Tracial States on a C ∗-Algebra
+Bruce Blackadar and Mikael Rørdam∗
+
+Dedicated to the memory of Bent Fuglede
+Abstract
+We give a simple and elementary proof that the tracial state space of a unital C ∗ -algebra is a Choquet simplex, using the center-valued trace on a finite von Neumann
+algebra.
+
+1
+
+Introduction
+
+The object of this paper is to give a simple and elementary proof (modulo well-known facts
+about von Neumann algebras) of the following theorem:
+Theorem 1.1. Let A be a unital C ∗ -algebra. Then the tracial state space T (A) of A is a
+(possibly empty) Choquet simplex.
+This theorem was first proved (in disguised form) in [Tho64], and another (slightly different) proof appeared in [Sak71, Theorem 3.1.18], using the Radon-Nikodym Theorem for
+operators, or see [Wang23] for a more detailed exposition. See [Tak70, p. 120] for a more
+general result; the proof there, specialized to finite von Neumann algebras, gives a proof
+of Theorem 1.1 (essentially the proof from [Tho64]). There is another somewhat more
+elementary approach due to Pedersen ([Ped69], cf. [CP79, 2.8]). There is also a partial
+converse: every metrizable Choquet simplex occurs as the trace space of a separable C ∗ algebra, even a simple (unital) AF algebra. See also [ISV] and [OSV], where it is shown
+that the trace simplex of certain universal free product C ∗ -algebras is the Poulsen simplex.
+The origin of this paper was the experience of both authors that while Theorem 1.1 is
+well known and considered important by operator algebraists, the existing proofs are not
+widely known or understood (the result has almost reached the status of folklore). We hope
+with this exposition to make the proof of this important result more accessible. Theorem
+1.1 plays a particularly important role in the classification program for simple C ∗ -algebras.
+Our proof is very simple and elementary given well-known facts about Choquet simplexes and von Neumann algebras, notably the center-valued trace on finite von Neumann
+The second named author was supported by a research grant from the Danish Council for Independent
+Research, Natural Sciences
+∗
+
+1
+
+algebras. The existence of the center-valued trace is a nontrivial but well-known and fundamental result in the theory of von Neumann algebras, and is in our opinion a reasonable
+starting point for the proof of Theorem 1.1. It should be noted that the previous proofs
+are somewhat more elementary from first principles since they do not (explicitly) use the
+center-valued trace. Deep down all the proofs (except perhaps the Pedersen argument)
+are really essentially the same, reducing the statement to the fact that the state space of
+any commutative von Neumann algebra, indeed any commutative unital C ∗ -algebra, is a
+Choquet simplex (even a Bauer simplex); the ingredients are largely the same, but our
+argument buries all the technicalities in the center-valued trace. A good exposition of the
+center-valued trace can be found in [KR86].
+In Section 2 we review the basic theory of Choquet simplexes, including a selection of
+the many characterizations of these. Using one of these characterizations, we show that
+a quotient of a Choquet simplex with an affine cross section is again a Choquet simplex.
+We use this result in Section 3 to prove our main result. We emphasize that most of the
+material in Section 2 is not needed for the proof of Theorem 1.1, and it is included mostly
+for expository reasons to remind the reader of some of the rich and beautiful theory behind
+Choquet simplexes.
+We thank George Elliott for helpful comments, and for the reference to [Wang23], and
+Leonel Robert for the references to [Ped69] and [Rob13].
+
+2
+
+Choquet Simplexes
+
+As mentioned already in the introduction, we review here some of the many (well-known)
+equivalent conditions for a compact convex subset K of a locally convex topological space
+E to be a Choquet simplex, stated formally as Theorem 2.2 below. Other equivalent conditions are known, such as the one in [NP69]; this paper also discusses tensor products of
+Choquet simplexes, with some interesting questions with applications in quantum information theory. Incidentally, our Proposition 2.5 gives a very simple proof of the equivalence
+of simplex and simplex-like in that paper.
+R
+The barycenter of a probability measure µ on K is K x dµ(x), which is a point in K.
+(All measures here are understood to be Borel measures.) A probability measure µ on K is
+said to be a boundary measure if it is a maximal in the sense that if ν is another probability
+measure on K satisyfing µ(f ) ≤ ν(f ), for all f ∈ P (K), the cone of all continuous convex
+functions f : K → R, then ν = µ, cf. [Alf71, Proposition I.4.5]. If K is metrizable, then
+the set ∂e K of extreme points of K is a Gδ -set, and µ is a boundary measure if and only
+if µ(∂e K) = 1. Each x ∈ K is the barycenter of some boundary measure on K (Choquet–
+Bishop–de Leeuw, cf. [Alf71, Theorem I.4.8]).
+Let Aff(K) denote the set of continuous affine functions f : K → R, and equip Aff(K)
+with the standard pointwise ordering: f ≥ 0 iff f (x) ≥ 0 for all x ∈ K. (Aff(K) also has
+a strict ordering, where f ≫ 0 iff f = 0 or f (x) > 0 for all x ∈ K, which is important in
+applications to the classification program.)
+The inclusion K ⊆ E is said to be regular if the affine subspace of E spanned by K is a
+2
+
+hyperplane in E not containing 0, in other words, equal to ϕ−1 ({1}), for some ϕ ∈ E ∗ . Let
+K̃ denote the cone {αx : x ∈ K, α ≥ 0} in E, and let (E, K̃) denote E equipped with the
+order relation given by x ≤ y iff y − x ∈ K̃, for x, y ∈ E. Every compact convex set K is
+isomorphic (affinely homeomorphic) to an essentially unique regularly embedded compact
+convex set: the subset of E = Aff(K)∗ consisting of the states (order-preserving linear
+maps φ : Aff(K) → R with φ(u) = 1, where u is the constant function 1) is a regularly
+embedded compact convex set isomorphic to K.
+We first state a proposition which is a combination of results in [Alf71] and [Goo86].
+Proposition 2.1. Consider the following properties of a partially ordered real vector space
+E:
+(i) E is a lattice.
+(ii) E has the Riesz interpolation property, i.e., for all x1 , x2 , y1, y2 ∈ E with xj ≤ yi ,
+for i, j = 1, 2, there exists z ∈ E with xj ≤ z ≤ yi , for i, j = 1, 2.
+(iii) E has the Riesz decomposition property, i.e., whenever 0 ≤ y ≤ x1 + x2 in E, then
+there exist 0 ≤ yj ≤ xj , j = 1, 2, in E such that y = y1 + y2 .
+Pm
+Pn
+x
+=
+(iv) Whenever x1 , . . . , xn , y1 , . . . , ym are positive elements
+in
+E
+with
+i
+j=1 yj ,
+i=1
+Pm
+Pn
+then there exist zij ≥ 0 in E such that xi =
+j=1 zij and yj =
+i=1 zij , for all
+1 ≤ i ≤ n and 1 ≤ j ≤ m.
+Then (i) ⇒ (ii) ⇔ (iii) ⇔ (iv), and (ii) ⇒ (i) if E + , the positive cone of E, is locally
+compact in some locally convex topology on E. In particular, if K is a compact convex set
+regularly embedded in E and E + = K̃ is the positive cone in E generated by K, as above,
+then all four conditions above are equivalent.
+It is clear that (i) ⇒ (ii) as we may take z = x1 ∨ x2 . For proofs of the equivalence of (ii)
+and (iii) and the implication (ii) ⇒ (i) (assuming locally compactness of E + ), see, e.g.,
+Alfsen, [Alf71, Proposition II.3.1 and Proposition II.3.2]. If K is compact and convex,
+then K̃ is locally compact, since each point in K̃ belongs to the interior of the compact set
+{tx : 0 ≤ t ≤ r, x ∈ K}, for some r > 0.
+For the convenience of the reader, and because this point is central for the proof of
+Proposition 2.5 below, and hence for our arguments in the next section, we review here
+the proof of (iii) ⇔ (iv).
+(iv) ⇒ (iii). Assume 0 ≤ y ≤ x1 + x2 . Set y1 = y and y2 = x1 + x2 − y. Then
+x1 + x2 = y1 + y2 , and there exist zij ≥ 0 in E such that xi = z1i + z2i and yj = zj1 + zj2 ,
+for i, j = 1, 2. In particular, y = z11 + z12 and 0 ≤ z1i ≤ xi , as wanted.
+P
+(iii) ⇒ (iv). We first show, by induction, that wheneverP
+n ≥ 2 and 0 ≤ y ≤ nj=1 xj in
+E, there exist 0 ≤ yj ≤ xj , 1 ≤ j ≤ n, in E such that y = nj=1 yj . Indeed, the base step
+n = 2 holds
+by assumption. Let n > 2 and suppose the claim has been verified for n − 1.
+Pn−1
+xj and x′2 = xn . Then y ≤ x′1 + x′2 and so there exist 0 ≤ yj′ ≤ x′j , j = 1, 2,
+Set x′1 = j=1
+Pn−1
+satisfying y = y1′ + y2′ . Set y ′ = y1′ and yn = y2′ . Then 0 ≤ y ′ ≤ j=1
+xj . By the induction
+3
+
+Pn−1
+′
+hypothesis
+there
+exist
+0
+≤
+y
+≤
+x
+,
+1
+≤
+j
+≤
+n
+−
+1,
+in
+E
+such
+that
+y
+=
+j
+j
+j=1 yj , whence
+P
+y = nj=1 yj . This completes the induction step.
+We proceed to prove (iv) by induction on m ≥ 1. The base step m = 1 is trivial. Let
+m ≥ 2 and P
+assume the claim holds forP
+m − 1. Let x1 , . . . , xn ≥ 0 and y1 , . . . , ym ≥ 0 satisfy
+P
+n
+m
+n
+y
+.
+Then
+0
+≤
+y
+≤
+x
+=
+m
+i=1 xi , so there exist 0 ≤ zi,m ≤ xi , 1 ≤ i ≤ n, in
+j=1 j
+i=1 i
+Pn
+P
+P
+′
+E such that ym = i=1 zi,m . Set xi = xi − zm,i ≥ 0. Then ni=1 x′i = m−1
+j=1 yj . By the
+induction hypothesis we can find zij ≥ 0, 1 ≤ i ≤ n, 1 ≤ j ≤ m − 1, in E such that
+x′i =
+
+m−1
+X
+
+zij ,
+
+yj =
+
+j=1
+
+n
+X
+
+zij ,
+
+1 ≤ i ≤ n, 1 ≤ j ≤ m − 1.
+
+i=1
+
+The former identity implies xi = x′i + zi,m =
+
+Pm
+
+j=1 zij , as desired.
+
+
+
+We shall now present a selection of equivalent conditions characterizing Choquet simplexes.
+These are all classical results which can be found in several textbooks (see, e.g., the comments below the theorem), and at least the equivalence of (i) and (ii) goes back to Choquet.
+See also the notes at the end of Chapter II.3 of [Alf71] for a more detailed account on the
+history.
+A homothetic image of K in E is a set of the P
+form αK + x, where α > 0 and x ∈ E.
+Finally, for ease of notation, when we say that nj=1 αjP
+xj is a proper convex combination
+in K, we mean that α1 , . . . , αn > 0, x1 , . . . , xn ∈ K and nj=1 αj = 1.
+Theorem 2.2. Let K be a compact convex set. The following conditions are equivalent.
+(i) Each point in K is the barycenter of a unique boundary measure on K.
+(ii) The ordered vector space Aff(K)∗ is a lattice.
+(iii) (Riesz Decomposition Property) Whenever x ∈ K in two different ways is a proper
+convex combination in K, i.e.,
+x=
+
+n
+X
+
+αj xj =
+
+j=1
+
+m
+X
+
+then there exists a new convex combination x =
+αj =
+
+m
+X
+i=1
+
+γij ,
+
+βi =
+
+n
+X
+
+γij ,
+
+βi yi ,
+
+i=1
+
+xj =
+
+j=1
+
+m
+X
+i=1
+
+Pn
+
+j=1
+
+Pm
+
+αj−1 γij zij ,
+
+i=1 γij zij in K, satisfying
+
+yi =
+
+n
+X
+
+βi−1 γij zij ,
+
+(2.1)
+
+j=1
+
+for all 1 ≤ j ≤ n and 1 ≤ i ≤ m
+(iv) The ordered vector space Aff(K) has the Riesz Interpolation Property in either (both)
+the ordinary and strict orderings (i.e., if f1 , f2 ≤ g1 , g2 , then there is an h with
+f1 , f2 ≤ h ≤ g1 , g2, and similarly for ≪).
+4
+
+(v) Whenever K is embedded in a locally convex vector space E, the intersection of K
+with any homothetic image of itself is either empty, a point, or another homothetic
+image of K.
+Condition (ii) can further be reformulated as described in Proposition 2.1.
+Proofs of the equivalences of (i), (ii) and (iii) can be found, e.g., in Alfsen, [Alf71,
+Propositions II.3.3 and II.3.6]. The equivalence of (ii) and (iv) is proved in [Goo86, Theorem 11.4]; see also [Goo86, Proposition 10.7] for a proof of (ii) ⇒ (iii). The beautiful
+geometric interpretation of simplexes in (v) is portrayed on the cover of Phelps’ book,
+[Phe01]; it is stated but not proved in [Phe01] that (v) is equivalent to being a Choquet
+simplex. One can fairly easily see that if (v) holds in some representation of K in a locally
+convex vector space E, then it holds for all such representations.
+For completeness of exposition we include here the short proof of (ii) ⇔ (iii) via Proposition 2.1, and, for the record, also the (not so short) proof of (ii) ⇔ (v). We shall use the
+following setup. Retaining the notation given above Proposition 2.1 (iv), let K ⊆ E be a
+regular inclusion, and K̃ ⊆ E the positive cone in E generated by K. A canonical choice
+of such an inclusion is obtained by taking E = Aff(K)∗ . Condition (ii) then says that
+(E, K̃) is a lattice. Fix ϕ ∈ E ∗ such that K ⊆ ϕ−1 (1). Observe that if e ∈ E is positive,
+then ϕ(e) ≥ 0; ϕ(e) = 0 if and only if e = 0;Pand e ∈ K ifP
+and only if ϕ(e) = 1.
+Proposition 2.1 (iv) ⇒ (iii): Let x = nj=1 αj xj = m
+i=1 βi yi be two proper convex
+combinations in K. Set
+ȳi = βi yi . Then there exist positive
+P x̄j = αj xj and P
+Pelements
+n
+m
+z̄ij ∈ E satisfying x̄i = m
+z̄
+and
+ȳ
+=
+z̄
+.
+Set
+γ
+=
+ϕ(z̄
+)
+≥
+0.
+Then
+j
+ij
+ij
+j=1 ij
+i=1 ij
+j=1 γij =
+Pn
+−1
+ϕ(x̄i ) = αi and i=1 γij = ϕ(ȳj ) = βj . Hence (2.1) holds with zij = γij z̄ij ∈ K, if γij 6= 0,
+and any zij ∈ K when γij = 0.
+(iii) ⇒ Proposition
+2.1 (iv): Let x̄1 , . . . , x̄n , ȳ1 , . . . , ȳm be positive elements in E satP
+P
+isfying x := ni=1 x̄i = m
+j=1 ȳj . Upon multiplying these equations by a suitable positive
+number, we may assume that ϕ(x) = 1, i.e., x ∈ K. We may also assume that all x̄i and
+ȳj are non-zero. Put αi = ϕ(x̄i ) and βj = ϕ(ȳj ), P
+and set xi = P
+αi−1 x̄i and yj = βj−1 ȳj . Then
+xi , yj ∈ K because ϕ(xi ) = ϕ(yj ) = 1, and x = ni=1 αi xi = m
+j=1 βj yj are proper convex
+combinations in K. Accordingly,
+P there exist zijP∈nK and γij ≥ 0 such that (2.1) holds. Set
+z̄ij = γij zij ≥ 0. Then x̄i = m
+j=1 z̄ij and ȳj =
+i=1 z̄ij , as desired.
+For the proof of (ii) ⇔ (v), note first that for a, b, c ∈ E,
+e + a,
+a ≤ b ⇐⇒ b ∈ K
+
+e + a) ∩ (K
+e + b) = K
+e + c.
+c = a ∨ b ⇐⇒ (K
+
+We shall make frequent use of the following identities:
+
+for all r ≥ 0, and
+for a ∈ E and r ≥ ϕ(a).
+
+e ∩ ϕ−1 (r) = rK,
+K
+
+(2.2)
+
+e + a) ∩ ϕ−1 (r) = (r − ϕ(a))K + a
+(K
+
+(2.3)
+
+5
+
+(ii) ⇒ (v): Let r > 0 and a ∈ E be given, and suppose that K ∩ (rK + a) is non-empty.
+e ∩ (K
+e + b) = K
+e + c. By (2.2) and (2.3) we
+Then 1 = r + ϕ(a). Set c = 0 ∨ a. Then K
+therefore get
+e ∩ (K
+e + b) ∩ ϕ−1 (1) = (K
+e + c) ∩ ϕ−1 (1) = tK + c,
+K ∩ (rK + b) = K
+with t = 1 − ϕ(c). (If ϕ(c) > 1, then K ∩ (rK + b) = ∅.)
+(v) ⇒ (ii). We asssume in the proof that K is not a singleton. If it were, then the
+ordered vector space E would be R with the usual ordering, which is a lattice. Secondly,
+if (v) holds, then it also holds that the intersection of any two homothetic images of K, if
+not empty or a point, is another homothetic image of K.
+Let a, b ∈ E. For each t ∈ R, let Ct be the set of c ∈ E for which a, b ≤ c and ϕ(c) = t.
+Note that Ct is a convex set, and that
+
+
+Ct = (K̃ + a) ∩ (K̃ + b) ∩ ϕ−1 (t) = (t − ϕ(a))K + a ∩ (t − ϕ(b))K + b ,
+(2.4)
+when t ≥ ϕ(a), ϕ(b). Set I = {t ∈ R : Ct 6= ∅}. By assumption, and since Ct ⊆ ϕ−1 (t),
+there exists ct (a priori depending on t) such that
+Ct = (t − ϕ(ct ))K + ct ,
+
+t ∈ I.
+
+(2.5)
+
+We proceed to prove the following three claims, which will complete the proof.
+(a) Ct + sK ⊆ Ct+s , for all s ≥ 0 and t ∈ I.
+(b) If tK + e ⊆ t′ K + e′ , for some t, t′ ≥ 0 and e, e′ ∈ E, then t ≤ t′ and e′ ≤ e; and if in
+addition t = t′ , then e = e′ .
+(c) ct = c is independent of t ∈ I, and c = a ∨ b.
+(a) is trivial: if x ∈ Ct + sK, then x ≥ a, b and ϕ(x) = t + s, so x ∈ Ct+s .
+(b). Let e, e′ ∈ E be such that tK + e ⊆ t′ K + e′ , for some t, t′ ≥ 0. We first show that
+t ≤ t′ . Suppose otherwise. Then, for all m ≥ 1,
+t′ K + me′ ⊇ (t − t′ )K + t′ K + e + (m − 1)e′ ⊇ · · · ⊇ m(t − t′ )K + t′ K + me.
+Pick x ∈ K such that y := (t − t′ )x + e − e′ 6= 0. Then {my + t′ x : m ∈ N} ⊆ t′ K, which
+is impossible, as t′ K is compact.
+Suppose next that t = t′ . Then tK + (e − e′ ) ⊆ tK, which entails tK + m(e − e′ ) ⊆ tK,
+for all integers m ≥ 1. As tK is compact, this implies e = e′ .
+Consider finally the case t < t′ . Set r ′ = ϕ(e′ ), r = ϕ(e), and s = t + r = t′ + r ′ . Note
+that r ′ < r ≤ s. Assume, to reach a contradiction, that e′  e. Then e ∈
+/ (r − r ′ )K + e′ .
+′
+′
+Choose y in the compact convex set (r − r )K + e so that
+
+{αy + (1 − α)e : 0 ≤ α < 1} ∩ (r − r ′ )K + e′ = ∅.
+6
+
+(One can find such a y in the line segment joining any point in K to e.) Write y =
+(r − r ′ )x + e′ , with x ∈ K, set
+z = tx + e ∈ tK + e ⊆ t′ K + e′ ⊆ ϕ−1 (s),
+
+α=
+
+s−r
+,
+s − r′
+
+1−α =
+
+r − r′
+,
+s − r′
+
+and set u = αe′ +(1−α)z. Then u ∈ (r−r ′ )K +e′ because z ∈ t′ K +e′ and (1−α)t′ = r−r ′ .
+On the other hand,
+
+u = αe′ + (1 − α)tx + (1 − α)e = α e′ + (r − r ′ )x + (1 − α)e = αy + (1 − α)e,
+which contradicts the choice of y. This completes the proof of (b).
+(c). It follows from Equations (2.4) and (2.5) and (b) that a, b ≤ ct , for all t ∈ I. If
+′
+t ≤ t are in I, then by (a),
+(t − ϕ(ct′ ))K + ct′ = Ct′ + (t − t′ )K ⊆ Ct = (t − ϕ(ct ))K + ct ,
+
+(2.6)
+
+so ct ≤ ct′ by (b). Set t0 = inf I ≥ max{ϕ(a), ϕ(b)}. We claim that ϕ(ct ) = t0 , for all t ∈ I.
+Since ct ≥ a, b, it follows that ϕ(ct ) ∈ I, so ϕ(ct ) ≥ t0 . Suppose t ∈ I and t0 < ϕ(ct ). Take
+t′ ∈ I with t0 < t′ < ϕ(ct ) ≤ t. Then ct ≤ ct′ , so ϕ(ct ) ≤ ϕ(ct′ ) ≤ t′ , a contraction. By
+(2.6) and (b) this further implies that ct are equal, hence equal to c, for some c ∈ E. We
+already noted that c ≥ a, b. Suppose d ∈ E also satisfies d ≥ a, b. Then d ∈ Cϕ(d) , which
+implies d ≥ cϕ(d) = c. This proves that c = a ∨ b.
+
+Definition 2.3. A compact convex set K satisfying the equivalent conditions of Theorem 2.2 is a Choquet simplex.
+An n-simplex in Euclidean space is a Choquet simplex with n + 1 extreme points. For
+the purposes of Theorem 1.1, we will regard ∅ (which technically satisfies the conditions of
+Theorem 2.2) as a Choquet simplex (a (-1)-simplex?)
+The set of extreme points of a Choquet simplex need not be closed, although the set of
+extreme points of a metrizable Choquet simplex is a Gδ -set and thus a Polish space (the
+set of extreme points of a nonmetrizable Choquet simplex need not even be a Borel set).
+A Choquet simplex in which the set of extreme points is closed is called a Bauer simplex.
+The Riesz Interpolation Property (Theorem 2.2(iv)) is a weak lattice property. But if
+K is a Choquet simplex, Aff(K) is not a lattice in general; in fact, Aff(K) is a lattice if
+and only if K is a Bauer simplex [Alf71, Theorem II.4.1].
+The plural of simplex is often written simplices, which is correct Latin, but simplexes
+seems to be more common now, and is more in accord with the plural of complex (as in
+CW-complex).
+Remark 2.4. Observe that Theorem 2.2(iii) is a strengthening of the statement that each
+element in conv(∂e K) has a unique representation as a convex combination of extreme
+points in K.PIndeed, if x1P
+, . . . , xn , respectively, y1 , . . . , ym , are distinct extreme points of
+K and x = ni=1 αi xi = m
+j=1 βj yj are convex combinations in K. Then (2.1) holds for
+7
+
+some zij ∈ K and γij ≥ 0. If γij 6= 0, then xi = zij = yj . This implies m = n and that
+{x1 , . . . , xn } = {y1, . . . , ym }.
+A compact convex set in which each element in conv(∂e K) has a unique representation
+as a convex combination of extreme points in K is not necessarily a Choquet simplex: a
+counterexample is easy to construct, e.g., dividing out the Bauer simplex ∆ with extreme
+points [0, 1] (sitting regularly in Aff(∆)∗ ) by the one-dimensional subspace spanned by
+µ − ν, where µ and ν are distinct continuous probability measures on [0, 1].
+Using the characterization of Choquet simplexes in Theorem 2.2(iii) we can easily prove
+the following:
+Proposition 2.5. Let K be a compact convex set and let ∆ be a Choquet simplex. Assume
+there exists an affine surjection ϕ : ∆ → K with an affine cross section λ : K → ∆, i.e.
+ϕ ◦ λ = idK . Then K is a Choquet simplex.
+Note that we do not require that the maps ϕ and λ above are continuous! (But they must
+be affine.)
+Pn
+Proof.
+Let
+x
+∈
+K
+be
+written
+as
+two
+proper
+convex
+combinations
+x
+=
+j=1 αj xj =
+Pm
+i=1 βi yi in K. Then
+m
+n
+X
+X
+βi λ(yi )
+αj λ(xj ) =
+λ(x) =
+i=1
+
+j=1
+
+are proper convex combinations
+P P in ∆. Since ∆ is a Choquet simplex, there exists a convex
+combination λ(x) = nj=1 m
+i=1 γij z̄ij in ∆, satisfying (2.1)
+Pmz̄ij in the place of zij .
+Pn with
+Set zij = ϕ(z̄ij ) ∈ K. Then x is the convex combination j=1 i=1 γij zij in K and (2.1)
+holds.
+
+3
+
+The Main Result
+
+Let A be a unital C ∗ -algebra. The set S(A) of all states on A is a compact convex set in
+the weak∗ topology, and T (A), the set of all tracial states on A, is a closed convex subset
+of S(A) (possibly empty).
+We now give the proof of Theorem 1.1.
+Proof. Consider the inclusion ι : A → A∗∗ of A into its bidual, and recall that A∗∗ can
+be identified with Φu (A)′′ , the von Neumann algebra envelope of A in its universal representation Φu , see, e.g., [KR86, Section 10.1]. A crucial property of this inclusion is the
+identification of the dual A∗ of A with the predual (A∗∗ )∗ of A∗∗ . In particular, we have
+an affine bijection ρ 7→ ρ ◦ ι from the set of normal states on A∗∗ to S(A), which restricts
+to an affine bijection from the set of normal tracial states on A∗∗ onto T (A).
+∗∗
+Write A∗∗ = A∗∗
+fin ⊕ Ainf as a direct sum of its finite and its properly infinite parts. Since
+∗∗
+traces on A∗∗ obviously vanish on A∗∗
+inf , we can view these as being defined on A , or on
+∗∗
+M := Afin , as we please.
+8
+
+Let trc : M → Z := Z(M) denote the (unique) normal center-valued trace, [KR86,
+Theorem 8.2.8], where Z denotes the center of M. We may extend the center-valued trace
+to all of A∗∗ by letting it be zero on A∗∗
+inf . Each tracial state on M factors through the
+center-valued trace (as a consequence of the Dixmier property, see [KR86, Theorem 8.3.6]).
+In summary, we have the following identifications:
+T (A) ←→ {normal tracial states on M } ←→ {normal states on Z},
+
+(3.1)
+
+where the first identification (from right to left) is given by τ 7→ τ ◦ ι, for τ a normal tracial
+state on M, and the last (again from right to left) is given by ρ 7→ ρ ◦ trc , where ρ is a
+normal state on Z.
+To prove the result we use Proposition 2.5 with K = T (A) and ∆ = S(Z), the Bauer
+simplex of all states on the commutative von Neumann algebra Z, which, via Riesz’ Representation Theorem can be identified with the Bauer simplex of probability measures on
+the spectrum of Z.
+Let ϕ : S(Z) → T (A) be given by ϕ(ρ) = ρ ◦ trc ◦ ι, and let λ : T (A) → S(Z) be the
+composition of the two (left-to-right) maps in (3.1) above, i.e., λ(τ ) = ρ, where ρ is the
+unique normal state on Z for which τ = ρ ◦ trc ◦ ι = ϕ(ρ). The maps ϕ and λ are clearly
+affine (note that λ is not continuous in general), and ϕ ◦ λ is the identity on T (A), by
+definition of λ, so it follows from Proposition 2.5 that T (A) is a Choquet simplex.
+
+4
+
+The Tracial State Space of a von Neumann Algebra
+
+Let M be a finite von Neumann algebra and consider, as in the proof of Theorem 1.1, the
+(unique, normal) center-valued trace trc : M → Z, where Z is the center of M. Combining
+[KR86, Theorem 8.2.8] (existence of center-valued trace) and [KR86, Theorem 8.3.6] (the
+Dixmier property) we conclude as in the proof of Theorem 1.1 that every (normal) tracial
+state on M is of the form ρ ◦ trc for some (normal) state on Z. This shows that the set
+T (M) of tracial states on M is affinely homeomorphic to the Bauer simplex of all states on
+the commutative von Neumann algebra Z, and that the convex set of normal tracial states
+on M is affinely homemorphic to the convex set of normal states on Z. In particular, the
+trace simplex of a von Neumann algebra is always a Bauer simplex (unlike the case for
+general for separable unital C ∗ -algebras). We summarize:
+Theorem 4.1. Let M be a finite von Neumann algebra with center Z and center-valued
+trace trc : M → Z. Then every tracial state τ on M is uniquely of the form τ = ρ ◦ trc ,
+where ρ is a state on Z. The trace τ is normal on M if and only if the state ρ is normal
+on Z.
+Since the center-valued trace is idempotent (a conditional expectation), the correspondence between T (M) and S(Z) is nothing but restriction. So we obtain:
+Corollary 4.2. Let M be a finite von Neumann algebra with center Z. Then the restriction
+map gives an affine bijection and weak* homeomorphism from T (M) onto S(Z), i.e., every
+9
+
+state on Z extends uniquely to a tracial state on M. This map sends the normal traces on
+M onto the normal states of Z. In particular, T (M) is a Bauer simplex.
+This statement makes no explicit mention of the center-valued trace. It is slightly less
+precise than the statement of Theorem 4.1, but is clean and captures the essence of what
+is needed for our proof of Theorem 1.1. We actually do not need the full force of this
+corollary for our proof (only the normal part), but it makes for a nice exposition of the
+argument.
+Of course, the statement that T (M) is a Bauer simplex applies to every von Neumann
+algebra M, since T (M) is the same as the tracial state space of the finite part of M,
+although it will be empty if M is properly infinite.
+Remark 4.3. Let us return to the convex set of normal traces on M, which is identified
+with the set of normal states on Z(M). The commutative von Neumann algebra Z(M) is
+isomorphic to L∞ (Ω, µ) for some measure space (Ω, µ). The set of normal linear functionals
+on Z(M) is equal to the predual of Z(M), which we identify with
+L1 (Ω, µ). More specifiR
+cally, each f ∈ L1 (Ω, µ) produces the normal functional ρf (g) = Ω f g dµ, for g ∈ L∞ (Ω, µ).
+Let L1R (Ω, µ) and L1σ (Ω, µ) denote the real-valued functions in L1 (Ω, µ), respectively, the
+positive functions with integral 1, which correspond to the hermitian normal functionals,
+respectively, the normal states on L∞ (Ω, µ). The inclusion L1σ (Ω, µ) ⊆ L1R (Ω, µ) is regular.
+The cone generated by L1σ (Ω, µ) is the set of positive functions, which in turn induces the
+standard ordering on L1R (Ω, µ). It is clear that L1R (Ω, µ) is a lattice.
+This shows that the convex set of normal states on M is a Choquet simplex provided
+that it is compact. More specifically, we would need to equip L1R (Ω, µ) with a locally convex
+topology such that L1σ (Ω, µ) becomes compact. This can for example be done whenever
+L1R (Ω, µ) is a dual space, which typically it isn’t. This is, however, the case when M is
+the bidual of a C ∗ -algebra, and one can use this argument to provide another proof of
+Theorem 1.1, using (ii) of Theorem 2.2 rather than (iii), still using the center-valued trace.
+The set of normal states of L∞ ([0, 1], λ) is equal to L1σ ([0, 1], λ), and it is a well-known
+fact that this convex set does not have any extreme points, and hence is not compact in
+any reasonable topology, and certainly not a Choquet simplex.
+Remark 4.4. It would be nice to give a similar proof of the result in [BH82] that the
+set QT (A) of normalized quasitraces on a unital C ∗ -algebra A is a Choquet simplex. But
+there is no obvious analog of the center-valued trace or, indeed, the universal enveloping
+von Neumann algebra A∗∗ . For any fixed normalized quasitrace τ on (unital) A there is
+a finite AW∗ -algebra M and an embedding of A as a “weakly dense” C ∗ -subalgebra of M
+(there is no strong or weak topology in this case, so this must be taken with a grain of salt),
+such that τ extends uniquely to a normal quasitrace on M. M is given by an ultraproduct
+construction rather than the GNS construction in the trace case. One would somehow
+need to tie all these M’s together into a single finite AW∗ -algebra with a “center-valued
+quasitrace.” This might be possible via some version of the ultraproduct construction.
+But the resulting proof would probably be more complicated than the proof in [BH82]. (It
+should be noted that in the case where A is exact, so QT (A) = T (A), the proof in [BH82]
+10
+
+gives an alternate proof of Theorem 1.1.) See also [Rob13] for an adaptation of Pedersen’s
+approach to proving that QT (A) is a Choquet simplex.
+
+References
+[Alf71]
+
+E. Alfsen, Compact convex sets and boundary integrals, Springer-Verlag, New
+York, 1971, Ergebnisse der Mathematik und ihrer Grenzgebiete, Band 57.
+
+[BH82]
+
+B. Blackadar and D. Handelman, Dimension functions and traces on C*algebras, J. Functional Anal. 45 (1982), 297–340.
+
+[CP79]
+
+J. Cuntz and G. Pedersen, Equivalence and traces on C*-algebras, J. Functional
+Anal. 33 (1979), 135–164.
+
+[Goo86]
+
+K. R. Goodearl, Partially ordered abelian groups with interpolation, Mathematical Surveys and Monographs, no. 20, Amer. Math. Soc., Providence, R.I., 1986.
+
+[ISV]
+
+I. Ioana, P. Spaas, and I. Vigdorovich, Trace spaces of full free product C*algebras, arXiv:2407.15985v1.
+
+[KR86]
+
+R. V. Kadison and J. R. Ringrose, Fundamentals of the theory of operator algebras: Advanced theory, vol. II, Academic Press, London, 1986.
+
+[NP69]
+
+I. Namioka and R. Phelps, Tensor products of compact convex sets, Pacific J.
+Math. 31 (1969), 469–480.
+
+[OSV]
+
+J. Orovitz, R. Slutsky, and I. Vigdorovich, The space of traces of the free group
+and free products of matrix algebras, arXiv 2308.10955v2.
+
+[Ped69]
+
+G. Pedersen, Measure theory for C*-algebras III, Math.Scand. 25 (1969), 71–93.
+
+[Phe01]
+
+R. R. Phelps, Lectures on Choquet’s theorem, second ed., Lecture Notes in Mathematics, vol. 1757, Springer-Verlag, Berlin, 2001.
+
+[Rob13]
+
+L. Robert, The cone of functionals on the Cuntz semigroup, Math. Scand. 113
+(2013), 161–186.
+
+[Sak71]
+
+S. Sakai, C ∗ -algebras and W ∗ -algebras, Ergebnisse der Mathematik und ihrer
+Grenzgebiete, vol. 60, Springer-Verlag, New York-Heidelberg, 1971.
+
+[Tak70]
+
+M. Takesaki, Tomita’s theory of modular Hilbert algebras and its applications,
+Lecture Notes in Mathematics 128 (1970), Springer-Verlag.
+
+[Tho64]
+
+E. Thoma, Über unitäre Darstellungen abzählbarer, diskreter Gruppen, Math.
+Ann. 153 (1964), 111–138.
+
+11
+
+[Wang23] J. Wang, Tracial simplex of every unital C*-algebra is a Choquet simplex, M.S.
+Thesis, York University, 2023.
+
+Bruce Blackadar
+Department of Mathematics and Statistics
+University of Nevada, Reno 89557
+Email: bruceb@unr.edu
+https://bruceblackadar.com
+Mikael Rørdam
+Department of Mathematical Sciences
+University of Copenhagen
+Universitetsparken 5, DK-2100, Copenhagen Ø
+Denmark
+Email: rordam@math.ku.dk
+WWW: http://web.math.ku.dk/∼rordam/
+
+12
+
+

@@ -1,0 +1,187 @@
+New Strides Made on Deceptively Simple ‘Lonely Runner’ Problem | Quanta Magazine
+Quanta Homepage
+About Quanta
+Search
+Newsletter
+Get the latest news delivered to your inbox.
+Recent newsletters
+Follow Quanta
+Facebook
+Youtube
+Instagram
+RSS
+An editorially independent publication supported by the Simons Foundation.
+Type search term(s)
+and press enter
+Home
+New Strides Made on Deceptively Simple ‘Lonely Runner’ Problem
+Comment
+Save Article
+Read Later
+Share
+Facebook
+Copied!
+Copy link
+Email
+Pocket
+Reddit
+Ycombinator
+Comment
+Comments
+Save Article
+Read Later
+Read Later
+number theory
+New Strides Made on Deceptively Simple ‘Lonely Runner’ Problem
+By
+Paulina Rowińska
+March 6, 2026
+A straightforward conjecture about runners moving around a track turns out to be equivalent to many complex mathematical questions. Three new proofs mark the first significant progress on the problem in decades.
+Comment
+Save Article
+Read Later
+Is every runner sometimes far from all the others? For a few runners, the answer is yes. Adding more runners makes the problem exponentially harder.
+Mark Belan/
+Quanta Magazine
+Introduction
+Picture a bizarre training exercise: A group of runners starts jogging around a circular track, with each runner maintaining a unique, constant pace. Will every runner end up “lonely,” or relatively far from everyone else, at least once, no matter their speeds?
+Mathematicians conjecture that the answer is yes.
+The “lonely runner” problem might seem simple and inconsequential, but it crops up in many guises throughout math. It’s equivalent to questions in number theory, geometry, graph theory, and more — about when it’s possible to get a clear line of sight in a field of obstacles, or where billiard balls might move on a table, or how to organize a network. “It has so many facets. It touches so many different mathematical fields,” said
+Matthias Beck
+of San Francisco State University.
+For just two or three runners, the conjecture’s proof is elementary. Mathematicians proved it for four runners in the 1970s, and by 2007, they’d gotten
+as far as seven
+. But for the past two decades, no one has been able to advance any further.
+Then last year,
+Matthieu Rosenfeld
+, a mathematician at the Laboratory of Computer Science, Robotics, and Microelectronics of Montpellier, settled the conjecture for
+eight runners
+. And within a few weeks, a second-year undergraduate at the University of Oxford named
+Tanupat (Paul) Trakulthongchai
+built on Rosenfeld’s ideas to prove it for
+nine and 10
+runners.
+The sudden progress has renewed interest in the problem. “It’s really a quantum leap,” said Beck, who was not involved in the work. Adding just one runner makes the task of proving the conjecture “exponentially harder,” he said. “Going from seven runners to now 10 runners is amazing.”
+The Starting Dash
+At first, the lonely runner problem had nothing to do with running.
+Instead, mathematicians were interested in a seemingly unrelated problem: how to use fractions to approximate irrational numbers such as pi, a task that has a vast number of applications. In the 1960s, a graduate student named
+Jörg M. Wills
+conjectured that
+a century-old method for doing so
+is optimal — that there’s no way to improve it.
+In 1998, a group of mathematicians
+rewrote that conjecture
+in the language of running. Say
+N
+runners start from the same spot on a circular track that’s 1 unit in length, and each runs at a different constant speed. Wills’ conjecture is equivalent to saying that each runner will always end up lonely at some point, no matter what the other runners’ speeds are. More precisely, each runner will at some point find themselves at a distance of at least 1/
+N
+from any other runner.
+Mark Belan/
+Quanta Magazine
+When Wills saw the lonely runner paper, he emailed one of the authors,
+Luis Goddyn
+of Simon Fraser University, to congratulate him on “this wonderful and poetic name.” (Goddyn’s reply: “Oh, you are still alive.”)
+Mathematicians also showed that the lonely runner problem is equivalent to yet another question. Imagine an infinite sheet of graph paper. In the center of every grid, place a small square. Then start at one of the grid corners and draw a straight line. (The line can point in any direction other than perfectly vertical or horizontal.) How big can the smaller squares get before the line must hit one?
+As versions of the lonely runner problem proliferated throughout mathematics, interest in the question grew. Mathematicians proved different cases of the conjecture using completely different techniques. Sometimes they relied on tools from number theory; at other times they turned to geometry or graph theory.
+But this meant that they didn’t have a general strategy for how to tackle the problem. Rather, they had a bunch of clever but ad hoc techniques that might work for four runners, say, but not five. With each additional runner, they had to go back to the starting line.
+By the mid-2000s, mathematicians had proved that when there are seven or fewer runners sprinting around a track, each of them will eventually get lonely. They’d also found ways to simplify the problem. For instance, they realized that they didn’t need to prove the conjecture for all (infinitely many) combinations of speeds. Instead, if they could show that it was true for any combination of
+whole-number speeds
+, it would have to be true more generally; they could ignore fractions and irrationals.
+This was a much easier task, but it still involved dealing with infinitely many possible speeds. Something more was needed.
+Speed Limits
+In 2015,
+Terence Tao
+of the University of California, Los Angeles planted the first seed. He showed that if the lonely runner conjecture held for relatively low speeds, it would also hold for high speeds. For any given number of runners, mathematicians would only have to consider whole-number speeds up to
+a particular threshold
+.
+This reduced the problem to a finite number of calculations — at least in theory. In practice, even when you’re dealing with only a few runners, the number of combinations of speeds you have to check is still “astronomical and completely impractical,” said
+Noah Kravitz
+of the University of Oxford.
+Tao’s advance would eventually catch the eye of Rosenfeld, who was interested in proofs that use a computer to check many examples.
+He reframed the problem by considering possible counterexamples to the conjecture: What features would the runners’ speeds have to have so that at least one runner would never end up alone?
+Matthieu Rosenfeld was drawn to the lonely runner problem because it gave him the opportunity to explore his interest in computer-assisted proofs.
+Virginie Fèche
+It turned out that their speeds would need to be highly constrained. Rosenfeld used a computer program, along with ideas from number theory, to show that if he multiplied all the speeds together, their product would have to be divisible by certain prime numbers. Now all he needed to do was prove that no combination of speeds could satisfy this condition.
+To do so, he returned to a modified version of Tao’s threshold. He then rewrote it in terms of the product of speeds: If the lonely runner conjecture was true for products up to a given size, it had to be true in general. This implied that if the conjecture was false, it would be possible to find a counterexample with a product below the threshold.
+But Rosenfeld had already shown that in any counterexample, the product would have to be divisible by all those primes. Such a product would have to be massive. So massive, in fact, that it would far exceed the threshold.
+In other words, a counterexample to the lonely runner conjecture couldn’t exist — at least, not for eight runners.
+The conjecture was true
+.
+Off Track
+Rosenfeld started thinking about how to extend his proof to nine runners. In the meantime, Kravitz saw Rosenfeld’s paper and showed it to a promising undergraduate he’d been mentoring at Oxford, Paul Trakulthongchai. He advised Trakulthongchai to work on the conjecture for nine runners.
+Trakulthongchai used Rosenfeld’s overall approach, but he developed a more efficient computational technique for pinpointing the prime divisors that a counterexample would have to have. This allowed him to more quickly rule out all counterexamples for
+both nine and 10
+runners: The conjecture was true in both cases. (Rosenfeld independently proved the conjecture for nine runners as well, just a few days after Trakulthongchai did. He was happy to see the other mathematician’s burst of progress. But “at the same time, I was a bit bummed out,” he said with a laugh.)
+Tanupat (Paul) Trakulthongchai solved two new cases of the lonely runner problem as an undergraduate.
+Evan Nedyalkov
+Both Rosenfeld’s and Trakulthongchai’s methods are too computationally expensive to work for more runners, leaving them stuck on the problem’s next case. “In order to achieve 11, I think you need an entirely new sort of way of looking at things,” Trakulthongchai said.
+But mathematicians are excited by these recent advances — and by the fact that a single approach solved three cases at once, when previously each new case had required an entirely new proof. “I really see a new way of getting a hold on the whole conjecture by this new idea,” said
+Matthias Schymura
+of the University of Rostock in Germany.
+Although a proof of the whole conjecture still feels far off — and mathematicians don’t yet agree on whether it will hold true for any
+N
+runners — “things are starting to move after not moving for a while,” Kravitz said.
+Inspired by the new results, Schymura and others are organizing a
+workshop on the lonely runner conjecture
+, to be held in Rostock this October. It will bring together researchers from the different fields in which the conjecture appears. The hope is that they’ll approach the problem from various angles and “communicate and bridge the different areas,” Schymura said, to find a potential proof or counterexample.
+“I’m convinced the problem will be solved,” Wills said. “But it might be some 20, 30 more years.”
+The Quanta Newsletter
+Get highlights of the most important news delivered to your email inbox
+Recent newsletters
+Also in
+Mathematics
+After 80 Years, Mathematicians Give Famed ‘Erdős Method’ an Upgrade
+graph theory
+After 80 Years, Mathematicians Give Famed ‘Erdős Method’ an Upgrade
+By
+Leila Sloman
+June 26, 2026
+Comment
+Save Article
+Read Later
+What Is the Positive Grassmannian and Why Does It Show Up Everywhere?
+The Joy of Why
+What Is the Positive Grassmannian and Why Does It Show Up Everywhere?
+By
+Janna Levin
++1 author
+Steven Strogatz
+June 25, 2026
+Comment
+Save Article
+Read Later
+Seven Perfect Shuffles Randomize a Deck of Cards. But How Many Sloppy Ones?
+probability
+Seven Perfect Shuffles Randomize a Deck of Cards. But How Many Sloppy Ones?
+By
+John Pavlus
+June 17, 2026
+Comment
+Save Article
+Read Later
+Comment on this article
+Quanta Magazine moderates comments to facilitate an informed, substantive, civil conversation. Abusive, profane, self-promotional, misleading, incoherent or off-topic comments will be rejected. Moderators are staffed during regular business hours (New York time) and can only accept comments written in English.
+Show comments
+Next article
+Can the Most Abstract Math Make the World a Better Place?
+Close
+Log in to Quanta
+Use your social network
+Facebook
+Connect with Facebook
+Connect with Google
+or
+Don't have an account yet?
+Sign up
+Close
+Forgot your password?
+We’ll email you instructions to reset your password
+Close
+Change your password
+Enter your new password
+Close
+Sign Up
+Creating an account means you accept Quanta Magazine's
+Terms & Conditions
+and
+Privacy Policy

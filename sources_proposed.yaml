@@ -1,0 +1,203 @@
+# ЗАХОД-2: добор источников — ПРЕДЛОЖЕНИЕ (не финальный реестр)
+# sources.yaml и materials.db НЕ тронуты. Это накопитель для рассмотрения владельцем.
+generated_at: '2026-07-10'
+window_checked: '2025-07 .. 2026-07'
+
+new_sources:
+
+# ───────── КЛАСС A · русский коллоквиум-класс ─────────
+
+- name: Журнал «Квант»
+  class: A
+  category: коллоквиум/журнал (архив статей)
+  gap_closed: "мост элементарное↔высшее от больших учёных, русскоязычный канон с 1970"
+  mechanism: "kvant.mccme.ru — предсказуемый URL PDF номера: kvant.mccme.ru/pdf/{ГОД}/{ГОД}-{НОМЕР}.pdf"
+  mechanism_note: >
+    RSS/API не найден — мониторинг через периодический опрос предсказуемых URL номеров.
+    Современный агрегатор kvant.digital (постатейные permalink) не открылся напрямую
+    (таймаут, похоже на платный/защищённый сервис) — pending-access как вторичный канал.
+    kvant.ras.ru (второе зеркало) — истёк SSL, недоступен.
+    НЕ путать с Quanta Magazine (уже в базе как отдельный источник) — разные издания.
+  digest_grade_per_year_estimate: "3-5"
+  access_status: ok
+  examples:
+    - {title: "Л. Ашкинази, «Проблемы электровакуумных [приборов]»", date: '2025-01', url: 'https://kvant.mccme.ru/pdf/2025/2025-01.pdf'}
+    - {title: "П. Кожевников, «Об инвариантах Понселе и пучках окружностей»", date: '2025-01', url: 'https://kvant.mccme.ru/pdf/2025/2025-01.pdf'}
+    - {title: "Д. Златопольский, «Использование логарифмов в XVIII веке»", date: '2025-01', url: 'https://kvant.mccme.ru/pdf/2025/2025-01.pdf'}
+
+- name: ЛШСМ — Летняя школа «Современная математика» (Дубна)
+  class: A
+  category: коллоквиум/мини-курсы
+  gap_closed: "обзорные глубокие мини-курсы от топ-математиков для продвинутой аудитории, ближайшая конец июля 2026"
+  mechanism: "old.mccme.ru/dubna/{год}/material.htm (программа) + YouTube-плейлисты (JS-рендер, не парсится WebFetch напрямую) + видеотека mathnet.ru (см. блокер ниже)"
+  digest_grade_per_year_estimate: "10-15"
+  access_status: ok (программа) / pending-access (гарантированные прямые видео — упирается в mathnet.ru или требует парсинга YouTube-плейлиста)
+  examples:
+    - {title: "С. О. Горчинский, «Теории Галуа: классическая и дифференциальная»", date: 'ЛШСМ-2024', url: 'https://old.mccme.ru/dubna/2024/material.htm'}
+    - {title: "Н. Ю. Решетихин, «Димерные модели в статистической механике»", date: 'ЛШСМ-2024', url: 'https://old.mccme.ru/dubna/2024/material.htm'}
+    - {title: "Г. Б. Шабат, «Замечательные решётки»", date: 'ЛШСМ-2024', url: 'https://old.mccme.ru/dubna/2024/material.htm'}
+
+- name: Коллоквиум МИАН (МИАН-ПОМИ)
+  class: A
+  category: коллоквиум
+  gap_closed: "учёные РАН рассказывают всему институту про свою область — междисциплинарные обзоры"
+  mechanism: "mathnet.ru/conf408 (МИАН) и mathnet.ru/conf2678 (МИАН-ПОМИ); видеозаписи mathnet.ru/rus/presentNNNNN"
+  mathnet_access_blocker: >
+    ПОДТВЕРЖДЁННЫЙ БЛОКЕР (сигнал владельцу продукта): mathnet.ru недоступен из рабочей сети
+    исполнителя на уровне TCP — WebFetch даёт ETIMEDOUT, curl с browser-UA тоже timeout (exit 28),
+    curl -I на www.mathnet.ru порт 80 даёт мгновенный connection refused (не медленный сервер —
+    похоже на geoblock/firewall дата-центра). Sanity-check на example.com прошёл мгновенно —
+    проблема именно в mathnet.ru. OAI-PMH/API endpoint не найден. Обход: контент индексируется
+    Google — снипеты читаются, страницы напрямую не открываются.
+    НЕОЖИДАННАЯ РАБОЧАЯ АЛЬТЕРНАТИВА: Telegram-канал t.me/s/SteklovInstitute индексируется и
+    открывается — можно мониторить анонсы коллоквиума оттуда как обходной путь, пока mathnet.ru
+    заблокирован для этой инфраструктуры.
+  digest_grade_per_year_estimate: "5-8 (из 15-25 докладов/год всего цикла)"
+  access_status: pending-access (mathnet.ru) — есть обходной канал через Telegram
+  examples:
+    - {title: "А. А. Гайфуллин, «Изгибаемые многогранники: результаты, методы и открытые вопросы»", date: '2025-12 (среда, цикл Гайфуллина)', url: 'https://mathnet.ru/php/seminars.phtml?presentid=48800', note: 'подтверждено Google-снипетом, страница напрямую не открыта'}
+    - {title: "А. А. Гайфуллин, «Изгибаемые многогранники. Лекция 3» (видео)", date: 'не уточнена', url: 'https://mathnet.ru/rus/present9386', note: 'подтверждено Google-снипетом'}
+
+# ───────── КЛАСС A · мировые аналоги коллоквиум-класса ─────────
+
+- name: "Clay Mathematics Institute — Millennium Prize Problems Lecture Series"
+  class: A
+  category: коллоквиум
+  gap_closed: "топ-математики объясняют Проблемы тысячелетия широкой аудитории; сильнейший из мировых аналогов"
+  mechanism: "claymath.org/events/millennium-prize-problems-lecture-series/ + cmsa.fas.harvard.edu/millennium/ ; видео — YouTube CMSA/CMI"
+  digest_grade_per_year_estimate: "7-8"
+  access_status: ok
+  note: "сезон 2025-2026, возможно разовая кампания, а не гарантированный базовый темп — проверить продолжение после апреля 2026"
+  examples:
+    - {title: "Michael Freedman — Poincaré Conjecture", date: '2025-09-17', url: 'https://cmsa.fas.harvard.edu/millennium/'}
+    - {title: "Sourav Chatterjee — Yang–Mills Existence and Mass Gap", date: '2025-10-15', url: 'https://www.youtube.com/watch?v=qVoEUFvDqWk'}
+    - {title: "Pierre Deligne — What is the Hodge Conjecture", date: '2025-11-12', url: 'https://www.claymath.org/events/millennium-prize-problems-lecture-series/'}
+    - {title: "Madhu Sudan — The P vs NP Problem", date: '2025-12-03', url: 'https://www.claymath.org/events/millennium-prize-problems-lecture-series/'}
+
+- name: "Abel Prize laureate lectures"
+  class: A
+  category: коллоквиум/премия
+  gap_closed: "лекции лауреатов, ежегодный топ-уровень"
+  mechanism: "abelprize.no/events + YouTube-канал 'The Abel Prize' (UCIJF5m5y70ZQoDCXVq0k50A)"
+  digest_grade_per_year_estimate: "3-4"
+  access_status: ok
+  examples:
+    - {title: "Michel Talagrand — «Chaining: a long story» (2024 Abel Lecture)", date: '2024-05-30', url: 'https://www.youtube.com/watch?v=3yIwl6XC0xA'}
+    - {title: "Masaki Kashiwara — «Monoidal categories (non-commutative case)» + Catharina Stroppel, Andrea D'Agnolo, David Nadler (Abel Lectures 2025)", date: '2025-05-21', url: 'https://abelprize.no/events/abel-lectures-1'}
+    - {title: "2026 Abel Prize Lectures — Gerd Faltings, Ana Caraiani, Wiesława Nizioł, Minhyong Kim", date: '2026-05-27', url: 'https://abelprize.no/events/2026-abel-prize-award-ceremony'}
+
+- name: "Breakthrough Prize Symposium — Mathematics"
+  class: A
+  category: коллоквиум/премия
+  gap_closed: "лауреаты дают лекции для широкой аудитории про своё направление"
+  mechanism: "breakthroughprize.org/Lectures (программа) + YouTube-канал Breakthrough Prize (видео разбросаны, единого фида нет)"
+  digest_grade_per_year_estimate: "1-3"
+  access_status: ok
+  note: "видео не собраны в один канонический RSS/плейлист — практический фид: поиск по YouTube 'Breakthrough Prize' + имя лауреата"
+  examples:
+    - {title: "Terence Tao — «The Potential for AI in Science and Mathematics»", date: '2024-08-07', url: 'https://breakthroughprize.org/Lectures/577'}
+    - {title: "Martin Hairer — «A Mathematical Journey Through Scales» (Oxford)", date: '2024-09-22', url: 'https://www.youtube.com/watch?v=lNQCVtbM3Ac'}
+    - {title: "Nima Arkani-Hamed — «1/n» (Simons Foundation)", date: '2025-04-17', url: 'https://breakthroughprize.org/Lectures/575'}
+
+- name: "Snapshots of Modern Mathematics from Oberwolfach"
+  class: A
+  category: коллоквиум/статьи
+  gap_closed: "короткие обзорные статьи от исследователей MFO, редактированы для широкой доступности, открытый PDF"
+  mechanism: "mfo.de/outreach-media/snapshots и imaginary.org/snapshots — свободная загрузка PDF, номерная нумерация NNN/год"
+  digest_grade_per_year_estimate: "15-25 (высокий объём, но качество равномерно хорошее — не шум, авторская редактура MFO)"
+  access_status: ok
+  examples:
+    - {title: "Sarah Blackwell — «Trisections of four-dimensional spaces» (№5/2025)", date: '2025', url: 'https://publications.mfo.de/bitstream/handle/mfo/4322/snapshot-2025-005.pdf'}
+    - {title: "Rajula Srivastava — «Why oscillation counts: Diophantine approximation, geometry, and the Fourier transform» (№9/2025)", date: '2025', url: 'https://www.imaginary.org/sites/default/files/snapshots/snapshot-2025-009.pdf'}
+
+- name: "Oberwolfach Lecture (MFO, ежегодная)"
+  class: A
+  category: коллоквиум
+  gap_closed: "одна ежегодная топовая лекция-хайлайт MFO, широкая аудитория подполей"
+  mechanism: "mfo.de/outreach-media/oberwolfach-lectures/videos — прямые URL на видео по лекции"
+  digest_grade_per_year_estimate: "1 (низкий объём, но неизменно высокое качество)"
+  access_status: ok
+  examples:
+    - {title: "Alessio Figalli — «Free Boundary Regularity in Obstacle Problems»", date: '2025-10-11', url: 'https://www.mfo.de/outreach-media/oberwolfach-lectures/videos/alessio-figalli-free-boundary-regularity-in-obstacle-problems'}
+    - {title: "Maryna Viazovska — «Random Lattices and Symmetries»", date: '2024-10-12', url: 'https://www.mfo.de/outreach-media/oberwolfach-lectures/videos/maryna-viazovska-random-lattices-and-symmetries'}
+
+- name: "IAS Public Lecture (School of Mathematics)"
+  class: A
+  category: коллоквиум
+  gap_closed: "топ-математики для общей публики Institute for Advanced Study"
+  mechanism: "ias.edu/idea-tags/public-lecture, ias.edu/video ; YouTube @videosfromIAS (ias.edu блокирует WebFetch 403 — нужен reader-proxy типа r.jina.ru для автомониторинга)"
+  digest_grade_per_year_estimate: "1-2 (math-specific в рамках серии; серия шире — все 4 школы IAS)"
+  access_status: ok (conditional — низкая частота, реальный охват уже школы математики нужно перепроверять периодически)
+  examples:
+    - {title: "Tadashi Tokieda — «Surprises from rubbing the wrong way»", date: '2024-02-07', url: 'https://www.ias.edu/events/public-lecture-tadashi-tokieda'}
+    - {title: "Timothy Roughgarden — «Computer Science and Game Theory: A Conversation»", date: '2025-11-19', url: 'https://www.ias.edu/video/computer-science-and-game-theory-conversation'}
+
+# ───────── КЛАСС B · тонкие разделы ─────────
+
+- name: "John D. Cook — блог (вероятность/статистика)"
+  class: B
+  category: блог
+  gap_closed: "тонкий раздел: вероятность (вкл. статистику) — закрыт"
+  mechanism: "RSS https://www.johndcook.com/blog/feed/ ; тег вероятности/статистики https://www.johndcook.com/blog/tag/probability-and-statistics/"
+  digest_grade_per_year_estimate: "высокая частота публикаций (почти ежедневно), доля вероятность/статистика — заметная часть; в дайджест брать выборочно"
+  access_status: ok
+  examples:
+    - {title: "Does additional data always reduce posterior variance?", date: '2026-07-03', url: 'https://www.johndcook.com/blog/2026/07/03/does-additional-data-always-reduce-posterior-variance/'}
+    - {title: "Mills ratio and tail thickness", date: '2026-01-21', url: 'https://www.johndcook.com/blog/2026/01/21/mills-ratio/'}
+    - {title: "Sigmas and Student", date: '2026-01-21', url: 'https://www.johndcook.com/blog'}
+
+rejected:
+  - name: "Матфак ВШЭ (общефакультетские обзорные доклады)"
+    class_considered: A
+    reason: "формат заглох/нерегулярен — подтверждённые примеры (Окуньков-2014, «День Арнольда»-2015) устарели, свежих (2024-2026) не найдено. Сайт math.hse.ru/videos открывается, но материала для дайджеста мало."
+
+  - name: "IHÉS Public Lectures"
+    class_considered: A
+    reason: "серия реальная и широкая, но тематически общенаучпоп (египтология, сейсмология, стоматология) — из ~11 лекций 2023-2026 только 1-2 математико-смежные. Не попадание в профиль."
+
+  - name: "Séminaire Poincaré / Bourbaphy"
+    class_considered: A
+    reason: "физика, не математика — подтверждено на bourbaphy.fr ('Bourbaphy' = Bourbaki+physique). Дубль-риск с уже собранным Bourbaki отсутствует (разные дисциплины), но вне профиля дайджеста."
+
+  - name: "PCMI (Park City Mathematics Institute) / IHÉS Summer School"
+    class_considered: A
+    reason: "технические многонедельные минкурсы для аспирантов, не отдельные широко-аудиторные лекции; чистого линкуемого фида отдельных докладов не нашлось — только плейлисты по темам/годам."
+
+  - name: "SLMath / MSRI Public Lectures"
+    class_considered: A
+    reason: "серия 'MSRI/Evans Lecture' не имеет подтверждений активности после ~2014; текущий видеоархив стал устаревшим (1995-1997), актуальный листинг не найден несмотря на несколько попыток."
+
+  - name: "Fields Institute Public Lectures"
+    class_considered: A
+    reason: "серия существует в принципе (Distinguished/Coxeter Lectures), но не удалось получить ни одного реального 2023-2025 примера title+дата+рабочая ссылка — страницы либо не рендерятся, либо выдают устаревший контент."
+
+  - name: "ICM Public Lecture (Philadelphia 2026)"
+    class_considered: A
+    reason: "реальна и подтверждена (Terence Tao 2026-07-24, Talithia Williams 2026-07-25 через Eventbrite/Simons Foundation), но раз в 4 года по циклу конгресса — не регулярный поток; не включена ради дисциплины «не перегружать», отмечена как резерв."
+
+  - name: "Simons Foundation Presidential Lectures / Simons Institute (Karp Lectures, Theoretically Speaking)"
+    class_considered: A
+    reason: "реальны, но математико-релевантная доля мала (1-3/год из Presidential Lectures; Karp/Theoretically Speaking по духу больше CS-theory, чем чистая математика). Не включены ради дисциплины «не перегружать» — держать в резерве, если Clay/Abel/Breakthrough/Snapshots/Oberwolfach окажется мало."
+
+  - name: "Peter Cameron's Blog (теория представлений — доп. к Persiflage)"
+    class_considered: B
+    reason: "смежная область (группы/комбинаторика), не узко теория представлений; регулярной рубрики по теме нет. Раздел теория представлений остаётся пробелом."
+
+  - name: "Étienne Ghys (differentional geometry / dynamics)"
+    class_considered: B
+    reason: "живой еженедельный подкаст 'Petites histoires de science' существует, но контент общенаучный (история науки), не специфично дифгеометрия/динамика. Письменные геометрические статьи на images.math.cnrs.fr выходят ~1/год — недостаточный поток. Оба раздела (дифгеометрия, динамические системы) остаются пробелами."
+
+  - name: "Vaughn Climenhaga's Math Blog (динамические системы)"
+    class_considered: B
+    reason: "мёртв с 2022-06-24 — не проходит по свежести."
+
+  - name: "Andrew Gelman — Statistical Modeling blog (вторичный кандидат по вероятности/статистике)"
+    class_considered: B
+    reason: "огромный охват, но контент смещён в соц.науки/политику/методологическую критику, а не мост к теории вероятностей. John D. Cook точнее попадает в профиль — Gelman не включён во избежание перегрузки."
+
+gaps_remaining:
+  - "теория представлений — источник не найден (Persiflage уже в базе остаётся единственным)"
+  - "динамические системы — источник не найден (Climenhaga мёртв, Ghys недостаточен)"
+  - "дифференциальная геометрия — Ghys рассмотрен и отклонён как недостаточный; раздел частично закрывается Snapshots/Oberwolfach Lecture эпизодически, но не системно"
+
+mathnet_ru_access_status: "pending-access — TCP-уровня блокировка из рабочей сети (не таймаут медленного сервера, похоже на geoblock/firewall дата-центра); обходной путь найден — Telegram-канал t.me/s/SteklovInstitute индексируется и открывается для мониторинга анонсов МИАН."

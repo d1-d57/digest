@@ -1,0 +1,294 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN" "http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg-flat.dtd" >
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+
+<title>Geometry and the Exceptional Jordan Algebra | The n-Category Caf&#xE9;</title>
+
+<meta name="ICBM" content="30.2893, -97.7367" />
+<meta name="DC.title" content="The n-Category Caf&#xE9;" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<style type="text/css" media="all" title="The n-Category Caf&#xE9; Stylesheet">@import url("/category/styles-site.css");</style>
+<link rel="stylesheet" href="/category/print.css" type="text/css" media="print" />
+
+<link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="/category/atom10.xml" />
+<link rel="alternate" type="application/atom+xml" title="Atom 1.0 Comments Feed" href="/category/comments.atom" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="/category/rsd.xml" />
+<link rel="shortcut icon" type="image/x-icon" href="/category/images/favicon.ico" />
+<link rel="icon" type="image/x-icon" href="/category/images/favicon2.ico" />
+<link rel="pgpkey" href="/category/urs.asc" title="Urs Schreiber's PGP Public Key" />
+<link rel="start" href="/category/" title="Home" />
+<link rel="search" href="/cgi-bin/MT-3.0/mt-search.cgi?IncludeBlogs=3&amp;Template=category" title="Search" />
+<link rel="contents" href="/category/archives.html" title="Comprehensive List of Blog Entries" />
+
+
+<link rel="bookmark" href="#content" title="Main Content" />
+<link rel="bookmark" href="#comments" title="Comments" />
+<link rel="bookmark" href="#search" title="Search Box" />
+<link rel="bookmark" href="#related" title="Related entries" />
+<link rel="bookmark" href="#AccessKeyList" title="AccessKeys" />
+<link rel="prev" href="/category/2026/03/the_agent_that_doesnt_know_its.html" title="The Agent That Doesn't Know Itself" />
+<link rel="next" href="/category/2026/04/the_quantum_mechanics_of_the_i.html" title="Quantum Mechanics of the Inverse Cube Force Law" />
+<link rel="up" href="/category/2026/03/" title="March, 2026" />
+
+<script type="text/javascript" src="/category/prototype.js"></script>
+<script type="text/javascript" src="/category/ie.js"></script>
+<script type="text/x-mathjax-config">
+  <!--//--><![CDATA[//><!--
+    MathJax.Hub.Config({
+      MathML: { useMathMLspacing: true },
+      "HTML-CSS": { scale: 90,
+                    noReflows: false,
+                    extensions: ["handle-floats.js"],
+                    linebreaks: { width: "container" }
+       }
+    });
+    MathJax.Hub.Queue( function () {
+       var fos = document.getElementsByTagName('foreignObject');
+       for (var i = 0; i < fos.length; i++) {
+         MathJax.Hub.Typeset(fos[i]);
+       }
+    });
+  //--><!]]>
+</script>
+<script type="text/javascript">
+  <!--//--><![CDATA[//><!--
+  window.addEventListener("DOMContentLoaded", function () {
+    var div = document.createElement('div');
+    var math = document.createElementNS('http://www.w3.org/1998/Math/MathML', 'math');
+    document.body.appendChild(div);
+    div.appendChild(math);
+  // Test for MathML support comparable to WebKit version https://trac.webkit.org/changeset/203640 or higher.
+    div.setAttribute('style', 'font-style: italic');
+    var mathml_unsupported = !(window.getComputedStyle(div.firstChild).getPropertyValue('font-style') === 'normal');
+    div.parentNode.removeChild(div);
+    if (mathml_unsupported) {
+      // MathML does not seem to be supported...
+      var s = document.createElement('script');
+      s.src = "/wiki/MathJax/MathJax.js?config=MML_HTMLorMML-full";
+      document.querySelector('head').appendChild(s);
+    } else {
+      document.head.insertAdjacentHTML("beforeend", '<style>svg[viewBox] {max-width: 100%}</style>');
+    }
+  });
+  //--><!]]>
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="https://golem.ph.utexas.edu/category/2026/03/geometry_and_the_exceptional_j.html"
+    trackback:ping="https://golem.ph.utexas.edu/cgi-bin/MT-3.0/dxy-tb.fcgi/3632"
+    dc:title="Geometry and the Exceptional Jordan Algebra"
+    dc:identifier="https://golem.ph.utexas.edu/category/2026/03/geometry_and_the_exceptional_j.html"
+    dc:subject="Geometry"
+    dc:description="Slides for a talk on features of the octonionic projective plane."
+    dc:creator="John Baez"
+    dc:date="2026-03-28T00:44:54+00:00" />
+</rdf:RDF>
+-->
+
+
+</head>
+
+<body>
+
+<div class="frame">
+
+<div id="banner">
+<h1><a href="/category/" accesskey="1" title="Jump to the blog main page">The n-Category Caf&#xE9;</a></h1>
+<div class="description">A group blog on math, physics and philosophy</div>
+</div>
+
+
+<h2 class="skip">Skip to the Main Content</h2>
+<div class="skip">
+<a href="#content" accesskey="2">Enough, already! Skip to the content.</a>
+</div>
+<p style="display:none;">
+<strong>Note:</strong>These pages make extensive use of the latest XHTML and CSS <a href="http://www.w3.org">Standards</a>. They ought to look great in any standards-compliant modern browser. Unfortunately, they will probably look horrible in older browsers, like Netscape 4.x and IE 4.x. Moreover, many posts use MathML, which is, currently <em>only</em> supported in Mozilla. My best suggestion (and you will <em>thank</em> me when surfing an ever-increasing number of sites on the web which have been crafted to use the new standards) is to upgrade to the latest version of your browser. If that's not possible, consider moving  to the Standards-compliant and open-source <a href="http://www.mozilla.org">Mozilla</a> browser.
+</p>
+
+
+<div class="blog">
+
+<div><div id='menu'>
+<a href='/category/2026/03/the_agent_that_doesnt_know_its.html' accesskey='p'>&#xab; The Agent That Doesn&#x2019;t Know Itself</a> |
+
+<a href='/category/'>Main</a>
+| <a href='/category/2026/04/the_quantum_mechanics_of_the_i.html' accesskey='n'>Quantum Mechanics of the Inverse Cube Force Law &#xbb;</a>
+
+</div>
+
+<h2 class='date'>March 28, 2026</h2>
+
+<div id='content' class='blogbody'>
+
+<h3 class='title'>Geometry and the Exceptional Jordan Algebra</h3>
+
+<h4 class='posted'>Posted by John Baez</h4>
+
+<div><a href='http://golem.ph.utexas.edu/~distler/blog/mathml.html' onclick='window.open(this.href, &#x27;MathML&#x27;, &#x27;width=310,height=150,scrollbars=no,resizable=yes,status=no&#x27;); return false;' onkeypress='if(window.event.keyCode == 13){window.open(this.href, &#x27;MathML&#x27;, &#x27;width=310,height=150,scrollbars=no,resizable=yes,status=no&#x27;); return false;}'><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>I&#x2019;m giving a talk online tomorrow at the 2026 Spring Southeastern Sectional Meeting of the American Mathematical Society, in the <a href='https://www.ams.org/meetings/sectional/2329_program_ss33.html#title'>Special Session on Non-Associative Rings and Algebras</a>.  The organizers are Layla Sorkatti and Kenneth Price. I doubt the talk will be recorded, but you can see my slides.</p>
+
+
+<div id='more'>
+<div><a href='http://golem.ph.utexas.edu/~distler/blog/mathml.html' onclick='window.open(this.href, &#x27;MathML&#x27;, &#x27;width=310,height=150,scrollbars=no,resizable=yes,status=no&#x27;); return false;' onkeypress='if(window.event.keyCode == 13){window.open(this.href, &#x27;MathML&#x27;, &#x27;width=310,height=150,scrollbars=no,resizable=yes,status=no&#x27;); return false;}'><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p><a href='http://math.ucr.edu/home/baez/standard/exceptional.pdf'><img width='450' src='http://math.ucr.edu/home/baez/standard/exceptional.jpg' alt='' /></a></p>
+
+<ul>
+<li><a href='http://math.ucr.edu/home/baez/standard/exceptional.pdf'>Projective geometry and the exceptional Jordan algebra</a>.</li>
+</ul>
+
+<blockquote>
+  <p><b>Abstract.</b> Dubois-Violette and Todorov noticed that the gauge group of theStandard Model of particle physics is the intersection of two maximal subgroups of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msub><mtext>F</mtext> <mn>4</mn></msub></mrow><annotation encoding='application/x-tex'> \text{F}_4</annotation></semantics></math>. which is the automorphism group of the exceptional Jordan algebra <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msub><mi>&#x1d525;</mi> <mn>3</mn></msub><mo stretchy='false'>(</mo><mi>&#x1d546;</mi><mo stretchy='false'>)</mo></mrow><annotation encoding='application/x-tex'>\mathfrak{h}_3(\mathbb{O})</annotation></semantics></math>.  Here we conjecture that these can be taken to be any subgroups preserving copies of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msub><mi>&#x1d525;</mi> <mn>2</mn></msub><mo stretchy='false'>(</mo><mi>&#x1d546;</mi><mo stretchy='false'>)</mo></mrow><annotation encoding='application/x-tex'> \mathfrak{h}_2(\mathbb{O})</annotation></semantics></math> and <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msub><mi>&#x1d525;</mi> <mn>3</mn></msub><mo stretchy='false'>(</mo><mi>&#x2102;</mi><mo stretchy='false'>)</mo></mrow><annotation encoding='application/x-tex'>\mathfrak{h}_3(\mathbb{C})</annotation></semantics></math> that intersect in a copy of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msub><mi>&#x1d525;</mi> <mn>2</mn></msub><mo stretchy='false'>(</mo><mi>&#x2102;</mi><mo stretchy='false'>)</mo></mrow><annotation encoding='application/x-tex'> \mathfrak{h}_2(\mathbb{C})</annotation></semantics></math>.   Given this, we show that the Standard Model gauge group consists of all isometries of the octonionic projective plane that preserve an octonionic projective line and a complex projective plane intersecting in a complex projective line.   This is joint work with Paul Schwahn.</p>
+</blockquote>
+
+<p>This is an introductory talk for mathematicians.  Physicists may prefer the two talks <a href='https://math.ucr.edu/home/baez/standard/'>here</a>.  Those go much further in some ways, but they don&#x2019;t cover the new ideas that Paul Schwahn and I are in the midst of working on.</p>
+
+</div>
+
+
+<span class='posted'>Posted at March 28, 2026 12:44 AM UTC
+</span>
+</div>
+
+<p class='trackback-url'>TrackBack URL for this Entry:&#xa0;&#xa0; https://golem.ph.utexas.edu/cgi-bin/MT-3.0/dxy-tb.fcgi/3632</p>
+
+
+<h2 class='comments-head' id='related'>Some Related Entries</h2>
+
+<div id='pane'>
+
+<form method='get' action='/cgi-bin/MT-3.0/mt-search.cgi'>
+<fieldset class='search'>
+  <input type='hidden' name='IncludeBlogs' value='3' />
+  <input type='hidden' name='Template' value='category' />
+  <label for='search' accesskey='4'>Search for other entries:</label><br />
+  <input id='search' name='search' size='25' /><br />
+  <input type='submit' value='Search' />
+</fieldset>
+</form>
+
+
+
+</div>
+
+<ul class='blogbody related'>
+
+   <li><a href='/category/2024/11/the_icosahedron_as_a_thurston.html'>The Icosahedron as a Thurston Polyhedron</a> &#x2014;
+<i>Nov 05, 2024</i></li>
+   <li><a href='/category/2024/10/thurston_on_triangulations_of.html'>Triangulations of the Sphere (Part 2)</a> &#x2014;
+<i>Oct 29, 2024</i></li>
+   <li><a href='/category/2024/10/triangulations_of_the_sphere.html'>Triangulations of the Sphere (Part 1)</a> &#x2014;
+<i>Oct 26, 2024</i></li>
+   <li><a href='/category/2024/05/3d_rotations_and_the_cross_pro.html'>3d Rotations and the 7d Cross Product (Part 1)</a> &#x2014;
+<i>May 15, 2024</i></li>
+   <li><a href='/category/2023/11/classification_of_metric_fibra.html'>Classification of Metric Fibrations</a> &#x2014;
+<i>Nov 23, 2023</i></li>
+   <li><a href='/category/2023/05/symmetric_spaces_and_the_tenfo.html'>Symmetric Spaces and the Tenfold Way</a> &#x2014;
+<i>May 09, 2023</i></li>
+   <li><a href='/category/2022/12/guillotine_partitions_and_the.html'>Guillotine Partitions and the Hipparchus Operad</a> &#x2014;
+<i>Dec 26, 2022</i></li>
+   <li><a href='/category/2022/12/dividing_a_square_into_similar.html'>Dividing a Square into Similar Rectangles</a> &#x2014;
+<i>Dec 22, 2022</i></li>
+
+</ul>
+</div>
+
+<h2 class="comments-head" id="comments">3 Comments &amp; 0 Trackbacks</h2>
+
+<div class="blogbody">
+
+<div class="comments-body" id="c069184">
+<h3 class="title">Re: Geometry and the Exceptional Jordan Algebra</h3>
+
+<div><div><a href="http://golem.ph.utexas.edu/~distler/blog/mathml.html"><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>Indeed, and to include <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msub><mi>E</mi> <mn>6</mn></msub></mrow><annotation encoding='application/x-tex'>E_6</annotation></semantics></math>, <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>SO</mi><mo stretchy='false'>(</mo><mn>10</mn><mo stretchy='false'>)</mo></mrow><annotation encoding='application/x-tex'>SO(10)</annotation></semantics></math> and flipped <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>SU</mi><mo stretchy='false'>(</mo><mn>5</mn><mo stretchy='false'>)</mo></mrow><annotation encoding='application/x-tex'>SU(5)</annotation></semantics></math> GUT, take the <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msub><mi>F</mi> <mn>4</mn></msub></mrow><annotation encoding='application/x-tex'>F_4</annotation></semantics></math> associator and add a complex translate, which gives <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msub><mi>E</mi> <mn>6</mn></msub></mrow><annotation encoding='application/x-tex'>E_6</annotation></semantics></math> instead of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msub><mi>E</mi> <mrow><mn>6</mn><mo stretchy='false'>(</mo><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mn>26</mn><mo stretchy='false'>)</mo></mrow></msub></mrow><annotation encoding='application/x-tex'>E_{6(-26)}</annotation></semantics></math>.</p>
+</div>
+<div class="comments-post">Posted by:
+<a title="https://uduality.blogspot.com" href="https://uduality.blogspot.com" rel="nofollow">Metatron</a> on April 20, 2026  2:47 PM | <a href="/category/2026/03/geometry_and_the_exceptional_j.html#c069184" title="URL for comment by Metatron [April 20, 2026  2:47 PM]">Permalink</a>
+
+| <a href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3634;parent_id=69184" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}" title="Respond to comment by Metatron [April 20, 2026  2:47 PM]">Reply to this</a>
+</div>
+</div>
+
+
+
+
+
+<div class="comments-body" id="c069213">
+<h3 class="title">Re: Geometry and the Exceptional Jordan Algebra</h3>
+
+<div><div><a href="http://golem.ph.utexas.edu/~distler/blog/mathml.html"><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>This is all very interesting from the viewpoint of reconstructing quantum theory. One much-discussed genre of such derivations go through the Euclidean Jordan algebras, and so the octonionic qutrit is an oddball that shows up quite naturally. It even has the nice feature that it supports a <a href="https://arxiv.org/abs/1308.3188">complete set of equiangular lines</a> and thus a <a href="https://golem.ph.utexas.edu/category/2019/02/sporadic_sics_and_exceptional.html">symmetric reference measurement</a>. So, it would be nice in a way if it had physical relevance.</p>
+</div>
+<div class="comments-post">Posted by:
+<a title="https://www.sunclipse.org" href="https://www.sunclipse.org" rel="nofollow">Blake Stacey</a> on June 10, 2026  5:16 AM | <a href="/category/2026/03/geometry_and_the_exceptional_j.html#c069213" title="URL for comment by Blake Stacey [June 10, 2026  5:16 AM]">Permalink</a>
+
+| <a href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3634;parent_id=69213" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}" title="Respond to comment by Blake Stacey [June 10, 2026  5:16 AM]">Reply to this</a>
+</div>
+</div>
+
+<div class="comments-nest-box">
+<div class="comments-body" id="c069215">
+<h3 class="title">Re: Geometry and the Exceptional Jordan Algebra</h3>
+
+<div><div><a href="http://golem.ph.utexas.edu/~distler/blog/mathml.html"><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>Yes, after a few beers I have grandiose hopes for obtaining the Standard Model from quantum information theory, with octonionic qutrits playing a fundamental role.  Then I go to bed and wake up to the cold morning light feeling far less optimistic.</p>
+
+<p>Luckily there are math problems in this subject that deserve to be solved and don&#8217;t require superhuman powers.   Paul Schwahn and I have just about finished a paper proving the conjecture described in my talk, and an even better result!  Stay tuned.</p>
+</div>
+<div class="comments-post">Posted by:
+<a title="http://math.ucr.edu/home/baez/" href="http://math.ucr.edu/home/baez/" rel="nofollow">John Baez</a> on June 10, 2026  6:50 PM | <a href="/category/2026/03/geometry_and_the_exceptional_j.html#c069215" title="URL for comment by John Baez [June 10, 2026  6:50 PM]">Permalink</a>
+
+| <a href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3634;parent_id=69215" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}" title="Respond to comment by John Baez [June 10, 2026  6:50 PM]">Reply to this</a>
+</div>
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+</div>
+<p class="newpost"><a class="comments-post" href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3634" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}">Post a New Comment</a></p>
+
+</div>
+
+<div id="footer">   
+<h2>Access Keys:</h2>
+
+<dl id="AccessKeyList">
+<dt>0</dt><dd><a href="/category/accessibility.html" accesskey="0">Accessibility Statement</a></dd>
+<dt>1</dt><dd>Main Page</dd>
+<dt>2</dt><dd>Skip to Content</dd>
+<dt>3</dt><dd>List of Posts</dd>
+<dt>4</dt><dd>Search</dd>
+<dt>p</dt><dd>Previous (individual/monthly archive page)</dd>
+<dt>n</dt><dd>Next (individual/monthly archive page)</dd>
+</dl>
+<a href="/category/archives.html" accesskey="3"></a>
+</div>
+
+
+</div>
+
+</body>
+</html>

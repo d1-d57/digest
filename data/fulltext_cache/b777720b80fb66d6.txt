@@ -1,0 +1,634 @@
+
+
+The Story Your Ballot Doesn’t Tell – Feature Column
+
+Skip to content
+
+The Story Your Ballot Doesn’t Tell
+
+In:
+
+2026
+, 
+Anna Haensch
+, 
+Math and Social Sciences
+, 
+Probability and Statistics
+
+Tagged:
+
+voting
+
+Every ballot quietly asks a question, and depending on the voting method we use we choose to listen to or discard little bits of the answer...
+
+The Story Your Ballot Doesn’t Tell: The Mathematics of Single-Winner Elections
+
+Anna Haensch
+
+University of Wisconsin - Madison
+
+Introduction: Who’s the
+Spoiler?
+
+The great majority of national and state-level elections
+in the United States are contests between two candidates representing
+our two major political parties. Democrats and Republicans exist on the
+left and right end of the political spectrum, respectively, and while it
+is a 
+well-studied
+fact
+ that candidates tend to creep as close as they can towards the
+center to ensure the broadest base possible, they typically stay on
+their side of the spectrum. Because of this, the results of elections
+often come down to what’s happening in the margins.
+
+Occasionally, however, it will happen that a third candidate gains
+traction in the race and this can have election-upending consequences.
+In these cases, the third candidate who takes their own bite out of the
+voter base is called the “spoiler." The weird thing though, is that
+whether or not this spoiler actually spoils, and for whom they spoil
+things is all a matter of how votes are cast and counted.
+
+In August 2022, Alaska held a special election for its single U.S.
+House seat, and in the process, it became 
+a case study
+ in how a
+voting method can shape an outcome. The race featured three candidates:
+Democrat Mary Peltola, and Republicans Nick Begich and Sarah Palin.
+Alaska was using a voting system called “Instant Runoff Voting," in
+which each voter cast a single ballot with candidates ranked from
+favorite to least favorite, with possible elimination rounds. Begich, who
+was closer to the center than Palin, was considered the compromise
+candidate, and according to most predictions, 
+should
+have won
+ the election. But that’s not what happened. Even though
+Begich had the necessary broadness of support, he lacked that intensity
+of first-choice preference, and Peltola won.
+
+The choice of voting method (a choice made by a vote of its own)
+often determines what kind of support is the most valuable. Common
+methods like plurality and instant runoff both prioritize first-choice
+dominance, but other methods, like Borda count give more value to broad
+if only mildly-enthusiastic support. Given this range of possibilities
+when it comes to setting up a voting regime, it’s reasonable to wonder:
+is the candidate really the spoiler, or is the spoiler democracy itself?
+I know, provocative. To understand this better, let’s strip away some of
+the specifics and get down to the geometry of the problem.
+
+What
+Do Voters Look Like? Modeling Preferences with Gaussian Mixtures
+
+Although most people’s beliefs are multidimensional, to keep things
+simple let’s assume that voters live in a one-dimensional space of
+political ideology, with Democrats on the left and Republicans on the
+right. Many polls exist that try to get at the precise distribution of
+voters along this left-right spectrum, but we’ll use the distribution
+from the Pew Research Foundation’s 
+National
+Public Opinion Reference Survey
+. The 2025 results from that survey,
+shown below, place respondents along a 5-point
+spectrum from Democrat ($−2$), Lean
+Democrat ($−1$), No Lean / Refused ($0$), Lean Republican ($1$), and Republican ($2$). These results are plotted and fit to a
+5-component Gaussian Mixture Model with standard deviation $\sigma  = 0.5$, and probability density
+function, $f(x)$ (also
+shown below).
+
+The 2025 Pew Research 
+National
+Public Opinion Reference Survey
+ results are shown here as colored
+bars with shades of blue indicating Democrat and shades of red
+indicating Republican. These results are fit to a 5-component Gaussian
+mixture model, with $\sigma  = 0.5$,
+shown as a black line.
+
+We can imagine political candidates as being situated along the
+left-right spectrum. For example, imagine a 3-candidate election where a
+left candidate is placed at $\ell = −1.8$, a center candidate is
+placed at $c = 0.4$, and right
+candidate is placed at $r = 1.6$. These candidates are shown
+as colored triangles in the figure below.
+
+Assuming that voters prefer the candidate closest to them on the
+political spectrum and in descending order according to proximity (also
+situation known as a 
+single-peaked
+preference
+) we can begin to carve up the electorate into regions of
+candidate support. Any voter to the left of the midpoint between $\ell$ and $c$ (shown as the left-hand dashed
+black line in Figure 
+2
+) will prefer the left candidate, and
+we’ll call this region $r_1$. On the other end of
+the spectrum, any voter to the right of the midpoint between $r$ and $c$ (shown as the right-hand dashed
+black line in Figure 
+2
+) will prefer the right candidate, and
+we’ll call this region $r_4$. In the remaining
+region between $r_1$
+and $r_4$, voters will
+always prefer the center candidate, since they are the closest one. But
+for reasons that will become clear below we’ll split this into two
+regions, $r_2$ and
+$r_3$ divided at the
+midpoint between the left and right candidates (shown as a solid black
+line in Figure 
+2
+). Now on to the election!
+
+Left, center, and right candidates are shown as blue,
+yellow, and red triangles, respectively, placed along the political
+spectrum. The electorate is divided into four regions, $r_1, r_2, r_3$
+and $r_4$.
+
+Plurality: The Simplest
+System
+
+Under plurality voting, each voter gets to vote for one candidate and
+the candidate with the most votes wins the election. Because of the
+careful work we did above, a candidate’s vote share can be easily
+computed as a sum of definite integrals. The left candidate vote share
+as a function of each candidate’s position is 
+$$\begin{aligned}
+S_{\text{L}}^\text{Plurality}(\ell, c, r) & = & \int_{R_1}f(x)
+\,\,dx,
+\end{aligned}$$ where $f(x)$ is the probability
+density function of the voter distribution, possibly the Gaussian
+mixture model as described above. The vote shares for the center and
+right candidates can be computed similarly as 
+$$\begin{aligned}
+  S_C^\text{Plurality}(\ell, c, r)  =  \int_{R_2\cup R_3}f(x) \,\,dx
+\,\,\,\,\text{ and } \,\,\,\,S_R^\text{Plurality}(\ell, c, r)  =
+\int_{R_4} f(x) \,\,dx.
+\end{aligned}$$ 
+Using the values of $\ell, c,$ and $r$ from the previous section, we can
+see that the left candidate wins the election (see Figure 
+3
+. Despite the fact that the voter
+distribution skews right and the right candidate has even moved slightly
+towards center to appeal to more voters, the presence of the slightly
+right-of-center candidate has taken a big enough bite from the right
+candidate’s base to cost them the election. In this way, the center
+candidate is acting as the 
+spoiler
+,
+since they lost the election and their removal from the election would
+have changed the outcome.
+
+Under plurality voting the left candidate wins the
+election.
+
+The Borda Count:
+Asking Voters to Say More
+
+Another well-known voting method is the Borda count which requires
+voters to order candidates from most-preferred to least-preferred. For a
+race with $n$ candidates, votes
+are tabulated by assigning $n − 1$ points to a first place
+ranking, $n − 2$ to a second
+place ranking and so on, until the last place candidate who receives 0
+points. Any candidates not ranked will receive 0 points, the so-called
+pessimistic Borda count (although there are 
+other
+options
+ for what to do with incomplete ballots). Assuming again that
+a voter will order their candidates according to their proximity on the
+political spectrum, we can compute the left candidate’s vote share as
+$$\begin{aligned}
+S_L^\text{Borda}(\ell, c, r) & = & 2 \cdot \int_{R_1}f(x) \,\,dx
++ 1 \cdot \int_{R_2}f(x) \,\,dx.
+\end{aligned}$$ 
+The left candidate gets first choice ranks from
+voters in $r_1$, and
+second choice ranks in $r_2$, but as soon as we
+pass over the midpoint line between $\ell$ and $r$, the left candidate becomes the
+third choice. For the remaining candidates, the vote shares are computed
+as 
+$$\begin{aligned}
+S_R^\text{Borda}(\ell, c, r) & = & 2 \cdot \int_{R_4}f(x) \,\,dx
++ 1 \cdot \int_{R_3}f(x) \,\,dx,
+\end{aligned}$$ and 
+$$\begin{aligned}
+S_C^\text{Borda}(\ell, c, r) & = & 2 \cdot \int_{R_2\cup
+R_3}f(x) \,\,dx + 1 \cdot \int_{R_1\cup R_4}f(x) \,\,dx.
+\end{aligned}$$ Once again using the values of $\ell, c,$ and $r$ from above, we now see that the
+center candidate wins (see Figure 
+4
+). Even though
+the center candidate is sitting in the valley of the distribution and
+has fewer first-choice votes than the other candidates, the fact that
+they are nobody’s least favorite candidate gives them the boost they
+need to win handily. Who’s the spoiler now?
+
+Under the Borda count method the center candidate wins the
+election.
+
+Instant Runoff
+Voting: Elimination as a Strategy
+
+In instant runoff voting, each voter casts a ballot ranking
+candidates from first choice to last choice (as in the Borda count), but
+now votes are tabulated in multiple rounds. In the first round, each
+candidate’s share of first-choice votes are counted; if any candidate
+crosses the $50\%$ threshold, they are
+declared the winner and the election is over. In the more likely
+scenario that no single candidate crosses the threshold, the candidate
+with the lowest share of first-choice votes is eliminated, and their
+ballots are reassigned to their second-choice candidates. At this point,
+first-choice vote shares are counted, and in the case of our
+three-candidate election, the candidate with the highest number of votes
+is elected. For each individual round, votes shares are computed exactly
+as in plurality voting, with just the limits of integration depending on
+which candidates are still in the race.
+
+Under instant runoff voting, the center candidate is eliminated after
+the first round (all of those second choice votes do nothing to help
+them here). In the second round of voting, the left candidate gets all
+of the votes from regions $r_1$ and $r_2$ and the right
+candidate gets all of the votes from regions $r_3$ and $r_4$. Now the fact that the
+right candidate is slightly closer towards center means that they are
+able to capture enough of the votes from the eliminated candidate to
+bring them to victory (see the figure below).
+
+Under instant runoff voting the right candidate wins the
+election.
+
+A Quick Detour Into
+Candidate Strategy
+
+This is an interesting story in the context of 
+Hotelling’s
+Law
+ from economics which says that in any market it is rational for
+producers to make their products as similar as possible. In the world of
+politics, this law specializes to the 
+Median Voter
+Theorem
+ which says that for a 
+single-peaked
+electorate
+, candidates will converge to the median voter. At first
+it looks like we’ve spotted a violation of the Median Voter Theorem
+since the left and right candidates are able to win in some cases, but
+of course in a real-life scenario neither the candidates nor the
+electorate are completely stable. You can imagine (
+and we’ve
+modeled!
+) what happens when candidates move in opportunistic ways.
+There’s also the question of whether voters actually turn out to vote,
+which can be impacted by all kinds of things including 
+strategic
+voting
+. Put another way, the Median Voter Theorem tells us where the
+equilibrium 
+should
+ be, but the dynamics of getting
+there (or not) becomes more interesting with the addition of movement
+and a little bit of reality.
+
+Conclusion:
+Mathematics as Democratic Infrastructure
+
+Returning now to the Alaska special election. Begich was the
+center-most candidate and seemed like the good compromise and likely
+winner. While he didn’t have the strength of first-choice votes, he also
+didn’t have the anchor of last-choice votes. Functionally, he was a lot
+like the center candidate in the previous sections. Under a voting
+method like Borda count, Begich almost certainly would have won, but
+under plurality or instant runoff, he would (and did) lose. The
+specifics of the left and right candidates in the worked-out example
+above are slightly different than what happened in Alaska (notably,
+Peltola would have won both plurality and instant runoff), but they
+demonstrate the brittleness of the electoral process.
+
+Mathematics is an important piece of the democracy, and this is not a
+purely academic exercise. All over the world governments have been
+thinking about what it would look like to adopt different voting
+methods. In the immediate aftermath of the Alaska special election,
+states were all over the place in terms of ranked choice voting. Some
+states like 
+Florida
+and Tennessee
+ banned ranked choice voting, while others had active
+campaigns to adopt it. In Alaska, 
+polls
+showed that $54\%$ of Alaskans
+ supported repealing ranked choice
+voting, although when put to a vote 
+the
+repeal ultimately failed
+. As of March 2026, 
+nineteen
+states have banned ranked-choice voting
+.
+
+While mathematics can’t tell us which system is right, or which
+candidate is right, it can tell us what a voting system prioritizes.
+Every ballot quietly asks a question, and depending on the voting method
+we use we choose to listen to or discard little bits of the answer. That
+is why the voting system, which does so much to shape our democracy and
+governance, deserves at least as much scrutiny as the candidates
+themselves.
+
+The author getting ready to vote in Madison, Wisconsin.
+
+Share this:
+
+Share on Facebook (Opens in new window)
+
+Facebook
+
+Share on X (Opens in new window)
+
+X
+
+Like this:
+Like
+
+Loading…
+
+2026-05-01
+
+Previous Post: 
+Weekly Maintenance Message
+Next Post: 
+The Shapley Value, or How to Split a Bill in n! Easy Steps
+
+1 Comment
+
+“Center creep” is a big problem – when a centrist candidate wins, nobody is happy. Unlike some, I don’t see a problem with amicable separation to remedy polarization (other than sorting out who moves where).
+
+Nor do I blame non-voters for their disaffection – diverse views projected onto a single line is bad enough, but then having two ever closer points to choose from?
+
+Ranked choice voting still looks like a good way to go.
+
+Leave a Reply 
+Cancel reply
+Your email address will not be published.
+
+Required fields are marked 
+*
+Comment 
+*
+
+HTML tags are not allowed.
+Name 
+*
+
+Email 
+*
+
+Save my name, email, and website in this browser for the next time I comment.
+
+85,090 Spambots Blocked by 
+Simple Comments
+
+Notify me of follow-up comments by email.
+
+Notify me of new posts by email.
+ Notify me of followup comments via e-mail. You can also 
+subscribe
+ without commenting.
+
+JavaScript must be turned on to leave a comment.
+
+Search
+Subscribe to Feature Column via Email
+
+Enter your email address to subscribe to Feature Column and receive notifications of new posts by email.
+
+							Email Address						
+
+							Subscribe						
+
+Recent Posts
+Another Look at Circles and Squares
+
+The Shapley Value, or How to Split a Bill in n! Easy Steps
+
+The Story Your Ballot Doesn’t Tell
+
+Weekly Maintenance Message
+
+Puzzling Like the Seventeenth Century
+
+Categories
+
+2020
+
+2021
+
+2022
+
+2023
+
+2024
+
+2025
+
+2026
+
+Adam A. Smith
+
+Adriana Salerno
+
+Algebra and Number Theory
+
+Allechar Serrano López
+
+Anil Venkatesh
+
+Anna Haensch
+
+Archive
+
+Audrey St. John
+
+Bevin Maultsby
+
+Bianca Thompson
+
+Bill Casselman
+
+Colm Mulcahy
+
+Courtney Gibbons
+
+David Austin
+
+Deepayan Sarkar
+
+Diana Davis
+
+Discrete Math and Combinatorics
+
+Étienne Ghys
+
+Geometry and Topology
+
+Guillermo Fereyra
+
+History of mathematics
+
+Holley Friedlander
+
+Jessica Sidman
+
+John Eggers
+
+Joseph Malkevitch
+
+Josh Leys
+
+Math and Arts/Humanities
+
+Math and Social Sciences
+
+Math and Technology
+
+Math and the Sciences
+
+Mathematics and Biology
+
+Moira Chas
+
+Noah Giansiracusa
+
+Patrick Ion
+
+Probability and Statistics
+
+Real and Complex Analysis
+
+Sara Chari
+
+Sara Stoudt
+
+Sarah Wolff
+
+Steven H. Weintraub
+
+Sunil Chebolu
+
+Tamsyn Morrill
+
+Teaching and Learning Mathematics
+
+Tony Phillips
+
+Uncategorized
+
+Ursula Whitcher
+
+Tags
+5G
+
+Alan Turing
+
+algebraic geometry
+
+ams
+
+astronauts
+
+Branko Grünbaum
+
+cantor set
+
+chess
+
+Claude Shannon
+
+computability
+
+cryptography
+
+Desargues
+
+economics
+
+elliptic curves
+
+epidemic
+
+Euclidean geometry
+
+feature column history
+
+games
+
+game theory
+
+generating functions
+
+genetics
+
+Geoffrey Colin Shephard
+
+herd immunity
+
+Higgs boson
+
+information theory
+
+lattices (groups)
+
+Lie groups
+
+Machine learning
+
+measles
+
+medieval
+
+partitions
+
+periods
+
+persi diaconis
+
+physics
+
+poetry
+
+polytopes and polyhedra
+
+primes
+
+probability
+
+SEIR model
+
+statistics
+
+string theory
+
+tic-tac-toe
+
+tilings
+
+video games
+
+voting
+
+Meta
+
+Log in
+
+Entries feed
+
+Comments feed
+
+WordPress.org
+
+					 Designed using 
+Hoot Business
+. Powered by 
+WordPress
+.				
+
+%d
+

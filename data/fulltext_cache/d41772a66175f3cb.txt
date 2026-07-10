@@ -1,0 +1,3198 @@
+Séminaire BOURBAKI                                                                                                                 Juin 2026
+78e année, 2025–2026, n° 1255
+
+
+  BASS NOTES OF RANDOM HYPERBOLIC SURFACES OF LARGE
+                               GENUS
+   [after Hide–Magee, Anantharaman–Monk and Hide–Macera–Thomas]
+
+                                                         by Bram Petri
+
+
+
+                                                              Contents
+     Introduction. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1
+     1. The geometry and spectra of hyperbolic surfaces. . . . . . . . . . . . . . . . . . . . 2
+     2. The bass note. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 13
+     3. The bulk of the spectrum. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18
+     4. Regular graphs. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 19
+     5. Random surfaces. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 26
+     6. A near optimal spectral gap through random covers (Hide–Magee) . . 35
+     7. Weil–Petersson random surfaces (Anantharaman–Monk). . . . . . . . . . . . 41
+     8. Polynomial error bounds (Hide–Macera–Thomas). . . . . . . . . . . . . . . . . . . 47
+     References. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 51
+
+
+
+Introduction
+
+   In the last couple of years, multiple constructions of hyperbolic surfaces of large area
+with near optimal spectral gaps, which had long been sought after, have been found.
+All of these constructions use random surfaces. The goal of this text is both to put
+these results in context and to explain some of the ideas behind them.
+   We will focus on two models of random surfaces. The first model we will discuss
+yielded the first examples of sequences of closed hyperbolic surfaces whose area tends to
+infinity and whose spectral gap tends to that of the hyperbolic plane, as proven by Hide
+and Magee (2023). This construction uses compactifications of random finite degree
+covers of the thrice punctured sphere. After this, we will describe the series of works
+by Anantharaman and Monk (2022, 2023, 2024a, 2025, 2026), culminating in the proof
+of the fact that near optimal spectral gaps are also typical for a surface of large genus
+chosen at random using the Weil–Petersson measure. The most recent result we will
+treat is due to Hide, Macera, and Thomas (2025b). Their work gives an alternative
+route to near optimal spectral gaps for Weil–Petersson random surfaces and also yields
+an error term on the spectral gap that is polynomially small as a function of the genus
+of the surface.
+                                        1255–02
+
+
+   There are many other results related to spectral gaps of random surfaces that will
+not be discussed in great detail in this text. Some notable omissions are the work
+by Calderón, Magee, and Naud (2024) on spectral gaps of random covers of Schottky
+surfaces, the original papers on the polynomial method by Chen, Garza-Vargas, Tropp,
+and van Handel (2026) and Chen, Garza-Vargas, and van Handel (2024) and the fact
+that random finite degree covers of a closed surface have a near optimal spectral gap,
+proven by Magee, Puder, and van Handel (2025).
+   This text is organized as follows. We will start by reminding the reader of some of
+the basics on the (spectral) geometry of hyperbolic surfaces. After this, we will discuss
+results from graph theory that have inspired many of the recent developments. Then we
+will survey some of the recent history on all the different models of random hyperbolic
+surfaces. Of course there are too many connections to draw and some choices have to
+be made. These choices are mostly based on the personal preferences of the author and
+he apologizes in advance to the readers who had hoped to read about one of the many
+related subjects that haven’t made it to the text.
+   The last three sections are devoted to the results by Hide–Magee, Anantharaman–
+Monk and Hide–Macera–Thomas respectively. It is however impossible to do justice
+to these three works in this short text. In particular, we will not attempt to give full
+proofs, but will rather try to sketch some of the main ideas. For details, we refer the
+reader to the original articles.
+
+Acknowledgement
+  The author would like to thank Nicolas Bourbaki for asking him to write about this
+series of papers. It has made the author appreciate the many new ideas involved in them
+even more and he hopes that this text conveys some of them to the reader too. He also
+thanks the Sage developers (2021), Figure 7 was produced using SageMath. Finally, he
+thanks Claire Burrin, Hans Mahnig, Joe Thomas, and Nicolas Bourbaki for comments
+on a previous version of this text.
+
+
+
+1. The geometry and spectra of hyperbolic surfaces
+
+   Hyperbolic surfaces are a classical object of study and many texts have been written
+about them, like for instance the books by Buser (2010), Iwaniec (2002), Bergeron
+(2016), and Borthwick (2016). This section will present a quick reminder and some
+examples of hyperbolic surfaces. This is not meant to be a full introduction, and we
+refer the interested reader to the aforementioned books for more details.
+
+1.1. Definitions
+  We start with a definition:
+                                           1255–03
+
+
+Definition 1.1. — A hyperbolic surface is a complete Riemannian 2-manifold of
+constant sectional curvature equal to −1.
+
+   The most basic example of a hyperbolic surface is the hyperbolic plane. The
+hyperbolic plane also allows a short definition, namely it is the unique (up to isometry)
+simply connected hyperbolic surface without boundary. A concrete Riemannian manifold
+of sectional curvature equal to −1 is usually called a model for the hyperbolic plane.
+The upper half plane model
+                                                   dx2 + dy 2
+                                                                    
+                         2                                2
+                     H = {z ∈ C; Im(z) > 0} , ds =
+                                                       y2
+is often convenient for computations and the disk model
+                                                    dx2 + dy 2
+                                                                     
+                     2                            2
+                    D = {z ∈ C; |z| < 1} , ds = 4
+                                                  (1 − x2 − y 2 )2
+is often convenient for drawings because it looks compact to our Euclidean eyes. Both
+of these models are conformal. Indeed, because the metric is in the conformal class of
+the (incomplete) Euclidean metric, the angles we see are also the angles with respect to
+the hyperbolic metric. The geodesics in H2 are half circles orthogonal to R and vertical
+lines. In D2 , the geodesics are given by half circles orthogonal to the circle and diagonals
+through the origin.
+   Now that we have a definition of the hyperbolic plane, we also obtain an equivalent
+definition of hyperbolic surfaces. Indeed, a hyperbolic surface without boundary is a
+complete Riemannian 2-manifold that is locally isometric to H2 . If we want to allow
+totally geodesic boundary, we ask that points on the boundary have a neighborhood
+that is isometric to the boundary of a half plane delimited by a geodesic in H2 .
+   Another equivalent definition is that a hyperbolic surface without boundary is a
+surface of the form Γ\H2 , where Γ < Isom(H2 ) is a discrete and torsion free subgroup
+of the isometry group Isom(H2 ) of H2 . This isometry group can be identified with
+PSL(2, R) ⋊ Z/2Z. If we denote the generator of the Z/2Z factor by r (for reflection),
+then Isom(H2 ) acts on H2 by
+     "      #                                         "       #
+         a b      az + b                             a b
+             ·z =                and r(z) = −z   for     ∈ PSL(2, R) and z ∈ H2 .
+         c d      cz + d                             c d
+In particular, the subgroup PSL(2, R) < Isom(H2 ) is exactly the group of orientation
+preserving isometries. We will only consider oriented surfaces in what follows, so these
+are quotients Γ\H2 with Γ < PSL(2, R) discrete and torsion free.
+   If we want to allow totally geodesic boundary, we need to consider quotients of the
+form Γ\C, where Γ < Isom(H2 ) is discrete and torsion-free and C ⊂ H2 is a closed and
+convex subset, preserved by Γ.
+   By the uniformization theorem, constant curvature metrics, considered up to
+scaling, correspond one-to-one to Riemann surface structures considered up to biholo-
+morphism. So we can also think of hyperbolic surfaces as Riemann surfaces.
+                                          1255–04
+
+
+1.2. Examples of hyperbolic surfaces
+1.2.1. The Bolza surface and Hurwitz surfaces. — Thus far, our only explicit example
+of a hyperbolic surface is the hyperbolic plane, so its high time for some more examples.
+We start with the Bolza surface. The quickest way to define it is to say that is
+the unique closed Riemann surface of genus 2 that has exactly 48 automorphisms (or
+orientation preserving isometries of the hyperbolic metric). Indeed, in general Hurwitz’s
+theorem implies that the number of automorphisms of a closed Riemann surface of
+genus g is at most 84(g − 1), and when g is fixed, there are at most finitely many
+surfaces realizing this bound. If there are surfaces realizing this bound in a given genus,
+then they are called Hurwitz surfaces. In genus 2, there aren’t any Hurwitz surfaces
+and the Bolza surface is the unique maximizer of the size of the automorphism group.
+
+                                          π
+                                          4
+
+
+
+
+   Figure 1. A regular octagon and the side pairings that turn it into the Bolza surface
+
+
+   Of course, the Bolza surface also admits a more explicit description. Namely, it’s the
+hyperbolic surface one obtains by gluing together the pairs of opposite sides of a regular
+hyperbolic octagon (so its sides are geodesic segments that all have the same length and
+its interior angles are all equal) with interior angles π4 , as in Figure 1.
+   The Bolza surface can also be thought of as a triangle surface: a hyperbolic
+surface Γ\H2 determined by a normal subgroup Γ ◁ Θ(p, q, r) of finite index, where
+Θ(p, q, r) is the group generated by the rotations of orders p, q and r in the vertices of
+a hyperbolic triangle with interior angles πp , πq and πr respectively (which exists if and
+only if p1 + 1q + 1r < 1).
+   In the case of the Bolza surface, we can take (p, q, r) = (2, 3, 8) in which case the index
+is 48. Indeed, in general Θ(p, q, r)/Γ acts on Γ\H2 by orientation preserving isometries.
+By work of Takeuchi (1977) (see also Section 13.3 of the book by Maclachlan and Reid,
+2003), Θ(2, 3, 8) is an arithmetic group, so the Bolza surface is also an arithmetic
+surface. For more on arithmetic groups, including their definition, we refer the reader
+to the books by Maclachlan and Reid (2003) and Witte Morris (2015).
+   It turns out that Hurwitz surfaces correspond exactly to normal subgroups of Θ(2, 3, 7).
+In particular, again using Takeuchi’s theorem, these are all arithmetic as well. The
+Hurwitz surface of smallest genus is the Klein quartic, the unique Hurwitz surface of
+                                               1255–05
+
+
+genus 3, a hyperbolic surface about which a whole book has been written, edited by
+Levy (1999).
+1.2.2. The thrice punctured sphere. — Our next example is a non-compact surface of
+finite area: the thrice punctured sphere. It follows from the uniformization theorem,
+combined with the fact the the automorphism group of the Riemann sphere acts triply
+transitively, that there is only one complete hyperbolic metric on the thrice punctured
+sphere.
+
+
+
+
+                    −1                            0                             1
+                     Figure 2. Building the thrice punctured sphere
+
+   To build it explicitly, we can take the ideal quadrilateral in H2 with ideal vertices
+−1, 0, 1 and ∞ and glue the sides together according to the pattern drawn in Figure 2.
+Because of the ideal vertices, the sides have infinite length. So per pair of sides there is
+a one parameter family of isometries between them that we could use for the gluing and
+thus there are two choices to be made. This is what the inscribed disks are for. They
+define 4 special points on the sides of our quadrilateral. The gluing that guarantees
+that the resulting hyperbolic metric is complete is the unique gluing by isometries that
+identifies these special points.
+   This is also exactly the gluing that ensures that the corresponding isometries of H2
+are parabolic, so the structure near the punctures is that of a hyperbolic cusp. That
+is, the punctures have neighborhoods that are isometric to
+                                                                *"         #+
+                             n
+                                      2
+                                                         o .         1 1
+                         Ct = z ∈ H ; Im(z) > t
+                                                                     0 1
+for some t > 0.
+   In fact, the elements of PSL(2, R) that correspond to the two gluings are given by
+                                 "         #             "      #
+                                     1 2                     1 0
+                                                and              ,
+                                     0 1                     2 1
+                                         1255–06
+
+
+which freely generate the level 2 principal congruence subgroup of PSL(2, Z), i.e.
+the group
+                          !                                                  !
+                       a b             a ≡ d ≡ 1 mod N                 1 0
+                                                              .
+         Γ(N ) =           ∈ SL(2, Z);                               ±
+                       c d             b ≡ c ≡ 0 mod N                 0 1
+for N = 2. In other words the thrice punctured sphere can be uniformized as Γ(2)\H2 .
+Because PSL(2, Z) is the (2, 3, ∞)-triangle group, we are still in the realm of arithmetic
+triangle surfaces.
+1.2.3. Pants decompositions. — As even the reader who is less familiar with hyperbolic
+surfaces probably suspects, most hyperbolic surfaces are in fact not arithmetic triangle
+surfaces. Indeed, on a fixed surface of finite type, there are uncountably many pairwise
+non-isometric hyperbolic structures, whereas only finitely many of these structures
+are arithmetic. In fact, the factorial growth rate of this number is known, due to
+Belolipetsky, Gelander, Lubotzky, and Shalev (2010).
+  In this section we will sketch how to build all orientable hyperbolic surfaces of finite
+area.
+
+
+
+
+                         Figure 3. Four topological types of pants
+
+
+  We start with a building block (see Figure 3):
+
+Definition 1.2. — A pair of pants is an orientable hyperbolic surface with empty
+or totally geodesic boundary that is homeomorphic to a sphere with n punctures and b
+boundary components such that n + b = 3.
+
+   What makes these convenient building blocks is that, up to isometry, pairs of pants
+are determined by the lengths of their boundary components (where we will identify a
+cusp with a boundary component of length 0).
+   We can now build hyperbolic surfaces of finite area by gluing together a finite number
+of pairs of pants. The only thing to make sure of is that those pairs of boundary
+components that we plan to glue together have the same length. We can use any
+isometry between such a pair of boundary components for the gluing, so per pair, we
+obtain a one parameter family of gluings.
+                                           1255–07
+
+
+   The fact that this construction yields all orientable hyperbolic surfaces of finite area
+follows from the fact that free homotopy classes of essential(1) closed curves contain
+unique geodesics and that these geodesic representatives also minimize the total number
+of intersections. So, given a hyperbolic surface, we can always find a pants decompo-
+sition – a collection of simple closed curves that cut it into pairs of pants – by putting
+a topological pants decomposition in geodesic position.
+
+
+1.3. Teichmüller and moduli spaces
+
+   The above discussion implies that if we fix a pants decomposition of a surface, then
+we obtain a parameter space of hyperbolic surfaces. Indeed, to every curve in the pants
+decomposition correspond two parameters: a length and a twist that records the
+isometry we used for the gluing.
+   At this point, it may seem most natural to let the twists live on the circle (corre-
+sponding to where some base point lands under the isometry). We will however let
+the twist be a real number instead. So if γ is a curve in the pants decomposition and
+we change the twist parameter from τγ to τγ + δ, then the new surface is obtained as
+follows. We open the old surface up along the geodesic homotopic to γ and complete
+it so as to obtain a surface with boundary components γ1 and γ2 that we parametrize
+with unit speed, in such a way that the gluing “γ1 (t) ∼ γ2 (t) for all t ∈ R” corresponds
+to the original surface. The gluing “γ1 (t) ∼ γ2 (t + δ)” then yields the surface we are
+after. See Figure 4 for a depiction of this process.
+
+
+
+                                                                          δ
+
+                 γ                         γ1 γ2
+
+                                Figure 4. Performing a twist
+
+
+  An Euler characteristic computation implies that a pants decomposition of an ori-
+entable surface of genus g with n punctures and b boundary components contains
+3g + n + b curves. This does not count the curves that form the potential boundary
+components. In the deformation spaces of hyperbolic surfaces that we will consider
+here, we will always assume the boundary lengths to be fixed. The space of hyperbolic
+                                                                     3g+n+b−3
+surfaces we obtain is hence a space homeomorphic to R>0 × R                       .
+
+
+(1)
+  A closed curve is called essential if it is not homotopic to a point, a puncture or a boundary
+component.
+                                             1255–08
+
+
+  This deformation space turns out to be homeomorphic to the Teichmüller space of
+the underlying surface. As sets, these are defined as:
+                                                                                    
+                       
+                                      X a hyperbolic surface with boundary              
+                                                                                         
+                       
+                       
+                       
+                                    components δ1 , . . . , δn of length L1 , . . . , Ln 
+                                                                                          
+                                                                                          
+                                                                                           
+  Tg,n (L1 , . . . , Ln ) = (X, f );    respectively, and f : Σg,n (L) → X an                ∼.
+                           
+                                       orientation preserving diffeomorphism, 
+                           
+                                                                                         
+                                                                                          
+                           
+                                                                                         
+                                                                                         
+                                            with f (βi ) = δi , i = 1, . . . , n
+                                                                                         
+
+Here L ∈ [0, ∞)n and Li = 0 corresponds to a cusp and Σg,n (L) is a fixed reference
+surface with boundary components and punctures β1 , . . . , βn : if Li = 0 then βi is a
+puncture and otherwise it’s a boundary component. Finally (X1 , f1 ) ∼ (X2 , f2 ) if and
+only if there exists an isometry φ : X1 → X2 that maps the ith boundary component
+of X1 to the ith boundary component of X2 for i = 1, . . . , n and such that
+                              f2−1 ◦ φ ◦ f1 : Σg,n (L) → Σg,n (L)
+is homotopic to the identity. We will write Σg := Σg,0 and Tg := Tg,0 .
+                                          3g+n−3
+  The identification with R>0 × R                    now goes as follows. We first fix a pants
+decomposition of Σg,n (L), i.e. a collection of curves α1 , . . . , α3g+n−3 that decompose
+Σg,n (L) into pairs of pants. Then given a point [X, f ] ∈ Tg,n (L), we record the lengths
+                                                           3g+n−3
+and twists of f (αi ), giving us a point in      R>0 × R              . The lengths are easy to
+define, X carries a hyperbolic metric, so we can put f (αi ) in geodesic position. The
+twists are more subtle and we refer to the literature for a proper definition. The
+coordinates we have just described are called Fenchel–Nielsen coordinates. There is
+an independently defined topology on Teichmüller space, which turn these coordinates
+into a homeomorphism. We will not get into this in this text and just say that the
+topology on Tg,n (L) is given by these coordinates.
+   We have already observed that Teichmüller space overparametrizes hyperbolic surfaces.
+In fact, taking the twist in R instead of the circle is not the only source of this. Namely,
+the mapping class group MCG(Σg,n (L)) of Σg,n (L) – the group of homotopy classes
+of orientation preserving diffeomorphisms that restrict to the identity on ∂Σg,n (L) and
+also don’t permute the punctures – acts on Tg,n (L) by
+          [φ] · [X, f ] = [X, f ◦ φ−1 ],    [X, f ] ∈ Tg,n (L), [φ] ∈ MCG(Σg,n (L)).
+The corresponding moduli space is the quotient of this action:
+                            Mg,n (L) = MCG(Σg,n (L)) \ Tg,n (L).
+We note that punctures and boundary components are still distinguishable in Mg,n (L),
+because we have chosen to quotient only by mapping classes that preserve them. We
+will write Mg := Mg,0 .
+  The mapping class group acts properly discontinuously, but not freely, on Tg,n (L),
+so Mg,n (L) has the structure of a (6g + 2n − 6)-dimensional orbifold. When either
+n = 0 or L = (0, . . . , 0) this space coincides with the moduli space of Riemann surfaces
+                                              1255–09
+
+
+(potentially with marked points), considered up to biholomorphism. For an introduction
+to this subject, we refer the reader to the books by Imayoshi and Taniguchi (1992) and
+Farb and Margalit (2012).
+
+1.4. Spectral theory
+   Next up, we discuss the Laplacian operator on a hyperbolic surface. On a general
+Riemannian manifold M , this is the composition of minus the divergence with the
+gradient ∆M = −div ◦ grad : C ∞ (M ) → C ∞ (M ). If M is geodesically complete (as
+all manifolds without boundary that we will consider are), then ∆M is an essentially
+self-adjoint operator with domain Cc∞ (M ): the space of compactly supported smooth
+functions.
+   For the spectral theory on general Riemannian manifolds we refer the reader to the
+books by Chavel (1984) and Borthwick (2020). We will now give a brief introduction
+to the spectral theory of hyperbolic surfaces.
+1.4.1. The hyperbolic plane. — We start with the hyperbolic plane. A computation
+shows that in the upper half plane model,
+                                                            !
+                                             ∂2
+                                              2   ∂2
+                                  ∆H2 = −y ·    +
+                                             ∂x2 ∂y 2
+and in the disk model
+                                                                  !
+                                   (1 − x2 − y 2 )2   ∂2   ∂2
+                           ∆D2 = −                  ·    +     .
+                                         4            ∂x2 ∂y 2
+The presence of the inverse of the conformal factor in this expression is a 2-dimensional
+phenomenon.
+  The spectrum of ∆H2 is given by the following lemma:
+Lemma 1.3. — The spectrum of ∆H2 on L2 (H2 ) is [ 41 , ∞).
+Proof sketch. — First we prove that the spectrum of ∆H2 is contained in [ 14 , ∞). For
+this part we use an argument that can for instance be found in the article by McKean
+(1970, page 359). Take any f ∈ Cc∞ (H2 ). For x ∈ R fixed, integration by parts gives
+                        f2     2           ∂(f 2 ) dy 2
+                 Z ∞                  Z ∞
+             1                     1
+                                                       
+                          2
+                            dy   =                ·
+             4    0     y          4   0     ∂y     y
+                                              ′    2  Z ∞ 2
+                                         f ·f
+                                   Z ∞                           Z ∞
+                                                          f
+                                 =              dy ≤         dy ·     (f ′ )2 dy.
+                                     0     y            0 y2       0
+
+This implies that
+                   1 Z ∞ f2       Z ∞
+                                           ′ 2
+                                                       Z ∞
+                                                           f          2
+                                                                   2∂ f
+                            dy ≤        (f  )  dy  = −         · y        dy,
+                   4 0 y2           0                   0  y2        ∂y 2
+integrating by parts again in the last equality. Now we integrate with respect to x and
+obtain
+            1 Z f2              Z
+                                     f         2
+                                            2∂ f
+                                                             Z
+                                                                    f
+                  2
+                     dx dy ≤ −        2
+                                         ·y      2
+                                                   dxdy ≤ −            · ∆H2 f dxdy,
+            4 H y
+                2                H y
+                                  2           ∂y              H y2
+                                                                 2
+                                           1255–10
+
+
+                                                      ∞       2
+where we have used the fact that for y fixed − −∞        f · ∂∂xf2 dx ≥ 0 in the last inequality.
+                                                    R
+
+Using the variational characterization of the spectrum, this proves that ∆H2 ⊂ [ 41 , ∞).
+     The eigenfunctions of ∆H2 are not in L2 (H2 ), so one way to prove that the interval
+[ 14 , ∞) is contained in the spectrum of ∆H2 , is to construct, for all λ ∈ [ 14 , ∞), sequences
+of functions ϕ(λ)        2   2                          (λ)
+                  n ∈ L (H ) such that ∥(∆H2 − λ)ϕn ∥2 → 0 as n → ∞. McKean uses
+approximations of conical functions. Another standard choice is to approximate the
+function y 7→ y s , where λ = s(1 − s), by multiplying it with a sequence of appropriate
+cut-off functions, see for instance the proof of Proposition 7.2 in the book by Borthwick
+(2016).
+   There is more to say, but we will move on to the hyperbolic surfaces that this story
+is about, namely surfaces of finite area, starting with closed surfaces.
+1.4.2. Closed surfaces. — We start with the spectral theorem in the closed setting.
+In this text, the definition of a closed manifold will include the requirement that the
+manifold is connected, on top of being compact and not having boundary.
+Theorem 1.4 (Spectral theorem). — Let X be a closed hyperbolic surface. Then the
+spectrum of ∆X on L2 (X) is discrete and consists entirely of eigenvalues
+                            0 = λ0 (X) < λ1 (X) ≤ λ2 (X) ≤ · · · .
+The corresponding eigenfunctions are smooth and an orthonormal basis of L2 (X) can be
+extracted from the set of eigenfunctions.
+   In the above, the zeroth eigenvalue corresponds to constant functions. Because our
+surface is assumed to be connected, the next eigenvalue λ1 (X) is strictly positive. In
+fact, this theorem has nothing to do with hyperbolic surfaces and holds for closed
+Riemannian manifolds in general. Likewise, on all closed Riemannian manifolds, the
+number of eigenvalues below a given threshold grows according to Weyl’s law, which
+on a closed hyperbolic surface states that
+                                                 λ→∞ 1
+                   N (λ) = # {k; λk (X) ≤ λ} ∼               · area(X) · λ.
+                                                         4π
+The Gauß–Bonnet theorem implies that the area of a closed and orientable hyperbolic
+surface of genus g satisfies area(X) = 4π · (g − 1).
+   The eigenvalues λi (X) that lie in the interval (0, 41 ) are called the small eigenvalues
+of X. Otal and Rosas (2009) proved that there are at most 2g − 3 small eigenvalues
+on a hyperbolic surface of genus g, confirming a conjecture by Buser (1977), who also
+proved that there are surfaces that realize this number of small eigenvalues.
+1.4.3. Non-compact surfaces of finite area. — The spectral theory of non-compact
+hyperbolic surfaces is more subtle. We refer the reader to the textbook by Iwaniec
+(2002) for a proper introduction. Here we will just describe the spectral decomposition
+of L2 (X), without proof.
+   First, we briefly need to mention Eisenstein series. In the proof sketch of Lemma 1.3,
+we have already noted that x + iy ∈ H2 7→ y s is an eigenfunction of ∆H2 that does not
+                                              1255–11
+
+
+lie in L2 (H2 ). If X = Γ\H2 is a non-compact hyperbolic surface of finite area, then
+we can use this function to build an eigenfunction for ∆X as well. To do this, we note
+that cusps correspond one-to-one to conjugacy classes of maximal parabolic subgroups
+of Γ. For each of the cusps c of Γ, thought of as a representative in ∂∞ H2 = R ∪ {∞}
+for a Γ-orbit of parabolic fixed points, we fix some element hc ∈ PSL(2, R) such that
+hc (c) = ∞ and hc conjugates the maximal parabolic subgroup corresponding to c to
+                                             "         #
+                                                  1 1
+                                                             .
+                                                  0 1
+We will write Γc < Γ for the stabilizer of c in Γ.
+ If we now fix a complex number s with Re(s) > 1, then the Eisenstein series
+                         z ∈ H2 7→ Ec (z; s) =                   Im(hc · γ · z)s
+                                                        X
+
+                                                   [γ]∈Γc \Γ
+
+is a Γ-invariant eigenfunction of ∆H2 of eigenvalue s(1 − s). Because of the invariance, it
+can be thought of as a function on X as well. However, it’s not an element of L2 (X). To
+turn this function into an L2 (X)-function (but lose the fact that it’s an eigenfunction),
+we take ψ ∈ Cc (0, ∞) and define the incomplete Eisenstein series
+                                              X
+                             Ec (z; ψ) =          ψ(Im(hc · γ · z)).
+                                         [γ]∈Γc \Γ
+
+We will write E(X) ⊂ L2 (X) for the closed linear subspace spanned by all incomplete
+Eisenstein series.
+   In general, E(X) is a proper subspace of L2 (X). A computation shows that its
+orthogonal complement is spanned by bounded functions f ∈ C ∞ (X) whose zeroth
+Fourier coefficient in every cusp vanishes. Indeed, since f (h−1                −1
+                                                               c (z + 1)) = f (hc z) for
+all z ∈ H2 , we can write a Fourier series expansion for f (h−1
+                                                              c · ) with respect to the
+horizontal coordinate. The zeroth coefficient in this expansion is
+                                        Z 1
+                             fb (y) =
+                              c               f (h−1
+                                                  c · (x + iy)) dx.
+                                         0
+                              2
+We will write C(X) for the L (X)-closure of the set of bounded smooth functions with
+fbc = 0 for all cusps c of X. We thus have the following orthogonal decomposition
+                                                         ⊥
+                                  L2 (X) = C(X) ⊕ E(X).
+The Laplacian preserves this decomposition and it turns out that the spectrum on C(X)
+is discrete. The corresponding eigenfunctions are called cusp forms.
+   Selberg (1965) proved that Eisenstein series can be meromorphically continued to
+the whole s-plane. The resulting extensions do not have poles on the line {Re(s) = 12 }
+and the resulting function with parameter 12 + it (t ∈ R) is a generalized eigenfunction
+(so not a function in L2 (X)) with eigenvalue 14 + t2 . As a result, the spectrum of ∆X
+on E(X) includes the ray [ 14 , ∞) and this is continuous spectrum, i.e. for λ ∈ [ 14 , ∞),
+(∆X − λ)|E(X) is injective and has dense range, but is not surjective.
+                                             1255–12
+
+
+  The final source of spectrum is given by residues of Eisenstein series. In the half plane
+{Re(s) > 21 }, the meromorphically continued Eisenstein series have finitely many poles
+that all lie in ( 12 , 1]. The residues at these poles in ( 12 , 1] are Laplacian eigenfunctions
+in E(X). The corresponding spectrum is called residual spectrum. This includes
+constant functions, that appear as residues at s = 1.
+  We summarize the above in a theorem:
+
+Theorem 1.5. — Let X be a non-compact hyperbolic surface of finite area. Then
+                   ⊥
+L2 (X) = C(X) ⊕ E(X) and this decomposition is preserved by ∆X . Moreover,
+   – the spectrum of ∆X on C(X) is discrete (and thus consists entirely of eigenvalues)
+   – the spectrum of ∆X on E(X) contains the ray [ 14 , ∞), which is the continuous
+     spectrum of ∆X , and finitely many eigenvalues in [0, 14 ).
+
+   For proofs, we refer the reader to the book by Iwaniec (2002, Theorem 4.7 and
+Theorem 7.3).
+   Selberg proved, using his trace formula (see the next section), that for congruence
+groups Γ (groups that contain Γ(N ) for some N ) the cuspidal spectrum, i.e. the spectrum
+of ∆Γ\H2 on C(Γ\H2 ), satisfies a Weyl law. It is however expected that this is specific
+to arithmetic surfaces and that in most moduli spaces of non-compact surfaces of finite
+area, a generic surface supports only finitely many cusp forms, see the survey by Sarnak
+(2003, Conjecture 1).
+   Again, there is a lot more to say both in the closed case and the finite area case,
+we for instance haven’t discussed the connection with the decomposition of L2 (Γ\G)
+into irreducible representations yet (for this, see the book by Gel’fand, Graev, and
+Pyatetskii-Shapiro, 1990), but the space here is too limited to go through everything.
+1.4.4. The Selberg trace formula. — One of the ways of accessing the spectrum of a
+hyperbolic surface of finite area is through the Selberg trace formula. This formula
+provides an explicit connection between the geometry and the spectrum of a hyperbolic
+surface and can be thought of as a hyperbolic analogue of the Poisson summation
+formula (that relates the spectrum and the length spectrum of a flat torus). Because
+we will only use it for closed surfaces in this text, we will restrict to that case:
+
+Theorem 1.6 (Selberg trace formula). — Let X be a closed hyperbolic surface, f ∈
+                                       R ∞ −i·ξ·x
+Cc∞ (R) be an even function and fb(ξ) = −∞ e      f (x) dx its Fourier transform. Then
+                  s
+                        1     area(X) Z ∞ b
+      X                   
+                f
+                b    λ−     =            y f (y) tanh(πy) dy
+  λ∈spec(∆X )
+                        4        4π      −∞
+
+                                                  X                    X          1
+                                       +                        ℓ(γ)                       f (nℓ(γ)),
+                                           γ primitive closed          n≥1 2 sinh(nℓ(γ)/2)
+                                             geodesic on X
+
+where spec(∆X ) denotes the spectrum of ∆X on L2 (X) and ℓ(γ) denotes the length of
+the geodesic γ.
+                                         1255–13
+
+
+  The left hand side, involving the spectrum of the Laplacian is usually called the
+spectral side of the formula and the right hand side is usually called the geometric
+side. We already see from the spectral side that small eigenvalues
+                                                             q     play a special role in
+the theory: they get mapped to the imaginary axis by λ 7→ λ − 14 .
+  For the case of surfaces of finite area, we refer to the books by Iwaniec (2002) and
+Hejhal (1976, 1983).
+
+
+
+2. The bass note
+
+   We now turn to the spectral invariant that this text is about: the bass note of a
+hyperbolic surface. If our hyperbolic surface X is closed, then its bass note is simply
+λ1 (X): the smallest non-zero eigenvalue of its Laplacian. If X is non-compact but of
+finite area, then there is a choice to be made. We could consider the smallest non-zero
+eigenvalue (if indeed there is a non-zero eigenvalue) or the spectral gap – the infimum
+of the positive spectrum of ∆X – instead. We will choose the latter in this text. In
+particular, if X is of finite area but non-compact, we will abuse notation slightly and
+write                                                    
+                              λ1 (X) = inf spec(∆X ) − {0} .
+This choice also implies that (since we’re always assuming that X is connected):
+                             (R                                            )
+                                       2
+                               X ∥∇f ∥
+                                                                   Z
+(1)          λ1 (X) = inf       R
+                                     2
+                                         ; f ∈ Cc∞ (X) such that       f =0 .
+                                 X f                               X
+
+
+2.1. A measure of connectivity
+  This a priori analytical invariant contains a lot of geometric information about the
+surface. Indeed, it can be seen as a measure of connectivity of the surface X. It’s for
+instance related to the Cheeger constant of X:
+                        (                                                      )
+                             ℓ(∂Y )     Y ⊂ X a subsurface with smooth
+           h(X) = inf                ;                                             .
+                            area(Y )   boundary and area(Y ) ≤ area(X)/2
+This number measures how hard it is to cut the surface in two. Figure 5 shows an
+example of what a surface with a small Cheeger constant might look like: it contains a
+big subsurface Y that is connected to the rest of the surface by a small interface ∂Y .
+
+
+                                               ∂Y
+
+                                                           Y
+
+
+
+                    Figure 5. A surface with small Cheeger constant
+                                            1255–14
+
+
+  Its connection to the bass note is given by the following theorem due to Cheeger
+(1970) and Buser (1982), which in the case of hyperbolic surfaces reads:
+
+Theorem 2.1 (Cheeger–Buser inequality). — Let X be a hyperbolic surface of finite
+area. Then
+                    h(X)2
+                          ≤ λ1 (X) ≤ 2 h(X) + 10 h(X)2 .
+                      4
+  This inequality also implies that, whenever (g, n) ∈
+                                                     / {(0, 3), (1, 1)}, then
+                                      inf    λ1 (X) = 0.
+                                    X∈Mg,n
+
+Indeed, under our assumption on (g, n), an orientable surface of genus g with n punctures
+contains a separating simple closed curve α that is not homotopic to a point or a
+puncture. So, using the construction from Section 1.2.3, we can build a family of
+hyperbolic metrics Xt on that surface such that ℓXt (α) = t. It however follows from the
+Gauß–Bonnet theorem that the areas of the subsurfaces bounded by α do not depend
+on the choice of metric and so, letting t tend to 0, we obtain a family of metrics whose
+bass note tends to 0. This fact can also be proven directly by using the variational
+characterization (1) of λ1 (X). We refer the reader to the paper by Schoen, Wolpert,
+and Yau (1980) for more on the relation between short separating curves and small
+eigenvalues.
+   It’s also known that, when X is closed, a lower bound on λ1 (X) and the systole of X
+(the length of the shortest closed geodesic) implies an upper bound on the diameter
+diam(X) of X. The sharpest version of this bound, due to Magee (2020), states that
+for all δ ≥ 0 and ε > 0, there exists a constant Cε,δ > 0 such that
+                          2                  4
+            diam(X) ≤        log(area(X)) +     log log(area(X)) + Cε,δ
+                         1−δ                1−δ
+                                                           2
+for all closed hyperbolic surfaces X with λ1 (X) ≥ 1−δ  4
+                                                           and systole(X) ≥ ε. A similar
+bound can be derived for the diameter of the thick part of a non-compact hyperbolic
+surface of finite area. This is (up to a constant factor) the smallest diameter one could
+hope for: due to the exponential area growth, the diameter of a surface is also at
+least logarithmic; see the articles by Bavard (1996), Budzinski, Curien, and the author
+(2021a), and Mathien (2024) for more details. Magee proved his result using an effective
+version of a theorem of Ratner (1987), due to Matheus (2013) that implies that the
+exponential rate of mixing of the geodesic flow goes up as λ1 goes up, which in itself is
+an indication that λ1 is a measure of connectivity.
+
+2.2. The highest possible bass note
+  Since we now know that λ1 (X) can be arbitrarily small in most moduli spaces, the
+next natural question is how large λ1 (X) can be. In the non-compact case, our definition
+implies that it’s at most 14 . In the closed case, this is not necessary. For example, there
+                                        1255–15
+
+
+are very sharp numerical estimates available for the bass note of the Bolza surface and
+its bass note is well above 14 . Indeed, Strohmaier and Uski (2013) proved that
+                             λ1 (XBolza ) = 3.838887 ± 10−6 .
+It is expected that this is the closed hyperbolic surface with the highest possible bass
+note:
+
+Conjecture 2.2. — (a) The Bolza surface uniquely maximizes the bass note among
+     closed and orientable hyperbolic surfaces.
+ (b) The Klein quartic uniquely maximizes the bass note among closed and orientable
+     hyperbolic surfaces of genus 3.
+
+   Using a method called the conformal bootstrap, that we shall not get into in this
+text, Kravchuk, Mazáč, and Pal (2024) and Bonifacio (2022) prove global upper bounds
+on the bass notes of surfaces of a fixed genus. These bounds are very close to the
+numerical values of the bass notes of the Bolza surface and the Klein quartic in genus 2
+and 3 respectively, whence the conjecture.
+   There are multiple ways to obtain a global upper bound on λ1 (X) for all X ∈ Mg .
+Huber (1974) was the first to prove that
+                                                          1
+(2)                          lim sup {λ1 (X); X ∈ Mg } ≤ .
+                            g→∞                           4
+This result was generalized by Cheng (1975) with a slightly different argument that also
+leads to the more explicit bound
+                                             2                    2
+                           1     4π                1      4π
+                                                      
+                   λ1 (X) ≤ +                     ≤ +
+                           4  diam(X)              4  log(g − 1)
+Using bounds on eigenvalues of hyperbolic disks, due to Gage (1980), the error term can
+be improved by a factor of 4. An alternative argument, using the Selberg trace formula,
+due to Fortier Bourque and the author (2023, Theorem 8.3), asymptotically improves
+the error term by a further factor of 4. Of course, 14 shows up in all of these bounds
+because it’s the bottom of the spectrum of the Laplacian on the hyperbolic plane.
+   The above leads to the question whether there are sequences of closed hyperbolic
+surfaces whose first eigenvalue tends to the bottom of the spectrum of the hyperbolic
+plane. Indeed, Buser (1984) conjectured that such sequences exist (correcting an earlier
+conjecture, also by Buser, 1978).
+   We have already mentioned in the introduction that various models of random surfaces
+produce sequences of closed hyperbolic surfaces whose first eigenvalue tends to 14 , thus
+confirming Buser’s conjecture, and we will spend a large part of this text discussing
+these results. Random constructions are currently the only known way of building such
+sequences.
+   Now that we know that we can approximate 14 it’s also time to become greedier and
+ask whether we can construct surfaces whose spectral gap is consistently at least 14 .
+It might be possible to do this with random surfaces by getting better control on the
+                                        1255–16
+
+
+distribution of λ1 around 14 , in a similar way to how this was recently done for regular
+graphs by Huang, McKenzie, and Yau (2024) (see Sections 4 and 8.1).
+
+2.3. Selberg’s conjecture
+  Congruence surfaces are another well known source of surfaces with a uniform spectral
+gap. We’ll briefly discuss the non-compact case Γ(N )\H2 . Selberg observed that
+these surfaces do not have non-trivial residual spectrum (for a proof, see for instance
+Theorem 11.3 in the book by Iwaniec, 2002), so understanding the spectral gap of
+these surfaces comes down to understanding the eigenvalues associated to cusp forms.
+Selberg’s conjecture states that these have an optimal spectral gap.
+Conjecture 2.3 (Selberg’s eigenvalue conjecture). — If we write λcusp   1   (X) for the
+minimal eigenvalue of ∆X on C(X), then we have
+                                                1
+                            λcusp
+                              1     Γ(N )\H 2
+                                                ≥     for all N.
+                                                  4
+  The current best general bound, due to Kim and Sarnak (2003), is that
+                                                 975
+                          λcusp
+                            1   (Γ(N )\H2 ) ≥        = 0.238 . . . .
+                                                4096
+The conjecture has also been verified for small N , by Huxley (1985, Section 6) for
+N ≤ 18 and by Booker and Strömbergsson (2007) for all square free N < 857 and
+by Booker, Lee, and Strömbergsson (2020) for all N ≤ 226. For the relation between
+Selberg’s conjecture and number theoretic questions, we refer the reader to the survey
+by Sarnak (2003).
+  Huxley’s proof for N ≤ 18 is based on an idea originally due to Roelcke (1956). We
+will give a proof using this argument for the surface we discussed in Section 1.2.2: the
+thrice-punctured sphere Γ(2)\H2 .
+Lemma 2.4. — We have
+                                              √
+                                          2+     2
+                       λcusp
+                        1    (Γ(2)\H2 ) ≥          = 0.85355 . . . .
+                                             4
+Proof. — The geometric input we need is a convenient covering of the thrice punctured
+sphere by horodisks. We’ll draw lifts of these horodisks in the hyperbolic plane, like in
+Figure 6.
+  We’ll take three horodisks of the same area that together cover the thrice punctured
+sphere and are minimal with respect to this requirement. The reason that the disks
+incident to 1 and −1 in Figure 6 are smaller is that these two points lie in the same
+parabolic orbit of Γ(2). The horocycles are completely determined by the intersection
+pattern in the picture and the fact that the lengths of the two shorter horocycles are
+half the lengths of the longer horocycles.
+  A computation yields that the horodisk incident to ∞ lifts to
+                                                1
+                                                                    
+                               2
+                  C = z ∈ H ; Im(z) ≥ 1 + √ , −1 ≤ Re(z) ≤ 1 .
+                                                 2
+                                            1255–17
+
+                                                 1
+
+
+
+
+                              0                                            ∞
+
+
+
+
+                                                −1
+        Figure 6. Four horodisks covering a fundamental domain for the thrice punc-
+        tured sphere
+
+  Now let f : H2 → C be a cusp form, thought of as a Γ(2)-invariant function with
+                Z
+                     dx dy                 Z
+                                                          dx dy
+                  f2       =1        and        ∥∇f ∥2          = λcusp
+                                                                   1    (Γ(2)\H2 ),
+                F     y2                    F              y 2
+
+where F is our standard fundamental domain: the convex hull in H2 of {−1, 0, 1, ∞}.
+We choose some g1 , g2 ∈ PSL(2, R) such that C ∪ g1 C ∪ g2 C projects to our horodisk
+covering. We observe from Figure 6 that almost every point in F is covered by at most
+two translates of C, so
+                             2 dx dy             −1 2 dx dy                  dx dy
+                       Z               Z                      Z
+       cusp       2
+  2 · λ1 (Γ(2)\H ) ≥ ∥∇f ∥        2
+                                     + ∥∇f ◦ g1 ∥        2
+                                                            + ∥∇f ◦ g2−1 ∥2 2 .
+                        C       y       C              y       C               y
+Now let φ be one of f , f ◦ g1−1 and f ◦ g2−1 . We have φ(z) = φ(z + 2) for all z ∈ H2 , so
+we can write a Fourier series
+                                                        an (y)einx ,
+                                                 X
+                                   φ(x + iy) =
+                                                 n̸=0
+
+where we have used that f is a cusp form to exclude the constant term. This means
+that
+                                                                       2
+  Z
+            dx dy      Z
+                              ∂φ 2 dx dy Z X                     dx dy
+      ∥∇φ∥2       ≥                     =        in · an (y)einx
+    C        y2             C ∂x     y    C n̸=0                   y
+    XZ ∞                    dy    1 XZ ∞                 2 dy
+                                                                       1 Z     2 dx dy
+=            n2 |an (y)|2     ≥ 1+ √               |an (y)|     ≥   1 + √     |φ|        .
+           1
+    n̸=0 1+ 2
+           √                y        2 n̸=0 1+ √12           y2           2 F       y2
+Putting everything together yields the bound 2 · λcusp
+                                                  1    (Γ(2)\H2 ) ≥ (1 + √12 ).
+   At this point, one might remember the Cheeger–Buser inequality (Theorem 2.1) and
+hope that we could use that to prove Selberg’s conjecture. This means that we would
+need to prove that h(Γ(N )\H2 ) ≥ 1. The Cheeger constant of the hyperbolic plane in
+fact satisfies h(H2 ) = 1, so we’d hope to prove that the Cheeger constant of a congruence
+                                              1255–18
+
+
+surface always exceeds that of the hyperbolic plane. Brooks and Zuk (2002) proved
+that this is too much to hope for and that indeed, h(Γ(N )\H2 ) ≤ 0.4402 . . ., for all
+large enough N . Budzinski, Curien, and the author (2025) showed that a similar thing
+happens for all closed surfaces, that is, h(X) ≤ π2 + og→∞ (1) for all X ∈ Mg . Both of
+these results use random decompositions of the surface.
+
+
+
+3. The bulk of the spectrum
+
+   In this text we’ll be looking at surfaces with a near optimal spectral gap, i.e. surfaces
+whose bass note approximates the bottom of the spectrum of the hyperbolic plane. In
+fact, these will be sequences of surfaces whose entire Laplacian spectrum approximates
+the spectrum of the hyperbolic plane.
+   Before we get to near optimal spectral gaps, we mention a weaker notion of convergence
+to the hyperbolic plane, namely Benjamini–Schramm convergence. This is a geometric
+notion of convergence that was adapted from graph theory (see the article by Benjamini
+and Schramm, 2001) by Abert, Bergeron, Biringer, Gelander, Nikolov, Raimbault, and
+Samet (2017) and Namazi, Pankka, and Souto (2014). We say that a sequence (Xn )n≥0
+of hyperbolic surfaces of finite area Benjamini–Schramm converges to H2 , if for all
+R > 0,
+                                    n                          o
+                                area x ∈ Xn ; injx (Xn ) ≥ R
+                          lim                                      =1
+                         n→∞              area(Xn )
+In the above, injx (Xn ) denotes the injectivity radius of Xn at x. For instance, any
+sequence of closed surfaces whose systole tends to infinity converges to H2 .
+  The sequence (Xn )n is said to be uniformly discrete if the minimal injectivity
+radius of Xn does not tend to 0 as n → ∞ (in particular, the surfaces Xn eventually
+need to be closed).
+
+                         0.08
+                         0.07
+                         0.06
+                         0.05
+                         0.04
+                         0.03
+                         0.02
+                         0.01
+                                        0.5      1.0    1.5        2.0
+
+                    Figure 7. The density of the Plancherel measure.
+                                           1255–19
+
+
+  It follows from the work of Abert, Bergeron, Biringer, Gelander, Nikolov, Raimbault,
+and Samet (2017) that if (Xn ) is a uniformly discrete sequence of hyperbolic surfaces,
+then for all [a, b] ⊂ R≥0 :
+                                                                  s
+          #{k; λk (Xn ) ∈ [a, b]}            1 Zb                         1
+                                                                            
+                                     n→∞
+                                     −→           1[ 1 ,∞) (y) tanh π y −   dy.
+               area(Xn )                    4π a 4                        4
+                                     q      
+                1
+  The measure 4π  1[ 1 ,∞) (y) tanh π y − 14 dy is the spectral density of the Laplacian
+                     4
+on the hyperbolic plane and is called the Plancherel measure (see Figure 7). Gavelli
+and Kamp (2024) proved that without uniform discreteness, the spectral convergence
+above need not hold.
+   Since the support of the Plancherel measure is exactly the spectrum of the Laplacian
+on the hyperbolic plane, we have that the number of small eigenvalues of any uniformly
+discrete sequence of hyperbolic surfaces (Xn )n that Benjamini–Schramm converges to
+the hyperbolic plane is o(area(Xn )) as n → ∞. This is of course much weaker than
+a near optimal spectral gap. In fact, one can construct sequences of surfaces that
+Benjamini–Schramm converge to H2 that don’t have a uniform spectral gap at all, for
+instance using degree two covers of surfaces with large systoles (see for instance Section 5
+in the article by Buser and Sarnak, 1994).
+
+
+
+4. Regular graphs
+
+   Before we get to random surfaces, we discuss the case of graphs. Indeed, there is an
+analogous problem in graph theory to that of (optimal) spectral gaps for hyperbolic
+surfaces. This is the theory of (optimal) expander graphs, which is a well-studied subject
+in graph theory. For a general overview on expander graphs, we refer to the survey by
+Hoory, Linial, and Wigderson (2006) and the book by Kowalski (2019). We will discuss
+some recent highlights that have inspired the work on surfaces.
+   There are also multiple ways to use a sequence of expander graphs to build expander
+surfaces (sequences of surfaces with growing area and a uniform spectral gap), for
+instance through covers or triangulations (see the works by Buser (1978), Brooks (1986),
+and Burger (1986) and the notes by Breuillard (2014, Appendix) for an introduction),
+but these estimates can’t yield sharp bounds, so this is not the route we will take below.
+
+4.1. Definitions
+  First of all, given a locally finite graph G with vertex set VG and edge set EG , AG
+will denote its adjacency matrix, the matrix on VG × VG given by
+                           (
+                               #{edges between v and w} if v ̸= w ∈ VG
+               (AG )vw =
+                               2 · #{loops based at v}  if v = w ∈ VG .
+                                         1255–20
+
+
+In particular, our graphs are allowed to have loops and multiple edges. Since some of
+the graphs we will talk about have an infinite vertex set, we will think of this matrix as
+an operator acting on ℓ2 (VG ).
+  We will restrict to d-regular graphs: graphs such that every vertex is incident to d
+edges (in which every loop is counted as 2 edges). In this case the graph Laplacian is
+the operator given by
+                                    LG = d · Id − AG .
+In many ways, this is a combinatorial analogue of the Laplacian on a Riemannian
+manifold. Of course, in the setting of regular graphs, any information on the LG can
+be extracted from AG and vice versa. As is common in graph theory, we will phrase
+things in terms of AG in what follows.
+  The adjacency matrix of a graph G is a bounded and self-adjoint operator, so its
+spectrum is real. If G is a connected d-regular graph on n < ∞ vertices, then AG is a
+Perron–Frobenius matrix with eigenvalues
+                           d = λ1 (G) > λ2 (G) ≥ · · · ≥ λn (G).
+The top eigenvalue d corresponds to constant vectors. G is called bipartite if we can
+bipartition the vertex set VG = X ⊔ Y such that (AG )vw = 0 whenever both v ∈ X
+and w ∈ X or both v ∈ Y and w ∈ Y . If G is finite, this happens if and only if
+λ1 (G) = −λn (G), which in turn is equivalent to the entire spectrum being symmetric:
+λk (G) = −λn−k (G) for k = 0, 1, . . . , n/2.
+
+4.2. Expansion
+   In terms of the adjacency matrix, the analogue of the bass note of a hyperbolic surface
+is the spectral gap λ1 (G) − λ2 (G) = d − λ2 (G). So if we want to know how high the
+bass note can be, we need to know how small λ2 (G) can be. Since the spectrum in this
+setting is finite, we could also ask for a bound on the moduli of all the eigenvalues. That
+is, we instead ask how small λ(G) = max{λ2 (G), |λn (G)|} can be. For example, it’s the
+latter quantity that appears in the equidistribution rate of a random walk on a finite
+graph (see for instance Theorem 3.2 in the survey by Hoory, Linial, and Wigderson,
+2006). However, the former relates to the Cheeger constant of the graph in a similar
+way to the Cheeger–Buser inequality (Theorem 2.1). A sequence of d-regular graphs
+                                                      n→∞
+(Gn )n is called an expander sequence if #VGn → ∞ and there exists ε > 0 such
+that λ2 (Gn ) ≤ d − ε for all n.
+                                                                       √
+   In the case of d-regular graphs, the number 14 is replaced by 2 d − 1. Indeed, the
+latter is the spectral radius of the adjacency matrix of the infinite d-regular tree – the
+universal cover of every d-regular graph. The analogue to the Huber bound (2) is called
+the Alon–Boppana bound in graph theory and states
+                                                                  √
+                          (                                )
+                                  G a d-regular graph
+                  lim min λ2 (G);                              ≥ 2 d − 1.
+                 n→∞                 on n vertices
+                                                1255–21
+
+
+Similar error terms to the hyperbolic case are known in this setting as well (see Nilli,
+1991; Friedman, 1993).
+                                                √
+   A d-regular graph such G such that λ(G) ≤ 2 d − 1 is called a Ramanujan graph.
+  √ graphs cannot be bipartite. A bipartite d-regular graph G such that λ2 (G) ≤
+Such
+2 d − 1 is called a bipartite Ramanujan graph. Infinite sequences of Ramanujan
+graphs and bipartite Ramanujan graphs of fixed degree were first discovered by Lubotzky,
+Phillips, and Sarnak (1988) and Margulis (1988). These graphs are of degree q + 1,
+where q is a prime power (originally, q was a prime, but Morgenstern (1994) extended
+it to prime powers). It took a long time before the remaining degrees were achieved as
+well. Marcus, Spielman, and Srivastava (2015), partially proving a conjecture by Bilu
+and Linial (2006), iterated covers of degree 2 to construct the first infinite sequences
+of bipartite Ramanujan graphs in the remaining degrees. More recently, using random
+regular graphs, Huang, McKenzie, and Yau (2024) proved that there exist infinite
+sequences of Ramanujan graphs in every degree.
+
+4.3. Friedman’s theorem and strong convergence
+  This last result fits in a long line of results on the spectral gaps of random regular
+graphs. Alon (1986) conjectured that, if Gn,d denotes a random d-regular graph on n
+(n even if d is odd) vertices, then for every ε > 0,
+                                         √           
+                                                        n→∞
+                             P λ(Gn ) ≤ 2 d − 1 + ε −→ 1.
+
+This conjecture was first proved by Friedman (2008). By now, several proofs of Fried-
+man’s theorem exist. Indeed, also Huang, McKenzie, and Yau (2024) prove   √ a version of
+this theorem, with sufficient control over√ the distribution of λ(Gn ) − 2 d − 1 in order
+to be able to prove that P(λ(Gn ) > 2 d − 1) does not tend to zero as n → ∞, thus
+proving the existence of arbitrarily large Ramanujan graphs in every degree.
+   We will not go into the proof by Huang, McKenzie and Yau. Instead, we will
+briefly discuss Friedman’s original proof and more recent work by Bordenave (2020)
+and Bordenave and Collins (2019) that generalizes the theorem and proves a strong
+convergence result.
+   Before we do any of this, we need to say what we mean by a random d-regular graph.
+There are multiple contiguous(2) models for this. We will restrict to the case of even
+degree and use the permutation model in what follows. We will write Sn for the
+symmetric group on [n] = {1, . . . , n} and define the random 2d-regular graph G2d,n as
+follows. We draw π1 , . . . , πd ∈ Sn independently uniformly at random. The vertex set
+of G2d,n is [n] and the number of edges between i, j ∈ [n] equals
+                                 
+                         AG2d,n        = #{k; πk (i) = j} + #{k; πk (j) = i}.
+                                  ij
+
+
+(2)
+  Two models of finite random graphs G1n and G2n are called contiguous if and only if for any set A
+of isomorphism classes of finite graphs, limn→∞ P(G1n ∈ A) = 1 if and only if limn→∞ P(G2n ∈ A) = 1.
+                                                 1255–22
+
+
+See Figure 8 for an example. We observe that G2d,n is not necessarily connected. It
+however follows from work by Dixon (1969) that the probability that it is connected
+tends to 1 as n → ∞.
+
+
+
+                                     1       2         3     4          5
+
+
+       Figure 8. The 4-regular graph on [5] corresponding to the permutations
+       (1 2 3 4)(5) and (1 4 2)(3 5) from S5 . We’ve drawn arrows to indicate what
+       the permutations do, but the graph is thought of as undirected.
+
+
+  Other well known models are the uniform model (picking a uniformly random isomor-
+phism class of d-regular graphs on n vertices) and the configuration model (taking n
+vertices with d half-edges sticking out and randomly pairing the half-edges). When the
+degree is even, all three of these models are contiguous (see for instance the survey by
+Wormald (1999, Section 4) and references therein). In particular, if Alon’s conjecture
+holds for one of them, it holds for all of them.
+4.3.1. Friedman’s proof. — Friedman’s proof uses the trace method, pioneered by
+Broder and Shamir (1987). The idea is that the eigenvalues of AG2d,n can be accessed
+by taking the trace of a high power:
+                                                         n
+                              Tr AkG2d,n = dk +                  λi (G2d,n )k .
+                                                           X
+
+                                                           i=2
+
+On the other hand, we can write
+                 n      n                                                          o
+    Tr AkG2d,n =
+                   X
+                         # closed walks in G2d,n of length k based at the vertex v .
+                   v=1
+
+As such, one needs good estimates on the number of closed walks in a random graph. It
+follows from work by Nica (1994) that in the permutation model, the primitive length
+spectrum – the multi-set of all lengths of primitive closed non-backtracking cycles, with
+multiplicity – converges to a Poisson point process. This in particular implies that
+these random graphs Benjamini–Schramm converge to the 2d-regular tree and that
+their normalized spectral measures converge to that of the tree, which is given by the
+Kesten–McKay law (see Kesten, 1959; McKay, 1981), the graph theoretic analogue of
+the Plancherel measure mentioned
+                        √           in Section 3. In particular, the number of eigenvalues
+                                    √
+outside the interval [−2 2d − 1, 2 2d − 1] is of size o(n).
+                                                              √             √
+   In order to prove that none at all are in the interval [−2 2d − 1 − ε, 2 2d − 1 + ε],
+Friedman does not directly work with closed walks but rather with non-backtracking
+walks, the graph theoretic analogue of closed geodesics. So we write
+                                               ∞                           
+                                                                        (l)
+                              Tr AkG2d,n =
+                                                 X
+                                                       fk (l) · Tr PG2d,n ,
+                                                 l=0
+                                                         1255–23
+
+
+            (l)                                                           (l)
+where PG2d,n is the n × n matrix in which (PG2d,n )vw equals the number of non-
+backtracking walks of length l from v to w. This matrix is given by the recurrence
+relation
+                 (0)           (1)             (2)
+               PG2d,n = Id, PG2d,n = AG2d,n , PG2d,n = A2G2d,n − d · Id
+                                  (l+1)                   (l)                        (l−1)
+                    and         PG2d,n = AG2d,n · PG2d,n − (d − 1) · PG2d,n for l ≥ 1.
+                      (l)
+In particular, PG2d,n = pl (AG2d,n ), where pl is a polynomial of degree l that can be
+expressed in terms of Chebycheff polynomials. The function fk : N → R can be made
+explicit as well, we refer the reader to the article by Friedman (2008) for details; we will
+just note that fk (l) ≥ 0, with equality when l > k, for all l ∈ N. Friedman moreover
+proves that
+                      s             √         k
+                         2d − 1 2 2d − 1                            √       k
+             fk (l) ≤            ·                and    f k (0) ≤  2 2d − 1    .
+                           2d        (d − 1)l/2
+  We next analyze the expected traces of the non-backtracking matrices. We have
+Lemma 4.1. — There exist functions g0 , g1 , . . . : N → R such that for any fixed d, r ∈ N
+there exists a constant c > 0 such that
+     
+           (l)
+                           g1 (l)          gr−1 (l)        l4r+2 · (2d − 1)l
+   E Tr PG2d,n − g0 (l) −           − . . . − r−1 ≤ c ·                        for all n ≥ 1.
+                               n              n                      nr
+   The next step in the strategy is to analyze the functions gj . Indeed, it would suffice
+to prove that these functions are what Friedman calls Ramanujan functions with
+principal term 2d(2d − 1)l−1 for g0 and 0 for all the others. Here, a Ramanujan function
+is a function g : N → R such that there exists a polynomial p : N → R and a constant
+c > 0 such that
+                       |g(l) − (2d − 1)l · p(l)| ≤ c · lc · (2d − 1)l/2 .
+The function l 7→ (2d − 1)l · p(l) is called the principal term of g. We now have:
+Lemma 4.2. — Let g0 , g1 , . . . , gr−1 be as in Lemma 4.1. If these are Ramanujan func-
+tions and the principal term of gm equals 2d(2d − 1)l−1 when m = 0 and 0 otherwise,
+then,
+         Xn                 √          k      d
+                                                          k 
+                                                          r+1       c · log log(n) k
+                                                                                  
+                         k
+       E      λi (G2d,n ) ≤ 2 2d − 1 · √                      · 1+
+          i=2                                   2 2d − 1                 log(n)
+               (r+1) log(n)
+for all k ≤ log(2d/(2 √
+                        2d−1)
+                              .
+                                                                 (l)
+Proof sketch. — Being a polynomial in A, PG2d,n has the same eigenspaces as A. As
+such, writing 1 for the vector all of whose entries equal 1,
+     n
+    X                                               k 
+                      k
+  E         λi (G2d,n )       = E Tr AG2d,n |1⊥
+      i=2
+                          k                                          k                                         
+                          X                        (l)                   X                           (l)
+                     =          fk (l) · E Tr PG2d,n |1⊥             =          fk (l) · E Tr PG2d,n            − pl (2d)
+                          l=0                                            l=0
+                                             1255–24
+
+
+now we apply Lemma 4.1 and observe that terms of the form pl (2d) = 2d(2d − 1)l−1
+cancel against the principal term of g0 (l). Combining the remainder with the estimate
+we have on fk (l) then implies the claim.
+
+  If we could prove the hypothesis of the lemma above for√all r, we would get Alon’s
+conjecture by applying Markov’s inequality to λ(G2d,n )k − (2 2d − 1 − ε)k , which, when
+n is large enough, is a non-negative random variable because of the Alon–Boppana
+theorem. However,
+                √ as Friedman proves, there exists a universal constant C > 0 such
+that when r > C d log(d), the hypothesis is violated. That is, the functions gi are not
+Ramanujan in this range.
+  What prevents them from being Ramanujan is the presence of tangles; these are
+small connected subgraphs of negative Euler characteristic that cause the spectral gap
+to be small. These tangles appear with a relatively small probability (that in particular
+tends to 0 as n tends to infinity). However, these probabilities are large enough to
+ruin the expectations we are calculating. A large part of the work in Friedman’s article
+goes into dealing with these tangles. In particular, the goal is to take the expectation
+over a subset of graphs that are still of asymptotic density 1 but do not contain these
+problematic subgraphs. We will not go into details here, but just note that a similar
+problem appears in the work by Anantharaman and Monk (see Section 7).
+
+4.3.2. Representations, covers and strong convergence. — In this section, we will de-
+scribe the generalization by Bordenave and Collins (2019) of Friedman’s theorem (which
+was in part proved using the strategy Bordenave (2020) developed for his new proof of
+Friedman’s theorem). We will not sketch this proof, but we will describe the theorem
+statement, because it’s used in the work by Hide–Magee that we present in Section 6.
+A new approach, that we won’t discuss in detail but plays an important role in the
+work by Hide–Macera–Thomas (see Section 8), to the result by Bordenave–Collins has
+recently been found by Chen, Garza-Vargas, Tropp, and van Handel (2026).
+  We start with a group theoretic interpretation of the permutation model. We let Fd
+denote a non-abelian free group of rank d. If (x1 , . . . , xd ) is a generating set for Fd
+(which because of its cardinality is necessarily a free basis), then the map
+
+                 φ ∈ Hom(Fd , Sn )        7−→    (φ(x1 ), . . . , φ(xd )) ∈ (Sn )d
+
+is a bijection. In particular the choice of d random permutations we used for our random
+graph also yields a random homomorphism φn : Fd → Sn . Moreover, our graph G2d,n
+is nothing else than the Schreier graph for the action of Fd on [n] through φn .
+  We can also understand the adjacency matrix in this language. If U(n) is the uni-
+tary group of Cn with its standard Hermitian product and permn : Sn → U(n) the
+permutation action of Sn on Cn , then
+                                 d
+                                       perm ◦ φn (xi ) + perm ◦ φn (x−1
+                                 X
+                      AG2d,n =                                       i ).
+                                 i=1
+                                             1255–25
+
+
+The representation permn splits into two irreducible representations
+
+                                  permn ≃ triv ⊕ stdn ,
+
+where triv denotes the trivial representation and is obtained as the restriction of permn
+to C · 1 ⊂ Cn , where 1 denotes the vector with only 1’s, and stdn : Sn → U(Cn0 ) is the
+restriction of permn to
+                                        n            n              o
+                               Cn0 = v ∈ Cn ;
+                                                     X
+                                                           vi = 0
+                                                     i=1
+
+and is often called the standard representation.
+  This decomposition into irreducible representations also corresponds exactly to the
+decomposition of Cn into the trivial eigenspace of AG2d,n and its orthogonal complement.
+Of course, this is not an accident. Indeed, the graph G2d,n can be thought of as a
+(non-regular) cover of the wedge of d circles G2d,1 . If we write G2d,1 = Fd \T2d , where
+T2d denotes the infinite 2d-regular tree, then
+                                                               
+                                 G2d,n ≃ Fd \ T2d × [n] ,
+
+where Fd acts on the second factor through the map φn : Fd → Sn . In particular,
+the homomorphism φn is the monodromy representation of the cover G2d,n → G2d,1 .
+Thinking of vectors in Cn (and C1 ) as functions on the vertex set VG2d,n (and VG2d,1
+respectively), the eigenfunctions of the 1×1 matrix AG2d,1 = (2d) all lift to eigenfunctions
+of AG2d,1 . These lifts form the 1-dimensional subspace of constant functions. The
+orthogonal complement are thus exactly the “new” functions on G2d,n . We note this
+principle has nothing to do with graphs and that a similar decomposition of function
+spaces works for covers of topological spaces in general. We will see another instance of
+this when discussing the work of Hide–Magee (Section 6).
+  The above discussion implies that if we want to prove a spectral gap, we need to
+control the spectral radius
+                                                         d                 
+                        ∥Anew                                  xi + x−1
+                                                         X
+                          G2d,n ∥∞ :=       stdn ◦ φn                i
+                                                         i=1                    ∞
+
+of the self-adjoint matrix Anew
+                             G2d,n , where we have linearly extended stdn ◦ φn to the group
+ring C[Fd ] – the ring of formal finite linear combinations of elements of Fd . We need the
+following definition, in which U(H) denotes the group of unitary operators on a Hilbert
+space H:
+                                                                                   
+Definition 4.3. — Let Γ be a countable group and let ρn : Γ → U(Hn )             be a se-
+                                                                             n≥1
+quence of representations on a sequence of Hilbert spaces Hn . We say that ρn converges
+strongly to a representation ρ : Γ → U (H) on a Hilbert space H if, for all x ∈ C[Γ],
+
+                                lim ∥ρn (x)∥∞ = ∥ρ(x)∥∞ .
+                                n→∞
+                                                     1255–26
+
+
+If the representations ρn are random we say the sequence converges strongly in
+probability to ρ : Γ → U(H) if, for all x ∈ C[Γ] and all ε > 0,
+                                                                        
+                           lim P
+                          n→∞
+                                         ∥ρn (x)∥∞ − ∥ρ(x)∥∞ < ε = 1.
+
+   The case that is of interest to us is when the limit is the left regular representation
+of Γ. This is the representation ρreg. : Γ → U(ℓ2 (Γ)) given by
+                                  
+                       ρreg. (γ) · f (η) = f (γ −1 · η),        γ, η ∈ Γ, f ∈ ℓ2 (Γ).
+  Bordenave and Collins (2019) proved the following:
+Theorem 4.4 (Bordenave–Collins). — Let d ≥ 2 be fixed and let φn ∈ Hom(Fd , Sn )
+be uniformly random. Then stdn ◦ φn converges strongly in probability to the left regular
+representation ρreg. : Fd → U(ℓ2 (Fd )) as n → ∞.
+   We finish this section by explaining how the theorem above implies Friedman’s theo-
+rem. First we recall what a Cayley graph is. Given a group Γ and a generating set S
+for Γ, the Cayley graph G(Γ, S) is the graph with vertex set VG(Γ,S) = Γ and edge set
+                                               n                             o
+                             EG(Γ,S) = {γ, γ · x); x or x−1 ∈ S .
+The Cayley graph of Fd with respect to the generating set (x1 , . . . , xd ) is isomorphic to
+T2d . In particular,
+                                                d
+                                               X           
+                                       ρreg.         xi + x−1
+                                                           i  = AT2d .
+                                               i=1
+So if we apply Theorem 4.4 to i=1 xi + x−1
+                                         Pd
+                                            i   ∈ C[Fd ], we obtain Friedman’s theorem.
+We however emphasize that the theorem above is much stronger than what we need for
+a near optimal spectral gap for random graphs. When we apply it to random surfaces
+below, we will need the full strength of the statement.
+   Bordenave and Collins’s result is also part of a much longer story on strong con-
+vergence for unitary representations. Strikingly, even though we now know, through
+Theorem 4.4, that the regular representation of Fd can be strongly approximated by
+finite dimensional unitary representations that factor through standard representations
+of symmetric groups, we currently don’t have any explicit examples of this. In fact,
+even if we don’t ask for the representations to factor through the symmetric group, no
+explicit sequences are known. We refer to the surveys by Magee (2025) and van Handel
+(2025) for more on this.
+
+
+5. Random surfaces
+
+   Random surfaces have been around in the mathematical physics, combinatorics and
+probability literature for a long time. One particular model that has attracted a lot
+of attention is that of random planar maps (random cell decompositions of the 2-
+sphere). Some of the highlights in this field are the description of the local geometry, by
+                                        1255–27
+
+
+Angel and Schramm (2003), and the global geometry, by Le Gall (2013) and Miermont
+(2013), of random planar maps with faces with a fixed number of sides.
+  In this section we will present a brief survey of the history of random hyperbolic
+surfaces. We will introduce the three most common models in the order in which they
+have historically been introduced, which is the opposite order to that in which the near
+optimal spectral gaps for them were proved. Towards the end of this section, we discuss
+some alternative models.
+
+5.1. Random Belyı̆ surfaces
+5.1.1. The model. — The first model of random hyperbolic surfaces was defined by
+Brooks and Makover (2004). In this model, the first step is to randomly glue together
+2n ideal hyperbolic triangles without shear (this can be defined by requiring that the
+tangency points of the maximal inscribed disks match up, like in Section 1.2.2) into a
+surface Sn with cusps. Figure 9 shows a sample for n = 3. The gluings themselves are
+determined by the shear condition, so the only randomness comes from the combinatorics
+of the triangulation. The model Brooks and Makover use for this is often called the
+configuration model: the sides of the triangles are labeled with the numbers 1, . . . , 6n
+and the combinatorics of the gluing is determined by a uniformly random perfect
+matching (a set partition into pairs) on [6n].
+
+
+
+
+            Figure 9. Gluing ideals triangles into a surface without boundary.
+
+  Afterwards, we compactify Sn so as to obtain a surface S n . To do this, we observe
+that the cusps admit neighborhoods that are conformally equivalent to punctured disks
+in the complex plane and one can simply add the punctures in. This yields a closed
+Riemann surface and hence, using the uniformization theorem, a constant curvature
+metric.
+  As observed by Brooks and Makover (2001a), this model can also be described as a
+random cover model. To see this, we recall that as abstract groups
+                  PSL(2, Z) ≃ (Z/2Z) ∗ (Z/3Z) = ⟨τ, σ| τ 2 = σ 3 = 1⟩
+                                              1255–28
+
+
+where “∗” denotes a free product. As such, we can build a random cover of the modular
+curve PSL(2, Z)\H2 using a random homomorphism to a symmetric group, in the same
+way we did for graphs. In order to have these covers be surfaces (as opposed to orbifolds),
+we build a random homomorphism φn : PSL(2, Z) → S6n by sending τ to a uniformly
+random fixed point free involution (so a product of 3n distinct 2-cycles) and σ to a
+uniformly random permutation of order three without fixed point (so a product of 2n
+distinct 3-cycles). This guarantees that the torsion doesn’t lift to the surface
+                                                               
+                                  Sn = PSL(2, Z)\ H2 × [6n] ,
+where PSL(2, Z) acts on [6n] through φn . We’re using the same notation because
+distribution of this surface Sn is the same as that of the cusped surface Sn we defined
+before.
+   When we compactify Sn and PSL(2, Z)\H2 , the cover Sn → PSL(2, Z)\H2 turns into
+a branched cover, branched over at most three points (coming from the two cone points
+and the cusp). By Belyı̆’s theorem (1979), the set of surfaces that admit such a cover
+are exactly the curves that can be defined over Q, a dense set among all Riemann
+surfaces (see the survey by Jones and Singerman (1996) for more on this). This means
+that the most interesting surfaces are the compactifications S n . Indeed, the set of all
+non-compact surfaces that the model generates intersect every moduli space only in a
+finite number of points.
+   In order to understand the geometry of the surfaces S n , one needs to be able to
+compare the geometry of the non-compact surfaces Sn , whose geometry is entirely
+encoded by the combinatorics of the triangulation, and the geometry of their compactifi-
+cations S n . Brooks (1999) proved effective comparison theorems for the geometry away
+from the cusps and their images before and after compactification that can be used to
+do this.
+5.1.2. Results. — Now we first need to understand the topology of S n . It follows from
+classical results on the configuration model by Bollobás (1981) and Wormald (1981) that
+the surface S n is connected with high probability as n → ∞(3) . Brooks and Makover
+(2004) proved that with high probability the genus of Sn is close to its maximal value
+ n+1
+  2
+     . Gamburd (2006) refined this result and obtained very precise estimates on the
+distribution of the genus. He did so by applying a famous lemma by Diaconis and
+Shahshahani (1981) to the distribution of φn (στ ), which describes how the cusp of
+PSL(2, Z)\H2 lifts to Sn . All this in particular implies that S n is typically hyperbolic.
+    The first results on the geometry are by Brooks and Makover (2004), who proved
+that their random surfaces are expanders. They proved that there exist constants
+C1 , C2 , C3 , C4 > 0 such that
+      diam(S n ) ≤ C1 · log(n),    λ1 (S n ) ≥ C2 ,   h(S n ) > C3   and systole(S n ) > C4 ,
+
+(3)
+  We will say that a sequence of events (An )n hold with high probability as n → ∞ if P(An ) → 1 as
+n → ∞.
+                                        1255–29
+
+
+with high probability as n → ∞. All of these bounds have since been sharpened.
+Budzinski, Curien, and the author (2021b) proved that the diameter is asymptotic to
+2 log(n) in probability as n → ∞, the author (2017) and Thäle and the author (2018)
+proved that the primitive length spectrum – the multi-set of lengths of primitive closed
+geodesics on S n – converges to a Poisson point process. This also implies uniform
+discreteness and Benjamini–Schramm convergence of these surfaces, see the survey by
+Raimbault (2014). Shen and Wu (2023, 2025b) proved that the Cheeger constant is at
+       3
+most 2π  + o(1) and the spectral gap tends to 14 , as n → ∞, using methods close to those
+of Hide and Magee (2023) for the latter. Finally, Naud (2023) proved a general criterion
+for the convergence of the normalized ζ-regularized determinant of the Laplacian to a
+universal value, that in particular applies to this model of random surfaces.
+
+5.2. Weil–Petersson random surfaces
+5.2.1. The model. — The second model we will treat is that of surfaces sampled using
+the Weil–Petersson volume form on Mg for g ≥ 2. Wolpert (1982) proved that, for any
+pants decomposition P of a closed surface of genus g, the symplectic form
+                                     X
+                                           dℓα ∧ dτα
+                                     α∈P
+
+coincides with the symplectic form coming from the Weil–Petersson Kähler form on
+Teichmüller space, the definition of which we will not discuss in this text. Wolpert’s
+theorem implies that the volume form ∧α∈P (dℓα ∧ dτα ) defines a mapping class group
+invariant volume form on Teichmüller space and thus a volume on any moduli space
+of closed surfaces. We will denote the associated volume measure by volWP . The total
+Weil–Petersson volume of moduli space is finite, which allows us to define a probability
+measure, by normalizing the Weil–Petersson volume measure. We will write Xg ∈ Mg
+for a random surface distributed according to this measure. Similar volume forms
+can be defined on moduli spaces of hyperbolic surfaces with cusps and/or boundary.
+These forms coincide with the symplectic form defined by Goldman (1984). For more
+background on the Weil–Petersson metric, we refer the reader to the books by Imayoshi
+and Taniguchi (1992) and Wolpert (2010).
+   What sets this model apart among the three models of random surfaces we describe in
+this text is that the support of the corresponding probability measure is all hyperbolic
+surfaces of a given topology. We note that there are other natural such models that are
+currently poorly understood, like for instance the model coming from the Weil–Petersson
+measure multiplied by the Mirzakhani function (see for instance Arana-Herrera and
+Athreya, 2020).
+5.2.2. Results. — The geometry of Weil–Petersson random surfaces was first inves-
+tigated by Guth, Parlier, and Young (2011) and Mirzakhani (2013). Guth, Parlier
+and Young used them to prove an existence result, namely that, for every ε > 0 and
+every g large enough, there exist hyperbolic surfaces of genus g that do not admit a
+pants decomposition of total length ≤ g 7/6−ε . This is still the best known lower bound
+                                                            1255–30
+
+
+on the maximal minimal total pants length of a surface of genus g. The best known
+upper bound follows from work by Parlier (2024) on the constant in Bers’s theorem
+(1974). The resulting bound states that every closed hyperbolic surface admits a pants
+decomposition of total length at most 12π(g − 1)2 .
+   Mirzakhani used the integration techniques she developed as a part of her thesis
+(see the article by Mirzakhani (2007a) for the beginning of this story) to study the
+random surfaces Xg . A priori, one might want to simply integrate functions over some
+fundamental domain Fg ⊂ Tg for the corresponding mapping class groups. However, no
+sequence of fundamental domains is known that is also easy to describe.
+   Mirzakhani overcame this difficulty by proving the Mirzakhani integration for-
+mula. In order to state it, suppose that Γ = (γ1 , . . . , γk ) is a collection of disjoint,
+pairwise non-homotopic, essential (see footnote 1) simple closed curves on Σg,n (L) and
+that F : [0, ∞)k → R is a function. Then we define F Γ : Mg,n (L) → R by
+             F Γ (X) =
+                                        X
+                                                            F (ℓα1 (X), . . . , ℓαk (X)),       X ∈ Mg,n (L).
+                            (α1 ,...,αk )∈MCG(Σg,n (L))·Γ
+
+For example, if γ ⊂ Σg is a non-separating simple closed curve and F = 1[0,L] is the
+indicator function of the interval [0, L], then F γ : Mg → N is the function that assigns
+the number of non-separating simple closed geodesics of length at most L on X to
+X ∈ Mg .
+  Using a covering argument, Mirzakhani proved an integration formula for functions
+of the form above. In this theorem, MΣg,n (L),Γ (L1 , . . . , Ln , x1 , x1 , . . . , xk , xk ) denotes
+the moduli space of hyperbolic metrics on Σg,n (L) − Γ, in which the two boundary
+components coming from γi both have length xi for i = 1, . . . , k. If Σg,n (L) − Γ
+has multiple connected components, then MΣg,n (L),Γ (L, x, x) is a product over these
+components. Mirzakhani proved:
+
+Theorem 5.1 (Mirzakhani Integration Formula). — Let F : [0, ∞)k → R, let L ∈
+[0, ∞)n and let Γ = (γ1 , . . . , γk ) be a collection of disjoint pairwise non-homotopic,
+essential simple closed curves on Σg,n (L). Then
+      Z
+          F Γ (X) dvolWP (X)
+       Mg,n (L)
+             Z                                                                             
+      = CΓ        F (x) · volWP MΣg,n (L),Γ (L1 , . . . , Ln , x1 , x1 , . . . , xk , xk ) x1 · · · xk dx1 · · · dxk .
+             [0,∞)k
+
+Here CΓ is a constant that depends on Γ alone(4) .
+
+   This theorem can be thought of as a hyperbolic version of the integration formula
+for the moduli space of lattices SL(n, Z)\SL(n, R) proved by Siegel (1945). This is one
+of multiple surprising similarities to the moduli space of lattices, Indeed, the moduli
+
+(4)
+      For a precise description of this constant, we refer to the survey by Wright (2020).
+                                          1255–31
+
+
+space of hyperbolic surfaces is not a locally homogeneous space so there is no reason to
+expect it should behave similarly.
+   Mirzakhani (2007a, 2008, 2007b) combined this formula with her generalization of
+McShane’s identity and multiple other beautiful ideas to derive recurrences for Weil–
+Petersson volumes, prove asymptotic counting results for the number of simple closed
+geodesics on a hyperbolic surface and re-prove Witten’s conjecture on intersection
+numbers of tautological classes on the moduli space of curves. Mirzakhani and Zograf
+(2015) used Mirzakhani’s recurrences to derive an asymptotic equivalent for volWP (Mg,n )
+as g → ∞ that plays an important role in nearly all the papers on Weil–Petersson
+random surfaces.
+   For the random surfaces Xg , Mirzakhani (2013) proved that with high probability as
+g → ∞, for every ε > 0,
+                                                            log(2)
+                   diam(Xg ) ≤ 40 · log(g),    h(Xg ) ≥               −ε
+                                                          2π + log(2)
+and as a result of the latter (using the Cheeger inequality, Theorem 2.1),
+                                   log2 (2)
+                     λ1 (Xg ) ≥                − ε = 0.00246 . . . − ε.
+                                (4π + log(4))2
+Mirzakhani’s results also imply the Benjamini–Schramm convergence to H2 of these
+surfaces as g → ∞ (see the survey by Raimbault, 2014).
+   There has been a lot of work on these random surfaces since. We start with lengths of
+geodesics. Mirzakhani and the author (2019) proved that, like for random Belyı̆ surfaces,
+the primitive length spectrum converges to a Poisson point process as the genus tends
+to infinity, but with a different density (that also appears in a combinatorial setting, see
+Janson and Louf, 2023; Barazer, Giacchetto, and Liu, 2025). Lengths of longer geodesics
+on these random surfaces were investigated by Nie, Wu, and Xue (2023), Parlier, Wu,
+and Xue (2022), Monk and Thomas (2022), Wu and Xue (2025), and He, Shen, Wu,
+and Xue (2023).
+   The study of the bass note of these surfaces has also attracted a lot of attention.
+                                                                                     3
+Mirzakhani’s bound on the first Laplacian eigenvalue was first improved to 16            − ε,
+                                                                                       2
+independently by Wu and Xue (2022) and Lipnowski and Wright (2024), then to 9 − ε
+by Anantharaman and Monk (2026), afterwards to 14 − ε, also by Anantharaman and
+Monk (2025) (see Section 7) and most recently Hide, Macera, and Thomas (2025b)
+proved that, for some fixed c > 0, λ1 (Xg ) ≥ 14 − g −c with high probability as g → ∞
+(see Section 8).
+   There are other spectral questions to ask as well. Monk (2022) made the Benjamini–
+Schramm convergence and the resulting spectral convergence of the surfaces Xg more
+effective and Gong (2024) and Monk and Stan (2025) extended this to Laplacians
+twisted by a harmonic 1-form and Dirac operators respectively. Le Masson and Sahlsten
+(2017) proved a quantum ergodicity theorem for these random surfaces and Gilmore,
+Le Masson, Sahlsten, and Thomas (2021) and Thomas (2022) studied delocalization
+                                        1255–32
+
+
+for eigenfunctions. The latter group for instance proved that the L∞ -norm of any L2 -
+normalized eigenfunction corresponding to an eigenvalue in a fixed window [a, b] ⊂ (0, ∞)
+is at most O(log(g)−1/2 ).
+   The criterion for the convergence of the determinant of the Laplacian by Naud (2023)
+applies here too and He and Wu (2025) also studied the expected determinant. Rudnick
+(2023), Rudnick and Wigman (2023), Marklof and Monk (2024), and Rudnick and
+Wigman (2025) showed that, when first sending the genus and then the energy window
+to infinity, certain statistics for eigenvalues in the given window behave like those of
+large GOE and GUE matrices.
+   Finally, we can add cusps to the picture. Hide (2023b) and He, Wu, and Xue (2026)
+studied the effect on the first eigenvalue of adding a limited number of cusps to the
+random surfaces. If instead of the genus, we let the number of cusps tend to infinity,
+the geometry and spectra of these random surfaces starts behaving very differently, see
+the works by Hide and Thomas (2025a,b), Shen and Wu (2025a), and Budd and Curien
+(2025). These works prove that there are many small eigenvalues and the surfaces admit
+a scaling limit, which is a Brownian map, just like for random planar maps. We can
+also let the number of cusps and the genus tend to infinity at the same time. Budd and
+Lions (2025), using work by Budd and Zonneveld (2024), showed that when the number
+of cusps tends to infinity sufficiently quickly and only certain geodesics – called tight
+geodesics – are counted, their statistics on surfaces of large genus with many cusps are
+the same as on closed surfaces of large genus.
+
+5.3. Random finite degree covers
+5.3.1. The model. — The third model we will discuss is that of random covers. This
+is the analogue of the permutation model for random regular graphs. In general, a
+random cover of a nice enough space X with a finitely generated fundamental group
+Γ = π1 (X, x) can be built by choosing a homomorphism φn ∈ Hom(Γ, Sn ) uniformly at
+random and setting
+                                  Xn = Γ \ ( X
+                                             f × [n]),
+
+where X f denotes the universal cover of X and where the action on [n] is through φ .
+                                                                                         n
+Indeed, because Γ is finitely generated, Hom(Γ, Sn ) is finite and thus we have a well-
+defined uniform probability measure on it. In general, saying anything about these
+random covers is very difficult. Even just estimating #Hom(Γ, Sn ) is a notoriously
+hard problem. We refer to the book by Lubotzky and Segal (2003) for more on this
+problem in general.
+  In our setting, the base will be an orientable hyperbolic surface of finite area. In
+particular, the fundamental group Γ will either be a non-abelian free group or a surface
+group. In the former case, the probability space is exactly the same as in the permutation
+model (see Section 4.3). That is, as sets we can make the identification Hom(Fr , Sn ) =
+Srn . Figure 10 shows an example of a cover of the thrice punctured sphere (so Γ ≃ F2 )
+defined by a homomorphism φ5 : Γ → S5 .
+                                              1255–33
+
+
+
+
+                 1                  2               3                 4                   5
+
+
+
+
+       Figure 10. Gluing ideal squares together according to the permutations
+       (1 2 3)(4)(5) and (1 5 4 2 3) in S5 yields a 5-fold cover of the thrice punctured
+       sphere.
+
+
+  The closed case is significantly more complicated. If we write Γg for the fundamental
+group of an orientable surface of genus g, then we have
+                                n                                         g                o
+            Hom(Γg , Sn ) = (α1 , . . . , αg , β1 , . . . , βg ) ∈ S2g
+                                                                          Y
+                                                                    n ;       [αi , βi ] = e .
+                                                                          i=1
+
+Hurwitz (1901) was the first to prove that this can be expressed in terms of the irreducible
+representations of the symmetric group:
+                                                                                1
+              #Hom(Γg , Sn ) = (n!)2g−1
+                                                         X
+                                                                                         .
+                                              ρ : Sn →GL(V ρ ) irreducible
+                                                                           dim(V ρ )2g−2
+                                                    representation
+
+Lulov (1996) and Müller and Schlage-Puchta (2002) analyzed the sum over the irre-
+ducible representations and proved that #Hom(Γg , Sn ) ∼ 2 · (n!)2g−1 as n → ∞ and
+Liebeck and Shalev (2004) and Müller and Schlage-Puchta (2007) proved a similar
+asymptotic equivalent for more general Fuchsian groups. Note that the 2 in this es-
+timate comes from the trivial representation and the sign representation of Sn . The
+underlying theorem is that asymptotically, the contribution of the higher-dimensional
+representations is negligible.
+
+5.3.2. Results. — The work by Dixon (1969) and Nica (1994) implies that if the base
+surface X is not compact (but of finite area), then a random degree n cover Xn of X
+is connected with high probability and its primitive length spectrum converges to a
+Poisson point process. The distribution of the number of cusps of Xn (and thus that of
+the genus, through the Euler formula) can be understood in a similar way to the work of
+Gamburd (2006) on random Belyı̆ surfaces. If for instance the base surface has at least
+two cusps, then this setting is easier. Indeed, because the simple loops around the cusps
+induce primitive elements (elements that can be part of a free generating set) in the
+fundamental group of the base. This implies that the distributions of their images in Sn
+are uniform, which in turn implies that in the large n limit, the expected number of cusps
+is asymptotic to log(n) and their sizes are governed by a Poisson–Dirichlet distribution
+                                         1255–34
+
+
+(see for instance the books by Arratia, Barbour, and Tavaré (2003, Chapter 5) and
+Pitman (2006, Chapter 3) for a definition and background).
+   If the base surface is closed, then the work by Müller and Schlage-Puchta (2002)
+implies that Xn is connected with high probability. The length spectrum of these is
+also asymptotically Poisson distributed. In order to prove this, new techniques were
+developed by Magee and Puder (2022, 2023) and further developed by Puder and
+Zimhoni (2024) and Maoz (2025).
+   We observe that the Laplacian spectrum of the base surface X lifts to all the covers of
+finite degree. So the natural question to ask is what the new spectrum (see Section 6.3
+for a rigorous definition) is like. For closed base surfaces, Magee, Naud, and Puder
+(2022) proved that, for every ε > 0, with high probability as n → ∞, the Laplacian
+                                      3
+on Xn has no new spectrum below 16      − ε. So in particular, if the base surface has no
+                  3
+spectrum below 16 (like for instance the Bolza surface), then there is a spectral gap of
+          3
+at least 16 − ε.
+   Hide and Magee (2023) proved that if the base surface X is non-compact and of finite
+area, then with high probability, there is a similar relative spectral gap of 14 − ε. Since
+the thrice-punctured sphere has no small eigenvalues (see Lemma 2.4), this yields a
+sequence of hyperbolic surfaces of finite area with a near optimal spectral gap. Using a
+compactification procedure that glues pairs of cusps together, due to Buser, Burger, and
+Dodziuk (1988) (or alternatively the procedure described in Section 5.1, see the work
+by Brooks and Makover (2001b) for details), they can be compactified so as to yield a
+sequence of closed surfaces with a near optimal spectral gap. Hide (2023a) made the ε
+in the theorem effective, obtaining an error bound of size O(log log(n)2 / log(n)). As we
+will sketch in Section 6, these results use the strong convergence result by Bordenave–
+Collins (Theorem 4.4) as vital input. There are by now several techniques to turn
+strong convergence results into near optimal spectral gaps. In the locally symmetric
+setting, Magee (2025) gave a representation-theoretic proof that shows how one can
+turn a strong convergence statement for permutation representations of a cocompact
+lattice in semi-simple Lie groups into near optimal spectral gaps for finite covers of the
+corresponding compact orbifold.
+  The random cover model is also well adapted to constructing sequences of surfaces
+with special properties and with prescribed spectral gaps. Indeed, Louder and Magee
+(2025) proved that every closed hyperbolic surface admits a sequence of random finite
+degree covers with a near optimal relative spectral gap as well, thus yielding arithmetic
+examples. Magee (2024) and Hide and the author (2024) used random covers to prove
+that in fact all real numbers in [0, 14 ] can be approximated by bass notes of arithmetic
+surfaces.
+   The fact that uniform random finite-degree covers of a closed hyperbolic surface have
+a near optimal relative spectral gap was recently settled by Magee, Puder, and van
+Handel (2025) and Hide, Macera, and Thomas (2025a) obtained polynomial error rates
+for the lower bound on spectral gap.
+                                        1255–35
+
+
+  Naud (2026) and Maoz (2026) proved that also for random covers, certain eigenvalue
+statistics follow those of large GOE and GUE matrices. Kim and Tao (2026) proved
+a polynomial convergence rate for the density of eigenvalues in a fixed window to the
+density predicted by the Plancherel measure. Moreover, they proved a polynomial decay
+rate for the Lp norms of eigenfunctions.
+   Finally, we mention a more topological result. Klukowski and Marković (2024) proved
+that random covers have what they call the Putman–Wieland property with high
+probability as n → ∞. This property was introduced by Putman and Wieland (2013)
+in relation to the open question of whether mapping class groups of closed surfaces of
+genus at least three have virtual positive first Betti number.
+
+5.4. Other models
+   Multiple other models for random surfaces have been studied for various purposes.
+Magee and Naud (2020) and Calderón, Magee, and Naud (2024) studied random finite
+covers of Schottky surfaces and proved a spectral gap for their resonances. Mathien
+(2024), generalizing a model introduced by Budzinski, Curien, and the author (2021a),
+studied surfaces obtained by randomly gluing pairs of pants together and then randomly
+choosing their twists and lengths. This can be thought of as a toy model for the Weil–
+Petersson measure normalized by the Mirzakhani function, see the works by Arana-
+Herrera (2021) and Liu (2022). Liu and the author (2023) defined a model of random
+hyperbolic surfaces with large systoles. Moy (2024), Hide, Moy, and Naud (2025), Moy
+(2025), and Ballmann, Mondal, and Polymerakis (2025) determined uniform spectral
+gaps of random covers of surfaces of variable curvature. Masur, Rafi, and Randecker
+(2024) and Bowen, Rafi, and Vallejos (2025) studied the geometry of random translation
+surfaces of large genus. Song (2024) and Ancona, Labourie, Roig Sanchis, and Toulisse
+(2025) used random surfaces in spheres to show the existence of negatively curved
+minimal surfaces in high dimensional spheres. Finally, Wright (2025) proved results on
+the geometry of random infinite degree covers of hyperbolic surfaces.
+
+
+
+6. A near optimal spectral gap through random covers (Hide–Magee)
+
+  The goal of the rest of this text is to discuss three results on near optimal spectral
+gaps, starting with the result by Hide and Magee (2023). In what follows X = Γ\H2 will
+be a fixed non-compact orientable hyperbolic surface of finite area and Xn → X will be
+a random n-sheeted cover of X, corresponding to a uniformly random homomorphism
+φn ∈ Hom(Γ, Sn ), as described in Section 5.3.
+  The spectrum of the Laplacian on L2 (X) lifts to L2 (Xn ). Indeed, any L2 -function
+on X defines an L2 -function on Xn by composition with the covering map. Such
+functions are exactly the functions on Xn that are constant on the fibers of the covering
+                                             1255–36
+
+
+map. We will write L2new (Xn ) for the orthogonal complement of these functions. So we
+have
+                                               ⊥
+                            L2 (Xn ) ≃ L2 (X) ⊕ L2new (Xn ).
+The Laplacian operator preserves this decomposition, so its spectrum decomposes as
+                       spec(∆Xn ) = specold (∆Xn ) ∪ specnew (∆Xn ),
+where specold (∆Xn ) = spec(∆X ) is the spectrum on lifts of functions on X and
+specnew (∆Xn ) is the spectrum on L2new (Xn ). We think of all these spectra as multi-sets.
+That is, elements are allowed to have multiplicity and these multiplicities add when we
+take a union.
+  The main theorem of Hide and Magee’s paper is:
+Theorem 6.1 (Hide–Magee). — Let X be an orientable non-compact hyperbolic surface
+of finite area and Xn a random degree n cover of X. Then for every ε > 0, with high
+probability as n → ∞, we have that
+                                               1
+                                                      
+                             specnew (Xn ) ⊂     − ε, ∞ .
+                                               4
+  In what follows we will sketch the proof of this theorem.
+
+6.1. The strategy
+  The main goal of the proof is to build, for every s0 = s0 (ε) > 12 and every s ∈ [s0 , 1]
+a bounded resolvent operator,
+                                RXn (s) : L2new (Xn ) → Hnew
+                                                         2
+                                                             (Xn ),
+       2
+where Hnew (Xn ) is a suitable Sobolev space, such that
+                                            
+(3)                          ∆Xn − s(1 − s) ◦ RXn (s) = IdL2new (Xn ) ,
+thus showing that specnew (Xn ) ⊂ (s0 · (1 − s0 ), ∞).
+   This resolvent is built through a parametrix construction. That is, instead of trying
+to find an exact solution to (3), one looks for an operator MXn (s) : L2new (Xn ) → Hnew
+                                                                                     2
+                                                                                         (Xn )
+such that                             
+                      ∆Xn − s(1 − s) ◦ MXn (s) = IdL2new (Xn ) + EXn (s)
+and where EXn (s) : L2new (Xn ) → L2new (Xn ) has operator norm ∥EXn (s)∥∞ < 1 so that
+IdL2new (Xn ) + EXn (s) is invertible and we can set
+                                                                     −1
+                      RXn (s) = MXn (s) ◦ IdL2new (Xn ) + EXn (s)           .
+The operator MXn (s) will be built by “patching together” a parametrix in the thick
+part of Xn and one in the thin part. For the thin part, coming from cusps, one uses a
+parametrix based on the resolvent on the quotient of H2 by a cyclic group generated
+by a parabolic transformation. In the thick part, the strong convergence theorem of
+Bordenave–Collins (Theorem 4.4) is applied. In order to make this work, the operator
+EXn (s) will also need to be compact.
+                                                  1255–37
+
+
+6.2. Building the parametrix in the cusps
+  As indicated above, we will build our approximate resolvent using two different
+procedures, depending on whether we’re close to the cusps of Xn or not, and patch the
+results together. Concretely, MXn (s) will be of the form:
+                                 MXn (s) = MXintn (s) + MXcusp
+                                                           n
+                                                               (s).
+We start with the cusp parametrix and recall some notation from Section 1.2.2. There,
+we defined the following cusp neighborhoods.
+                                                               "           #
+                                  n                         o. 1      1
+                                              2
+                          Ct = z ∈ H ; Im(z) > t
+                                                                     0 1
+We observe that C0 is a complete hyperbolic surface of infinite area. It follows from a
+theorem by Brooks (1985) that the Laplacian on C0 has no spectrum below 14 . Hide
+and Magee (2023, Lemma 4.2) give a direct proof of the same fact. In particular, we
+have a holomorphic family of resolvents s 7→ RC0 (s) for Re(s) > 12 such that
+                                                  
+                               ∆C0 − s(1 − s) ◦ RC0 (s) = IdL2 (C0 ) .
+
+  The idea now is to use a cut-off function to turn these resolvents into resolvents near
+the cusps. The collar lemma (see Theorem 4.4.6 in Buser, 2010) implies that around
+every cusp of the base surface X we can find an isometrically embedded copy of C 1 .
+                                                                                        2
+Moreover, these cusp-neighborhoods are disjoint. We define
+                     χ− =                     χ−       and χ+ =                 χ+
+                                   X                                 X
+                                               C                                 C
+                                C cusp of X                       C cusp of X
+
+where χ−         +
+         C and χC are smooth functions that are supported in the isometric copy of C1
+in C and that are identically equal to 1 on a neighborhood of ∞. Moreover, χ−   +    −
+                                                                            C ·χC = χC ,
+i.e. the support of χ−                                    +
+                     C is contained in the set on which χC ≡ 1.
+   We now define χ±        ±
+                    n = χ ◦ πn , where πn : Xn → X is the covering map. This allows
+us to define
+                                                                        
+                            MXcusp
+                               n
+                                   (s) : f 7→ χ+            −
+                                               n · RC0 (s) χn · f ,
+
+There is a slight abuse of notation above: χ−C · f can be thought of as a finite sum of
+functions defined on subsets of C0 . We may extend these functions by 0 to functions
+on C0 and then apply RC0 (s) to them. When we multiply with χ+ afterwards, we obtain
+functions that have a well-defined extension by 0 to Xn .
+  Hide and Magee (2023, (4.7) and Proposition 4.4) prove that the functions χ±    C can
+be chosen so that the following holds:
+
+Proposition 6.2. — Given any s0 > 12 there exist a choice of functions χ±
+                                                                        C such that
+for any n and any degree n cover π : Y → X and any s ∈ (s0 , 1],
+                                         
+                          ∆ − s(1 − s) ◦ MYcusp (s) = χ−    cusp
+                                                       Y + EY    (s)
+                                                  1255–38
+
+
+                        cusp
+where χ−      −
+         Y = χ ◦ π and EY    (s) is a bounded operator on L2new (Y ) whose operator norm
+satisfies
+                                                         1
+                                 ∥EYcusp (s)∥L2new (Y ) ≤ .
+                                                         5
+  In the proposition above, the constant 1/5 is not optimal but suffices to obtain the
+error bound we need below.
+
+6.3. Function spaces
+   Before we describe the interior parametrix, we start by making the decomposition
+into new and old functions more explicit. First of all, writing F ⊂ H2 for a closed and
+connected fundamental domain for X, we can for instance write Cc∞ (Xn ) = Cc,old
+                                                                             ∞
+                                                                                 (Xn ) ⊕
+  ∞
+Cc,new (Xn ), where
+                 (                                                                                           )
+ ∞                       ∞        f is Γ-invariant, supp(f ) ∩ (F × [n]) is compact,
+                                  2
+Cc,old (Xn ) ≃   f ∈ C (H × [n]);
+                                    and f (x, i) = f (x, j) for all i, j ∈ [n], x ∈ H2
+and
+                                                                                                   
+                                                 f is Γ-invariant, supp(f ) ∩ (F × [n]) is         
+   ∞
+  Cc,new (Xn ) ≃     f ∈ C ∞ (H2 × [n]);                           n                                     .
+                                                                         f (x, i) = 0 for all x ∈ H2 
+                                                                   P
+                                              compact, and
+                                                                   i=1
+
+The latter can also be identified with a space of vector valued functions
+                     (                                                                             )
+   ∞                                           supp(f ) ∩ F is compact, and
+  Cc,new (Xn ) ≃ f ∈ C ∞ (H2 , Cn0 );                                                                  ,
+                                      f (γ · x) = ρn (γ) · f (x) for all x ∈ H2 , γ ∈ Γ
+where ρn = stdn ◦ φn : Γ → U(Cn0 ) (for the definition of stdn , see Section 4.3.2). The
+corresponding L2 -spaces L2new (Xn , Cn0 ) and Sobolev spaces Hnew
+                                                                2
+                                                                   (Xn , Cn0 ) are the com-
+pletions of these spaces with respect to the norms
+                         Z
+             ∥f ∥L2 =        ∥f (x)∥2Cn0 dµ(x) and ∥f ∥H 2 := ∥f ∥L2 + ∥∆Xn f ∥L2 ,
+                         F
+
+where we have written µ for the area measure on H2 .
+
+6.4. Building the parametrix away from the cusps
+  The largest part of the paper is dedicated to constructing MXintn (s). We will sketch
+how this works now.
+6.4.1. Resolvents. — We will construct MXintn (s) using the resolvent on the hyperbolic
+plane. First we recall that this operator can be made very explicit. Indeed, for Re(s) > 12 ,
+the resolvent RH2 (s) = (∆H2 − s(1 − s))−1 : L2 (H2 ) → L2 (H2 ) is an integral operator
+given by                                  Z
+                                        
+                                 RH2 (s)f (x) =         r(s; x, y) · f (y) dµ(y)
+                                                   H2
+with
+                                                1 Z 1 ts−1 (1 − t)s−1
+                                  r(s; x, y) =                        dt,
+                                               4π 0 (d(x, y) − t)s
+                                                         1255–39
+
+
+where d : H2 × H2 → [0, ∞) denotes the hyperbolic distance function. This can for
+instance be found in the book by Borthwick (2016, Proposition 4.2 and Theorem 4.3). In
+their original approach, Hide and Magee use this explicit shape in multiple computations,
+that we will not go over in detail here.
+   Because of the combination with Bordenave and Collins’s theorem below, we will first
+                                                               (T )
+need to define a cut-off. This will be the integral operator RH2 (s) with kernel
+                                                                           
+                            r(T ) (s; x, y) = χ0 d(x, y) − T · r(s; x, y),
+where χ0 : R → [0, 1] is a smooth function such that
+                          χ0 (x) = 1 if x ≤ 0 and χ0 (x) = 0 if x ≥ 1.
+In particular, if d(x, y) ≥ T + 1 then r(T ) (s; x, y) = 0.
+                                   (T )
+  We now define the operator KH2 (s) by
+                                                    
+                                                              (T )              (T )
+                               ∆H2 − s(1 − s) ◦ RH2 (s) = Id + KH2 (s).
+
+It turns out that this is an integral operator with an explicit kernel k (T ) (s; x, y) (see
+(5.8) in Hide and Magee’s paper).
+                                                                               (T )
+   In order to deal with covers of degree n, we define integral operators RH2 ,n (s) and
+  (T )
+KH2 ,n (s). Their action on smooth compactly supported Cn0 -valued functions is defined
+by the kernels
+                   (T )                (T )                          (T )        (T )
+                  rH2 ,n (s) = rH2 (s) · IdCn0               and kH2 ,n (s) = kH2 (s) · IdCn0
+respectively, where we have used the identifications of Section 6.3.
+  Above, we defined cut-off functions χ±n in the cusps. We will write
+                                                          −
+                                                χint
+                                                 n = 1 − χn
+
+and think of this as a Γ-invariant function H2 → Cn0 . Because it’s a lift of a function on
+the base surface X, all its coordinates are the same and we can think of it as a scalar
+valued function.
+                                                   (T )
+  Hide and Magee (2023, Lemma 5.5) prove that RH,n (s) · χint
+                                                            n , where we have identified
+              int
+the function χn with the corresponding multiplication operator, extends to a bounded
+operator
+                                (T )                    n             n
+(4)                            RH,n (s) · χint  2              2  2
+                                           n : L (Xn , C0 ) → H (H , C0 )
+                (T )
+and likewise KH2 ,n ·χint extends to a bounded operator on L2 (H2 , Cn0 ) such that moreover
+                                         
+                                              (T )                              (T )
+                       ∆ − s(1 − s) ◦ RH2 ,n (s) · χint  int               int
+                                                    n = χn + KH2 ,n (s) · χn .
+
+These two operators will serve as our parametrix and our error respectively. That is,
+we set
+                             (T )
+               MXintn (s) = RH2 ,n (s) · χint
+                                          n
+                                                   int
+                                              and EX n
+                                                       = K (T ) (s) · χint
+                                                                       n ,
+
+for some T that will be determined below.
+                                                             1255–40
+
+
+6.4.2. Random matrices. — The ultimate goal is to use the fact that the random
+unitary representations ρn = stdn ◦ φn : Γ → U(Cn0 ) converge strongly to the left-regular
+representation ρreg. : Γ → ℓ2 (Γ). We will use a slight strengthening of Theorem 4.4.
+Namely, we will need to take matrix coefficients instead of scalar coefficients. That is,
+we need the fact that ∥ρn (z)∥∞ → ∥ρreg. (z)∥∞ for all z ∈ MatN (C) ⊗C C[Γ]. In other
+words, we have the following consequence of Theorem 4.4:
+
+Proposition 6.3. — Let ρn = stdn ◦φn , where φn ∈ Hom(Γ, Sn ) is uniformly random.
+Then
+       X                                     in probability            X
+             aγ ⊗ ρn (γ)                         −→                          aγ ⊗ ρreg. (γ)                as n → ∞
+       γ∈Γ                   CN ⊗Cn
+                                  0                                    γ∈Γ                    CN ⊗ℓ2 (Γ)
+
+for all N ∈ N and all sequences (aγ )γ∈Γ ∈ MatN (C)Γ with at most finitely many non-zero
+entries.
+
+  Hide and Magee use work by Pisier (2018) to derive this from Bordenave and Collins’s
+result. For more on this, see the surveys by Magee (2025, Proposition 3.3) and van
+Handel (2025, Section 2.4).
+6.4.3. Applying strong convergence. — All that is left now is connecting the dots. For
+f ∈ L2 (H2 , Cn0 ) and s ∈ [s0 , 1], we have
+                                  Z
+              int                             (T )
+             EX n
+                  (s) · f (x) =              kH2 ,n (s; x, y) · χint (y) · f (y) dµ(y)
+                                        H2
+                                    XZ               (T )
+                               =                kH2 ,n (s; γ · x, y) · ρn (γ −1 ) · χint (y) · f (y) dµ(y).
+                                    γ∈Γ F
+
+  Now the observation is that, if F is a fundamental domain for the action of Γ on H2 ,
+then L2 (H2 , Cn0 ) ≃ L2 (F) ⊗ Cn0 as Hilbert spaces, through the map
+                                                                         n−1
+                              f ∈ L (H , Cn0 )
+                                         2      2
+                                                                         X
+                                                                  7→           ⟨f |F , ei ⟩ ⊗ ei ,
+                                                                         i=1
+
+where (e1 , . . . , en−1 ) is some orthonormal basis of Cn0 .
+  This means we can think of EX        int
+                                         n
+                                           (s) as acting on L2 (F) ⊗ Cn0 as
+                                         int                                     −1
+                                                                  a(T )
+                                                            X
+                                        EX n
+                                             (s) ≃                 γ (s) ⊗ ρn (γ    ),
+                                                            γ∈Γ
+
+where a(T )     2       2
+       γ (s) : L (F) → L (F) is given by:
+                                               Z
+                       a(T )
+                        γ (s) · f       (x) =            kH2 (s; γ · x, y) · χint (y) · f (y) dµ(y).
+                                                     F
+
+This is already much closer to something that we can feed into Proposition 6.3. Indeed,
+the cut-off using T guarantees that there are only finitely many non-zero terms in the
+sum.
+  The operators a(T  )
+                   γ (s) however aren’t quite finite dimensional matrices. Nonetheless,
+Hide and Magee prove that they are Hilbert–Schmidt operators and hence compact.
+                                        1255–41
+
+
+This means in particular that they can be approximated by finite dimensional matrices
+and this suffices to prove that, for fixed s and T , with high probability as n → ∞,
+                                 −1                                  −1     1
+                  a(T )
+                                                   a(T )
+              X                                X
+                   γ (s) ⊗ ρn (γ    )     ≤          γ (s) ⊗ ρreg (γ    ) + .
+              γ∈Γ                     ∞        γ∈Γ                       ∞  5
+                                         −1                  (T )
+The operator γ∈Γ a(T       )
+                         γ (s) ⊗ ρreg (γ     ) is conjugated to KH2 · χint
+               P
+                                                                       n . Hide and Magee
+(2023, Lemma 5.2) prove that there exists a T0 = T0 (s0 ) such that for all T ≥ T0 and
+all s ≥ s0 ,
+                                         (T )               1
+                                      KH2 (s) · χint  n ∞ ≤ .
+                                                            5
+So we obtain that with high probability
+                                              int         2
+                                        ∥EX     n
+                                                  (s)∥∞ ≤ ,
+                                                          5
+for fixed s ≥ s0 . To finish the proof, Hide and Magee show that the coefficients a(T  )
+                                                                                     γ (s)
+vary slowly enough as functions of s to upgrade the result for fixed s to one for all
+s ∈ [0, s0 (1 − s0 )] simultaneously, with a slight loss and thus produce the bound
+                                              int         3
+(5)                                     ∥EX     n
+                                                  (s)∥∞ ≤ ,
+                                                          5
+for all s ∈ (s0 , 1] simultaneously, with high probability.
+
+6.5. Finishing the proof
+  We now simply observe that the first part of Proposition 6.2 and equation (4) imply
+that,                                         
+           ∆ − s(1 − s) ◦ MXintn (s) + MXcusp
+                                          n
+                                              (s)          int
+                                                   = Id + EX n
+                                                                      cusp
+                                                               (s) + EX n
+                                                                           (s)
+and, by the second half of Proposition 6.2 and equation (5), with high probability as
+n → ∞,
+                                   int         cusp         4
+                              ∥EX    n
+                                       (s) + EX  n
+                                                    (s)∥∞ ≤
+                                                            5
+                               int           cusp
+This suffices to invert Id + EX  n
+                                    (s)  + E Xn   (s) and hence to build our resolvent, as
+promised in Section 6.1.
+
+
+7. Weil–Petersson random surfaces (Anantharaman–Monk)
+
+  The next result we will treat is the theorem of Anantharaman and Monk (2025).
+Recall from Section 5.2 that Xg denotes a random closed and orientable hyperbolic
+surface of genus g distributed according to the Weil–Petersson measure on the moduli
+space Mg .
+
+Theorem 7.1 (Anantharaman–Monk). — For every ε > 0,
+                                       1   
+                        lim P λ1 (Xg ) > − ε = 1.
+                       g→∞              4
+                                                     1255–42
+
+
+   The series of papers proving this theorem have a total of 312 pages on the arXiv
+and develop many new ideas. We have fewer pages at our disposal here, so we will
+only sketch some of the ingredients of Anantharaman and Monk’s proof in this section.
+Anantharaman and Monk (2024b) wrote a longer overview themselves, to which we
+refer the reader who would like more, but not all, details.
+
+7.1. The trace method
+   The goal is to prove the theorem with an analogue in the setting of surfaces of the
+trace method that Friedman used (see Section 4.3.1). The trace of a function of the
+adjacency matrix is replaced by the trace of a function of the Laplacian on Xg , which
+can be accessed through the Selberg trace formula (see Section 1.4.4). We once and
+for all fix an even function h ∈ Cc∞ (R) with supp(h) = [−1, 1] such that     q it Fourier
+transform h is non-negative on R ∪ i · R (because the transformation λ 7→ λ − 41 that
+            b
+
+appears in the trace formula maps the spectrum of R ∪ i[− 12 , 12 ]) and define, for R > 0,
+the function hR ∈ Cc∞ (R) with support [−R, R] by
+                                           x
+                                           
+                               hR (x) = h     , x ∈ R.
+                                           R
+Its Fourier transform satisfies hcR (ξ) = R · h(R
+                                              b   · ξ), so non-negativity is preserved, and
+Anantharaman and Monk (2023, Lemma 3.11) prove that for all α, ε > 0, there exists a
+constant Cα,ε > 0 such that for any closed hyperbolic surface X and any R ≥ 1 we have
+                                                             s
+                      1                                                      1
+                                                                                      
+(6)        if λ1 (X) ≤ − α2 − ε then h
+                                     b
+                                       R                            λ1 (X) −   ≥ Cα,ε · e(α+ε)·R ,
+                      4                                                      4
+and thus
+                                                          s
+                       1                                                       1
+                                                                                                    
+           P λ1 (Xg ) ≤ − α2 − ε ≤ P h
+                                     b
+                                       R                       λ1 (Xg ) −        ≥ Cα,ε · e(α+ε)·R .
+                       4                                                       4
+Because expectations are easier to compute than probabilities, we apply Markov’s
+inequality and obtain
+                                                                                         q           
+                    s                                                                             1
+                
+                                    1
+                                                         E hR    λ1 (Xg ) − 4
+                                                                                 b
+           P h
+             b
+               R         λ1 (Xg ) −   ≥ Cα,ε · e(α+ε)·R ≤
+                                    4                        Cα,ε · e(α+ε)·R
+The quantity on the right can be bounded using the Selberg trace formula. Indeed,
+using the fact that hcR is non-negative on R ∪ i · R, all the contributions to the spectral
+side of the Selberg trace formula are non-negative and thus
+          s                                       Z ∞
+                            1
+                               
+  E h
+    b
+      R        λ1 (Xg ) −            ≤ (g − 1) ·         y hcR (y) tanh(πy) dy
+                            4                       −∞
+                                                                          ⌊R/ℓ(γ)⌋                           !
+                                                     X                      X                1
+                                       +E                          ℓ(γ)                               h(nℓ(γ)) .
+                                              γ primitive closed            n=1       2 sinh(nℓ(γ)/2)
+                                               geodesic on Xg
+                                                with ℓ(γ)≤R
+                                           1255–43
+
+
+So if we prove that the right hand side is significantly less than e(α+ε)·R , we prove that
+with high probability, λ1 (Xg ) > 14 − α2 − ε.
+  There are however some immediate problems to overcome:
+
+  1. The most obvious problem is that the trace formula has a contribution coming from
+     the trivial eigenvalue λ0 (Xg ) = 0. This contribution is the dominant exponential
+     term on the spectral side and so we can never expect to prove that the right hand
+     side is small enough.
+  2. A more serious problem is that the right hand side contains the integral term that
+     has the genus in front of it. In particular, if we want this to be less than e(α+ε)·R ,
+     R needs to be at least Aα,ε · log(g), where Aα,ε → ∞ as α → 0. This means
+     that we need to understand geodesics of (logarithmically) growing length on Xg .
+     The reason that this is difficult is that geodesics of bounded length on random
+     hyperbolic surfaces of large tend to be simple, however at logarithmic scales, they
+     start having self-intersections and Mirzakhani’s integration formula (Theorem 5.1)
+     does not hold for mapping class group orbits of such curves.
+  3. Another major (related) problem that is not yet evident from what we have derived
+     so far is the hyperbolic analogue of the problem of tangles that appeared in
+     Friedman’s proof. Our random surface Xg can have a problematic subsurface with
+     a probability that tends to 0 as g → ∞. Just like in Friedman’s proof however,
+     these probabilities do not tend to 0 fast enough and will ruin the expectations
+     we’re computing.
+
+  In what follows we will sketch how Anantharaman and Monk resolve these issues,
+thus proving a near optimal spectral gap.
+
+
+7.2. Removing exponential terms
+   First we discuss how to deal with the first problem. The first solution can be found
+in the articles Wu and Xue (2022) and Lipnowski and Wright (2024) who also used the
+trace method. They observed that the term corresponding to λ0 (Xg ) = 0 on the spectral
+side cancels against the contribution from simple curves on the expected geometric side
+                                                                            3
+and showed the remainder is small enough to prove a spectral gap of 16        − ε. The
+hard part of these papers is controlling the contribution from non-simple geodesics. We
+will not explain how this works, but will just very briefly describe how to compute
+the contribution coming from simple closed geodesics. We will use Anantharaman and
+Monk’s notation:
+                                                                    !
+                            ⟨F ⟩sg = E
+                                               X
+                                                             F (ℓ(γ)) .
+                                         γ a simple closed
+                                               on Xg
+
+The simple closed curves on an orientable closed surface of genus g fall in to ⌊ g2 ⌋ + 1
+mapping class group orbits. As such, it follows from Mirzakhani’s integration formula
+                                                  1255–44
+
+
+(Theorem 5.1) that
+                                                 1 Z∞
+(7)                                 ⟨F ⟩sg =          F (ℓ)Vgs (ℓ)dℓ,
+                                                 Vg 0
+where Vgs (ℓ) is a function that can be expressed in terms of volumes of moduli spaces
+of hyperbolic surfaces with boundary. Moreover, Mirzakhani proved that
+                                Vgs  4     2 ℓ
+                                                 
+                                                     (1 + ℓ)c eℓ
+                                                                 
+(8)                                 = sinh      +O                ,
+                                Vg   ℓ       2           g
+for some constant c > 0 (this estimate has been improved by multiple authors, notably
+by Anantharaman and Monk, 2022). Putting all of the above together    D and canceling
+                                                                                   Es
+                                                                         ℓ·hR (ℓ)
+out the contribution from the trivial eigenvalue with the main term in 2 sinh(ℓ/2)    that
+                                                                                    g
+cancel exactly, yields
+                        s
+                                        1                 Rc eR/2
+                                                                    
+              E    hc
+                    R        λ1 (Xg ) −          =O R ·g+ 2
+                                                                  + E ns (R, g),
+                                        4                    g
+where E ns (R, g) is the contribution coming from non-simple geodesics. Bounding the
+latter and comparing this to the exponential growth coming from the trivial eigenvalue,
+using (6), one finds that it’s best to set R = 4 log(g) and this yields the lower bound
+           3
+λ1 (Xg ) ≥ 16 − ε.
+   In order to systematize these cancellations, Anantharaman and Monk replace the
+Fourier transform pair (hR , hcR ) by
+                                 1    d2 m            1        m
+                                                                     
+                        m
+                  D hR (x) =       − 2 hR (x),           + ξ2     · hcR (ξ)
+                                 4 dx                 4
+for some m ≥q1. On the spectral side, this has the effect of removing the contribution
+coming from λ0 (Xg ) − 14 = 2i . It does mean that we can no longer exclude eigenvalues
+very close to 0, but these are already covered by Mirzakhani’s result (see Section 5.2).
+Filling the new function in (7), again applying (8) and integrating by parts yields that
+now
+                                                       c R/2 
+                          ℓ · DhR (ℓ) s                  Re
+                                    
+                                        = −hR (0) + O              .
+                          2 sinh(ℓ/2) g                     g
+So the exponential term in R, that canceled against the contribution from the trivial
+eigenvalue before, now gets replaced by the boundedterm     hR (0). This relies crucially
+                                                        ℓ
+on the fact that D annihilates the function ℓ 7→ sinh 2 .
+   The idea is now that if we can produce this same phenomenon for other curve types,
+we could produce further cancellations and obtain finer information on λ1 (Xg ).
+
+7.3. Friedman–Ramanujan functions
+  This leads Anantharaman and Monk to the definition of what they call Friedman–
+Ramanujan functions. These functions are a hyperbolic analogue to the functions that
+Friedman calls Ramanujan functions (see Section 4.3.1). Before we get there, we need
+to talk about curves.
+                                             1255–45
+
+
+
+
+       Figure 11. Three curves with three self-intersections each, on a surface of
+       genus three. The leftmost two have the same local topological type, even if
+       they sit in the surface differently. The rightmost curve fills a one-holed torus
+       instead of a pair of pants and thus has a different local topological type.
+
+
+   To group geodesics together, Anantharaman and Monk define the local topological
+type of a geodesic. This is the data of the subsurface the geodesic fills (so a regular
+neighborhood of the geodesic, completed by adding in any topological disks that this
+regular neighborhood bounds) and the embedding of the geodesic into the surface, all
+considered up to homomorphism (see Figure 11). In particular, this data does not take
+into account how the subsurface that the curve fills sits in the larger surface.
+   For any local topological type T, we can now define
+                                                                          !
+                              ⟨F ⟩T
+                                                 X
+                                  g = E                         F (ℓ(γ)) .
+                                          γ a closed geodesic
+                                           of type T on Xg
+
+We will also write χ(T) for the Euler characteristic of the subsurface corresponding
+to T.
+  In order to apply a similar strategy, we first need an analogue of (7) that was
+based on the Mirzakhani integration formula and provided us with a density for ⟨F ⟩sg .
+Anantharaman and Monk (2023, Theorem 5.15) prove that for any topological type T
+there exists a unique sequence of continuous functions (fkT )k≥|χ(T)| such that
+                         K                                               F (ℓ)e(1+η)ℓ
+                                1 Z∞
+                                                                                             
+             ⟨F ⟩T                    F (ℓ) · fkT (ℓ) dℓ + OT,K,η                        ∞
+                         X
+(9)              g =              k 0
+                       k=|χ(T)|
+                                g                                               g K+1
+for any η > 0, any K ≥ 0 and any g large enough.
+   In order to apply an analogous strategy to that of integration by parts and the fact that
+D annihilates the function in Mirzakhani’s sinh estimate (8), we need to know that Dm
+“almost” annihilates the coefficient functions fkT . This is what Friedman–Ramanujan
+functions are for.
+
+Definition 7.2. — Let c ≥ 0. We define
+                                                                  Z n                              
+  Rcw = f ∈ C 0 (R≥0 , C); ∃c1 > 0 such that ∀n ≥ 1 :                    |f (s)|ds ≤ c1 (n + 1)c en/2 .
+                                                                    0
+
+We also set Rw =       ∪c≥0 Rcw .                          0
+                            A function f ∈ C (R≥0 , C) is said to be Friedman–
+Ramanujan if there exists a polynomial p such that
+                                     f (ℓ) − p(ℓ) · eℓ ∈ Rw .
+                                                 1255–46
+
+
+The function ℓ 7→ p(ℓ) · eℓ is called the principal term of f and f (ℓ) − p(ℓ) · eℓ is called
+the remainder term of f .
+  The main technical result of the final article of Anantharaman and Monk (2025,
+Theorem 1.15) is:
+Theorem 7.3 (Anantharaman–Monk). — The functions
+                                         (
+                                              ℓ · fkT (ℓ) if T = s
+                                  ℓ 7→
+                                              fkT (ℓ)     otherwise,
+in (9) are Friedman–Ramanujan.
+  The proof of this theorem forms a large portion of the total and develops many new
+ideas, like for instance new coordinates adapted to the local topological type T, that
+replace the Fenchel–Nielsen coordinates. We will not go into this here and refer to the
+paper by Anantharaman and Monk for details.
+  Using the fact that Dm annihilates functions of the form ℓ 7→ p(ℓ) · eℓ/2 with p a
+polynomial of degree ≤ m − 1 allows for an argument using integration by parts again
+and yields that
+                                                                                  1
+                                                           e( 2 +η)·R
+                   D                     ET                                          
+                       −ℓ/2   m                                    c(K,T)
+                    ℓe    D fR (ℓ) = Om,T,K,η R         + K+1 .
+                                   g                         g
+So the contribution of T is only polynomial as a function of R, instead of exponential.
+Balancing the error term above with the topological term in the trace formula, that is
+linear in g, leads one to choose R = 2(K + 2) log(g). This yields
+                              D                      ET                      
+                                  ℓe−ℓ/2 Dm fR (ℓ)        = o e(α+ε)R
+                                                      g
+             1
+with α = 2(K+2)  , which is still the same α that appears in the lower bound on the
+spectral gap. In other words, the larger we can make K, the better the bound on the
+spectral gap we get.
+
+7.4. Möbius inversion and the problem of tangles
+  There is one major problem left: we still need to sum over all possible local topological
+types of geodesics of length at most R = 2(K + 2) log(g). This is a serious problem,
+because, as Anantharaman and Monk (2023, Theorem 9.1) prove, already the function
+                                  ℓ 7→ ℓ · f1all (ℓ) = ℓ ·         f1T (ℓ),
+                                                             X
+
+                                                               T
+
+where the sum runs over all (countably many) local topological types T, is not a
+Friedman–Ramanujan function. In short, the problem is that the number of local
+topological types that we need to sum over grows exponentially as a function of our
+parameter R. So, a priori, the strategy completely falls apart.
+   As we have already mentioned, the problem is the presence of tangles. Here, for
+κ, ω > 0 with κ < ω, a (κ, ω)-tangle is one of the following:
+   – A Riemannian circle γ of length ℓ(γ) ≤ κ, or
+                                             1255–47
+
+
+   – A pair of pants or a one-holed torus whose longest boundary component has length
+     at most ω.
+A (κ, ω)-tangle in a hyperbolic surface X is a totally geodesically embedded (κ, ω)-tangle
+in X, so either a compact subsurface of Euler characteristic −1 with totally geodesic
+boundary or a simple closed geodesic. A surface that has no (κ, ω)-tangles in it is called
+(κ, ω)-tangle free.
+   Anantharaman and Monk (2024a, Theorem 4.6, Corollary 4.7 and Corollary 4.8)
+prove a vast generalization of the collar lemma for tangle-free surfaces: for 0 < κ < 1,
+ω = κ log(g), A ≥ 1, R = A · log(g) and χmin ≤ −1, there exists a constant βκ,A,χmin > 0
+such that a (κ, ω)-tangle free surface X ∈ Mg supports at most
+                                                              
+                               Oκ,A,χmin (log(g))βκ,A,χmin
+local topological types T of closed geodesics γ with χ(T) ≥ χmin and ℓ(γ) ≤ R. In
+other words, under the tangle free hypothesis, we go from exponentially many local
+topological types we need to deal with to only polynomially many.
+  So, if we were able to condition on the set of tangle-free surfaces, we would win. The
+solution is to use Möbius inversion (a version of the inclusion-exclusion principle). The
+basic idea is that, if N : Ω → N is a counting variable on some probability space Ω, then
+the indicator function 1{N =0} of the event that N = 0 can be written as
+                                  ∞
+                                  X (−1)k
+                  1{N =0} = 1 −                  · N (N − 1) · · · (N − k + 1).
+                                  k=1   k!
+Moreover, the variable N (N − 1) · · · (N − k + 1) : Ω → N is a counting variable too, it
+counts the number of ordered k-tuples of whatever N counts.
+   So, we would want to set N = T κ,ω : Mg → N in the above, where T κ,ω (X) counts
+the number of (κ, ω)-tangles in X. This means that 1{T κ,ω =0} is exactly the indicator
+of the event that X is (κ, ω)-tangle free. However, tangles can intersect in all sorts of
+complicated ways, which makes controlling the expectation of the right hand side of the
+inclusion-exclusion formula difficult. So, to solve this issue, Anantharaman and Monk
+(2024a, Theorem 3.1) write down a different, less explicit, Möbius function. We refer to
+their article for details.
+   In short, putting all of the above together produces the necessary cancellations to
+make the trace method work and this proves Theorem 7.1.
+
+
+8. Polynomial error bounds (Hide–Macera–Thomas)
+
+  The final result we will discuss is the recent theorem by Hide, Macera, and Thomas
+(2025b). They prove, for a Weil–Petersson distributed random surface Xg :
+Theorem 8.1. — There exists a constant c > 0 such that
+                                         1    1
+                                               
+                        lim P λ1 (Xg ) > − c = 1.
+                       g→∞               4 g
+                                          1255–48
+
+
+   This theorem in particular recovers Theorem 7.1 by Anantharaman–Monk. The proof
+starts off in the same way, namely by writing down an asymptotic expansion in powers
+of g −1 for the expected trace of a function of the Laplacian. However, the way this
+expression is analyzed is fundamentally different. The method is heavily inspired by
+the extension of the polynomial method by Magee, Puder, and van Handel (2025). This
+does not recover the many intermediate results of Anantharaman and Monk that are of
+independent interest, but it does make for a (still long, but) shorter proof and improves
+the estimate on λ1 (Xg ).
+
+
+8.1. The interest in polynomial error bounds
+  Let us first explain why one might care about polynomial error terms. The ultimate
+goal is to understand the distribution of λ1 (Xg ) − 41 to a sufficient degree of precision
+so as to obtain the result that for all g large enough,
+                                                 1
+                                                   
+                                    P λ1 (Xg ) >   > 0,
+                                                 4
+thus proving the existence of surfaces of arbitrarily large genus with a spectral gap
+that is larger than that of the hyperbolic plane. As we’ve mentioned above, Huang,
+McKenzie, and Yau (2024) have successfully carried out the graph theoretic analogue
+of this strategy.
+  Of course, by Theorem 7.1 and (2), λ1 (Xg ) − 14 → 0 in probability. So the real
+question is how fast it tends to 0 as a function of g. Once we know this, we can rescale
+the random variable and hope to understand the distribution. Looking at Section 3, we
+expect Xg to have roughly
+                                   √    ε→0 2π
+                          Z ε                                          
+              (g − 1) ·      tanh(π y)dy =     · (g − 1) · ε3/2 + O ε5/2
+                           0                 3
+eigenvalues in the interval [ 14 , 14 + ε]. So, reverse engineering this, we get that if we
+want an interval with only a constant number of eigenvalues in it, we need to take
+ε = ε(g) = (g − 1)−2/3 . So we would hope that, as g → ∞, (g − 1)2/3 · λ1 (Xg ) − 14
+converges to a random variable we can understand. This is exactly what happens in
+the graph-theoretic setting: at exactly the scale n2/3 (where n is the number of vertices)
+the distribution converges to a Tracy–Widom distribution. In short, one hopes that
+Theorem 8.1 holds for c = 23 − ε for all ε > 0.
+
+
+8.2. An asymptotic expansion
+   Now we start explaining the strategy of proof. Again, we once and for all fix an even,
+non-negative function h ∈ Cc∞ (R). The main technical result in the paper by Hide,
+Macera, and Thomas (2025b, Theorem 1.4), in which h∗m means the m-fold convolution
+of the function h, is:
+                                              1255–49
+
+
+Theorem 8.2 (Hide–Macera–Thomas). — There
+                                       exists
+                                              a constant c > 0 such that for
+                                                              (m)
+all m ∈ N there exists a sequence of constants ak                         such that
+                                                                    k≥0
+                             s                               q−1    (m)
+                                                                              (cq)cq
+                                                    m 
+                     1                   1                        ak
+                                                              X
+                   E   · Tr h
+                            b      ∆Xg −                     −       k
+                                                                            ≤
+                     g                   4                     k=0 g            gq
+for all q > m and g > cq c . Moreover
+                             Z ∞ 
+                                  s    m      s
+                                     1               1
+                                                       
+                       (m)
+                      a0 =      h y−
+                                b         tanh π y −     dy
+                              1
+                              4
+                                                4                           4
+and                                                  2
+                                 ∞                      ℓ
+                       (m)
+                              Z ∞X           sinh       2
+                      a1 =               2                 h∗m (kℓ) dℓ − a(m)
+                                                                            0 .
+                                                        kℓ
+                               0   k=1       sinh        2
+
+   At first sight, this theorem looks very much like some of the things we have already
+seen. Indeed, Anantharaman and Monk (2023) had already observed, using the volume
+estimates due to Mirzakhani and Zograf (2015) and Anantharaman and Monk (2022),
+that an asymptotic expansion for expectations like the one above exists (see e.g. (9)
+                                                                                       (m)
+above). Moreover, as Hide, Macera and Thomas note, the fact that the coefficients a0
+      (m)
+and a1 take the stated shape can be derived using computations very similar to those
+performed by Mirzakhani and the author (2019).
+   The main point of the theorem above is the innocent looking error estimate. The
+largest part of the work in the paper goes into proving this estimate, namely, that the
+constant in the “O(g −q )” estimate grows at most factorially fast as a function of q. To
+prove this, Hide, Macera and Thomas analyze the known recurrences for Weil–Petersson
+volumes and intersection numbers of tautological classes on moduli spaces and need to
+make many estimates effective. This is difficult and we will not describe this in detail
+here. We refer to their paper for details.
+   The upshot of all of this is that, once the theorem above has been established, unlike
+in the previous section, we don’t need to know anything further about the remaining
+coefficients except their existence. We also no longer need to analyze geodesics whose
+lengths grow as a function of the genus. Instead, one can adapt the strategy that Magee,
+Puder, and van Handel (2025) used in the proof of a near optimal spectral gap for
+random finite degree covers of a closed surface, based on the analogue of the theorem
+above in that context (Theorem 1.7 in the paper by Magee, Puder and van Handel).
+
+8.3. Deducing a spectral gap
+ Just like
+           in the previous section, we will only exclude eigenvalues in an interval
+ δ, 14 − g −c for a fixed c > 0 and some small δ > 0 and rely on for instance Mirzakhani’s
+result (see Section 5.2) to exclude eigenvalues close to 0. The number δ will be a constant
+in what follows, so given Mirzakhani’s bound, we can for instance choose δ = 0.002.
+This assumption of an a priori spectral gap is not strictly necessary, because a similar
+cancellation to the one observed by Wu–Xue and Lipnowski–Wright (see Section 7.2
+                                                                  1255–50
+
+
+above) can also be used to deal with the spectrum close to 0. We will not provide
+further details here.
+  Theqfirst goal of the remainder of the proof is to extend Theorem 8.2 from polynomials
+in h ∆Xg − 14 to smooth functions of the same quantity. There is an immediate
+   b
+                                                                                                        q             
+problem, namely that for an arbitrary smooth function f , the operator f h
+                                                                         b ∆Xg − 14
+is not trace class. To solve this, Hide, Macera and Thomas consider only functions of
+the form
+                                                       x 7→ f (x) = x · fe(x),
+where fe ∈ C ∞ (R) is any function.
+                                                             (m)           (m)
+  First of all, we turn the coefficients a0 and a1 into linear functionals on polynomials.
+Because of the extra multiplication by x, we will input a polynomial p(x) ∈ C[x], but
+compute the coefficients for x · p(x). That is, we set
+                     q−1                                           s               s
+                                              q−1             Z ∞         m+1
+                                                                         1               1
+                                                                                          
+                              s m xm =
+                      X                       X
+               ν0                                      sm   ·    h
+                                                                 b    y−        tanh y −     dy
+                     m=0                      m=0
+                                                              1
+                                                              4
+                                                                                 4                    4
+and
+                                                                          2
+            q−1                      q−1             ∞             ℓ                        q−1
+                                                  Z ∞X           sinh
+                                                                    2
+                                                                                                          
+                          m                                          h∗(m+1) (kℓ) dℓ − ν0             m
+             X                        X                                                       X
+      ν1           sm x           =         sm ·              2     kℓ
+                                                                                                  s m x    .
+            m=0                       m=0              0   k=1 sinh 2                        m=0
+
+Hide, Macera, and Thomas (2025b, Proposition 3.2) then use Theorem 8.2 to prove,
+following a similar strategy to the papers by Chen, Garza-Vargas, Tropp, and van Handel
+(2026) and Magee, Puder, and van Handel (2025), based on a variant of the Markov
+brothers’ inequality, that these functionals extend to compactly supported distributions.
+That is, we can evaluate them on smooth functions fe ∈ C ∞ (R) and we moreover have
+                       s
+       1                                           1                        ν1 (fe)
+                                                      
+(10) E   · Tr f h
+                b                     ∆Xg −                   − ν0 (fe) −
+       g                                           4                           g
+                                                                             C                                         
+                                                                           ≤ 2 · ∥w(m) ∥[0,2π] + ∥fe∥[−bh( i ),bh( i )]
+                                                                            g                              2       2
+
+
+for some uniform C, m > 0 for all fe ∈ C ∞ (R) and all g ≥ 2. We have          again set
+                                                                                          
+                                        ∞
+f (x) = x · f (x) and the function w ∈ C ([0, 2π]) is defined by w(θ) = f h 2i · cos(θ)
+                                                                           e b
+
+and w(m) is its mth derivative with respect to θ. Finally, ∥ · ∥[a,b] denotes the sup-norm
+restricted to [a, b].
+   Next, Hide, Macera, and Thomas (2025b, Lemma 3.3) investigate the support of ν0
+and ν1 . This is where the lower bound δ > 0 comes into play. Using the fact that ν0
+and ν1 have a very explicit form when evaluated on polynomial, one proves that, if
+f ∈ C ∞ (R) has support
+                                                                                 s
+                                                                                     1
+                                                                                          
+                                            supp(f ) ⊂           h(0),
+                                                                 b     h
+                                                                       b   i·          −δ
+                                                                                     4
+                                         1255–51
+
+
+then for fe(x) = f (x)/x we have
+                                   ν0 (fe) = ν1 (fe) = 0.
+  Using a lemma from Chen, Garza-Vargas, Tropp, and van Handel (2026, Lemma 4.10),
+Hide Macera and Thomas prove that, for any η > 0 small enough, one can find a non-
+negative function f ∈ C ∞ (R) such that
+                                                 s
+                                        
+                                             √          1
+                                                              
+                f (x) = 1   for all x ∈ h i · ε , h i ·
+                                        b         b       −δ−η ,
+                                                              4
+                                                  s
+                                                      1          b i
+                                                                 
+           f (x) = 0   for all x ∈ (−∞, h(0)] ∪ h i ·
+                                        b        b      − δ + η ,h
+                                                              4                    2
+and moreover
+                               ∥w(m) ∥[0,2π] ≤ c(m) · ε−m/2
+for all ε > 0 small enough.
+   This means that we obtain
+                                                    s
+                             1                                      1
+                                                                             
+         P δ + η ≤ λ1 (Xg ) ≤ − ε ≤ P Tr f h
+                                           b                ∆Xg −             ≥1
+                             4                                      4
+                                                              s
+                                      Markov           1                       1
+                                                                                  
+                                         ≤       g · E Tr f h
+                                                            b        ∆Xg −                .
+                                                       g                       4
+Now we use (10) and obtain that
+                                          1         ε−m/2
+                       P δ + η ≤ λ1 (Xg ) ≤ − ε ≤ C ·       ,
+                                           4            g
+                                                   
+which tends to 0 as long as ε = ε(g) = o g 2/m as g → ∞ and this proves the main
+result of this section.
+
+
+References
+
+Miklos Abert, Nicolas Bergeron, Ian Biringer, Tsachik Gelander, Nikolay Nikolov, Jean
+  Raimbault, and Iddo Samet (2017). “On the growth of L2 -invariants for sequences of
+  lattices in Lie groups”, Ann. of Math. (2) 185 (3), pp. 711–790.
+Noga Alon (1986). “Eigenvalues and expanders”, in: vol. 6. 2. Theory of computing
+ (Singer Island, Fla., 1984), pp. 83–96.
+Nalini Anantharaman and Laura Monk (2022). “A high-genus asymptotic expansion of
+ Weil–Petersson volume polynomials”, J. Math. Phys. 63 (4), Paper No. 043502, 26.
+        (2023). “Friedman–Ramanujan functions in random hyperbolic geometry and
+  application to spectral gaps I”. arXiv: 2304.02678 [math.SP].
+        (2024a). “A Moebius inversion formula to discard tangled hyperbolic surfaces”.
+  arXiv: 2401.01601 [math.GT].
+        (2024b). “Spectral gap of random hyperbolic surfaces”. arXiv: 2403 . 12576
+  [math.GT].
+                                       1255–52
+
+
+Nalini Anantharaman and Laura Monk (2025). “Friedman–Ramanujan functions in
+   random hyperbolic geometry and application to spectral gaps II”. arXiv: 2502.12268
+   [math.MG].
+         (2026). “Typical hyperbolic surfaces have a spectral gap greater than 2/9 − ϵ”.
+   arXiv: 2604.09792 [math.SP].
+Michele Ancona, François Labourie, Ana Roig Sanchis, and Jérémy Toulisse (2025).
+  “Minimal surfaces with negative curvature in large dimensional spheres”. arXiv: 2510.
+   18618 [math.DG].
+Omer Angel and Oded Schramm (2003). “Uniform infinite planar triangulations”, Comm.
+  Math. Phys. 241 (2-3), pp. 191–213.
+Francisco Arana-Herrera (2021). “Equidistribution of families of expanding horospheres
+   on moduli spaces of hyperbolic surfaces”, Geom. Dedicata 210, pp. 65–102.
+Francisco Arana-Herrera and Jayadev S. Athreya (2020). “Square-integrability of the
+   Mirzakhani function and statistics of simple closed geodesics on hyperbolic surfaces”,
+  Forum Math. Sigma 8, Paper No. e9, 33.
+Richard Arratia, Andrew D. Barbour, and Simon Tavaré (2003). Logarithmic combinato-
+  rial structures: a probabilistic approach. EMS Monographs in Mathematics. European
+   Mathematical Society (EMS), Zürich, pp. xii+363.
+Werner Ballmann, Sugata Mondal, and Panagiotis Polymerakis (2025). “On the spectral
+   stability of finite coverings”. arXiv: 2507.17466 [math.DG].
+Simon Barazer, Alessandro Giacchetto, and Mingkun Liu (2025). “Length spectrum of
+   large genus random metric maps”, Forum Math. Sigma 13, Paper No. e70, 28.
+Christophe Bavard (1996). “Disques extrémaux et surfaces modulaires”, Ann. Fac. Sci.
+  Toulouse Math. (6) 5 (2), pp. 191–202.
+Mikhail Belolipetsky, Tsachik Gelander, Alexander Lubotzky, and Aner Shalev (2010).
+  “Counting arithmetic lattices and surfaces”, Ann. of Math. (2) 172 (3), pp. 2197–2221.
+Gennadi V. Belyı̆ (1979). “Galois extensions of a maximal cyclotomic field”, Izv. Akad.
+  Nauk SSSR Ser. Mat. 43 (2), pp. 267–276, 479.
+Itai Benjamini and Oded Schramm (2001). “Recurrence of distributional limits of finite
+   planar graphs”, Electron. J. Probab. 6, no. 23, 13.
+Nicolas Bergeron (2016). The spectrum of hyperbolic surfaces. Universitext. Appendix
+   C by Valentin Blomer and Farrell Brumley, Translated from the 2011 French original
+   by Brumley. Springer, Cham; EDP Sciences, Les Ulis, pp. xiii+370.
+Lipman Bers (1974). “Spaces of degenerating Riemann surfaces”, in: Discontinuous
+  groups and Riemann surfaces (Proc. Conf., Univ. Maryland, College Park, Md., 1973).
+  Vol. No. 79. Ann. of Math. Stud. Princeton Univ. Press, Princeton, NJ, pp. 43–55.
+Yonatan Bilu and Nathan Linial (2006). “Lifts, discrepancy and nearly optimal spectral
+   gap”, Combinatorica 26 (5), pp. 495–519.
+Béla Bollobás (1981). “Random graphs”, in: Combinatorics (Swansea, 1981). Vol. 52.
+   London Math. Soc. Lecture Note Ser. Cambridge Univ. Press, Cambridge-New York,
+   pp. 80–102.
+                                       1255–53
+
+
+James Bonifacio (2022). “Bootstrapping closed hyperbolic surfaces”, J. High Energy
+  Phys. (3), Paper No. 093, 18.
+Andrew R. Booker, Min Lee, and Andreas Strömbergsson (2020). “Twist-minimal trace
+  formulas and the Selberg eigenvalue conjecture”, J. Lond. Math. Soc. (2) 102 (3),
+  pp. 1067–1134.
+Andrew R. Booker and Andreas Strömbergsson (2007). “Numerical computations with
+  the trace formula and the Selberg eigenvalue conjecture”, J. Reine Angew. Math. 607,
+  pp. 113–161.
+Charles Bordenave (2020). “A new proof of Friedman’s second eigenvalue theorem and
+  its extension to random lifts”, Ann. Sci. Éc. Norm. Supér. (4) 53 (6), pp. 1393–1439.
+Charles Bordenave and Benoît Collins (2019). “Eigenvalues of random lifts and polyno-
+  mials of random permutation matrices”, Ann. of Math. (2) 190 (3), pp. 811–875.
+David Borthwick (2016). Spectral theory of infinite-area hyperbolic surfaces. Second.
+  Vol. 318. Progress in Mathematics. Birkhäuser/Springer, [Cham], pp. xiii+463.
+        (2020). Spectral theory—basic concepts and applications. Vol. 284. Graduate
+  Texts in Mathematics. Springer, Cham, pp. x+338.
+Lewis Bowen, Kasra Rafi, and Hunter Vallejos (2025). “Benjamini–Schramm limits
+  of high genus translation surfaces: research announcement”. arXiv: 2501 . 03474
+  [math.GT].
+Emmanuel Breuillard (2014). “Expander graphs, property (τ ) and approximate groups”,
+  in: Geometric group theory. Vol. 21. IAS/Park City Math. Ser. Amer. Math. Soc.,
+  Providence, RI, pp. 325–377.
+Andrei Broder and Eli Shamir (1987). “On the second eigenvalue of random regular
+  graphs”. In: Proceedings of the 28th Annual Symposium on Foundations of Computer
+  Science. IEEE Computer Society, pp. 286–294.
+Robert Brooks (1985). “The bottom of the spectrum of a Riemannian covering”, J.
+  Reine Angew. Math. 357, pp. 101–114.
+        (1986). “Combinatorial problems in spectral geometry”, in: Curvature and topol-
+  ogy of Riemannian manifolds (Katata, 1985). Vol. 1201. Lecture Notes in Math.
+  Springer, Berlin, pp. 14–32.
+        (1999). “Platonic surfaces”, Comment. Math. Helv. 74 (1), pp. 156–170.
+Robert Brooks and Eran Makover (2001a). “Belyı̆ surfaces”, in: Entire functions in
+  modern analysis (Tel-Aviv, 1997). Vol. 15. Israel Math. Conf. Proc. Bar-Ilan Univ.,
+  Ramat Gan, pp. 37–46.
+        (2001b). “Riemann surfaces with large first eigenvalue”, J. Anal. Math. 83,
+  pp. 243–258.
+        (2004). “Random construction of Riemann surfaces”, J. Differential Geom. 68
+  (1), pp. 121–157.
+Robert Brooks and Andrzej Zuk (2002). “On the asymptotic isoperimetric constants for
+  Riemann surfaces and graphs”, J. Differential Geom. 62 (1), pp. 49–78.
+                                        1255–54
+
+
+Timothy Budd and Nicolas Curien (2025). “Random punctured hyperbolic surfaces &
+   the Brownian sphere”. arXiv: 2508.18792 [math.PR].
+Timothy Budd and Tanguy Lions (2025). “The tight length spectrum of large-genus
+   random hyperbolic surfaces with many cusps”. arXiv: 2506.02611 [math.PR].
+Timothy Budd and Bart Zonneveld (2024). “Topological recursion of the Weil–Petersson
+  volumes of hyperbolic surfaces with tight boundaries”, J. Math. Phys. 65 (9), Paper
+   No. 092302, 34.
+Thomas Budzinski, Nicolas Curien, and Bram Petri (2021a). “On the minimal diameter
+   of closed hyperbolic surfaces”, Duke Math. J. 170 (2), pp. 365–377.
+         (2021b). “The diameter of random Belyı̆ surfaces”, Algebr. Geom. Topol. 21 (6),
+   pp. 2929–2957.
+         (2025). “On Cheeger constants of hyperbolic surfaces”, Invent. Math. 242 (2),
+   pp. 511–530.
+Marc Burger (1986). “Grandes valeurs propres du laplacien et graphes”, in: Séminaire
+  de Théorie Spectrale et Géométrie, No. 4, Année 1985–1986. Univ. Grenoble I, Saint-
+   Martin-d’Hères, pp. 95–100.
+Peter Buser (1977). “Riemannsche Flächen mit Eigenwerten in (0, 1/4)”, Comment.
+  Math. Helv. 52 (1), pp. 25–34.
+         (1978). “Cubic graphs and the first eigenvalue of a Riemann surface”, Math. Z.
+  162 (1), pp. 87–99.
+         (1982). “A note on the isoperimetric constant”, Ann. Sci. École Norm. Sup. (4)
+  15 (2), pp. 213–230.
+         (1984). “On the bipartition of graphs”, Discrete Appl. Math. 9 (1), pp. 105–109.
+         (2010). Geometry and spectra of compact Riemann surfaces. Modern Birkhäuser
+   Classics. Reprint of the 1992 edition. Birkhäuser Boston, Ltd., Boston, MA,
+   pp. xvi+454.
+Peter Buser, Marc Burger, and Jozef Dodziuk (1988). “Riemann surfaces of large
+   genus and large λ1 ”, in: Geometry and analysis on manifolds (Katata/Kyoto, 1987).
+  Vol. 1339. Lecture Notes in Math. Springer, Berlin, pp. 54–63.
+Peter Buser and Peter Sarnak (1994). “On the period matrix of a Riemann surface of
+   large genus”, Invent. Math. 117 (1). With an appendix by John H. Conway and Neil
+  J. A. Sloane, pp. 27–56.
+Irvong Calderón, Michael Magee, and Frédéric Naud (2024). “Spectral gap for random
+   Schottky surfaces”. arXiv: 2407.21506 [math.SP].
+Isaac Chavel (1984). Eigenvalues in Riemannian geometry. Vol. 115. Pure and Applied
+   Mathematics. Including a chapter by Burton Randol, With an appendix by Jozef
+   Dodziuk. Academic Press, Inc., Orlando, FL, pp. xiv+362.
+Jeff Cheeger (1970). “A lower bound for the smallest eigenvalue of the Laplacian”, in:
+  Problems in analysis (Papers dedicated to Salomon Bochner, 1969). Princeton Univ.
+   Press, Princeton, N. J., pp. 195–199.
+                                       1255–55
+
+
+Chi-Fang Chen, Jorge Garza-Vargas, Joel A. Tropp, and Ramon van Handel (2026). “A
+   new approach to strong convergence”, Ann. of Math. (2) 203 (2), pp. 555–602.
+Chi-Fang Chen, Jorge Garza-Vargas, and Ramon van Handel (2024). “A new approach
+   to strong convergence II. The classical ensembles”. arXiv: 2412.00593 [math.PR].
+Shiu-Yuen Cheng (1975). “Eigenvalue comparison theorems and its geometric applica-
+   tions”, Math. Z. 143 (3), pp. 289–297.
+Persi Diaconis and Mehrdad Shahshahani (1981). “Generating a random permutation
+   with random transpositions”, Z. Wahrsch. Verw. Gebiete 57 (2), pp. 159–179.
+John D. Dixon (1969). “The probability of generating the symmetric group”, Math. Z.
+   110, pp. 199–205.
+Benson Farb and Dan Margalit (2012). A primer on mapping class groups. Vol. 49.
+   Princeton Mathematical Series. Princeton University Press, Princeton, NJ,
+   pp. xiv+472.
+Maxime Fortier Bourque and Bram Petri (2023). “Linear programming bounds for
+   hyperbolic surfaces”. arXiv: 2302.02540 [math.GT].
+Joel Friedman (1993). “Some geometric aspects of graphs and their eigenfunctions”,
+   Duke Math. J. 69 (3), pp. 487–525.
+         (2008). “A proof of Alon’s second eigenvalue conjecture and related problems”,
+   Mem. Amer. Math. Soc. 195 (910), pp. viii+100.
+Michael E. Gage (1980). “Upper bounds for the first eigenvalue of the Laplace-Beltrami
+   operator”, Indiana Univ. Math. J. 29 (6), pp. 897–912.
+Alex Gamburd (2006). “Poisson-Dirichlet distribution for random Belyi surfaces”, Ann.
+   Probab. 34 (5), pp. 1827–1848.
+Giacomo Gavelli and Claudius Kamp (2024). “Benjamini–Schramm vs Plancherel con-
+   vergence”. arXiv: 2407.18822 [math.GR].
+Israel M. Gel’fand, Mark I. Graev, and Ilya I. Pyatetskii-Shapiro (1990). Representation
+   theory and automorphic functions. Vol. 6. Generalized Functions. Translated from the
+   Russian by K. A. Hirsch, Reprint of the 1969 edition. Academic Press, Inc., Boston,
+   MA, pp. xviii+426.
+Clifford Gilmore, Étienne Le Masson, Tuomas Sahlsten, and Joe Thomas (2021). “Short
+   geodesic loops and Lp norms of eigenfunctions on large genus random surfaces”, Geom.
+   Funct. Anal. 31 (1), pp. 62–110.
+William M. Goldman (1984). “The symplectic nature of fundamental groups of surfaces”,
+   Adv. in Math. 54 (2), pp. 200–225.
+Yulin Gong (2024). “Spectral distribution of twisted Laplacian on typical hyperbolic
+   surfaces of high genus”, Comm. Math. Phys. 405 (7), Paper No. 158, 41.
+Larry Guth, Hugo Parlier, and Robert Young (2011). “Pants decompositions of random
+   surfaces”, Geom. Funct. Anal. 21 (5), pp. 1069–1090.
+Yuxin He, Yang Shen, Yunhui Wu, and Yuhao Xue (2023). “Non-simple systoles on
+   random hyperbolic surfaces for large genus”. arXiv: 2308.16447 [math.GT].
+                                       1255–56
+
+
+Yuxin He and Yunhui Wu (2025). “Averages of determinants of Laplacians over moduli
+  spaces for large genus”, J. Lond. Math. Soc. (2) 112 (6), Paper No. e70395, 21.
+Yuxin He, Yunhui Wu, and Yuhao Xue (2026). “Uniform spectral gaps for random
+  hyperbolic surfaces with not many cusps”. arXiv: 2602.08352 [math.DG].
+Dennis A. Hejhal (1976). The Selberg trace formula for PSL(2, R). Vol. I. Vol. Vol. 548.
+  Lecture Notes in Mathematics. Springer-Verlag, Berlin-New York, pp. vi+516.
+        (1983). The Selberg trace formula for PSL(2, R). Vol. 2. Vol. 1001. Lecture
+  Notes in Mathematics. Springer-Verlag, Berlin, pp. viii+806.
+Will Hide (2023a). “Effective lower bounds for spectra of random covers and random
+  unitary bundles”. arXiv: 2305.04584 [math.SP].
+        (2023b). “Spectral gap for Weil–Petersson random surfaces with cusps”, Int.
+  Math. Res. Not. (20), pp. 17411–17460.
+Will Hide, Davide Macera, and Joe Thomas (2025a). “Spectral gap with polynomial
+  rate for random covering surfaces”. arXiv: 2505.08479 [math.SP].
+        (2025b). “Spectral gap with polynomial rate for Weil–Petersson random sur-
+  faces”. arXiv: 2508.14874 [math.SP].
+Will Hide and Michael Magee (2023). “Near optimal spectral gaps for hyperbolic sur-
+  faces”, Ann. of Math. (2) 198 (2), pp. 791–824.
+Will Hide, Julien Moy, and Frédéric Naud (2025). “On the spectral gap of negatively
+  curved surface covers”, Int. Math. Res. Not. (24), Paper No. rnaf357, 24.
+Will Hide and Bram Petri (2024). “Limit points of uniform arithmetic bass notes”.
+  arXiv: 2412.15111 [math.SP].
+Will Hide and Joe Thomas (2025a). “Large-n asymptotics for Weil–Petersson volumes
+  of moduli spaces of bordered hyperbolic surfaces”, Comm. Math. Phys. 406 (9), Paper
+  No. 203, 41.
+        (2025b). “Short geodesics and small eigenvalues on random hyperbolic punctured
+  spheres”, Comment. Math. Helv. 100 (3), pp. 463–506.
+Shlomo Hoory, Nathan Linial, and Avi Wigderson (2006). “Expander graphs and their
+  applications”, Bull. Amer. Math. Soc. (N.S.) 43 (4), pp. 439–561.
+Jiaoyang Huang, Theo McKenzie, and Horng-Tzer Yau (2024). “Ramanujan Property
+  and Edge Universality of Random Regular Graphs”. arXiv: 2412.20263 [math.PR].
+Heinz Huber (1974). “Über den ersten Eigenwert des Laplace-Operators auf kompakten
+  Riemannschen Flächen”, Comment. Math. Helv. 49, pp. 251–259.
+Adolf Hurwitz (1901). “Ueber die Anzahl der Riemann’schen Flächen mit gegebenen
+  Verzweigungspunkten”, Math. Ann. 55 (1), pp. 53–66.
+Martin N. Huxley (1985). “Introduction to Kloostermania”, in: Elementary and analytic
+  theory of numbers (Warsaw, 1982). Vol. 17. Banach Center Publ. PWN, Warsaw,
+  pp. 217–306.
+Yoichi Imayoshi and Masahiko Taniguchi (1992). An introduction to Teichmüller spaces.
+  Translated and revised from the Japanese by the authors. Springer-Verlag, Tokyo,
+  pp. xiv+279.
+                                       1255–57
+
+
+Henryk Iwaniec (2002). Spectral methods of automorphic forms. Second. Vol. 53. Gradu-
+   ate Studies in Mathematics. American Mathematical Society, Providence, RI; Revista
+   Matemática Iberoamericana, Madrid, pp. xii+220.
+Svante Janson and Baptiste Louf (2023). “Unicellular maps vs. hyperbolic surfaces in
+   large genus: simple closed curves”, Ann. Probab. 51 (3), pp. 899–929.
+Gareth Jones and David Singerman (1996). “Belyı̆ functions, hypermaps and Galois
+   groups”, Bull. London Math. Soc. 28 (6), pp. 561–590.
+Harry Kesten (1959). “Symmetric random walks on groups”, Trans. Amer. Math. Soc.
+   92, pp. 336–354.
+Elena Kim and Zhongkai Tao (2026). “Eigenvalue rigidity of hyperbolic surfaces in the
+   random cover model”. arXiv: 2603.01127 [math.SP].
+Henry H. Kim and Peter Sarnak (2003). “Refined estimates towards the Ramanujan
+   and Selberg conjectures”, J. Amer. Math. Soc. 16 (1). appendix to the article “Func-
+   toriality for the exterior square of GL4 and the symmetric fourth of GL2 ” by Kim,
+   pp. 175–183.
+Adam Klukowski and Vladimir Marković (2024). “Tangle free permutations and the
+   Putman-Wieland property of random covers”, Int. Math. Res. Not. (20), pp. 13400–
+  13416.
+Emmanuel Kowalski (2019). An introduction to expander graphs. Vol. 26. Cours Spécial-
+   isés. Société Mathématique de France, Paris, pp. x+276.
+Petr Kravchuk, Dalimil Mazáč, and Sridip Pal (2024). “Automorphic spectra and the
+   conformal bootstrap”, Commun. Am. Math. Soc. 4, pp. 1–63.
+Jean-François Le Gall (2013). “Uniqueness and universality of the Brownian map”, Ann.
+  Probab. 41 (4), pp. 2880–2960.
+Étienne Le Masson and Tuomas Sahlsten (2017). “Quantum ergodicity and Benjamini–
+   Schramm convergence of hyperbolic surfaces”, Duke Math. J. 166 (18), pp. 3425–
+   3460.
+Silvio Levy, ed. (1999). The eightfold way. Vol. 35. Mathematical Sciences Research
+   Institute Publications. The beauty of Klein’s quartic curve. Cambridge University
+   Press, Cambridge, pp. x+331.
+Martin W. Liebeck and Aner Shalev (2004). “Fuchsian groups, coverings of Riemann
+   surfaces, subgroup growth, random quotients and random walks”, J. Algebra 276 (2),
+   pp. 552–601.
+Michael Lipnowski and Alex Wright (2024). “Towards optimal spectral gaps in large
+   genus”, Ann. Probab. 52 (2), pp. 545–575.
+Mingkun Liu (2022). “Length statistics of random multicurves on closed hyperbolic
+   surfaces”, Groups Geom. Dyn. 16 (2), pp. 437–459.
+Mingkun Liu and Bram Petri (2023). “Random surfaces with large systoles”. arXiv:
+   2312.11428 [math.GT].
+                                       1255–58
+
+
+Larsen Louder and Michael Magee (2025). “Strongly convergent unitary representations
+  of limit groups”, J. Funct. Anal. 288 (6). With an appendix by Will Hide and Magee,
+  Paper No. 110803, 28.
+Alexander Lubotzky, Ralph Phillips, and Peter Sarnak (1988). “Ramanujan graphs”,
+  Combinatorica 8 (3), pp. 261–277.
+Alexander Lubotzky and Daniel Segal (2003). Subgroup growth. Vol. 212. Progress in
+  Mathematics. Birkhäuser Verlag, Basel, pp. xxii+453.
+Nathan A. M. Lulov (1996). Random walks on the symmetric group generated by con-
+  jugacy classes. Thesis (Ph.D.)–Harvard University. ProQuest LLC, Ann Arbor, MI,
+  p. 57.
+Colin Maclachlan and Alan W. Reid (2003). The arithmetic of hyperbolic 3-manifolds.
+  Vol. 219. Graduate Texts in Mathematics. Springer-Verlag, New York, pp. xiv+463.
+Michael Magee (2020). “Letter to Bram Petri”. Available at: https://www.mmagee.
+  net/diameter.pdf.
+         (2024). “The limit points of the bass notes of arithmetic hyperbolic surfaces”.
+  arXiv: 2403.00928 [math.NT].
+          (2025). “Strong convergence of unitary and permutation representations of
+  discrete groups”. arXiv: 2503.21619 [math.GR].
+Michael Magee and Frédéric Naud (2020). “Explicit spectral gaps for random covers of
+  Riemann surfaces”, Publ. Math. Inst. Hautes Études Sci. 132, pp. 137–179.
+Michael Magee, Frédéric Naud, and Doron Puder (2022). “A random cover of a compact
+                                                   3
+  hyperbolic surface has relative spectral gap 16     − ε”, Geom. Funct. Anal. 32 (3),
+  pp. 595–661.
+Michael Magee and Doron Puder (2022). “Core surfaces”, Geom. Dedicata 216 (4),
+  Paper No. 46, 25.
+         (2023). “The asymptotic statistics of random covering surfaces”, Forum Math.
+  Pi 11, Paper No. e15, 51.
+Michael Magee, Doron Puder, and Ramon van Handel (2025). “Strong convergence of
+  uniformly random permutation representations of surface groups”. arXiv: 2504.08988
+  [math.GT].
+Yotam Maoz (2025). “Asymptotic independence for random permutations from surface
+  groups”, Geom. Dedicata 219 (3), Paper No. 43, 31.
+         (2026). “Smooth linear eigenvalue statistics on random covers of compact hy-
+  perbolic surfaces—a central limit theorem and almost sure RMT statistics”, Israel
+  Journal of Mathematics, pp. 1–50.
+Adam W. Marcus, Daniel A. Spielman, and Nikhil Srivastava (2015). “Interlacing fami-
+  lies I: Bipartite Ramanujan graphs of all degrees”, Ann. of Math. (2) 182 (1), pp. 307–
+  325.
+Grigory A. Margulis (1988). “Explicit group-theoretic constructions of combinatorial
+  schemes and their applications in the construction of expanders and concentrators”,
+  Problemy Peredachi Informatsii 24 (1), pp. 51–60.
+                                        1255–59
+
+
+Jens Marklof and Laura Monk (2024). “The moduli space of twisted Laplacians and
+  random matrix theory”, Int. Math. Res. Not. (23), pp. 14352–14368.
+Howard Masur, Kasra Rafi, and Anja Randecker (2024). “Lengths of saddle connections
+  on random translation surfaces of large genus”. arXiv: 2412.08727 [math.GT].
+Carlos Matheus (2013). “Some quantitative versions of Ratner’s mixing estimates”, Bull.
+  Braz. Math. Soc. (N.S.) 44 (3), pp. 469–488.
+Joffrey Mathien (2024). “Diameter of a new model of random hyperbolic surfaces”.
+  arXiv: 2403.01925 [math.GT].
+Brendan D. McKay (1981). “The expected eigenvalue distribution of a large regular
+  graph”, Linear Algebra Appl. 40, pp. 203–216.
+Henry P. McKean (1970). “An upper bound to the spectrum of ∆ on a manifold of
+  negative curvature”, J. Differential Geometry 4, pp. 359–366.
+Grégory Miermont (2013). “The Brownian map is the scaling limit of uniform random
+  plane quadrangulations”, Acta Math. 210 (2), pp. 319–401.
+Maryam Mirzakhani (2007a). “Simple geodesics and Weil–Petersson volumes of moduli
+  spaces of bordered Riemann surfaces”, Invent. Math. 167 (1), pp. 179–222.
+        (2007b). “Weil–Petersson volumes and intersection theory on the moduli space
+  of curves”, J. Amer. Math. Soc. 20 (1), pp. 1–23.
+        (2008). “Growth of the number of simple closed geodesics on hyperbolic surfaces”,
+  Ann. of Math. (2) 168 (1), pp. 97–125.
+        (2013). “Growth of Weil–Petersson volumes and random hyperbolic surfaces of
+  large genus”, J. Differential Geom. 94 (2), pp. 267–300.
+Maryam Mirzakhani and Bram Petri (2019). “Lengths of closed geodesics on random
+  surfaces of large genus”, Comment. Math. Helv. 94 (4), pp. 869–889.
+Maryam Mirzakhani and Peter Zograf (2015). “Towards large genus asymptotics of
+  intersection numbers on moduli spaces of curves”, Geom. Funct. Anal. 25 (4), pp. 1258–
+  1289.
+Laura Monk (2022). “Benjamini–Schramm convergence and spectra of random hyper-
+  bolic surfaces of high genus”, Anal. PDE 15 (3), pp. 727–752.
+Laura Monk and Rareş Stan (2025). “Spectral convergence of the Dirac operator on
+  typical hyperbolic surfaces of high genus”, Ann. Henri Poincaré 26 (1), pp. 365–387.
+Laura Monk and Joe Thomas (2022). “The tangle-free hypothesis on random hyperbolic
+  surfaces”, Int. Math. Res. Not. (22), pp. 18154–18185.
+Moshe Morgenstern (1994). “Existence and explicit constructions of q + 1 regular Ra-
+  manujan graphs for every prime power q”, J. Combin. Theory Ser. B 62 (1), pp. 44–
+  62.
+Julien Moy (2024). “Spectral statistics of the Laplacian on random covers of a closed
+  negatively curved surface”. arXiv: 2408.02808 [math.SP].
+        (2025). “Spectral gap of random covers of negatively curved noncompact sur-
+  faces”. arXiv: 2505.07056 [math.SP].
+                                       1255–60
+
+
+Thomas W. Müller and Jan-Christoph Schlage-Puchta (2002). “Character theory of
+  symmetric groups and subgroup growth of surface groups”, J. London Math. Soc. (2)
+  66 (3), pp. 623–640.
+        (2007). “Character theory of symmetric groups, subgroup growth of Fuchsian
+  groups, and random walks”, Adv. Math. 213 (2), pp. 919–982.
+Hossein Namazi, Pekka Pankka, and Juan Souto (2014). “Distributional limits of Rie-
+  mannian manifolds and graphs with sublinear genus growth”, Geom. Funct. Anal. 24
+  (1), pp. 322–359.
+Frédéric Naud (2023). “Determinants of Laplacians on random hyperbolic surfaces”, J.
+  Anal. Math. 151 (1), pp. 265–291.
+        (2026). “Random covers of compact surfaces and smooth linear spectral statis-
+  tics”, Ann. Henri Poincaré 27 (1), pp. 347–373.
+Alexandru Nica (1994). “On the number of cycles of given length of a free word in
+  several random permutations”, Random Structures Algorithms 5 (5), pp. 703–730.
+Xin Nie, Yunhui Wu, and Yuhao Xue (2023). “Large genus asymptotics for lengths of
+  separating closed geodesics on random surfaces”, J. Topol. 16 (1), pp. 106–175.
+A. Nilli (1991). “On the second eigenvalue of a graph”, Discrete Math. 91 (2), pp. 207–
+  210.
+Jean-Pierre Otal and Eulalio Rosas (2009). “Pour toute surface hyperbolique de genre
+  g, λ2g−2 > 1/4”, Duke Math. J. 150 (1), pp. 101–115.
+Hugo Parlier (2024). “A shorter note on shorter pants”, Bull. Lond. Math. Soc. 56 (4),
+  pp. 1483–1487.
+Hugo Parlier, Yunhui Wu, and Yuhao Xue (2022). “The simple separating systole for
+  hyperbolic surfaces of large genus”, J. Inst. Math. Jussieu 21 (6), pp. 2205–2214.
+Bram Petri (2017). “Random regular graphs and the systole of a random surface”, J.
+  Topol. 10 (1), pp. 211–267.
+Bram Petri and Christoph Thäle (2018). “Poisson approximation of the length spectrum
+  of random surfaces”, Indiana Univ. Math. J. 67 (3), pp. 1115–1141.
+Gilles Pisier (2018). “On a linearization trick”, Enseign. Math. 64 (3-4), pp. 315–326.
+Jim Pitman (2006). Combinatorial stochastic processes. Vol. 1875. Lecture Notes in
+  Mathematics. Lectures from the 32nd Summer School on Probability Theory held
+  in Saint-Flour, July 7–24, 2002, With a foreword by Jean Picard. Springer-Verlag,
+  Berlin, pp. x+256.
+Doron Puder and Tomer Zimhoni (2024). “Local statistics of random permutations from
+  free products”, Int. Math. Res. Not. (5), pp. 4242–4300.
+Andrew Putman and Ben Wieland (2013). “Abelian quotients of subgroups of the
+  mappings class group and higher Prym representations”, J. Lond. Math. Soc. (2) 88
+  (1), pp. 79–96.
+Jean Raimbault (2014). “Géométrie et topologie des variétés hyperboliques de grand
+  volume”, Séminaire de théorie spectrale et géométrie 31, pp. 163–195.
+                                       1255–61
+
+
+Marina Ratner (1987). “The rate of mixing for geodesic and horocycle flows”, Ergodic
+  Theory Dynam. Systems 7 (2), pp. 267–288.
+Walter Roelcke (1956). “Über die Wellengleichung bei Grenzkreisgruppen erster Art”,
+  S.-B. Heidelberger Akad. Wiss. Math.-Nat. Kl. 1953/1955, pp. 159–267.
+Zeév Rudnick (2023). “GOE statistics on the moduli space of surfaces of large genus”,
+  Geom. Funct. Anal. 33 (6), pp. 1581–1607.
+Zeév Rudnick and Igor Wigman (2023). “On the central limit theorem for linear eigen-
+  value statistics on random surfaces of large genus”, J. Anal. Math. 151 (1), pp. 293–
+  302.
+        (2025). “Almost sure GOE fluctuations of energy levels for hyperbolic surfaces
+  of high genus”, Ann. Henri Poincaré 26 (6), pp. 2279–2291.
+The Sage Developers (2021). SageMath, the Sage Mathematics Software System (Version
+  9.3). https://www.sagemath.org.
+Peter Sarnak (2003). “Spectra of hyperbolic surfaces”, Bull. Amer. Math. Soc. (N.S.)
+  40 (4), pp. 441–478.
+Richard Schoen, Scott A. Wolpert, and Shing-Tung Yau (1980). “Geometric bounds
+  on the low eigenvalues of a compact surface”, in: Geometry of the Laplace operator
+  (Proc. Sympos. Pure Math., Univ. Hawaii, Honolulu, Hawaii, 1979). Vol. XXXVI.
+  Proc. Sympos. Pure Math. Amer. Math. Soc., Providence, RI, pp. 279–285.
+Atle Selberg (1965). “On the estimation of Fourier coefficients of modular forms”, in:
+  Proc. Sympos. Pure Math., Vol. VIII. Amer. Math. Soc., Providence, RI, pp. 1–15.
+Yang Shen and Yunhui Wu (2023). “The Cheeger constants of random Belyi surfaces”,
+  Int. Math. Res. Not. (17), pp. 15266–15298.
+        (2025a). “Arbitrarily small spectral gaps for random hyperbolic surfaces with
+  many cusps”, Comm. Math. Phys. 406 (8), Paper No. 190, 44.
+        (2025b). “Nearly optimal spectral gaps for random Belyı̆ surfaces”. arXiv: 2511.
+  02517 [math.SP].
+Carl L. Siegel (1945). “A mean value theorem in geometry of numbers”, Ann. of Math.
+  (2) 46, pp. 340–347.
+Antoine Song (2024). “Random harmonic maps into spheres”. arXiv: 2402 . 10287
+  [math.DG].
+Alexander Strohmaier and Ville Uski (2013). “An algorithm for the computation of
+  eigenvalues, spectral zeta functions and zeta-determinants on hyperbolic surfaces”,
+  Comm. Math. Phys. 317, pp. 827–869.
+Kisao Takeuchi (1977). “Arithmetic triangle groups”, J. Math. Soc. Japan 29 (1), pp. 91–
+  106.
+Joe Thomas (2022). “Delocalisation of eigenfunctions on large genus random surfaces”,
+  Israel J. Math. 250 (1), pp. 53–83.
+Ramon van Handel (2025). “The strong convergence phenomenon”. arXiv: 2507.00346
+  [math.PR].
+                                        1255–62
+
+
+Dave Witte Morris (2015). Introduction to arithmetic groups. Deductive Press, [place of
+  publication not identified], pp. xii+475.
+Scott A. Wolpert (1982). “The Fenchel–Nielsen deformation”, Ann. of Math. (2) 115
+  (3), pp. 501–528.
+         (2010). Families of Riemann surfaces and Weil–Petersson geometry. Vol. 113.
+  CBMS Regional Conference Series in Mathematics. Conference Board of the Math-
+  ematical Sciences, Washington, DC; by the American Mathematical Society, Provi-
+  dence, RI, pp. viii+118.
+Nicholas C. Wormald (1981). “The asymptotic connectivity of labelled regular graphs”,
+  J. Combin. Theory Ser. B 31 (2), pp. 156–167.
+         (1999). “Models of random regular graphs”, in: Surveys in combinatorics, 1999
+  (Canterbury). Vol. 267. London Math. Soc. Lecture Note Ser. Cambridge Univ. Press,
+  Cambridge, pp. 239–298.
+Alex Wright (2020). “A tour through Mirzakhani’s work on moduli spaces of Riemann
+  surfaces”, Bull. Amer. Math. Soc. (N.S.) 57 (3), pp. 359–408.
+Sophie Wright (2025). “Random covers of surfaces”. arXiv: 2511.22731 [math.GT].
+Yunhui Wu and Yuhao Xue (2022). “Random hyperbolic surfaces of large genus have
+                                  3
+  first eigenvalues greater than 16 − ϵ”, Geom. Funct. Anal. 32 (2), pp. 340–410.
+         (2025). “Prime geodesic theorem and closed geodesics for large genus”, J. Eur.
+  Math. Soc. published online first.
+
+
+
+                           Bram Petri
+                           Institut de Mathématiques de Jussieu–Paris Rive Gauche
+                           E-mail : bram.petri@imj-prg.fr
+

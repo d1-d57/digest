@@ -1,0 +1,1066 @@
+                 CHAOS IN LARGE GENUS SURFACES
+
+                            FRANCISCO ARANA–HERRERA
+
+        Abstract. Geodesic ﬂows on closed hyperbolic surfaces are a quintessential
+        example of chaotic dynamics, i.e., systems whose long term behavior is very
+        sensitive to initial conditions. The speed of such chaos is controlled by the
+        spectral gap of the Laplace–Beltrami operator of the underlying hyperbolic
+        surface. In this paper we give an overview of recent breakthroughs of Anan-
+        tharaman and Monk showing that large genus closed hyperbolic surfaces have
+        optimal spectral gap in a probabilistic sense. On the way we introduce and
+        discuss the foundational works of many authors, from Selberg to Mirzakhani,
+        that play a crucial role in the tour de force proof of Anatharaman and Monk.
+
+
+
+                                   1. Introduction
+1.1. Chaos. The main purpose of classical mechanics is to study physical systems
+that evolve under deterministic laws of motion: knowing the current state of a
+system completely determines its future. Although in theory this appears to be a
+rather reasonable goal, under further consideration one runs into a practical issue
+of the utmost importance: If real life measurements are only an approximation of
+the underlying physical quantities, how can one even claim to know the current
+state of a system?
+   At ﬁrst one might think that this is not really an issue: Good enough approxima-
+tions of the initial conditions of a system should lead to reasonable approximations
+of the outcome. And although this is certainly true if the equations of motion are
+what one calls well-posed, the dependence of the outcomes on the initial conditions
+of the system can be quite dramatic. This type of behavior is usually referred to
+as chaos.
+   And to be emphatic, this is certainly an issue we face in our everyday lives:
+How many times have you trusted the weather forecast and left home without an
+umbrella only to ﬁnd yourself caught unprepared in the middle of a thunderstorm
+only a few hours later? The earth’s atmosphere is a chaotic system, but a rather
+complicated one. Although it might seem counterintuitive at ﬁrst, it turns out
+that systems with few degrees of freedom can also be chaotic. Perhaps the most
+famous example of such a system is given by the Lorenz attractor ; see Figure 1 for
+a particular instance of this example.
+   In this setting, let us formulate a few questions that will guide our discussion:
+      • What mechanisms give rise to chaos?
+      • Can we quantify the chaoticity of a system?
+      • What controls the speed of chaos?
+      • Do systems have a tendency to be more chaotic?
+1.2. Hyperbolic surfaces. Certainly, studying these questions in full generality
+would be an extremely ambitious goal. So, as we do many times in mathematics,
+we will aim at understanding these questions by restricting to a class of concrete toy
+models: geodesic ﬂows on closed hyperbolic surfaces. The hope here is that, once
+                                             1
+2                          FRANCISCO ARANA–HERRERA
+
+
+
+
+             Figure 1. An instance of the Lorenz attractor [KS12].
+
+
+we understand these toy models well enough, it should be possible to extrapolate
+general principles to more complicated systems. But let us not jump too far ahead
+of ourselves. In this survey we will explore the following answers to the questions
+above for closed hyperbolic surfaces:
+
+     • What mechanisms give rise to chaos?
+       The negative curvature of a closed hyperbolic surface forces the orbits of
+       its geodesic ﬂow to drift apart quickly, giving rise to chaotic behavior.
+     • Can we quantify the chaoticity of a system?
+       The geodesic ﬂow on a closed hyperbolic surface is exponentially mixing,
+       i.e., the future and past become independent at exponential speed.
+     • What controls the speed of chaos?
+       The speed of mixing of the geodesic ﬂow on a closed hyperbolic surface
+       is controlled by the smallest non-zero eigenvalue of its Laplace–Beltrami
+       operator.
+     • Do systems have a tendency to be more chaotic?
+       Random large genus closed hyperbolic surfaces have optimal spectral gap.
+
+1.3. Organization. Our main aim in this paper is to discuss the recent break-
+throughs of Anantharaman and Monk [AM23, AM24b, AM25] answering the last
+question above. Although this work is quite technical, worry not, as we will also
+spend time answering the ﬁrst three questions to set up notation and introduce the
+subject to the unfamiliar reader.
+   In §2 we discuss the basics of hyperbolic surfaces. In §3 we introduce the notion
+of chaos we will be interested in: exponential mixing. In §4, following Ratner, we
+discuss how the spectrum of the Laplace–Beltrami operator controls the mixing
+speed of the geodesic ﬂow of a closed hyperbolic surface. In §5 we introduce the
+Selberg trace formula, one of the key ingredients in the work of Anantharaman and
+Monk. In §6 we discuss the notion of Weil–Petersson random hyperbolic surface
+and Mirzakhani’s foundational work on the subject; this is another key ingredient in
+the work of Anantharaman and Monk. Finally, in §7 we give a complete statement
+of the main result and describe the new key techniques that make the proof of
+Anantharaman and Monk so revolutionary.
+                         CHAOS IN LARGE GENUS SURFACES                              3
+
+
+1.4. Acknowledgments. This expository article was prepared to accompany a
+talk given by the author at the Joint Mathematics Meetings in 2026. The author
+would like to thank Bianca Viray and Daniel Erman for the invitation to give this
+talk. The author would also like to thank Giovanni Forni for many enlightening
+conversations.
+
+                            2. Hyperbolic surfaces
+2.1. Hyperbolic surfaces. Hyperbolic surfaces are what we call a homogeneous
+space, i.e., a space whose local geometry is the same everywhere. In the case of hy-
+perbolic surfaces, the local geometry is modeled on the hyperbolic plane. Roughly
+speaking, near every point the surface looks like a saddle and the bending of such
+saddles is the same across the whole surface. Closed orientable surfaces are com-
+pletely classiﬁed by their genus, i.e., the number of holes; see Figure 2 for an
+example. In the case of closed hyperbolic surfaces, the genus g is related to the
+area A by the Gauss–Bonnet theorem:
+                                  A = 4π(g − 1).
+
+
+
+
+                   Figure 2. An orientable surface of genus 2.
+
+
+Remark 2.1. For the rest of this paper we exclusively consider orientable surfaces
+and just refer to them as surfaces, without highlighting their orientability.
+  But we are jumping too far ahead of ourselves! Let us spend some time making
+some of the basic notions in hyperbolic geometry more precise.
+2.2. The hyperbolic plane. The hyperbolic plane can be deﬁned as the upper
+half space
+                          H := {z ∈ C | (z) > 0}
+endowed with the Riemannian metric given by
+                                         dx2 + dy 2
+                                  g :=              ;
+                                             y2
+this is nothing more to say than the norm of a tangent vector v := (v1 , v2 ) ∈ R2 at
+a point z = x + iy ∈ H is given by
+                                         
+                                           v12 + v22
+                                vz :=              .
+                                              y
+Endowed with this geometry, the geodesics, i.e., the length minimizing curves, of
+H2 are the vertical lines and the half circles of the upper half space with center
+along the real axis; see Figure 3 for some examples. As one can measure lengths
+on H, one can also measure areas. More explicitly, the corresponding inﬁnitesimal
+area element is given by
+                                          dxdy
+                                    dA =:       .
+                                            y2
+4                           FRANCISCO ARANA–HERRERA
+
+
+
+
+            Figure 3. Examples of geodesics on the hyperbolic plane.
+
+   For any of this to make sense, one needs to make sure that the geometry near
+every point of H is the same. Said another way, one needs to guarantee that the
+group of isometries of H acts transitively on its unit tangent bundle, i.e., has a
+single orbit. And indeed that is the case. Furthermore, one can show that, up to
+ﬁnite index, the group of orientation preserving isometries of H is given by
+                                                                      
+                        a b                   
+         SL(2, R) :=                          
+                                ∈ Mat2×2 (R)  a, b, c, d ∈ R, ab − cd = 1
+                         c d
+acting by Möbius transformations in the following way:
+                              
+                           a b          az + b
+                                 · z :=        , z ∈ H2 .
+                           c d          cz + d
+2.3. Negative curvature. Now notice that the geodesics represented in Figure
+3 seem to drift apart rather quickly; compare this to the more familiar Euclidean
+setting where straight lines that do not intersect always stay at the same distance.
+Indeed, one can show that geodesics in H drift away at exponential speed. This
+is one of the fundamental manifestations of negative curvature, i.e., the saddle-like
+behavior we described at the beginning of this section, and will play a fundamental
+role in the rest of our discussion. An important consequence of negative curvature
+is the fact that every loop on a closed hyperbolic surface can be freely homotoped
+into a unique geodesic loop. Such a geodesic representative can be obtained by
+tightening the original loop as to minimize its length; see Figure 4.
+
+
+
+
+    Figure 4. Tightening a loop (left) to its geodesic representative (right).
+
+Remark 2.2. To the concerned reader we point out that, although the closed hy-
+perbolic surfaces we draw, e.g., the ones in Figure 4, are certainly not geometrically
+accurate, in the sense that they do not look negatively curved everywhere, they will
+help us explain some of the concepts that would otherwise be harder to present.
+2.4. The geodesic ﬂow. Given a closed hyperbolic surface X, the geodesic ﬂow
+                            Φ := {φt : T 1 X → T 1 X}t∈R
+on its unit tangent bundle T 1 X is the ﬂow deﬁned by following the geodesic spanned
+by a given unit tangent vector for t units of length. The orbits of this ﬂow, or rather
+their projections to X, are precisely the geodesics of the surface.
+                          CHAOS IN LARGE GENUS SURFACES                                 5
+
+
+                              3. Exponential mixing
+3.1. Random processes. To introduce the notion of chaos we will be interested in,
+let us ﬁrst explore an analogous notion in the context of probability theory. Recall
+that, given a probability space Ω with a probability measure P, two measurable
+events A, B ⊆ Ω are said to be independent if they satisfy
+                               P(A ∩ B) = P(A) · P(B).
+   Now, in the same context, we could have a random process, i.e., a sequence
+of random variables (Yt )t∈R , say, for simplicity, all distributed like Y , and ask
+whether the present and future become independent as we let the time grow larger
+and larger. More formally this condition can be stated as follows: for every pair of
+measurable sets A, B ⊆ R,
+                   lim P(Y0 ∈ A, Yt ∈ B) = P(Y ∈ A) · P(Y ∈ B).
+                  t→∞
+
+3.2. Mixing. The condition above is the one we want to capture in the setting of
+geodesic ﬂows on closed hyperbolic surfaces. Let X be a closed hyperbolic surface
+and Φ be the corresponding geodesic ﬂow on its unit tangent bundle T 1 X. To
+proceed in analogy with the discussion above, we need a probability measure on
+our phase space, i.e., on T 1 X. Although many choices are possible, we will stick
+with the most natural one, the Liouville measure, that is, the probability measure
+μ corresponding to the area induced by the hyperbolic metric on X and which is
+uniform with respect to angle on ﬁbers of T 1 X.
+   In this setting we say that the geodesic ﬂow Φ on T 1 X is mixing if for every pair
+of measurable sets A, B ⊆ T 1 X,
+               lim μ({v ∈ T 1 X | v ∈ A, φt (v) ∈ B)}) = μ(A) · μ(B).
+               t→∞
+For later reference, let us note that this condition can also be written as
+                                                             
+      lim       1A (v) 1B (φt (v)) dμ(v) =      1A (v) dμ(v) ·     1B (v) dμ(v).
+     t→∞   T 1X                              T 1X                 T 1X
+We interpret this condition as chaos because it guarantees that small changes in
+the initial condition, i.e., even if we allow it to vary in a tiny positive measure set,
+produce wildly diﬀerent outcomes in the long term; indeed, every possible outcome
+with the correct proportion given by the underlying Liouville measure.
+3.3. Exponential mixing. Now, the asymptotic independence captured by the
+notion of mixing could be attained at diﬀerent speeds. This question is a quite
+delicate one, and, indeed, it is hard to make sense of it unless one restricts to
+suﬃciently regular observables. To this end, we will consider continuously diﬀer-
+entiable functions f, g ∈ C 1 (T 1 X) and denote their respective C 1 norms by f C 1
+and gC 1 . In this setting we say that the geodesic ﬂow Φ on T 1 X is exponentially
+mixing, or chaotic with exponential speed, if there exists constants C > 0 and κ > 0
+such that for such every pair f, g ∈ C 1 (T 1 X),
+                                                            
+                                                               
+      f (v) g(φ   (v)) dμ(v)−      f (v) dμ(v)·     g(v) dμ(v)  ≤ Cf C 1 gC 1 e−κt .
+ 1              t
+                                 1                 1
+                                                                
+  T X                          T X                  T X
+  In this setting we have the following result originally due to Moore:
+Theorem 3.1 ([Moo87]). The geodesic ﬂow Φ on the unit tangent bundle T 1 X of
+any closed hyperbolic surface X is exponentially mixing.
+6                           FRANCISCO ARANA–HERRERA
+
+
+   Moore’s original proof uses the fact that the geodesic ﬂow Φ is the diagonal part
+of a larger SL(2, R) action, which provides a rich algebraic structure to study its
+properties. We highlight that, although this perspective will be very important for
+the discussion in the next section, exponential mixing is a much more prevalent
+phenomena, even beyond the homogeneous setting considered here. For instance,
+Dolgopyat [Dol98] proved exponential mixing for geodesic ﬂows on closed surfaces
+of variable negative curvature.
+Remark 3.2. Although we do not elaborate more on it here, we note that exponen-
+tial mixing in general is an extremely powerful tool in applications. For instance, it
+was used by Kontorovich and Oh [KO11] to solve important sphere packing counting
+problems.
+
+                     4. The Laplace–Beltrami operator
+4.1. The hyperbolic plane. For reasons that will become clear later, we want to
+deﬁne an analogue of the Euclidean Laplacian on H. Recall that the gradient of
+a real valued function speciﬁes the direction and rate of maximal increase. Recall
+also that the divergence of a vector ﬁeld represents the inﬁnitesimal change in
+volume induced by the corresponding ﬂow. The Laplacian of a function is nothing
+more than the the divergence of its gradient vector ﬁeld; it is also known as the
+Laplace–Beltrami operator.
+   Just as this makes sense in Euclidean space, it also makes sense in the hyperbolic
+plane; one just needs to be careful to use the corresponding metric and induced
+volume form when computing the gradient and divergence. More explicitely, in
+the model considered above, the Laplace–Beltrami operator on H is the diﬀerential
+operator given by
+                                         2          
+                                         ∂       ∂2
+                               Δ := y 2      +         .
+                                         ∂x2    ∂y 2
+   Denote by L2 (H) the space of square-integrable functions on the hyperbolic
+plane with respect to the corresponding volume form. Then, Δ is an unbounded
+self-adjoint operator on L2 (H) whose spectrum is the interval (−∞, −1/4]; the
+reader unfamiliar with the notion of spectrum can think of it as a generalization
+of eigenvalues to inﬁnite dimensional vector spaces. The number 1/4 will play a
+crucial role in the rest of this paper.
+Remark 4.1. We refer the reader to [McK70] for a fantastic exposition of these and
+more general results on the spectral theory of Laplace–Beltrami operators.
+4.2. Closed hyperbolic surfaces. Because the Laplace–Beltrami operator of H
+is deﬁned only in terms of its local geometry, it is invariant under its group of
+isometries. In particular, one can deﬁne the Laplace–Beltrami operator on the space
+L2 (X) of square-integrable functions of an arbitrary closed hyperbolic surface X
+via its local identiﬁcations with H. We will also denote this operator by Δ, making
+it clear from the context when it corresponds to the operator on L2 (X) rather than
+the one on L2 (H).
+    The Laplace–Beltrami operator Δ on a closed hyperbolic surface X is thus an
+unbounded self-adjoint operator on L2 (X). Furthermore, Δ has compact resolvent
+and thus can be diagonalized in the sense that L2 (X) admits a complete orthonor-
+mal system of eigenfunctions. More precisely, there exist real numbers and smooth
+                         CHAOS IN LARGE GENUS SURFACES                                     7
+
+
+functions
+     0 = λ0 > λ1 ≥ λ2 ≥ · · · with lim λn = −∞,          f0 , f1 , f2 , · · · ∈ C ∞ (X),
+                                     n→∞
+such that the following conditions hold:
+    (1) L2 (X) = span({fn }n∈N ),
+    (2) Δfn = λn fn for all n ∈ N.
+   The ﬁrst non-zero eigenvalue λ1 < 0 of the Laplace–Beltrami operator Δ on X
+will be of particular importance to us. We will denote this eigenvalue by λ1 (X),
+making the dependence on X explicit. We will also refer to −λ1 (X) > 0 as the
+spectral gap of X.
+   At this stage one might ask if there is any relation between the spectrum of the
+Laplacian on a closed hyperbolic surface X and the spectrum of the Laplacian on
+the hyperbolic plane H. Such connections are not automatic because the square-
+integrability condition on the functions considered does not allow one to lift them
+from X to H. Still, the well known fact that on any closed hyperbolic surface of
+genus g ≥ 2 one can ﬁnd an embedded disk of radius logarithmic in g can be used
+to show that:
+Theorem 4.2 ([Hub86, Che75]). For every g ≥ 2 there exists (g) < 0 with (g)
+0 as g → ∞ such that if X is a closed hyperbolic surface of genus g and λ1 (X) < 0
+is the ﬁrst non-zero eigenvalue of its Laplace–Beltrami operator Δ, then
+                               λ1 (X) ≥ −1/4 + (g).
+Remark 4.3. The interested reader can consult [Bus10] for many other foundational
+results on the spectral theory of the Laplace–Beltrami operator on closed hyperbolic
+surfaces.
+4.3. Speed of mixing. Although Theorem 3.1 guarantees the geodesic ﬂow on the
+unit tangent bundle of any closed hyperbolic surface is exponentially mixing, it does
+not provide explicit control on the speed of mixing. The following result of Ratner
+solves this issue by relating such speed to the spectral gap of the corresponding
+Laplace–Beltrami operator:
+Theorem 4.4 ([Rat87]). There exists a universal constant C > 0 with the following
+property. Let X be a closed hyperbolic surface, λ1 (X) < 0 be the ﬁrst non-zero
+eigenvalue of its Laplace Beltrami operator Δ, and
+                                   
+                          σ := 1 − max{1 + 4λ1 (X), 0}.
+Then, for every pair of regular observables f, g ∈ C 1 (T 1 X),
+                                                          
+                                                             
+                                                                        −σt
+ 1 f (v)g(φt (v))dμ(v) − 1 f (v)dμ(v) · 1 g(v)dμ(v) ≤ Cf C 1 gC 1 te .
+  T X                        T X               T X
+   Ratner actually proves a more general result about the decay of matrix co-
+eﬃcients of irreducible SL(2, R) representations in terms of the spectrum of the
+corresponding Casimir operator. Recall that, as highlighted by Moore’s work, the
+geodesic ﬂow Φ of a closed hyperbolic surface is the diagonal part of a larger SL(2, R)
+action. Theorem 4.4 above can be recovered from Ratner’s more general result once
+one remembers the well known fact that the spectrum of the Casimir operator on
+L2 (T 1 X) and the Laplace–Beltrami operator on L2 (X) coincide when restricted
+to the interval (−1/4, 0); beyond this range the spectral data cannot be directly
+related because of the existence of discrete series.
+8                           FRANCISCO ARANA–HERRERA
+
+
+                        5. The Selberg Trace Formula
+5.1. Motivation. As we saw in Theorem 4.4, the speed of chaos of the geodesic
+ﬂow of a closed hyperbolic surface is controlled by the spectral gap of its Laplace–
+Beltrami operator. But how to compute, or at least estimate, this spectral gap?
+This question is a rather complicated one, to the point that, even in some of the
+simplest cases, we do not have a complete answer; see for instance Selberg’s famous
+1/4 conjecture [Sel65].
+
+5.2. The trace formula. The moral of the story is that accessing the spectral
+data of the Laplace–Beltrami operator of a closed hyperbolic surface X is quite a
+formidable task. Perhaps there is hope if one could relate such data to information
+about the geometry of the surface, which should, at least in spirit, be more accessible
+to a direct analysis.
+   Here is where Selberg’s trace formula enters the picture. Roughly speaking, one
+could deﬁne a natural operator on L2 (X), for instance, using the structure of X
+as a homogeneous space, and compute its trace in two ways: on one hand, using
+the geometry of the surface, more precisely, the fact that its closed geodesics are in
+one-to-one correspondence with conjugacy classes of its fundamental group, and, on
+the other hand, using the fact that eigenfunctions of the Laplace–Beltrami operator
+Δ provide a complete orthonormal system of L2 (X). To give a precise statement
+of this formula we ﬁrst set up some notation.
+   Recall that, given a smooth, compactly supported function H : R → R, its
+Fourier transform is the function H : C → C deﬁned as
+                                       
+                              H(r) :=     H( ) e−ir d .
+                                        R
+   Given a hyperbolic surface X, we will denote by G(X) the set of primitive ori-
+ented closed geodesics on X; by primitive here we mean closed geodesics that cannot
+be obtained by concatenating multiple copies of a shorter closed geodesic. Given
+γ ∈ G(X), we will denote its hyperbolic length by (γ) > 0.
+   We are now ready to state Selberg’s trace formula. Although this formula holds
+in much more generality, we restrict ourselves to the case of closed hyperbolic
+surfaces.
+Theorem 5.1 ([Sel56]). Let X be a closed hyperbolic surface of genus g ≥ 2 whose
+Laplace–Beltrami operator Δ on L2 (X) has eigenvalues
+           0 = λ0 (X) > λ1 (X) ≥ λ2 (X) ≥ · · · with lim λn (X) = −∞.
+                                                       n→∞
+
+For every j ∈ N ∪ {0} denote
+
+          rj (X) :=    −λj (X) − 1/4    with − π/2 < arg(rj (X)) ≤ π/2.
+Then, for every smooth, compactly supported function H : R → R,
+   +∞                                                   +∞
+                                                              (γ)H(k (γ))
+       H(rj (X)) = (g − 1) H(r) tanh(πr)r dr +                              .
+   j=0                     R                                2 sinh(k (γ)/2)
+                                                      γ∈G(X) k=1
+
+   For obvious reasons, the left hand side of Selberg’s trace formula is usually known
+as the spectral side, while the right hand side is commonly known as the geometric
+side.
+                         CHAOS IN LARGE GENUS SURFACES                               9
+
+
+Remark 5.2. The reader interested in an extended discussion on Selberg’s trace
+formula, its derivation, and its consequences, is encouraged to consult [Mar12].
+5.3. Weyl’s law. Let us take a small detour to illustrate the kind of spectral
+information one can extract using Selberg’s trace formula. Applying a suitable
+generalization of Theorem 5.1 to H(r) = e−βr with β → 0, one can deduce the
+                                                2
+
+
+following Weyl law for the eigenvalues of the Laplace–Beltrami operator of a closed
+hyperbolic surface:
+Corollary 5.3. Let X be a closed hyperbolic surface of genus g ≥ 2 whose Laplace–
+Beltrami operator Δ on L2 (X) has eigenvalues
+           0 = λ0 (X) > λ1 (X) ≥ λ2 (X) ≥ · · · with lim λn (X) = −∞.
+                                                      n→∞
+Then,
+                   #{j ∈ N ∪ {0} : − λj (X) ≤ λ}   Area(X)
+             lim                                 =         = g − 1.
+            λ→+∞                λ                    4π
+                       6. Random hyperbolic surfaces
+6.1. Motivation. All closed hyperbolic surfaces of a given genus ﬁt together nicely
+into a moduli space. A model of random closed hyperbolic surfaces of a given genus
+is nothing more than a probability measure in the corresponding moduli space.
+There are certainly many interesting models one can consider, but for the purposes
+of this discussion we will restrict ourselves to the Weil–Petersson model. Although
+we will not emphasize it here, this is the natural model to consider from the point
+of view of hyperbolic geometry.
+Remark 6.1. In parallel to the story we describe in this paper, an equally beau-
+tiful study of the spectral properties of random covers of non-compact ﬁnite area
+hyperbolic surfaces was carried out by Hide and Magee [HM23].
+6.2. The Weil–Petersson model. To describe the Weil–Petersson model for ran-
+dom closed hyperbolic surfaces of a given genus, we ﬁrst introduce a local system
+of coordinates for the corresponding moduli space.
+   Notice that, from the point of view of topology, any closed surface of genus
+g ≥ 2 can be constructed by glueing 2g − 2 pairs of pants, that is, spheres with
+three boundary components, along their boundaries; see Figure 5 for an example
+of such a decomposition. A similar construction can also be considered for closed
+hyperbolic surfaces. Indeed, cutting a closed hyperbolic surface of genus g ≥ 2 along
+any collection of 3g −3 disjoint simple closed geodesics yields 2g −2 hyperbolic pairs
+of pants with geodesic boundary components. This class of pairs of pants is very
+rigid, in the sense that their geometry is completely determined by the lengths of
+their boundary components.
+
+
+
+
+         Figure 5. A pair of pants decomposition of a genus 2 surface.
+
+   Glueing back these pairs of pants following the same original pattern allows us to
+recover the closed hyperbolic surface we started with. But one needs to be careful
+10                         FRANCISCO ARANA–HERRERA
+
+
+at this point, as there are several ways in which one can glue back these pants along
+their cuﬀs. Indeed, for each geodesic one cut the original surface along, there is a
+full circle worth of diﬀerent twist with which one can glue back the adjacent pairs
+of pants; see Figure 6.
+
+
+
+
+        Figure 6. Twisting a hyperbolic surface along a closed geodesic.
+
+   In this way we can provide a local coordinate system near any surface X in the
+moduli space Mg of closed hyperbolic surfaces of genus g ≥ 2. Indeed, given any
+geodesic pair of pants decomposition of X, a local coordinate system is obtained by
+keeping track of the lengths and the twists, measured in units of hyperbolic length,
+along the geodesics in the given pair of pants decomposition. These coordinate
+systems are commonly known as Fenchel–Nielsen coordinates. We can now deﬁne
+the desired model of random closed hyperbolic surfaces by appealing to a result of
+Wolpert:
+Theorem 6.2 ([Wol83]). For any g ≥ 2 there exists a unique ﬁnite measure μWP    g
+on the moduli space Mg , called the Weil–Petersson measure, that is locally equal to
+the Lebesgue measure on any set of Fenchel–Nielsen coordinates.
+   The Weil–Petersson model of random closed hyperbolic surfaces of genus g ≥
+2 is obtained by normalizing the Weil–Petersson measure μWP  g   on Mg to get a
+probability measure PWP
+                     g . We will denote integrals with respect to this probability
+measure by EWPg . It will also be useful to record the total mass of μg
+                                                                       WP
+                                                                           as the
+number Vg > 0.
+Remark 6.3. The reader interested in the Weil–Petersson geometry of moduli spaces
+of hyperbolic surfaces and some of its applications is invited to consult [Wol13].
+6.3. Mirzakhani’s integration formulas. Now notice that if we cut a closed
+hyperbolic surface along a simple closed geodesic we obtain a compact hyperbolic
+surface with geodesic boundary, potentially disconnected, but certainly of lower
+complexity. Furthermore, the Weil–Petersson measures on the corresponding mod-
+uli spaces behave nicely under this operation because they are explicitely described
+in terms of length and twist parameters. Using this simple yet powerful idea, Mirza-
+khani was able to prove remarkable formulas for computing integrals with respect
+to Weil–Petersson measures.
+   Before stating a particular instance of these formulas, let us ﬁrst introduce some
+notation. Given a closed hyperbolic surface X, denote by Gs (X) ⊆ G(X) the set of
+all oriented simple closed geodesics on X. Given a measurable function F : R → R
+with compact support, consider the sum
+                             Fs (X) :=              F ( (γ)).
+                                         γ∈Gs (X)
+
+  The following is just one of the many variants of Mirzakhani’s integration for-
+mulas:
+                        CHAOS IN LARGE GENUS SURFACES                             11
+
+
+Theorem 6.4 ([Mir08]). For every g ≥ 2 there exists an explicit polynomial func-
+tion Vgs : R → R of degree 6g − 7, called a volume polynomial, with the following
+property. Let F : R → R be a measurable function with compact support. Then,
+                                          +∞
+                                       1
+                     EWP
+                       g  (F s (X)) =          F ( )Vgs ( ) d .
+                                      Vg 0
+Remark 6.5. Although we will not elaborate further here, it is a crucial part of
+Mirzakhani’s work that the functions Vgs ( ) can be computed recursively by induc-
+tion on the integer g.
+
+   Notice how fascinating Theorem 6.4 is: We have a very complicated moduli space
+of closed hyperbolic surfaces, yet, somehow, we are able to compute integrals on
+this space via integration with respect to an explicit polynomial density on R!
+   To illustrate how explicit the description of the volume polynomials Vgs ( ) in
+Theorem 6.4 can be, we present the following estimate of Mirzakhani and Petri:
+
+Theorem 6.6 ([MP19]). There exists c > 0 such that uniformly for all g ≥ 2 and
+all > 0,
+                                                     
+                Vgs ( )  4     2             (1 + )c e
+                        = sinh        +O                  .
+                  Vg               2             g
+6.4. Mirzkhani’s counting formulas. Although we will not explore these ideas
+any further, we would like to at least mention in passing what is perhaps one of the
+most famous applications of Mirzakhani’s integration formulas, that is, her counting
+formulas for simple closed geodesics on closed hyperbolic surfaces:
+
+Theorem 6.7 ([Mir08]). For every closed hyperbolic surface X of genus g ≥ 2
+there exists a positive constant B(X) > 0 such that
+                         #{γ ∈ Gs (X) : (γ) ≤ L}
+                      lim                        = B(X).
+                     L→∞          L6g−6
+Remark 6.8. The reader interested in exploring more about the history of counting
+results in the direction of Theorem 6.7 is invited to consult [AH25].
+
+
+                            7. Optimal spectral gap
+7.1. Main result. We are now ready to state a precise version of the following re-
+sult highlighted in §1: Random large genus closed hyperbolic surfaces have optimal
+spectral gap. Notice that, by Theorem 4.2, one cannot hope for spectral gaps of
+large genus closed hyperbolic surfaces to be greater than 1/4. In this context, the
+main result of Anantharaman and Monk we wish to discuss is the following:
+
+Theorem 7.1 ([AM23, AM24b, AM25]). For every  > 0,
+                                            
+                                        1
+                     lim PWP
+                               −λ1 (X) ≤ −  = 0.
+                    g→∞ g               4
+Remark 7.2. An analogous result for random regular graphs of a ﬁxed valency with
+many vertices was conjectured ﬁrst by Alon [Alo86] and later proved by Friedman
+[Fri08]. Theorem 7.1 and parts of its proof are directly inspired by this result.
+12                            FRANCISCO ARANA–HERRERA
+
+
+7.2. Towards optimality. Let us describe a basic strategy one can try to follow
+to prove Theorem 7.1 using the tools introduced in previous sections.
+   Our starting point will be Selberg’s trace formula; see Theorem 5.1 for a precise
+statement. For the moment, ﬁx an arbitrary closed hyperbolic surface X of genus
+g; later this surface will be chosen at random. Consider a test function H : R → R
+that is smooth, non-negative, even, and with support equal to [−1, 1]; see Figure
+7. Furthermore, assume its Fourier transform H : C → C is real valued and non-
+negative on R ∪ i[−1/2, 1/2]. For large values of L ≥ 1 we will apply the trace
+formula using the test functions
+                   HL ( ) := H( /L)    and   HL (r) = LH(rL).
+Notice that HL is supported on [−L, L], so the geometric side of Selberg’s trace
+formula will only involved closed geodesics γ ∈ G(X) with (γ) ≤ L.
+
+
+
+
+                         Figure 7. The test function H.
+
+   The ﬁrst key observation is that eigenvalues λj > −1/4 of the Laplace–Beltrami
+operator Δ on L2 (X) corresponding to purely imaginary values rj ∈ i[−1/2, 1/2] \
+{0} in Theorem 5.1. In particular, because H is non-negative, the corresponding
+terms on the spectral side of Selberg’s trace formula can be bounded roughly as
+                          1                     1        
+             H(rj ) = 2L     H ( ) e|rj | d ≥      H( ) d · e|rj |L/2 .
+                          0                     1/2
+
+In other words, because H has support equal to [−1, 1], small eigenvalues of the
+Laplace–Beltrami operator Δ on L2 (X), whose existence we are trying to rule out,
+correspond to exponential growth on the spectral side of Selberg’s trace formula.
+Thus, at least intuitively, we should aim to show that the geometric side of the
+trace formula grows subexponentially.
+   Denote r1 by r1 (X), making the dependence on X explicit. Being a bit more
+precise with the bounds above, one can show that, for every α > 0 and every  > 0,
+there exists a constant Cα, > 0 such that for every closed hyperbolic surface X,
+                          1
+             −λ1 (X) ≤      − α2 −  ⇒ HL (r1 (X)) ≥ Cα, e(α+ )L .
+                          4
+In particular, for every g ≥ 2,
+                                                                     
+                           1
+       PgWP
+               −λ1 (X) ≤ − α −  ≤ PWP
+                                2
+                                       g   H L (r 1 (X)) ≥ C α, e(α+ )L
+                                                                          .
+                           4
+                         CHAOS IN LARGE GENUS SURFACES                             13
+
+
+The role of α here is to represent diﬀerent degrees of precision one can aim for when
+proving Theorem 7.1; the goal is to prove the desired statement for arbitrarily small
+α.
+   As is usual in probability theory, and recalling the non-negativity assumption on
+H, one can use Markov’s inequality to bound
+                                                                      
+                                                EWP g    HL (r1 (X))
+             PWP
+               g     HL (r1 (X)) ≥ Cα, e(α+ )L ≤                         .
+                                                        Cα, e(α+ )L
+This reduces the proof of Theorem 7.1 to showing that, for some appropriate choice
+of L = L(g), later to be chosen so that L(g) → +∞ as g → ∞,
+                                                    
+                               EWP
+                                 g   HL(g) (r1 (X))
+                           lim                         = 0.
+                          g→∞       Cα, e(α+ )L
+   To derive these asymptotics on the expected value we integrate the trace formula.
+But notice ﬁrst that on both sides of this formula there are terms that do not depend
+on the underlying closed hyperbolic surface. On the spectral side, this corresponds
+to the eigenvalue λ0 = 0, or, equivalently, to r0 = i/2. Indeed, we have
+                                            +∞
+(7.1)             HL (r0 ) = HL (i/2) = 2       HL ( ) cosh( /2) d .
+                                          0
+
+On the geometric side, the constant term corresponds to the one outside the sum
+over all closed geodesics. Recall that tanh(x) ≤ 1 for all x ∈ R, and that, because
+H has compact support, H decays faster than any polynomial. Thus, we can bound
+                                             
+                                              
+                  (g − 1) H(r) tanh(πr)r dr  ≤ gr H(r)L1 (R) .
+                                              
+                           R
+
+   Another important preliminary observation to make is that the terms coming
+from non-primitive closed geodesics, i.e., from k ≥ 2 in Theorem 5.1, are of lower
+order. Although we will not go into details here, an appropriate estimate can be
+obtained by using the fact that the sinh(k (γ)/2) factor in the denominator of the
+sum of the geometric side of the trace formula grows exponentially with k, and
+so the corresponding contributions will be much smaller for k ≥ 2 than for k = 1.
+More precisely, one can show there exists a constant C  > 0 such that for any g ≥ 2,
+                     ⎛                            ⎞
+                             +∞
+                     ⎝             (γ)H(k    (γ)) ⎠ ≤ C  H∞ L2 g.
+                EWP
+                 g
+                                 2 sinh(k (γ)/2)
+                       γ∈G(X) k=2
+
+   The contribution of simple closed geodesics will also play an important role in
+our discussion. Using Mirzakhani’s integration formulas, i.e., Theorem 6.4, and the
+estimates on volume polynomials in Theorem 6.6, one can show that, uniformly for
+all g ≥ 2,
+       ⎛                       ⎞
+                                     +∞                                       
+   WP ⎝           (γ)H(  (γ))  ⎠                                        Lc eL/2
+ Eg                              =2       HL ( ) cosh( /2) d + O 1 +              .
+                2 sinh( (γ)/2)        0                                     g
+        γ∈Gs (X)
+
+Notice how the leading term in this estimate, which contributes to the geometric
+side of the trace formula, exactly matches the spectral side computation in (7.1).
+14                          FRANCISCO ARANA–HERRERA
+
+
+   From this discussion it follows that, after integrating Selberg’s trace formula over
+moduli space, one can deduce that, uniformly on g ≥ 2,
+                                                     ⎛                               ⎞
+                                   c L/2
+                                            
+                                   L  e             ⎝                  (γ)H(  (γ))  ⎠.
+EWP     L(g) (r1 (X)) ≤ O L g +
+                               2
+ g    H                                       +EWPg
+                                       g                              2 sinh( (γ)/2)
+                                                      γ∈G(X) \Gs (X)
+
+It turns out that, through very sophisticated geometric arguments, one can show
+that, for every  > 0, there exists C  > 0 such that, uniformly on g ≥ 2,
+                     ⎛                               ⎞
+                     ⎝                   (γ)H( (γ)) ⎠          e(1+ )L/2
+(7.2)          EWP
+                 g                                      ≤ C            .
+                                      2 sinh( (γ)/2)               g
+                      γ∈G(X) \Gs (X)
+
+In particular, if we take α = 1/4 and L(g) = 4 log g, we conclude
+                                                     
+                                EWP
+                                 g   HL(g) (r 1 (X))
+                            lim                         = 0.
+                           g→∞      Cα, e(α+ )
+   This is precisely the approach considered independently by Wu and Xue [WX22]
+and Lipnowski and Wright [LW24] in their proofs of the weaker version of Theorem
+7.1 with a spectral gap of 3/16. Let us highlight that their arguments to prove
+(7.2) are quite diﬀerent.
+
+7.3. Optimality. All that work and we are still far oﬀ from the desired spectral
+gap of 1/4. What needs to be improved to reach that threshold? On one hand,
+we cannot expect a bound as in (7.2) to be suﬃcient: we should aim for better
+estimates as we did for simple closed geodesics. Furthermore, even the estimates in
+Theorem 6.6 for simple closed geodesics are not enough for our purposes: we need
+more precise expansions in inverse powers of g.
+
+7.3.1. Alternative trace scheme. Before we proceed any further, let us introduce
+an alternative application of Selberg’s trace formula that will be more suitable for
+our purposes. The main aim is to kill the contributions coming from the trivial
+eigenvalue λ0 = 0, i.e., r0 = i/2. To do so we consider the diﬀerential operator
+                                      1     d2
+                                    D := − 2
+                                      4 d
+and for some arbitrary m ≥ 1 we replace the test functions above by
+                                                      m
+                                               1
+                D HL ( ) and D HL (r) =
+                  m               m               +r 2
+                                                          HL (r).
+                                                4
+   Notice that, although the Fourier transform of the test functions considered still
+retains the desired non-negativity properties, the test function itself now changes
+signs; see Figure 8. This will introduce signiﬁcant diﬃculties that will need to be
+dealt with later.
+   Another important point to make is that, in killing the contributions of the trivial
+eigenvalue, we produced test functions for which eigenvalues near zero do not longer
+give rise to uniform exponential growth. Nevertheless, as we already established a
+uniform spectral gap for random large genus hyperbolic surfaces, this issue can be
+easily bypassed; in fact, it is enough to quote Mirzakhani’s softer original proof of
+uniform spectral gap [Mir13].
+                         CHAOS IN LARGE GENUS SURFACES                             15
+
+
+
+
+                        Figure 8. The test function DH.
+
+
+7.3.2. General integration formulas. Back to the ﬁrst of our main concerns: How do
+we even integrate functions of non-simple closed geodesics if Mirzakhani’s inductive
+approach only seems to work for simple ones? Let us introduce the ﬁrst main insight
+of Anantharaman and Monk, local topological types. Roughly speaking, the local
+topological type of a closed geodesic on a closed hyperbolic surface is the isotopy
+class of the subsurface obtained by thickening the geodesic to a tubular neighbor-
+hood together with the information of how the geodesic ﬁlls such subsurface; see
+Figure 9. The most basic local topological type are simple closed geodesics: they all
+thicken to an annulus. Notice that we can make sense of a given local topological
+type on any surface of suﬃciently large genus.
+
+
+
+
+            Figure 9. The local topological type of a closed geodesic.
+
+
+   Given a closed hyperbolic surface X and a local topological type of closed
+geodesics T , denote by GT (X) ⊆ G(X) the set of all oriented closed geodesics
+on X of topological type T . Just as for simple closed geodesics, given a measurable
+function F : R → R with compact support, consider the sum
+
+                            FT (X) :=              F ( (γ)).
+                                        γ∈GT (X)
+
+   Although general closed geodesics might not be simple, and thus, a priori, not
+amenable with inductive procedures, the surfaces obtained via thickening allow one
+to prove the following result in the spirit of Mirzakhani’s integration formulas:
+
+Theorem 7.3 ([AM23]). Let T be a local topological type of closed geodesics. Then,
+for every g ≥ 2 there exists a function VgT : R → R, called a volume function, with
+the following property. Let F : R → R be a measurable function with compact
+support. Then,
+                                           +∞
+                                        1
+                      Eg (FT (X)) =
+                       WP
+                                                F ( )VgT ( ) d .
+                                       Vg 0
+16                         FRANCISCO ARANA–HERRERA
+
+
+  Notice that, in contrast with Theorem 6.4, the volume function VgT ( ) in Theo-
+rem 7.3 need not be a polynomial. Nevertheless, through sophisticated geometric
+methods, one can still control its behavior in a very precise way, as we now discuss.
+
+7.3.3. Friedman-Ramanujan functions. We would like to have an estimate as in
+Theorem 6.6 for volume functions VgT ( ) of general local topological types T . Fur-
+thermore, we would like an even more precise expansion in inverse powers of g.
+Such an expansion was proven to exist in the work of Anantharaman and Monk:
+Theorem 7.4 ([AM23]). Let T be a local topological type of closed geodesics cor-
+responding to a ﬁlled surface S of Euler characteristic χ(S) ≤ 0. Then, the vol-
+ume function VgT ( ) admits an asymptotic expansion in inverse powers of g in the
+following sense: There exists a unique family of continuous functions (fkT : R →
+R)k≥−χ(S) such that for any integer K ≥ 0, any large enough g ≥ 2, and any
+η > 0,
+                               K                      (1+η) 
+                   VgT ( )          fkT ( )           e
+                           =            k
+                                            + OK,S,η            .
+                     Vg               g                g K+1
+                                k=−χ(S)
+
+   This expansion would not be of much use without a good understanding of
+the structure of the functions fkT ( ). Inspired by Friedman’s proof of Alon’s con-
+jecture [Fri08], Anantharam and Monk introduced a class of so-called Friedman–
+Ramanujan functions:
+Deﬁnition 7.5. A continuous function r : R → C is said to be of class Rw if there
+exist constants c1 , c2 > 0 such that for all n ≥ 1,
+                             n
+                                |r(s)| ds ≤ c1 (n + 1)c2 en/2 .
+                            0
+
+A continuous function f : R → C is said to be a Friedman–Ramanujan function if
+there exists a polynomial function p : R → C and a function r : R → C of class Rw
+such that
+                       f ( ) = p( )e + r( ), for all ≥ 0.
+   Roughly speaking, Friedman–Ramanujan functions produce extra cancellations
+when integrated against the sinh( /2) denominator in Selberg’s trace formula when
+using the alternative scheme proposed above. Such cancellations arise via inte-
+gration by parts once one notices that, for any such function, if the leading term
+corresponds to a polynomial of degree strictly less than m, then the product of such
+leading term with e−/2 belongs to the kernel of the diﬀerential operator Dm .
+   Perhaps the most important and technical step in the proof of Anantharam
+and Monk of Theorem 7.1 is verifying that the functions fkT ( ) in the expansions
+provided by Theorem 7.4 are Friedmann–Ramanujan functions:
+Theorem 7.6 ([AM23]). Let T be a local topological type of closed geodesics cor-
+responding to a ﬁlled surface S of Euler characteristic χ(S) ≤ 0. Deﬁne s := 1
+if T corresponds to simple closed geodesics and s := 0 otherwise. Then, for any
+k ≥ −χ(S), the function
+                                ∈ R → s fkT ( ) ∈ R,
+with fkT ( ) as in Theorem 7.4, is a Friedman–Ramanujan function.
+                         CHAOS IN LARGE GENUS SURFACES                               17
+
+
+Remark 7.7. A more precise version of Theorem 7.6 is needed and proved in the
+work of Anantharaman and Monk. With the aim of simplifying the exposition here,
+we have opted to restrict our attention to the weaker version above.
+
+   But how to show that a function is Friedmann–Ramanujan? It turns out that
+this class of functions can be characterized as the solution set of a simple integro-
+diﬀerential equation. Using this characterization, one can show stability of this class
+under certain convolution operations with respect to a class of suﬃciently regular
+kernels. This class of kernels contains variants of hyperbolic trigonometric functions
+that naturally show up when computing lengths of closed geodesics on compact
+hyperbolic surfaces. The proof of Anantharaman and Monk involves constructing
+variants of Fenchel–Nielsen coordinates of compact hyperbolic surfaces for which
+the lengths of ﬁlling closed geodesics can be represented as convolutions with respect
+to the right class of kernels.
+
+7.3.4. Tangles. We seem to be on the right track, but there is a glaring issue we have
+not yet addressed. Suppose that we proceed with our alternative trace scheme, and,
+inspired by the suboptimal gap bound above, we consider L(g) := A log g for some
+large but ﬁxed constant A > 0. One can show that, at this scale, when analizing the
+geometric side of Selberg’s trace formula, it is enough to consider closed geodesics
+ﬁlling subsurfaces of Euler characteristic at least −(2A + 1). Nevertheless, even
+with this bound on the Euler characteristic of the ﬁlled subsurface, there could still
+be inﬁnitely many local topological types to consider, all contributing error terms
+that will not be summable in the end.
+   What leads to the proliferation of too many local topological types? This phe-
+nomena is explained by Anantharaman and Monk via the notion of tangles; see
+Figure 10. According to this picture, a closed geodesic can wind around a surface
+in tight loops in such a way that it gives rise to a geodesic pair of pants with
+short boundary components. More generally, a tangle is an extremely short closed
+geodesic, a geodesic pair of pants with short boundary components, or a geodesic
+once-holed tori with short boundary.
+
+
+
+
+        Figure 10. A tightly looping geodesic (red) and its tangle (blue).
+
+
+   Denote by TFg ⊆ Mg the set of tangle-free closed hyperbolic surfaces of genus
+g ≥ 2. Technically speaking, a proper deﬁnition of tangle-free surfaces should
+involve parameters that control the shortness of the geodesics in the bad conﬁgu-
+rations speciﬁed above; we will not aim for such level of precision in our discussion.
+From work of Mirzakhani, Monk, and Thomas, one can deduce that random large
+genus closed hyperbolic surfaces are tangle-free in the following sense:
+18                         FRANCISCO ARANA–HERRERA
+
+
+Theorem 7.8 ([Mir13, MT22]). The following limit holds with an explicit conver-
+gence rate,
+                           lim PWP
+                                g   (TFg ) = 1.
+                               g→∞
+
+   Furthermore, as one would hope from our previous discussion, the proliferation
+of local topological types in tangle-free surfaces can be controlled:
+Theorem 7.9 ([AM24a]). Fix a large constant A > 0 and g ≥ 2. Then, the
+number of local topological types that can be represented as a ﬁlling closed geodesic
+γ of length (γ) ≤ A log g on a tangle-free compact hyperbolic surface of Euler
+characteristic at least −(2A + 1) is bounded uniformly by a polynomial in log g.
+7.3.5. Moebius inversion. Everything seems to be in place for the proof of Theorem
+7.1 to go through. But in handling the proliferation of too many local topologi-
+cal types we have introduced a new issue: the indicator function 1TFg cannot be
+integrated a la Mirzakhani. Notice also that we cannot just use the crude bound
+1TFg ≤ 1 because the test function considered in the alternative trace scheme
+changes signs.
+   Do not despair though, as a well known trick also featured in the work of Fried-
+man on random graphs can be used to address this issue. The idea is to perform
+inclusion-exclusion to rewrite the indicator function 1TFg as an alternating sum of
+geometric counting functions. In general, if N is a random variable counting the
+number of a appearances of a geometric pattern, in our case N will count tangles,
+then one can rewrite
+                                            +∞
+                                                (−1)j
+(7.3)                       1{N =0} = 1 −             Nj ,
+                                            j=1
+                                                  j!
+where, for every j ∈ N, the random variable Nj corresponds to the number of
+ordered families of j geometric patterns that are being counted by N . Notice these
+random variables are counting functions, and so one hopes to be able to integrate
+them as above.
+   Nevertheless, tangles are relatively complicated geometric patterns, in the sense
+that the variables Nj do not have a clear geometric interpretation. Hence, one
+cannot expect to apply a formula as clean as (7.3) directly in our setting. Nev-
+ertheless, Anantharam and Monk are able to prove a similar, albeit less explicit,
+Moebius inversion formula that can be integrated in the sense of Mirzakhani. This
+formula is quite involved and describing it explicitly would escape the scope of our
+discussion; see [AM24a] for a precise statement.
+7.3.6. Finishing the proof. All the ingredients are now in place to ﬁnish the proof
+of Theorem 7.1. After discarding surfaces with tangles using the Moebius inversion
+formula, the polynomially many relevant terms on the geometric side of Selberg’s
+trace formula can be integrated to obtain cancelations with summable errors. More
+precisely, given an arbitrary integer K ≥ 0, one considers the scale L(g) := 2(K +
+2) log g and ﬁxes an integer m depending on the degrees of the polynomials in the
+leading terms of the Friedman–Ramanujan functions that show up in the expansion
+of order K provided by Theorem 7.4. This way one concludes that for α := 1/2(K +
+2) and every  > 0,
+                                                      
+                                             1
+                       lim P WP
+                                  −λ1 (X) ≤ − α −  = 0.
+                                                   2
+                      g→∞ g                  4
+                           CHAOS IN LARGE GENUS SURFACES                                    19
+
+
+7.4. Conclusion. In closing, we would like to invite the reader to look back at
+the main problem at hand, its history, and its implications. We are interested in
+estimating the spectral gap of the Laplace–Beltrami operator of a typical closed
+hyperbolic surface of large genus, with the hope of showing that it is arbitrarily
+close to the optimal bound of 1/4. This is relevant because, among many other
+things, such spectral gap controls the speed of chaos of the corresponding geodesic
+ﬂow.
+   But experience shows that spectral data is very hard to access, even in explicit
+examples. Regardless, we can keep our hopes high and try to inspire ourselves on
+Selberg’s success story. This leads us to use his trace formula to relate spectral
+data to geometric data that should, at least a priori, be more easily accessible. As
+we only care about typical closed hyperbolic surfaces, using any type of Markov
+inequality we can reduce our problem to estimating the integral of the trace formula
+over the corresponding moduli space.
+   Now, although originally introduced to address a completely diﬀerent set of
+problems, we can use Mirzakhani’s integration formulas to compute the integral
+of the geometric side of the trace formula. But only when the closed geodesics
+involved are simple, or so one would expect at ﬁrst glance. Not too bad, as this
+lead to a spectral gap of 3/16.
+   Enter now the revolution of Anantharaman and Monk, who teach us that, al-
+though explicit formulas à la Mirzakhani are not attainable for moduli space inte-
+grals involving non-simple closed geodesics, it is still possible to compute estimates
+in a precise way via the notion of Friedmann–Ramanujan functions. Furthermore
+the cancellations obtained via this approach lead to summable error terms as long
+as one discards closed hyperbolic surfaces with tangles. Although not possible in
+the most naive way, such surfaces can be discarded via a sophisticated Moebius
+inversion formula. All of this can be carried out with such precision as to obtain
+the desired optimal spectral gap of 1/4.
+   Before going to bed tonight, just contemplate for a moment the beauty of all of
+these ideas from seemingly unrelated sources, geometry, analysis, and probability,
+coming together to provide a complete and clean answer to such an ellusive and
+diﬃcult problem. And do not forget to reﬂect on the creativity and technical
+prowess that was needed by Anantharaman and Monk to see this tour de force
+proof to the end!
+
+
+                                       References
+[AH25]  Francisco Arana-Herrera, Counting problems from the viewpoint of ergodic theory: from
+        primitive integer points to simple closed curves, Ergodic Theory Dynam. Systems 45
+        (2025), no. 5, 1281–1328, DOI 10.1017/etds.2024.76. MR4887198
+[Alo86] N. Alon, Eigenvalues and expanders, Combinatorica 6 (1986), no. 2, 83–96, DOI
+        10.1007/BF02579166. Theory of computing (Singer Island, Fla., 1984). MR875835
+[AM23] Nalini Anantharaman and Laura Monk, Friedman-ramanujan functions in random
+        hyperbolic geometry and application to spectral gaps, E-prints, arXiv:2304.02678, 2023.
+[AM24a] Nalini Anantharaman and Laura Monk, A moebius inversion formula to discard tangled
+        hyperbolic surfaces, E-prints, arXiv:2401.01601, 2024.
+[AM24b] Nalini Anantharaman and Laura Monk, Spectral gap of random hyperbolic surfaces,
+        E-prints, arXiv:2403.12576, 2024.
+[AM25] Nalini Anantharaman and Laura Monk, Friedman-ramanujan functions in random
+        hyperbolic geometry and application to spectral gaps II, E-prints, arXiv:2502.12268,
+        2025.
+20                              FRANCISCO ARANA–HERRERA
+
+
+[Bus10] Peter Buser, Geometry and spectra of compact Riemann surfaces, Modern Birkhäuser
+        Classics, Birkhäuser Boston, Ltd., Boston, MA, 2010. Reprint of the 1992 edition, DOI
+        10.1007/978-0-8176-4992-0. MR2742784
+[Che75] Shiu Yuen Cheng, Eigenvalue comparison theorems and its geometric applications,
+        Math. Z. 143 (1975), no. 3, 289–297, DOI 10.1007/BF01214381. MR378001
+[Dol98] Dmitry Dolgopyat, On decay of correlations in Anosov ﬂows, Ann. of Math. (2) 147
+        (1998), no. 2, 357–390, DOI 10.2307/121012. MR1626749
+[Fri08] Joel Friedman, A proof of Alon’s second eigenvalue conjecture and related problems,
+        Mem. Amer. Math. Soc. 195 (2008), no. 910, viii+100, DOI 10.1090/memo/0910.
+        MR2437174
+[HM23] Will Hide and Michael Magee, Near optimal spectral gaps for hyperbolic surfaces, Ann.
+        of Math. (2) 198 (2023), no. 2, 791–824, DOI 10.4007/annals.2023.198.2.6. MR4635304
+[Hub86] Heinz Huber, Untere Schranken für den ersten Eigenwert des Laplace-Operators auf
+        kompakten Riemannschen Flächen (German), Comment. Math. Helv. 61 (1986), no. 1,
+        46–59, DOI 10.1007/BF02621901. MR847519
+[KO11] Alex Kontorovich and Hee Oh, Apollonian circle packings and closed horospheres on hy-
+        perbolic 3-manifolds, J. Amer. Math. Soc. 24 (2011), no. 3, 603–648, DOI 10.1090/S0894-
+        0347-2011-00691-7. With an appendix by Oh and Nimish Shah. MR2784325
+[KS12] Lipika Kabiraj and Raman Sujith, Intermittency and route to chaos in thermoacoustic
+        oscillations doctor of philosophy department of aerospace engineering thesis certiﬁcate,
+        Ph.D. thesis, 01 2012.
+[LW24] Michael Lipnowski and Alex Wright, Towards optimal spectral gaps in large genus, Ann.
+        Probab. 52 (2024), no. 2, 545–575, DOI 10.1214/23-aop1657. MR4718401
+[Mar12] Jens Marklof, Selberg’s trace formula: an introduction, Hyperbolic geometry and appli-
+        cations in quantum chaos and cosmology, London Math. Soc. Lecture Note Ser., vol. 397,
+        Cambridge Univ. Press, Cambridge, 2012, pp. 83–119. MR2885182
+[McK70] H. P. McKean, An upper bound to the spectrum of Δ on a manifold of negative curvature,
+        J. Diﬀerential Geometry 4 (1970), 359–366. MR266100
+[Mir08] Maryam Mirzakhani, Growth of the number of simple closed geodesics on hyperbolic
+        surfaces, Ann. of Math. (2) 168 (2008), no. 1, 97–125, DOI 10.4007/annals.2008.168.97.
+        MR2415399
+[Mir13] Maryam Mirzakhani, Growth of Weil-Petersson volumes and random hyperbolic surfaces
+        of large genus, J. Diﬀerential Geom. 94 (2013), no. 2, 267–300. MR3080483
+[Moo87] Calvin C. Moore, Exponential decay of correlation coeﬃcients for geodesic ﬂows, Group
+        representations, ergodic theory, operator algebras, and mathematical physics (Berkeley,
+        Calif., 1984), Math. Sci. Res. Inst. Publ., vol. 6, Springer, New York, 1987, pp. 163–181,
+        DOI 10.1007/978-1-4612-4722-7 6. MR880376
+[MP19] Maryam Mirzakhani and Bram Petri, Lengths of closed geodesics on random surfaces of
+        large genus, Comment. Math. Helv. 94 (2019), no. 4, 869–889, DOI 10.4171/cmh/477.
+        MR4046008
+[MT22] Laura Monk and Joe Thomas, The tangle-free hypothesis on random hyperbolic sur-
+        faces, Int. Math. Res. Not. IMRN 22 (2022), 18154–18185, DOI 10.1093/imrn/rnab160.
+        MR4514465
+[Rat87] Marina Ratner, The rate of mixing for geodesic and horocycle ﬂows, Ergodic Theory
+        Dynam. Systems 7 (1987), no. 2, 267–288, DOI 10.1017/S0143385700004004. MR896798
+[Sel56] A. Selberg, Harmonic analysis and discontinuous groups in weakly symmetric Riemann-
+        ian spaces with applications to Dirichlet series, J. Indian Math. Soc. (N.S.) 20 (1956),
+        47–87. MR88511
+[Sel65] Atle Selberg, On the estimation of Fourier coeﬃcients of modular forms, Proc. Sympos.
+        Pure Math., Vol. VIII, Amer. Math. Soc., Providence, RI, 1965, pp. 1–15. MR182610
+[Wol83] Scott Wolpert, On the symplectic geometry of deformations of a hyperbolic surface,
+        Ann. of Math. (2) 117 (1983), no. 2, 207–234, DOI 10.2307/2007075. MR690844
+[Wol13] Scott A. Wolpert, Mirzakhani’s volume recursion and approach for the Witten-
+        Kontsevich theorem on moduli tautological intersection numbers, Moduli spaces of Rie-
+        mann surfaces, IAS/Park City Math. Ser., vol. 20, Amer. Math. Soc., Providence, RI,
+        2013, pp. 221–266, DOI 10.1090/pcms/020/08. MR3114687
+                          CHAOS IN LARGE GENUS SURFACES                                21
+
+
+[WX22] Yunhui Wu and Yuhao Xue, Random hyperbolic surfaces of large genus have ﬁrst
+                                3
+       eigenvalues greater than 16 − , Geom. Funct. Anal. 32 (2022), no. 2, 340–410, DOI
+       10.1007/s00039-022-00595-7. MR4408435
+
+  Department of Mathematics, Rice University, Houston, Texas 77005

@@ -1,0 +1,682 @@
+
+
+Octonions and the Standard Model | Azimuth
+
+ 
+
+Azimuth
+
+Home
+About
+
+ 
+
+Octonions and the Standard Model
+
+Paul Schwahn and I have come out with a new paper about octonions and the Standard Model:
+
+• 
+The Standard Model gauge group from the exceptional Jordan algebra
+
+It builds on things I’ve discussed here, but it goes further.   Let me explain a bit.
+
+A bit is just a binary alternative: 1 or 0, true or false.  That’s how it works in classical logic.  We could also have a ‘trit’, meaning 3 alternatives.
+
+In quantum physics we instead have qubits and qutrits.
+
+Qubits and qutrits are usually described using complex numbers.  The algebra of observables of a qubit is the 
+Jordan algebra
+ 
+, consisting of 
+ self-adjoint complex matrices.   Similarly, the algebra of observables of an qutrit is the Jordan algebra 
+, consisting of 
+ self-adjoint complex matrices.
+
+We can also study systems with more than 3 alternative ways to be.  They work the same way, using the Jordan algebras 
+ with 
+
+But we can also do quantum mechanics using other number systems!   The options have been mapped out, and the largest allowed number system for this purpose is the algebra of 
+octonions
+.
+
+A weird thing is that Jordan algebras built using octonions can describe qutrits, but not quantum systems with more than 3 alternative ways to be.   The  algebra of observables of an octonionic qutrit is the so-called ‘exceptional’ Jordan algebra 
+, consisting of 
+ self-adjoint octonion matrices.  What makes it exceptional is that 
+ is not a Jordan algebra when 
+ is bigger than 3.
+
+So, there’s something special about octonionic qutrits—and it turns out that every symmetry in the gauge group of the Standard Model is a symmetry of an octonionic qutrit!
+
+Not every symmetry of an octonionic qutrit is a symmetry of the Standard Model.  But those that do have a simple description.  They are those that restrict to give symmetries of an ordinary qutrit sitting inside the octonionic qutrit… and an ordinary qubit sitting inside that!
+
+That sounds exciting, but also vague, so let me make it precise.
+
+While lots of people say the gauge group of the Standard Model of particle physics is 
+, in fact a certain subgroup of this acts trivially on all known particles.  If we mod out by that, we’re left with a group called 
+, which is
+
+and this is the group I’m talking about.
+
+We proved two theorems describing this group in terms of the symmetries of an octonionic qutrit.  The group of automorphisms of the exceptional Jordan algebra 
+ is a 52-dimensional Lie group known affectionately as 
+—so that’s what I mean by the symmetries of an octonionic qutrit.
+
+Here’s our main result:
+
+Theorem 1.
+ 
+Suppose 
+ are Jordan subalgebras of 
+ such that
+
+Then
+
+Here 
+ is the stabilizer of 
+—that is, the subgroup of 
+ consisting of elements that map 
+ to itself—while 
+ is the identity component of the stabilizer of 
+.
+
+This ‘identity component’ business is rather sneaky, but it turns out that guys in 
+ are symmetries of an ordinary qutrit that can be described as 
+unitary
+ operators on 
+, while 
+ also contains those symmetries that are described by 
+antiunitary
+ operators. The CPT symmetry of the Standard Model is antiunitary, for example.
+
+Theorem 1 emerged from a related result, which grew out of the work of Todorov and Dubois-Violette:
+
+Theorem 2.
+ 
+Suppose 
+ are Jordan subalgebras of 
+ such that
+
+Then
+
+Todorov and Dubois–Violette proved this for a certain standard choice of subalgebras 
+ and 
+.  Thus, the challenge in proving Theorem 2 was to show that every other choice can be mapped to this standard choice using the action of 
+.  This shows that the theorem is not an artifact of a specific choice, but rather a general fact.
+
+How do we prove these results?
+
+We start by constructing the octonion product from 
+-invariant operations on 
+ and 
+.   We then use this description to reprove Todorov and Dubois–Violette’s special case of Theorem 2.   Then we show that 
+ acts transitively on the set of subalgebras of 
+ that are isomorphic to 
+.   We also show every Jordan subalgebra of 
+ isomorphic to 
+ is contained in a unique Jordan subalgebra isomorphic to 
+.   This lets us prove that 
+ acts transitively on the set of pairs of Jordan subalgebra 
+ with 
+, 
+ and 
+.  Theorem 2 then follows from Todorov and Dubois-Violette’s special case.  We conclude by using these results to prove Theorem 1.
+
+However, if you want to get into the details of the physics, the interesting part is how the strong force gauge group 
+ and the electroweak 
+ show up from the relation between octonionic qutrits, complex qutrits and complex qubits.  You’ll see that in the proof of Lemma 4.
+
+And if you want to get into the details of the math, the main interesting thing here is the use of Jordan algebra technology like ‘Peirce decompositions’ and ‘Jordan frames’ to figure out what it must be like when you have a Jordan algebra 
+ or 
+ sitting inside 
+, where 
+ is some normed division algebra contained in a bigger normed division algebra 
+.
+
+What it all ‘really means’, if anything, is a question for later.  It could be just a coincidence.   Of course I hope not.
+
+Related
+
+					This entry was posted  on Tuesday, June 16th, 2026 at 3:54 pm and is filed under 
+mathematics
+, 
+physics
+.					You can follow any responses to this entry through the 
+RSS 2.0
+ feed.
+											You can 
+leave a response
+, or 
+trackback
+ from your own site.
+					
+					
+
+Post navigation
+
+« Previous Post
+
+13 Responses to 
+Octonions and the Standard Model
+
+ 
+futuristicallyswimming4c67793766
+ 
+says:
+ 
+
+16 June, 2026 at 4:13 pm
+ 
+
+Very interesting. Thanks.
+
+Reply
+
+ 
+Jack Hughes
+ 
+says:
+ 
+
+17 June, 2026 at 7:02 am
+ 
+
+Dear John,
+
+Krasnov has spent some time discussing the Octonions in relation to the standard model, viewed as a special sub group of Spin(10). I noticed you cited him; have you thought much about the relation between what you describe above in terms of Jordon algebras and Krasnov’s complex structures in R^10?
+
+Kind regards
+
+Reply
+
+ 
+John Baez
+ 
+says:
+ 
+
+17 June, 2026 at 7:48 am
+ 
+
+Kirill Krasnov is a good friend of mine: I met him soon after he came from Ukraine to work in the United States; now he teaches at the University of Nottingham, 360 kilometers south of me, and I’ll be seeing him in July at the workshop Latham Boyle and I are holding on 
+Exceptional structures and the Standard Model
+.
+
+There’s a lot to say about the relation of Kirill’s work, 
+summarized by him here
+, and what Paul Schwahn and I just did.  Kirill describes not just the gauge group of the Standard Model but also its representation on particles—one generation of fermions.  There are 
+two ways to embed the Standard Model gauge group
+ in Spin(10).  He is working with the “right” one for grand unified theories: the one where the representation of the Standard Model gauge group on one generation of fermions extends to a representation of Spin(10).  The exceptional Jordan algebra leads naturally to the “wrong” one, where the representation of the Standard Model gauge group on one generation of fermions 
+does not
+ extend to a representation of Spin(10).  However, it’s not at all clear that the Spin(10) grand unified theory is correct.  While it’s beautiful, it predicts proton decay and monopoles, neither of which have been seen.  (It is not quite ruled out by the current upper bound on proton decay, and this is one of the most exciting slow-running dramas in fundamental physics.)  If grand unified theories are not the right path, maybe the exceptional Jordan algebra is.
+
+Reply
+
+ 
+Jack Hughes
+ 
+says:
+ 
+
+17 June, 2026 at 8:43 am
+ 
+
+Dear John,
+
+Thanks for the reply. Your book (Gauge Fields, Knots and Gravity) and Kirill’s book (Formulations of GR) have molded much of my interest in geometrical physics, so it is nice to hear you are friends. I’ve spoken with Kirill a few times regarding the Plebanski formulation of GR (and Peter Woit has tried to approach a similar problem to what you describe from this perspective via Euclidean spinors, which I see now is related to your diagonal subgroup in Spin(9) discussion in the link you provided). Very interesting to see you reach a different side of the “same” coin.
+
+If there is any possibility to attend the talks of your workshop virtually, please let me know :)
+
+Best wishes
+
+Reply
+
+ 
+John Baez
+ 
+says:
+ 
+
+17 June, 2026 at 12:40 pm
+ 
+
+I’ll see if we can make the talks available on Zoom and/or the Edinburgh video library.  We should!
+
+ 
+walgaterobert
+ 
+says:
+ 
+
+17 June, 2026 at 8:54 am
+ 
+
+Brilliant – getting closer. And I think I know what it means! Down to the geometry and the dynamics. And even a striking EFT with an answer to the hierarchy problem. I knew Weinberg and Salam, and he invited me to talk at ICTP. But I’m 81 and all my contacts have passed on. I’ve got papers written too. But ye, gods, it’s so difficult for an academic outsider – even a Cambridge PhD like me – to get published and get any serious attention. I derive essentially your algebra from differential geometry. I’ve been working on this for decades and then you come along and provide the missing piece of the jigsaw. What can I do, John?
+
+Reply
+
+ 
+John Baez
+ 
+says:
+ 
+
+17 June, 2026 at 12:39 pm
+ 
+
+I guess write papers and publish them.  It’s not easy.
+
+Reply
+
+ 
+mitchellporter
+ 
+says:
+ 
+
+22 June, 2026 at 11:04 pm
+ 
+
+Hello Robert. I see you wrote about frontier physics for Nature in the 1970s and 1980s… Are you aware of Zenodo and Vixra? These are open research repositories to which “anyone” can upload. If you publish there, you will be alongside hundreds of other independent researchers with unification ideas, but your work will at least be publicly visible.
+
+Reply
+
+ 
+Phillip Helbig
+ 
+says:
+ 
+
+23 June, 2026 at 5:07 am
+ 
+
+Putting stuff on Vixra is the best way to say “I am a crackpot” loudly to the entire world.
+
+Zenodo is more of a repository than something people normally check for new papers.  It’s a good place to “publish” a thesis, say, which otherwise wouldn’t be.  run by CERN, I’m sure that it has SOME gatekeeping.
+
+Submit your paper to a serious journal.  (If it rejects them on the basis of lack of affiliation, it is not a serious journal.) It it is OK they’ll probably publish it.
+
+Whatever you do, avoid arXiv (but they might not let you put stuff there anyway).
+
+Reply
+
+ 
+walgaterobert
+ 
+says:
+ 
+
+23 June, 2026 at 7:23 am
+ 
+
+Thanks Mitchell! Yes I was News Editor of Nature, and before that Interviewed Weinberg & Salam for New Scientist, around the end of the 1970s. And Glashow but had nothing reportable to say! I’ve got copies of the interviews if you are interested. I hadn’t come across Vixra, but Zenodo at CERN is closing doors on non-academics because of AI slop.
+
+Reply
+
+ 
+allenknutson
+ 
+says:
+ 
+
+5 July, 2026 at 12:22 am
+ 
+
+Let 
+ be the group of the Standard Model. Then you’re saying that 
+ in a comprehensible way. Particles are about certain reps of 
+. Those would then give 
+-equivariant vector bundles over 
+. So… is the moral that spacetime as we know it likely sits inside 
+?
+
+Reply
+
+ 
+John Baez
+ 
+says:
+ 
+
+5 July, 2026 at 7:09 am
+ 
+
+I don’t know if that’s the moral!
+
+Reply
+
+ 
+allenknutson
+ 
+says:
+ 
+
+5 July, 2026 at 3:15 pm
+ 
+
+Also, this 
+ is a maximal-rank subgroup of 
+, hence obtainable by Borel-de Siebenthal theory: either affinize the Dynkin diagram then delete a vertex, or just delete a vertex, then repeat. If we affinize and delete a vertex, we can find 
+ as a subgroup, or 
+, or 
+. Do you know which of these 
+ sits in? (And what one could do with that fact?)
+
+Reply
+
+You can use Markdown or HTML in your comments.  You can also use LaTeX, like this: $latex E = m c^2 $. The word 'latex' comes right after the first dollar sign, with a space after it. 
+Cancel reply
+Your email address will not be published.
+ 
+Required fields are marked 
+*
+Comment 
+*
+ 
+Name 
+*
+ 
+
+Email 
+*
+ 
+
+Website
+ 
+
+ 
+
+ 
+Notify me of new comments via email.
+ 
+Notify me of new posts via email.
+Δ
+
+ 
+
+latest posts:
+
+Octonions and the Standard Model
+
+Interview with Micah Zarin
+
+Summing the Reciprocals of Primes
+
+From Pentagons to Pentagrams
+
+The Great Icosahedron
+
+What Are Atoms Made Of?
+
+Phasons in Quasicrystals
+
+Naturally Occurring Quasicrystals
+
+Freiman’s Constant
+
+Quantum Mechanics of the Inverse Cube Force Law
+
+latest comments:
+
+allenknutson on 
+Octonions and the Standard…
+John Baez
+ on 
+Octonions and the Standard…
+allenknutson on 
+Octonions and the Standard…
+BLK on 
+Norton’s Dome
+walgaterobert on 
+Octonions and the Standard…
+Phillip Helbig on 
+Octonions and the Standard…
+mitchellporter on 
+Octonions and the Standard…
+John Baez
+ on 
+Octonions and the Standard…
+John Baez
+ on 
+Octonions and the Standard…
+walgaterobert on 
+Octonions and the Standard…
+ 
+
+How To Write Math Here:
+
+You can 
+include math in your comments using LaTeX
+,  but you need to do it this way:
+
+$latex  E = mc^2$
+
+You need the word 'latex' right after the first dollar sign, and it needs a space after it.  Double dollar signs don't work, and other limitations apply, some described 
+here
+.  You can't preview comments here, but I'm happy to fix errors.
+
+Read Posts On:
+
+art
+ (8)
+
+astronomy
+ (59)
+
+azimuth
+ (65)
+
+biodiversity
+ (41)
+
+biology
+ (114)
+
+carbon emissions
+ (80)
+
+chemistry
+ (92)
+
+climate
+ (162)
+
+computer science
+ (80)
+
+conferences
+ (113)
+
+culture
+ (8)
+
+economics
+ (33)
+
+energy
+ (51)
+
+engineering
+ (12)
+
+epidemiology
+ (22)
+
+game theory
+ (30)
+
+geography
+ (5)
+
+health
+ (7)
+
+history
+ (21)
+
+information and entropy
+ (100)
+
+jobs
+ (17)
+
+journals
+ (5)
+
+mathematics
+ (653)
+
+music
+ (55)
+
+networks
+ (192)
+
+oceans
+ (13)
+
+physics
+ (270)
+
+politics
+ (2)
+
+probability
+ (99)
+
+psychology
+ (6)
+
+publishing
+ (20)
+
+puzzles
+ (14)
+
+quantum technologies
+ (28)
+
+questions
+ (3)
+
+risks
+ (59)
+
+seminars
+ (23)
+
+software
+ (33)
+
+strategies
+ (44)
+
+sustainability
+ (76)
+
+the practice of science
+ (29)
+
+this week's finds
+ (18)
+
+also visit these:
+
+Bit Tooth Energy
+
+Brave New Climate
+
+Do the Math
+
+Dot Earth
+
+Environment 360
+
+Planet3.0
+
+RealClimate
+
+Serendipity
+
+The Science of Doom
+
+Yale Environment 360
+
+RSS feeds:
+
+ 
+RSS - Posts
+ 
+RSS - Comments
+
+Email Subscription:
+
+Enter your email address to subscribe to this blog and receive notifications of new posts by email.
+
+						Email Address:					
+
+ 
+
+ 
+
+						Sign me up!					
+
+					Join 5,451 other subscribers				
+
+SEARCH:
+
+Search
+
+Blog Stats:
+
+5,558,995 hits
+
+Blog at WordPress.com.
+
+ 
+Comment						
+
+Reblog
+
+Subscribe
+
+Subscribed
+
+				Azimuth			
+
+Join 5,451 other subscribers
+
+ 
+
+												Sign me up											
+
+											Already have a WordPress.com account? 
+Log in now.
+ 
+
+ 
+Privacy						
+
+ 
+
+				Azimuth			
+
+Subscribe
+
+Subscribed
+
+Sign up
+
+Log in
+
+Copy shortlink
+
+										Report this content									
+
+										View post in Reader									
+
+Manage subscriptions
+
+Collapse this bar
+
+ 
+

@@ -1,0 +1,190 @@
+
+
+The Inverse Cube Force Law | The n-Category Café
+
+The n-Category Café
+
+A group blog on math, physics and philosophy
+
+Skip to the Main Content
+
+Enough, already! Skip to the content.
+
+Note:These pages make extensive use of the latest XHTML and CSS Standards. They ought to look great in any standards-compliant modern browser. Unfortunately, they will probably look horrible in older browsers, like Netscape 4.x and IE 4.x. Moreover, many posts use MathML, which is, currently only supported in Mozilla. My best suggestion (and you will thank me when surfing an ever-increasing number of sites on the web which have been crafted to use the new standards) is to upgrade to the latest version of your browser. If that's not possible, consider moving to the Standards-compliant and open-source Mozilla browser.
+
+« Second Quantization and the Kepler Problem |
+
+Main
+| Beyond the Geometry of Music »
+
+November 5, 2025
+
+The Inverse Cube Force Law
+
+Posted by John Baez
+
+Here’s a draft of my next column for the Notices of the American Mathematical Society. It’s about the inverse cube force law in classical mechanics.
+
+Newton’s Principia is famous for his investigations of the inverse square force law for gravity. But in this book Newton also did something that was rarely discussed until the 1990s. He figured out what kind of central force exerted upon a particle can rescale its angular velocity by a constant factor without affecting its radial motion. This turns out to be a force obeying an inverse cube law.
+
+Given a particle in Euclidean space, a central force is a force that points toward or away from the origin and depends only on the particle’s distance from the origin. If the particle’s position at time is r(t)∈ℝ n\mathbf{r}(t) \in \mathbb{R}^n and its mass is some number m>0,m \gt 0, we have
+
+mr¨(t)=F(r(t))r^(t) m \, \ddot{\mathbf{r}}(t) = F(r(t)) \,\hat{\mathbf{r}}(t) 
+
+where r^(t)\hat{\mathbf{r}}(t) is a unit vector pointing outward from the origin at the point r(t).\mathbf{r}(t). A particle obeying this equation always moves in a plane through the origin, so we can use polar coordinates and write the particle’s position as (r(t),θ(t).(r(t), \theta(t). With some calculation one can show the particle’s distance from the origin, r(t),r(t), obeys
+
+mr¨(t)=F(r(t))+L 2mr(t) 3(1) m \ddot r(t) = F(r(t)) + \frac{L^2}{m r(t)^3 } \qquad \qquad (1) 
+
+Here L=mr(t) 2θ˙(t)L = m r(t)^2 \dot \theta(t), the particle’s angular momentum, is constant in time. The second term in the equation above says that the particle’s distance from the origin changes as if there were an additional force pushing it outward. This is a “fictitious force”, an artifact of working in polar coordinates. It is called the centrifugal force. And it obeys an inverse cube force law! 
+
+This explains Newton’s observation. Let us see why. Suppose we have two particles moving in two different central forces F 1F_1 and F 2,F_2, each obeying a version of equation (1), with the same mass mm and the same radial motion r(t),r(t), but different angular momenta L 1L_1 and L 2.L_2. Then we must have
+
+F 1(r(t))+L 1 2mr(t) 3=F 2(r(t))+L 2 2mr(t) 3 F_1(r(t)) + \frac{L_1^2}{m r (t)^3} = F_2(r(t)) + \frac{L_2^2}{m r(t)^3} 
+
+If the particle’s angular velocities are proportional we must have L 2=kL 1L_2 = k L_1 for some constant k,k, so 
+
+F 2(r 1(t))−F 1(r(t))=(k−1)L 1mr(t) 3 F_2(r_1(t)) - F_1(r(t)) = \frac{(k - 1)L_1}{m r (t)^3} 
+
+This says that F 2F_2 equals F 1F_1 plus an additional inverse cube force.
+
+There are other interesting things about the inverse cube force law. Newtonian gravity is an attractive inverse square force, say F(r)=−c/r 2F(r) = -c/r^2 with c>0,c \gt 0, so in this case we have
+
+mr¨(t)=−c/r(t) 2+L 2mr(t) 3
+ m \ddot r(t) = -c/r(t)^2 + \frac{L^2}{m r(t)^3 }
+
+Because 1/r 31/r^3 grows faster than 1/r 21/r^2 as r↓0,r \downarrow 0, as long as the angular momentum LL is nonzero the repulsion of the centrifugal force will beat the attraction of gravity for sufficiently small r,r, and the particle will not fall in to the origin. The same is true for any attractive force F(r)=−c/r pF(r) = -c/r^p with p<3.p \lt 3. But an attractive inverse cube force can overcome the centrifugal force and make a particle fall in to the origin. 
+
+In fact there are three qualitatively different possibilities for the motion of a particle in an attractive inverse cube force F(r)=−c/r 3,F(r) = -c/r^3, depending on the value of cc. With work we can solve for 1/r1/r as a function of θ\theta (which is easier than solving for rr). There are three cases depending on the value of
+
+ω 2=1−cmL 2 \omega^2 = 1 - \frac{c m}{L^2} 
+
+They are vaguely analogous to the elliptical, parabolic and hyperbolic orbits of a particle in an inverse square force law:
+
+1r(θ)={Acos(ωθ)+Bsin(ωθ) if ω 2>0 A+Bθ if ω=0 Ae ωθ+Be −ωθ if ω 2<0 \frac{1}{r(\theta)} = \left\{ \begin{array}{lcl}
+ A \cos(\omega \theta) + B \sin(\omega \theta) & \text{if} & \omega^2 \gt 0 \\ \\
+ A + B \theta & \text{if} & \omega = 0 \\ \\
+ A e^{\omega \theta} + B e^{-\omega \theta} & \text{if} & \omega^2 \lt 0
+ \end{array} \right.
+
+The third case occurs when the attractive inverse cube force is strong enough to overcome the centrifugal force: c>L 2/m.c \gt L^2/m. Then the particle can spiral in to its doom, hitting the origin in a finite amount of time after infinitely many orbits, like this:
+
+All three curves in the equation above are called Cotes spirals, after Roger Cotes’ work on the inverse cube force law, published posthumously in 1722. Cotes seems to have been the first to compute the derivative of the sine function. After Cotes’ death at the age of 33, Newton supposedly said “If he had lived we would have known something.” 
+
+The subtlety of the inverse cube force law is vastly heightened when we study it using quantum rather than classical mechanics. Here if cc is too large the theory is ill-defined, because there is no reasonable choice of self-adjoint Hamiltonian. If cc is smaller the theory is well-behaved. But at a certain borderline point it exhibits a remarkable property: spontaneous breaking of scaling symmetry. I hope to discuss this in my next column.
+
+For more on the inverse cube force law, see:
+
+N. Grossman, The Sheer Joy of Celestial Mechanics, Birkhäuser, Basel, 1996, p. 34.
+
+For more on Newton’s work involving the inverse cube force law, see:
+
+Wikipedia, Newton’s theorem of revolving orbits.
+
+S. Chandrasekhar, Newton’s Principia for the Common Reader, Oxford U. Press, Oxford, 1995, pp. 183–200.
+
+Cotes’ book is
+
+Roger Cotes, Harmonia Mensuarum, Cambridge, 1722.
+
+Posted at November 5, 2025 5:08 PM UTC
+
+TrackBack URL for this Entry:   https://golem.ph.utexas.edu/cgi-bin/MT-3.0/dxy-tb.fcgi/3621
+
+Some Related Entries
+
+ Search for other entries:
+
+ The Duflo Isomorphism and the Harmonic Oscillator Hamiltonian —
+Jul 28, 2025
+
+ Associahedra in Quantum Field Theory —
+Oct 17, 2024
+
+ The Space of Physical Frameworks (Part 5) —
+Sep 30, 2024
+
+ The Space of Physical Frameworks (Part 4) —
+Sep 15, 2024
+
+ The Space of Physical Frameworks (Part 3) —
+Sep 09, 2024
+
+ The Space of Physical Frameworks (Part 2) —
+Sep 07, 2024
+
+ The Space of Physical Frameworks (Part 1) —
+Aug 31, 2024
+
+ Stirling’s Formula from Statistical Mechanics —
+Aug 25, 2024
+
+5 Comments & 1 Trackback
+
+Re: The Inverse Cube Force Law
+
+The following comment might put your remarks in context. If we write the equation for an orbit in the unorthodox form rf(θ)=1r f(\theta)=1 as you do, then this corresponds to a power law if and only if f+D 2ff+D^2f is proportional to a power of ff, more precisely, f+D 2=cf αf+D^2=c f^\alpha for constants cc and α\alpha. This is then an orbit for an 1r α+2\frac1 {r^{\alpha+2}} law.
+We can regard the above as an ODE ( non linear except for two significant values of α\alpha) and we have four parameters in the solution, cc, α\alpha and two since second order. A three parameter family of solutions was already known to the Scottish mathematiciam Maclaurin f(t)=p(cos(d(t−t 0))) 1df(t)=p(\cos (d(t-t_0)))^{\frac 1 d}. The corresponding curves are known as MacLaurin spirals (although they are not always spirals!). Thus we have three quarters of the solutions in all cases, i.e., all power laws ( by the way, the same curves are also catenaries and brachistones for suitable power laws). There are three cases where all solutions can be found explicitly: our universe, i.e., the inverse square law, simple harmonic motion, i.e., a linear law, and your case where the equation is f+D 2f=cff+D^2f=c f. This can, of course, be solved trivially and we, more tidely, have three cases, trigonometric, linear or hyperbolic trigonometric, depending on which side of 11 cc lies.
+
+As a coda, related methods can be used to solve the corresponding problem for flat earthers, i.e., to find all curves in the upper half plane which are trajectories to y αy^{\alpha} laws. Again we use special parametrisations to reduce to ode‘s of a similar type.
+
+Posted by:
+jim cooper on November 20, 2025 8:59 AM | Permalink
+
+| Reply to this
+
+Re: The Inverse Cube Force Law
+
+Cool! But what’s DD? You didn’t say. 
+
+Posted by:
+John Baez on November 23, 2025 2:53 PM | Permalink
+
+| Reply to this
+
+Re: The Inverse Cube Force Law
+
+DfDf and D 2fD^2f are the derivatives of ff ( dashes didn‘t seem to work). While I am here, „tidely“ should be „tidily“, „Scottish“ „scottish“. A reference would be arXiv: 1108.4760.
+
+Posted by:
+jim cooper on November 23, 2025 7:51 PM | Permalink
+
+| Reply to this
+
+Re: The Inverse Cube And Force Law
+
+And, of course, the main equation at the beginning should be f+D 2f=cf αf+D^2 f=c f^\alpha.
+
+Posted by:
+jim cooper on November 24, 2025 11:46 AM | Permalink
+
+| Reply to this
+
+Read the post The Quantum Mechanics of the Inverse Cube Law
+
+Weblog: The n-Category Café
+
+Excerpt: In the last episode of my column in Notices of the American Mathematical Society, I looked at a particle moving in an attractive central force whose strength is proportional to the inverse cube of the distance from the origin....
+
+Tracked: April 30, 2026 12:06 AM
+
+Re: The Inverse Cube Force Law
+
+For more on Cotes, see my answer and comments to the MathOverflow question What are some of the earliest examples of analytic continuation?
+
+Posted by:
+Tom Copeland on May 10, 2026 1:42 AM | Permalink
+
+| Reply to this
+
+Post a New Comment
+
+Access Keys:
+
+0Accessibility Statement
+1Main Page
+2Skip to Content
+3List of Posts
+4Search
+pPrevious (individual/monthly archive page)
+nNext (individual/monthly archive page)
+

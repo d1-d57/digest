@@ -1,0 +1,468 @@
+How Can Math Protect Our Data? | Quanta Magazine
+Quanta Homepage
+About Quanta
+Search
+Newsletter
+Get the latest news delivered to your inbox.
+Recent newsletters
+Follow Quanta
+Facebook
+Youtube
+Instagram
+RSS
+An editorially independent publication supported by the Simons Foundation.
+Type search term(s)
+and press enter
+Home
+How Can Math Protect Our Data?
+Comment
+Save Article
+Read Later
+Share
+Facebook
+Copied!
+Copy link
+Email
+Pocket
+Reddit
+Ycombinator
+Comment
+Comments
+Save Article
+Read Later
+Read Later
+The Joy of Why
+How Can Math Protect Our Data?
+By
+Steven Strogatz
+and
+Janna Levin
+August 7, 2025
+Mary Wootters discusses how error-correcting codes work, and how they are essential for reliable communication and storage.
+Comment
+Save Article
+Read Later
+Peter Greenwood for
+Quanta Magazine
+Introduction
+Every time data travels — from smartphones to the cloud, or across the vacuum of space — it relies on a silent but vigilant guardian in the form of error-correcting codes. These codes, baked into nearly every digital system, are designed to detect and repair any errors that noise, interference or cosmic rays might inflict.
+In this episode of
+The Joy of Why
+, Stanford computer scientist Mary Wootters joins co-host Steven Strogatz to explain how these codes work, and why they matter more than ever. Wootters discusses the evolving list of codes that keep modern communication resilient, and the frontiers in which error correction may have a crucial role, including distributed cloud systems, quantum computing and even DNA-based data storage.
+Listen on
+Apple Podcasts
+,
+Spotify
+,
+TuneIn
+or your favorite podcasting app, or you can
+stream it from Quanta
+.
+Transcript
+[
+Music plays
+]
+STEVE STROGATZ:
+I’m Steve Strogatz
+JANNA LEVIN:
+And I’m Janna Levin
+STROGATZ:
+And this is
+The Joy of Why
+, a podcast from
+Quanta Magazine
+exploring some of the biggest unanswered questions in math and science today.
+STROGATZ:
+Hi there, Janna.
+LEVIN:
+Hey.
+STROGATZ:
+How’s it going?
+LEVIN:
+Good. What do you have for me today?
+STROGATZ:
+Well, we’re more or less about the same age. So, I’m guessing you remember what CDs are.
+LEVIN:
+Oh, yeah.
+STROGATZ:
+The kids don’t necessarily know. I guess some of them are using vinyl now, aren’t they? Records.
+LEVIN:
+Back to vinyl.
+STROGATZ:
+Yeah.
+LEVIN:
+Nobody’s back to CDs though. I don’t think anyone’s like, got a new CD Walkman, you know?
+STROGATZ:
+But do you remember back when CDs were the thing and people would demonstrate that you could scratch them and they would still play?
+LEVIN:
+Yeah.
+STROGATZ:
+I’m bringing it up because the fact that when you play a CD that’s been mangled, if not too totally messed up, it’ll still play, is because of a wonderful technology called error-correcting code that was built into that kind of device, and that was the first time I ever ran across the concept.
+But apparently it’s really out there in our modern world today when your streaming TV shows, or cell phones. Probably this communication we’re having with each other right now, there are probably error-correcting codes, running behind the scenes, making sure that all our bits, you know, our zeros and ones, are getting where they’re supposed to be, even though there’s always noise.
+Think how weird it would be if your light switch suddenly switched itself off. That doesn’t really happen in our everyday macroscopic world. But apparently there’s a lot of things that can cause bits to flip. Like ones become zeros when they shouldn’t. They get hit by a cosmic ray, or your cell phone signal is bouncing off the walls and it can interfere with itself.
+LEVIN:
+Hmm.
+STROGATZ:
+But you have to add more bits to help correct the inevitable errors caused by all the noise and all the potential sources of corruption in the environment. And so, error-correcting codes is the story of math, fighting noise, how to use those extra bits as efficiently as possible using redundancy, but in very clever ways.
+LEVIN:
+And would this be a computer scientist’s arena?
+STROGATZ:
+Yeah, totally. That’s totally their bailiwick. They’re very ingenious. This is a lot of discreet really clever stuff about algebra, about graph theory.
+LEVIN:
+Hmm. do they ever get it really wrong? Do they ever make the errors worse?
+STROGATZ:
+Do the error-correcting people need to be corrected?
+LEVIN:
+Right.
+STROGATZ:
+Well, from what I hear, some of the error-correcting codes can recover messages in astonishing ways. But maybe we should dive in and let Mary Wootters, an assistant professor in electrical engineering and computer science at Stanford, tell us a little bit about the grand story of error-correcting codes.
+[
+Music plays
+]
+STROGATZ:
+Hi, Mary.
+MARY WOOTTERS:
+Hi Steve. Thanks so much for having me.
+STROGATZ:
+I’m very happy to meet you and see you here. I was wondering a little bit about this book of yours, that you wrote with your co-author Aviad, about algorithms for toddlers. You want to tell us a little bit about that?
+WOOTTERS:
+Sure.
+Algorithms for Toddlers
+is a whole semester of undergraduate algorithms condensed into 14 illustrated pages with rhyming couplets. Which you can find, I would like to say at all fine bookstores, but actually just online at barnesandnoble.com, because we self-published. So if that is for you, or for your inner toddler, yeah, it’s a good thing.
+STROGATZ:
+I enjoyed the few bits of it that I saw on YouTube.
+WOOTTERS:
+That’s right. Yeah. I have my best kindergarten teacher voice on, if you want to see me reading the book on YouTube.
+STROGATZ:
+Do you have an illustrator or did one of you illustrate it?
+WOOTTERS:
+I illustrated it.
+STROGATZ:
+You illustrated it.
+WOOTTERS:
+So this is a book co-authored with my colleague here at Stanford, Aviad Rubinstein. Aviad and I both occasionally teach the undergraduate algorithms course here at Stanford. And Aviad has young kids.
+STROGATZ:
+Ah, ok.
+WOOTTERS:
+And so he thought it might be a good idea to try to make a book to teach algorithms to them.
+STROGATZ:
+I see. You do seem to have some passion for helping convey the wonders of computer science, of algorithms, coding, to a pretty broad audience. I mean, you’re cornering the toddler market and their parents.
+WOOTTERS:
+We’re going where the niche is, yeah.
+STROGATZ:
+But so, do you think it’s important to share this kind of information in a very broad or accessible way? What’s motivating you to do that kind of work? It’s not so common.
+WOOTTERS:
+That’s a great question. I mean, I think you’re right. This is something that I really care about. I get really excited about my work, about the mathematical and technical ideas in it, and want to — I want to share the joy, right? I want to communicate that to others. So I think that’s where that comes from in me is, basically, there’s like this little 5-year-old kid inside being like, “Oh my God, it’s so cool!”
+STROGATZ:
+Beautiful. That’s an honest answer. Well, so we have you with us to talk about error-correcting codes, and I would love to dive into that. It’s not something I’m very familiar with, and it’s possible our listeners are not either. So, if you don’t mind, I’m wondering how did you get interested in that? What inspired you to start learning about them?
+WOOTTERS:
+Yeah. So, maybe just for listeners who have no idea what the heck these things are, error-correcting codes are sort of a fundamental tool for protecting data from noise. So basically, whenever you send data, think of your cell phone talking to a cell tower, or if you want to store data on a hard drive or something like that, like, errors are going to happen — you know, radio waves getting interfered with, hard discs get scratched, or things go wrong. And so, you need to add redundancy, basically, in order to make sure you don’t lose data. And an error-correcting code is a way to do that.
+And how did I get into it? One of the things I really like about this area is it’s super interdisciplinary. So, my background is in math, and there’s a lot of really beautiful mathematics that goes on with error-correcting codes, but now I’m in a computer science department and electrical engineering department. There’s also a bunch of folks in CS and EE who think about these things too, in lots of other communities, where error-correcting codes are interesting. So I think that’s one of the things that really drew me in is just the people and the opportunity to deploy a wide range of toolkits to study this one type of object.
+STROGATZ:
+Great. Okay. You’ve mentioned a little bit about why error correction is important, that there’s always some source of corruption or noise or something. We hear the word noise a lot. I mean, in ordinary speech, noise means I’m talking to someone at a cocktail party and there’s other people making noise or there’s music. How should we think of noise generally?
+WOOTTERS:
+It’s a great question and there’s not one answer, but it really depends on the application. So, in communication, you have your signal that you want to send, and you have lots of other signals that might interfere with it, which is not that different, at least conceptually with the cocktail party. When things are digitized on either end that could be manifested as bit flips. For example, like, I meant to send a 0 and actually a 1 gets received. Or possibly you get some kind of uncertainty where you’re like, “Ah, 85% sure it was a 1, but it could have been a 0.” That’s one sort of model of noise. But you could also have different types of noise depending on the context. So, for example, you might have something that’s called an erasure rather than an error, which would mean that a bit just turns into a question mark. That would be the formal version of it.
+STROGATZ:
+Aha. Sort of like a blank or something? There’s nothing there anymore?
+WOOTTERS:
+Exactly. For example, in a distributed storage system or something, if a server goes down, or if a storage node goes down, you know which one went down, but you still don’t know the data on it. So that would be like an erasure type of model. But there are lots of other models. You could have synchronization errors, like, I’m supposed to receive a string of length seven and I actually receive one of length six. I know one bit went missing somewhere, but I don’t know where.
+STROGATZ:
+Oh wow.
+WOOTTERS:
+Or the other way around things could get inserted in, or insertions and deletions. There’s really a rich class of errors and that’s kind of what makes this problem very interesting.
+STROGATZ:
+So, there’s something really mysterious about how you could even possibly do error correction — which is if something is missing, like a 1 or a 0 was supposed to be there, but it’s not. Or a 1 got flipped to a 0, for whatever reason, how could I possibly know that? What is an error-correcting code, I guess is what I’m asking?
+WOOTTERS:
+Great. Yeah. So first you’re totally right. If we don’t do anything to the data, there’s nothing that can be done. If I’m going to be sending you a random string of 0s and 1s and something gets erased and turned into a question mark, you have no hope of learning what that is. But the idea of an error-correcting code is that you’re going to add a little bit of redundancy to help. And so the most naive way to do this is just to repeat the data a whole bunch of times. And then you’d hope that enough copies are there that corruptions don’t matter too much. And that’s works in most situations, but it’s extremely costly. If you’re talking about communication systems or storage systems or something like that, that’s more power, more time, more space. That’s not great. And so instead we use something called error-correcting codes to have the same idea, but add a little bit less redundancy.
+To show how this works, maybe I can give a quick toy example, illustrating the principle, and then I could talk a little more generally about some geometric intuition behind what’s going on here. So, as a first example, let’s suppose that I want to send you two bits. So A and B, and they’re either going to be 0 or 1. And I know that, despite all the effort that we’ve done to get the sound just right on this podcast and everything, unfortunately, whatever I tell you in the next like 10 seconds, one bit that I tell you is going to get erased. It’s going to get replaced with a question mark. And so in this setting, if I want to send you two bits, the naive thing to do is to send you four bits total. I’ll send you A and B, and then A and B again. And then no matter what gets erased, you’ll still get both A and B. For example, I could send you, if you hear A, question mark, A, B. Well, you still have at least one copy of A and one copy of B, so you know what’s going on. Okay, so that’s the baseline. That’s four bits. But here’s a better scheme that I could do. I could send you A and B, and then A plus B mod two — or A, X or B.
+STROGATZ:
+Okay, wait. Let’s think about that. Go slowly. Let’s see why that works.
+WOOTTERS:
+So, just to give a quick example, if A and B were 0 and 1, then I would send you 0-1-1, because A plus B is one, mod two is one. Or if A and B were both one, I’d send you 1-1-0 because A plus B is two, which is zero mod two. Right?
+So I’m going to send you now three bits. And why does this work? Well, suppose that one of these bits gets erased, just for a sake of example, say it’s the second one. So you hear A, question mark A plus B mod two. And when you get both of those pieces of information, you can actually figure out what B was meant to be, even though it got erased. If you know that A was zero and A plus B mod two was one, then you know that B must have been one. That’s the only thing that you can add to A to get one mod two. So you can always solve the system to figure out what you are missing.
+STROGATZ:
+I see. And so, just in case anyone listening isn’t familiar with the idea of mod two, I guess simple way to say it would be is it even?
+WOOTTERS:
+Yeah that’s exactly right. So you add those together and you say, is it even? If so, that’s a zero. If it’s odd, that’s a one.
+STROGATZ:
+At the receiving end, am I supposed to know that you’re doing this A plus B mod two? Like, is that understood?
+WOOTTERS:
+Great, yes. That is understood. So we’ve agreed beforehand on what scheme we’re going to use. So this was just a very simple example, but it illustrates that you can do better than, sort of, the naive repetition.
+Real error-correcting codes are generally much bigger than this, but there’s a big class called linear error-correcting codes, which have basically this idea. So, you start with your message, let’s say instead of two bits, I have K bits, and I want to add some redundancy. The redundancy that I add is by taking parity checks of my message. So instead of taking all of them mod two, that’s one parity check. But I could also take the first plus the third plus the seventh mod two…
+STROGATZ:
+Oh wow.
+WOOTTERS:
+… And the seventh plus the eighth, plus the ninth mod two, and so on. And the game is, kind of, how do you design these parity checks so that at the end of the day you can correct against the flavor of error that you’re interested in, be that erasure or errors or synchronization errors or other sorts of things.
+Here’s a geometric way to think about this previous example. So, what’s going on? There are four possible messages that I might want to send to you. There’s 0-0, 0-1, 1-0, or 1-1. And, correspondingly, there’s four possible strings that I might send to you, like these are now three-bit strings, so I might send you 0-0-0, 0-1-1, 1-0-1, or 1-1-0. Those are the allowable strings in this silly example, okay? So now I’ve got these four strings of length three. These four special strings that I just said, they have the property that they all differ from each other in at least two places. So, it takes two bit flips to get from one to the other.
+STROGATZ:
+Oh, that’s nice. Okay. This is helpful.
+WOOTTERS:
+Okay. And so what I’ve just done here is I’ve designed a set of strings, so that they all differ in at least two places. And we can see why this means that they can correct one erasure. And you can generalize this to talk about errors as well. So, instead of something getting replaced with a question mark, I would have like a zero getting replaced with a one, or a one getting replaced with a zero. But I don’t know where. But if I have such a design of strings, all three apart, I can actually correct one-.
+STROGATZ:
+Hmm. So you could put in a lot of redundancy, but then you’re not sending much message, right? Tell us how you would characterize the trade-off?
+WOOTTERS:
+So there’s many, many things that one could care about, but a key trade-off that one cares about here is this notion of distance. So, how far apart are my special strings in terms of bit flip error? And then, also, how many strings are there given the length of the string? I only get say, one message per string. So, the more strings there are, the more messages I get to send.
+STROGATZ:
+Oh, okay. That’s a nice way to say it.
+WOOTTERS:
+So, let’s say I’m going to have a bunch of strings of length, I don’t know a hundred, right? And I want them all to be at least 10 apart from each other. I want to be able to correct at least four errors or something like that. Then, the more length-10 binary strings that I can fit in, while never making any pair of them too close to each other, the more efficient that code is, basically, the more expressive my language is.
+STROGATZ:
+It occurs to me that — maybe this is trouble with a mathematician talking to another mathy person–that we may want to back up for a second and just go a little more palpable. As a grad student, I remember someone showing me a CD. I don’t know if our listeners even remember what CDs are, but it was a big deal back then to take a coin or something and scratch the CD. And then, unlike vinyl records, you didn’t hear it. The CD player would take care of it, somehow.
+WOOTTERS:
+That is almost certainly something called Reed-Solomon error correction, which is very pretty stuff based on polynomials. That is a perfect example of error correction at work.
+STROGATZ:
+Uhhuh, and do you have some others for us? I mean, if I’m watching some TV show or movie, are they doing error correction when they send it to me?
+WOOTTERS:
+Yeah. Basically, anywhere where data is stored or transmitted today, there’s going to be error correction. There are also other things you can do on top, like, for Netflix or something, like, they’re trying to send you these relatively big packets or something. So, if a packet doesn’t come through, your computer will just say, “Hey, I didn’t get that packet,” and they can send it again or something. I should also say I’m not an expert on streaming video. I don’t know exactly how that works, but that’s my understanding.
+But, yeah, there is error correction at some level basically anywhere data is communicated or stored. So, CDs are a great example. Cell phone communication, satellite communication. It’s actually very interesting, error-correcting codes are just a very useful sort of combinatorial and algorithmic primitive. They have uses in algorithm design, they have uses in complexity theory, in theoretical computer science, pseudo randomness, things like that.
+STROGATZ:
+Well, you’ve mentioned some error-correcting codes by name already. Is there sort of a broad category of codes that we should know about other than those?
+WOOTTERS:
+Yeah. So there are lots and lots of different types of error-correcting codes out there. One family is algebraic — I mentioned Reed-Solomon codes earlier, this would fit into that family. So algebraic codes are codes that are mostly based on polynomials over finite fields.
+So that’s some jargon, but the basic idea is, if our goal is to come up with a whole bunch of strings that don’t agree with each other too much. And imagine I were to come up with a big set of such strings by taking a whole bunch of quadratic polynomials and evaluating them at a bunch of points. And these are going to give me a bunch of strings. In this example, it’s strings of real numbers, 1, 2, 3, 4, 5, 6, 7, 8, and so on. And then I might ask, “Well, okay, how far apart are these strings from each other?” Well, any two quadratic polynomials can only intersect in two points. You can kind of see this for yourself if you, like, imagine trying to draw parabolas and, like, how many points can you get them to intersect in? It’s no more than two. So that means that, if I were to build a bunch of strings this way, they can’t agree in more than two points.
+STROGATZ:
+I see, that’s a nice picture.
+WOOTTERS:
+And so that’s the basic idea that’s at the core of a lot of these algebraic constructions. Another family is what I would call graph-based codes. So, these are codes that are based on bipartite graphs. And so, the idea here is, I’m going to view all of the elements of my code words, that is the elements of these special vectors that I will send. So, I like, maybe I have a binary string of length N. I’m going to view each one of those N positions as a vertex and a graph. Then I’m going to have a bunch of other vertices, which I’ll call check vertices floating around, that are connected to some of these, what’s called variable vertices. So, the vertices that are indexing positions of my code word. And I’m going to say that I need to come up with a big set of binary strings that are all pairwise far apart. The set of strings I’m going to consider are strings so that when I label these end vertices with those numbers — 0s or 1s — then all of the other vertices, these check vertices, should always see something nice, let’s say. They should always see an even number of ones or something like that.
+Depending on the types of constraints you put on these extra nodes, you can define a whole lot of classes of codes like this. And then you can use ideas from graph theory to analyze how far apart these strings are from each other, and you can also use that to design efficient algorithms. This is something maybe we haven’t talked about so much, is that, you actually don’t just want a big set of strings that’s all far apart from each other. You also want them to have enough structure so that you can correct errors efficiently with an efficient algorithm. And sometimes these graph-based codes give us very efficient algorithms for doing that.
+STROGATZ:
+Okay. So, we’ve got graph-based codes, algebraic codes.
+WOOTTERS:
+Yeah. And I think those have been the two big ones for a long time. But relatively recently, there’s a new class of codes, which was more information theoretically motivated, called polar codes. These were invented in 2008, something like that, and these don’t maybe quite fit into either of those categories. They’re now in wireless standards and they’re very good.
+STROGATZ:
+Does the word polar have any meaning that we can understand? Is it a very technical thing or… what’s polar about it?
+WOOTTERS:
+Yeah, so there’s some really great intuition about it. So imagine that I have some noisy channel between you and me, something that’s going to introduce some errors. What polar codes utilize is a transformation that, basically, will transform a whole bunch of channels that are kind of equally not great into a few channels that are fantastic, and a few channels that are really, really bad. So that’s where polar comes from. It kinds of polarizes into having a few really good channels and a few channels that are really not great.
+And then you just throw away the channels that are really not great and use the really good ones. And that kind of gives you your code.
+[
+Music plays
+]
+LEVIN:
+Wow, it seems like a big gulf between that, you know, intersecting parabolas and your friends trying to tell you the end of their dramatic story from last night
+STROGATZ:
+Yeah, I have to admit, I mean, this is very far out sophisticated stuff. So, can I run a few analogies by you? They’re not perfect, but I think they might get some of the essence of what she was trying to say. For instance, she mentioned first algebraic codes. So, here’s my analogy. It’s sort of like I’m trying to send you a message and I’m going to do it by sending you a secret math puzzle.
+LEVIN:
+Okay.
+STROGATZ:
+Okay, the secret puzzle is going to take the form of a function. She mentioned algebraic objects like parabolas, you know, quadratic polynomials. So, there’s some ingenious way that I can translate my message into a curve. That’s already a cool idea, that my message is now going to have a shape. And I’m going to send you a few points on that curve. And then the idea is that even if some of the points get messed up because there’s so much structure built into the way I’m sending it to you you’ll be able to reconstruct the whole curve and thereby recover the intended message.
+LEVIN:
+Right. that’s very helpful. Yeah.
+STROGATZ:
+I let me give you another one. So, she mentioned graph-based codes, okay. The analogy here would be that this is like a group project with a lot of cross-checking. You know, like, think of the kids, they have to do group work. Usually they hate it because some kids are loafing, other kids are doing all the work. But here it’s not going to be like that. Each bit we’re going to think of as like a person in the group. and each person’s going to work on several parts of the project. And then small subgroups of the whole group are going to compare their answers so that if one person messes up, that’s like an error, then the group can spot the error and fix it. There’s a network structure in the problem that decides who’s checking who. And through all those interactions, somehow errors can get corrected collectively.
+LEVIN:
+It’s kind of like the opposite of a game of telephone.
+STROGATZ:
+Something like that.
+LEVIN:
+Right. That’s just a chain and the error just has no way to correct. It just gets worse and worse and worse. But in a more complicated graph, there’s a potential for correction. It’s interesting.
+STROGATZ:
+That’s the idea that the design of the graph can help you with the error correction. And then the last thing that Mary mentioned was polar codes. Those are pretty deep and modern. As she says, it’s only 2008. Those are apparently like close to theoretically optimal. And it’s like if I have a bunch of junkie walkie talkies and we’re going to communicate with those and there’s some magical way to make some of the walkie talkies fantastically clear and good while others become totally terrible and useless. And somehow you then make sure to send your message only over the good ones. Whereas the bad ones, you don’t have to throw them away. They turn out to act like fillers for the rest of the structures. They play a sort of supporting role. Almost like if you built a complicated bridge, do a different analogy, where you had some strong beams and some really bad beams. The bad beams are needed to make the whole bridge, but you’re not going to put any weight on those. You’re only going to drive over the strong beams. It’s something like that in the polar codes. You polarize the system into really good and really bad stuff and try to just use the good stuff
+LEVIN:
+I’m not driving on that bridge, man. It’s all I’m saying though.
+STROGATZ:
+No, it’s the best bridge you could be on the face of noise, turns out. Anyway, so it’s really deep stuff. And we’re going to hear more from Mary Wooters after the break about how these ideas get used in things like cloud servers, how they may help in the future for quantum computing, and, just how practical it is. So, stick around. We’ll see you after the break.
+[
+Music plays
+]
+STROGATZ:
+Welcome back to
+The Joy of Why
+we’re speaking with Stanford computer scientist, Mary Wootters.
+From a little bit of the preparation I did to talk to you, I got the impression that there are some folks in your field who might think of the whole subject as a little bit old-fashioned. Are there people making claims like that, or what’s your take on that?
+WOOTTERS:
+Yeah. So, error correction has been around since probably late forties, early fifties. So, Richard Hamming, Claude Shannon, and then a whole bunch of other people sort of foundational in this area in the past 75 years. And all of these NASA missions, and stuff like that, there’s error correction going on there too.
+In my view I think error correction it is a very classical area, but I think it’s also still a very interesting and important area to work in for a couple of reasons. So, the first reason is that there are actually a lot of questions that people were asking back in the fifties that we still don’t know the answers to. And so, there’s been progress on that over the past 75 years or so. There’s still very foundational and fundamental questions that are left to be answered.
+The second reason is that technology changes. And so, the types of error correction that was developed, in the fifties or sixties or seventies or eighties, is no longer necessarily the type of error correction that we want today. One big example of this is now that everything is much more distributed, we might care a lot more about the communication costs of our error correction. This is not something that people cared about as much in the fifties.
+STROGATZ:
+Communication between parts of the distributed system? What would be the example?
+WOOTTERS:
+Yeah, so for example, if I want to store something in a distributed storage system, what does that mean? I have my data and it’s broken up and sent all over the cloud. And the types of errors that I might be worried about in this context are some storage node goes down. I don’t want to lose information if that happens. And traditionally, when such a thing were to happen — if a server were to go down, you’d want to set up a replacement node or something like that. And traditionally that would involve downloading all of the data from elsewhere in the system, doing the error correction, figuring out what belongs on that node and putting it back there. That’s a lot of sort-of internal communication within the system. And one thing that researchers have been working on for a little while, more recently, is schemes for doing that whole repair process, but in a low-bandwidth way. So, a way where the internal nodes don’t need to talk to each other all that much.
+STROGATZ:
+So, this language of nodes, servers — I’m sure it’s very tangible to you, but I’m never exactly sure what people are talking about. So, a server is a kind of computer with a particular purpose, or a node is another name for… what are these things mean in plain speak?
+WOOTTERS:
+What I have in mind here is that you’ve got a hard drive over here, you’ve got a hard drive over there, and your data is getting split between those two hard drives. That’s sort of the model.
+STROGATZ:
+Okay. And so that’s something that didn’t use to happen when different hard drives didn’t talk to each other in the old days. It was just a computer sitting on a desk with a hard drive.
+WOOTTERS:
+Right.
+STROGATZ:
+And now you’re saying a lot of distributed systems and you refer to the cloud. I’m never exactly sure what the cloud is either. The cloud is what? Lots of computers in different locations? So-called server farms and stuff like that?
+WOOTTERS:
+Yeah, that’s right. That’s the model to have in mind here. So, you have lots of different computers, either compute nodes — so these would, like, computers that are actually doing tasks for you — or storage nodes — these are just computers that are storing stuff for you. And you have many of them and they’re all talking to each other.
+STROGATZ:
+So, the error correction then that is a modern problem that we didn’t use to have, is dealing with the errors between all the parts of this distributed system as they talk to each other.
+WOOTTERS:
+Yeah, like, if you just forget that they’re different computers and imagine they’re all the same computer, then this is the same question as before. But now our objective function is a little bit different. I don’t just want whatever correction algorithm I’m doing to run fast. I also want it to run fast so that the computers don’t have to talk to each other too much, because that sort of intra-system communication is costly — or more costly than it used to be.
+STROGATZ:
+Okay, now, so given that we’re now talking about new challenges or new-ish challenges, one that I’m sure is on the minds of some of our listeners is quantum computing, which we keep hearing about. That is going to be a real thing, sometime soon, and we should be prepared for it. Is there anything really different that we need to think about if we’re doing error correction for quantum computing? And also, why would we need to do it for quantum computing?
+WOOTTERS:
+Definitely error correction for quantum computing is a big thing, in, at least at the moment, it’s arguably much more important than error correction for classical computing because my understanding is that the implementations we have of quantum computers are very noisy. And so, it’s really important to do error correction.
+There’s a couple of different ways to get such things. One of them is based on classical coding theory. So, there’s something called a CSS code, which basically you take two classical error-correcting codes, that have some nice relationship with each other, and you can put them together to correct quantum errors. But then there’s other sorts of types of error correction, which, you know, are their own special thing. I’m not an expert but I have been thinking about it a little bit. It’s a really fascinating problem and I’m getting more and more into it recently.
+But I would say also, I guess quantum error correction is another great example, it’s like why should we still study error correction in this modern day and age? Didn’t we know about it since the fifties? But yeah, quantum computers are a great example of a technology that at least we hope will be around fairly soon that certainly wasn’t around back then.
+And there’s something called DNA storage, which basically you’re using DNA as a storage system. So, the idea here is we can synthesize DNA and we can sequence it. So, basically, that means we can write and we can read. That allows us potentially to build storage systems out of it. And so, the proposed application for such systems would be for very cold storage. So, things that you want to store for a very long time because it is very costly to access. You need to sequence some DNA, which is not as fast as reading something from a hard disk.
+But it is extremely stable and extremely small. So you could archive things for a very long time, very efficiently this way. And, for this application, like any storage system, you want to design error correction for it. And what sorts of errors do you would expect? It’s precisely these synchronization errors, like bases drop out or bases get added depending on the technology that you’re using to sequence the DNA.
+STROGATZ:
+Oh, that’s an interesting idea. So, rather than doing nanotechnology, this is like natural nanotechnology?
+WOOTTERS:
+Exactly. Yeah.
+STROGATZ:
+Wow. People are seriously thinking about this? I mean, it seems so inaccessible to have stored things in DNA.
+WOOTTERS:
+Yeah, not only are people thinking about it, but people have done it. This is definitely possible.
+STROGATZ:
+But what kinds of things would get stored that way?
+WOOTTERS:
+Any data you could want. So, you could store a movie, you could store an image, you could store text files.
+STROGATZ:
+It seems outrageous.
+WOOTTERS:
+True. Well, I mean so one important thing to note is that this is not like DNA in a living organism. It’s not like you’re walking around with a Library of Congress, like, on your elbow. This is just the molecules, not in a living organism.
+STROGATZ:
+Right, there was a field some years ago that people called DNA computing. So, I guess the thinking is, we’ve got this naturally occurring wonderful storage device that evolution has used for probably literally billions of years. So, why not use it ourselves? Hmm.
+WOOTTERS:
+Yep. And it brings up lots of really interesting challenges, from the error correction point of view, because we were talking earlier about these sorts of synchronization errors, like, the types of errors that are introduced when doing DNA storage are different than the types of errors that you expect in silicon devices or something like that. And you have to design in different codes to deal with them.
+STROGATZ:
+Right, I mean the biologists know quite a bit about that. Like we talked earlier about frameshift errors where you might be off by a single base and you’re just shifted, a whole string is shifted. But they also have something called intercalation errors, right, where a wrong base can get wedged in there and split up a string.
+WOOTTERS:
+And there are other sorts of constraints as well. Like, you can’t just write any old molecule you want or any old string of A, G, Cs and Ts because some of them will have weird properties where they’ll then kink up back on themselves or things like that. And so there, there are some constraints also for how you design your code just based on the biology.
+STROGATZ:
+Well, okay, so you’re giving us a pretty good broad survey here of this. And, I wonder, when you mentioned the foundational questions that still exist in error correction, theoretically, is that where your heart is? Like, do you like to do the real-world part of error correction? Do you like the fundamental theoretical computer science parts of it? What winds your watch?
+WOOTTERS:
+I really like these fundamental math questions that sort of remain open, I think are very important not just from an error-correcting code standpoint, but also just from mathematical standpoint. But then it’s also sometimes nice to put on a more applied hat and, at least, go talk to folks who are actually implementing stuff. Both because that means I get to learn new things, which is fantastic, and it also I think informs different ways of thinking about these very classical questions. Like, if you get an injection of a new, more applied problem, you’re like, “Oh, that is a question I hadn’t thought to ask before. It is really interesting.” So, you can sort of get new fundamental questions that way.
+STROGATZ:
+Uh-huh. So, we did talk earlier about your book,
+Algorithms for Toddlers
+. But I see that you’ve also designed games. That game about monsters that grew from beans?
+WOOTTERS:
+That’s true. Uh, yeah. So, a project I had with some of my friends from graduate school, uh, it’s a puzzle game, it’s called Bean and Nothingness.
+STROGATZ:
+Oh, I see. Now I’m getting the joke hearing you saying it that way. Now I get the joke.
+WOOTTERS:
+It’s a philosophy pun.
+STROGATZ:
+Ah,
+Being and Nothingness
+—what is that? A Jean-Paul Satre book or something?
+WOOTTERS:
+Yeah.
+STROGATZ:
+Jeopardy question right there.
+WOOTTERS:
+Yeah, so
+Being and Nothingness
+is a famous book. Bean and Nothingness, B-E-A-N, is our video game.
+STROGATZ:
+Yes. And what’s the idea there?
+WOOTTERS:
+Well, think it’s a very good puzzle game. Personally, I find it very difficult. The storyline has a little bit to do with being a math graduate student, because we were math graduate students when we started making it. Although I think it took us nine years to finish ‘cause once we graduated, it dragged out for quite some time.
+But the basic premise is you get dropped in a puzzle. It’s totally static, like nothing’s going on. You have to get to an end tile and what you have is a magic wand and some recipes. And the recipes give you ways of turning beans into monsters, which will then act and interact with each other and with you in interesting ways. And they can kill you, but they can also help you in ways like destroying blocks, or interacting with each other, or things like this, to help you get to the end. That’s pretty separate from my academic work. but it was a lot of fun to make. And, if your listeners enjoy difficult puzzle games, I would definitely recommend it. I have fun playing it.
+STROGATZ:
+Does that kind of playful energy come into your mathematical and scientific work?  You mentioned to us that more generally you have some interest in illustration. But some people think of art and visual things as being kind of holistic, right-brain stuff. Whereas very logical reasoning, of the type I imagine you need to do in coding theory, is kind of left brain. Maybe that’s all bogus. Maybe you don’t buy any of that. You’re using both halves of your brain all the time and you don’t make that distinction?
+WOOTTERS:
+That’s a good question. It definitely comes into my work in that the things that I produce in my teaching materials and also in my more academic scholarly work typically has silly illustrations. But, when I am thinking about a problem, I think my first approach is very holistic and, you know, you want to understand the whole picture. You think about new ideas and then at some point it’s time to sit down and do all the nitty-gritty details. But that’s the same when you’re making a picture or something. For me, at least, you know, there is a time when you have to go down, you have to make all the little lines just right, and do the inking and stuff. So, to me it seems like there’s both big picture stuff and detailed stuff in both types of tasks.
+STROGATZ:
+It does to me too, that you have to make a mess and then you have to clean it up, or something, right? It’s sort of in that sequence. You’ve mentioned that you like the collaborative aspect of learning new things, how you can import those ideas back to fundamental theory. How would you put it, though? What is it that gives you the most pleasure in your subject?
+WOOTTERS:
+Gosh. I’m fortunate that there are many things that bring me joy in my job. The human aspect, I really love. Another aspect is the joy of discovery. Like, you know, solving puzzles is fun, like that’s enjoyable. But then I think also there’s this larger project that all researchers are contributing to the sum of human knowledge, stuff like that.
+And, you know, I think some of these problems are important. And, even if I can’t solve them perfectly, maybe I can make a dent, and that brings me joy as well.
+STROGATZ:
+Well, Mary, it’s been a real pleasure to talk to you about error-correcting codes, and thanks a lot for joining us today.
+WOOTTERS:
+Yeah. Thanks so much for having me.
+[
+Music plays
+]
+LEVIN:
+I’m struck how we always come back to the human dimension. Here in some sense, you’re mathematizing human communication in a way that’s become so difficult, so challenging, and so abstract. And yet at the end of the day, it kind of comes back to this human capacity to see things on this large scale and this small scale.
+STROGATZ:
+Uh-huh. Is it this desire to play, is that do you think a productive impulse for a scientist? Is it an essential impulse? What do you make of that?
+LEVIN:
+There’s no question that my colleagues will say, hey, you know, it might be really fun to look into, I don’t know, something crazy, a non-orientable manifold or whatever, right? This is very common in how scientists talk to each other. You know, I’m not done playing around with how that looks in that space time. So, I think it’s anecdotally a really crucial part of how we interact with the work and why we pursue certain things.
+STROGATZ:
+Yeah, I even the word puzzle, I think is indicative of a spirit. If you think of what you’re doing as solving puzzles, that puts you in a childlike frame of mind where it’s okay to make a mistake. You can explore. If you think you’re doing an important problem, that feels more grown-up and starchy.
+LEVIN:
+I definitely think there’s a childlike character to a lot of the scientists I know, and that there, there has to be a moment, where you really are just playing in the sandbox before you can figure out, okay, what’s the actual direction to go in?
+STROGATZ:
+Well, as always, Janna, it’s a pleasure to hang out and play with
+LEVIN:
+Exactly. Till next time. Bye.
+STROGATZ:
+Bye-bye.
+LEVIN:
+If you’re enjoying
+The Joy of Why
+and you’re not already subscribed, hit the subscribe or follow button where you’re listening. You can also leave a review for the show. It helps people find this podcast. Find articles, newsletters, videos and more at quantamagazine.org.
+STROGATZ:
+The Joy of Why
+is a podcast from
+Quanta Magazine
+, an editorially independent publication supported by the Simons Foundation. Funding decisions by the Simons Foundation have no influence on the selection of topics, guests, or other editorial decisions in this podcast or in
+Quanta Magazine
+.
+The Joy of Why
+is produced by PRX productions. The production team is Caitlin Faulds, Livia Brock, Genevieve Sponsler and Merritt Jacob. The executive producer of PRX Productions is Jocelyn Gonzalez. Edwin Ochoa is our project manager, From
+Quanta Magazine
+, Simon Frantz and Samir Patel provided editorial guidance with support from Matt Carlstrom, Samuel Velasco, Simone Barr, and Michael Kanyongolo. Samir Patel is
+Quanta’s
+editor in chief. Our theme music is from APM Music.
+The episode art is by Peter Greenwood, and our logo is by Jaki King and Kristina Armitage. Special thanks to the Columbia Journalism School and the Cornell Broadcast Studios. I’m your host, Steve Strogatz. If you have any questions or comments for us, please email us at
+[email protected]
+. Thanks for listening.
+The Quanta Newsletter
+Get highlights of the most important news delivered to your email inbox
+Recent newsletters
+Also in
+Computer Science
+Researchers Reveal the Power of ‘Quantum Proofs’
+computational complexity
+Researchers Reveal the Power of ‘Quantum Proofs’
+By
+Ben Brubaker
+July 6, 2026
+Comment
+Save Article
+Read Later
+Key Chemistry Question Answered, No Quantum Computer Required
+chemistry
+Key Chemistry Question Answered, No Quantum Computer Required
+By
+Kevin Hartnett
+May 29, 2026
+Comment
+Save Article
+Read Later
+How Unknowable Math Can Help Hide Secrets
+cryptography
+How Unknowable Math Can Help Hide Secrets
+By
+Ben Brubaker
+May 11, 2026
+Comment
+Save Article
+Read Later
+Comment on this article
+Quanta Magazine moderates comments to facilitate an informed, substantive, civil conversation. Abusive, profane, self-promotional, misleading, incoherent or off-topic comments will be rejected. Moderators are staffed during regular business hours (New York time) and can only accept comments written in English.
+Show comments
+Next article
+New Method Is the Fastest Way To Find the Best Routes
+Close
+Log in to Quanta
+Use your social network
+Facebook
+Connect with Facebook
+Connect with Google
+or
+Don't have an account yet?
+Sign up
+Close
+Forgot your password?
+We’ll email you instructions to reset your password
+Close
+Change your password
+Enter your new password
+Close
+Sign Up
+Creating an account means you accept Quanta Magazine's
+Terms & Conditions
+and
+Privacy Policy

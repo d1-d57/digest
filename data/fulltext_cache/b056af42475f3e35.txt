@@ -1,0 +1,343 @@
+Shtetl-Optimized  » Blog Archive   » An American privacy emergency: Guest post from Cynthia Dwork et al.
+Shtetl-Optimized
+The Blog of Scott Aaronson
+If you take nothing else from this blog: quantum computers won't
+solve hard problems instantly by just trying all solutions in parallel.
+«
+Spreading the Gospel of Theoretical Computer Science to an Omega(1) Fraction of Humanity: My Trevisan Award Acceptance Speech at STOC
+Happy 250th!
+»
+An American privacy emergency: Guest post from Cynthia Dwork et al.
+Scott’s foreword:
+Cynthia Dwork
+is Gordon McKay Professor of Computer Science at Harvard, and a pioneer in the fields of differential privacy and algorithmic fairness.  On my recent travels to the SigmaWest science camp and then STOC, there was much talk about a recent Trump administration action that would ban not only differential privacy, but essentially
+all
+modern techniques for preserving privacy in large datasets, for example in the 2030 US Census.  I realize that many of us have “outrage fatigue,” but this particular outrage hits
+extremely
+close to home for the CS theory community.  So when Cynthia approached me at STOC to propose a guest post on the issue, of course I said yes.  The post that she sent me, below, is cosigned by many other leaders in the field.
+On June 4, 2026, the U.S. Secretary of Commerce issued a directive (
+DAO 216-26
+) relegating confidentiality protection in all Bureau of Economic Analysis (BEA) and U.S. Census Bureau publications to techniques dating back to the early 1970s, turning its back on over half a century of progress and protections for data subjects. Advances in confidentiality provision had enabled the Census Bureau to share increasing quantities of data at more granular detail. The order will result in less useful (or fewer available) statistics, weaker protection, or both. We write to illustrate the danger posed by the order and to mobilize the scientific community to speak out against it.
+The acting force behind this order is political interest, not scientific merit. DAO 216-26 bypassed legally required administrative procedures. It fulfills a promise made by the architects of the Heritage Foundation’s Project 2025, and reflects both the rhetoric and misunderstandings of representatives of the Center for Renewing America (CRA), an organization founded by OMB Director Russell Vought. CRA’s
+explainer
+on the use of differential privacy in the 2020 Census is up-front about the stakes: “Even if the citizenship question is added to the Census, it will be impossible to ascertain the status of individuals so long as differential privacy is used.” But masking this sort of personal characteristics data is legally required by the Census Act (13
+U.S. Code Section 9
+), which makes it a crime to “make any publication whereby the data furnished by any particular [individual] can be identified.” Confidentiality is also widely understood as critical to ensuring that people respond to the census.
+DAO-216-26 bans differential privacy and other modern (and not so modern) techniques. It restricts disclosure avoidance techniques to “coarsening,” which it describes as “reducing the level of detail or specificity of published statistics, such as through rounding, aggregating (grouping), and/or the use of ranges.” “Suppression” (“expressly redacting certain values”) may also be used, but only as a “last resort.” DAO-216-26 forbids “noise infusion”, described as “methods that involve modifying a dataset by adding random values, or noise.”
+Noise infusion was invented precisely to address the increasing demand for granular data in the face of confidentiality laws that forbid publishing reidentifiable data. Coarsening and suppression were satisfactory for most national, aggregate statistical series, like the Principal Federal Economic Indicators. However, these techniques failed when applied to business and demographic data at fine geographic or industrial detail. By forbidding noise infusion, the directive bans the disclosure avoidance techniques at the core of dozens of data releases over the last three decades. It bans input noise infusion, used in the Quarterly Workforce Indicators since 2002 and, until now, planned for the Bureau of Economic Analysis statistics [1].  It bans swapping, used for decennial census publications since 1990. It also bans differential privacy,  the best currently known approach for obtaining the most data utility for any given level of privacy. Differential privacy was used for sharing data on commuting patterns (
+OnTheMap
+) since 2008 and for publications based on the 2020 Census. Until the recent directive, differential privacy was planned for the 2030 Census too.  Many other products and procedures are
+implicated
+as well.
+1.
+Illustrations
+DAO-216-26 is incompatible with the Census Bureau’s dual mandate to provide confidentiality and fitness for use. To illustrate this, we recall and expand on an
+example
+due to Nathan Goldschlag, inspired by the County Business Patterns (CBP) data, which provides statistics on business activity broken down by industry and geography. Goldschlag describes three scenarios, illustrating the tension between providing useful information and maintaining confidentiality of responses as required by the Census Act.
+·       “There is only one brewery in a small county. If the CBP published the exact count of brewery employees in that county, it would be disclosing the information of one business (how many workers it employs), a clear violation of the law.
+2
+·        “There are two breweries in a small county, and the CBP again publishes the exact count of brewery employees. If I own one of those breweries, I could learn how many employees my competitor has, again violating the law.
+·        “There are more than two breweries in a small county, but the CBP chooses not to publish the total number of brewery employees out of concern that it might compromise the privacy of the businesses. If I’m a prospective brewery owner, I may deem the project too risky to pursue without information about the market I’m entering.”
+In Goldschlag’s example, coarsening makes the published statistics useless.  We now add a fourth scenario, showing that it also fails to maintain confidentiality.  To keep things simple, assume none of us owns any of the businesses in the new example. The County has two towns with one brewery each, North Bend and South Bend. Furthermore, North Bend has a mobile bottling company and South Bend has a stationary bottling company. That’s a total of four beer-related business entities in the County.  Two of these businesses, the North-Bend brewery and the South Bend bottling company, are publicly-owned.
+The CBP publishes five statistics:
+(A) The total number of employees in beer-related businesses in North Bend: Because there is only one brewing company in North Bend and only one bottling company in North Bend, the category is coarsened to “beer-related”.
+(B) The total number of employees in beer-related businesses in South Bend: Because there is only one brewing company in South Bend and only one bottling company in South Bend, the category is coarsened to “beer-related”.
+(C) The total number of employees in brewing only:  Because there is only one brewing company in each of North Bend and South Bend, the statistic is coarsened to the total number of employees in brewing only in the County.
+(D) The total number of employees in bottling only: Because there is only one bottling company in each of North Bend and South Bend, the statistic is coarsened to the total number of employees in bottling only in the County.
+(E) The total number of employees at publicly owned companies: Because there is only one publicly owned company in each of North Bend and South Bend, the statistic is coarsened to the total number of employees in publicly owned companies in the County.
+We now have 5 equations in 4 unknowns. Using only 4 of these (A, B, C, and E), we can solve for the exact number of employees at each of the four companies with high school algebra.
+In the above (fictional but realistic) scenario, the County Business Patterns were released with good-faith coarsenings for the geographical, business, and ownership categories.  Nonetheless, even without inside knowledge of one of the companies’ number of employees, we can completely reconstruct all four numbers.  What happened?  The coarsenings interacted poorly.  Noise infusion perturbs that set of equations, preventing exact reconstruction.
+2.
+Impediments to Implementation
+The Commerce Department now
+claims
+the directive’s return to the outdated “tradstat” traditional statistical techniques of the 70s is good for data consumers: “This update to our disclosure limitation method protects respondents and
+provides the public with more essential economic information
+.”  (Emphasis added.)  As we saw from Goldschlag’s example, coarsening does just the opposite.
+And it can’t be fixed. Coarsening
+by definition
+reduces access to fine-grained information.  Our example of three poorly interacting coarsenings shows that this sacrifice is for naught: without noise infusion, confidentiality is destroyed by elementary calculations.  For population surveys, this is precisely what formal noise infusion methods, like differential privacy, protect against; this is the “fancy math” that Goldschlag mentions in his
+post
+and that holds personal characteristics, like citizenship status, in confidence.
+3.
+Confidentiality is Critical for Federal Statistics
+The scientific community continues to debate the best techniques for protecting the confidentiality of respondents’ data, but DAO-216-26 is not driven by science. It is driven by political interests. Those issuing this order are willing to risk the public’s trust in the process. We think that this is wrong-headed and dangerous.
+Civil servants will do their best to comply with this order while still following the laws that require them to protect the confidentiality of respondents’ data. To balance these competing mandates, they may seek to produce less data or coarsen data so much that it is unusable. Or they might be pushed by political actors to publish data that can be easily unmasked, like in the brewery examples above. Regardless of their choices, they will be hard-pressed to guarantee respondents’ confidentiality, which will prompt many businesses and individuals to simply not answer. This is devastating for an agency that delivers democracy’s data.
+Conclusion
+Rather than political actors overruling the government’s own statisticians, we need deep investment in our nation’s statistical agencies, ensuring that agencies have the staff and support to improve their methods using the best available tools. Regardless of how the scientific community feels about any specific privacy-enhancing technique, we must collectively reject this anti-scientific approach to governing federal statistics. Too much is at stake.
+How to Take Action
+Share this post with others in your professional network and community.
+Contact your Congressional representative and voice your concerns. Calling or writing to your representative is one of the most effective and easiest things a constituent can do that should only take a couple minutes of your time.
+Find your representative contact information
+here
+.
+State your concern. Here is a sample script: “My name is [Name], and I am a constituent from [City] in your district [ZIP CODE]. I am calling because I am concerned about the the U.S. Secretary of Commerce issued a directive (DAO 216-26) that wants to relegate confidentiality protection in all Bureau of Economic Analysis and U.S. Census Bureau data products and statistics to outdated and ineffective statistical techniques. If followed, this order will destroy the Commerce public data our nation relies on for important decisions, such as where to build necessary services for our community’s well-being. I want the DAO to be rescinded. I want proper administrative procedure to be followed. I want technical decisions such as the choice of method used to balance utility and confidentiality to be informed by professionals in the federal statistical agencies, not made unilaterally by political operatives.”
+Optional is stating what kind of constituent, such as a retired teacher or a working professional.
+Volunteer
+to help preserve Census working papers and documentation. Pages explaining “noise infusion” and “differential privacy” are already going offline. Archive relevant methodology pages and technical documentation. You can also do this via the Internet Archive’s Wayback Machine (“
+Save Page Now
+”).
+John Abowd
+Aloni Cohen
+Cynthia Dwork
+Jae June Lee
+Jayshree Sarathy
+Adam Smith
+Salil Vadhan
+[1] BEA Working Paper WP2026-9, now purged by the Department of Commerce.  As of 6/22 Google returns:
+Bureau of Economic Analysis (BEA) (.gov)
+https://bea.gov › files › papers › BEA-WP2026-9
+Follow
+This entry was posted
+on Thursday, July 2nd, 2026 at 3:26 pm						and is filed under
+Announcements
+,
+Nerd Interest
+.
+You can follow any responses to this entry through the
+RSS 2.0
+feed.
+You can
+leave a response
+, or
+trackback
+from your own site.
+25 Responses to “An American privacy emergency: Guest post from Cynthia Dwork et al.”
+Doug S.
+Says:
+Comment #1
+July 2nd, 2026 at 5:20 pm
+“Or they might be pushed by political actors to publish data that can be easily unmasked, like in the brewery examples above.”
+Given the current Administration, I suspect that’s the actual goal. ☹️
+Adam Treat
+Says:
+Comment #2
+July 2nd, 2026 at 5:22 pm
+TLDR
+* Members of the far right in our Govt. want to use census responses to go after non-citizens and to hype the conspiracy of non-citizen voting.
+* This is thwarted because census data is safeguarded by best in class data privacy algorithms. As it is required to be. By law.
+* The far right wants to work around that by requiring the census to use inferior algorithms.
+* They are disingenuously doing this under the guise of poppy cock reasons.
+Do I have the that right?
+Scott
+Says:
+Comment #3
+July 2nd, 2026 at 5:51 pm
+Doug S. #1 and Adam Treat #2: Pretty much, as far as I understand it.  At any rate, the level of trust that this is not the case is zero.
+Simon Kissane
+Says:
+Comment #4
+July 2nd, 2026 at 8:43 pm
+I think there is a real downside to adding statistical noise to Census results.
+Look at the 2020 Census results for Kiryas Joel, NY –
+https://data.census.gov/table/DECENNIALPL2020.P2?g=160XX00US3639853
+Among non-Hispanic/Latino monoracial people, it reports 57 African-Americans, 17 Native Americans, 13 Asian Americans, 12 Native Hawaiians/Pacific Islanders.
+Do 17 Native Americans actually live in Kiryas Joel? I’m sceptical. Of course, it isn’t impossible that the Satmar Hasidim have gained some Native American converts – the rapper Nissim Black is a Breslover. It sounds like the kind of ‘human interest’ story journalists love — one that would appeal not just to the mainstream press, but also to Jewish community media, and even more so Haredi media. Yet I’ve found no such stories despite searching.
+And of course, it could be data entry errors, or pranksters, or personal idiosyncrasy.
+But I think this is a real example of where adding statistical noise potentially makes the data worse. And the fact we can’t even be sure whether it is added statistical noise or something else is a further part of the problem.
+One might acknowledge this, while still arguing that the benefits of adding statistical noise outweigh it. But much of the public discussion doesn’t even acknowledge that the downsides are real.
+Anon
+Says:
+Comment #5
+July 2nd, 2026 at 10:21 pm
+A more productive approach might be trying to understand what they are trying to achieve politically.
+My guess is that they want to be able to distinguish between citizens, legal immigrants, and illegal immigrants.
+If so, I think the data should be as such that allows policy makers to slice the data by those factors. It is not the job of statisticians or scientists to decide what data policy makers should use. If policy makers want to slice the date by citizenship status, we should find a way to give them that ability, while preserving privacy.
+I have a lot of respect for Cynthia, her work on privacy and fairness is absolutely first class. But I think a more appropriate apolitical response here would be towards finding a solution to enable the policy makers solve the problem they want while preserving privacy.
+Anon
+Says:
+Comment #6
+July 2nd, 2026 at 10:37 pm
+illegal immigrant is a major problem, and most Americans are very unhappy about it.
+if the concern is really about privacy and confidentiality and access to data, and not fighting public policy decisions on matters of illegal immigration, the approach here should be apolitical on the issue of illegal immigration.
+tightening the citizenship verification requirements, whether it is census or voting, is a reasonable goal from public policy perspective. if the issue is that real citizens from particular demographics lack proper government issued identification for verification of citizenship status, that should be addressed directly, rather than using it as a justification to weaken the requirements for identity verification.
+the problem that these topics have is that often on the surface we claim the goal is only X (like protecting privacy) but we do not try to solve that issue in an apolitical manner, but approach it in a way that is inherently political.
+I am certain that we can find a scientifically sound solution for this problem that preserves privacy and confidentiality and public access to data, while allows policy makers to discriminate against illegal immigrants.
+otherwise, what we try will be infective here and would be seen as an attempt to protect illegal immigrants and obstruct the policy objectives of policy makers which is supported by a large majority of Americans to deal with the issue of deporting illegal immigrants and disincentivizing arrival of new ones.
+this is not just an American issue. the Europeans are dealing with the same problem and the public is generally supportive of preventing illegal immigration and limiting legal immigration. trying to obstruct this, which is a legitimate right of the population of a country will lead to further rise of populist far right, as we have seen in UK and elsewhere.
+asdf
+Says:
+Comment #7
+July 3rd, 2026 at 12:43 am
+I’ve never understood why info collection is non-invasive just because it’s not personally identifiable.  If Trump knows that a particular congressional district is majority Black, he’ll try to split it up for gerrymandering.  Lots of Hispanics in a region?  Send the ICE goons.  High felafel sales in a particular locality?  Middle eastern terrorists!  I wish I was making the last one up, but it’s famous:
+https://boingboing.net/2007/11/06/fbi-hunted-terrorist.html
+Best privacy policy is to not collect this info at all, noisy or otherwise.
+Mitchell Porter
+Says:
+Comment #8
+July 3rd, 2026 at 12:53 am
+Not an American, but “noise infusion” sounds like a classic case of a too-clever solution to a problem that would be rejected by any ordinary person. The problem – it might be possible to deduce identities from census data. Common sense solution – don’t share the data. Too-clever solution – change the data before you share it… Or did I misunderstand something?
+Scott
+Says:
+Comment #9
+July 3rd, 2026 at 7:04 am
+Simon Kissane #4: Yes, a downside of differential privacy is
+precisely
+that it can produce absurd-sounding results—including precincts with negative numbers of people, or a few dozen people living on Liberty Island, NY (inside the statue, maybe?).  The upside, if you’re willing to stomach that, is that you balance the need for aggregate data with guarantees of individual privacy in a basically optimal way.
+The DP community could indeed do a better job in communicating this stuff.
+On the other hand, even the world’s best effort at science communication would be wasted on officials who didn’t care about privacy at all, and whose real goal was just to use the Census to identify targets for deportation.
+On the third hand, I certainly don’t share the fatalism of Anon #5 and #6, that all scientists can do is understand what those in power are trying to achieve and then help them to achieve it.  A lot of the public
+does
+care about privacy.  And the administration
+has
+had to scale back many things it wanted to do, including with mass deportations, in the face of public pressure.  Thus, it seems to me that simply
+exposing
+what the administration is trying to do, as this post does, could have a salubrious effect.
+Jacob Oertel
+Says:
+Comment #10
+July 3rd, 2026 at 7:04 am
+I really appreciate this, so thank you all for writing it. My question is why not keep both? Keep the citizenship question (already in this year’s field test) if it survives its day in court, keep the cutting edge of differential privacy in play, and advertise the privacy guarantee fervently as a feature of the Census so that participation holds or even climbs. Maybe I’m just being naive, but even if neither camp is completely happy with that package, it’s an arrangement that spares each side its worst fear: no reconstructed households on one side and no distorted, unusable numbers on the other. It also forecloses the outcome this Order all but guarantees, blacked out counties, which nobody claims to want.
+I don’t think the proponents are unintelligible, just mistaken. Their worldview is coherent as far as it goes. Commerce data underwrites business decisions and business vitality underwrites national power, so “distorted data” reads to them as strategic weakness. I see the absence of any explicit security rationale in the Order as a politically strategic omission; saying it out loud would invite scrutiny they’d rather avoid, so it’s left as implicit. Then there’s the redistricting angle and the probing of homes, where even silence is data, since a suppressed cell announces that something which may need hiding is there; but I’ll leave that unpacking to others.
+The Order doesn’t follow from that worldview; if anything, it’s indicted by it. Grant the premise that statistical data is strategic infrastructure, and an order that compels suppression manufactures the very weakness it fears; a blank cell sites no factory, prices no market, and informs no readiness plan. The technical logic cuts even deeper as the brewery example shows. Exact answers to enough questions are simply the microdata; reconstruction is equation solving, and it gets easier when every published number is known to be exact. The menu for a statistical agency has only three items: noise, silence, or disclosure. “Just publish the real numbers” isn’t a safe fourth option; it’s the third item under a friendlier name. This Order bans the first, which in practice compels the second, while promising an accuracy that only the third could deliver.
+So here’s a test.
+Put the maximal package on the table: a generously loosened privacy loss budget set in public, published code and parameters, the noisy measurement files so researchers can propagate uncertainty themselves, secure enclave access for vetted users, and exact invariants wherever the Constitution genuinely demands enumeration; the state totals used for apportionment were never noised in 2020 to begin with. If the objection is about accuracy, that package satisfies it. If the package is refused, the objection was never really about accuracy.
+The Center for Renewing America has been candid in saying the real obstacle is that differential privacy makes individual status impossible to ascertain, yet enabling exactly that is what Title 13 already criminalizes; and that legal barrier is precisely what failed in 1942, when confidentiality was suspended by statute and census data helped locate Japanese Americans for internment. Laws bend under emergency, and they bend backward; a protection repealed tomorrow reaches statistics already published today. Noise doesn’t work that way. What was perturbed before release stays perturbed under every future administration; no statute can subtract randomness from yesterday’s tables. Mathematics can’t stop a future Congress from compelling the raw files, which is the channel 1942 actually used. What it guarantees is narrower and still vital: a provable, published ceiling on what the public record can reveal about any single household. And because the parameters and code are public, that ceiling is checkable rather than promissory.
+Some of the security concerns behind all this are real, and I won’t pretend otherwise, but a decennial form people fill out about themselves is nearly the worst instrument for addressing them. Anyone dangerous simply lies while the Bureau’s own research finds that ordinary households with undocumented members respond by quietly omitting people from the roster, an undercount enumerators can barely detect. Conflating the Census with enforcement buys no security and costs the count.
+Scientists and technical experts aren’t necessarily read in on threats at a level that might help them understand the behavior of those with whom they disagree; elected officials and their appointees aren’t necessarily experts in differential privacy. Neither may fully understand the other, but that doesn’t make the endeavor to do so fruitless. My worry is institutional capture on the one side and corruption on the other, with the radical adoption of ideology as a hazard for both. Eisenhower warned of the military industrial complex and, in the same farewell address, of public policy captured by a scientific and technological elite. Contemporarily, one leans right and the other left; neither warning has expired. Technical decisions don’t exist in a vacuum, but they shouldn’t be made unilaterally either, and it’s worth naming the asymmetry this round: the 2020 system was argued about in public for years while this Order skipped the required public process entirely.
+I’m largely with Dr. Dwork’s sentiments, though I don’t attribute primacy to scientific merit in political decision making, and just to be clear, that’s not an endorsement of attributing primacy elsewhere. My own lodestar here is the U.S. Constitution and the dialectic methods that gave rise to it. Political actors get the final say, as they should; I’d prefer they wear both hats, so that balance is realized and civilizational progress remains steady. And by that standard, the wholesale rejection of these concerns, without process and without argument, leads me to question the moral seriousness of some who have sworn an oath to protect that same Constitution. Presuming good faith on both sides still isn’t unreasonable either; bad apples are practically inevitable and luckily outnumbered. What might the pragmatic middle ground look like? I’m not certain. But I’m confident it doesn’t involve banning the only class of tools that could let accuracy and confidentiality coexist.
+Justin
+Says:
+Comment #11
+July 3rd, 2026 at 7:05 am
+Hello,
+Thank you for sharing.  I noticed something while reading…
+I think part of the text might be malformed or missing.  The “Find your representative contact information here.” text doesn’t have a hyperlink.
+But, folks can find the US House Representative on the house.gov site,
+https://www.house.gov/representatives/find-your-representative
+Adam Treat
+Says:
+Comment #12
+July 3rd, 2026 at 7:17 am
+To all the right wingers trying to defend this:
+Yes, we understand that census data can be used to understand demographics including citizenship status. That is not what this is about. This is about govt. agencies using poppycock rationales to enable them to break the law: personally identify individuals who voluntarily choose to answer the census surveys.
+This is about enabling lawlessness.
+Scott
+Says:
+Comment #13
+July 3rd, 2026 at 9:23 am
+Justin #11: Sorry about that!  I added the link.
+Anon
+Says:
+Comment #14
+July 3rd, 2026 at 11:40 am
+#12
+There are three issues here: on one we agree, which is we should use scientifically sound data processes that presence access, confidentiality and privacy. on the other we disagree: we should make it possible for policy makers to achieve their real goal and not use “not scientifically sound” reason to block that goal.
+Should we ask for laws and proper processes and norms to be followed? sure, though this administration will not do so. Part of the systematic problem here is that these have been abused to block legitimate public policy that has popular support.
+And it is not just just right that wants the illegal immigration to be dealt with. If you look at polls vast majority of Americans want this. Only a minority of progressive leftists are opposed to these.
+Trying to use science and legal process and … repeatedly to block legitimate democratic will of the citizens is a major part of why science and norms have been losing their influence and giving us the likes of Trump.
+If you really care about scientific process and law and democratic norms over your own policy desires, you should protect them from being abused for partisan political goals.
+Scott
+Says:
+Comment #15
+July 3rd, 2026 at 1:16 pm
+Anon #14: The thing is, most Americans
+don’t
+want Stephen Miller’s program of gleefully ripping millions of people from the only homes they’ve known, separating screaming children from their parents, etc.  It’s the “sane and humane” side that has the numbers here, not the goose-steppers.
+It’s true that a majority of Americans want illegal immigrants to magically go away, self-deport, etc, without any heart-wrenching scenes.  That’s because they falsely believe that illegal immigrants are a primary source of crime, drugs, and their own economic woes.  They believe this, in turn, is because they’re ignorant, statistically illiterate, and prone to manipulation by demagogues.
+(And yes — having shown the world that I’ll say the truth no matter how much it angers the woke people, I feel like I’ve earned the right to say the truths that anger the MAGA people as well.)
+The best actual solution to all this was a bipartisan immigration compromise that would pair stronger border enforcement with a path to citizenship for those who arrived here as children.  That, of course, is precisely the compromise that Trump killed, because had it passed it would’ve deprived him of his issue to demagogue on.
+Anon
+Says:
+Comment #16
+July 3rd, 2026 at 3:51 pm
+#15
+I agree mostly. Though I would emphasize :
+1. I am not sure they are wrong about immigration, there is an argument that a country is not a hotel, you need a fabric that connects majority of people to each other, if you move millions of people from third party countries to the US, you can change the country to be similar to the country those people came from, which is presumably not a good situation, if it was those people would not be so desperate to emigrate from. more coherent communities have benefits as diversity does. we need a balance. there is a real global backlash against immigration and it is not specific to the US, so there is something real here.
+2. even if general population is wrong about the issue of immigration, it is their legitimate democratic right to have the government do what is needed to prevent that illegal immigration. in a liberal democracy, we do not believe anyone has absolute access to truth beyond others, so while the baseline rights are respected, the rest needs to be according to the will of people, even if they are wrong. processes should not be abused to prevent the legitimate will of people.
+3. there is a balance between rights and democratic will that is the base of our system. right now many Americans feel that their will is not being respected even when they are clear majority. that is very corrosive for a liberal democracy and opens the doors to populist demagogues that with the message of applying the will of people can harm and destroy the system. preserving the liberal democratic system is more important strategically than being right on every issue, as long as basic rights are respected. no one has a basic right to immigrate to the US, and those who violate and come illegally we need effective policies to deal with them and prevent future illegal immigration.
+4. too lenient immigration policy results is increasing the incentive for illegal immigration. policies like deportation to third safe country, as UK is doing, and similar policies are needed to deal with this issue. the government is responsible to carry out the will of people in the most humane and efficient way possible. one cannot address the core unhappiness of people regarding illegal immigration by criticizing the methods used by this administration. we need to find policies that achieve both: deals with the issue of illegal immigration and at the same time does it in a humane way, and discourages it. this is a real issue that needs real solution, not a policy of allowing illegal immigration to continue and just accept it, nor inhumane policies. how do we come with a policy that is both humane and discourages further illegal immigration? (and fixing the source countries to be good places to live in is not a realistic option, it is neither our responsibility nor within our capacity to turn these countries into developed liberal democratic systems)
+5. if we use science and process and … to prevent and obstruct the will of clear majority of population, we should expect a backlash by the population where they would treat science and laws and … as obstacles depriving them from their legitimate democratic rights.
+O. S. Dawg
+Says:
+Comment #17
+July 3rd, 2026 at 6:38 pm
+Does anyone seriously believe that an undocumented immigrant, one who avoids his citizen niece’s Quinceañera out of fear of immigration enforcement, is going to truthfully answer census questions about citizenship status? Regardless of what privacy protections are in place, the government only knows his status if he responds honestly. Eliminating differential privacy protections will tend to degrade data quality. The only two privacy techniques that remain available, data coarsening and blocking, make census responses less useful at fine geographic levels, effectively discarding information that differential privacy would have preserved. This is yet another example of the current administration’s incompetence.
+Simon Kissane
+Says:
+Comment #18
+July 4th, 2026 at 12:45 am
+Hi Scott, I wonder if a better implementation of differential privacy could answer some of these complaints.
+For example, if it were constrained so that zero values could not become non-zero; one would still permit small non-zero values to become zero. That way, if there are literally zero Native Americans in Kiryas Joel, there’d still be zero even after adding statistical noise.
+On the other hand, if the real issue is “we can’t trust the current administration to have good intentions”, then the real debate isn’t about policy any more – indeed, one might almost think policy debates are a distraction from the actual problem.
+Scott Aaronson’s Stark Warning: A Trump Order Bans Decades Of Privacy Math And Threatens U.S. Data Foundations - Web And IT News
+Says:
+Comment #19
+July 4th, 2026 at 8:15 am
+[…] the UT Austin complexity theorist known for his Shtetl-Optimized blog post introducing the piece, called the move an outrage that hits close to home for the computer science […]
+Jacob
+Says:
+Comment #20
+July 4th, 2026 at 3:59 pm
+As much respect as I have for DP as a technique, it’s pretty clear to me that its implementation in US census data is a net negative. The database reconstruction techniques that it is putatively targeted against are a very weird threat model. The idea is that if you have a database that tells you (e.g.) a bunch of names, addresses, and incomes but not ethnicities, you can combine this with fine-grained census data to back out ethnicity. But this ignores the fact that (a) statistical methods NOT relying on census data are generally able to draw these same inferences with greater accuracy and more importantly (b) the data sources used for database reconstruction attacks likely have a superset of the census data already!
+If DP only affected block-level data that would be one thing but the nature of the algorithm requires adding errors in block groups and even tracts, to the point of having a negative impact on transportation planning and demographic research.
+I would be much more sympathetic to complaints about the trump admin destroying census privacy techniques if DP advocates hadn’t just spent the Biden era eroding the utility of the census!
+Anonymous Ocelot
+Says:
+Comment #21
+July 5th, 2026 at 8:27 am
+Scott #15
+Mass amnesty for illegals is not a compromise. It is giving open-borders advocates everything they want. It portends future mass amnesty every 20 years forever, essentially an invitation to all in the world to come here, because apparently we won’t deport you and we’ll even give you citizenship eventually. And citizenship for the children will be citizenship for their parents, because we have a wildly generous family migration policy.
+The two sides here are those who want much more unvetted immigration (in the form of legalizing illegal immigration aka opening the border) and those who want lower, only-vetted immigration. A “compromise” would be increasing legal immigration quotas and perhaps decreasing vetting while deporting illegal immigrants. Maybe a “leave and come back” policy, whereby current illegal immigrants are asked to leave the country and apply for proper citizenship, with an understanding they’ll be eligible to return. But amnesty for illegals just gives the open borders side (you) everything you ask for.
+I remember 9/11 and the pulse night club shooting. I don’t see why it’s invalid for US citizens to oppose unvetted unlimited immigration of those from foreign cultures. And when the stated policy of the government is “immigrate the proper way or you are an illegal immigrant who will be deported”, I don’t view it as Nazism to subsequently deport the people who saw that warning and ignored it. Such an accusation is insane hyperbole. I would think you’d be careful to avoid it, given how often you are unjustly on the receiving end of it, but alas.
+I feel sorry for kids whose parents chose to flout the law and are now being asked to move with their parents. The responsibility for that lies with their parents.
+All countries have a right to a strong border, and a right to deport those who break their immigration laws. You seem to think only some countries have this right, whereas others are Nazis for exercising it. That doesn’t seem like a particularly self-consistent worldview.
+The main reason to deport illegal immigrants is a simple but powerful one: cheating is wrong. The rules were the rules, and illegal immigrants tried to jump the line. This selects for people I do not want to share a country with. Moreover, it is extremely unfair to all the people whose applications were denied, and who obeyed that decision like decent fellows should. I would trade an illegal immigrant for one of the denied (for quota reasons, not vetting reasons) legal immigrants every time.
+Scott
+Says:
+Comment #22
+July 5th, 2026 at 9:27 am
+Anonymous Ocelot #21: What I described
+was
+considered by pretty much everyone on both sides to be a compromise in the old America, the better America, the America that Trump destroyed and that I still want back.
+For basically every liberal democratic country on earth, I favor relatively open immigration for those who share the country’s values, and the ability to keep out those who reject the country’s values.
+In the American context, the vast majority of immigrants and would-be immigrants from South America, Asia, etc share the country’s values and want to contribute to the economy and pursue the American Dream, exactly like all the previous waves of immigrants did.  Keeping most of these people out, as we do now, is not only tragic for them but also a gargantuan self-own for us, in our battle for global dominance against the China/Russia/Iran axis.  Those whose social media or other history reveals that they support jihad against the West are an obvious exception to this.
+In the Israeli context — well, I’m not a citizen there, but if I were, I’d favor relatively open immigration not only for Jews, but for anyone who likes the idea of living in a Jewish state with a central mission of safeguarding the world’s Jews in the wake of the Holocaust.
+anonymous
+Says:
+Comment #23
+July 7th, 2026 at 11:24 pm
+To Comment #10
+I think the “superset” point is where the argument breaks down. The claim is that brokers have already absorbed census data, so the attacker’s database is a superset of the census and noise buys nothing. But this quietly assumes the absorbed values are precise. They aren’t, and that’s the whole point: DP protection travels downstream with the data. Once a released figure carries calibrated noise, that noise doesn’t wash out at the first join — it rides along into every downstream table the broker builds on top of it.
+And linkage is exactly what noise breaks. Record linkage and reconstruction both depend on values being sharp enough to pin a row to a real person; a perturbed value can’t serve as the clean key that fuses cleanly with the broker’s other fields. So a database that “contains” the DP release doesn’t inherit the pre-noise census — it inherits the noise. It isn’t a superset of the thing the attack actually needs.
+Which means the superset objection only bites if the precise attributes come from somewhere the census never protected — non-census sources, or historically weaker releases (pre-2020 swapping was far sharper). But that just reduces to your other point, that you can get it more accurately elsewhere
+Paul Francis
+Says:
+Comment #24
+July 8th, 2026 at 5:07 am
+The idea that political actors are kneecapping anonymity for nefarious purposes seems far-fetched. I suspect the reason is much more banal. They rightfully want to avoid the 2020 DP debacle but are
+wrongly over-reacting by banning all noise instead of simply banning DP
+.
+Scott
+Says:
+Comment #25
+July 8th, 2026 at 3:12 pm
+Cynthia Dwork sent me the following reply to comments #18 and #20:
+Our post is not about any single technical approach to confidentiality. It is about a politically driven bypassing of established data stewardship processes and decision-making procedures, and the wholesale abandonment of more than half a century of technical progress that enabled the Census Bureau to share increasing quantities of data at increasingly granular levels of detail.
+But since we were asked…
+1. The confidentiality protection mechanisms used in the 2020 Census did not put people where no one can live. This is because the places where people can live were enumerated without added noise. As a result, if, for example, people appear to be living in the middle of a lake, this is due to a geocoding error that has nothing to do with differential privacy or any other confidentiality technique used in the 2020 Census.
+2. The reconstruction attack on the 2010 release described
+here
+used only 1/30th (5 billion out of 150 billion) of the available, published census statistics. The reidentification studies confirm that an attacker can, within census blocks, infer the actual census responses on race and ethnicity for 3.4 million people whose race and ethnicity differ from those of the modal person in their census block, with 95% accuracy.
+Leave a Reply
+You can use rich HTML in comments!  You can also use basic TeX, by enclosing it within
+$$ $$
+for displayed equations or
+\( \)
+for inline equations.
+Comment Policies:
+After two decades of mostly-open comments, in July 2024
+Shtetl-Optimized
+transitioned to the following policy:
+All comments are treated, by default, as personal missives to me, Scott Aaronson---with no expectation either that they'll appear on the blog or that I'll reply to them.
+At my leisure and discretion, and in consultation with the
+Shtetl-Optimized
+Committee of Guardians
+, I'll put on the blog a curated selection of comments that I judge to be particularly interesting or to move the topic forward, and I'll do my best to answer those.  But it will be more like Letters to the Editor.  Anyone who feels unjustly censored is welcome to the rest of the Internet.
+To the many who've asked me for this over the years, you're welcome!
+Shtetl-Optimized is proudly powered by
+WordPress
+Entries (RSS)
+and
+Comments (RSS)
+.

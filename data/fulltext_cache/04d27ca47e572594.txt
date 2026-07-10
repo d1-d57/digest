@@ -1,0 +1,76 @@
+Last month, I posted a puzzle. A ladybug
+starts on the 12 of o'clock. She takes a
+series of random steps either clockwise
+or counterclockwise, each with random
+chance. Each number she touches gets
+colored red. And the puzzle is, what is
+the probability that the last number to
+get colored is a six?
+If I simulate it many times in a row,
+recording which number happened to be
+the last one colored, here's what it
+looks like. Running [music] this many
+hundreds of times, a somewhat surprising
+fact starts to make itself clear. All
+the numbers between one and 11 seem to
+be about equally likely to be the last
+one touched.
+I say this is surprising because
+initially it feels like ending in a six
+should be less likely than ending on the
+numbers closer to the initial position,
+like the one or the 11.
+And yet, empirically, that just doesn't
+seem true. And there is a key insight to
+understand why. Rather than calculating
+the probability of ending on a six from
+the initial position, start by letting
+the ladybug wander until the first
+moment that she hits one of the two
+neighbors of that six, the five or the
+seven. And then from there, ask the
+probability of ending in a six. That is
+a different question, but the reason it
+doesn't change the answer is because for
+any run of the simulation, eventually
+she's going to hit the five or the seven
+at some point. That's bound to happen
+with probability one. Waiting for this
+middle condition does nothing to change
+the probability of that final outcome.
+So, from this state, where she's on,
+say, the seven, what's required to end
+on the six? Well, she has to reach that
+untouched five before ever touching the
+six, meaning she has to eventually end
+up 10 steps away clockwise on net before
+ever ending up one step away
+counterclockwise. If that happens, if
+she ends up that far around, coloring
+all the other numbers, it's a done deal
+that six is going to be the last.
+Phrased another way, it's like if we
+straighten things out and you're taking
+a random walk where each step is plus
+one or minus one with a 50/50 chance.
+And you want to know the probability of
+ending up at plus 10 before ever
+touching the negative numbers.
+>> [music]
+>> Again, this is a hard question to answer
+directly, but the point is that you
+don't actually have to answer it
+directly. There's nothing special about
+the number six. [music] What's the
+probability of ending on the three?
+Well, let the simulation run until the
+first moment she hits a two or a four,
+which again is bound to happen
+eventually, and then from there it's the
+probability of taking on net 10 steps
+around one way before ending one step
+around the other way. Because
+calculating this probability is
+identical for all the numbers between
+one and 11, the answer must be one in
+11.

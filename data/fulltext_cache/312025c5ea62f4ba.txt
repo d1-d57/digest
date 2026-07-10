@@ -1,0 +1,2026 @@
+
+
+Notices of the American Mathematical Society
+
+Welcome to the 
+Notices of the American Mathematical Society
+.
+With 
+support from AMS membership
+, we are pleased to share the journal with the global mathematical community.
+
+PDFLINK
+
+Algebraic and Positive Geometry of the Universe: From Particles to Galaxies
+Claudia Fevola
+Anna-Laura Sattelberger
+
+In recent years, the intersection of algebra, geometry, and combinatorics with particle physics and cosmology has led to significant advances. Central to this progress is the twofold formulation of the study of particle interactions and observables in the universe: on the one hand, Feynman’s approach reduces to the study of intricate integrals; on the other hand, one encounters the study of positive geometries. This article introduces key developments, mathematical tools, and the connections that drive progress at the frontier between algebraic geometry, the theory of 
+$D$
+-
+modules, combinatorics, and physics. All these threads contribute to shaping the flourishing field of positive geometry, which aims to establish a unifying mathematical language for describing phenomena in cosmology and particle physics.
+
+1
+.
+
+Introduction
+
+The relationship between mathematics and physics is profoundly symbiotic: mathematics provides the language and tools to describe and predict physical phenomena, while physics inspires the discovery and development of new mathematical concepts. Many significant advances in physics rely on sophisticated mathematical frameworks. Historical examples of this interplay abound. This dynamic relationship continues today in fields such as quantum field theory and cosmology, where novel mathematical concepts and fundamental physics are intricately intertwined.
+
+In this article, we explore the recent developments at the intersection of algebraic geometry, algebraic analysis, combinatorics, and their applications to particle physics and cosmology. We highlight key research directions, innovative ideas, and the mathematical structures that have emerged or have been revitalized in response to challenges arising in physics.
+
+Particle physics studies the interactions of elementary particles that constitute matter and radiation. Mathematically, scattering amplitudes measure the probabilities of specific outcomes in these interactions, which are studied in practice in particle accelerators by experimentalists. 
+Figure 1
+ provides a pictorial representation of a scattering process involving 
+$n$
+ particles. The gray disc represents the scattering of the particles in the process. The goal is to predict what happened during this interaction by analyzing the behavior of the outgoing particles. By doing so, physicists hope to answer some of the most fundamental questions about the nature of the universe, such as how it began, what it is made of, and how it will evolve in the future.
+
+Figure 1
+.
+A graphical representation of a scattering process between 
+$n$
+ particles, such as happens for instance in a particle accelerator. 
+
+More formally, the scattering amplitude associated to a scattering process is a complex-valued function
+
+1
+
+$$\begin{align} \left( \mathbb{R}^{1,D-1} \right)^n \to \mathbb{C}, \quad \left(p_1,\ldots ,p_n\right)\mapsto A\left(p_1,\ldots ,p_n\right), \cssId{texmlid1}{\tag{1}} \end{align}$$
+
+where the 
+$p_i = (p_i^0, p_i^1,\dots , p_i^{D-1})$
+ for 
+$i = 1,2,\dots ,n$
+ are the momentum vectors associated to the particles. These are elements of the 
+$D$
+-
+dimensional 
+Minkowski space
+
+$\mathbb{R}^{1,D-1}$
+,
+ i.e., 
+$\mathbb{R}^D$
+ endowed with the indefinite inner product 
+$p\cdot q = p^0q^0 - p^1q^1 -\cdots - p^{D-1}q^{D-1}$
+.
+ We write 
+$p^2$
+ to denote 
+$p\cdot p$
+.
+ The most relevant case in physics is when 
+$D=4$
+,
+ i.e., three space-dimensions and one dimension representing time. Momentum vectors capture physical information about the particles in the scattering experiment. The modulus squared of the scattering amplitude 
+1
+ can be interpreted as a joint probability density function describing what to expect for the outcome of the experiment.
+
+In perturbation theory, there exist two primary ways to compute scattering amplitudes:
+
+1.
+
+Feynman integrals.
+ A breakthrough in the computation of amplitudes came in the 1940s with Richard Feynman’s diagrammatic method. Feynman diagrams encode the dynamics of particle collisions, with explicit rules for associating a function to each diagram, which calculates the process’s probability. The scattering amplitude is expressed as a sum over all possible Feynman diagrams 
+$G$
+:
+$$\begin{equation*} A = \sum _{G} a_G \cdot \mathcal{I}_G . \end{equation*}$$
+Here, 
+$\mathcal{I}_G$
+ represents the Feynman integral 
+19
+ associated with a graph 
+$G$
+ (and a rational function when 
+$G$
+ is a tree), and it is defined according to Feynman rules. The coefficient 
+$a_G$
+ depends both on the properties of the particles involved and on the topology of the graph. Studying the analytic properties of the amplitude 
+$A$
+ often involves analyzing the terms 
+$\mathcal{I}_G$
+ individually. The analytic and numerical evaluation of Feynman integrals, as well as the investigation of their monodromy representations and branch cuts as multi-valued functions, are difficult problems that have sparked numerous lines of research. For example, identifying the special functions required to express these integrals has been a difficult question studied since the early days of quantum field theory (QFT) and remains an active field of research.
+
+2.
+
+Positive geometries.⁠
+Footnote
+1
+ A more recent perspective avoids the splitting into individual Feynman diagrams. It defines scattering amplitudes in terms of purely geometric structures—depending only on the initial and final particle states, without referencing their evolution in spacetime. The need for a reformulation of the scattering amplitude inspired Arkani-Hamed and Trnka to introduce the amplituhedron 
+5
+ for 
+$\mathcal{N}=4$
+ supersymmetric Yang–Mills (SYM) in the planar limit, a certain QFT. The fundamental idea behind its definition is to provide a mathematical object whose volume directly computes the scattering amplitude. This motivation has later inspired the more general and rigid notion of positive geometries, which we address in 
+Section 4.3
+. In the conception of positive geometry, the connection between the geometry and physics is provided by a differential form, called “canonical form.” This form is associated to a semi-algebraic subset of the real points of a variety, or to a subvariety in more recent literature 
+7
+. It is uniquely determined by the requirement of having at most simple poles on all boundary components of the space, with residues along each boundary component given by the canonical form of that component. The mathematical properties of amplituhedra and positive geometries exhibit rich structures, suggesting that they should be studied as mathematical concepts on their own.
+1
+Not to be confused with the field of positive geometry 
+16
+, where positive geometries are one key topic among others.
+✖
+
+In theoretical cosmology, Feynman’s approach and positive geometries are highly relevant as well. A fundamental aspect of this branch of physics is to understand how matter and energy are distributed throughout the universe at any given time. In particle physics, scattering experiments are run in particle accelerators—such as in the world’s largest and most powerful one, the Large Hadron Collider at the European Organization for Nuclear Research (CERN). However, one could argue that the Big Bang already did such experiments for us and that the resulting data are out there in the sky. To extract them, new mathematics is needed. One approach for addressing this challenge is to analyze large-scale correlations observed today, such as among galaxies, and use them to infer the physical processes that shaped the early universe. Simultaneously, as a theoretical foundation, cosmologists rely on frameworks grounded in quantum field theory and positive geometry.
+
+The cosmic microwave background (CMB), shown in 
+Figure 2
+, is a remnant of the first light in our universe and is evidence that the Big Bang happened approximately 
+$13{.}8$
+ billion years ago.
+
+Figure 2
+.
+The CMB as observed by Planck.
+
+The statistical properties of the initial conditions of our universe are modeled by “cosmological correlators.” Despite foundational differences in the principles used to model scattering amplitudes and theoretical cosmology, interestingly, the methods for computing these correlators rely on techniques developed for studying Feynman integrals. In fact, in the perturbative approach, correlators are also associated with Feynman diagrams. In the context of cosmological correlators, already trees—i.e., graphs without cycles—are significantly intricate to study; however, recent advances 
+3
+ revealed that the resulting combinatorial structures are unexpectedly well-behaved. The mathematics of cosmological correlators is a relatively recent area of study. In particular, the interplay with combinatorics is novel. There are many intriguing and challenging mathematical problems that are awaiting to be tackled.
+
+Mathematically, both Feynman integrals and correlation functions are inherently linked to generalized Euler integrals 
+9
+, i.e., integrals of the form
+
+2
+
+$$\begin{align} \mathcal{I}(c) =\int _\Gamma f_1^{s_1}\cdots f_k^{s_k}x_1^{\nu _1}\cdots x_n^{\nu _n} \frac{\mathrm{d}x_1}{x_1}\wedge \cdots \wedge \frac{\mathrm{d}x_n}{x_n}, \cssId{texmlid2}{\tag{2}} \end{align}$$
+
+where 
+$f_1,\ldots ,f_k\in \mathbb{C}[x_1^{\pm 1},\ldots ,x_n^{\pm 1}]$
+ are Laurent polynomials, the exponents 
+$s_i$
+ and 
+$\nu _j$
+ are complex numbers, and 
+$\Gamma$
+ is a suitable integration contour. The integral 
+2
+ is to be read as a function of the coefficients of the Laurent polynomials 
+$f_j=\sum _{u \in \mathbb{Z}^n} c^{(j)}_u x^u$
+.
+ In particle physics, 
+$k=1$
+,
+ and 
+$f$
+ is the graph polynomial of a Feynman diagram. In cosmology, for certain toy models, the 
+$f_j$
+’s
+ define hyperplanes in 
+$\mathbb{C}^n$
+,
+ the 
+$s_j$
+’s
+ are integers, and the 
+$\nu _i$
+’s
+ (later on denoted by 
+$\epsilon _i)$
+ are related to the assumed model of the universe. Diverse mathematical tools are needed to study these integrals—reaching from analysis, algebraic geometry, mixed Hodge theory, analytic number theory, and intersection theory, to numerical evaluation methods. This list still does not cover the full range of areas involved; here we focus on a selection that is biased towards algebra.
+
+In this introductory exposition, we present the novel and mutually enriching interactions arising from employing algebra, geometry, and combinatorics as tools for elaborating the mathematical concepts designed by theoretical physicists to investigate the universe. Algebraic geometry as a unifying language allows us treating physical phenomena on both small scales (interactions of fundamental particles) and large scales (structure of the universe). Vice versa, physics inspires new mathematics, such as the flourishing field of positive geometry, which aims to establish a new mathematical field as a common language and to formulate the concept of positivity for some mathematical objects.
+
+Timeliness.
+ The topicality and the active movement of the subject is, for instance, mirrored by the two recently awarded ERC synergy grants “
+UNIVERSE+
+: Positive Geometry in Cosmology and Particle Physics” led by Nima Arkani-Hamed, Daniel Baumann, Johannes Henn, and Bernd Sturmfels, and “
+MaScAmp
+: Mathematics of Scattering Amplitudes” by Ruth Britto, Francis Brown, Axel Kleinschmidt, and Oliver Schlotterer. The research community is looking forward to a variety of upcoming interdisciplinary events within the next years. These will be rooted throughout Europe as well as in the US, with the IAS Princeton being one of the main nodes.
+
+Outline.
+ We divide our presentation into four sections: we address particle physics, cosmology, the mathematical toolkit (algebraic geometry, algebraic analysis, and combinatorial algebraic geometry), and current interactions among these fields.
+
+2
+.
+
+Particle Physics
+
+This section provides a self-contained introduction to Feynman integrals in particle physics 
+19
+, specifically their close bond with generalized Euler integrals 
+9
+.
+
+A Feynman diagram 
+$G$
+ is a connected, oriented graph 
+$(V,E)$
+ with 
+$n$
+ “external legs” (open edges) attached, 
+$m$
+ internal edges, 
+$|V|$
+ vertices, and 
+$\ell$
+ independent cycles, where 
+$\ell = m - |V| + 1$
+,
+ since 
+$G$
+ is connected. The external legs represent the incoming and outgoing particles, labeled with a momentum vector 
+$p_i \in \mathbb{R}^{1,D-1}$
+ each. Each edge 
+$e_i$
+ in 
+$G$
+ is arbitrarily oriented, but the associated integral will be independent of this choice. Each internal edge instead is equipped with a momentum vector 
+$q_i \in \mathbb{R}^{1,D-1}$
+ and a mass 
+$m_i \in \mathbb{R}_{\geq 0}$
+ of the intermediate particle propagating along the edge 
+$e_i$
+.
+ Some examples of Feynman diagrams are depicted in 
+Figure 3
+. Momentum conservation at each vertex states that the sum of incoming momenta equals the sum of outgoing ones, yielding a linear equation in 
+$p_i$
+ and 
+$q_i$
+ for each vertex. To each such diagram, one associates a Feynman integral 
+$\mathcal{I}_G$
+.
+
+Figure 3
+.
+Some Feynman diagrams: the “one-loop triangle” (left) and the “parachute” (right) diagram. 
+
+There are several representations of Feynman integrals in common use, which can be transformed into each other by changes of variables. For example, some representations use variables associated to cycles, namely the loop momenta, as integration variables, while others replace these with auxiliary variables known as “Schwinger parameters.”
+
+Here, we focus on the Lee–Pomeransky representation, as it is most directly related to generalized Euler integrals 
+2
+. To each internal edge 
+$e_i$
+,
+ we associate a Schwinger parameter 
+$\alpha _i \in {\mathbb{C}}^*$
+.
+ The graph polynomial will be a polynomial in the 
+$\alpha _i$
+’s.
+ To introduce the Lee–Pomeransky representation of a Feynman integral, we first introduce some necessary graph-theoretical concepts. A 
+subtree
+ of a graph 
+$G$
+ is a connected, acyclic subgraph of 
+$G$
+.
+ A 
+spanning tree
+ of 
+$G$
+ is a subtree that contains all vertices of 
+$G$
+.
+ We write 
+$\mathcal{T}_1$
+ for the set of all spanning trees of 
+$G$
+.
+
+The 
+first Symanzik polynomial
+ of 
+$G$
+ is
+
+$$\mathcal{U}_G \coloneq \sum _{T\in \mathcal{T}_1}\prod _{e_i\notin T} \alpha _i,$$
+
+where the product runs over the 
+$L$
+ internal edges that are removed from 
+$G$
+ to obtain the spanning tree 
+$T$
+.
+
+A 
+spanning 
+$2$
+-
+forest
+
+$T'$
+ of 
+$G$
+ is a disjoint union of two subtrees of 
+$G$
+ whose union contains all vertices of 
+$G$
+.
+ We write 
+$T_1$
+ and 
+$T_2$
+ for its connected components, and denote by 
+$\mathcal{P}_{T_i}$
+ the set of external momenta attached to 
+$T_i$
+.
+
+The 
+second Symanzik polynomial
+, denoted 
+$\mathcal{F}\!_G$
+,
+ is
+
+$$\begin{equation*} \sum _{T'\in \mathcal{T}_2} \Bigl (\sum _{p_j\in \mathcal{P}_{T_1}}\sum _{p_k\in \mathcal{P}_{T_2}} \frac{p_j\cdot p_k}{\mu ^2}\Bigr ) \prod _{e_i\not \in T'} \alpha _i - \mathcal{U}_G\cdot \sum _{e_i\in E} \frac{m_i^2}{\mu ^2} \alpha _i , \end{equation*}$$
+
+where 
+$\mu$
+ is a scaling factor to make the polynomial dimensionless, that we will ignore henceforth. The 
+$p_j\cdot p_k$
+ and 
+$m_i^2$
+ are called “kinematic variables.”
+
+Note that the first and second Symanzik polynomial are homogeneous polynomials in the Schwinger parameters of degree 
+$\ell$
+ and 
+$\ell + 1$
+,
+ and at most linear and quadratic in each 
+$\alpha _i$
+,
+ respectively. Their sum, 
+$\mathcal{G}_G=\mathcal{U}_G+\mathcal{F}\!_G$
+,
+ is the 
+graph polynomial
+ of 
+$G$
+.
+
+Example 1
+.
+
+For 
+$G$
+ the parachute Feynman diagram from 
+Figure 3
+, the Symanzik polynomials are
+
+$$\begin{align*} \mathcal{U}_G & = \alpha _1 \alpha _3 + \alpha _2 \alpha _3 + \alpha _1 \alpha _4 + \alpha _2 \alpha _4 + \alpha _3 \alpha _4 , \\ \mathcal{F}\!_G & =\left(p_1+p_2\right)^2\alpha _1\alpha _2 \left(\alpha _3+\alpha _4\right) + p_3^2\alpha _2\alpha _3\alpha _4 \\ &\quad +p_4^2\alpha _1\alpha _3\alpha _4 - \mathcal{U}_G \cdot \big (\sum _{i=1}^4m_i^2\alpha _i\big ). \end{align*}$$
+
+The algebraic variety of 
+$\mathcal{G}_G$
+ is depicted in 
+Figure 5
+.
+
+Whenever 
+$\ell >1$
+,
+ the 
+Feynman integral
+ of 
+$G$
+ (in the Lee–Pomeransky representation) is
+
+$$\begin{align*} \mathcal{I}_G = N_\nu \cdot \int _{\mathbb{R}_{>0}^n} \big ( \prod _{i = 1}^n \alpha _i^{\nu _i-1}\big )\mathcal{G}_G^{-D/2} \mathrm{d}\alpha , \end{align*}$$
+
+where 
+$N_\nu$
+ is a normalizing factor that depends on the integer exponents 
+$\nu = (\nu _1,\dots ,\nu _n)$
+,
+ and 
+$\mathrm{d}\alpha$
+ denotes the 
+$n$
+-
+form 
+$\mathrm{d}\alpha _1\wedge \cdots \wedge \mathrm{d}\alpha _n$
+.
+
+3
+.
+
+Cosmology
+
+Feynman diagrams also come into play when studying the initial conditions of our universe. In this context, graphs are considered as undirected and, in order to study cosmological integrals, one truncates the external edges for simplicity. Therefore, in this section, a Feynman diagram 
+$G$
+ is a connected, undirected graph without external legs. We denote by 
+$V=V_G$
+ the set of its 
+$n$
+ vertices 
+$v_i$
+,
+ and 
+$E=E_G$
+ is the collection of its edges 
+$ij$
+ for some 
+$v_i,v_j\in V$
+.
+ The vector 
+$(X,Y) \coloneq (X_1,\dots ,X_n,\{Y_{ij}\}_{ij\in E})$
+ represents the energies associated to the vertices and edges of the graph. The 
+$X_i$
+’s
+ represent external outgoing energies, while the 
+$Y_{ij}$
+’s
+ are energies exchanged in the process and therefore are real and positive numbers, although it is useful to think of them in larger domains, using analytic continuation.
+
+Cosmological integrals are defined by means of the flat space wavefunction coefficient 
+$\psi _{\mathrm{flat}}^G$
+ (or simply 
+$\psi _{\mathrm{flat}}$
+,
+ when the graph is clear from the context). Concretely, 
+$\psi _{\mathrm{flat}}^G$
+ is a rational function of the parameters 
+$(X,Y)$
+ that can be computed in three ways:
+
+(1)
+
+using the Feynman rules, as in 
+3
+, 
+Section 2.2
+,
+
+(2)
+
+via the recursion formula from 
+4
+, 
+Section 2
+, or
+
+(3)
+
+as the rational function defining the canonical form of a cosmological polytope, see 
+4
+, 
+(3.5)
+.
+
+It is a conjecture in physics that for any Feynman diagram, all these methods lead to the same rational function. Here, we focus on the third approach.
+
+The cosmological polytope 
+$P_G$
+ of a Feynman diagram 
+$G$
+ plays the role of a positive geometry, which we will encounter in detail in 
+Section 4.3
+. Given a Feynman diagram 
+$G=(V,E)$
+,
+ the cosmological polytope 
+$P_G$
+ lives in the space 
+$\mathbb{R}^{|V|+|E|}$
+ with basis 
+$(X,Y) \coloneq (X_1,\dots ,X_n,\{Y_{ij}\}_{ij\in E})$
+.
+ The facets of 
+$P_G$
+ are in bijection with the connected subgraphs of 
+$G$
+.
+ In practice, given a connected subgraph 
+$H = (V\!_H,E_H)$
+ of 
+$G$
+,
+ the facet 
+$F_H$
+ is the intersection of 
+$P_G$
+ with the hyperplane 
+$L_H$
+ defined by the polynomial
+
+$$\begin{equation*} \sum _{v_i \in V\!_H}X_i+\sum _{\substack{e = ij \in V,\\ v_i\in V\!_H, v_j\not \in V\!_H}} Y_{ij}+ \sum _{\substack{e=ij\not \in E_H,\\ v_i,v_j\in V\!_H}} 2Y_{ij}, \end{equation*}$$
+
+see 
+4
+ for references. Polytopes are indeed examples of positive geometries 
+2
+7
+. The condition on the singularities required in the definition of the canonical form guarantees that it can be written as
+
+3
+
+$$\begin{equation} \frac{P}{\prod _{H\subseteq G} L_H} \, \mathrm{d}X\wedge \mathrm{d}Y , \cssId{texmlid3}{\tag{3}} \end{equation}$$
+
+where 
+$\mathrm{d}X = \mathrm{d}X_1 \wedge \cdots \wedge \mathrm{d}X_n$
+,
+
+$\mathrm{d}Y = \wedge _{ij\in E} \mathrm{d}Y_{ij}$
+,
+ and the product in the denominator runs over all connected subgraphs of 
+$G$
+.
+ The numerator 
+$P\in \mathbb{C}[X,Y]$
+ defines the adjoint hypersurface, which geometrically is the hypersurface of minimal degree that contains all linear spaces that are intersections of hyperplanes 
+$L_H$
+ and do not contain any face of 
+$P_G$
+.
+ The intuition behind the definition of the cosmological polytope 
+$P_G$
+ is to build a polytope whose canonical form 
+3
+ equals
+
+$$\begin{equation*} \psi _{\mathrm{flat}}^G(X,Y) \, \mathrm{d}X \wedge \mathrm{d}Y . \end{equation*}$$
+
+In a certain cosmological toy model, see 
+3
+4
+, the 
+cosmological integral
+ now is defined to be
+
+4
+
+$$\begin{equation} \int _{\mathbb{R}^n_{>0}} 2^{n-1}\bigl (\prod _{ij\in E} Y_{ij}\bigr )\cdot \widetilde{\psi } _{\mathrm{flat}}\cdot \alpha _1^{\epsilon _1}\cdots \alpha _n^{\epsilon _n} \mathrm{d}\alpha , \cssId{texmlid4}{\tag{4}} \end{equation}$$
+
+where 
+$\mathrm{d}\alpha \coloneq \mathrm{d}\alpha _1\wedge \dots \wedge \mathrm{d}\alpha _n$
+,
+ and 
+$\widetilde{\psi }_{\mathrm{flat}}$
+ is obtained from 
+$\psi _{\mathrm{flat}}$
+ by shifting the 
+$X_i$
+’s
+ by the variables 
+$\alpha _i$
+,
+ i.e., replacing 
+$X_i\to X_i+\alpha _i$
+.
+ Physically, the role of the integration variables 
+$\alpha$
+ is to parameterize the time in which a physical process happens, while the exponents 
+$\epsilon _i$
+ are parameters of the cosmology in which the process takes place. In simple terms, a cosmology refers to the overall structure and behavior of the universe that serves as the backdrop for the physical process being discussed. Some integer values of 
+$\epsilon _i$
+ correspond to significant cases of cosmological models of the universe, see 
+3
+, 
+p. 20
+. However, also noninteger values of 
+$\epsilon _i$
+ are interesting for physics, so we consider the 
+$\epsilon _i$
+ to be generic, complex parameters.
+
+Example 2
+.
+
+Figure 
+4
+ depicts the path graph on two vertices, referred to as the 
+“
+$2$
+-
+site chain.” Its associated cosmological polytope lives in the hyperplane 
+$\{X_1+X_2+Y_{12}=1\}$
+ in 
+$\mathbb{R}^3$
+ and its facet hyperplanes 
+$\{X_1+X_2=0\}$
+,
+
+$\{X_1+Y_{12}=0\}$
+,
+
+$\{X_2+Y_{12}=0\}$
+ can be obtained via the formula in 
+3
+ . As these hyperplanes intersect only in the vertices of the polytope, their adjoint is 
+$P=1$
+ so that
+
+$$\psi _{\mathrm{flat}}=\frac{1}{(X_1+X_2)(X_1+Y_{12})(X_2+Y_{12})}.$$
+
+Figure 4
+.
+The 2-site chain graph (left) and its associated cosmological polytope (right).
+
+The associated cosmological integral is derived from 
+4
+, where 
+$\widetilde{\psi }_{\mathrm{flat}}$
+ equals
+
+$$\begin{equation*} \frac{1}{(\alpha _1+\alpha _2+X_1+X_2)(\alpha _1+X_1+Y_{12})(\alpha _2+X_2+Y_{12})} . \end{equation*}$$
+
+One may ask why these integrals are relevant for mathematics. They serve as meaningful examples of generalized Euler integrals 
+2
+, where all the polynomials 
+$f_i$
+ have degree 
+$1$
+.
+ Many properties of such families of integrals can be derived from studying the complement in 
+$(\mathbb{C}^*)^n$
+ of the hyperplanes defined by the polynomials in the integral. This locus will be introduced for polynomials of higher degree in 
+Section 4.1
+.
+
+The case of hyperplanes that are in general position has mathematically been extensively studied by Aomoto, Kita, Orlik, and Terao. However, in the context of cosmological integrals, the coefficients of the polynomials are not arbitrary. Instead, they are constrained to lie in specific linear subspaces determined by the physical energies of the system. This restriction makes these integrals particularly special. For fixed values of 
+$X_1,X_2,Y_{12}$
+,
+ the complement of hyperplanes from 
+Example 2
+ lives in the torus 
+$(\mathbb{C}^*)^2$
+ with coordinates 
+$(\alpha _1,\alpha _2)$
+,
+ and it is represented in 
+3
+, 
+Figure 1
+. Investigating the singularities of cosmological integrals and the differential equations that they satisfy—ultimately aiming to determine closed-form expressions of the resulting functions—requires the utilization of a wide range of mathematical tools.
+
+4
+.
+
+Mathematical Toolkit
+
+Theoretical physics and cosmology increasingly benefit from methods from the fields of algebra and combinatorics, whose pure and rigorous structures naturally align with the analysis of fundamental interactions. For instance, the integrals defined in 
+2
+ are multivalued functions. They have singularities, the allowance of nongeneric parameters is needed, and a high-precision evaluation of them is required to test physical theories. To tackle these challenges, we present tools from algebraic geometry and nonlinear algebra 
+15
+, the theory of 
+$D$
+-
+modules 
+11
+, as well as combinatorial approaches 
+13
+20
+.
+
+4.1
+.
+
+Algebraic geometry
+
+Affine algebraic varieties 
+$V(I)\subset \mathbb{C}^n$
+,
+ with 
+$I\subset \mathbb{C}[x_1,\ldots ,x_n]$
+,
+ encode common vanishing sets of systems of polynomials. The underlying topology is the Zariski topology, which is defined in terms of prime ideals and is coarser than the Euclidean topology. An example of a variety is depicted in 
+Figure 5
+.
+
+Figure 5
+.
+The set of real zeros of the graph polynomial 
+$\mathcal{G}_G$
+,
+ where 
+$G$
+ is the massless parachute diagram as in 
+Example 1
+, with parameters 
+$(p_1+p_2)^2=25$
+,
+
+$p_3^2=49$
+,
+
+$p_4^2=9$
+.
+
+We denote the affine 
+$n$
+-
+space by its closed points, i.e., 
+$\mathbb{C}^n$
+.
+ In the same vein, we denote the algebraic 
+$n$
+-
+torus short-hand by 
+$(\mathbb{C}^\ast )^n$
+.
+ Varieties that allow for a closed embedding into an algebraic torus are called “very affine.” Examples include complements of hyperplane arrangements in an algebraic torus, and we here focus on varieties of that form, i.e.,
+
+5
+
+$$\begin{equation} X = \left(\mathbb{C}^\ast \right)^n\setminus V\left( f_1\cdots f_\ell \right), \cssId{texmlid5}{\tag{5}} \end{equation}$$
+
+where 
+$(f_1,\ldots ,f_\ell )$
+ is a family of Laurent polynomials. In contrast to the setup of 
+2
+, the coefficients of the 
+$f_i$
+’s
+ are now considered to be fixed. Via the graph morphism, 
+$X$
+ as in 
+5
+ embeds into the 
+$(n+\ell )$
+-
+dimensional algebraic torus and hence is very affine.
+
+For cohomological considerations, we denote by 
+$\Omega ^k_X$
+ the space of global algebraic differential 
+$k$
+-
+forms on 
+$X$
+,
+ which we assume to be smooth. Consider the complex 
+$(\Omega _X^\bullet ,\nabla _\omega )$
+,
+ with the differential 
+$\nabla _\omega ^{(k)}\colon \Omega _X^k \to \Omega _X^{k+1}$
+ being twisted by the logarithmic one-form
+
+$$\begin{equation*} \omega \coloneq \operatorname {dlog}(f^sx^\nu )= \sum _{j=1}^{\ell } s_j\frac{\mathrm{d}f_j}{f_j} + \sum _{i=1}^n \nu _i \frac{\mathrm{d}x_i}{x_i}, \end{equation*}$$
+
+i.e., 
+$\nabla _\omega =\mathrm{d}+ \omega \wedge$
+.
+ The cohomology vector space
+
+$$\begin{equation*} H^k(X,\omega ) \coloneq \ker \big (\nabla _\omega ^{(k)}\big )/\operatorname {im} \big (\nabla _\omega ^{(k-1)}\big ) \end{equation*}$$
+
+is the 
+$k$
+-
+th 
+twisted cohomology space
+ of 
+$X$
+.
+ It is generated by equivalence classes of elements of the form 
+$f^ax^b \frac{\mathrm{d}x_{i_1}\wedge \cdots \wedge \mathrm{d}x_{i_k}}{x_{i_1}\cdots x_{i_k}}$
+ with integer vectors 
+$a,b$
+.
+
+In fact, an element in the 
+$k$
+-
+th twisted homology vector space of 
+$X$
+ can be thought of as a singular chain on 
+$X$
+ of dimension 
+$k$
+ together with the choice of a branch cut of 
+$f^sx^\nu$
+.
+ For elaborations on twisted homology, we refer to 
+1
+. In this presentation, we define the twisted homology spaces 
+$H_k(X,\omega )$
+ simply as the dual vector spaces of the 
+$H^k(X,\omega )$
+.
+ Despite the complexity in the construction, a drastic simplification happens when studying these twisted (co)homology vector spaces, due to a vanishing theorem for all the intermediate cohomology spaces.
+
+For fixed 
+$(s,\nu )$
+,
+ one has the perfect pairing
+
+6
+
+$$\begin{align} \begin{split} \langle \cdot ,\cdot \rangle \colon H^n(X,\omega ) \times H_n(X,\omega )\longrightarrow \mathbb{C},\\ \left([\eta ],[\Gamma ]\right)\mapsto \int _\Gamma f^s x^{\nu }\eta \qquad \end{split}\cssId{texmlid6}{\tag{6}} \end{align}$$
+
+between the 
+$n$
+-
+th twisted cohomology and homology spaces of 
+$X$
+.
+ When the parameters are rational numbers, numbers that can be expressed as an integral of the form 
+6
+ are 
+periods
+ of the variety 
+$X$
+.
+ Recent progress in high precision evaluation of such periods to thousands of digits is discussed in 
+12
+.
+
+Let 
+$s_j,\nu _i\in \mathbb{C}$
+ be fixed generic complex numbers, then the 
+$\mathbb{C}$
+-
+vector space spanned by the functions
+
+7
+
+$$\begin{align} \Big \{ \left[ \Gamma \right] \mapsto \mathcal{I}_{a,b} \coloneq \int _\Gamma f^{s+a}x^{\nu +b} \frac{\mathrm{d}x}{x} \Big \}_{(a,b)\in \mathbb{Z}^\ell \times \mathbb{Z}^n} \cssId{texmlid7}{\tag{7}} \end{align}$$
+
+when allowing integer shifts of 
+$s$
+ and 
+$\nu$
+,
+ is finite-dimensional. Its dimension equals the signed Euler characteristic of 
+$X$
+,
+ which coincides with the dimension of 
+$H^n(X,\omega )$
+.
+ An overview of these results is presented in 
+1
+. The use of twisted de Rham cohomology for Feynman integrals was initiated in 
+14
+. If the integral in 
+7
+ comes from a Feynman diagram, then the integrals in the basis are called “master integrals.” Describing a set of master integrals is extremely important in the study of scattering amplitudes. In this way, the evaluation of Feynman integrals reduces to the evaluation of master integrals, which significantly reduces the complexity.
+
+4.2
+.
+
+Algebraic analysis
+
+Algebraic analysis is a mathematical field that investigates linear partial differential equations (PDEs) with methods from algebraic geometry, category theory, and complex analysis. Homogeneous, linear PDEs with polynomial coefficients are encoded as elements of the 
+(
+$n$
+-
+th) 
+Weyl algebra
+, denoted
+
+$$D_n = \mathbb{C}[x_1,\ldots ,x_n]\left\langle \partial _1,\ldots ,\partial _n \right\rangle ,$$
+
+or just 
+$D$
+,
+ which encodes linear differential operators with polynomial coefficients. Allowing coefficients in rational functions 
+$\mathbb{C}(x_1,\ldots ,x_n)$
+,
+ results in the 
+rational Weyl algebra
+, denoted 
+$R_n$
+.
+ The Weyl algebra is noncommutative: all of its generators are assumed to commute, except 
+$\partial _i$
+ and 
+$x_i$
+,
+
+$i=1,\ldots ,n$
+.
+ They obey Leibniz’ rule, i.e., their commutator 
+$[\partial _i,x_i]=\partial _ix_i-x_i\partial _i$
+ fulfills 
+$[\partial _i,x_i]=1$
+.
+ We denote the action of a differential operator on a function 
+$f(x_1,\ldots ,x_n)$
+ by a bullet; e.g., 
+$\partial _i\bullet f=\frac{\partial f}{\partial x_i}$
+.
+
+A system of PDEs corresponds to a left ideal 
+$I\subset D$
+ in the Weyl algebra, to which one associates the 
+$D$
+-
+module 
+$D/I$
+.
+ Among them, “holonomic” 
+$D$
+-
+ideals or 
+$D$
+-
+modules give rise to finite-dimensional solution spaces. Also concepts like singularities (in the sense of poles or essential singularities) and integral transforms, such as the Fourier–Laplace or Mellin transform of functions, have their algebraic counterpart in this language. Even the growth behavior of solutions to the considered system of PDEs is captured by the corresponding 
+$D$
+-
+ideal: functions that have moderate growth when approaching singularities give rise to 
+regular
+ singularities of the 
+$D$
+-
+module, and to 
+irregular
+ singularities otherwise.
+
+One may, however, not simply switch between a 
+$D$
+-
+module and its solution space. For steps toward deeper structural insights of that kind, one needs to pass on to a more abstract setup, namely to sheaves of 
+$\mathcal{D}_X$
+-
+modules on a smooth algebraic variety 
+$X$
+.
+ In this generalized setup, one can phrase a positive answer to Hilbert’s 
+$21$
+st
+ problem, which has a negative answer in its original formulation. Holomorphic solutions of a 
+$\mathcal{D}_X$
+-
+module 
+$\mathcal{M}$
+ are recovered algebraically as the 
+$\mathcal{D}_X$
+-
+linear morphisms 
+$\mathcal{H}\!\!\operatorname {om}_{\mathcal{D}_X}(\mathcal{M},\mathcal{O} _X^{ \mathrm{an} })$
+ from 
+$\mathcal{M}$
+ to holomorphic functions 
+$\mathcal{O}_X^{\mathrm{an}}$
+ on 
+$X$
+.
+ The right-derived functor of 
+$\mathcal{H}\!\!\operatorname {om}_{\mathcal{D}_X}(\cdot ,\mathcal{O}_ X^{\mathrm{an}})$
+ is called 
+solution functor
+ and implies a categorical equivalence of regular holonomic 
+$\mathcal{D}_X$
+-
+modules and their topological counterpart: their solution complexes. This is a consequence of the Riemann–Hilbert correspondence, see, e.g., 
+11
+.
+
+In applications, one works mostly over the affine space. The 
+$n$
+-
+th Weyl algebra 
+$D$
+ is precisely the ring of global sections of 
+$\mathcal{D}_{\mathbb{C}^n}$
+,
+ and 
+$D$
+-
+modules are in one-to-one correspondence with those sheaves of 
+$\mathcal{D}_{\mathbb{C}^n}$
+-
+modules that are quasi-coherent over 
+$\mathcal{O}_{\mathbb{C}^n}$
+.
+ In the holonomic case, the 
+$D$
+-
+module structure then corresponds to an integrable connection on the underlying vector bundle. After trivializing the bundle, the action of the Weyl algebra can be written in connection form 
+$\mathrm{d}+M\wedge$
+,
+ with 
+$M$
+ a matrix of differential one-forms. Dually, via the tensor-hom adjunction, the connection matrix can equivalently be expressed in the tangent space. The resulting system of PDEs hence gets expressed in matrix form, generalizing the companion matrix of ordinary differential equations (ODEs), and can be computed by using Gröbner bases in the Weyl algebra 
+17
+.
+
+Example 3
+.
+
+Let 
+$I$
+ be the 
+$D_2$
+-
+ideal generated by 
+$P_1 =x_2^2\partial _2^2+(x_1+2x_2)\partial _{2},$
+
+$P_2 = x_1{x_2}\partial _1\partial _{2}-(x_1+{x_2})\partial _{2}$
+,
+ and 
+$P_3 =x_1^2\partial _{1}^2+x_1\partial _{1}+(x_1+{x_2})\partial _{2}$
+.
+ For the degree reverse lexicographic order on 
+$R_2$
+,
+ the set of standard monomials of 
+$R_2I$
+ is 
+$S=\{ 1,\partial _2,\partial _1 \}$
+.
+ For 
+$f\in \operatorname {Sol}(I)$
+,
+ denote 
+$F=(f,\partial _2\bullet f,\partial _1\bullet f)^\top$
+.
+ In the 
+$\mathbb{C}(x_1,x_2)$
+-
+basis 
+$S$
+ of 
+${R_2}/{R_2I}$
+,
+ the connection matrices of 
+$I$
+ are
+
+$$\begin{align*} M_1 = \left[\begin{smallmatrix} 0 & 0 & 1\\ 0 & \frac{x+y}{xy} & 0\\ 0 & -\frac{x+y}{x^2} & -\frac{1}{x}\end{smallmatrix}\right] \quad {\text{ and }} \quad M_2 = \left[\begin{smallmatrix} 0 & 1 & 0 \\ 0 & -\frac{x+2y}{y^2} & 0\\ 0 & \frac{x+y}{xy} & 0 \end{smallmatrix}\right], \end{align*}$$
+
+so that 
+$\partial _i \bullet F = M_i \cdot F$
+,
+
+$i=1,2$
+,
+ for any 
+$f\in \operatorname {Sol}(I)$
+.
+
+The 
+holonomic rank
+ of a 
+$D_n$
+-
+ideal 
+$I$
+ is defined as
+
+$$\operatorname {rank}(I) = \dim _{\mathbb{C}(x_1,\ldots ,x_n)} \left( R_n / R_n I \right).$$
+
+For instance, the 
+$D_2$
+-
+ideal 
+$I$
+ in 
+Example 3
+ has holonomic rank 
+$3$
+.
+ On simply connected domains in 
+$\mathbb{C}^n$
+ outside the singular locus of a 
+$D$
+-
+ideal 
+$I$
+,
+ the dimension of the space of holomorphic solutions is given by the holonomic rank of the 
+$D$
+-
+ideal. This follows from the theorem of Cauchy, Kovalevskaya, and Kashiwara. As a consequence, functions 
+$f$
+ that are solutions to holonomic 
+$D$
+-
+ideals, called “holonomic functions,” can be encoded by finite data as follows. Given a subideal 
+$I\subset \operatorname {Ann}_D(f)$
+ of finite holonomic rank, where 
+$\operatorname {Ann}_D(f)$
+ denotes the annihilating 
+$D$
+-
+ideal of 
+$f$
+,
+
+$$\operatorname {Ann}_D(f) = \{ P \in D | P\bullet f =0\},$$
+
+the function 
+$f$
+ is uniquely determined by 
+$I$
+ while prescribing 
+$\operatorname {rank}(I)$
+-
+many initial conditions. Various functions throughout the sciences are holonomic. Such functions can be encoded, manipulated, and evaluated in terms of symbolic computations of their annihilating 
+$D$
+-
+ideal. Holonomic functions were first treated algorithmically by Zeilberger.
+
+Ideals in 
+$D$
+ encode crucial properties of their solution functions. For instance, 
+$f(x_1,\ldots ,x_n)$
+ being a solution to 
+$\theta _1 + \cdots + \theta _n-k \in D_n$
+,
+ where 
+$\theta _i=x_i\partial _i$
+ denotes the 
+$i$
+th
+ Euler operator and 
+$k\in \mathbb{N}$
+,
+ implies that 
+$f$
+ is homogeneous of degree 
+$k$
+,
+ i.e., 
+$f(tx_1,\ldots ,tx_n)=t^k\cdot f(x_1,\ldots ,x_n)$
+ by the converse of Euler’s homogeneous function theorem.
+
+Prominent examples of 
+$D$
+-
+ideals with a strong combinatorial flavor are GKZ systems 
+9
+, 
+$H_A(\kappa )$
+,
+ also called 
+“
+$A$
+-
+hypergeometric systems.” They are encoded by an integer matrix 
+$A\in \mathbb{Z}^{k\times n}$
+,
+ and a parameter vector 
+$\kappa \in \mathbb{C}^n$
+.
+ The 
+$D$
+-
+ideal 
+$H_A(\kappa )$
+ is the 
+$D$
+-
+ideal generated by the 
+toric ideal
+ of 
+$A$
+,
+
+$$I_A = \left\langle \partial ^u-\partial ^v | u-v\in \ker (A), u,v\in \mathbb{N}^n \right\rangle ,$$
+
+and the entries of 
+$A\cdot (\theta _1,\ldots ,\theta _n)^\top -\kappa$
+.
+ Their solution functions are generalized Euler integrals. More precisely, in this context, the integral 
+2
+ is viewed as a function of the coefficients 
+$c$
+ of the Laurent polynomials 
+$f_i$
+.
+ The GKZ system 
+$H_A(\kappa )$
+ is therefore an ideal in the Weyl algebra in the 
+$c$
+-
+variables. Feynman integrals in their Lee–Pomeransky representation are examples of generalized Euler integrals, where the coefficients of the graph polynomial are constrained to linear subspaces of the kinematic space—the latter being the affine space with coordinates given by the linearly independent kinematic variables. Therefore, they are solutions to restrictions of GKZ systems. However, computing restrictions of 
+$D$
+-
+ideals is computationally challenging, which calls for the development of new strategies. Further challenges to tackle are nongeneric parameter values for GKZ systems, which often constitute interesting and relevant cases.
+
+A concrete example of the utility of connecting Feynman integrals to GKZ systems lies in the Landau analysis, namely the study of the locus of complex parameters for which a Feynman integral develops singularities. In 
+6
+, the singularities of a Feynman integral are formalized as the subspace of physical parameters on which the Feynman integrand is “more singular” than generically. More specifically, this is done by determining the locus of kinematics for which the signed Euler characteristic of the very affine variety fixed by the choice of coefficients is smaller than its generic value. This idea was inspired by the GKZ framework, in which the number of linearly independent solutions is bounded above by the signed Euler characteristic of the variety in 
+5
+, and the locus in the coefficient space for which this bound is not achieved characterizes the singularities of the generalized Euler integral. This locus is a hypersurface in the coefficient space and its defining polynomial is called “principal 
+$A$
+-
+determinant.” However, when this polynomial is restricted to the subspace that is of physical interest, it often trivializes and fails to yield meaningful information about the singularities. To address this problem, 
+6
+ proposes methods and algorithms to first specialize to the desired subspace and to then extract singularity information.
+
+4.3
+.
+
+Combinatorial algebraic geometry
+
+Various combinatorial aspects of algebraic geometry help to study scattering amplitudes and cosmological correlators. We here focus on positive geometries 
+2
+13
+, and start right away with giving their definition.
+
+Let 
+$X$
+ be a complex, irreducible, 
+$d$
+-
+dimensional algebraic variety that is defined over the real numbers. Typically, 
+$X$
+ is chosen to be projective. Equip its real-valued points, 
+$X(\mathbb{R})$
+,
+ with the analytic topology. Let 
+$X_{\geq 0}$
+ be a closed, semi-algebraic subset of 
+$X(\mathbb{R})$
+ such that its interior, 
+$X_{>0}\coloneq \operatorname {Int}(X_{\geq 0})$
+,
+ is an oriented 
+$d$
+-
+manifold, and such that the analytic closure of 
+$X_{>0}$
+ in 
+$X(\mathbb{R})$
+ recovers 
+$X_{\geq 0}$
+.
+ Denote by 
+$\partial X_{\geq 0}=X_{\geq 0}\setminus X_{> 0}$
+ the boundary, by 
+$\partial X$
+ the Zariski closure of 
+$\partial X_{\geq 0}$
+ over 
+$\mathbb{C}$
+,
+ and 
+$C_1,\ldots ,C_r$
+ the irreducible components of 
+$\partial X$
+.
+ The 
+facets
+ of 
+$X_{\geq 0}$
+ are the closures 
+$C_{i,\geq 0}$
+ of the interiors of 
+$C_i\cap X_{\geq 0}$
+ in 
+$C_i(\mathbb{R})$
+.
+
+The tuple 
+$(X,X_{\geq 0})$
+ is a 
+positive geometry
+ if there exists a unique, nonzero, rational⁠
+Footnote
+2
+ differential 
+$d$
+-
+form 
+$\Omega (X,X_{\geq 0})$
+,
+ called the 
+canonical form
+, satisfying the following recursive axioms: If 
+$d=0$
+,
+ then 
+$X=X_{\geq 0}$
+ is a point, and one defines 
+$\Omega (X,X_{\geq 0})=\pm 1$
+,
+ depending on the orientation. If 
+$d>0$
+,
+ one requires that 
+$\Omega (X,X_{\geq 0})$
+ has poles along the boundary components 
+$C_i$
+ only, that these poles are at most simple, and that for each 
+$i=1,\ldots ,r$
+,
+ the residue of 
+$\Omega (X,X_{\geq 0})$
+ along 
+$C_i$
+ is the canonical form of 
+$(C,C_{i,\geq 0})$
+.
+2
+“Rational” in this context means that the differential form is defined in terms of rational functions on the variety 
+$X$
+,
+ i.e., elements of the function field of 
+$X$
+.
+✖
+
+For instance, any closed interval 
+$[a,b]\subset \mathbb{R}$
+ defines a positive geometry 
+$\big (\mathbb{P}_{\mathbb{C}}^1,[a,b]\big )$
+,
+ whose canonical form is 
+$\operatorname {dlog}\big (\frac{x-b}{x-a}\big )$
+ (up to a sign). Note that 
+$(\mathbb{P}_{\mathbb{C}}^1,\mathbb{P}_{\mathbb{R}}^1)$
+ is not a positive geometry: 
+$\partial \mathbb{P}_{\mathbb{R}}^1 = \emptyset$
+,
+ but there is no global differential one-form on 
+$\mathbb{P}_{\mathbb{C}}^1$
+ without any poles.
+
+Example 4
+.
+
+In 
+$\mathbb{P}_{\mathbb{C}}^n$
+ with homogeneous coordinates 
+$x_0,\ldots ,x_n$
+,
+ consider the projective simplex 
+$\Delta ^n=\mathbb{P}_{\geq 0}^n(\mathbb{R})$
+ consisting of points in 
+$\mathbb{P}_{\mathbb{R}}^n$
+ that are representable by nonnegative coordinates. The pair 
+$\left(\mathbb{P}_{\mathbb{C}}^n,\Delta ^n\right)$
+ is a positive geometry. In the affine chart 
+$\{x_0\neq 0\}$
+,
+ denoting 
+$y_i=\frac{x_i}{x_0}$
+,
+ its canonical form is
+
+$$\Omega \left( \mathbb{P}_{\mathbb{C}}^n,\Delta ^n \right) = \wedge _{i=1}^n \frac{\mathrm{d}y_i}{y_i} = \wedge _{i=1}^n \operatorname {dlog}y_i .$$
+
+More generally, also polytopes are positive geometries. Due to the additivity of the canonical form with respect to triangulations, it is sufficient to know the canonical forms of simplices in order to compute that of polytopes. Alternatively, it can obtained in terms of the adjoint of the polytope.
+
+Normal, projective, toric varieties 
+$X_P$
+,
+ with 
+$P$
+ a lattice polytope, constitute further instances of positive geometries: they have a natural, positive part 
+$X_{P,>0}\subset X_P$
+ sitting inside them.
+
+An example of a positive geometry, which is prominent in physics, is the positive Grassmannian, whose construction we recall now. Let 
+$\mathbb{K}$
+ be a field. For natural numbers 
+$k,n\in \mathbb{N}$
+,
+ the set of 
+$k$
+-
+dimensional subspaces of 
+$\mathbb{K}^n$
+,
+ denoted 
+$\operatorname {Gr}_{k,n}(\mathbb{K})$
+,
+ is an algebraic variety in a natural way, called 
+Grassmannian
+. Any point 
+$V$
+ of the Grassmannian can be represented as the row-span of a 
+$k\times n$
+ matrix 
+$M_V$
+ of full rank, with entries in 
+$\mathbb{K}$
+.
+ Let 
+$\binom{[n]}{k}$
+ denote the set of all 
+$k$
+-
+element subsets of 
+$[n]=\{1,\ldots ,n\}$
+.
+ For 
+$I\in \binom{[n]}{k}$
+,
+ the corresponding 
+$k\times k$
+ minor of 
+$M_V$
+ is denoted by 
+$p_I(V)$
+.
+ These minors are called 
+Plücker coordinates
+ of 
+$V$
+.
+ Up to a simultaneous rescaling, they are independent of the choice of the representative 
+$M_V$
+,
+ and they fulfill homogeneous, quadratic relations, called “Plücker relations.” Grassmannians hence are projective varieties via the 
+Plücker embedding
+
+$$\begin{align*} \operatorname {Gr}_{k,n} \longrightarrow \mathbb{P}^{\binom{n}{k}-1},V\mapsto (p_I(V))_{I\in \binom{[n]}{k}} \end{align*}$$
+
+into projective space. The 
+nonnegative Grassmannian
+ (informally called 
+positive Grassmannian
+), denoted 
+$\operatorname {Gr}_{k,n}^{\geq 0}$
+,
+ is the semi-algebraic subset of 
+$\operatorname {Gr}_{k,n}(\mathbb{R})$
+,
+ where all Plücker coordinates are nonnegative.
+
+Example 5
+.
+
+Consider the matrix 
+$M_V=\left[\begin{smallmatrix} 1 & 0 & -2 & -6\\ 0 &1 &1 &3 \end{smallmatrix}\right]$
+ of full rank. Its row span corresponds to a point 
+$V\in \operatorname {Gr}_{2,4}(\mathbb{R})$
+.
+ Since 
+$p_{12}(M_V) = 1$
+,
+
+$p_{13}(M_V) = 1$
+,
+
+$p_{14}(M_V) = 3$
+,
+
+$p_{23}(M_V) = 2$
+,
+
+$p_{24}(M_V) = 6$
+,
+ and 
+$p_{34}(M_V) = 0$
+,
+
+$M_V$
+ represents a point in 
+$\operatorname {Gr}_{2,4}^{\geq 0}$
+.
+
+By 
+13
+, 
+Theorem 9
+, the pair 
+$(\operatorname {Gr}_{k,n}, \operatorname {Gr}_{k,n}^{\geq 0})$
+ is a simplex-like positive geometry. Its faces are called 
+positroid cells
+, and their Zariski closures are 
+positroid varieties
+. Images of positive Grassmannians under “positive” linear maps are called 
+amplituhedra
+, as introduced by Arkani-Hamed and Trnka 
+5
+. To be precise, the amplituhedron 
+$\mathcal{A}_{k,n,m}(Z)\subset \operatorname {Gr}_{k,k+m}$
+ is the image of 
+$\operatorname {Gr}_{k,n}^{\geq 0}$
+ under a linear map that is induced by right multiplication by a real 
+$n\times (k+m)$
+ matrix 
+$Z$
+,
+ all of whose maximal minors are positive. It is conjectured that also amplituhedra are positive geometries.
+
+In their recent work 
+7
+, Brown and Dupont define logarithmic canonical forms using relative homology and mixed Hodge theory.
+
+5
+.
+
+Interactions
+
+In this last section, we showcase a small assortment of the main problems and questions driving some of the recent research directions in this interplay between algebra, combinatorics, geometry, and physics.
+
+In order to deal with divergent integrals, dimensional regularization allows the spacetime dimension 
+$D=4-2\varepsilon$
+ to be noninteger. In this framework, a common strategy in particle physics is to construct matrix differential equations behind Feynman integrals in 
+“
+$\varepsilon$
+-
+factorized form,” i.e., of the form 
+$\mathrm{d}{\mathcal{I}}=\varepsilon M\mathcal{I}$
+,
+ with 
+${\mathcal{I}}$
+ a vector of master integrals, see Section 
+4.1
+. This special form is beneficial, since for such systems, Laurent series solutions in 
+$\varepsilon$
+ can be computed via the path-ordered exponential formalism. In 
+10
+, Gröbner basis techniques in the Weyl algebra are used to simplify and solve linear PDEs behind Feynman integrals. PDEs in cosmology are tackled in 
+3
+8
+, where the 
+$\varepsilon$
+-
+factorized form of the differential equation was made explicit. The structure of the differential equations naturally carries a strong combinatorial flavor, leading to a variety of intriguing open questions.
+
+The drive to improve techniques for deriving differential equations stems from the computational challenges posed by physics. As the complexity of fundamental interactions increases—such as when considering graphs with more cycles and intricate topologies—the number of parameters grows significantly. Additionally, the exceptional nature of the parameters in physics suggests to focus also on nongeneric cases. This effort employs techniques from nonlinear algebra 
+15
+, which uses both symbolic and numerical methods, like Gröbner basis computations and homotopy continuation. Various software and programming languages, including 
+Julia
+, 
+Macaulay2
+, 
+Maple
+, 
+Mathematica
+, 
+Polymake
+, 
+Sage
+, and 
+Singular
+, offer effective tools for these computations.
+
+The interplay between symbolic and numerical techniques is a key strength linking the problem of maximum likelihood estimation in algebraic statistics to the study of scattering equations in particle physics, as first established in 
+18
+. Both fields involve maximizing a logarithmic function and counting the solutions to a system of rational equations over a very affine variety. For instance, the likelihood equations for the moduli space 
+$\mathcal{M}_{0,n}$
+ of 
+$n$
+ marked points on a curve of genus 
+$0$
+—when
+ interpreted as a statistical model—are the scattering equations for an 
+$n$
+-
+point tree-level scattering process. This connection allows methods from likelihood geometry to be applied to the investigation of scattering amplitudes. Moreover, the development of degeneration techniques for solving such systems is an emerging area of research.
+
+Positive Grassmannians serve as the space of kinematic parameters. Their images under positive linear maps, namely amplituhedra, encode properties of scattering amplitudes in planar 
+$\mathcal{N}=4$
+ SYM theory and drastically simplify the computation of gluon amplitudes. The scattering amplitude is conjecturally obtained by the canonical form of the amplituhedron at tree-level, and as the integral over a regulator function against the canonical form of the amplituhedron at loop-level, see 
+5
+, 
+p. 17
+ for the definition of the loop amplituhedron. In practice, the canonical form is computed via subdivisions into positroid cells, referred to as “BCFW triangulations.” The goal of proving the positive nature of the amplituhedron opens a research area towards understanding, e.g., subdivisions and boundaries of the amplituhedron with ideas being inspired from the theory of matroids, tropical geometry, and cluster algebras; see 
+20
+ and the references therein. Current efforts aim to extend the use of positive geometries to further QFTs.
+
+We intended to provide a glimpse into the main research areas within the context we are discussing, but the connections and questions are wide-ranging. Among these, we stress the link between moduli spaces and quantum field theory, nonvanishing classes of cohomology of graph complexes and Feynman integrals, cluster and flag varieties in the context of spinor-helicity varieties, as well as connection and Macaulay matrices. In short, physics suggests new, intriguing mathematical structures. It is now left to the community to catch up with nailing down the details of the emerging mathematical objects and theories, and to attest them. As verified by various fruitful and successful collaborations, important first steps have already been taken.
+
+Acknowledgments
+
+CF has received funding from the European Union’s Horizon 2020 research and innovation programme under the Marie Skłodowska-Curie grant agreement No 101034255. The research of ALS is funded by the European Union (ERC, UNIVERSE PLUS, 101118787). Views and opinions expressed are, however, those of the author(s) only and do not necessarily reflect those of the European Union or the European Research Council Executive Agency. Neither the European Union nor the granting authority can be held responsible for them.
+
+References
+[
+1
+]
+ D. Agostini, C. Fevola, A.-L. Sattelberger, and S. Telen, 
+Vector spaces of generalized Euler integrals
+, Commun. Number Theory Phys. 
+18
+ (2024), no. 2, 327–370, DOI 
+10.4310/cntp.2024.v18.n2.a2
+. With an appendix by S.-J. Matsubara-Heo. MR
+4776160
+, 
+
+Show raw
+AMSref
+
+\bib{AFST22}{article}{
+ author={Agostini, Daniele},
+ author={Fevola, Claudia},
+ author={Sattelberger, Anna-Laura},
+ author={Telen, Simon},
+ title={Vector spaces of generalized Euler integrals},
+ note={With an appendix by S.-J. Matsubara-Heo},
+ journal={Commun. Number Theory Phys.},
+ volume={18},
+ date={2024},
+ number={2},
+ pages={327--370},
+ issn={1931-4523},
+ review={\MR {4776160}},
+ doi={10.4310/cntp.2024.v18.n2.a2},
+}
+
+[
+2
+]
+ N. Arkani-Hamed, Y. Bai, and T. Lam, 
+Positive geometries and canonical forms
+, J. High Energy Phys. 
+11
+ (2017), 039, front matter+121, DOI 
+10.1007/jhep11(2017)039
+. MR
+3747267
+, 
+
+Show raw
+AMSref
+
+\bib{PosGeom}{article}{
+ author={Arkani-Hamed, Nima},
+ author={Bai, Yuntao},
+ author={Lam, Thomas},
+ title={Positive geometries and canonical forms},
+ journal={J. High Energy Phys.},
+ date={2017},
+ number={11},
+ pages={039, front matter+121},
+ issn={1126-6708},
+ review={\MR {3747267}},
+ doi={10.1007/jhep11(2017)039},
+}
+
+[
+3
+]
+N. Arkani-Hamed, D. Baumann, A. Hillman, A. Joyce, H. Lee, and G. L. Pimentel, 
+Differential Equations for Cosmological Correlators
+, preprint 
+arXiv:2312.05303
+, 2023.
+[
+4
+]
+N. Arkani-Hamed, P. Benincasa, and A. Postnikov, 
+Cosmological Polytopes and the Wavefunction of the Universe
+, preprint 
+arXiv:1709.02813
+, 2017.
+[
+5
+]
+N. Arkani-Hamed and J. Trnka, 
+The Amplituhedron
+, J. High Energy Phys. 
+2014
+, no. 30.
+[
+6
+]
+C. Fevola, S. Mizera, and S. Telen, 
+Principal Landau Determinants
+, Comput. Phys. Commun. 
+303
+ (2024), 109278.
+[
+7
+]
+F. Brown and C. Dupont, 
+Positive geometries and canonical forms via mixed Hodge theory
+, preprint 
+arXiv:2501.03202
+, 2025.
+[
+8
+]
+C. Fevola, G. L. Pimentel, A.-L. Sattelberger, and T. Westerdijk, 
+Algebraic Approaches to Cosmological Integrals
+, Le Matematiche 
+80
+ (2025), no. 1, 303–324. Special Volume on Positive Geometry.
+[
+9
+]
+ I. M. Gel′fand, M. M. Kapranov, and A. V. Zelevinsky, 
+Generalized Euler integrals and 
+$A$
+-
+hypergeometric functions
+, Adv. Math. 
+84
+ (1990), no. 2, 255–271, DOI 
+10.1016/0001-8708(90)90048-R
+. MR
+1080980
+, 
+
+Show raw
+AMSref
+
+\bib{GKZ90}{article}{
+ author={Gel\cprime fand, I. M.},
+ author={Kapranov, M. M.},
+ author={Zelevinsky, A. V.},
+ title={Generalized Euler integrals and $A$-hypergeometric functions},
+ journal={Adv. Math.},
+ volume={84},
+ date={1990},
+ number={2},
+ pages={255--271},
+ issn={0001-8708},
+ review={\MR {1080980}},
+ doi={10.1016/0001-8708(90)90048-R},
+}
+
+[
+10
+]
+ J. Henn, E. Pratt, A.-L. Sattelberger, and S. Zoia, 
+$D$
+-
+module techniques for solving differential equations in the context of Feynman integrals
+, Lett. Math. Phys. 
+114
+ (2024), no. 3, Paper No. 87, 51, DOI 
+10.1007/s11005-024-01835-7
+. MR
+4762125
+, 
+
+Show raw
+AMSref
+
+\bib{HPSZ23}{article}{
+ author={Henn, Johannes},
+ author={Pratt, Elizabeth},
+ author={Sattelberger, Anna-Laura},
+ author={Zoia, Simone},
+ title={$D$-module techniques for solving differential equations in the context of Feynman integrals},
+ journal={Lett. Math. Phys.},
+ volume={114},
+ date={2024},
+ number={3},
+ pages={Paper No. 87, 51},
+ issn={0377-9017},
+ review={\MR {4762125}},
+ doi={10.1007/s11005-024-01835-7},
+}
+
+[
+11
+]
+ R. Hotta, K. Takeuchi, and T. Tanisaki, 
+$D$
+-
+modules, perverse sheaves, and representation theory
+, Progress in Mathematics, vol. 236, Birkhäuser Boston, Inc., Boston, MA, 2008. Translated from the 1995 Japanese edition by Takeuchi, DOI 
+10.1007/978-0-8176-4523-6
+. MR
+2357361
+, 
+
+Show raw
+AMSref
+
+\bib{HTT08}{book}{
+ author={Hotta, Ryoshi},
+ author={Takeuchi, Kiyoshi},
+ author={Tanisaki, Toshiyuki},
+ title={$D$-modules, perverse sheaves, and representation theory},
+ series={Progress in Mathematics},
+ volume={236},
+ note={Translated from the 1995 Japanese edition by Takeuchi},
+ publisher={Birkh\"{a}user Boston, Inc., Boston, MA},
+ date={2008},
+ pages={xii+407},
+ isbn={978-0-8176-4363-8},
+ review={\MR {2357361}},
+ doi={10.1007/978-0-8176-4523-6},
+}
+
+[
+12
+]
+ P. Lairez, E. Pichon-Pharabod, and P. Vanhove, 
+Effective homology and periods of complex projective hypersurfaces
+, Math. Comp. 
+93
+ (2024), no. 350, 2985–3025, DOI 
+10.1090/mcom/3947
+. MR
+4780353
+, 
+
+Show raw
+AMSref
+
+\bib{LPPV24}{article}{
+ author={Lairez, Pierre},
+ author={Pichon-Pharabod, Eric},
+ author={Vanhove, Pierre},
+ title={Effective homology and periods of complex projective hypersurfaces},
+ journal={Math. Comp.},
+ volume={93},
+ date={2024},
+ number={350},
+ pages={2985--3025},
+ issn={0025-5718},
+ review={\MR {4780353}},
+ doi={10.1090/mcom/3947},
+}
+
+[
+13
+]
+ T. Lam, 
+An invitation to positive geometries
+, Open problems in algebraic combinatorics, Proc. Sympos. Pure Math., vol. 110, Amer. Math. Soc., Providence, RI, [2024] ©2024, pp. 159–179. MR
+4780729
+, 
+
+Show raw
+AMSref
+
+\bib{Lam}{article}{
+ author={Lam, Thomas},
+ title={An invitation to positive geometries},
+ conference={ title={Open problems in algebraic combinatorics}, },
+ book={ series={Proc. Sympos. Pure Math.}, volume={110}, publisher={Amer. Math. Soc., Providence, RI}, },
+ date={[2024] \copyright 2024},
+ pages={159--179},
+ review={\MR {4780729}},
+}
+
+[
+14
+]
+ P. Mastrolia and S. Mizera, 
+Feynman integrals and intersection theory
+, J. High Energy Phys. 
+2
+ (2019), 139, front matter + 24, DOI 
+10.1007/jhep02(2019)139
+. MR
+3925235
+, 
+
+Show raw
+AMSref
+
+\bib{MastroliaMizera}{article}{
+ author={Mastrolia, Pierpaolo},
+ author={Mizera, Sebastian},
+ title={Feynman integrals and intersection theory},
+ journal={J. High Energy Phys.},
+ date={2019},
+ number={2},
+ pages={139, front matter + 24},
+ issn={1126-6708},
+ review={\MR {3925235}},
+ doi={10.1007/jhep02(2019)139},
+}
+
+[
+15
+]
+ M. Michałek and B. Sturmfels, 
+Invitation to nonlinear algebra
+, Graduate Studies in Mathematics, vol. 211, American Mathematical Society, Providence, RI, [2021] ©2021, DOI 
+10.1090/gsm/211
+. MR
+4423369
+, 
+
+Show raw
+AMSref
+
+\bib{NonlinearAlgebra}{book}{
+ author={Micha\l ek, Mateusz},
+ author={Sturmfels, Bernd},
+ title={Invitation to nonlinear algebra},
+ series={Graduate Studies in Mathematics},
+ volume={211},
+ publisher={American Mathematical Society, Providence, RI},
+ date={[2021] \copyright 2021},
+ pages={xiii+226},
+ isbn={978-1-4704-5367-1},
+ review={\MR {4423369}},
+ doi={10.1090/gsm/211},
+}
+
+[
+16
+]
+K. Ranestad, B. Sturmfels, and S. Telen, 
+What is Positive Geometry?
+, Le Matematiche 
+80
+ (2025), no. 1, 3–16. Special Volume on Positive Geometry.
+[
+17
+]
+ M. Saito, B. Sturmfels, and N. Takayama, 
+Gröbner deformations of hypergeometric differential equations
+, Algorithms and Computation in Mathematics, vol. 6, Springer-Verlag, Berlin, 2000, DOI 
+10.1007/978-3-662-04112-3
+. MR
+1734566
+, 
+
+Show raw
+AMSref
+
+\bib{SST00}{book}{
+ author={Saito, Mutsumi},
+ author={Sturmfels, Bernd},
+ author={Takayama, Nobuki},
+ title={Gr\"{o}bner deformations of hypergeometric differential equations},
+ series={Algorithms and Computation in Mathematics},
+ volume={6},
+ publisher={Springer-Verlag, Berlin},
+ date={2000},
+ pages={viii+254},
+ isbn={3-540-66065-8},
+ review={\MR {1734566}},
+ doi={10.1007/978-3-662-04112-3},
+}
+
+[
+18
+]
+ B. Sturmfels and S. Telen, 
+Likelihood equations and scattering amplitudes
+, Algebr. Stat. 
+12
+ (2021), no. 2, 167–186, DOI 
+10.2140/astat.2021.12.167
+. MR
+4350875
+, 
+
+Show raw
+AMSref
+
+\bib{ST21}{article}{
+ author={Sturmfels, Bernd},
+ author={Telen, Simon},
+ title={Likelihood equations and scattering amplitudes},
+ journal={Algebr. Stat.},
+ volume={12},
+ date={2021},
+ number={2},
+ pages={167--186},
+ issn={2693-2997},
+ review={\MR {4350875}},
+ doi={10.2140/astat.2021.12.167},
+}
+
+[
+19
+]
+ S. Weinzierl, 
+Feynman integrals—a comprehensive treatment for students and researchers
+, Unitext for Physics, Springer, Cham, [2022] ©2022, DOI 
+10.1007/978-3-030-99558-4
+. MR
+4461090
+, 
+
+Show raw
+AMSref
+
+\bib{Weinzierl}{book}{
+ author={Weinzierl, Stefan},
+ title={Feynman integrals---a comprehensive treatment for students and researchers},
+ series={Unitext for Physics},
+ publisher={Springer, Cham},
+ date={[2022] \copyright 2022},
+ pages={xiv+857},
+ isbn={978-3-030-99557-7},
+ isbn={978-3-030-99558-4},
+ review={\MR {4461090}},
+ doi={10.1007/978-3-030-99558-4},
+}
+
+[
+20
+]
+ L. K. Williams, 
+The positive Grassmannian, the amplituhedron, and cluster algebras
+, ICM—International Congress of Mathematicians. Vol. 6. Sections 12–14, EMS Press, Berlin, [2023] ©2023, pp. 4710–4737. MR
+4680421
+, 
+
+Show raw
+AMSref
+
+\bib{Williams}{article}{
+ author={Williams, Lauren K.},
+ title={The positive Grassmannian, the amplituhedron, and cluster algebras},
+ conference={ title={ICM---International Congress of Mathematicians. Vol. 6. Sections 12--14}, },
+ book={ publisher={EMS Press, Berlin}, },
+ date={[2023] \copyright 2023},
+ pages={4710--4737},
+ review={\MR {4680421}},
+}
+
+Claudia Fevola is a postdoctoral fellow at Inria Saclay. Her email address is 
+[email protected]
+.
+
+Anna-Laura Sattelberger is a group leader at the Max Planck Institute for Mathematics in the Sciences in Leipzig. Her email address is 
+[email protected]
+.
+
+Article DOI: 
+10.1090/noti3220
+Credits
+
+Figures 1 and 3–5 are courtesy of the authors.
+
+Figure 2 is courtesy of 
+ESA and the Planck Collaboration
+, 2013.
+
+Photos of the authors are courtesy of the Max Planck Institute for Mathematics in the Sciences.
+

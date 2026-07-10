@@ -1,0 +1,299 @@
+
+
+The Univalence Principle | The n-Category Café
+
+The n-Category Café
+
+A group blog on math, physics and philosophy
+
+Skip to the Main Content
+
+Enough, already! Skip to the content.
+
+Note:These pages make extensive use of the latest XHTML and CSS Standards. They ought to look great in any standards-compliant modern browser. Unfortunately, they will probably look horrible in older browsers, like Netscape 4.x and IE 4.x. Moreover, many posts use MathML, which is, currently only supported in Mozilla. My best suggestion (and you will thank me when surfing an ever-increasing number of sites on the web which have been crafted to use the new standards) is to upgrade to the latest version of your browser. If that's not possible, consider moving to the Standards-compliant and open-source Mozilla browser.
+
+« Categorifying Riemann’s Functional Equation |
+
+Main
+| A Typed Language for Agent Coordination »
+
+February 11, 2026
+
+The Univalence Principle
+
+Posted by Mike Shulman
+
+(guest post by Dimitris Tsementzis, about joint work with Benedikt Ahrens, Paige North, and Mike Shulman)
+
+The Univalence Principle is the informal statement that equivalent mathematical structures are indistinguishable. 
+There are various ways of making this statement formally precise, and a long history of work that does so.
+In our recently-published (but long in the making!) book we proved to our knowledge the most general version of this principle, which applies to set-based, categorical, and higher-categorical structures defined in a non-algebraic and space-based style, as well as models of higher-order theories such as topological spaces.
+
+This work achieves three main goals. 
+Firstly, it greatly extends the “Structure Identity Principle” from the original HoTT book, to include any (finite) level of structure, instead of just set-based structures, thus establishing in the strongest sense yet made precise that the Univalent Foundations provide an equivalence-invariant foundation for higher-categorical mathematics.
+Secondly, it provides very general novel definitions of equivalence between structures and between objects in a given structure that “compile” to most known notions of equivalence in known cases, but which can also be used to suggest notions in new settings; in doing so it extends M. Makkai’s classic work on First Order-Logic with Dependent Sorts (FOLDS).
+Thirdly, the setting in which our result is proved (a form of Two-Level Type Theory) provides a framework in which to do metamathematics in the Univalent Foundations/HoTT, i.e. carry out the mathematical study of how mathematics is formalized in UF/HoTT.
+The Univalence Principle we prove is a foundational metamathematical result in that sense.
+
+Setting the Stage
+
+Any “Univalence Principle” type of result has the following form:
+
+∀M,N∈Structures(ℒ),(M≃ ℒN)≃(M=N)
+\forall M, N \in Structures(\mathcal{L}), (M \simeq_\mathcal{L} N) \simeq (M = N) 
+
+The result gains in strength if the class of Structures(ℒ)Structures(\mathcal{L}) is as large as possible, and the notion of equivalence M≃ ℒNM \simeq_{\mathcal{L}} N between them coincides with known notions of equivalence in practice (where ℒ\mathcal{L} is a placeholder for a notion of signature in terms of which MM and NN are structures).
+Such a result also gains in strength if the middle notion of equivalence is as “structural” as possible, ensuring that not only properties of the structures are preserved, but also constructions built on top of them. 
+This last feature can only really be pursued within a univalent type theory, like HoTT.
+
+In our work, we define: diagrammatic signatures ℒ\mathcal{L} as inverse categories of finite height, ℒ\mathcal{L}-structures as Reedy-fibrant functors ℒ→𝒰\mathcal{L} \to \mathcal{U}, and a notion of indiscernibility relating objects within structures, which yields a derived notion of equivalence ≃ ℒ\simeq_{\mathcal{L}} between structures (essentially structure-preserving bijections up to indiscernibility). 
+The primitive notions ≃\simeq and == are given by equivalence and equality in 2LTT, appropriately defined. 
+
+Signatures, Structures (and where they live)
+
+Two-level type theory (2LTT)
+
+In 2LTT, there is an external level for exo-types and other exo-gizmos (allowing strictly functorial constructions), and the usual fibrant (HoTT/UF) level where mathematical objects live.
+The external level is the metamathematical or syntactic level, where a strict equality exists that allows us to define syntax and symbols.
+Our exo-gizmos are analogous to sets of syntactical symbols used to define signatures in first-order logic.
+
+Such syntax consists of categories with strict equality on composition, which we call exo-categories.
+Equalities here are strict (exo-equalities), while the internal world has homotopical paths.
+The 2LTT setting is convenient for type-theoretic reasoning, and allows us to neatly separate the various notions of equality at play.
+
+Diagram signatures are inverse categories of finite height
+
+A diagram signature ℒ\mathcal{L} is an inverse exo-category of finite height equipped with a rank functor
+rk:ℒ⟶(ℕ exo) op
+\mathrm{rk}:\mathcal{L} \longrightarrow (\mathbb{N}^{\mathrm{exo}})^{\mathrm{op}}
+
+that reflects identities. Objects of ℒ\mathcal{L} are the sorts (analogous to “sorts” in first-order logic); morphisms encode dependencies (“an arrow depends on a pair of objects,” etc.). Inverse-ness gives matching objects and allows Reedy methods to apply.
+
+To illustrate the idea, take the example of a reflexive graph. The diagram signature for reflexive graphs would be given by the following inverse (exo-)category
+
+I ↓ i A ↓ c↓ d O
+\array{
+I \\
+\downarrow^i \\
+A \\
+\downarrow_{c} \;\; \downarrow_{d} \\
+O
+}
+
+where ci=dic i = d i. The intuition is that we have a sort AA of “arrows” between any two objects, and a predicate II (“identity”) that can be used to select which arrows are identity arrows with the relation ensuring that this predicate can only be “asked” of loops. 
+
+Structures are Reedy fibrant diagrams over these signatures
+
+Given this notion of a signature, a structure in our sense is simply a (Reedy fibrant) functor ℒ→𝒰\mathcal{L} \to \mathcal{U}. In more detail, a raw ℒ\mathcal{L}-diagram is an exo-functor 
+M:ℒ→𝒰 exo
+M:\mathcal{L}\to\mathcal{U}^{\mathrm{exo}}
+
+For each sort KK, the matching object 𝕄 KM\mathbb{M}_{K}M collects the compatible lower-rank data needed to specify the “boundary” for an element of MKM K. The Reedy fibrancy condition is: the canonical boundary map M K→𝕄 KMM_K\to \mathbb{M}_{K}M is a fibration (i.e., a dependent type) for each KK.
+The category of such Reedy-fibrant diagrams then forms a fibrant type Str(ℒ)\mathrm{Str}(\mathcal{L}) whose points are the ℒ\mathcal{L}-structures. 
+
+To illustrate with the example of ℒ rg\mathcal{L}_{rg} from above, an ℒ rg\mathcal{L}_{rg}-structure GG in our sense would be given by the following data, in type-theoretic notation:
+
+A type GO:𝒰GO:\mathcal{U}
+
+A family GA:GO×GO→𝒰GA: GO\times GO\to\mathcal{U} dependent on GOGO 
+
+A family GI:∏ xGA(x,x)→𝒰GI:\prod_x GA(x,x)\to\mathcal{U} for the “identity”
+
+The trick here is to ensure the repeated xx in the definition of GIGI, obeying the relations of the signature.
+This is what the matching object machinery achieves for arbitrary signatures.
+
+Other examples of ℒ\mathcal{L}-structures include: categories (with sorts for objects and morphisms), groupoids, nn-categories for any nn, preorders, and models of higher-order theories like topological spaces and sup-lattices.
+Furthermore, all of what we say applies to theories with axioms (not just structures), which we define in the book too.
+
+Indiscernibility and local univalence
+
+With our formal set-up complete, we address the central question: for arbitrary signatures ℒ\mathcal{L}, when are two “objects” in an ℒ\mathcal{L}-structure equivalent?
+Such an “object” could be a categorical (or higher-categorical) gadget itself when ℒ\mathcal{L} has height >2\gt 2, e.g. the “objects” of 2−Cat\mathbf{2-}\mathbf{Cat} are themselves categories, which are ℒ′\mathcal{L}'-structures for an ℒ′\mathcal{L}' of lower height.
+The key idea is: two “objects” are indiscernible if nothing in the signature can distinguish them…up to indiscernibility!
+
+Indiscernibilities and Local Univalence
+
+Fix a signature ℒ\mathcal{L}, an ℒ\mathcal{L}-structure MM, a rank 00 (“bottom”) sort K:ℒ(0)K: \mathcal{L}(0), and elements a,b:MKa,b:M K.
+Think of KK as a “set” of objects (e.g. of a category) on top of which properties and structures are defined.
+
+To define when aa and bb are indiscernible, we package together everything that could distinguish them. The intuition is: if there is an equivalence between “everything you can say about aa” and “everything you can say about bb” (outside of directly referencing aa or bb themselves), then they are indiscernible.
+We achieve this through a formal definition of a “boundary” ∂ aM\partial_a M, which one can think of as the ℒ\mathcal{L}-structure that contains everything that could distinguish aa in MKMK from anything else in MKMK. 
+Which naturally leads us to the following definitions.
+
+Definition (Indiscernibility). We say that a,b:MKa,b : MK are indisernible, written a≈ba\approx b, iff there is a levelwise equivalence ∂ aM≃∂ bM\partial_a M \simeq \partial_b M that is coherent in the right way.
+
+Definition (Univalent Structure). We say that MM is locally univalent at K if the canonical map
+ (a=b)⟶(a≈b)
+ (a=b) \;\longrightarrow\; (a\approx b)
+
+ is an equivalence. We then say a structure MM is univalent if this holds at all rank-0 sorts and (recursively) for all sorts of higher rank.
+
+We prove our main results for univalent ℒ\mathcal{L}-structures. These are quite special in that they are “saturated” in their equivalence information: two indistinguishable gizmos are actually equal. Or, put differently: when there is not “enough” structure to distinguish two gizmos, there is always enough to prove them equivalent. Some examples to illustrate (see Part 2 of the book for many more!):
+
+In a reflexive graph structure, two nodes aa and bb are indiscernible iff they have the same number of arrows coming in and out, and the same number of loops that are identities.
+
+In a category, two objects are indiscernible iff they are isomorphic. A univalent category is precisely a category (precategory in UF) that is locally univalent at the sort of its objects.
+
+In an appropriately defined bicategory, an indiscernibility amounts to a pair of coherent adjoint equivalenes, as expected. 
+
+Equivalences of structures
+
+We are almost there! On to the final missing piece: equivalences between structures themselves.
+Let f:M→Nf:M\to N be a morphism of ℒ\mathcal{L}-structures, defined in the expected way (as a natural transformation between the corresponding 𝒰\mathcal{U}-valued functors). Then, for each sort KK, we have a matching square
+
+MK f K→ NK ↓ ↓ 𝕄 KM 𝕄 Kf→ ℕ KN
+\array{
+MK & \overset{\rightarrow}{f_K} & NK\\
+\downarrow & & \downarrow \\
+\mathbb{M}_KM & \overset{\rightarrow}{\mathbb{M}_K f} & \mathbb{N}_KN
+}
+
+and for each “context” z:𝕄 KMz: \mathbb{M}_KM an induced fiber map
+f K,z:(MK) z⟶(NK) 𝕄 Kf(z).
+f_{K,z}: (MK)_z \longrightarrow (NK)_{\,\mathbb{M}_K f(z)}.
+
+Write ≈\approx for indiscernibility at sort KK (as above). Then, what we really want to say now is: MM, NN are equivalent if they are “level-wise equivalent up to indiscernibility”. This idea gives us the ≃ ℒ\simeq_{\mathcal{L}} from the beginning, and we define it as follows:
+
+Definition (Equivalence of ℒ\mathcal{L}-structures). ff is an equivalence if, for every sort KK, every z:𝕄 KMz : \mathbb{M}_KM, and every y:(N K) 𝕄 Kf(z)y : (N_K)_{\mathbb{M}_K f(z)}, there exists a specified x:(MK) zx : (MK)_z with
+ f K,z(x)≈y
+ f_{K,z}(x)\;\approx\; y
+
+ i.e., f K,zf_{K,z} is essentially split surjective up to indiscernibility on each fiber. We write M≃ ℒNM \simeq_{\mathcal{L}} N for the type of equivalences.
+
+The key innovation is the “up to indiscernibility” part; it makes our notion significantly weaker than usual notions, and hence the final result stronger.
+Note that we have not been able to prove our result without a splitness condition in the definition of equivalence, and to our mind this remains an open problem.
+
+Our definition is related to Makkai’s original notion of FOLDS equivalence, but Makkai was not able to define a general notion of non-surjective equivalence directly, relying instead on spans. Our notion of indiscernibility circumvents this difficulty and allows us to consider the whole structure of equivalences between structures.
+
+The Univalence Principle
+
+With all our apparatus in place we prove our main result, a very general form of a univalence principle, as promised.
+
+Theorem (“The Univalence Principle”).
+For a signature ℒ\mathcal{L} and univalent ℒ\mathcal{L}-structures M,NM,N, the canonical map
+(M=N)⟶(M≃ ℒN)
+(M = N) \;\longrightarrow\; (M \simeq_{\mathcal{L}} N)
+
+is an equivalence of types. In other words,
+(M=N)≃(M≃ ℒN)(M = N) \simeq (M \simeq_{\mathcal{L}} N).
+
+The proof proceeds by induction on the height of ℒ\mathcal{L}. The key insight is that level-wise equivalences between univalent structures must “reflect indiscernibilities”: if ff doesn’t preserve the ability to distinguish elements, then whatever structure distinguishes them in the source would transfer to structure distinguishing their images in the target, contradicting the equivalence.
+With the splitness assumption in the map and the assumption of univalence (of our ℒ\mathcal{L}-structure), we are able to achieve the lifting of the indiscernibility.
+
+Our result is actually proved for an even more general class of signatures called functorial signatures, which strictly extends diagram signatures and covers “higher-order” situations (topological spaces, suplattices, DCPOs, etc.).
+We have stuck to the diagrammatic view in this post for intuition, but all results and definitions carry over to this more general notion.
+
+Conclusion
+
+In the course of this work there were quite a few questions we tried to answer, but could not. To mention a couple: Can we define a Rezk completion for arbitrary structures, providing a universal way to turn any structure into a univalent one? Can we remove the splitness condition from our definition of equivalence between structures? We list more open problems at the end of the book.
+
+Beyond our specific result, the framework in which it is proven establishes a way to answer metamathematical questions around the univalence axiom in a precise and fruitful way.
+It is important to emphasize that carrying out this type of mathematical study does not require choosing one foundation over the other. 
+In any setting that interprets the fibrant part of 2LTT, the univalence principle will hold, including in set theory.
+
+The metamathematics of UF is the mathematical study of formalizing mathematics in terms of a hierarchy of hh-levels vs. a cumulative hierarchy of sets.
+Formalizing mathematics in this way has all sorts of unique mathematical properties.
+The Univalence Principle is one of them.
+
+Posted at February 11, 2026 2:26 AM UTC
+
+TrackBack URL for this Entry:   https://golem.ph.utexas.edu/cgi-bin/MT-3.0/dxy-tb.fcgi/3629
+
+Some Related Entries
+
+ Search for other entries:
+
+ Semi-Simplicial Types, Part II: The Main Results —
+Apr 15, 2024
+
+ Semi-Simplicial Types, Part I: Motivation and History —
+Mar 09, 2024
+
+ Postdoctoral Position in HoTT at Johns Hopkins University —
+Jan 03, 2021
+
+ Homotopy Type Theory Electronic Seminar Talks —
+Sep 06, 2019
+
+ Univalence in (∞,1)-toposes —
+Apr 17, 2019
+
+ Homotopy Type Theory Electronic Seminar —
+Feb 08, 2018
+
+ Internal Languages of Higher Categories II —
+Nov 22, 2017
+
+ A Type Theory for Synthetic ∞-Categories —
+May 24, 2017
+
+4 Comments & 0 Trackbacks
+
+Re: The Univalence Principle
+
+Why is this published today in 2026 when the book it links to is a 2022 arXiv submission?
+
+well, AMS just published the book in softcover
+
+Posted by:
+RodMcGuire on February 12, 2026 7:59 PM | Permalink
+
+| Reply to this
+
+Re: The Univalence Principle
+
+I think you answered your own question. Four years from preprint to publication is a bit long, but it (and even longer delays) happen. And there are also delays in getting from publication to blog post…
+
+Posted by:
+Mike Shulman on February 12, 2026 8:08 PM | Permalink
+
+| Reply to this
+
+Re: The Univalence Principle
+
+Correct, “recently published” should be read more as “recently (with respect to preprint completion) published”…
+
+Posted by:
+Dimitris on February 13, 2026 6:05 PM | Permalink
+
+| Reply to this
+
+Re: The Univalence Principle
+
+OT: OT as only result for any of my posts due to relative mathematical ignorance.
+
+I just wanted to say something about a musing of mine own that ‘seems’ to conflate with general math knowledge. You be the judge. Then a question to which I own no right to a reply.
+
+Was reading for the first time about what HoTT purports to be. Came the feeling that an UV-crisis might be sitting there, and did any real mathers say anything like that. My suspicion lay with TT and its seeming gumption to say it CAN type without knowing all types.
+
+Long Google story short: I think a reportable percentage of Mathemeticians also wonder about the soundness of the TT part of HoTT. 
+
+My query to Google:
+Do any recognized voices within the Mathematics community suggest that Type Theory suffers from a form of “UV Crisis”?
+
+Google’s reply (AI overview):
+While “UV Crisis” (or Ultraviolet Catastrophe) is a term specifically from 20th-century physics—referring to the classical prediction of infinite energy at short wavelengths—there are recognized voices within the foundations of mathematics and computer science who argue that Type Theory (particularly Homotopy Type Theory or Intensional Type Theory) faces a similar “metamathematical catastrophe” regarding the difficulty of managing its consistency and semantic interpretation as it scales to match set theory.
+
+My question: Knowing there are numerous logics and maths that have been applied to TT I feel it is likely that such efforts have shrunk the space for contradictions, especially the maths involving coherence issues. Still, not to be loud and question this without better understanding FIRST, but since better understanding is an iffy thing with me I ask:
+
+Do we not require more assurance that Type Theory is not sorta Ad Hoc?
+
+If this question is worth reply then I pre-emptively ask that the reply be to your fellow mathematicians and not myself. Math On!
+
+Posted by:
+Kevin MacDonald on February 21, 2026 1:34 AM | Permalink
+
+| Reply to this
+
+Post a New Comment
+
+Access Keys:
+
+0Accessibility Statement
+1Main Page
+2Skip to Content
+3List of Posts
+4Search
+pPrevious (individual/monthly archive page)
+nNext (individual/monthly archive page)
+

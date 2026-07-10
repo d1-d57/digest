@@ -1,0 +1,455 @@
+
+
+How to Untwist Your Fractions – Feature Column
+
+Skip to content
+
+How to Untwist Your Fractions
+
+In:
+
+2026
+, 
+Algebra and Number Theory
+, 
+Diana Davis
+, 
+Geometry and Topology
+
+Tagged:
+
+Euclidean algorithm
+, 
+knots
+
+You could pick up the torus and rotate it horizontally, as though you are taking the lid off of a jar of peanut butter...
+
+How to Untwist Your Fractions
+
+Diana Davis
+
+Phillips Exeter Academy
+
+A string around a bagel
+
+Here's the problem: your bagel has a torus knot wrapped around it, and you need to untwist it to get it off. How best to do it? The short answer is 
+the Euclidean algorithm
+. The longer answer is a tour of beautiful mathematics combining geometry, dynamical systems, and group theory. Let's get to it!
+
+First, we've got this string around this bagel. Let's suppose that it wraps 12 times through the center hole and goes 5 times around the equator: it's the $(12, 5)$ 
+torus knot
+. I chose 12 and 5 because May 12 is Maryam Mirzakhani's birthday. 
+
+Since we started with the $(12, 5)$ torus knot, the slope of the path is $12/5$. Our goal is to untwist this path until it has slope 0. 
+
+The answer
+
+The answer is to first untwist the bagel twice vertically, then twice horizontally, then twice vertically. Ta-da!
+
+How did we know this, and what is going on here? Read on.
+
+Our tools
+
+The Euclidean algorithm
+
+Suppose you have two positive integers, and you want to know their greatest common divisor (GCD). The best way to find it is to use the 
+Euclidean algorithm
+:
+
+ Subtract the smaller number from the larger number.
+
+ Repeat until the two numbers match.
+
+ Ta-da! That's the GCD.
+
+Example.
+ Bryna Kra is the most recent past president of the AMS, and her birthday is October 6. To find the GCD of 10 and 6:
+
+ (10, 6) — 6 is smaller, so subtract 6 from 10
+
+ (4, 6) — 4 is smaller, so subtract 4 from 6
+
+ (4, 2) — 2 is smaller, so subtract 2 from 4
+
+ (2, 2) — Ta-da! The GCD of 10 and 6 is 2.
+
+People love the Euclidean algorithm because it is fast and efficient. Many people make it even more efficient by subtracting off 
+every
+ multiple of the smaller number at once, but for our purposes, we'll subtract them off one at a time.
+
+Question for you to ponder.
+ Given a birthday, what is the probability that the GCD of the month and day is 1?
+
+Twists of the torus
+
+The "twists" that we will work with are automorphisms of the square torus surface: symmetries that preserve its structure, and take nearby points to nearby points. Rotations are easy examples of such automorphisms: you could pick up the torus and rotate it horizontally, as though you are taking the lid off of a jar of peanut butter, or you could rotate it through the hole, as though you are trying to fix a balled-up sock on your leg. But rotations are 
+not
+ the automorphisms that we will use. The automorphisms that we will use are 
+twists
+, which also come in horizontal and vertical types.
+
+Let's start with the vertical twist. First, you chop the surface with a cut in a vertical plane, as though the torus is a tasty donut that you are going to share with your friend. Leaving one side where it is, you grab the other side, and give it one full twist. Finally, you stick the two sides back together. (Whoops! You're not sharing with your friend after all.) Twisting it exactly one full rotation glues nearby points right back together again, exactly how they were before the twist, so that this is an automorphism of the surface.
+
+What is the effect of the vertical twist on the torus knot? In this case, it transforms the $(12, 5)$ knot into the $(7, 5)$ knot. 
+
+Note that we could have twisted it in the other direction, which would make our trajectory more complicated instead of simpler. That twist would transform the $(12, 5)$ knot to the $(17, 5)$ knot.
+
+Claim.
+ Assuming that 
+$p > q$
+, the simplifying vertical twist as described above takes the $(p, q)$ torus knot to the $(p-q, q)$ torus knot.
+
+Proof.
+ The $(p, q)$ torus knot passes through the hole $p$ times. When you slice it open, there are $q$ intersections with the slice. You untwist this once, and each of these intersections backs out of its passing through the hole, so the resulting trajectory passes through the hole only $p-q$ times. Since you only twisted vertically, the horizontal trips around the equator are not affected, and stay at $q$.
+
+Now let's do the horizontal twist. For this one, you use a sharp knife to open the surface around its equator, as though you are thinking about cutting your bagel in half and adding cream cheese but you are not willing to commit. Leaving the bottom where it is, you grab the top, and untwist it as though you are opening a jar of peanut butter. You give the top a full twist, and stick the two parts back together. (Nope, no cream cheese today.) As above, doing exactly one twist ensures nearby points are stuck back together, so this is an automorphism.
+
+What is the effect of the horizontal twist on the torus knot? It transforms the $(2, 5)$ torus knot to the $(2, 3)$ torus knot. 
+
+Note again that we could have twisted it in the other direction, which would make our trajectory more complicated instead of simpler. That twist would transform the $(2, 5)$ knot to the $(7, 5)$ knot.
+
+Claim.
+ Assuming that 
+$p < q$
+, the simplifying horizontal twist as described above takes the $(p, q)$ torus knot to the $(p, q-p)$ torus knot.
+
+Proof.
+ Analogous to the previous proof, but with the roles of vertical and horizontal switched.
+
+Making your fractions simpler
+
+Now here is the connection to the Euclidean algorithm. We begin with the $(12, 5)$ torus knot. Since $p > q$, we will apply the vertical twist, transforming the $(12, 5)$ knot to the $(7, 5)$ knot:
+
+Since $p > q$ is still true, we apply the vertical twist again, transforming $(7, 5)$ to $(2, 5)$:
+
+Now we have $p < q$, so we apply the horizontal twist. The horizontal twist transforms the $(2, 5)$ knot to the $(2, 3)$ knot:
+
+Since it is still true that $p < q$, we apply the horizontal twist again, transforming $(2, 3)$ to $(2, 1)$:
+
+Now p > q, so we apply the vertical twist twice, taking $(2, 1)$ to $(1, 1)$ to $(0, 1)$:
+
+Ta-da! The equator of our dreams. Finally, we have untwisted our beautiful $(12, 5)$ torus knot trajectory to the most basic, boring trajectory: an equator. We are proud.
+
+Going the other direction
+
+Suppose you want to make a beautiful present for Ingrid Daubechies. Since her birthday is on August 17, naturally you want to give her a torus with the $(17, 8)$ torus knot wrapped around it. Right now, your torus has a basic, boring equator trajectory. What twists should you apply to get the desired knot?
+
+Well, applying the Euclidean algorithm, we have:
+
+$$(17, 8) \xrightarrow{V} (9, 8) \xrightarrow{V} (1, 8) \xrightarrow{H} (1, 7) \xrightarrow{H} (1, 6) \xrightarrow{H} \cdots \xrightarrow{H} (1, 1) \xrightarrow{V} (0, 1).$$
+
+Here an arrow with a V indicates a vertical twist, while an arrow with an H indicates a horizontal twist. We see that to go from $(17, 8)$ down to $(0, 1)$, we apply the transformations $VVHHHHHHHV = V^2 H^6 V$. 
+
+Therefore, to twist up the equator into Ingrid Daubechies's birthday trajectory, we should apply the transformations in the opposite order: $V H^6 V^2$. (Note that when we are simplifying the trajectory, we use the untwisting direction, and when we are twisting it up, we use the twisting direction of each automorphism.)
+
+Let's do it! In a picture:
+
+Happy birthday, Ingrid Daubechies!
+
+Create your own
+
+Do you have a birthday coming up? Need a gift for that special someone? Here are the Desmos 3D functions that I used to create the pictures in this article: 
+https://www.desmos.com/3d/edfuibmas4
+.
+
+More mathematics
+
+These ideas come out of a problem-based book I recently published with the AMS, called 
+Billiards, Surfaces, and Geometry
+. I purposefully gave a different presentation of the ideas here than what I did in the book, so that students searching for solutions won't be able to copy things down exactly. The first two chapters of the book develop a "Grand Unifying Theory" that unites billiard paths in the square billiard table and the list of sides that the billiard ball hits, automorphisms of the torus, and continued fractions. The ideas discussed in this article are part of that grand theory. If you liked this, check that out for a great deal more, and the opportunity to figure it out yourself.
+
+Share this:
+
+Share on Facebook (Opens in new window)
+
+Facebook
+
+Share on X (Opens in new window)
+
+X
+
+Like this:
+Like
+
+Loading…
+
+2026-03-01
+
+Previous Post: 
+Does Mathematics Progress?
+Next Post: 
+Puzzling Like the Seventeenth Century
+
+2 Comments
+
+typo: “The (p,q) torus knot passes through the hole 12 times,” should be “… p times.”
+
+Thanks! We’ve updated the post.
+
+Leave a Reply 
+Cancel reply
+Your email address will not be published.
+
+Required fields are marked 
+*
+Comment 
+*
+
+HTML tags are not allowed.
+Name 
+*
+
+Email 
+*
+
+Save my name, email, and website in this browser for the next time I comment.
+
+85,090 Spambots Blocked by 
+Simple Comments
+
+Notify me of follow-up comments by email.
+
+Notify me of new posts by email.
+ Notify me of followup comments via e-mail. You can also 
+subscribe
+ without commenting.
+
+JavaScript must be turned on to leave a comment.
+
+Search
+Subscribe to Feature Column via Email
+
+Enter your email address to subscribe to Feature Column and receive notifications of new posts by email.
+
+							Email Address						
+
+							Subscribe						
+
+Recent Posts
+Another Look at Circles and Squares
+
+The Shapley Value, or How to Split a Bill in n! Easy Steps
+
+The Story Your Ballot Doesn’t Tell
+
+Weekly Maintenance Message
+
+Puzzling Like the Seventeenth Century
+
+Categories
+
+2020
+
+2021
+
+2022
+
+2023
+
+2024
+
+2025
+
+2026
+
+Adam A. Smith
+
+Adriana Salerno
+
+Algebra and Number Theory
+
+Allechar Serrano López
+
+Anil Venkatesh
+
+Anna Haensch
+
+Archive
+
+Audrey St. John
+
+Bevin Maultsby
+
+Bianca Thompson
+
+Bill Casselman
+
+Colm Mulcahy
+
+Courtney Gibbons
+
+David Austin
+
+Deepayan Sarkar
+
+Diana Davis
+
+Discrete Math and Combinatorics
+
+Étienne Ghys
+
+Geometry and Topology
+
+Guillermo Fereyra
+
+History of mathematics
+
+Holley Friedlander
+
+Jessica Sidman
+
+John Eggers
+
+Joseph Malkevitch
+
+Josh Leys
+
+Math and Arts/Humanities
+
+Math and Social Sciences
+
+Math and Technology
+
+Math and the Sciences
+
+Mathematics and Biology
+
+Moira Chas
+
+Noah Giansiracusa
+
+Patrick Ion
+
+Probability and Statistics
+
+Real and Complex Analysis
+
+Sara Chari
+
+Sara Stoudt
+
+Sarah Wolff
+
+Steven H. Weintraub
+
+Sunil Chebolu
+
+Tamsyn Morrill
+
+Teaching and Learning Mathematics
+
+Tony Phillips
+
+Uncategorized
+
+Ursula Whitcher
+
+Tags
+5G
+
+Alan Turing
+
+algebraic geometry
+
+ams
+
+astronauts
+
+Branko Grünbaum
+
+cantor set
+
+chess
+
+Claude Shannon
+
+computability
+
+cryptography
+
+Desargues
+
+economics
+
+elliptic curves
+
+epidemic
+
+Euclidean geometry
+
+feature column history
+
+games
+
+game theory
+
+generating functions
+
+genetics
+
+Geoffrey Colin Shephard
+
+herd immunity
+
+Higgs boson
+
+information theory
+
+lattices (groups)
+
+Lie groups
+
+Machine learning
+
+measles
+
+medieval
+
+partitions
+
+periods
+
+persi diaconis
+
+physics
+
+poetry
+
+polytopes and polyhedra
+
+primes
+
+probability
+
+SEIR model
+
+statistics
+
+string theory
+
+tic-tac-toe
+
+tilings
+
+video games
+
+voting
+
+Meta
+
+Log in
+
+Entries feed
+
+Comments feed
+
+WordPress.org
+
+					 Designed using 
+Hoot Business
+. Powered by 
+WordPress
+.				
+
+%d
+

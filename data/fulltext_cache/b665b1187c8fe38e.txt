@@ -1,0 +1,1834 @@
+
+
+The story of Erdős problem #1026 | What's new
+
+What's new
+
+Updates on my research and expository papers, discussion of open problems, and other maths-related topics.  By Terence Tao
+
+Home
+
+About
+
+Career advice
+
+On writing
+
+Books
+
+Mastodon+
+
+Applets
+
+Subscribe to feed
+
+The story of Erdős problem #1026
+
+8 December, 2025 in 
+expository
+, 
+math.CA
+, 
+math.CO
+ | Tags: 
+AI
+, 
+AlphaEvolve
+, 
+Erdos
+ | by 
+Terence Tao
+
+Problem 1026 on the Erdős problem web site
+ recently got solved through an interesting combination of existing literature, online collaboration, and AI tools. The purpose of this blog post is to try to tell the story of this collaboration, and also to supply a complete proof.
+
+The original problem of Erdős, 
+posed in 1975
+, is rather ambiguous. Erdős starts by 
+recalling his famous theorem with Szekeres
+ that says that given a sequence of 
+ distinct real numbers, one can find a subsequence of length 
+ which is either increasing or decreasing; and that one cannot improve the 
+ to 
+, by considering for instance a sequence of 
+ blocks of length 
+, with the numbers in each block decreasing, but the blocks themselves increasing. He also noted a 
+result of Hanani
+ that every sequence of length 
+ can be decomposed into the union of 
+ monotone sequences. He then wrote “As far as I know the following question is not yet settled. Let 
+ be a sequence of distinct numbers, determine 
+
+ where the maximum is to be taken over all monotonic sequences 
+“.
+
+This problem was added to the Erdős problem site on September 12, 2025, with a note that the problem was rather ambiguous. For any fixed 
+, this is an explicit piecewise linear function of the variables 
+ that could be computed by a simple brute force algorithm, but Erdős was presumably seeking optimal bounds for this quantity under some natural constraint on the 
+. The day the problem was posted, Desmond Weisenberg proposed studying the quantity 
+, defined as the largest constant such that 
+
+ for all choices of (distinct) real numbers 
+. Desmond noted that for this formulation one could assume without loss of generality that the 
+ were positive, since deleting negative or vanishing 
+ does not increase the left-hand side and does not decrease the right-hand side. By a limiting argument one could also allow collisions between the 
+, so long as one interpreted monotonicity in the weak sense.
+
+Though not stated on the web site, one can formulate this problem in game theoretic terms. Suppose that Alice has a stack of 
+ coins for some large 
+. She divides the coins into 
+ piles of consisting of 
+ coins each, so that 
+. She then passes the piles to Bob, who is allowed to select a monotone subsequence of the piles (in the weak sense) and keep all the coins in those piles. What is the largest fraction 
+ of the coins that Bob can guarantee to keep, regardless of how Alice divides up the coins? (One can work with either a discrete version of this problem where the 
+ are integers, or a continuous one where the coins can be split fractionally, but in the limit 
+ the problems can easily be seen to be equivalent.)
+
+AI-generated images continue to be problematic for a number of reasons, but here is one such image that somewhat manages at least to convey the idea of the game:
+
+For small 
+, one can work out 
+ by hand. For 
+, clearly 
+: Alice has to put all the coins into one pile, which Bob simply takes. Similarly 
+: regardless of how Alice divides the coins into two piles, the piles will either be increasing or decreasing, so in either case Bob can take both. The first interesting case is 
+. Bob can again always take the two largest piles, guaranteeing himself 
+ of the coins. On the other hand, if Alice 
+almost
+ divides the coins evenly, for instance into piles 
+ for some small 
+, then Bob cannot take all three piles as they are non-monotone, and so can only take two of them, allowing Alice to limit the payout fraction to be arbitrarily close to 
+. So we conclude that 
+.
+
+An hour after Desmond’s comment, 
+Stijn Cambie noted
+ (though not in the language I used above) that a similar construction to the one above, in which Alice divides the coins into 
+ pairs that are almost even, in such a way that the longest monotone sequence is of length 
+, gives the upper bound 
+. It is also easy to see that 
+ is a non-increasing function of 
+, so this gives a general bound 
+. Less than an hour after that, 
+Wouter van Doorn noted
+ that the Hanani result mentioned above gives the lower bound 
+, and posed the problem of determining the asymptotic limit of 
+ as 
+, given that this was now known to range between 
+ and 
+. This version was 
+accepted by Thomas Bloom
+, the moderator of the Erdős problem site, as a valid interpretation of the original problem.
+
+The next day, 
+Stijn computed
+ the first few values of 
+ exactly: 
+
+ While the general pattern was not yet clear, this was enough data for Stijn to conjecture that 
+, which would also imply that 
+ as 
+. (EDIT: as later located by an AI deep research tool, this conjecture was also made in Section 12 of 
+this 1980 article of Steele
+.) Stijn also described the extremizing sequences for this range of 
+, but did not continue the calculation further (a naive computation would take runtime exponential in 
+, due to the large number of possible subsequences to consider).  
+
+The problem then lay dormant for almost two months, until December 7, 2025, in which Boris Alexeev, as part of a systematic sweep of the Erdős problems using the AI tool 
+Aristotle
+, was able to get this tool to 
+autonomously solve
+ this conjecture 
+ in the proof assistant language Lean. The proof converted the problem to a rectangle-packing problem.
+
+This was one further addition to a recent sequence of examples where an Erdős problem had been automatically solved in one fashion or another by an AI tool. Like the previous cases, the proof turned out to not be particularly novel. Within an hour, Koishi Chan gave an alternate proof deriving the required bound 
+ from the original Erdős-Szekeres theorem by a standard “blow-up” argument which we can give here in the Alice-Bob formulation. Take a large 
+, and replace each pile of 
+ coins with 
+ new piles, each of size 
+, chosen so that the longest monotone subsequence in this collection is 
+. Among all the new piles, the longest monotone subsequence has length 
+. Applying Erdős-Szekeres, one concludes the bound 
+
+ and on canceling the 
+‘s, sending 
+, and applying Cauchy-Schwarz, one obtains 
+ (in fact the argument gives 
+ for all 
+).
+
+Once this proof was found, it was natural to try to see if it had already appeared in the literature. AI deep research tools have successfully located such prior literature in the past, but in this case they did not succeed, and a more “old-fashioned” Google Scholar job turned up some relevant references: a 
+2016 paper by Tidor, Wang and Yang
+ contained this precise result, citing an 
+earlier paper of Wagner
+ as inspiration for applying “blowup” to the Erdős-Szekeres theorem.
+
+But the story does not end there! Upon reading the above story the next day, I realized that the problem of estimating 
+ was a suitable task for 
+AlphaEvolve
+, which I have used recently as mentioned in 
+this previous post
+. Specifically, one could task to obtain upper bounds on 
+ by directing it to produce real numbers (or integers) 
+ summing up to a fixed sum (I chose 
+) with a small a value of 
+ as possible. After an hour of run time, AlphaEvolve produced the following upper bounds on 
+ for 
+, with some intriguingly structured potential extremizing solutions: 
+
+The numerical scores (divided by 
+) were pretty obviously trying to approximate simple rational numbers. There were a variety of ways (including modern AI) to extract the actual rational numbers they were close to, but I searched for a dedicated tool and found this useful 
+little web page of John Cook
+ that did the job: 
+
+ I could not immediately see the pattern here, but after some trial and error in which I tried to align numerators and denominators, I eventually organized this sequence into a more suggestive form: 
+
+This gave a somewhat complicated but predictable conjecture for the values of the sequence 
+. On posting this, Boris found a clean formulation of the conjecture, namely that 
+
+ whenever 
+ and 
+. After a bit of effort, he also produced an explicit upper bound construction:
+
+Proposition 1
+  If 
+ and 
+, then 
+. 
+
+Proof:
+  Consider a sequence 
+ of numbers clustered around the “red number” 
+ and “blue number” 
+, consisting of 
+ blocks of 
+ “blue” numbers, followed by 
+ blocks of 
+ “red” numbers, and then 
+ further blocks of 
+ “blue” numbers.  When 
+, one should take all blocks to be slightly decreasing within each block, but the blue blocks should be are increasing between each other, and the red blocks should also be increasing between each other. When 
+, all of these orderings should be reversed. The total number of elements is indeed 
+
+ and the total sum is close to 
+
+ With this setup, one can check that any monotone sequence consists either of at most 
+ red elements and at most 
+ blue elements, or no red elements and at most 
+ blue elements, in either case giving a monotone sum that is bounded by either 
+
+ or 
+
+ giving the claim. 
+
+Here is a figure illustrating the above construction in the 
+ case (obtained after starting with a ChatGPT-provided file and then manually fixing a number of placement issues):
+
+Here is a plot of 
+ (produced by ChatGPT Pro), showing that it is basically a piecewise linear approximation to the square root function:
+
+Shortly afterwards, Lawrence Wu clarified the connection between this problem and a square packing problem, which was also 
+due to Erdős (Problem 106)
+. Let 
+ be the least number such that, whenever one packs 
+ squares of sidelength 
+ into a square of sidelength 
+, with all sides parallel to the coordinate axes, one has 
+
+Proposition 2
+  For any 
+, one has 
+
+Proof:
+  Given 
+ and 
+, let 
+ be the maximal sum over all increasing subsequences ending in 
+, and 
+ be the maximal sum over all decreasing subsequences ending in 
+. For 
+, we have either 
+ (if 
+) or 
+ (if 
+). In particular, the squares 
+ and 
+ are disjoint. These squares pack into the square 
+, so by definition of 
+, we have 
+
+ and the claim follows. 
+
+This idea of using packing to prove Erdős-Szekeres type results goes back to a 1959 paper of 
+Seidenberg
+, although it was a discrete rectangle-packing argument that was not phrased in such an elegantly geometric form.  It is possible that Aristotle was “aware” of the Seidenberg argument via its training data, as it had incorporated a version of this argument in its proof.
+
+Here is an illustration of the above argument using the AlphaEvolve-provided example 
+
+ for 
+ to convert it to a square packing (image produced by ChatGPT Pro):
+
+At this point, Lawrence performed another AI deep research search, this time 
+successfully locating a paper
+ from just last year by 
+Baek, Koizumi, and Ueoro
+, where they show that
+
+Theorem 3
+
+ For any 
+, one has 
+
+which, when combined with a 
+previous argument of Praton
+, implies
+
+Theorem 4
+
+ For any 
+ and 
+ with 
+, one has 
+
+This proves the conjecture!
+
+There just remained the issue of putting everything together. I did feed all of the above information into a large language model, which was able to 
+produce a coherent proof
+ of 
+(1)
+ assuming the results of Baek-Koizumi-Ueoro and Praton. Of course, LLM outputs are prone to hallucination, so it would be preferable to formalize that argument in Lean, but this looks quite doable with current tools, and I expect this to be accomplished shortly. But I was also able to reproduce the arguments of Baek-Koizumi-Ueoro and Praton, which I include below for completeness.
+
+Proof:
+  (Proof of Theorem 
+3
+, adapted from Baek-Koizumi-Ueoro) We can normalize 
+. It then suffices to show that if we pack the length 
+ torus 
+ by 
+ axis-parallel squares of sidelength 
+, then 
+
+Pick 
+. Then we have a 
+ grid 
+
+ inside the torus. The 
+ square, when restricted to this grid, becomes a discrete rectangle 
+ for some finite sets 
+ with 
+
+ By the packing condition, we have 
+
+ From 
+(2)
+ we have 
+
+ hence 
+
+ Inserting this bound and rearranging, we conclude that 
+
+ Taking the supremum over 
+ we conclude that 
+
+ so by the pigeonhole principle one of the summands is at most 
+. Let’s say it is the former, thus 
+
+ In particular, the average value of 
+ is at most 
+. But this can be computed to be 
+, giving the claim. Similarly if it is the other sum. 
+
+UPDATE: Actually, the above argument also proves Theorem 4 with only minor modifications.  Nevertheless, we give the original derivation of Theorem 4 using the embedding argument of Praton below for sake of completeness.
+
+Proof:
+  (Proof of Theorem 
+4
+, adapted from Praton) We write 
+ with 
+. We can rescale so that the square one is packing into is 
+. Thus, we pack 
+ squares of sidelength 
+ into 
+, and our task is to show that 
+
+ We pick a large natural number 
+ (in particular, larger than 
+), and consider the three nested squares 
+
+ We can pack 
+ by 
+ unit squares. We can similarly pack 
+
+ into 
+ squares of sidelength 
+. All in all, this produces 
+
+ squares, of total length 
+
+ Applying Theorem 
+3
+, we conclude that 
+
+ The right-hand side is 
+
+ and the left-hand side similarly evaluates to 
+
+ and so we simplify to 
+
+ Sending 
+, we obtain the claim. 
+
+One striking feature of this story for me is how important it was to have a diverse set of people, literature, and tools to attack this problem.  To be able to state and prove the precise formula for 
+ required multiple observations, including some version of the following:
+
+ The sequence can be numerically computed as a sequence of rational numbers.
+
+ When appropriately normalized and arranged, visible patterns in this sequence appear that allow one to conjecture the form of the sequence.
+
+ This problem is a weighted version of the Erdős-Szekeres theorem.
+
+ Among the many proofs of the Erdős-Szekeres theorem is the proof of Seidenberg in 1959, which can be interpreted as a discrete rectangle packing argument.
+
+ This problem can be reinterpreted as a continuous square packing problem, and in fact is closely related to (a generalized axis-parallel form of) Erdős problem 106, which concerns such packings.
+
+ The axis-parallel form of Erdős problem 106 was recently solved by Baek-Koizumi-Ueoro.
+
+ The paper of Praton shows that Erdős Problem 106 implies the generalized version needed for this problem.  This implication specializes to the axis-parallel case.
+
+It was only through the combined efforts of all the contributors and their tools that all these key inputs were able to be assembled within 48 hours.  It seems plausible that a more traditional effort involving just one or two mathematicians and simpler programming and literature search tools may eventually have been able to put all these pieces together, but I believe this process would have taken much longer (on the order of weeks or even months).
+
+Another key ingredient was the 
+balanced AI policy
+ on the Erdős problem website, which encourages disclosed AI usage while strongly discouraging undisclosed use.  To quote from that policy: “Comments prepared with the assistance of AI are permitted, provided (a) this is disclosed, (b) the contents (including mathematics, code, numerical data, and the existence of relevant sources) have been carefully checked and verified by the user themselves without the assistance of AI, and (c) the comment is not unreasonably long.”
+
+Share this:
+
+Print (Opens in new window)
+
+Print
+
+Email a link to a friend (Opens in new window)
+
+Email
+
+More
+
+Share on X (Opens in new window)
+
+X
+
+Share on Facebook (Opens in new window)
+
+Facebook
+
+Share on Reddit (Opens in new window)
+
+Reddit
+
+Share on Pinterest (Opens in new window)
+
+Pinterest
+
+Like
+
+Loading...
+
+Recent Comments
+
+Terence Tao
+ on 
+275A, Notes 4: The central lim…
+Terence Tao
+ on 
+254A, Notes 2: The central lim…
+Terence Tao
+ on 
+245A, Notes 1: Lebesgue m…
+Anonymous on 
+Bounding sums or integrals of…
+Anonymous on 
+Third SAIR competition: invers…
+Anonymous on 
+254A, Lecture 3: Minimal dynam…
+Anonymous on 
+245A, Notes 1: Lebesgue m…
+Anonymous on 
+254A, Notes 2: The central lim…
+Anonymous on 
+275A, Notes 4: The central lim…
+Anonymous on 
+The uncertainty principle
+Terence Tao
+ on 
+Bounding sums or integrals of…
+Terence Tao
+ on 
+275A, Notes 3: The weak and st…
+Anonymous on 
+Bounding sums or integrals of…
+Anonymous on 
+The uncertainty principle
+Anonymous on 
+275A, Notes 3: The weak and st…
+
+Top Posts
+Career advice
+Does one have to be a genius to do maths?
+Third SAIR competition: inverse Galois challenge
+On writing
+Books
+There’s more to mathematics than rigour and proofs
+Work hard
+About
+Analysis I
+275A, Notes 4: The central limit theorem
+Archives
+
+June 2026
+ (3)
+
+May 2026
+ (1)
+
+March 2026
+ (4)
+
+February 2026
+ (3)
+
+January 2026
+ (4)
+
+December 2025
+ (5)
+
+November 2025
+ (5)
+
+September 2025
+ (1)
+
+August 2025
+ (3)
+
+July 2025
+ (1)
+
+June 2025
+ (2)
+
+May 2025
+ (5)
+
+April 2025
+ (2)
+
+March 2025
+ (1)
+
+February 2025
+ (3)
+
+January 2025
+ (1)
+
+December 2024
+ (3)
+
+November 2024
+ (4)
+
+October 2024
+ (1)
+
+September 2024
+ (4)
+
+August 2024
+ (3)
+
+July 2024
+ (3)
+
+June 2024
+ (1)
+
+May 2024
+ (1)
+
+April 2024
+ (5)
+
+March 2024
+ (1)
+
+December 2023
+ (2)
+
+November 2023
+ (2)
+
+October 2023
+ (1)
+
+September 2023
+ (3)
+
+August 2023
+ (3)
+
+June 2023
+ (8)
+
+May 2023
+ (1)
+
+April 2023
+ (1)
+
+March 2023
+ (2)
+
+February 2023
+ (1)
+
+January 2023
+ (2)
+
+December 2022
+ (3)
+
+November 2022
+ (3)
+
+October 2022
+ (3)
+
+September 2022
+ (1)
+
+July 2022
+ (3)
+
+June 2022
+ (1)
+
+May 2022
+ (2)
+
+April 2022
+ (2)
+
+March 2022
+ (5)
+
+February 2022
+ (3)
+
+January 2022
+ (1)
+
+December 2021
+ (2)
+
+November 2021
+ (2)
+
+October 2021
+ (1)
+
+September 2021
+ (2)
+
+August 2021
+ (1)
+
+July 2021
+ (3)
+
+June 2021
+ (1)
+
+May 2021
+ (2)
+
+February 2021
+ (6)
+
+January 2021
+ (2)
+
+December 2020
+ (4)
+
+November 2020
+ (2)
+
+October 2020
+ (4)
+
+September 2020
+ (5)
+
+August 2020
+ (2)
+
+July 2020
+ (2)
+
+June 2020
+ (1)
+
+May 2020
+ (2)
+
+April 2020
+ (3)
+
+March 2020
+ (9)
+
+February 2020
+ (1)
+
+January 2020
+ (3)
+
+December 2019
+ (4)
+
+November 2019
+ (2)
+
+September 2019
+ (2)
+
+August 2019
+ (3)
+
+July 2019
+ (2)
+
+June 2019
+ (4)
+
+May 2019
+ (6)
+
+April 2019
+ (4)
+
+March 2019
+ (2)
+
+February 2019
+ (5)
+
+January 2019
+ (1)
+
+December 2018
+ (6)
+
+November 2018
+ (2)
+
+October 2018
+ (2)
+
+September 2018
+ (5)
+
+August 2018
+ (3)
+
+July 2018
+ (3)
+
+June 2018
+ (1)
+
+May 2018
+ (4)
+
+April 2018
+ (4)
+
+March 2018
+ (5)
+
+February 2018
+ (4)
+
+January 2018
+ (5)
+
+December 2017
+ (5)
+
+November 2017
+ (3)
+
+October 2017
+ (4)
+
+September 2017
+ (4)
+
+August 2017
+ (5)
+
+July 2017
+ (5)
+
+June 2017
+ (1)
+
+May 2017
+ (3)
+
+April 2017
+ (2)
+
+March 2017
+ (3)
+
+February 2017
+ (1)
+
+January 2017
+ (2)
+
+December 2016
+ (2)
+
+November 2016
+ (2)
+
+October 2016
+ (5)
+
+September 2016
+ (4)
+
+August 2016
+ (4)
+
+July 2016
+ (1)
+
+June 2016
+ (3)
+
+May 2016
+ (5)
+
+April 2016
+ (2)
+
+March 2016
+ (6)
+
+February 2016
+ (2)
+
+January 2016
+ (1)
+
+December 2015
+ (4)
+
+November 2015
+ (6)
+
+October 2015
+ (5)
+
+September 2015
+ (5)
+
+August 2015
+ (4)
+
+July 2015
+ (7)
+
+June 2015
+ (1)
+
+May 2015
+ (5)
+
+April 2015
+ (4)
+
+March 2015
+ (3)
+
+February 2015
+ (4)
+
+January 2015
+ (4)
+
+December 2014
+ (6)
+
+November 2014
+ (5)
+
+October 2014
+ (4)
+
+September 2014
+ (3)
+
+August 2014
+ (4)
+
+July 2014
+ (5)
+
+June 2014
+ (5)
+
+May 2014
+ (5)
+
+April 2014
+ (2)
+
+March 2014
+ (4)
+
+February 2014
+ (5)
+
+January 2014
+ (4)
+
+December 2013
+ (4)
+
+November 2013
+ (5)
+
+October 2013
+ (4)
+
+September 2013
+ (5)
+
+August 2013
+ (1)
+
+July 2013
+ (7)
+
+June 2013
+ (12)
+
+May 2013
+ (4)
+
+April 2013
+ (2)
+
+March 2013
+ (2)
+
+February 2013
+ (6)
+
+January 2013
+ (1)
+
+December 2012
+ (4)
+
+November 2012
+ (7)
+
+October 2012
+ (6)
+
+September 2012
+ (4)
+
+August 2012
+ (3)
+
+July 2012
+ (4)
+
+June 2012
+ (3)
+
+May 2012
+ (3)
+
+April 2012
+ (4)
+
+March 2012
+ (5)
+
+February 2012
+ (5)
+
+January 2012
+ (4)
+
+December 2011
+ (8)
+
+November 2011
+ (8)
+
+October 2011
+ (7)
+
+September 2011
+ (6)
+
+August 2011
+ (8)
+
+July 2011
+ (9)
+
+June 2011
+ (8)
+
+May 2011
+ (11)
+
+April 2011
+ (3)
+
+March 2011
+ (10)
+
+February 2011
+ (3)
+
+January 2011
+ (5)
+
+December 2010
+ (5)
+
+November 2010
+ (6)
+
+October 2010
+ (9)
+
+September 2010
+ (9)
+
+August 2010
+ (3)
+
+July 2010
+ (4)
+
+June 2010
+ (8)
+
+May 2010
+ (8)
+
+April 2010
+ (8)
+
+March 2010
+ (8)
+
+February 2010
+ (10)
+
+January 2010
+ (12)
+
+December 2009
+ (11)
+
+November 2009
+ (8)
+
+October 2009
+ (15)
+
+September 2009
+ (6)
+
+August 2009
+ (13)
+
+July 2009
+ (10)
+
+June 2009
+ (11)
+
+May 2009
+ (9)
+
+April 2009
+ (11)
+
+March 2009
+ (14)
+
+February 2009
+ (13)
+
+January 2009
+ (18)
+
+December 2008
+ (8)
+
+November 2008
+ (9)
+
+October 2008
+ (10)
+
+September 2008
+ (5)
+
+August 2008
+ (6)
+
+July 2008
+ (7)
+
+June 2008
+ (8)
+
+May 2008
+ (11)
+
+April 2008
+ (12)
+
+March 2008
+ (12)
+
+February 2008
+ (13)
+
+January 2008
+ (17)
+
+December 2007
+ (10)
+
+November 2007
+ (9)
+
+October 2007
+ (9)
+
+September 2007
+ (7)
+
+August 2007
+ (9)
+
+July 2007
+ (9)
+
+June 2007
+ (6)
+
+May 2007
+ (10)
+
+April 2007
+ (11)
+
+March 2007
+ (9)
+
+February 2007
+ (4)
+
+Categories
+
+expository
+ (320)
+
+tricks
+ (13)
+
+guest blog
+ (10)
+
+Mathematics
+ (916)
+
+math.AC
+ (9)
+
+math.AG
+ (42)
+
+math.AP
+ (115)
+
+math.AT
+ (17)
+
+math.CA
+ (196)
+
+math.CO
+ (205)
+
+math.CT
+ (9)
+
+math.CV
+ (39)
+
+math.DG
+ (37)
+
+math.DS
+ (90)
+
+math.FA
+ (24)
+
+math.GM
+ (16)
+
+math.GN
+ (21)
+
+math.GR
+ (90)
+
+math.GT
+ (17)
+
+math.HO
+ (14)
+
+math.IT
+ (13)
+
+math.LO
+ (54)
+
+math.MG
+ (48)
+
+math.MP
+ (31)
+
+math.NA
+ (26)
+
+math.NT
+ (210)
+
+math.OA
+ (22)
+
+math.PR
+ (110)
+
+math.QA
+ (6)
+
+math.RA
+ (49)
+
+math.RT
+ (21)
+
+math.SG
+ (4)
+
+math.SP
+ (48)
+
+math.ST
+ (11)
+
+non-technical
+ (208)
+
+admin
+ (48)
+
+advertising
+ (77)
+
+diversions
+ (7)
+
+media
+ (14)
+
+journals
+ (3)
+
+obituary
+ (15)
+
+opinion
+ (37)
+
+paper
+ (272)
+
+book
+ (23)
+
+Companion
+ (13)
+
+update
+ (26)
+
+question
+ (128)
+
+polymath
+ (87)
+
+talk
+ (69)
+
+DLS
+ (20)
+
+teaching
+ (190)
+
+245A – Real analysis
+ (11)
+
+245B – Real analysis
+ (22)
+
+245C – Real analysis
+ (6)
+
+246A – complex analysis
+ (11)
+
+246B – complex analysis
+ (5)
+
+246C – complex analysis
+ (5)
+
+247B – Classical Fourier Analysis
+ (5)
+
+254A – analytic prime number theory
+ (19)
+
+254A – ergodic theory
+ (18)
+
+254A – Hilbert's fifth problem
+ (12)
+
+254A – Incompressible fluid equations
+ (5)
+
+254A – random matrices
+ (14)
+
+254B – expansion in groups
+ (8)
+
+254B – Higher order Fourier analysis
+ (9)
+
+255B – incompressible Euler equations
+ (2)
+
+275A – probability theory
+ (6)
+
+285G – poincare conjecture
+ (20)
+
+Logic reading seminar
+ (8)
+
+The sciences
+ (1)
+
+travel
+ (26)
+
+additive combinatorics
+
+approximate groups
+
+arithmetic progressions
+
+Artificial Intelligence
+
+Ben Green
+
+Cauchy-Schwarz
+
+Cayley graphs
+
+central limit theorem
+
+Chowla conjecture
+
+compressed sensing
+
+correspondence principle
+
+cosmic distance ladder
+
+distributions
+
+divisor function
+
+eigenvalues
+
+Elias Stein
+
+Emmanuel Breuillard
+
+entropy
+
+equidistribution
+
+Erdos
+
+ergodic theory
+
+Euler equations
+
+exponential sums
+
+finite fields
+
+Fourier transform
+
+Freiman's theorem
+
+Gowers uniformity norm
+
+Gowers uniformity norms
+
+graph theory
+
+Gromov's theorem
+
+GUE
+
+Hilbert's fifth problem
+
+ICM
+
+incompressible Euler equations
+
+inverse conjecture
+
+Joni Teravainen
+
+Kaisa Matomaki
+
+Kakeya conjecture
+
+Lie algebras
+
+Lie groups
+
+Liouville function
+
+Littlewood-Offord problem
+
+Maksym Radziwill
+
+Mobius function
+
+Navier-Stokes equations
+
+nilpotent groups
+
+nilsequences
+
+nonstandard analysis
+
+Paul Erdos
+
+politics
+
+polymath1
+
+polymath8
+
+Polymath15
+
+polynomial method
+
+polynomials
+
+prime gaps
+
+prime numbers
+
+prime number theorem
+
+random matrices
+
+randomness
+
+Ratner's theorem
+
+regularity lemma
+
+Ricci flow
+
+Riemann zeta function
+
+Schrodinger equation
+
+Shannon entropy
+
+sieve theory
+
+structure
+
+Szemeredi's theorem
+
+Tamar Ziegler
+
+ultrafilters
+
+universality
+
+Van Vu
+
+wave maps
+
+Yitang Zhang
+
+The Polymath Blog
+Polymath News and AI
+Polymath projects 2021
+A sort of Polymath on a famous MathOverflow problem
+Ten Years of Polymath
+Updates and Pictures
+Polymath proposal: finding simpler unit distance graphs of chromatic number 5
+A new polymath proposal (related to the Riemann Hypothesis) over Tao’s blog
+Spontaneous Polymath 14 – A success!
+Polymath 13 – a success!
+Non-transitive Dice over Gowers’s Blog
+
+17 comments
+
+Comments feed for this article
+
+8 December, 2025 at 8:49 pm
+
+Anonymous
+
+Paragraph 2: “…; 
+and that
+ one cannot improve…”?
+
+[Corrected, thanks – T.]
+
+Reply
+
+8 December, 2025 at 8:52 pm
+
+S
+
+Minor thing but the link “little web page of John Cook” currently points to the image in this post instead.
+
+[Corrected, thanks – T.]
+
+Reply
+
+15 December, 2025 at 10:34 pm
+
+S
+
+As an aside, now that I can see 
+the page
+, I’m reminded I also made a 
+similar page
+ a while ago, to show all “best rational approximations” of both kinds. :)
+
+Reply
+
+8 December, 2025 at 10:07 pm
+
+Anonymous
+
+“due to Erdős (Problem 16)” should be “due to Erdős (Problem 106)” – Lawrence
+
+[Corrected, thanks – T.]
+
+Reply
+
+9 December, 2025 at 12:40 am
+
+Anonymous
+
+WHEN WILL ASI SOLVE THE ERDOS CONJECTURE ON ARITHMETIC PROGRESSIONS?
+
+Reply
+
+9 December, 2025 at 1:18 pm
+
+Anonymous
+
+Awesome! Super cool to see all this collaboration and AI used as a tool to facilitate this!
+
+Reply
+
+9 December, 2025 at 3:12 pm
+
+Anonymous
+
+Is there an asymmetric version, like the Erdős–Szekeres result which considers a length r monotonically increasing sequence, or a length s monotonically decreasing sequence?
+
+Reply
+
+9 December, 2025 at 4:13 pm
+
+Terence Tao
+
+Good question!  One is now square-packing a rectangle rather than a square.  By counting areas, one gets the general inequality
+
+where the two maxima are over (weakly) increasing and decreasing sequences respectively.  This (together with Cauchy-Schwarz) recovers the square case 
+ of the result, as well as classical Erdos-Szekeres I believe (after rescaling the 
+ to all be extremely close to 1), but getting a completely optimal result in the general case may be trickier (but perhaps it is possible to adapt the proof of Theorem 3 to square packings of rectangles to say something).
+
+EDIT: Optimizing the proof of Theorem 3 seens to give the general inequality
+
+One can try to optimize this somewhat by dilating 
+, but the result of that optimization may be a little complicated.
+
+Reply
+
+10 December, 2025 at 11:02 pm
+
+Anonymous
+
+Thanks! I feel like the first inequality in your response feels both sharper (even if it doesn’t actually imply the second), and nicer. Since the Erdős question was vague to begin with, perhaps (1) was the right generalization.
+
+Reply
+
+14 December, 2025 at 5:55 am
+
+Boris Alexeev
+
+I tried to determine whether this “general inequality” is tight.  I first realized that there’s a problem even for 
+, if the ratio between the increasing and decreasing sums is too big.  For example, if 
+ while 
+, then the best bound obtained via dilating is 
+ while of course the true maximum sum is just 
+.  But that’s easy to handle.
+
+Let’s rescale so that 
+ and 
+ for some 
+.  Then the loose example I just described was fundamentally because 
+, so the easiest way to get rid of it is to simply insist that 
+.  Then I think 
+ and 
+ are tight.
+
+But for 
+, I think there’s a real example.  I think anything in the range 
+ is loose, but let’s try 
+ specifically.  In that case, I believe the true maximum sum is 
+ obtained with the sequence 
+.
+
+Write 
+ for the dilation factor in the general inequality.  I think that 
+ are all optimal dilations obtaining the same bound of 
+, which is weaker than 
+.
+
+Reply
+
+10 December, 2025 at 12:12 am
+
+Anonymous
+
+Terry, this was a very inspiring read.  
+
+Critically 
+– I think there is room for a lot of AI based enhancements to TFBloom’s website, integrating all external artifacts, such as the git, RAG, and all other relevant community and paper based resources.    
+
+OpenAI has group chat 
+https://openai.com/index/group-chats-in-chatgpt/
+ but I think this calls for something more botique and custom built.  An agentic flow that can properly 
+cite
+, track, synthesize, and realtime integrate contributions from a diverse set of mathematicians.  
+
+It will not just be looking to help spark ideas and solve problems, but aggressively determining possibilities for re-use in related questions.   It could perhaps help prioritize mathlib coverage.  
+
+Most importantly in this agent flow will be the citing capability, providing strong motivations and incentives for people to get credibly involved.
+
+The architecture of the flow should be built in a way that domain experts can enhance and customize it’s thinking.  The idea is to take care of all the glue-code problems so experts don’t need to worry about that.
+
+I really do hope you will think about reaching out to the labs to get them to help invest in something like this.  Perhaps with the guarantee that they can use it as free training material they might be interested providing credits, though I’d like to think the halo effect should be value enough.
+
+Reply
+
+10 December, 2025 at 6:55 am
+
+Anonymous
+
+In the construction in Proposition 1, why can’t you take a red block (increasing, of size 
+, of value 
+), followed by a blue block (increasing, of size 
+, of value 
+), to get a monotonic subsequence with sum 
+, beating the value given and invalidating the proposition? At least for 
+ positive. Have I missed something?
+
+Reply
+
+10 December, 2025 at 8:26 am
+
+Terence Tao
+
+Oops, I had transposed “increasing” and “decreasing” from Boris’s construction at a crucial place.  Hopefully it is fixed now.  
+[EDIT: added a figure, using the slightly frustrating, but still on balance time-saving, method of asking an AI to supply the initial image and then manually correcting all the visual mis-placements.]
+
+Reply
+
+14 December, 2025 at 3:05 am
+
+Anonymous
+
+correct me if I am wrong
+
+it seems Ai is able to get the asymptotic case by itself (lean) and then goes on to help researchers generate small values, semantically dig through related results to reduce the problem until a precise result is found. So Ai played a powerful assistant in this entire effort.
+
+Reply
+
+15 December, 2025 at 10:38 pm
+
+Anonymous
+
+This case study reveals the future of AI-assisted[1] work, far beyond mathematics.
+
+It relies on a combination of Humans, LLMs (‘General Tools’), Domain-Specific Tools, and Deep Research.
+
+It is apparent that the static data encoded within an LLM is not enough; one must re-fetch sources and digest them fresh for the context of the conversation.
+
+In this workflow, AlphaEvolve, Aristotle, and LEAN are the ‘PhDs’ on the team, while the LLM is the Full Stack Developer that glues them all together.
+
+[1] If one likes pompous terms, this is what ‘AGI’ will actually look like.
+
+Reply
+
+22 December, 2025 at 2:57 am
+
+Anonymous
+
+“since deleting negative or vanishing xi does not decrease the left-hand side and does not increase the right-hand side.” Is this a typo? Shouldn’t deleting a negative term increase the sum and therefore increase de RHS?
+
+[Corrected, thanks – T.]
+
+Reply
+
+30 December, 2025 at 6:19 am
+
+Anonymous
+
+A small structural observation that may or may not be useful: in the torus square-packing reformulation, the existence of a single closed-form regime seems tied not just to symmetry reducing complexity, but to symmetry 
+splitting
+ otherwise merged extremal mechanisms.
+
+In some exploratory experiments with higher-dimensional axis-parallel packings on tori, one sees a small number of qualitatively distinct “macro” regimes (detectable both in slopes of the extremal value function and in coarse concentration signatures of the extremal configurations). Full coordinate symmetry appears to stabilise and separate these regimes; breaking symmetry causes some of them to merge rather than proliferate.
+
+This suggests a slightly different heuristic from “symmetry simplifies”: symmetry can actually increase the 
+resolution
+ of the extremal landscape by protecting distinctions that are otherwise washed out.
+
+I don’t know whether this viewpoint is already standard in this circle, but it helped me understand why the 2D case collapses to a single formula while nearby problems do not.
+
+Reply
+
+Leave a comment 
+Cancel reply
+
+Δ
+
+For commenters
+
+To enter in LaTeX in comments, use $latex 
+<Your LaTeX code>
+$ (without the < and > signs, of course; in fact, these signs should be avoided as they can cause formatting errors). Also, backslashes \ need to be doubled as \\.  See the 
+about page
+ for details and for other commenting policy.
+
+«
+ Quantitative correlations and some problems on prime factors of consecutive integers
+
+The Equational Theories Project: Advancing Collaborative Mathematical Research at Scale 
+»
+
+Blog at WordPress.com.
+Ben Eastaugh and Chris Sternal-Johnson. 
+
+Subscribe to feed.
+
+Comment						
+
+Reblog
+
+Subscribe
+
+Subscribed
+
+				What's new			
+
+Join 12,131 other subscribers
+
+												Sign me up											
+
+											Already have a WordPress.com account? 
+Log in now.
+
+Privacy						
+
+				What's new			
+
+Subscribe
+
+Subscribed
+
+Sign up
+
+Log in
+
+Copy shortlink
+
+										Report this content									
+
+										View post in Reader									
+
+Manage subscriptions
+
+Collapse this bar
+
+%d
+

@@ -1,0 +1,276 @@
+A Typed Language for Agent Coordination
+guest post by
+William Waites
+Agent frameworks
+are popular. (These are frameworks for coordinating large language model agents, not to be confused with agent-based modelling in the simulation sense.) There are dozens of them for wrapping large language models in something called an agent and assembling groups of agents into workflows. Much of the surrounding discussion is marketing, but the underlying intuition is old: your web browser identifies itself as a
+user agent
+. What is new is the capability that generative language models bring.
+The moment you have one agent, you can have more than one. That much is obvious. How to coordinate them is not. The existing frameworks (
+n8n
+,
+LangGraph
+,
+CrewAI
+, and others) are engineering solutions, largely ad hoc. Some, like LangGraph, involve real thinking about state machines and concurrency. But none draws on what we know from mathematics and computer science about typed composition, protocol specification, or structural guarantees for concurrent systems.
+This matters because it is expensive. Multi-agent systems are complicated concurrent programs. Without structural guardrails, they fail in ways you discover only after spending the compute. A job can go off the rails, and the money you paid for it is wasted; the providers will happily take it regardless. At current subscription rates the cost is hidden, but a
+recent Forbes investigation
+found that a heavy user of Anthropic’s $200/month Claude Code subscription can consume up to $5,000/month measured at retail API rates. For third-party tools like Cursor, which pay close to those retail rates, these costs are real. Wasted tokens are wasted money.
+To address this, we built a language called
+plumbing
+. It describes how agents connect and communicate, in such a way that the resulting graph can be checked before execution: checked for well-formedness, and within limits for deadlocks and similar properties. It is a statically typed language, and these checks are done formally. There is a compiler and a runtime for this language, working code, not a paper architecture. In a few lines of plumbing, you can describe agent systems with feedback loops, runtime parameter modulation, and convergence protocols, and be sure they are well-formed before they run. This post explains how it works.
+The name has a history in computing. Engineers have always talked informally about plumbing to connect things together: bits of software, bits of network infrastructure. When I was a network engineer I sometimes described myself as a glorified plumber. The old Solaris
+ifconfig
+command took
+plumb
+as an argument, to wire a network interface into the stack. Plan 9 had a deeper version of the same idea. The cultural connection goes back decades.
+This is the first of two posts. This one introduces the plumbing calculus: what it is, how it works, and a few simple examples. Motifs for adversarial review, ensemble reasoning, and synthesis. The second post will tackle something harder.
+The calculus
+The plumbing language is built on a symmetric monoidal category, specifically a copy-discard category with some extra structure. The terminology may be unfamiliar, but the underlying concept is not. Engineers famously like Lego. Lego bricks have studs on top and holes with flanged tubes underneath. The studs of one brick fit into the tubes of another. But Lego has more than one connection type: there are also holes through the sides of Technic bricks, and axles that fit through them, and articulated ball joints for the fancier kits. Each connection type constrains what can attach to what. This is typing.
+In plumbing, the objects of the category are
+typed channels
+: streams that carry a potentially infinite sequence of values, each of a specific type (integer, string, a record type, or something more complex). We write
+!A
+to mean "a stream of
+A
+s", so
+!string
+is a stream of strings and
+!int
+is a stream of integers. The morphisms, which describe how you connect channels together, are
+processes
+. A process has typed inputs and typed outputs.
+There are four structural morphisms.
+Copy
+takes a stream and duplicates it: the same values appear on two output streams.
+Discard
+throws values away, perhaps the simplest thing you can do with a stream, and often needed. These two, together with the typed channels and the laws of the category, give us a copy-discard category.
+To this we add two more.
+Merge
+takes two streams of the same type and interleaves them onto a single output stream. This is needed because a language model’s input is a single stream. There is nothing to be done about that. If you want to send two different things into it, you must send one and then the other. One might initially give merge the type
+!A ⊗ !B → !(A + B)
+, taking two streams of different types and producing their coproduct. This works, but it is unnecessarily asymmetrical.
+As
+Tobias Fritz has observed
+, it is cleaner to do the coproduct injection first, converting each stream to the coproduct type separately, and then merge streams that already have the same type. This gives:
+merge : !A ⊗ !A → !(A + A)
+Barrier
+takes two streams, which may be of different types, and synchronises them. Values arrive unsynchronised; the barrier waits for one value from each stream and produces a pair.
+barrier : !A ⊗ !B → !(A, B)
+(A mathematician would write A × B for the product. We cannot easily do this in a computer language because there is no × symbol on most keyboards, so we use
+(A, B)
+for the product, following Haskell’s convention.)
+This is a synchronisation primitive. It is important because it unlocks session types, which we will demonstrate in the second post.
+Two further morphisms are added to the category (they are not derivable from the structural ones, but are needed to build useful things):
+map
+, which applies a pure function to each value in a stream, and
+filter
+, which removes values that do not satisfy a predicate. Both are pure functions over streams. Both will be familiar from functional programming.
+Here is a graphical representation of the morphisms. We can glue them together freely, as long as the types and the directions of the arrows match up.
+There are two forms of composition.
+Sequential composition
+connects morphisms nose to tail, the output of one feeding the input of the next.
+Parallel composition
+places them side by side, denoted by ⊗ (the tensor product, written directly in plumbing source code). So: four structural morphisms, two utilities, two compositional forms, all operating on typed channels.
+Because the channels are typed, the compiler can check statically, at compile time, that every composition is well-formed: that outputs match inputs at every boundary. This gives a guarantee that the assembled graph makes sense.
+A composition of morphisms is itself a morphism. This follows from the category laws (it has to, or it is not a category) but the practical consequence is worth stating explicitly. We can assemble a subgraph of agents and structural morphisms, and then forget the internal detail and use the entire thing as a single morphism in a larger graph. This gives modularity. We can study, test, and refine a building block in isolation, and once satisfied, use it as a component of something bigger.
+What we have described so far is the static form of the language: concise, point-free (composing operations without naming intermediate values), all about compositions. This is what you write. It is not what the runtime executes. A compiler takes this static form and produces the underlying wiring diagram, expanding the compositions into explicit connections between ports. The relationship is similar to point-free style in functional programming: the concise form is good for thinking and writing; the expanded form is good for execution.
+Agents
+An agent is a special kind of morphism. It takes typed input and produces typed output, like any other morphism, and we can enforce these types. This much is a well-known technique;
+PydanticAI
+and the
+Vercel AI SDK
+do it. Agents implement typing at the language model level by producing and consuming JSON, and we can check that the JSON has the right form. This is the basis of the type checking.
+Unlike the structural morphisms and utilities, an agent is stateful. It has a conversation history, a context window that fills up, parameters that change. You cannot sensibly model an agent as a pure function. You could model it using the state monad or lenses, and that would be formally correct, but it is the wrong level of abstraction for engineering. Instead, we allow ourselves to think of agents as opaque processes with a typed protocol for interacting with them. We mutate their state through that protocol, and we know how to do that purely from functional programming and category theory. The protocol is the right abstraction; the state management is an implementation detail behind it. How this works in practice, and what happens when it goes wrong, is the subject of the second post.
+In addition to their main input and output ports, agents in plumbing have
+control ports
+(control in and control out) for configuring the agent at runtime. For example, the
+temperature
+parameter governs how creative a language model is: how wide its sampling distribution when choosing output. At zero it is close to deterministic; at one it becomes much less predictable. A control message might say
+set temperature to 0.3
+; the response on the control out wire might be
+acknowledged
+. The control port carries a typed stream like anything else.
+Agents also have ports for
+operator-in-the-loop
+(often called human-in-the-loop, though there is no reason an operator must be human),
+tool calls
+, and
+telemetry
+. The telemetry port emits usage statistics and, if the underlying model supports it, thinking traces. We will not detail these here. Suffice it to say that an agent has several pairs of ports beyond what you might imagine as its regular chat input and output.
+An agent has many ports, but most programs use only a few of them. We adopt a convention from the κ calculus: don’t care, don’t write. Any output port that is not mentioned in the program is implicitly connected to discard. If a port’s output cannot matter, there is no reason to write it down.
+Example: adversarial document composition
+Suppose the problem is to write a cover letter for a job application. You provide some background material (a CV, some notes, some publications) and a job advert. You want a network of agents to produce a good cover letter. A good cover letter has two constraints: it must be
+accurate
+, grounded in the source materials, not making things up; and it must be
+compelling
+, so that the reader wants to give you an interview.
+These two constraints are in tension, and they are best served by different agents with different roles. A
+composer
+drafts from the source materials. A
+checker
+verifies the draft against those materials for accuracy, producing a verdict: pass or fail, with commentary. A
+critic
+, who deliberately cannot see the source materials, evaluates whether the result is compelling on its own terms, producing a score.
+The feedback loops close the graph. If the checker rejects the draft, its commentary goes back to the composer. If the critic scores below threshold, its review goes back to the composer. Only when the critic is satisfied does the final draft emerge.
+Here is the plumbing code:
+type Verdict = { verdict: bool, commentary: string, draft: string }
+type Review  = { score: int, review: string, draft: string }
+
+let composer : !string -> !string = agent { ... }
+let checker  : !string -> !Verdict = agent { ... }
+let critic   : !Verdict -> !Review = agent { ... }
+
+let main : !string -> !string = plumb(input, output) {
+  input   ; composer ; checker
+  checker ; filter(verdict = false)
+          ; map({verdict, commentary}) ; composer
+  checker ; filter(verdict = true) ; critic
+  critic  ; filter(score < 85)
+          ; map({score, review}) ; composer
+  critic  ; filter(score >= 85).draft ; output
+}
+And here is a graphical representation of what’s going on:
+The agent configuration is elided. The
+main
+pipeline takes a string input and produces a string output. It is itself a morphism, and could be used as a component in something larger.
+Notice what the wiring enforces. The critic receives verdicts, not the original source materials. The information partition is a consequence of the types, not an instruction in a prompt. The feedback loops are explicit: a failed verdict routes back to the composer with commentary; a low score routes back with the review. All of this is checked at compile time.
+Example: heated debate
+The previous example shows sequential composition and feedback loops but not parallel composition. An ensemble of agents running simultaneously on the same input needs the tensor product.
+Ensembles are common. Claude Code spawns sub-agents in parallel to investigate or review, then gathers the results. This is a scatter-gather pattern familiar from high-performance computing.
+But this example, due to Vincent Danos, adds something less common: modulation of agent behaviour through the control port.
+The input is a proposition. Two agents debate it, one advocating and one sceptical, running in parallel via the tensor product. Their outputs are synchronised by a barrier into a pair and
+presented to a judge. The judge decides: has the debate converged? If so, a verdict goes to the output. If not, a new topic goes back to the debaters, and a temperature goes to their control inputs.
+The intuition is that the debaters should start creative (high temperature, wide sampling) and become progressively more focused as the rounds continue. The judge controls this. Each round, the
+judge decides both whether to continue and how volatile the next round should be. If the debate appears to be converging, the judge lowers the temperature, preventing the system from wandering
+off in new directions. Whether this actually causes convergence is a research question, not a proven result.
+type Verdict = { resolved: bool, verdict: string,
+                 topic: string, heat: number }
+type Control = { set_temp: number }
+
+let advocate : (!string, !Control) -> !string = agent { ... }
+let skeptic  : (!string, !Control) -> !string = agent { ... }
+let judge    : !(string, string) -> !Verdict  = agent { ... }
+
+let cool : !Verdict -> !Control = map({set_temp: heat})
+
+let main : !string -> !string = plumb(input, output) {
+  input ; (advocate ⊗ skeptic) ; barrier ; judge
+  judge ; filter(resolved = false).topic ; (advocate ⊗ skeptic)
+  judge ; filter(resolved = true).verdict ; output
+  judge ; cool ; (advocate@ctrl_in ⊗ skeptic@ctrl_in)
+}
+And here is the graphical representation:
+The
+⊗
+operator is the tensor product: parallel composition. (The grammar also accepts
+*
+for editors that cannot input unicode.) The advocate and skeptic run simultaneously on the same input. The barrier synchronises their outputs into a pair for the judge. The last line is the control feedback: the judge’s verdict is mapped to a temperature setting and sent to both agents’ control inputs. Notice that
+advocate@ctrl_in
+addresses a specific port on the agent, the control port rather than the main input.
+This is a small program. It is also a concurrent system with feedback loops, runtime parameter modulation, and a convergence protocol. Without types, getting the wiring right would be a matter of testing and hope. With types, it is checked before it runs.
+What this shows
+In a few lines of code, with a language that has categorical foundations, we can capture interesting agent systems and be sure they are well-formed before they run.
+The upshot: when we have guarantees about well-formedness, systems work more stably and more predictably. With static typing, entire classes of structural errors are impossible. You cannot wire an output of one type to an input of another. You cannot forget a connection. The job you pay for is more likely to actually work, and you get more useful work per dollar spent. Runtime budget controls can put a ceiling on cost, but they do not prevent the waste. Static typing prevents the waste. But there is a lot more to do. What we have so far is already useful as a language for constructing agent graphs with static type checking. But we have given short shrift to the complexity and internal state of the agent morphism, which is really all about memory architecture and context management. That is where the real power comes from. For that we need more than a copy-discard category with some extra structure. We need protocols—and that is the subject of the
+sequel
+, soon to appear here.
+The plumbing compiler, runtime, and MCP server are available as binary downloads for macOS and Linux:
+•
+Download plumbing version 0
+.
+Here is the research paper describing the broader programme of work:
+• William Waites,
+Artificial organisations (arXiv:2602.13275)
+.
+Related
+This entry was posted  on Wednesday, March 11th, 2026 at 4:50 pm and is filed under
+software
+.					You can follow any responses to this entry through the
+RSS 2.0
+feed.
+											You can
+leave a response
+, or
+trackback
+from your own site.
+Post navigation
+« Previous Post
+Next Post »
+7 Responses to
+A Typed Language for Agent Coordination
+S Vandal
+says:
+11 March, 2026 at 6:01 pm
+A small correction; the Forbes article that claims “Anthropic’s $200/month Claude Code subscription can consume up to $5,000 in real compute” makes the mistake of equating the cost of API calls with the actual cost of doing the computation, as explained in this article:
+https://martinalderson.com/posts/no-it-doesnt-cost-anthropic-5k-per-claude-code-user/
+Anthropic’s current API pricing for Opus 4.6 is $5 per million input tokens and $25 per million output tokens. At those prices, yes – a heavy Claude Code Max 20 user could rack up $5,000/month in API-equivalent usage. That maths checks out.
+But API pricing is not what it costs Anthropic to serve those tokens.
+[…]
+The real story is actually in the article. The $5,000 figure comes from Cursor’s internal analysis. And for Cursor, the number probably is roughly correct – because Cursor has to pay Anthropic’s retail API prices (or close to it) for access to Opus 4.6.
+Reply
+William Waites
+says:
+12 March, 2026 at 6:59 am
+Fair enough, you are probably right that the Forbes article compares against the retail API price (which is eye-watering). So it’s not really a subsidy, or at least not so big a subsidy, but just a really deep discount for people with subscriptions. Which is unfortunate because the API is far more flexible –enabling things like are described in this article!
+Reply
+superbwhisperse544f3bb08
+says:
+11 March, 2026 at 10:19 pm
+Hi William,
+Absolutely fascinating article. I’ve been working on something similar in terms of identifying the input/output plumbing, and also converged on the same idea of calling the inputs propositions.
+I’m currently trying to tackle the context management problem, and it’s challenging. I’m keen to read how you explore this topic in the sequel!
+Reply
+William Waites
+says:
+13 March, 2026 at 9:52 am
+Hi! The next article doesn’t go into the details of context management, and is more about how you can hook up protocols between agents (with context management being one application). But I did write something about that that might be generally useful and you might find interesting here:
+https://leithdocs.com/ldc/documents/outgoing/structural-prompt-preservation.md
+Reply
+Sunil Joglekar
+says:
+13 March, 2026 at 9:47 am
+hello Dr. Baez
+I found your article on Plumbing to be quite interesting.
+Here’s a possibly unintelligent yet interesting enough line of thinking viz. Design Patterns in Object oriented programming.
+Patterns abstract over the repeating object composition of collaborating objects and give it a name such as Mediator or Decorator.
+I am wondering how such abstractions could be implemented in Plumbing or possibly in Sequel.
+Coordination languages like Linda do provide for
+paradigms
+of parallel  / distributed  / concurrent programming such as task parallelis, actor parallelism or result parallelism.
+Creating a architecture resembling a Software Espalier is straight forward.
+I am wondering how can these be accomplished in Plumbing and Sequel.
+My sincere apologies in case this line of enquiry is not suitable for your work.
+Warm Regards, Sunil Joglekar
+Reply
+John Baez
+says:
+13 March, 2026 at 9:26 pm
+hello Dr. Baez
+I found your article on Plumbing to be quite interesting.
+The article is by William Waites, not me.  It says this at the top of the article.
+I am wondering how can these be accomplished in Plumbing and Sequel.
+Plumbing
+is the name of William’s new language.  The word
+“sequel”
+simply means “next article”: the next article William will write.
+Reply
+Leon Sexl
+says:
+15 March, 2026 at 12:20 pm
+Hi William,
+super interesting post and very excited about future updates. I was wondering how you came up with “four structural morphisms”? Why only four? Is four enough to have an arbitrary process?
+Reply
+You can use Markdown or HTML in your comments.  You can also use LaTeX, like this: $latex E = m c^2 $. The word 'latex' comes right after the first dollar sign, with a space after it.
+Cancel reply
+Your email address will not be published.
+Required fields are marked
+*
+Comment
+*
+Name
+*
+Email
+*
+Website
+Notify me of new comments via email.
+Notify me of new posts via email.
+Δ

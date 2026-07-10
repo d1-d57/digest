@@ -1,0 +1,189 @@
+Freiman’s Constant
+I recently asked people on Mastodon
+“What’s the most surprising fact you’ve learned in the last couple of weeks?”
+It was a nice way to learn a lot of interesting things.  My own biggest recent surprise was this: the number
+plays a fundamental role in number theory!
+For any irrational
+we define its
+Lagrange number
+to be the supremum of numbers
+such that
+has infinitely many solutions for rationals
+So, the easier
+is to approximate by rational numbers, the bigger its Lagrange number is.
+Quite famously, the golden ratio has the smallest possible Lagrange number, namely √5.  This means it’s as hard as possible to approximate using rational numbers.
+The set of all Lagrange numbers is very complicated, and very interesting.   But here’s the shocking fact: if
+then every real number
+is a Lagrange number, and
+is the smallest number with this property!
+is called ‘Freiman’s constant’, because he proved this fact.  His proof is 100 pages, and I don’t want to read it… not even counting the fact that it’s only available in Russian:
+• G. A. Freiman,
+Diophantine Approximations and the Geometry of Numbers (Markov’s Problem)
+[in Russian]. Kalinin State University Press, Kalinin, 1975.
+There’s a lot more crazy stuff known about the set of all Lagrange numbers, which is called the
+Lagrange spectrum
+.  As mentioned, the smallest number in the Lagrange spectrum is
+.  The next is
+The next is
+The next is
+In 1879, Markov showed that such numbers form an increasing sequence that converges to 3.  They are precisely the Lagrange numbers of numbers whose continued fraction expansion and eventually consists only of 1’s and 2’s and is eventually periodic, like this:
+3 is the Lagrange number of every number whose continued fraction expansion eventually consists only of 1’s and 2’s and is
+not
+eventually periodic.  Above 3 the Lagrange spectrum becomes much richer.  It’s a fractal: it has infinitely many gaps, but positive Hausdorff dimension, with the dimension increasing as we move up.
+Moreira showed that when we reach
+the Hausdorff dimension of the Lagrange spectrum hits 1.  And as mentioned, Freiman showed that above
+the Lagrange spectrum is a half-line.  Directly below Freiman’s constant, Freiman showed there is a gap of width roughly
+Here is the classic reference in English on this subject:
+• Thomas W. Cusick and Mary E. Flahive,
+The Markov and Lagrange Spectra
+, AMS Mathematical Surveys and Monographs
+30
+, AMS, Providence, Rhode Island, 1989.
+The Markov spectrum is another set, containing the Lagrange spectrum, and their relationship is very interesting.  Here’s a free online reference that reviews all the basics before doing more:
+• Carlos Gustavo Moreira,
+Geometric properties of the Markov and Lagrange spectra
+,
+Annals of Mathematics
+188
+, 145–170.
+For a stripped-down account, go here:
+• Wikipedia,
+Markov spectrum
+.
+Related
+This entry was posted  on Thursday, May 7th, 2026 at 10:27 pm and is filed under
+mathematics
+.					You can follow any responses to this entry through the
+RSS 2.0
+feed.
+											You can
+leave a response
+, or
+trackback
+from your own site.
+Post navigation
+« Previous Post
+Next Post »
+8 Responses to
+Freiman’s Constant
+John
+says:
+7 May, 2026 at 10:41 pm
+‘Carlos Gustavo Moreira, Geometric properties of the Markov and Lagrange spectra’ is at
+http://www.arxiv.org/abs/arXiv:1612.05782
+not
+http://www.arxiv.org/abs/arXiv:1612.0578
+Reply
+John Baez
+says:
+7 May, 2026 at 11:21 pm
+Thanks for catching that!
+Reply
+Alvaro Riascos
+says:
+8 May, 2026 at 12:38 am
+Last reference is taking to a different paper. AR
+Reply
+John Baez
+says:
+8 May, 2026 at 4:10 pm
+I think it’s fine now.
+Reply
+Allen Knutson
+says:
+8 May, 2026 at 7:34 pm
+So what numbers have F as their Lagrange number?
+Reply
+John Baez
+says:
+8 May, 2026 at 11:41 pm
+Good question.  In the process of trying to answer this I realized had made a bad mistake, which I’ve tried to fix. I believe the Lagrange spectrum up to 3 works like this:
+The smallest number in the Lagrange spectrum is
+.  The next is
+The next is
+The next is
+These numbers form an increasing sequence that converges to 3.  They are precisely the Lagrange numbers of numbers whose continued fraction expansion is eventually periodic and eventually consists only of 1’s and 2’s, like this:
+3 is the Lagrange number of every number whose continued fraction expansion is
+not
+eventually periodic, and eventually consists only of 1’s and 2’s.
+Alas, I don’t know a number whose Lagrange number is Freiman’s constant.
+Reply
+John Baez
+says:
+9 May, 2026 at 10:45 am
+I have escalated your question to MathOverflow:
+•
+What is a number whose Lagrange number is Freiman’s constant?
+Gro-Tsen made a lot of progress, but apparently hadn’t quite found the right number at the time I’m writing this.  He suggested trying
+But apparently the Lagrange number of this is not Freiman’s constant but
+which is
+less than Freiman’s constant.
+There are reasons to think that the right number will lie in
+but let’s not count our chickens (or explain them) until they’ve hatched.
+Reply
+John Baez
+says:
+10 May, 2026 at 10:22 am
+Okay, Allen.  You wanted this: here it is.
+On MathOverflow
+, Gro-Tsen has used ideas from the proof Theorem 3 in Chapter 4 of Thomas W. Cusick and Mary E. Flahive’s
+The Markov and Lagrange Spectra
+to find an infinitude of different numbers having their Lagrange number equal to Freiman’s constant.  These numbers are described as continued fractions that never repeat.  I conjecture that they are transcendental.
+Then, in a comment to what Gro-Tsen wrote,
+legionmammal1978
+showed that no quadratic surd can have Freiman’s constant as its Lagrange number.  The argument as stated was extremely terse but it relied on three beautiful facts, two of which I hadn’t known.  So, let me expand on it here.
+First, a real number has an eventually periodic continued fraction iff it is a
+quadratic surd
+, i.e. it’s of the form
+with
+If
+is of this form, we define
+to be its
+Galois conjugate
+:
+Second, there’s a beautiful theorem of Galois (1828): if
+has a purely periodic continued fraction
+then so does the reciprocal of its Galois conjugate!  In fact
+We will need this consequence:
+Third, take our quadratic surd
+and write it as an eventually periodic continued fraction, say
+Then Perron gave a cool formula for the Lagrange number
+of
+Namely,
+is the max over
+of
+Here we are taking the periodic part of the continued fraction of
+cyclically permuting it by
+steps, and using the result to form ‘forwards’ and ‘backwards’ continued fractions, which we then sum up!  Wild!
+Note that the backwards one is not purely periodic: it starts with a zero.
+It’s pretty easy to see that the forwards continued fraction, say
+can be written as
+for
+Thus by Galois’ result the backwards continued fraction is minus the Galois conjugate of the forwards one!  Here’s why:
+It follows that
+Thus the Lagrange number of
+is a rational multiple of
+since by Perron’s cool formula we have
+Conclusion:
+If
+is a quadratic surd, the Lagrange number of
+is a rational multiple of
+But Freiman’s constant
+is not a rational multiple of
+.   So it can’t be the Lagrange number of any quadratic surd!
+Reply
+You can use Markdown or HTML in your comments.  You can also use LaTeX, like this: $latex E = m c^2 $. The word 'latex' comes right after the first dollar sign, with a space after it.
+Cancel reply
+Your email address will not be published.
+Required fields are marked
+*
+Comment
+*
+Name
+*
+Email
+*
+Website
+Notify me of new comments via email.
+Notify me of new posts via email.
+Δ

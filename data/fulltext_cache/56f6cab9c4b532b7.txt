@@ -1,0 +1,22 @@
+# Summary of Terence Tao's Blog Post on the Erdős–Herzog–Piranian Lemniscate
+
+## Main Result
+Terence Tao announces a preprint resolving an old question about polynomial lemniscates for high degrees. The work establishes progressively stronger bounds on the arclength of lemniscates attached to monic polynomials, culminating in verification of the "Erdős–Herzog–Piranian conjecture for sufficiently large n."
+
+## The Problem
+The research concerns lemniscates defined by the level set {z: |p(z)| = 1} for monic polynomials of degree n. A classical result by Pommerenke shows that z^n achieves minimum arclength (2π). The conjecture proposes that p₀(z) = z^n - 1 achieves maximum arclength, with asymptotic value 2n + 4log2 + O(1/n).
+
+## Key Contributions
+Tao presents four increasingly refined bounds:
+- ℓ(∂E₁(p)) ≤ 2n + O(√n)
+- ℓ(∂E₁(p)) ≤ 2n + O(1)
+- ℓ(∂E₁(p)) ≤ 2n + 4log2 + o(1)
+- ℓ(∂E₁(p)) ≤ ℓ(∂E₁(p₀)) for sufficiently large n
+
+## Methodology
+The proof leverages Stokes' theorem to convert arclength bounds into area integrals involving the log-derivative ψ = p''/p'. A crucial innovation involves analyzing behavior on enlarged regions E₂(p) = {|p| ≤ 2} rather than E₁(p), capturing oscillatory structure more effectively.
+
+## Role of AI Tools
+Tao used AlphaEvolve for numerical exploration, confirming that the optimization tool converges to p₀ and providing visualization assistance—illustrating emerging roles for AI in mathematical discovery and intuition-building.
+
+[Note: fetched via WebFetch summarization from https://terrytao.wordpress.com/2025/12/15/the-maximal-length-of-the-erdos-herzog-piranian-lemniscate-in-high-degree/ — this is Tao's own arXiv preprint announcement post, technical, no expository framing for a broad audience. ANCHOR TEST CASE per task instructions: expect low G2/G3/total.]

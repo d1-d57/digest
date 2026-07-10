@@ -1,0 +1,79 @@
+OK, they are not really the same thing.  But I got you reading, right?
+Here’s the sense in which they’re all the same thing.  Let G be a group and H < G a subgroup.  Let m > 1 be an integer.  Write Orb_m for the set of orbits of G by simultaneous left multiplication on (G/H)^m, and f for the natural map from (G/H)^m to Orb_m. Let R be a subset of Orb. We say a subset S of (G.H) is an
+R-set
+if f(S^m) lies in R.
+Master question:
+How large can an R-set be?
+A lot of natural and popular questions are of this form, and I would argue that the unpopular questions of this form are also pretty natural!  Perhaps this observation has been made before, but it’s new to me.
+(Remark that you should only read if you’re pedantic:  if R doesn’t contain m-tuples with repeated elements, then S^m
+can’t
+map to R, because S^m does have elements like that.  So silently, in the examples below, I will mostly mean S choose m rather than S^m.  I don’t want to commit to that forever, so if you really want it to be S^m, you can deal with that by appopriately adding some degenerate orbits to R.)
+Some examples:
+Sphere packing
+:  G is AO_n, the affine orthogonal group or group of rigid motions, and H is O_n, so G/H is R^n.  Take m=2.  Then Orb is identified with the nonnegative real numbers, and f takes a pair of points to the distance between them.  Let R be the interval [d,D].  Then an R-set is a set of points in R^n such that the distance between any two is at most D (i.e. we’re contained in some fixed big sphere) and at least d (the points don’t get too close together.)
+(If having to choose an upper bound D annoys you, feel free to take G = O_n and H = O_{n-1}; then Orb is a finite interval [0,r] and you can just take R to be [d,r].)
+Cap set:
+G is the group of affine linear transformations of F_p^n, and H is GL_n(F_p), so G/H = F_p^n.  Take m=3 again.  Orb is whatever it is, but one of the orbits is the set of (x,y,z) such that x,y,z are distinct and x-2y+z=0.  Call this orbit, oh, I dunno, 3AP.  Let R = Orb – 3AP.  Then an R-set is a cap set, and indeed we want to know how big an R-set can be.
+Turán problem
+:  G is S_n and H is S_2 x S_{n-2}, so G/H is the set of unordered pairs in [n], or the set of edges in the complete graph K_n.  m is arbitrary.  Now let Γ be a graph with m edges.  Any injection from v(Γ) to [n] gives you a point in (G/H)^m, and all such are carried to each other by the action of S_n.  Call that orbit [Γ], and let R be Orb – [Γ].  Now a subset S of (G/H)^m is an m-edge graph on n vertices, and S is an R-set just when no m distinct edges form a copy of H.  How large can such an S be?  That is the Turán number ex(n,Γ), and the Turán problem is to say whatever we can about it.
+A
+lot
+of problems can be written in this form.  (Especially a lot of problems Erdős worked on.)  The
+Heilbronn triangle problem
+.  Problems about
+subsets of space with forbidden angles
+.
+Turán problems for hypergraphs
+. The
+Guan-Ramos conjecture
+and the related
+Erdős matching conjecture
+.  Bounds for error correcting codes (here take G to be the semidirect product of F_2^n by S_n, and H to be S_n, and m=2, so that Orb is just the set of Hamming distances and the choice of R exactly allows you to exclude whatever distances you want on differences between codewords.)  Families of r-dimensional vector spaces of k^n such that any two intersect transversely.
+The happy ending problem
+. (G = AGL_2, H = GL_2, m arbitrary, Orb_m = m-tuples of points in the plane up to affine linear equivalence, R = m-tuples not forming a convex polygon.)
+Variants
+There are many variants of the master question, which allow you to incorporate an even wider range of popular questions under its generous sheltering wings.  For instance:  you could impose a bound on the size of f(S^m) instead of asking f(S^m) to lie inside a fixed R.  (Now you’ve got the Erdős distinct distance problem.)   Or instead of a hard constraint you could ask which pairs (|S|, f^{-1}(R)) are possible; the original question asks for which |S| the two entries can be equal.  (Now you’ve got the Erdős unit distance problem.)  And what do we mean by |S|, anyway?  When G is finite, so’s S, but when G is a Lie group (and yes, friends, I do mean either real or p-adic), one had better ask which conditions on R guarantee that S is finite.  (Easy exercise: show that a subset of R^2 such that no three points form an angle of less than 0.0001 degrees is finite.)  (Harder: the Erdos-Szekeres theorem that R-sets are finite when R is the set of non-convex m-gons that appears in the happy ending problem.)  At any rate, there’s no need to insist that S be finite.  Maybe “how big can S” be means “how big can its Hausdorff dimension be!”  (Still pretty easy exercise: show that a subset of Q_p^* in which no three points form an equilateral triangle has dimension at most log 2 / log p.)
+Or, in any one of these cases, you could ask about the chromatic number version of this question:  how many pieces do I need to partition (G/H)^m into if each piece P_i has f(P_i) disjoint from R?  For sphere packing (O(n) version), this asks:  how many pieces of diameter 1 suffice to cover a large sphere?  The (spherical) sphere packing number provides an obvious lower bound.  This has got to be a known problem, right?
+Families
+This part is going to be a little more vague and not completely thought out, but I want to write it down so I remember it.
+Let me comment that these problems typically come in
+families
+. I’m going to be kind of vague about what one should mean by that, because I’m not wholly sure. Take the Turan problem, for example. That’s really a
+list
+of problems, one for each n, or at least each sufficiently large n, given by data G_n, H_n, and R_n. But in a way they’re all the same, right? In particular, Orb_m doesn’t change with n (or at least it doesn’t for n large enough) As it happens I am very familiar with this vague notion of seuqences of things, each with an action of S_n, which are somehow all the same — they are functors from the category FI of finite sets with injections, which I’ve written a lot about over the years.  In particular, (G_n/H_n) is a
+finitely generated FI-set
+, which you can read more about in the paper of
+Speyer, Ramos, and White
+. Never mind the definitions; just accept that there’s a reasonable notion of what counts as a family of (G,H,R) instances in this context.
+Similarly, I think the cap set problems as n varies should be thought of as a family.
+What about the continuous cases?  I’m a little less clear there but let me make a stab at at least one kind of thing that should count.  Let G be the affine generalized orthogonal group on R^2, i.e. the group of rigid motions where you’re also allowed to dilate, and let H be GO(2).  Then G/H is R^2 and Orb_3 is the set of similarity classes of triangles.  Write K_n in Orb_3 for the set of triangles such that the ratio between two edges never exceeds n.  Then a K_n-set has size bounded by const*n^2 (because a K_n set is more or less the same thing as a packing of unit circles in a circle of radius n.)  If U is some OTHER set subset of orb, I would consider a family of problems to be given by R = U intersect K_n, with n growing.
+In the first two cases, write (G/H)_n for (G_n/H_n) and in the third case write (G/H)_n for K_n.  Note that in all three cases we have an easy asymptotic formula for the maximal size of a ((G/H)_n)-set.  Call this size S_n.  Then here’s what I’d like to guess.
+Vaguely stated guess:
+In any family of R, if we write m_R(n) for the maximal size of an R-set in the problem indexed by n, then the limit
+γ_R =  lim_n log(m_R(n) / S_n)
+exists.  This should be a basic invariant of R that measures how “restrictive” it is.
+One could even be more aggressive and ask whether there are constants c_R, γ_R such that
+m_R(n) = c_R |S_n|^γ_R + o(|S_n|^γ_R).
+which is true in lots of cases where the behavior of m_R(n) is understood!
+Is that too abstract? Let me give some sense of what it means.  For cap sets, it says the size of the largest cap set in F_q^n grows like q^{γn} or maybe q^{(γ+ε)n} or something.  This is known and pretty easy, but what’s not at all known or easy is what γ is.
+I proved a theorem with Giswijt
+that γ < 1.  I have no idea whether the more aggressive statement is true!  I don’t know how to rule out that it’s some kind of funny q^{γ n + epsilon}.  For the Turán problem, the guess says log ex(n,Γ) / log n approaches a limit in n; is that known?
+If I asked how many points there could be in a unit line segment, no two separated by less than 1/n, and no “approximate three-term APs”: three points x,y,z satisfying y in [(1/2+δ)x + (1/2-δ)z, (1/2-δ)x + (1/2+δ)z], is that maximum asymptotic to some c n^γ, with γ depending on δ?  In this context, one might imagine that γ is the largest dimension a set with no δ-approximate 3-term APs could have (throwing out the minimum distance requirement that forces the set to be finite.)
+And the aggressive guess would say that, I dunno, if I asked how large a collection of k-element subsets of [n] could be if no m of them shared at least t points, the answer would also be asymptotic to some c n^γ. Believable! I have no reason to believe any of this except that the cases where these problems are solved, e.g. the problems discussed in
+this survey of set intersection problems
+, all seem to have answers of this form.
+My instinct is that γ_R should be much easier to compute, and that c_R, which is more like a sphere-packing constant, should be more subtle.
+Here’s a very concrete question.  Take G = S_n, H = S_{n-k}, m = 2.  So Orb_2 is just the set of double cosets H \ G / H, which indeed stabilizes for large n to some finite set you can describe combinatorially.  For each subset R of this finite set, the guess says there’s some corresponding γ_R, and these numbers are monotone increasing under set inclusion.  So… what are they?
+I have not thought about this very hard!  I am posting with the idea that people will tell me which parts of this are already understood, and which parts are wrong, and in what directions there’s more to say or ask.
+Share this:
+Email a link to a friend (Opens in new window)
+Email
+Share on Facebook (Opens in new window)
+Facebook
+Share on Reddit (Opens in new window)
+Reddit
+Share on X (Opens in new window)
+X
+Like
+Loading...
+Related

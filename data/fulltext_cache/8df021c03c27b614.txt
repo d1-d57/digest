@@ -1,0 +1,923 @@
+Séminaire BOURBAKI                                                             Juin 2026
+78e année, 2025–2026, n° 1253
+
+
+
+   EMPILEMENTS DE SPHÈRES EN TRÈS GRANDE DIMENSION
+                    [d’après B. Klartag]
+
+                                par Guillaume Aubrun
+
+
+
+
+1. Introduction
+
+  Dans l’espace euclidien (Rn , ∥ · ∥), nous désignons par B(x, r) la boule ouverte de
+centre x et de rayon r > 0. Un empilement de sphères est une famille (B(xi , r)) de boules
+de même rayon r qui sont deux à deux disjointes, ce qui revient à dire que leurs centres
+vérifient ∥xi − xj ∥ ⩾ 2r si i ̸= j. La densité de cet empilement est définie, lorsqu’elle
+existe, comme la limite
+                                                  S
+                                    vol (B(0, R) ∩ i B(xi , r))
+                              lim
+                             R→∞           vol(B(0, R))
+Notons δn la densité maximale d’un empilement de sphères dans Rn ; le problème étant
+invariant par changement d’échelle, nous pouvons supposer ces sphères de rayon 1.
+L’étude des nombres δn est un problème ancien abordé dans plusieurs exposés (Oesterlé,
+1990, 2000, 2019). Voici la liste exhaustive des valeurs connues à ce jour.
+  — δ1 = 1. Trivial.
+  — δ2 = √π12 . Cette densité est atteinte pour des boules centrées en les points du
+    réseau hexagonal.
+  — δ3 = √π18 . C’est la conjecture de Kepler démontrée par Hales (2005). Cette densité
+    est atteinte pour des boules centrées en les points du réseau cubique à faces
+    centrées.
+          π4
+  — δ8 = 384   (Viazovska, 2017). Cette densité est atteinte pour des boules centrées en
+    les points du réseau E8 .
+            12
+  — δ24 = π12! (Cohn, Kumar, Miller, Radchenko et Viazovska, 2017). Cette densité est
+    atteinte pour des boules centrées en les points du réseau de Leech.
+  Notons δnL la densité maximale d’un empilement de sphères centrées en les points
+d’un réseau de Rn . Le calcul de δnL est une question fondamentale de la géométrie des
+nombres. La valeur est connue pour n ⩽ 9 et n = 24. Une référence sur ces questions
+est Conway et Sloane (1999) ; le cas n = 9 a été résolu récemment (Dutour Sikirić et
+Woerden, 2025).
+                                         1253–02
+
+
+   Il est évident que δnL ⩽ δn . Dans les rares cas, listés ci-avant, où la valeur de δn est
+connue, elle est égale à δnL . Cependant, il est vraisemblable que les valeurs de δnL et δn
+diffèrent pour tout n assez grand.
+   Cet exposé s’intéresse à l’estimation de δn et δnL lorsque la dimension n tend vers
+l’infini. Rappelons d’abord l’histoire de ces questions.
+   Il est très facile de démontrer l’inégalité δn ⩾ 2−n en considérant une famille maximale
+de boules deux à deux disjointes de rayon r et en remarquant que les boules de mêmes
+centres et de rayon 2r recouvrent Rn . L’inégalité δnL ⩾ 2−n est plus délicate ; c’est
+une conséquence du théorème de Minkowski–Hlawka énoncé par Minkowski dès 1893
+et démontré dans Hlawka (1943). Nous en donnerons une preuve dans la section 2 à
+l’aide de réseaux aléatoires. Pour n grand, il n’est connu aucun exemple explicite d’un
+empilement de sphères centrées en un réseau de Rn ayant une densité supérieure à 2−n .
+  Mentionnons maintenant les bornes supérieures connues. Dans un article très court,
+Blichfeldt (1929) démontre l’inégalité
+                                       n + 2  1 n
+                                  δn ⩽        √     .
+                                         2      2
+Ce résultat a été substantiellement amélioré par Kabatyanskii et Levenshtein (1978)
+
+(1)                                  δn ⩽ (α + o(1))n
+
+où α ≈ 0.66 < √12 est une constante explicite. Des meilleures estimations du terme o(1)
+ont ensuite été données par Cohn et Zhao (2014) et Sardari et Zargar (2024).
+  Cet exposé s’intéresse en premier lieu aux bornes inférieures. La borne « triviale » 2−n
+a d’abord été améliorée par Rogers (1947) en
+
+(2)                                   δnL ⩾ cn · 2−n .
+
+Ici et dans tout l’exposé, les lettres c et C désignent des réels > 0 non spécifiés qui ne
+dépendent pas de la dimension. D’autres approches donnant de meilleures estimations
+de la constante c ont ensuite été proposées par Davenport et Rogers (1947), puis Ball
+(1992) et Vance (2011).
+  L’avancée suivante est due à Venkatesh (2013) qui a montré, en considérant des
+réseaux aléatoires ayant des symétries d’origine algébrique, que l’inégalité
+
+                                 δnL ⩾ cn(log log n) · 2−n
+
+est vraie pour une infinité de n. Une approche différente, d’inspiration combinatoire et
+n’utilisant pas de réseaux (Campos, Jenssen, Michelen et Sahasrabudhe, 2023) a permis
+d’obtenir pour toute dimension la minoration
+                                   1       
+                              δn ⩾    − o(1) n log n · 2−n .
+                                    2
+Enfin, le résultat le plus abouti, que nous présentons ici, est le suivant
+                                         1253–03
+
+
+Théorème 1.1 (Klartag, 2026). — Il existe une constante c > 0 telle que pour tout
+entier n ⩾ 1,
+                             δn ⩾ δnL ⩾ cn2 · 2−n .
+
+   Ce progrès peut sembler modeste étant donné qu’il subsiste un fossé exponentiel entre
+la borne inférieure de Klartag et la meilleure borne supérieure (1). Notons toutefois que
+Venkatesh (2013) conjecture que la quantité 2n δnL est majorée par un polynôme en n.
+Nous savons désormais qu’un tel polynôme a nécessairement un degré ⩾ 2.
+   La section 2 présente l’argument de Rogers donnant la minoration (2). Le principe est
+de construire, étant donné un réseau aléatoire, un ellipsoïde de grand volume compatible
+avec le réseau, c’est-à-dire dont l’intérieur ne contient aucun point non nul du réseau.
+Cet ellipsoïde est déterminé par les minima successifs du réseau.
+   Klartag raffine ces idées en utilisant deux fois la méthode probabiliste : dans un réseau
+aléatoire, il considère un ellipsoïde compatible aléatoire. La définition de cet ellipsoïde
+aléatoire repose sur un processus stochastique dont l’étude fait intervenir tous les points
+du réseau de norme assez petite, et pas uniquement les minima successifs.
+   Ce processus d’exploration brownienne peut être défini dans un convexe fermé quel-
+conque, ce que nous faisons dans la section 3. La preuve de Klartag est détaillée dans
+la section 4.
+
+
+2. L’argument de Rogers
+
+   Un réseau est un ensemble de la forme Λ = A(Zn ) pour A ∈ GLn (R). Le nombre
+covol(Λ) := | det(A)| ne dépend pas du choix de la matrice A et est appelé covolume
+du réseau Λ. L’ensemble des réseaux de Rn de covolume 1 s’identifie à SLn (R)/SLn (Z).
+La mesure de Haar sur SLn (R) induit sur cet ensemble une mesure finie (voir Benoist,
+2009, Section 2.2) que l’on peut normaliser pour être de masse 1.
+   Ainsi, pour tout nombre réel v > 0, l’ensemble des réseaux de Rn de covolume v
+admet une unique mesure de probabilité invariante par l’action de SLn (R). Dans tout
+l’exposé, l’expression « réseau aléatoire de covolume v » se réfèrera à cette mesure de
+probabilité.
+   Nous utiliserons de façon centrale la formule d’intégration suivante, due à Siegel
+(1945). Si Λ ⊂ Rn est un réseau aléatoire de covolume v, alors pour toute fonction
+f : Rn → R intégrable par rapport à la mesure de Lebesgue
+                                  h X         i 1Z
+(3)                             E        f (x) =      f
+                                    x∈Λ∗
+                                                 v Rn
+
+où Λ∗ := Λ \ {0}.
+  Notons Bn := B(0, 1) la boule unité ouverte de Rn et ωn := π n/2 /Γ n2 + 1 son volume.
+                                                                            
+
+La norme minimale d’un réseau Λ est la quantité r = min{∥x∥ : x ∈ Λ∗ }. Les boules
+{B(x, r/2) : x ∈ Λ} forment un empilement de sphères de densité rn ωn / covol(Λ).
+                                              1253–04
+
+
+  La méthode probabiliste fournit une preuve immédiate de l’inégalité δnL ⩾ 2−n de
+Minkowski–Hlawka. Si Λ est un réseau aléatoire de covolume ωn , la formule de Siegel (3)
+appliquée à la fonction f = 1Bn s’écrit
+
+                                      E [|Bn ∩ Λ∗ |] = 1.
+
+Puisque le nombre |Bn ∩ Λ∗ | est pair, il est égal à 0 avec probabilité ⩾ 12 . Il existe donc
+un réseau Λ de Rn de covolume ωn et de norme minimale ⩾ 1, ce qui implique que la
+famille {B(x, 12 ) : x ∈ Λ} est un empilement de sphères de densité ⩾ 2−n .
+  Nous allons maintenant détailler la preuve de Rogers de l’inégalité δnL ⩾ cn2−n . Appe-
+lons ellipsoïde l’image de la boule unité ouverte par une application linéaire inversible.
+Le point de départ est de remarquer que si Λ ⊂ Rn est un réseau et E est un ellipsoïde
+ne contenant aucun point de Λ∗ , alors
+
+                                                vol(E) −n
+(4)                                  δnL ⩾              2 .
+                                               covol(Λ)
+
+En effet, si E = T (Bn ) pour T ∈ GLn (R), alors la famille {B(x, 1) : x ∈ 2T −1 Λ} est un
+empilement de sphères de densité ωn / covol(2T −1 Λ) = 2−n vol(E)/ covol(Λ).
+  Soit Λ un réseau aléatoire de covolume v := ωnn . Considérons la fonction
+                                        1         1 
+                           f (x) := log       = log      1Bn (x).
+                                        ∥x∥ +       ∥x∥
+
+D’après la formule de Siegel (3), nous avons
+                      hX          i 1Z         n
+                                                 Z
+                                                          1
+                    E        f (x) =        f=       log     dx.
+                       x∈Λ ∗
+                                     v  R n    ωn Bn     ∥x∥
+
+Cette intégrale se calcule en coordonnées polaires comme
+                                          R1
+                                               log(1/r)rn−1 dr   1/n2
+                       Z
+                  1            1          0
+                          log     dx =          R1             =      = 1/n.
+                  ωn   Bn     ∥x∥                  r n−1 dr      1/n
+                                                 0
+
+Il s’ensuit que
+                                          hX          i
+                                      E          f (x) = 1
+                                          x∈Λ∗
+
+et en particulier, il existe un réseau Λ de covolume v vérifiant      x∈Λ∗ f (x) ⩽ 1. Fixons
+                                                                    P
+
+un tel réseau.
+  Pour 1 ⩽ i ⩽ n, posons
+
+                           λi := inf{λ : dim (Vect(Λ ∩ λBn )) ⩾ i}.
+                                                 1253–05
+
+
+Les nombres λ1 ⩽ · · · ⩽ λn sont appelés les minima successifs du réseau Λ. Il existe des
+éléments y1 , . . . , yn de Λ formant une base de Rn et vérifiant ∥yi ∥ = λi . Nous avons
+                                                        1                   1
+                           − log(λ1 · · · λn ) = log        + · · · + log
+                                                     ∥y1 ∥                 ∥yn ∥
+                                               ⩽ f (y1 ) + · · · + f (yn )
+                                                  X
+                                               ⩽       f (y) = 1.
+                                                  y∈Λ∗
+
+Nous en déduisons l’inégalité λ1 · · · λn ⩾ 1/e. Soit (e1 , . . . , en ) une base orthonormale
+vérifiant pour 1 ⩽ i ⩽ n
+                               Vect(e1 , . . . , ei ) = Vect(y1 , . . . , yi ).
+Considérons l’ellipsoïde
+                                          n                 n
+                                         nX                 X α2  i
+                                                                         o
+                                  E=             αi e i :         2
+                                                                    <1
+                                           i=1              i=1
+                                                                λ i
+
+et soit x = i=1 αi ei un élément de Λ∗ . Soit j maximal tel que αj ̸= 0. Nous avons
+             Pn
+
+∥x∥ ⩾ λj , et par ailleurs
+                                  n          j
+                                  X α2  i
+                                            X   αi2   ∥x∥2
+                                       2
+                                          =       2
+                                                    ⩾    2
+                                                           ⩾ 1.
+                                  i=1
+                                      λi    i=1
+                                                λ i    λ j
+
+Ainsi, l’ellipsoïde E ne contient aucun point de Λ∗ . Au vu de (4), cela implique l’inégalité
+                         vol(E) −n
+                       δnL ⩾    2 = n2−n λ1 · · · λn ⩾ e−1 n2−n .
+                            v
+Nous avons ainsi démontré la minoration (2).
+
+
+3. Exploration brownienne d’un convexe fermé
+
+   Dans toute cette partie, nous fixons un espace euclidien E de dimension n et un sous-
+ensemble C ⊂ E convexe fermé ne contenant pas de droite affine. Fixons également un
+mouvement brownien standard (Bt )t⩾0 dans E, c’est-à-dire un processus stochastique à
+valeurs dans E tel que, pour toute base orthonormale (e1 , . . . , en ) de E, les n processus
+stochastiques scalaires (⟨Bt , ei ⟩)t⩾0 , pour 1 ⩽ i ⩽ n, sont des mouvements browniens
+indépendants. Notons (Ft )t⩾0 la filtration canonique de (Bt ), supposée complète. Autre-
+ment dit, pour t ⩾ 0, la tribu Ft la plus petite tribu contenant les ensembles négligables
+et rendant mesurables les variables aléatoires (Bs )0⩽s⩽t .
+  Nous allons définir un processus stochastique à valeurs dans C que nous appelle-
+rons exploration brownienne de C . Informellement, l’exploration brownienne de C est
+construite en conditionnant le mouvement brownien (Bt ) à appartenir à une face de C
+atteinte antérieurement. Ce processus est une martingale qui atteint presque sûrement
+un point extrémal de C en temps fini.
+                                              1253–06
+
+
+  Pour tout x ∈ C , l’ensemble
+(5)               V (x, C ) := {y ∈ E : ∃ε > 0 : |t| < ε =⇒ x + ty ∈ C }
+est un sous-espace vectoriel de E. L’égalité V (x, C ) = E a lieu si et seulement si x est
+un point intérieur à C , et l’égalité V (x, C ) = {0} a lieu si et seulement si x est un point
+extrémal de C . Dans le sous-espace vectoriel V (x, C ), le point 0 est intérieur au convexe
+(C − x) ∩ V (x, C ).
+
+Proposition 3.1. — Soit x0 un point intérieur à C . Il existe une martingale conti-
+nue (Xt ) adaptée à la filtration (Ft ) et vérifiant l’équation différentielle stochastique
+(6)                               X0 = x0 ,     dXt = pt (dBt )
+où pt désigne la projection orthogonale sur le sous-espace V (Xt , C ), qui vérifie les
+propriétés suivantes : presque sûrement,
+  (a) pour tout t ⩾ 0, on a Xt ∈ C ,
+  (b) il existe un point extrémal z de C et un réel T > 0 (aléatoires) tels que Xt = z
+      pour tout t ⩾ T ,
+  (c) pour tous 0 ⩽ s ⩽ t, on a V (Xt , C ) ⊂ V (Xs , C ).
+  Ce processus (Xt ) est appelé processus d’exploration brownienne de C issu de x0 . Sa
+construction utilise récursivement le lemme suivant.
+Lemme 3.2. — Soit V un espace euclidien et K ⊂ V un convexe fermé, distinct de V
+et contenant 0 dans son intérieur. Soit (βt )t⩾0 un mouvement brownien standard dans V .
+La variable aléatoire
+                                τ := inf{t ⩾ 0 : βt ̸∈ K}
+vérifie presque sûrement 0 < τ < ∞. De plus, presque sûrement, βτ ∈ ∂K.
+Démonstration. — Puisque K ̸= V , par le théorème de Hahn–Banach, il existe un
+élément z ∈ V de norme 1 tel que la forme linéaire ⟨z, ·⟩ est minorée sur K. Le processus
+stochastique scalaire (⟨z, βt ⟩)t⩾0 est un mouvement brownien et vérifie donc presque
+sûrement inf{⟨z, βt ⟩ : t ⩾ 0} = −∞ (voir Le Gall, 2013, Corollaire 2.3), ce qui implique
+l’existence d’un réel t tel que βt ̸∈ K. Nous avons ainsi montré que τ est presque
+sûrement fini. Les autres propriétés découlent du fait que la fonction t 7→ βt est presque
+sûrement continue.
+Démonstration de la proposition 3.1. — Posons X0 = x0 . Pour construire (Xt )t⩾0 , défi-
+nissons une suite de temps d’arrêt
+                                    0 = τ0 < τ1 < · · · < τn
+de telle sorte que si t ∈ [τi , τi+1 [ alors V (Xt , C ) = Vi , où Vi := V (Xτi , C ). Notons πi la
+projection orthogonale sur Vi . Nous allons définir (Xt ) de telle manière que, si t ∈ [τi , τi+1 [
+                                   Xt = Xτi + πi (Bt − Bτi ).
+                                           1253–07
+
+
+    La construction se fait par récurrence sur i ∈ {0, . . . , n}. En supposant construits
+τ0 , . . . , τi et (Xt )0⩽t⩽τi , définissons τi+1 de la manière suivante.
+    — Si Vi ̸= {0}, posons
+               τi+1 = τi + inf{t > 0 : V (Xτi + πi (Bτi +t − Bτi ), C ) ̸= Vi )}.
+      Appliquons le lemme 3.2 à l’espace euclidien Vi , au convexe K = (C − Xτi ) ∩ Vi et
+      au processus (βt ) défini par βt := πi (Bτi +t − Bτi ) qui est un mouvement brownien
+      standard dans Vi . Remarquons aussi que puisque dim(Vi ) ⩾ 1 et C ne contient
+      pas de droite, l’ensemble K n’est pas égal à Vi . Nous pouvons donc conclure que
+      presque sûrement, τi+1 < ∞ et dim(Vi+1 ) < dim(Vi ).
+   — Si Vi = {0}, la récurrence se termine. Posons Xt = Xτi pour tout t ⩾ τi . Posons
+      aussi (ce choix est arbitraire) τk = τj + k pour tout entier j < k ⩽ n.
+   Par construction, (Xt ) est une martingale continue qui vérifie les conditions (a), (b)
+avec T = τn et (c) de la proposition 3.1. Il reste à voir qu’elle est solution de l’équation
+différentielle stochastique (6), c’est-à-dire que, au sens de l’intégrale d’Itô, pour tout
+t⩾0                                            Z        t
+                                   Xt − X 0 =               ps (dBs ).
+                                                    0
+Par définition de l’intégrale stochastique, nous avons (au sens de L2 )
+                        Z t                  NP
+                                              X −1
+(7)                         ps (dBs ) = lim        pti (Bti+1 − Bti )
+                           0             δ(P )→0
+                                                    i=0
+
+où P = {0 = t0 < t1 < · · · < tNP = t} est une subdivision (déterministe) de [0, t] de
+pas δ(P ) := max0⩽i<NP |ti+1 − ti |. Par construction de (Xt ), si Q = {0 = s0 < s1 <
+· · · < sNQ = t} est une subdivision (aléatoire) de [0, t] contenant {τ1 , . . . , τn } ∩ [0, t],
+nous avons
+                                           NQ −1
+                                           X
+(8)                            Xt − X0 =           psi (Bsi+1 − Bsi ).
+                                            i=0
+
+En choisissant une telle subdivision Q plus fine que P , l’écart entre les sommes appa-
+raissant dans (7) et (8) peut-être rendu arbitrairement petit au sens dans L2 . Nous en
+déduisons l’égalité                         Z           t
+                                   Xt − X 0 =               ps (dBs )
+                                                    0
+au sens de L2 , et donc presque sûrement puisque les deux membres sont des martingales
+continues.
+
+Remarque 3.3. — Pour 1 ⩽ i ⩽ n, la loi du ième temps d’arrêt τi défini dans la preuve
+précédente est une mesure diffuse sur R+ . En effet, soit ε > 0 suffisamment petit pour
+que la boule B(x0 , ε) soit incluse dans C et τ ′ := inf{t > 0 : ∥Bt − x0 ∥ ⩾ ε} le temps
+de sortie associé. Par la propriété de Markov forte, la loi de τi est la convolution de la loi
+de τ ′ et de la loi du ième temps d’arrêt du processus d’exploration de C issu d’un point
+                                             1253–08
+
+
+choisi uniformément sur la sphère ∂B(x0 , ε). Puisque τ ′ a une loi diffuse (Ciesielski et
+Taylor, 1962), c’est aussi le cas de τi .
+   Nous utiliserons cette remarque pour démontrer les propositions 3.6 et 4.2. Toutefois,
+elle n’est pas nécessaire pour démontrer le théorème 1.1 à condition de remplacer ces
+propositions par une variante affaiblie où la conclusion est sous forme intégrée, telle que
+celle qui sera utilisée dans l’inégalité (10).
+   Dans la suite de cette partie, fixons x0 ∈ C et notons (Xt ) le processus d’exploration
+brownienne de C issu de x0 . Comme dans la proposition 3.1, pt désigne la projection or-
+thogonale sur V (Xt , C ). Nous allons démontrer deux inégalités de couplage qui illustrent
+l’idée que l’exploration brownienne « diffuse moins vite » que le mouvement brownien
+standard.
+Proposition 3.4. — Pour toute norme ∥ · ∥ sur E, pour tout t > 0 et pour tout λ > 0
+                             P(∥Xt − x0 ∥ ⩾ λ) ⩽ 2 P(∥Bt ∥ ⩾ λ).
+Démonstration. — Considérons le processus (Bt′ ) défini par la relation Xt = x0 +
+1
+2
+  (Bt + Bt′ ). Puisque pour tout t ⩾ 0
+                                            Z t
+                                  Xt = x0 +     ps (dBs )
+                                                    0
+et                                            Z t
+                                       Bt =         Id(dBs ),
+                                               0
+nous avons par linéarité de l’intégrale stochastique
+                                      Z t
+                                  ′
+                                Bt =      (Id − 2ps )(dBs ).
+                                         0
+La matrice de variation quadratique du processus (Bt′ ) est égale à
+                               Z t
+                         ′         t
+                       [B ]t =       (Id − 2ps )(Id − 2ps )ds = tId
+                                   0
+puisque ps est une projection orthogonale. Par un théorème de Lévy (Le Gall, 2013,
+Théorème 5.4), ceci implique que le processus (Bt′ ) est un mouvement brownien standard
+dans E. Nous avons donc, en écrivant ∥Xt − x0 ∥ ⩽ 21 (∥Bt ∥ + ∥Bt′ ∥),
+                    P(∥Xt − x0 ∥ ⩾ λ) ⩽ P (∥Bt ∥ + ∥Bt′ ∥ ⩾ 2λ)
+                                         ⩽ P(∥Bt ∥ ⩾ λ) + P∥Bt′ ∥ ⩾ λ)
+et le résultat en découle.
+
+Proposition 3.5. — Soit z ∈ E et a un réel. Notons
+                                τ1 := inf{t ⩾ 0 : ⟨z, Xt ⟩ = a}
+et
+                             τ2 := inf{t ⩾ 0 : ⟨z, x0 + Bt ⟩ = a}.
+                                          1253–09
+
+
+Alors, pour tout réel T > 0,
+                                 P(τ1 ⩾ T ) ⩾ P(τ2 ⩾ T ).
+
+Démonstration. — Supposons sans perte de généralité que ∥z∥ = 1, x0 = 0 et a > 0.
+Le processus stochastique scalaire (Mt ) défini par Mt := ⟨z, Xt ⟩ est une martingale
+continue. Sa variation quadratique vérifie
+                               Z t               Z t
+                                           2
+                       [M ]t =     ∥ps (z)∥ ds ⩽     ∥z∥2 ds = t.
+                                  0                  0
+
+Le théorème de Dambis–Dubins–Schwartz implique (quitte à agrandir l’espace de pro-
+babilité, voir Le Gall, 2013, Théorème 5.5) l’existence d’un mouvement brownien sca-
+laire (βt ) tel que
+                                     Mt = β[M ]t
+pour tout réel ⩾ 0. Puisque [M ]t ⩽ t, nous avons
+                          ∀t < T, βt < a =⇒ ∀t < T, Mt < a.
+L’événement de droite est l’événement {τ1 ⩾ T } et l’événement de gauche a même
+probabilité que l’événement {τ2 ⩾ T } puisque (⟨z, Bt ⟩) est un mouvement brownien
+scalaire.
+  Enfin, explicitons une conséquence de la formule d’Itô.
+
+Proposition 3.6. — Soit Ω un ouvert de E contenant C et soit F : Ω → R une
+fonction de classe C 2 . Supposons que pour tout t > 0 on ait
+                Z t                              Z t
+                                2
+            (i)     E[∥∇F (Xs )∥ ] ds < ∞, (ii)      E[∥∇2 F (Xs )∥] ds < ∞.
+                 0                                   0
+
+Alors la fonction g : t 7→ E[F (Xt )] est de classe C 1 et vérifie pour tout t ⩾ 0
+                                        1 
+                              g ′ (t) = E Tr(∇2 F (Xt )pt ) .
+                                                             
+                                        2
+Démonstration. — La formule d’Itô s’écrit comme
+                             Z t
+                                                         1 t
+                                                          Z
+                                                              Tr(∇2 F (Xs )ps ) ds.
+                                                                               
+         F (Xt ) = F (x0 ) +     ⟨∇F (Xs ), ps (dBs )⟩ +
+                              0                          2 0
+                                         Rt
+Le processus (Mt ) défini par Mt := 0 ⟨∇F (Xs ), ps (dBs )⟩ est une martingale locale.
+L’hypothèse (i) combinée au fait que ps est une contraction implique que (Mt ) est une
+martingale et donc que E[Mt ] = 0 pour tout t ⩾ 0. L’hypothèse (ii) garantit que g(t)
+est bien définie pour t ⩾ 0 et vaut
+                                    1 t 
+                                      Z
+                                           E Tr(∇2 F (Xs )ps ) .
+                                                              
+                             g(t) =
+                                    2 0
+Il découle de la preuve de la proposition 3.1 et de la remarque 3.3 que les points de
+discontinuité de la fonction t 7→ pt sont en nombre fini et que leur loi est diffuse. Puisque
+la fonction t 7→ ∇2 F (Xt ) est presque sûrement continue, ceci implique que la fonction
+                                        1253–10
+
+
+t 7→ E [Tr(∇2 F (Xt )pt )] est continue. Ainsi, g est de classe C 1 et vérifie la formule
+annoncée.
+
+
+
+4. La preuve de Klartag
+
+4.1. Préliminaires
+   L’ensemble Symn des matrices symétriques réelles de taille n est un espace vectoriel
+de dimension n(n + 1)/2. Munissons-le de la structure d’espace euclidien donnée par
+le produit scalaire ⟨A, B⟩ = Tr(AB). Pour A et B dans Symn , nous écrivons A ≼ B
+lorsque la matrice B − A est positive. Nous associons à toute matrice A symétrique
+définie positive l’ellipsoïde ouvert
+                        EA := {x ∈ Rn : ⟨Ax, x⟩ < 1} = A−1/2 (Bn )
+qui vérifie vol(EA ) = ωn / det(A). Sa frontière ∂EA est l’ensemble des vecteurs x de Rn
+                           p
+
+vérifiant ⟨Ax, x⟩ = 1.
+  Étant donné un réseau Λ ⊂ Rn , considérons l’ensemble convexe fermé
+                  CΛ := {A ∈ Symn : ⟨Ax, x⟩ ⩾ 1 pour tout x ∈ Λ∗ }.
+  Une matrice A symétrique définie positive appartient à CΛ si et seulement si l’ellip-
+soïde EA ne contient aucun point de Λ∗ . Le lemme suivant décrit l’ensemble V (A, CΛ )
+défini par (5).
+
+Lemme 4.1. — Soit Λ un réseau de Rn et A ∈ CΛ . Alors A est définie positive et vérifie
+l’inégalité
+                                           ωn 2−n
+(9)
+                            p
+                              det(A) ⩾ L            .
+                                        δn covol(Λ)
+De plus,
+           V (A, CΛ ) = {M ∈ Symn : ⟨M x, x⟩ = 0 pour tout x ∈ Λ∗ ∩ ∂EA }.
+
+Démonstration. — La positivité de A se déduit du fait que l’ensemble {x/∥x∥ : x ∈ Λ∗ }
+est dense dans la sphère unité de Rn . Si A est définie positive, l’inégalité (4) s’écrit
+                                                   p
+                               vol(EA )       ω n /  det(A) −n
+                        δnL ⩾           2−n =               2
+                              covol(Λ)           covol(Λ)
+d’où nous déduisons (9). Si A est a priori seulement supposée positive, la conclusion
+reste vraie en appliquant cet argument à A + εId pour ε > 0 arbitrairement petit.
+  Soit M ∈ V (A, CΛ ). Pour tout x ∈ Λ∗ ∩ ∂EA , nous avons ⟨Ax, x⟩ = 1. La définition
+de V (A, CΛ ) implique que ⟨(A + tM )x, x⟩ ⩾ 1 pour |t| assez petit, donc ⟨M x, x⟩ = 0.
+  Réciproquement, soit M ∈ Symn telle que ⟨M x, x⟩ = 0 pour tout x ∈ Λ∗ ∩ ∂EA .
+Puisqu’un réseau est discret et puisque A est définie positive, il existe α > 1 tel que
+                                         1253–11
+
+
+⟨Ax, x⟩ ⩾ α pour tout x ∈ Λ∗ \ ∂EA . Si t est un réel tel que |t| assez petit, nous avons
+α−1 A ≼ A + tM et donc, pour tout x ∈ Λ∗
+                                   ⟨(A + tM )x, x⟩ = 1 si x ∈ ∂EA
+                     ⟨(A + tM )x, x⟩ ⩾ α−1 ⟨Ax, x⟩ ⩾ 1 si x ̸∈ ∂EA
+ce qui implique que A + tM ∈ CΛ . Nous avons donc démontré que M ∈ V (A, CΛ ).
+  Les matrices A ∈ CΛ de déterminant minimal, pour lesquelles il y a égalité dans (9),
+correspondent à un empilement d’ellipsoïdes {EA + x : x ∈ 2Λ} de densité optimale δnL .
+Puisque la fonction log ◦ det est strictement concave sur CΛ , ces points de minimum
+sont des points extrémaux de CΛ .
+
+4.2. Structure de la preuve
+   Fixons un mouvement brownien standard (Wt )t⩾0 dans l’espace euclidien Symn . Nous
+allons considérer un processus d’exploration brownienne construit à partir de (Wt )
+comme dans la section 3.
+   Soit Λ ⊂ Rn un réseau de norme minimale > 1, ce qui revient à dire que la matrice Id
+est dans l’intérieur de CΛ . Notons (At ) le processus d’exploration brownienne de CΛ
+issu de Id. Pour alléger l’écriture, nous allons prétendre que les conclusions de la pro-
+position 3.1 sont vraies en tout point de l’espace de probabilité sous-jacent ; l’argument
+devient rigoureux en ajoutant la locution « presque sûrement » à chaque phrase.
+   D’après la proposition 3.1, pour tout t, la matrice At est dans CΛ . Pour t suffisamment
+grand, c’est un point extrémal de CΛ . Le processus d’exploration brownienne « choisit »
+un empilement de sphères extrémal. Nous allons voir qu’il est possible de minorer la
+densité de cet empilement, ce qui revient à majorer det(At ).
+   Puisque (At ) est une martingale et que la fonction log ◦ det est concave, la fonction
+g : t 7→ E[log det At ] est décroissante. Nous allons estimer la vitesse de décroissance en
+fonction de la répartition des vecteurs de Λ de petite norme. Cela requiert quelques
+notations. Considérons la fonction de queue gaussienne Φ définie pour un réel a comme
+                                             Z ∞
+                                                     2    dx
+                                    Φ(a) :=       e−x /2 √ .
+                                              a            2π
+Autrement dit, Φ(a) est la probabilité qu’une variable aléatoire gaussienne standard
+prenne une valeur ⩾ a. Définissons ensuite, pour un réel t > 0, une fonction radiale
+ft : Rn → R par la formule
+                                              1          1 
+                                ft (x) := 2 Φ √ 1 −             .
+                                                 t       ∥x∥2
+Enfin, étant donné un réseau Λ, posons
+                                               X
+                                   Kt (Λ) :=       ft (x)
+                                           x∈Λ∗ ∩D   t
+                              √
+où Dt := {x ∈ R : (1 − 3 tn)∥x∥2 ⩽ 1}.
+                 n
+
+  Posons tmax := 20 nlog
+                      2
+                         n
+                           . Le théorème 1.1 se déduit des deux propositions suivantes.
+                                        1253–12
+
+
+Proposition 4.2. — Soit Λ ⊂ Rn un réseau de norme minimale > 1. Soit (At ) le
+processus d’exploration brownienne de CΛ issu de Id. La fonction g : t 7→ E[log det At ]
+est de classe C 1 et vérifie pour t ∈ [0, tmax ] l’inégalité
+
+                           ′       n2           √
+                          g (t) ⩽ − + Kt (Λ) + 3 tn5/2 + εn
+                                   4
+où (εn ) est une suite tendant vers 0 quand n tend vers l’infini.
+
+Proposition 4.3. — Soit t ∈ [0, tmax ]. Si Λ ⊂ Rn est un réseau aléatoire de covo-
+lume ωn , alors
+                                                       n2 t 
+                             E[Kt (Λ)] ⩽ (2 + εn ) exp
+                                                         8
+où (εn ) est une suite tendant vers 0 quand n tend vers l’infini.
+
+   Montrons le théorème 1.1 en combinant ces deux propositions. Soit Λ ⊂ Rn un réseau
+aléatoire de covolume ωn . Posons T := 16 nlog   . Ce nombre vérifie en T /8 = n2 .
+                                               n                        2
+                                            2
+
+   D’après la proposition 4.3, nous avons (l’espérance faisant référence au réseau aléa-
+toire Λ)
+                   hZ T          i             Z T      n2 t 
+                 E      Kt (Λ) dt ⩽ (2 + εn )       exp         dt
+                     0                            0        8
+                                                8      n2 T 
+                                   ⩽ (2 + εn ) 2 exp            = 8(2 + εn ).
+                                               n         8
+Prenons n suffisamment grand pour que l’inégalité 8(2 + εn ) < 20 soit vraie. L’inégalité
+de Markov implique
+                                 Z T                 1
+                               P      Kt (Λ) dt ⩾ 40 < .
+                                   0                     2
+Rappelons par ailleurs qu’un réseau aléatoire de covolume ωn a une norme minimale > 1
+avec probabilité ⩾ 12 . Nous en déduisons qu’il existe un réseau Λ de covolume ωn et de
+norme minimale > 1 pour lequel
+                                   Z T
+                                       Kt (Λ) dt ⩽ 40.
+                                    0
+
+La proposition 4.2 appliquée à un tel réseau donne (l’espérance faisant référence au
+processus stochastique (At ))
+                                 Z T
+        E[log det AT ] = g(T ) =     g ′ (t) dt
+                                  0
+                                             Z T             Z T √
+                                   n2 T
+(10)                           ⩽−         +      Kt (Λ) dt +    3 tn5/2 dt + εn T
+                                     4        0               0
+                               ⩽ −4 log(n) + 40 + 2T 3/2 n5/2 + εn T
+                               ⩽ −4 log(n) + C
+                                         1253–13
+
+
+puisque T 3/2 n5/2 = o(1). Il existe donc une matrice A ∈ CΛ telle que
+                                                                 eC
+                          det(A) ⩽ exp(−4 log(n) + C) =
+                                                                 n4
+et donc, d’après (4)
+                                        2−n
+                              δnL ⩾ p            ⩾ cn2 · 2−n .
+                                        det(A)
+
+4.3. Preuve de la proposition 4.2
+   Nous utiliserons des estimations de la norme d’opérateur (notée ∥ · ∥op ) de matrices
+aléatoires. Rappelons que (Wt ) est un mouvement brownien standard dans l’espace
+euclidien Symn . La loi de W1 est connue sous le nom d’Ensemble Gaussien Orthogonal
+(GOE). L’inégalité suivante est une conséquence de l’inégalité isopérimétrique dans
+l’espace gaussien (cf. l’équation (6.38) dans Aubrun et Szarek, 2017) : pour tout ε > 0,
+                                         √
+                           P(∥W1 ∥op ⩾ 2 n + ε) ⩽ exp(−ε2 /2).
+                                             √
+  Pour tout t > 0, la variable aléatoire Wt / t a même loi que W1 . La proposition 3.4
+implique alors pour tout ε > 0 l’inégalité
+                                     √ √
+(11)               P ∥At − Id∥op ⩾ t(2 n + ε) ⩽ 2 exp(−ε2 /2).
+                                                  
+
+Nous tirerons deux conséquences de cette inégalité. Premièrement, pour tout entier
+naturel k et pour tout t > 0
+                Z t                       Z t
+(12)                E ∥As ∥op ds < ∞ et
+                             k
+                                              E ∥A−1   k
+                                                      
+                                                    s ∥op ds < ∞.
+                  0                               0
+
+La première de ces inégalités est une conséquence de (11) puisque les variables aléatoires
+sous-gaussiennes ont tous leurs moments finis ; la seconde découle de la première en
+écrivant
+                                      −1
+                                              ∥At ∥n−1
+                                                   op
+                                   ∥At ∥op ⩽
+                                              det(At )
+et en utilisant le fait, énoncé au lemme 4.1, que le déterminant est minoré par une
+valeur > 0 sur CΛ .
+  Deuxièmement, elle va nous permettre de restreindre notre étude au cas où At est très
+proche de la matrice identité. Pour tout t > 0, introduisons l’événement « favorable »
+                                                    √
+                             Gt = ∥At − Id∥op ⩽ 3 tn .
+
+Il découle de (11) que cet événement a une probabilité très proche de 1 puisque l’événe-
+ment complémentaire vérifie
+                                    P(Gt ) ⩽ 2e−n/2 .
+                                        1253–14
+
+
+   Commençons maintenant la preuve de la proposition 4.2. Appliquons la formule d’Itô
+sous la forme de la proposition 3.6 à la fonction F = log ◦ det. Pour A ∈ CΛ et B ∈ Symn ,
+le développement limité
+         log det(A + εB) = log det A + log det(Id + εA−1 B)
+                                                        ε2
+                          = log det A + ε Tr(A−1 B) −      Tr((A−1 B)2 ) + O(ε3 )
+                                                        2
+nous donne
+                           ⟨(∇F )(A), B⟩ = Tr(A−1 B)
+                         ⟨(∇2 F )(A)B, B⟩ = − Tr(A−1 BA−1 B).
+                                                                             √
+En notant ∥A∥ := (Tr A2 )1/2 , nous avons donc ∥∇F (A)∥ ⩽ ∥A−1 ∥ ⩽ n∥A−1 ∥op
+et ∥∇2 F (A)∥op ⩽ ∥A−1 ∥2 ⩽ n∥A−1 ∥2op . Il découle de (12) que les hypothèses de la
+proposition 3.6 sont vérifiées. Par conséquent, la fonction g est de classe C 1 et vérifie
+pour t ⩾ 0
+                                         1 
+                                g ′ (t) = E Tr(∇2 F (Xt )pt )
+                                                              
+                                         2
+où pt est la projection orthogonale sur le sous-espace V (At , CΛ ), dont nous notons Nt
+la dimension.
+   L’inégalité Tr(A−1 BA−1 B) ⩾ ∥A∥−2     op Tr(B ) implique ∇ F (A) ≼ −∥A∥op Id. Ainsi,
+                                                 2              2            −2
+
+pour t ⩾ 0
+                               1                    1           −2
+                   g ′ (t) ⩽ − E ∥At ∥−2
+                                                                    
+                                          op Nt ⩽ − E 1Gt ∥At ∥op Nt .
+                               2                     2
+                                                        √
+Si l’événement Gt est satisfait, alors ∥At ∥op ⩽ 1 + 3 tn et donc
+                                              √ −2            √
+                            ∥At ∥−2
+                                 op ⩾ (1 + 3 tn)      ⩾ 1 − 6 tn.
+Nous avons alors, grâce à la majoration Nt ⩽ dim Symn ⩽ n2 ,
+                                       1               √
+                            g ′ (t) ⩽ − E [1Gt Nt ] + 3 tn5/2 .
+                                       2
+  Soit Et := EAt l’ellipsoïde associé à la matrice At . D’après le lemme 4.1,
+                         V (At , CΛ ) = {x ⊗ x : x ∈ Λ∗ ∩ ∂Et }⊥
+et donc (le facteur 12 venant du fait que (−x) ⊗ (−x) = x ⊗ x),
+                                            1
+                             Nt ⩾ dim Symn − |Λ∗ ∩ ∂Et |.
+                                            2
+Nous avons donc
+                        1                     1                       √
+             g ′ (t) ⩽ − dim Symn × P(Gt ) + E [1Gt |Λ∗ ∩ ∂Et |] + 3 tn5/2
+                        2                     4
+                        n2 1                      √
+                     ⩽ − + E [1Gt |Λ∗ ∩ ∂Et |] + 3 tn5/2 + n2 e−n/2 .
+                         4  4
+                                          1253–15
+
+                                                           √
+  Si l’événement Gt est satisfait, √  alors  A t ≽ (1 −  3  tn)Id et par conséquent, tout
+x ∈ Λ∗ vérifie ⟨At x, x⟩ ⩾ (1 − 3 tn)∥x∥2 . Ainsi, la condition x ∈ ∂Et , qui équivaut à
+⟨At x, x⟩ = 1, ne peut être réalisée que si x ∈ Dt . Nous avons donc
+                                                 X
+                              1Gt |Λ∗ ∩ ∂Et | =    1Gt 1{x∈∂Et }
+                                              x∈Λ∗ ∩Dt
+
+et par linéarité de l’espérance,
+                                                    X
+(13)                        E [1Gt |Λ∗ ∩ ∂Et |] ⩽           P(x ∈ ∂Et ).
+                                                  x∈Λ∗ ∩Dt
+
+
+  Utilisons ensuite la remarque suivante : pour tout t > 0 et x ∈ Λ∗ ,
+
+                         x ∈ ∂Et ⇐⇒ ∃s ∈ [0, t] : ⟨As x, x⟩ ⩽ 1.
+
+Cette équivalence découle de deux faits. D’une part, si s ⩽ t alors V (At , CΛ ) ⊂ V (As , CΛ )
+par la proposition 3.1(iii), ce qui fait que l’égalité ⟨As x, x⟩ = 1 implique l’égalité
+⟨At x, x⟩ = 1. D’autre part, puisque As ∈ CΛ , il est équivalent de dire que ⟨As x, x⟩ ⩽ 1
+ou que ⟨As x, x⟩ = 1.
+   Ceci nous permet d’écrire, à l’aide de l’inégalité de couplage prouvée dans la proposi-
+tion 3.5 et en posant y := ∥x∥
+                            x
+
+                                                        
+                       P(x ∈ ∂Et ) = P inf ⟨As x, x⟩ ⩽ 1
+                                       0⩽s⩽t
+                                                               
+                                   ⩽ P inf ⟨(Id + Ws )x, x⟩ ⩽ 1
+                                        0⩽s⩽t
+                                                         1      
+                                   = P inf ⟨Ws y, y⟩ ⩽       − 1   .
+                                       0⩽s⩽t           ∥x∥2
+Le processus βs := ⟨Ws y, y⟩ est un mouvement brownien scalaire. Une conséquence du
+principe de réflexion (Le Gall, 2013, Théorème 2.4) est la formule suivante, pour tout
+a > 0,
+                                                                  a 
+           P inf βs ⩽ −a = P sup βs ⩾ a = 2P(|βt | ⩾ a) = 2Φ √ .
+               0⩽s⩽t                0⩽s⩽t                               t
+Appliquée pour a = 1 − ∥x∥−2 , cette formule implique l’inégalité
+                                       1       1 
+                    P(x ∈ ∂Et ) ⩽ 2Φ √ 1 −               =: ft (x).
+                                         t     ∥x∥2
+Nous pouvons donc déduire de (13) que
+                                                  X
+                          E [1Gt |Λ∗ ∩ ∂Et |] ⩽       ft (x) =: Kt (Λ)
+                                              x∈Λ∗ ∩D   t
+
+
+ce qui conclut la preuve de la proposition 4.2.
+                                          1253–16
+
+
+4.4. Preuve de la proposition 4.3
+                                                           √
+   Nous pouvons supposer n suffisamment grand pour que 3 ntmax ⩽ 21 . Soit Λ ⊂ Rn
+un réseau aléatoire de covolume ωn . Appliquons la formule de Siegel (3) à la fonction
+ft 1Dt pour écrire
+                              Z                 Z
+                            1                 2       1        1 
+               E [Kt (Λ)] =       ft (x) dx =       Φ √ 1−
+                            ωn Dt             ωn Dt     t      ∥x∥2
+Après intégration en coordonnées polaires, nous avons
+                                   Z (1−3√nt)−1/2        1 − r−2 
+                   E [Kt (Λ)] = 2n                rn−1 Φ    √       dr.
+                                    0                         t
+                                                 −2
+Effectuons le changement de variables y = 1−r
+                                           √
+                                             t
+                                               pour obtenir
+                                        √
+                                  √ Z 3 n           √ n+2
+                    E [Kt (Λ)] = n t      Φ(y)(1 − y t)− 2 dy.
+                                         −∞
+
+Une intégration par parties donne alors
+                                     √              Z 3√n                √
+                          √                                    2                  dy
+       E [Kt (Λ)] = 2Φ(3 n)(1 − 3 nt)−n/2 + 2               e−y /2 (1 − y t)−n/2 √ .
+                                                      −∞                           2π
+En utilisant l’inégalité   1
+                            ⩽ exp(2x) valable pour x ∈ [0, 21 ] et l’inégalité Φ(x) ⩽
+                          1−x
+exp(−x2 /2) valable pour tout x ⩾ 0, il vient
+                       √        √                             √
+                   Φ(3 n)(1 − 3 nt)−n/2 ⩽ exp −4.5n + 3n3/2 t .
+Puisque t ⩽ tmax = 20 nlog2
+                            n
+                              , cette quantité tend vers 0 quand n tend vers l’infini.
+  Nous utilisons ensuite l’inégalité 1−x  1
+                                              ⩽ exp(x + x2 ) valable pour tout nombre réel
+x ⩽ 12 pour obtenir
+       Z 3√n                 √ −n/2 dy        Z 3√n        y 2 ny √t ny 2 t  dy
+              −y 2 /2
+             e        (1 − y t)        √ ⩽           exp − +                 +       √
+        −∞                              2π      −∞            2        2         2     2π
+                                              Z ∞                  2
+                                                                                 √ 
+                                                                y             ny t dy
+                                            ⩽       exp −                   +        √
+                                                −∞          2(1 − nt)−1          2     2π
+                                                                     2
+                                                   1             nt       
+                                            =√           exp
+                                                 1 − nt        8(1 − nt)
+                                                      3
+                                                     n t2  
+                                               exp 8(1−nt)            n2 t 
+                                            =    √           × exp           .
+                                                   1 − nt               8
+Ce calcul a utilisé la valeur√de la transformée de Laplace des densités gaussiennes : pour
+σ = (1 − nt)−1/2 et α = n t/2,
+                      Z ∞      y2                           α2 σ 2 
+                                                 dy
+                           exp − 2 exp(αy) √ = σ exp                    .
+                       −∞         2σ              2π            2
+  Sous l’hypothèse t ⩽ tmax = 20 nlog
+                                    2
+                                      n
+                                        , le facteur devant exp(n2 t/8) tend vers 1 lorsque n
+tend vers l’infini, ce qui achève la preuve de la proposition 4.3.
+                                        1253–17
+
+
+Remerciements. — Je remercie les participants du groupe de travail de probabilités de
+Lyon pour l’ensemble des exposés et discussions autour des empilements de sphères, et
+plus particulièrement Mikael de la Salle pour de précieuses remarques sur ce texte.
+
+
+Références
+
+Guillaume Aubrun et Stanisław J. Szarek (2017). Alice and Bob meet Banach. The
+  interface of asymptotic geometric analysis and quantum information theory. T. 223.
+  Math. Surv. Monogr. Providence, RI : American Mathematical Society (AMS).
+Keith Ball (1992). « A lower bound for the optimal density of lattice packings », Int.
+  Math. Res. Not. 1992 (10), p. 217-221.
+Yves Benoist (2009). « Five lectures on lattices in semisimple Lie groups », in : Géomé-
+  tries à courbure négative ou nulle, groupes discrets et rigidités. T. 18. Sémin. Congr.
+  Soc. Math. France, Paris, p. 117-176.
+Hans F. Blichfeldt (1929). « The minimum value of quadratic forms, and the closest
+  packing of spheres. » Math. Ann. 101, p. 605-608.
+Marcelo Campos, Matthew Jenssen, Marcus Michelen et Julian Sahasrabudhe (2023).
+  « A new lower bound for sphere packing », arXiv : 2302.09412 [math.MG].
+Zbigniew Ciesielski et Samuel J. Taylor (1962). « First passage times and sojourn times
+  for Brownian motion in space and the exact Hausdorff measure of the sample path »,
+  Trans. Amer. Math. Soc. 103, p. 434-450.
+Henry Cohn, Abhinav Kumar, Stephen D. Miller, Danylo Radchenko et Maryna Via-
+  zovska (2017). « The sphere packing problem in dimension 24 », Ann. Math. (2) 185
+  (3), p. 1017-1033.
+Henry Cohn et Yufei Zhao (2014). « Sphere packing bounds via spherical codes », Duke
+  Math. J. 163 (10), p. 1965-2002.
+John H. Conway et Neil J. A. Sloane (1999). Sphere packings, lattices and groups. Third.
+  T. 290. Grundlehren der mathematischen Wissenschaften [Fundamental Principles of
+  Mathematical Sciences]. Springer-Verlag, New York, p. lxxiv+703.
+Harold Davenport et Claude A. Rogers (1947). « Hlawka’s theorem in the geometry of
+  numbers », Duke Math. J. 14, p. 367-375.
+Mathieu Dutour Sikirić et Wessel van Woerden (2025). « The lattice packing problem
+  in dimension 9 by Voronoi’s algorithm », arXiv : 2508.20719 [math.NT].
+Thomas C. Hales (2005). « A proof of the Kepler conjecture », Ann. Math. (2) 162 (3),
+  p. 1065-1185.
+Edmund Hlawka (1943). « Zur Geometrie der Zahlen », Math. Z. 49, p. 285-312.
+Grigori A. Kabatyanskii et Vladimir I. Levenshtein (1978). « On bounds to packings on
+  the sphere and in space », Probl. Peredachi Inf. 14 (1), p. 3-25.
+Boaz Klartag (2026). « Lattice packing of spheres in high dimensions using a stochasti-
+  cally evolving ellipsoid », Inventiones mathematicae, p. 1-29.
+                                      1253–18
+
+
+Jean-François Le Gall (2013). Mouvement brownien, martingales et calcul stochastique.
+  T. 71. Mathématiques & Applications (Berlin) [Mathematics & Applications]. Sprin-
+  ger, Heidelberg, p. viii+176.
+Joseph Oesterlé (1990). « Empilements de sphères », in : Exposé no. 727, Séminaire
+  Bourbaki, Volume 1989/90, Astérisque, no. 189-190, p. 375-397.
+        (2000). « Densité maximale des empilements de sphères en dimension 3 (d’après
+  Thomas C. Hales et Samuel P. Ferguson) », in : Exposé no. 863, Séminaire Bourbaki,
+  Volume 1998/99, Astérisque, no. 266, p. 405-413.
+        (2019). « Densité maximale des empilements de sphères en dimensions 8 et 24
+  (d’après Maryna S. Viazovska et al.) » In : Exposé no. 1133, Séminaire Bourbaki,
+  Volume 2016/2017, Astérisque, no. 407, p. 455-478.
+Claude A. Rogers (1947). « Existence theorems in the geometry of numbers », Ann. of
+  Math. (2) 48, p. 994-1002.
+Naser Talebizadeh Sardari et Masoud Zargar (2024). « New upper bounds for spherical
+  codes and packings », Math. Ann. 389 (4), p. 3653-3703.
+Carl Ludwig Siegel (1945). « A mean value theorem in geometry of numbers », Ann.
+  Math. (2) 46, p. 340-347.
+Stephanie Vance (2011). « Improved sphere packing lower bounds from Hurwitz lat-
+  tices », Adv. Math. 227 (5), p. 2144-2156.
+Akshay Venkatesh (2013). « A note on sphere packings in high dimension », Int. Math.
+  Res. Not. IMRN (7), p. 1628-1642.
+Maryna Viazovska (2017). « The sphere packing problem in dimension 8 », Ann. Math.
+  (2) 185 (3), p. 991-1015.
+
+
+
+                                        Guillaume Aubrun
+                                        Institut Camille Jordan, Université Lyon 1
+                                        E-mail : aubrun@math.univ-lyon1.fr
+

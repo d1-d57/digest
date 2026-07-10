@@ -1,0 +1,70 @@
+Claude Shannon figured out how the 
+compressibility of English text depends on how 
+predictable it is, so he made multiple attempts 
+at understanding the probability of each new 
+character in English.
+His earliest experiments involved looking at 
+specific short sequences of characters and 
+tracking the statistics of what tended to follow.
+For example, you could scan through a 
+couple books, look at every instance 
+where you see the letters TH and build 
+up a table of what tends to follow and how often.
+The problem here is that this completely 
+breaks down for longer sequences of characters, 
+most notably those that never show up 
+in the text you're looking at.
+But longer sequences give more context to guide 
+a prediction, which means that's when text is at 
+its most predictable and hence most compressible.
+So to really understand the compressibility 
+of language, he needed some other way 
+to ask about these probabilities.
+So he turned to one of the most readily 
+available models of language available 
+to him in the 1940s: His wife, Betty.
+As the story goes, he pulled out 
+a book and asked her to predict 
+each new letter from a given passage.
+Every time she guessed incorrectly, 
+he wrote down the correct letter, 
+and every time she guessed correctly, 
+he would replace the letter with a dash.
+His idea was that this new string of text 
+had fewer actual letters, but it carried 
+the same information, in the sense that it 
+should give just the right prompting for a 
+duplicate of his wife to fill in the entire text.
+This was a start, but his formal definition 
+of information requires knowing the 
+actual probabilities assigned to new letters, 
+so he needed something better.
+In his 1950 paper, Prediction and Entropy 
+of Printed English, Shannon outlined an 
+experiment interviewing more people where 
+instead of just logging whether their guess 
+was correct or wrong, he would record how 
+many guesses were necessary for his human 
+guessers to come up with the correct next letter.
+Separately, he combined the idea of statistics 
+with short sequences with number of guesses 
+to make an estimate at the implicit probabilities 
+that people were assigning to the true next 
+letter, based on their number of guesses.
+His final estimate was that given at 
+least 100 characters of context, 
+English should, at least in principle, 
+be compressible down to around 1 bit per 
+character.
+And I want you to notice, in order to make this 
+estimate, he was forced to go beyond pure data 
+analysis and probe at something intelligent.
+Today, more than 75 years later, 
+the way we actually achieve compression close 
+to this limit is not through merely probing at 
+intelligence, but by making our best attempts 
+to engineer it.
+This all comes from the first video 
+in a short series I'm making about 
+the idea that compression is intelligence.
+If you want more, take a look at the channel.

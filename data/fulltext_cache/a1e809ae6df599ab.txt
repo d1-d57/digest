@@ -1,0 +1,491 @@
+[Submit subtitle corrections at criblate.com]
+These days, whenever I look at the back of my beloved 7 month old baby's head,
+this little swirl of tiny hairs reminds me of one of the most
+ridiculously named facts in math, the hairy ball theorem.
+I promise this is a genuinely serious bit of math,
+where informally the statement is that if you have a ball that's covered in hair,
+and you try to comb it down, there is no way to do it without having the hair
+stick up at at least one point.
+For example, let's say you try to comb it all counterclockwise around some axis.
+Then at the top and the bottom, you end up with these little swirls,
+and the hair at the centermost point of those swirls would have nowhere to go.
+It's forced to stick up.
+It's actually very fun to play around with this in your mind,
+where no matter how you try to flatten out the hair,
+it is a mathematical guarantee that you will be left with at least one tuft like this.
+In fact, even getting it down to just a single problem point,
+as opposed to two, is a bit of a challenge.
+It is possible, and if you like puzzles, I encourage
+you to try thinking of how it could work.
+Later on in this video, I'm going to show you
+at least one way you can think about doing it.
+For the moment, though, I imagine there's a more burning question,
+which is that you might be wondering why a mathematician would care about combing fluffy
+spheres like this.
+And of course the answer is, they don't.
+The name and the informal statement are a bit tongue-in-cheek.
+I will of course share the more formal statement,
+and in fact my real reason for making this video is to share an
+unusually elegant way to prove it, one that I think will delight any math lovers.
+But before any of that, let's motivate things with an example of
+the kind of situation where these fluffy spheres naturally arise in practice,
+in a context that initially seems completely unrelated.
+Okay, so imagine that you are a game developer,
+and you're programming some game where you have a 3D model of an airplane,
+and what you want is to be able to take an arbitrary trajectory for this plane to fly
+along, presumably something user-defined, and your job is to write a function that
+orients the plane correctly as it moves along that trajectory.
+So, for example, let's say you're at a given point on some given trajectory.
+You obviously want to move the center of the model to be on that point,
+but you're left with ambiguity on how it should be rotated in 3D space.
+The obvious constraint here is that you know the nose of that plane should
+point along the tangent vector of the path, but even that leaves some ambiguity.
+How is the plane rotated about this nose-to-tail axis?
+One way you could think about defining that last degree of freedom is in
+terms of where this perpendicular vector along the left wing direction points.
+The task for you, as the programmer of this video game,
+is to figure out what that perpendicular wing direction should be at every single
+point along a given trajectory.
+Now, there is a correct way to do this, which would involve calculating the second
+derivative of the trajectory, working out how to get this to match the lift force from
+the wings together with gravity, but maybe that seems a little complicated right now.
+Resourceful and lazy programmer that you are, you might think, hey,
+is there just some reasonable thing I can do to choose some wing direction
+that's perpendicular to a given velocity vector, the heading direction of the plane?
+Here's one way you might think about it.
+All of the possible ways this plane could point in space,
+the various heading directions that I'm colouring in red,
+make up the points of a unit sphere.
+What you want is to write a function that takes in a given vector on this sphere and
+returns some choice for a vector perpendicular to it,
+the ones that I'm colouring in pink.
+The only real constraint is that you want this association to be continuous,
+otherwise it would mean the plane's orientation could sharply jump,
+which would be a very clear glitch in the game.
+And if you know nothing else, it really feels like this should be a possible task.
+After all, for a given heading direction, you are not starved for choices.
+You have infinitely many wing directions to choose from,
+an entire circle's worth of options.
+So how hard could it be to make some reasonable choice
+for every point on the sphere that varies continuously?
+You might see where I'm going with this.
+Choosing a perpendicular direction like this is equivalent to
+choosing a unit tangent vector to that point of the sphere.
+So if you're assigning a specific perpendicular to every possible
+direction that plane could be pointed, that's basically the same
+thing as defining a tangent vector at every point on a sphere.
+Now this is starting to look a little bit more like a hairy ball.
+And in fact, now is as good a time as any to step back and
+describe what the hairy ball theorem actually says more formally.
+If you have a sphere and you choose some point on that sphere and a plane tangent
+to the sphere at that point, then any vector that you choose within that plane,
+which is rooted at that point, is called a tangent vector of the sphere.
+If you assign a tangent vector to every single point on the sphere,
+one for each possible tangent plane, we call it a vector field on the sphere.
+And whenever you're drawing vector fields like this,
+it's always standard to scale the vectors down so that you can avoid clutter.
+And the other thing to keep in mind is that even though an illustration
+like this necessarily only shows a finite set of vectors,
+rooted at a finite set of points on the sphere,
+of course a vector field consists of infinitely many vectors,
+one for every single point on the continuous surface.
+So the theorem, our main character for today, states that if your vector field is
+continuous, meaning there are no sudden jumps in its direction,
+then it must have at least one point with a null vector,
+meaning a vector whose length is zero.
+For example, look back at our 3D model case.
+The function that I was using for many of the animations there was essentially
+trying to keep the roof of the plane pointed as upward as possible.
+And when you express this function as a vector field, where again,
+each possible direction for the nose of the plane is thought of as a
+point on the sphere, and each corresponding wing direction is thought of
+as a tangent vector at that point of the sphere,
+then it turns out that function I was using gives a vector field that
+spirals around the vertical axis.
+This actually does give reasonable enough animations in most cases,
+but the problem is that it has a discontinuity at the poles.
+So if ever I let the plane point straight up or straight down using this function,
+you would get this glitching behavior as it passes through that direction.
+Now, if you're just a programmer messing around with this,
+you might think you can tweak things to avoid glitches like that,
+but actually, the Harry Ball Theorem guarantees, no matter how clever you are,
+you are doomed to have some direction producing this kind of glitch.
+So for robust animations, you cannot simply use the direction
+of the nose of the plane to determine its full orientation.
+You have no choice but to step back and incorporate more
+information from the trajectory than the velocity vector alone.
+As another example, think about the wind velocity at every point on the Earth,
+say, at some constant altitude.
+A pretty reasonable assumption is that wind velocity varies continuously,
+so the Harry Ball Theorem should apply.
+The wind pattern I'm animating here is completely unrealistic from a meteorological
+standpoint, but the point is that whatever wind pattern you dream up, realistic or not,
+the Harry Ball Theorem is going to guarantee that there is always one place on
+the Earth for a given altitude where the wind velocity is exactly zero.
+Now, if we're being pedantic, you could say atmosphere is three-dimensional,
+so the more accurate statement would be that the component of
+wind velocity parallel to the ground is zero.
+You know, it could be going straight up or straight down,
+but still, it is kind of counterintuitive.
+A slightly more pragmatic example is if you want a radio signal that
+is completely identical in every direction of 3D space,
+in the sense that everyone a given distance away from the source
+receives an identical radio wave, same phase and amplitude at all points of time.
+That might seem like a reasonable objective, but if you know a little bit
+about electromagnetic waves, you'll know that they are oscillations in two
+distinct vector fields, the electric and the magnetic fields specifically.
+Importantly, the direction of oscillation for each one of these fields is always
+perpendicular to the direction of propagation, at least far away from the source.
+So, think about what that means.
+At a given distance away from the source, either one of these fields looks
+like a tangent vector field on the sphere, and the hairy ball theorem
+states at least one point of that vector field has to be zero,
+so the only way to have a completely identical signal in every direction
+of 3D space is for the signal itself to be zero, which presumably defeats the point.
+I bring up these examples just to say that this seemingly playful fact
+about fluffy spheres really does pop up in unusual places,
+but what I really want to do with this video, the fun that I want to have,
+is to let you explore this idea the way that a pure mathematician might.
+First, that puzzle that I mentioned at the start actually gives a really
+great way to flex your mind and see how what feels obvious is not always true.
+And then after that, I want to share a completely
+beautiful proof that explains why this theorem is true.
+So, to the puzzle.
+I don't know about you, but when I was first playing around with
+this idea in my mind to build some intuition,
+it was really not at all obvious that reducing to a single null point is even possible.
+For most of the vector fields I could dream up,
+you get at least one swirl going one way, and another swirl going the other way.
+Or maybe a source at one point, and a sink at another.
+This makes it really tempting to suggest that there should be
+some universal law about needing at least two different null
+points with something opposite about them that has to cancel out.
+Something like the north and south poles of a magnet.
+Tempting as that is, with a little cleverness, it is possible to get just one null point.
+And a nice way to define this is by using something known as a stereographic projection,
+where every point on the sphere, except for the north pole,
+gets mapped to a unique point on the xy-plane.
+The way this works is very pretty.
+You imagine a light shining from that north pole,
+and every ray of light that passes some point on the sphere also hits one and
+only one point of the xy-plane.
+And it goes the other way around too.
+Every point of the xy-plane corresponds to a unique point on that sphere,
+meaning that plane can get mapped onto every point of the sphere,
+except for the north pole.
+This is a favorite mapping among mathematicians,
+and the way we can use it here is to imagine having some vector field on the
+xy-plane that's never zero.
+That's simple enough to define.
+You could just take a constant vector field, always pointing one unit to the right.
+If you project that vector field back onto the sphere,
+this gives you something that's non-zero everywhere, except for the north pole.
+Admittedly, the way I'm showing it right now makes it kind of
+hard to parse what exactly is going on around that north pole.
+The basic reason is that if you take a uniform sample of points on the plane,
+they get infinitely dense around that north pole under this projection.
+So let me show you a second way I could illustrate things, which also,
+by the way, lends itself to a more rigorous definition for what I
+even mean by projecting a vector field onto a sphere like this.
+Imagine a fluid flowing on the plane with a uniform velocity one unit
+per second to the right, and then consider what the projection of each
+particle of that fluid would look like on the sphere during its motion.
+If you take the velocity vectors for those projected particles on the sphere,
+that defines the vector field that I'm talking about.
+And illustrated this way, you can really nicely see how the flow
+lines all form perfect circles on the sphere,
+all of which are mutually tangent with the velocity of zero at that north pole.
+It really is a lovely projection.
+The point is, even if initial mental play and intuition might suggest
+that vector fields on a sphere have to have at least two null points,
+a little creativity can give you a field that just has one.
+So, how do you know that it stops there?
+How can you rigorously prove that no matter how clever and creative you are,
+it is simply not possible to define a continuous vector field
+without forcing at least one point to have a zero vector?
+This is where the real cleverness kicks in.
+The way that we're going to approach this is with a proof by contradiction,
+meaning you will assume that such a non-zero vector field on the sphere is possible,
+and then deduce that something impossible would have to follow.
+Like I said, the argument I want to show is just really beautiful,
+and I think it's made all the more so if you feel like it's something you could have
+discovered for yourself.
+So, as always, please do pause and ponder whenever you feel like you see the key idea.
+This argument is not my own, it came my way via the mathematician Senia Sheydvasser,
+who also very kindly put together the following animation to illustrate the core idea.
+The basic outline is that if such a non-zero continuous vector field really did exist,
+you could use it to create a continuous deformation of the
+sphere that turns that sphere inside out.
+And then we're going to prove why it's actually impossible to turn a sphere inside out,
+at least in a certain manner of speaking.
+It's at this point that viewers of classic math YouTube will be yelling at their screens,
+but bear with me, I promise I will get to that.
+Okay, so this continuous deformation is a little weird to define, but here's how it works.
+Imagine that your sphere is centered at the origin for some coordinate system in 3D space.
+For a given point on that sphere, consider the vector attached to that point,
+the one from our vector field.
+If you slice the sphere along a plane, which is defined by that vector
+and the radial line to the origin, the plane intersects the sphere at a
+certain great circle, meaning a circle that's also centered at the origin.
+What you're going to do is let that point of the sphere move along this circle
+in the direction of that initial vector until it gets precisely halfway around.
+Just to be clear, I'm not saying that it flows
+along the general vector field of the sphere.
+Its motion is entirely determined just by the one vector that it started out on.
+The two important facts to highlight are that it ends up on the negative
+of where it started, and then also because its motion is entirely defined
+by what vector it started on, and because we're assuming the whole vector
+field is continuous, nearby points are going to have nearby trajectories.
+Right now, I'm just showing you one point moving along its prescribed half-circle path,
+but we could just as well highlight a handful of other points on the sphere,
+each of which has its own vector associated with it,
+each of which defines a great circle to walk along,
+and you could watch all of those points wander along the assigned paths.
+Now remember, we're assuming that the vector field is non-zero everywhere.
+We hope to contradict that, but that's the assumption.
+And what that means is that every single point on the infinite
+continuous sphere has a similarly well-defined trajectory.
+So naturally, you want to see what it looks like
+for the entire sphere to undergo that motion.
+But it's at this point that animations become a little tricky,
+because of something intrinsically paradoxical about illustrating a proof by
+contradiction.
+Think about it.
+We want to show what this motion looks like, as defined by
+some hypothetical vector field that is non-zero everywhere.
+But of course, the whole point is that no such vector field exists.
+As the next best thing, we're going to use that special vector field
+that we just defined, only a single null point at the North Pole.
+That way, if we chop away the North Pole, we can at least see the kind
+of thing that this motion would do to most of the sphere,
+even if there's something impossible about this being applied to all of the sphere.
+I'll go ahead and remove the vectors themselves to avoid clutter.
+And this right here is what it looks like for every point on the surface
+to undergo that bizarre, specially defined motion,
+each one marching along its own half-circle path,
+defined by whatever vector it started on.
+And actually, that's kind of confusing to follow.
+So let me roll back the clock a bit here, where you see that
+the whole sphere ends up awkwardly crossing through itself.
+To clarify things, we might perturb the motion a little by
+letting the radius of the points vary during the motion.
+And it also makes things clear if we widen out that hole on the top.
+This makes it much, much easier to follow, at least for this subset of the sphere,
+you can clearly see two important features of the motion.
+Number one, the sphere gets turned inside out.
+Number two, at no point in time does any part of the sphere cross the origin.
+And that should make sense.
+Each individual point is just following a half-circle centered at the origin,
+so of course it never passes through the origin.
+Those are the two key ingredients.
+For our proof, what we want to say is that these two facts are somehow incompatible.
+Before we can do that though, we need to linger on this first point.
+Why exactly does this motion turn the sphere inside out?
+And actually, what do we even mean by the phrase inside out here?
+And in fact, let me start with an even more basic question.
+If you're standing at some point on the sphere,
+how do you know which way is outside and which way is inside?
+I realize that might sound like a very dumb question.
+You might say just look at whichever way is pointed away from the origin.
+What's wrong with you?
+The real conundrum here though comes from the fact that we intend to let
+the surface warp and deform and get all manipulated in some crazy way.
+So really what you want is a clear notion of what we mean by
+inside and outside that remains clear even after you manipulate
+and massage and contort the whole surface however you dream up.
+The easiest way to do this I think is going to be something familiar to any
+graphics programmers, which is that you start by assigning a coordinate system
+to the sphere, something like our usual notion of latitude and longitude.
+The image you should have in your mind is that every point of the
+sphere has a little label attached to it with a pair of numbers.
+And importantly, these labels could follow along during
+any motion or manipulation you apply to the sphere.
+Around a given point, consider the direction of increasing longitude and constant
+latitude and draw a tangent vector in that direction,
+and then draw a line of increasing latitude with constant longitude and draw a
+tangent vector in that direction.
+From here, the way we define orientation is using what's known as the right hand rule.
+You can point your index finger along that first vector and your middle finger along that
+second vector, and then when you stick out your thumb, it'll be perpendicular to both.
+Notice using our right hand, the thumb is pointed outside.
+And in fact, this is how we are going to define what we even
+mean by outside with respect to the given coordinate system.
+Doing this at every point, you get what are known in the business as unit normal vectors.
+As I referenced, these are very important in computer graphics,
+where for example they let you compute how light should reflect off of a given surface.
+And for our story, the thing we care about is how,
+no matter how you manipulate or warp the surface,
+because that coordinate system you give to it can kind of come along for the ride,
+you can always play this game of pointing your index finger along the direction
+where the first coordinate increases, and your middle finger along the direction
+where that second coordinate increases, and sticking out your thumb.
+It's otherwise surprisingly tricky to define what you mean by inside
+and outside in a way that naturally follows along for any function.
+So, why are we doing this?
+Think now about that strange deformation induced by a vector field on the sphere.
+How can we conclude beyond any doubt that this must turn the sphere inside out?
+Well, remember how each individual point starting at p ends up at negative p?
+The much more straightforward way to get there, literally,
+would be to reflect through the origin, like this.
+So consider that picture that we just had of an example point,
+together with the oriented lines of latitude and longitude passing through it.
+Notice what it looks like if we let every point in that diagram move over to its negative.
+Again, you might imagine all the coordinate labels of the surface riding along with it,
+so when you play the same game of pointing your index finger in the direction
+where that first coordinate increases, and your middle finger in the direction
+where that second coordinate increases, now, after everything has been negated,
+notice that your thumb is pointing towards the origin instead of away.
+This is all to say, the function that maps every point p of a
+sphere to its negative necessarily turns the sphere inside out,
+in the sense of reversing orientation the way we just defined it.
+In particular, that very weird deformation that we described in terms of a hypothetical
+vector field must reverse orientation because it's mapping each point p to negative p.
+You can also see this effect with a much simpler
+motion that gets us to the same final place.
+Imagine rotating the sphere 180 degrees around the z-axis,
+and then reflecting through the xy-plane.
+That results in every point p landing on its negative,
+and notice how all the unit normal vectors that started pointing outward end up pointing
+inward, and as it's rendered here with a blue exterior and a brown interior,
+those two colors end up getting swapped.
+And it's at this point that viewers of classic math videos all might
+be bringing to mind an absolute banger of a video that was produced
+in 1994 by the Geometry Center at the University of Minnesota.
+This is really one of the true classics in all of math exposition.
+It walks through this mind-blowing way to turn a sphere
+inside out using a certain continuous deformation.
+The reason I bring this up for any of you who watched that
+is to say that the context there was a little bit different.
+The phenomenon that they were trying to avoid was creating
+cusps and creases on the sphere during the process.
+But over here, for our purposes, we don't really care about that.
+However, there is one feature of our bizarre vector
+field-induced deformation that really would be impossible.
+No point of the sphere ever passes through the origin.
+And there is a very beautiful way to see why turning a sphere
+inside out without crossing the origin just could never happen.
+Maybe the most fun way to illustrate this is with a physical model.
+Imagine a fountain at the origin spewing out water uniformly in all directions,
+say at a rate of one liter every second.
+The way I'm animating it here is with a bunch of droplets spewing away,
+but in principle, I want you to think of this as a continuous flow of an
+incompressible fluid, something uniform in all directions,
+and with that incompressibility, we'll imagine that the density of water through
+all of space stays constant.
+That's important.
+If you have some oriented surface, something like our sphere with its unit normal
+vectors, you can measure how much water is flowing through that surface per unit time.
+Physicists have a special name for this.
+They call it the flux, where on a given patch of area,
+the flux measures how much water passes through it per second,
+and you count it as positive when the water flows from inside to outside,
+aligned with the unit normal vectors of the surface,
+whereas flux would be negative if it's going the other way,
+going against those normal vectors.
+When you add all of this up over the whole surface, this gives you the total flux,
+and the key observation is that this total flux has to match the amount of water
+being produced inside the surface, that one liter per second,
+and the cool part is that this will remain true even if you warp or deform the
+sphere just a little bit.
+That total flux stays at one liter per second,
+even if the flux through a particular patch of area changes during the process,
+and the basic reason is that we're treating the water as an incompressible
+fluid with a constant uniform density through space,
+so every little bit of water produced at the origin has to be cancelled
+out by one that is exiting the surface.
+Importantly, for what I just said to be true, we have to be counting flux with a sign.
+For example, let's say you warp the sphere so that it kind of folds over
+itself like this, then you'll notice along a certain line,
+the water goes out of the surface, and then back into it, and then back out again.
+So you would want to count this flux as positive whenever it goes from inside to outside,
+but negative when it goes from outside to inside,
+so that you're not counting those particles three different times.
+And from here, you can maybe see the key point I'm getting at towards our contradiction.
+The only way that you could ever change the net flux through a surface
+like this is if part of that surface crosses through the origin.
+For example, if you pull it over to the side so that it
+doesn't include the source at all, the net flux would be zero.
+There are as many water molecules flowing in as there are flowing out.
+So with that in mind, think about everything we've been talking about.
+If you could define this non-zero vector field on a sphere that lets you create this
+bizarre deformation that turns the sphere inside out, what happens to the flux?
+Well, what we mean by turning the sphere inside out is that all
+the unit normal vectors end up pointing inside instead of outside.
+So for any particular patch of area, at some point the flux through it
+transitions from being positive to negative, and overall, at the end,
+that total flux would have to end at negative one liters per second.
+But at the same time, if it never crosses the origin, the net flux can never change.
+It starts at positive one, so it has to end at positive one.
+This is the contradiction.
+No deformation with these two properties can possibly exist.
+And there you have it.
+A non-zero continuous vector field on the sphere would be impossible.
+You truly cannot comb a hairy ball.
+I don't know about you, but I think that's so beautiful.
+Very often topology is this game where seemingly intuitive facts have these surprising
+but kind of frustrating counter-examples, but the real insights and the creativity
+often comes from the other side of the coin, where you take something that seems
+intuitive, but you find the construction that really justifies why it's fundamentally
+true.
+Now there is more to say about making the argument I just showed you fully rigorous,
+and also more to say about how this whole thing does and does
+not generalize to other dimensions.
+But before that, if you'll indulge me in shifting gears entirely for a minute here,
+I want to tell you about an experimental new thing that I'm starting up this year,
+which I'm thinking of as a kind of virtual career fair.
+If you go to 3b1b.co/talent, what you'll find is
+a set of companies that have two things in common.
+The first one, essentially by definition, is that
+they are interested in recruiting from this audience.
+They value the kind of mathematical and technical curiosity clearly to
+be found in someone like you, who's watching a video like this for fun.
+If you go and explore the page and see the kind of puzzles and
+challenges and technical work that each one has chosen to share with you,
+you'll pretty quickly get a sense of the shared values here.
+The second thing they have in common is that the
+people working there really love what they do.
+And this one's important to me.
+I was pretty careful about it while setting this whole thing up,
+because all of this only makes sense to do if it's actually valuable to the audience.
+So I took some time to sit down and chat with the technical teams at each group,
+and inclusion only really made sense if they clearly like what they do.
+Pretty universally, a core reason that the people enjoyed their
+work was out of a very sincere respect for all of their teammates.
+In the hopes of making this relevant to you, whoever you might be,
+there is a range of job types available across a range of industries,
+including senior roles, new careers, internships, or even part-time tutoring gigs.
+For broader context, if you're curious, I recorded a whole video on
+the second channel explaining why I started this, what the deal is.
+One thing that I mention over there is how I'm looking to make a few hires myself,
+and whenever this is the case, I will include my own page up on this virtual career
+fair, where you can go and find the description of what I'm looking for and the
+applications.
+The whole page will stay updated as time goes on,
+so even if you're not looking for a job now, but you are sometime in the future,
+be sure to check it out.
+Alright, so back to the hairy ball theorem.
+The argument at the end rested on this whole idea of flux,
+which admittedly is a little hand-wavy without further details,
+so I'll leave up on screen a set of exercises outlining one way that you
+could make this more rigorous if you have a background with multivariable
+calculus and the divergence theorem.
+There is another, deeper way to get at the same basic idea,
+using something called a homology group, but that one is certainly beyond the
+scope for today.
+The last point I want to leave you pondering on is the nature of other dimensions.
+It's not hard to see that you can comb down the hairs on a fluffy circle,
+even though you can't do it for a sphere, and in general the rule is that spheres in
+all the even dimensions can be combed down, but those in all the odd-numbered dimensions
+cannot.
+Now what I like about the argument that we just talked about for this
+whole video is that it offers a pretty direct clue for why that's the rule,
+at least if you're comfortable with the notion of orientation.
+In all the even dimensions, the function that maps a point to
+its negative is an orientation-preserving function,
+whereas in all the odd dimensions, that's an orientation-reversing function.
+You might enjoy taking a moment to pause and ponder on why that means the proof we just
+outlined works in all of the odd dimensions, and even though it doesn't explicitly tell
+you that nothing could work in the even dimensions,
+it's a fun puzzle to see if you can construct an explicit example of a non-zero vector
+field in all of those even dimensions.
+For example, how do you comb down the hairs on a hypersphere in four dimensions.

@@ -1,0 +1,236 @@
+
+
+Quantum Mechanics of the Inverse Cube Force Law | The n-Category Café
+
+The n-Category Café
+
+A group blog on math, physics and philosophy
+
+Skip to the Main Content
+
+Enough, already! Skip to the content.
+
+Note:These pages make extensive use of the latest XHTML and CSS Standards. They ought to look great in any standards-compliant modern browser. Unfortunately, they will probably look horrible in older browsers, like Netscape 4.x and IE 4.x. Moreover, many posts use MathML, which is, currently only supported in Mozilla. My best suggestion (and you will thank me when surfing an ever-increasing number of sites on the web which have been crafted to use the new standards) is to upgrade to the latest version of your browser. If that's not possible, consider moving to the Standards-compliant and open-source Mozilla browser.
+
+« Geometry and the Exceptional Jordan Algebra |
+
+Main
+| A New Blog »
+
+April 29, 2026
+
+Quantum Mechanics of the Inverse Cube Force Law
+
+Posted by John Baez
+
+In the last episode of my column in Notices of the American Mathematical Society, we looked at a particle moving in an attractive central force whose strength is proportional to the inverse cube of the distance from the origin. Among other things, we saw that a particle moving in such a force can spiral in to the origin in a finite time. But that was classical mechanics. What about quantum mechanics? 
+
+Here things get more tricky. The uncertainty principle tends to prevent the particle from falling in to the origin. But when the attractive force is strong enough, the particle can still fall in. We can make up a theory where the particle shoots back out, but there are choices involved: we need to say how the particle changes phase when shoots back out. So there is not just a single theory, but many! 
+
+Why does the particle come back out? There are theories where it does not. In these theories, at least those studied so far, time evolution is nonunitary: that is, the probability of finding the particle somewhere or other does not stay equal to 11, because the particle simply disappears when it hits the origin. Here we focus on theories where time evolution is unitary and the particle comes back out. Many people have written about these, running into ‘paradoxes’ when they weren’t careful enough. Only rather recently have things been straightened out.
+
+Let us dig into the details. In quantum mechanics, the Hilbert space of states of a particle in ℝ 3\mathbb{R}^3 is L 2(ℝ 3)L^2(\mathbb{R}^3). In a central force whose strength is proportional to 1/r 31/r^3, such a particle has a Hamiltonian of this form:
+
+H=−∇ 2+cr −2 H = -\nabla^2 + c r^{-2} 
+
+The first term describes the particle’s kinetic energy, while the second describes its potential energy: remember, taking the gradient of an inverse square potential gives an inverse cube force. I have set some constants to 11 to remove irrelevant clutter, but we need the constant cc to say how strong the force is. When c<0c \, < \, 0, the force is attractive. 
+
+In this game, analysis is paramount. We should interpret HH as a densely defined linear operator on L 2(ℝ 3)L^2(\mathbb{R}^3). For this, we choose a dense linear subspace D⊂L 2(ℝ 3)D \subset L^2(\mathbb{R}^3) and treat HH as a linear map from DD to L 2(ℝ 3)L^2(\mathbb{R}^3). Different choices of DD correspond to different physical assumptions: for example, assumptions about what happens when the particle falls into the origin.
+
+To get unitary time evolution in quantum mechanics, we need the Hamiltonian to be self-adjoint. But adjoints of densely defined operators are tricky. Let us briefly recall how they work. Given a Hilbert space ℋ\mathcal{H} and a linear operator AA from a dense linear subspace D(A)⊆ℋD(A) \subseteq \mathcal{H} to ℋ\mathcal{H}, we define D(A *)D(A^*) to be the set of all ψ∈ℋ\psi \in \mathcal{H} for which there exist ψ′∈ℋ\psi' \in \mathcal{H} such that 
+
+⟨ψ′,ϕ⟩=⟨ψ,Aϕ⟩ for all ϕ∈D(A). \langle \psi' , \phi \rangle = \langle \psi, A \phi \rangle \; \text{ for all } \; \phi \in D(A). 
+
+If such a vector ψ′\psi' exists, it is unique, and it depends linearly on ψ\psi. Thus, for ψ∈D(A*)\psi \in D(A\ast) we define A*ψA\ast \psi to be the vector ψ′\psi' with the above property. The adjoint of AA is then the linear operator A*:D(A*)→ℋ A\ast \colon D(A\ast) \to \mathcal{H}. We say AA is self-adjoint if A=A*A = A\ast. We say that AA is essentially self-adjoint if it has a unique extension to a self-adjoint operator. If it does, this extension must be A*A\ast.
+
+All this raises the question of whether the Hamiltonian HH for the inverse cube force law can be made self-adjoint with a suitable choice of domain. It turns out we can always do it, but sometimes in more than one way. There are three regimes:
+
+c≥34c \ge \tfrac{3}{4}. In this case we can start with the domain C 0 ∞(ℝ 3−{0})C_0^\infty(\mathbb{R}^3 - \{0\}) consisting of smooth functions that are compactly supported on ℝ 3\mathbb{R}^3 minus the origin. The operator HH is unambiguously defined on this domain, and it is essentially self-adjoint.
+
+−14≤c<34-\tfrac{1}{4} \le c \, < \, \tfrac{3}{4}. In this case HH is still well-defined on the domain C 0 ∞(ℝ 3−{0})C_0^\infty(\mathbb{R}^3 - \{0\}), but it is not essentially self-adjoint. In fact, it admits more than one self-adjoint extension! However, HH is bounded below: there is a constant E 0E_0 such that
+⟨ψ,Hψ⟩≥E 0⟨ψ,ψ⟩ \langle \psi, H \psi \rangle \ge E_0 \langle \psi, \psi \rangle 
+for all ψ∈C 0 ∞(ℝ 3−{0})\psi \in C_0^\infty(\mathbb{R}^3 - \{0\}). Physically, this means that the particle’s energy is bounded below by E 0E_0. Mathematically, this implies that HH has a canonical choice of self-adjoint extension called the ‘Friedrichs extension’, with the smallest possible domain. But there is another canonical choice, the ‘Krein extension’, with the largest possible domain.
+
+c<−14c \, < \, -\tfrac{1}{4}. In this case HH is well-defined on the domain C 0 ∞(ℝ 3−{0})C_0^\infty(\mathbb{R}^3 - \{0\}), and it has more than one self-adjoint extension, but it is not bounded below. 
+
+These strange results demand explanation. For example, what is special about c=−14c =-\tfrac{1}{4}? In classical mechanics, the energy of a particle in the inverse cube force ceases to be bounded below as soon as c<0c \, < \,0. Quantum mechanics is different. To get a lot of negative potential energy, the particle’s wavefunction must be peaked near the origin, but that gives it kinetic energy. The tradeoff is captured by Hardy’s inequality. This says that for any ψ∈C 0 ∞(ℝ 3)\psi\in C_0^\infty(\mathbb{R}^3) we have 
+
+⟨ψ,(−∇ 2−14r −2)ψ⟩≥0. \langle \psi, (-\nabla^2 - \tfrac{1}{4} r^{-2}) \psi \rangle \ge 0 .
+
+This is why HH is bounded below when c≥−14c \ge -\tfrac{1}{4}. 
+
+On the other hand, the constant 14\tfrac{1}{4} in Hardy’s inequality cannot be improved, so if c<14c \, < \, \tfrac{1}{4} we can find ψ\psi with ⟨ψ,Hψ⟩<0 \langle \psi, H \psi \rangle \, < \, 0. Then we can use a remarkable property of the r −2r^{-2} potential to show that HH is not bounded below. Namely, HH has a kind of symmetry under dilations. You can guess this by noting that both the Laplacian and r −2r^{-2} have units of 1/length 2{}^2. Indeed, if you take any smooth function ψ\psi, dilate it by a factor of α\alpha, and then apply HH, you get α −2\alpha^{-2} times what you get if you do these operations in the other order. This implies that if
+
+⟨ψ,Hψ⟩=E⟨ψ,ψ⟩, \langle \psi, H \psi \rangle = E \langle \psi, \psi \rangle ,
+
+we can dilate ψ\psi and get a function obeying the same equation with EE replaced by α −2E\alpha^{-2} E. Thus, as soon as EE can be negative, it can be made arbitrarily large and negative by choosing α\alpha to be very small. Thus HH is not bounded below.
+
+Next, what is special about c=34c = \tfrac{3}{4}? This is more subtle. For any value of c∈ℝc \in \mathbb{R} we can find spherically symmetric solutions of (−∇ 2+cr −2)ψ=iψ ( -\nabla^2 + c r^{-2})\psi = i \psi on ℝ 3−{0}\mathbb{R}^3 - \{0\} that are nonzero and smooth. When c<34c \, < \, \tfrac{3}{4}, and only in this case, some of these solutions ψ\psi lie in L 2(ℝ 3)L^2(\mathbb{R}^3). This dooms the chance of HH being essentially self-adjoint, because it implies H*ψ=iψH\ast \psi = i \psi. If HH were essentially self-adjoint H*H\ast would be self-adjoint, and it is easy to see that a self-adjoint operator cannot have ii as an eigenvalue.
+
+When c<34c \, < \, \frac{3}{4} the operator HH has more than one self-adjoint extension from C 0 ∞(ℝ 3−{0})C_0^\infty(\mathbb{R}^3 - \{0\}) to some larger domain. To classify these we can use separation of variables, writing ∇ 2\nabla^2 as a sum of a radial part and an angular part, assuming the angular dependence of ψ\psi is given by a spherical harmonic Y ℓmY_{\ell m}, and doing a change of variables u=ψ/ru = \psi/r to reduce HH to the ordinary differential operator
+
+−d 2dr 2+(c+ℓ(ℓ+1))1r 2 - \frac{d^2}{d r^2} + \left(c + \ell(\ell+1)\right) \frac{1}{r^2} 
+
+on the half-line (0,∞)(0,\infty). We can completely classify self-adjoint extensions of this differential operators from C 0 ∞(0,∞)C_0^\infty(0,\infty) to larger domains; the answer depends on cc and ℓ\ell. A choice of self-adjoint extension is a choice of boundary conditions at r=0r = 0, and this says how the phase of an incoming wave changes as it reflects off the origin and bounces back. Finally, we can assemble the results for different spherical harmonics to classify self-adjoint extensions of HH. 
+
+There exist many self-adjoint extensions of HH that respect the rotational symmetry of the inverse cube force law, but for c<−14c \, < \, -\tfrac{1}{4} the extension must break the dilation symmetry discussed above. This is what physicists call an ‘anomaly’: a symmetry of a classical system that fails to be a symmetry of the corresponding quantum system. Intriguingly, for some even lower values of cc one can choose a self-adjoint extension that is symmetrical under a discrete subgroup of dilations. Determining precisely which values these are seems to be an open problem. 
+
+To explore this topic thoroughly, I recommend first this:
+
+S. Gopalakrishnan, Self-Adjointness and the Renormalization of Singular Potentials, B.A. Thesis, Amherst College, 2006. 
+
+then this:
+
+D. M. Gitman, I. V. Tyutin and B. L. Voronov, Self-adjoint extensions and spectral analysis in Calogero problem. 
+
+and finally this:
+
+J. Dereziński and S. Richard, On Schrödinger operators with inverse square potentials on the half-line, Ann. Henri Poincaré 18 (2017), 869–928. 
+
+The first is an excellent overview of problems associated to singular potentials, including the inverse cube force. The second delves into self-adjoint extensions of the ordinary differential operators mentioned above, and the third works them out with exquisite thoroughness.
+
+Posted at April 29, 2026 11:43 PM UTC
+
+TrackBack URL for this Entry:   https://golem.ph.utexas.edu/cgi-bin/MT-3.0/dxy-tb.fcgi/3633
+
+Some Related Entries
+
+ Search for other entries:
+
+ log|x| + C revisited —
+Dec 03, 2025
+
+ A Characterization of Standard Borel Spaces —
+Feb 04, 2025
+
+ A Curious Integral —
+Jan 04, 2023
+
+ Topos Theory and Measurability —
+Jul 28, 2021
+
+ The Uniform Measure —
+Nov 24, 2020
+
+ The Categorical Origins of Lebesgue Integration, Revisited —
+Nov 11, 2020
+
+ Riccati Equations and the Projective Line —
+Sep 07, 2020
+
+ What is the Laplace Transform? —
+Jul 17, 2019
+
+6 Comments & 0 Trackbacks
+
+Re: Quantum Mechanics of the Inverse Cube Force Law
+
+The dilation argument for HH being bounded below is very nice.
+
+The fact that the critical values of cc are −1/4-1/4 and 3/43/4 feels suspiciously simple, for some reason. I would have expected a 1/e1/e somewhere in there.
+
+Posted by:
+Blake Stacey on June 10, 2026 4:57 AM | Permalink
+
+| Reply to this
+
+Re: Quantum Mechanics of the Inverse Cube Force Law
+
+The numbers that show up are not vastly more complicated than those you’d see in the spectrum of the hydrogen atom. But I’ve been working on this problem more, and beside the ‘regime changes’ at c=34c = \frac{3}{4} and c=−14c = -\tfrac{1}{4}, it turns out there are subtler changes that kick in at 
+
+c=−94,−254,−494,−814,…c = -\tfrac{9}{4}, -\tfrac{25}{4}, -\tfrac{49}{4}, - \tfrac{81}{4}, \dots 
+
+and still subtler ones at 
+
+c=−54,−214,−454,−774,…c = -\tfrac{5}{4}, -\tfrac{21}{4}, -\tfrac{45}{4}, -\tfrac{77}{4}, \dots 
+
+The pattern of these numbers is pretty obvious, and it includes the first two, the ones you mentioned. But the details of what exactly happens at these regime changes leads into some nontrivial number theory!
+
+I’m happy that the inverse cube force law still has some tricks up its sleeve.
+
+Posted by:
+John Baez on June 10, 2026 6:45 PM | Permalink
+
+| Reply to this
+
+Re: Quantum Mechanics of the Inverse Cube Force Law
+
+Think it’s worth writing another blog post on the number theory behind the cc values and how that relates to the quantum inverse cube law. 
+
+Posted by:
+Madeleine Birchfield on June 11, 2026 11:01 PM | Permalink
+
+| Reply to this
+
+Re: Quantum Mechanics of the Inverse Cube Force Law
+
+You mean it’s worth it to you for me to do more work. 
+
+It’s a lot of work, but I may write a paper about it and also blog about it. It involves solving a sequence of Diophantine equations to find all the values of cc for which the quantum inverse cube force law has symmetry under a discrete group of dilations. The equations get harder and harder as cc decreases. I’m at the stage where I used Magma to work out the Mordell–Weil group of an elliptic curve so I could figure out all the rational solutions of
+
+a 0 2+a 3 2=2a 2 2,2a 0 2+a 2 2=3a 1 2. a_0^2 + a_3^2 \;=\; 2 a_2^2,\qquad 2a_0^2 + a_2^2 \;=\; 3 a_1^2. 
+
+This would be easy for some people but not for me. I don’t consider the end result important — there are other things I care about much more — but I enjoy learning number theory, and it’s sort of cool how number theory can show up when you pursue a physics puzzle to the very bitter end in an obsessive sort of way.
+
+I recently ran into a paper that seems a bit similar. Only certain choices of fermions allow for quantum field theories with a specified gauge group (like SU(3)×SU(2)×U(1)SU(3) \times SU(2) \times \text{U}(1)) that lack ‘anomalies’. Finding these choices involves solving Diophantine equations. Recently some authors dug into this problem to the point where they needed “the Mordell–Weil theorem, Mazur’s theorem and the Cremona elliptic curve database which uses Kolyvagin’s theorem on the Birch Swinnerton-Dyer conjecture”:
+
+Yongchao Lü and Joseph A Minahan, Notes on anomalies, elliptic curves and the BS-D conjecture, 
+Journal of Physics A: Mathematical and Theoretical 53(2) (2020), 024001.
+
+I suspect the difficulty of the number theory was the main reason this result was considered worth publishing, more than the importance the final result. That’s okay.
+
+Posted by:
+John Baez on June 12, 2026 1:09 PM | Permalink
+
+| Reply to this
+
+Re: Quantum Mechanics of the Inverse Cube Force Law
+
+Is there a quantum field theory that gives rise to an inverse cube force the way an inverse square force arises from QED?
+
+Posted by:
+Dan Piponi on June 21, 2026 5:08 PM | Permalink
+
+| Reply to this
+
+Re: Quantum Mechanics of the Inverse Cube Force Law
+
+Not that I know of, and I really doubt one exists. Not in 4d spacetime, that is. But 5d spacetime is different!
+
+Just as the inverse square force law is geometrically natural and follows from classical electromagnetism when space is 3-dimensional, the inverse cube force law follows from classical electromagnetism when space is 4-dimensional — so spacetime is 5-dimensional.
+
+Thus at tree level, QED should give an inverse cube law in 5d spacetime. But I guess it’s horribly nonrenormalizable, since QED is just ‘barely’ renormalizable in 4d spacetime.
+
+Just for the record, let me say how Schrödinger’s equation with an inverse cube force law works when space is 4-dimensional, so spacetime is 5-dimensional. Just like one dimension down, it’s described by this Hamiltonian:
+
+H=−∇ 2+cr −2 H = -\nabla^2 + c r^{-2}
+
+And as before, the behavior of this Hamiltonian depends on cc. Here’s the story this time:
+
+c≥0.c \ge 0. In this case HH is essentially self-adjoint on C 0 ∞(ℝ 4−{0}).C_0^\infty(\mathbb{R}^4 - \{0\}). So, it admits a unique self-adjoint extension and there’s no ambiguity about this case.
+
+c<0.c \lt 0. In this case HH is not essentially self-adjoint on C 0 ∞(ℝ 4−{0})C_0^\infty(\mathbb{R}^4 - \{0\}).
+
+c≥−1.c \ge -1. In this case the expected energy ⟨ψ,Hψ⟩\langle \psi, H \psi \rangle is bounded below for ψ∈C 0 ∞(ℝ 3−{0}).\psi \in C_0^\infty(\mathbb{R}^3 - \{0\}). So, there exists a canonical ‘best choice’ of self-adjoint extension, called the Friedrichs extension.
+
+c<−1.c \lt-1. In this case the expected energy is not bounded below, so we don’t have the Friedrichs extension to help us choose which self-adjoint extension is ‘best’.
+
+I’ve been assured these are correct by Barry Simon.
+
+Posted by:
+John Baez on June 22, 2026 11:24 AM | Permalink
+
+| Reply to this
+
+Post a New Comment
+
+Access Keys:
+
+0Accessibility Statement
+1Main Page
+2Skip to Content
+3List of Posts
+4Search
+pPrevious (individual/monthly archive page)
+nNext (individual/monthly archive page)
+

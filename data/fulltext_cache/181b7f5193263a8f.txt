@@ -1,0 +1,1035 @@
+     ton, NJ, 1996), Amer. Math. Soc., Providence, RI, 1999, pp. 129–162. MR1660476
+
+  School of Mathematics and Maxwell Institute for Mathematical Sciences, James
+Clerk Maxwell Building, The King’s Buildings, Peter Guthrie Tait Road, Edinburgh,
+EH9 3FD, United Kingdom
+  Email address: jonathan.hickman@ed.ac.uk
+   A DECADES-LONG BREAKTHROUGH IN ZERO-DENSITY
+      ESTIMATES AND PRIMES IN SHORT INTERVALS
+
+                            C. L. TURNAGE-BUTTERBAUGH
+
+
+
+                                 1. Introduction
+    In 1896, Hadamard and de la Vallée Poussin independently proved the Prime
+Number Theorem, which describes the asymptotic distribution of the primes among
+the integers. Both proofs stemmed from the foundational work introduced decades
+earlier by Riemann [Rie59]. His 1859 paper Ueber die Anzahl der Primzahlen unter
+einer gegebenen Grösse (On the number of primes less than a given quantity)
+demonstrated how the distribution of the primes is fundamentally related to the
+complex zeros of the now eponymous Riemann zeta-function. This manuscript,
+Riemann’s only paper in number theory and six pages in length, is also the birth-
+place of one of the most important open questions in mathematics: the Riemann
+Hypothesis, which asserts that the complex zeros of the Riemann zeta-function all
+lie on the critical line Re(s) = 1/2. Evidence in favor of the Riemann Hypothesis
+comes in many forms, including results concerning the proportion of zeros lying on
+the critical line and proofs showing that there are zero-free regions in the critical
+strip, where 0 ≤ Re(s) ≤ 1. The striking recent work of Guth and Maynard [GM24]
+gives a breakthrough on another type of evidence in favor of the Riemann Hypoth-
+esis, called a zero-density estimate, which bounds the size of the (conjecturally
+empty) set of zeros which lie more than a ﬁxed distance from the critical line. His-
+torically, zero-density estimates have been a key tool to study the distribution of
+prime numbers in short intervals. Indeed, Guth and Maynard are able to improve
+classical estimates concerning the distribution of prime numbers in short intervals.
+In particular, they give the ﬁrst substantial improvement at a key location of the
+critical strip of Ingham’s zero-density theorem, proved in 1940. The heart of their
+work is bounding how often a Dirichlet polynomial (which can be used to detect
+zeros of the Riemann zeta-function) takes on large values.
+    In this paper we survey this rich history and the remarkable recent progress of
+Guth and Maynard. We begin with a brief sketch of the proof of the Prime Num-
+ber Theorem to make explicit the connection between the zeros of the Riemann
+zeta-function and the distribution of the primes. We then demonstrate the neces-
+sity of a zero-density estimate for the study of the distribution of primes in short
+intervals, and examine how Dirichlet polynomials play a central role in obtaining
+these estimates. Finally, we discuss Guth and Maynard’s new ideas and insights.
+Notation. Throughout this exposition we follow Riemann’s notation: s = σ + it
+denotes a complex number, where σ, t are real. We also make use of the following.
+For g(x) > 0, f (x) = O(g(x)) and f (x)  g(x) both mean that there exists a
+constant M > 0 such that |f (x)| ≤ M g(x) for all x ≥ x0 . We write f (x) ∼ g(x) to
+mean limx→∞ f (x)/g(x) = 1 and f (x) = o(g(x)) to mean limx→∞ f (x)/g(x) = 0.
+
+  Date: November 3, 2025.
+                                          1
+2                            C. L. TURNAGE-BUTTERBAUGH
+
+                                           c+iT
+An integral written as (c) means limT →∞ c−iT . Finally, we frequently make use
+of ε > 0 to denote a small quantity, which may change from line to line.
+
+         2. The distribution of the primes and the zeros of ζ(s)
+    Let x > 0, and consider the prime counting function
+                                                   
+                            π(x) := # p prime  p ≤ x .
+Since there are inﬁnitely many primes, it follows that π(x) → ∞ as x → ∞. But
+how does π(x) grow? Gauss (1792) conjectured1
+                                       x
+                                            du
+(1)                   π(x) ∼ Li(x) :=           ,    x → ∞.
+                                        2 log u
+In 1896, Hadamard and de la Vallée Poussin independently proved that the asymp-
+totic in (1) holds, and we now refer to it as the Prime Number Theorem. Their
+proofs were made possible by Riemann’s groundbreaking 1859 manuscript which
+introduced new analytic tools and ideas to study the primes via properties of the
+Riemann zeta-function. This function is deﬁned by the Dirichlet series
+                                  ∞
+                                      1
+(2)                       ζ(s) :=       s
+                                          ,    Re(s) > 1,
+                                  n=1
+                                      n
+which has meromorphic continuation to the entire complex plane with only one
+singularity: a simple pole at s = 1. As we will see below, the heart of the proof of
+the Prime Number Theorem is the fact that ζ(s) does not vanish when Re(s) = 1,
+and stronger information about the location of the nontrivial zeros of ζ(s) yields
+stronger forms of the Prime Number Theorem in which error terms are speciﬁed.
+Before we sketch how this works, we record a few important properties of ζ(s).
+2.1. Properties of the Riemann zeta-function. One fundamental property of
+ζ(s) is its functional equation, which states that for all complex s,
+                                     ξ(s) = ξ(1 − s)
+where
+                                   1
+                          ξ(s) :=    s(s − 1)π −s/2 Γ(s/2)ζ(s),
+                                   2
+where Γ(s) denotes the Gamma function. The functional equation shows that ζ(s)
+is symmetric about the critical line σ = 1/2. Since ξ(s) is entire, we see that ζ(s)
+has zeros, called trivial zeros, at the poles of Γ(s), i.e. at s = −2n, n = 1, 2, 3, . . ..
+We also note that ζ(s) has inﬁnitely many nontrivial zeros in the critical strip
+0 ≤ σ ≤ 1. In fact, the Riemann–von Mangoldt Formula, which was conjectured by
+Riemann [Rie59] and proved by von Mangoldt [vM05] in 1905, provides a surpris-
+ingly precise formula for N (T ), the number of nontrivial zeros ρ in the rectangle
+0 ≤ Re(s) ≤ 1 and | Im(s)| ≤ T . It states
+                              T      T    T
+(3)                 N (T ) = log − + O(log T ), T → ∞.
+                              π      π    π
+How does one prove such a formula? You may recall the argument principle from
+complex analysis, which connects the diﬀerence between the number of zeros and
+poles of a meromorphic function in a region to a contour integral of the function’s
+   1 Legendre (1798) conjectured that π(x) ∼ x/(log x + 1.08366) as x → ∞. Both Gauss’ and
+
+Legendre’s conjectures imply that π(x) ∼ x/ log x as x → ∞.
+    BREAKTHROUGH IN ZERO-DENSITY ESTIMATES, PRIMES IN SHORT INTERVALS               3
+
+
+logarithmic derivative. We may use the argument principle to count the nontrivial
+zeros of ζ(s) in the rectangle 0 ≤ Re(s) ≤ 1 and | Im(s)| ≤ T . (See Chapter IX,
+Section 9.3 of [Tit86] for the details.)
+
+2.2. A brief sketch of counting primes. How can it be that the nontrivial zeros
+of ζ(s) have such a fundamental impact on the distribution of the primes? To begin,
+we introduce the Chebyshev ψ-function, a modiﬁcation of π(x) which counts prime
+powers pk ≤ x with the weight log p:
+                                         
+                                 ψ(x) :=    Λ(n),
+                                           n≤x
+
+where Λ(n) is the von Mangoldt function given by
+                              
+                                log p if n = pk , k ∈ N,
+                       Λ(n) =
+                                0      else.
+We can control the contribution from the prime powers pk ≤ x with 2 ≤ k ≤ log2 x
+because
+          ⎛             ⎞
+                              
+          ⎝        log p⎠             x1/k log x  x1/2 log2 x = o(x), x → ∞.
+ 2≤k≤log2 x   p≤x1/k          2≤k≤log2 x
+
+Thus for large x we should (roughly) have
+                                      
+                    ψ(x) =      Λ(n) ≈    log p ≈ π(x) log x.
+                             n≤x           p≤x
+
+We can make this argument precise to ﬁnd that the statement π(x) ∼ x/ log x as
+x → ∞ is equivalent to the statement that ψ(x) ∼ x as x → ∞. (See, e.g., [Apo76,
+Theorem 4.4].)
+   We now sketch an argument of Riemann which shows that the asymptotic behav-
+ior of ψ(x) explicitly depends on the nontrivial zeros of ζ(s). By the Fundamental
+Theorem of Arithmetic, the Dirichlet series (2) deﬁning ζ(s) may be expressed as
+the Euler product
+                                          −1
+                                         1
+(4)                    ζ(s) =        1− s        , Re(s) > 1.
+                                         p
+                             p prime
+
+Notice that the Euler product shows that ζ(s) has no zeros for Re(s) > 1. Taking
+the logarithmic derivative of (4) and expressing 1 − p−s as a geometric series yields
+                                            ∞                           ∞
+       ζ  (s)        log p                1              log p         Λ(n)
+(5) −         =     s (1 − p−s )
+                                 =   log p         ms
+                                                        =           ms
+                                                                       =           .
+       ζ(s)     p
+                  p                p        m=1
+                                                 p        p prime
+                                                                  p      n=1
+                                                                               ns
+                                                           m≥1
+
+We can extract ψ(x) from (5) using Perron’s formula, or, said another way, via the
+discontinuous integral
+                                       ⎧
+                                       ⎪
+                                       ⎪ 1 if y > 1,
+                                      ⎪
+                                       ⎪
+                        1      y s     ⎨
+(6)                                ds = 1 if y = 1,
+                       2πi (c) s       ⎪
+                                       ⎪ 2
+                                       ⎪
+                                       ⎪
+                                       ⎩
+                                         0 if 0 < y < 1,
+4                             C. L. TURNAGE-BUTTERBAUGH
+
+
+where c > 1. If x is not an integer2 , then by (5) and (6)
+                         ∞
+                                                           
+                                   1       (x/n)s         1       ζ  (s) xs
+   ψ(x) =      Λ(n) =       Λ(n)                    ds =          −            ds,
+                        n=1
+                                   2πi (c)      s          2πi (c) ζ(s) s
+            n≤x
+
+that is
+                                             
+                                        1            ζ  (s) xs
+(7)                           ψ(x) = −                          ds.
+                                       2πi       (c) ζ(s) s
+
+Thus, we can study ψ(x) via the integral on the right-hand side of (7). In particular,
+we may use the calculus of residues to “shift the contour” all the way to inﬁnity on
+the left, thereby expressing ψ(x) in terms of the poles of the integrand. One can
+show that the residue from the trivial zeros may be expressed as − 12 log(1 − x−2 ),
+and each nontrivial zero ρ of ζ(s) contributes xρ ρ−1 . Finally, the residue from the
+simple pole at s = 1 contributes x, and the pole at s = 0 contributes −ζ  (0)/ζ(0) =
+− log(2π). In all, we deduce the explicit formula: for x > 1,
+                                   xρ                1
+(8)             ψ(x) = x − lim             − log 2π − log(1 − x−2 ).
+                            T →∞       ρ              2
+                                   ρ
+                                    |γ|≤T
+
+We have reached the crux of the argument: since
+                                       |xρ | ≤ xRe(ρ) ,
+the contribution from the nontrivial zeros in (8) is small provided Re(ρ) = 1.
+Hadamard and de la Vallée Poussin proved this nontrivial fact (and slightly more)
+to conclude ψ(x) ∼ x as x → ∞. To obtain an error term, one must prove a
+zero-free region of ζ(s) in the critical strip. Since the zeros are symmetric about
+the critical line σ = 1/2, the best possible scenario is that every zero of ζ(s) is on
+the critical line. This hypothetical is, of course, the famous Riemann Hypothesis.
+Riemann Hypothesis (RH). Every nontrivial zero of ζ(s) has real part equal to
+1/2.
+    If the Riemann Hypothesis is true, then
+(9)                      π(x) = Li(x) + O(x1/2 log x),         x → ∞.
+We do not currently know of a single value δ > 0 for which ζ(s) has no zeros in the
+region σ ≥ 1 − δ. In 1899, de la Vallée Poussin [dlV00] proved that there exists an
+absolute constant c > 0 such that ζ(s) has no zeros in the region
+(10)                             σ ≥ 1 − c/ log t,      t ≥ 2.
+The best unconditional zero-free region is due to Vinogradov [Vin58] and Ko-
+robov [Kor58], who proved that there exists an absolute constant c > 0 such that
+ζ(s) has no zeros in the region
+(11)                       σ ≥ 1 − c(log t)−2/3 (log log t)−1/3 .
+This, in turn, implies
+                                                                
+               π(x) = Li(x) + O x exp −c(log x)3/5 (log log x)−1/5 .
+   2 Of course, x ∈ N is a possibility! In this case, one must adjust the last term in the sum
+
+deﬁning ψ(x), replacing Λ(x) with 12 Λ(x).
+    BREAKTHROUGH IN ZERO-DENSITY ESTIMATES, PRIMES IN SHORT INTERVALS                5
+
+
+           3. The distribution of the primes in short intervals
+   Let x, y be large, where y = y(x) is smaller than x. How many primes are there
+in the interval (x, x + y]? Since there are roughly y integers in the interval and
+each has a 1/ log x probability of being prime by (1), one might expect that there
+are roughly y/ log x primes in the interval. In other words, for suitable choices of x
+and y, we expect that
+                                                    y
+                              π(x + y) − π(x) ≈         ,
+                                                  log x
+or, equivalently, that
+                                ψ(x + y) − ψ(x) ≈ y.
+More precisely, we say that the Prime Number Theorem holds in the short interval
+(x, x + y] if
+                                       
+(12)             ψ(x + y) − ψ(x) =            Λ(n) ∼ y,     x → ∞.
+                                      x<n≤x+y
+
+For the purposes of this exposition, let y = xθ , where 0 < θ ≤ 1, and note that
+the case θ = 1 corresponds to the Prime Number Theorem. We now consider the
+following problem.
+Problem A. Let y = xθ , and 0 < θ < 1. Determine the least exponent θ for which
+(12) holds for all x.
+  If we assume the Riemann Hypothesis, then (9) yields
+                                   x+xθ                    
+                                          du
+               π(x + x ) − π(x) =
+                      θ
+                                               + O x1/2 log x .
+                                   x     log u
+Note that the error term is smaller than the main term provided θ > 1/2 + ε, where
+ε > 0. How small can we take θ unconditionally?
+   As a ﬁrst pass, let’s proceed as in the proof of the Prime Number Theorem. Let
+ρ = β + iγ denote a nontrivial zero of ζ(s), where β, γ ∈ R. By the truncated form
+of the explicit formula (8), we have
+                                 (x + y)ρ − xρ          1+ε 
+                                                          x
+       ψ(x + y) − ψ(x) = y −                        +O          ,    T → ∞.
+                                 ρ         ρ                T
+                              |γ|≤T
+
+As expected, we must control the contribution from the nontrivial zeros ρ of ζ(s).
+Following the set-up of an argument by Ingham [Ing37], we use the Fundamental
+Theorem of Calculus and the triangle inequality to ﬁnd
+                                         x+y
+            (x + y)ρ − xρ   x+y ρ−1 
+                          =     u    du ≤        uβ−1 du ≤ yxβ−1 .
+                  ρ                     
+                                x                   x
+Thus
+                                         ⎛              ⎞
+                                                                1+ε 
+              ψ(x + y) − ψ(x)                                    x
+(13)                          = 1+O⎝               xβ−1 ⎠ + O           .
+                     y                                            yT
+                                           |γ|≤T
+
+    In order for the desired asymptotic to hold, we need to show that the two error
+terms above are o(1). Let y = xθ , where 0 < θ < 1, and T = xα , where 0 < α < 1.
+If the second error term is also to be o(1), then θ and α must satisfy
+(14)                             1 − α + ε < θ < 1.
+6                                C. L. TURNAGE-BUTTERBAUGH
+
+
+  Now consider the ﬁrst error term on the right-hand side of (13) which depends
+on the zeros of ζ(s). Let us see what happens when, as in the proof of the Prime
+Number Theorem, we apply a zero-free region to bound the sum.
+
+3.1. Applying a zero-free region. We illustrate the argument using the classical
+zero-free region (10), which guarantees that any nontrivial zero ρ = β + iγ with
+|γ| > T0 satisﬁes β ≤ 1 − η(T ), where η(T ) = c/ log T and c > 0 is a constant. By
+(3) with T = xα ,
+              
+                  xβ−1 ≤ x−η(T ) T log T  x−c/(α log x)+α+ε , x → ∞.
+               |γ|≤T
+
+We have reached an impasse: the classical zero-free region is not strong enough to
+ensure −η(xα ) + α + ε < 0 for large x because η(T ) = c/ log T → 0 as T → ∞. Note
+that the Vinogradov-Korobov zero-free region (11) shares this feature. In short, no
+matter the choice of α, any applicationof a currently available zero-free region is
+not strong enough to ensure the sum |γ|≤T xβ−1 = o(1) as x, T → ∞. On the
+other hand, if RH is true, then we can take α < 1/2 − ε and, via (14), θ > 1/2 + ε
+in Problem A.
+   The key point from this comparison is that the zeros close to the critical line
+Re(s) = 1/2 contribute much less to the sum than those close to the line Re(s) = 1;
+our argument failed because we treated each of the ∼ T log T zeros as if they were in
+this latter category. In 1930 Hoheisel [Hoh30] circumvented this issue by leveraging
+the fact that there are very few zeros of ζ(s) close to the line Re(s) = 1.3 This type
+of result on the location of the zeros of ζ(s) is made quantitatively precise via what
+is known as a zero-density theorem.
+
+3.2. Applying a zero-free region and a zero-density theorem. Let N (σ, T )
+denote the number of zeros ζ(s) for which β ≥ σ ≥ 1/2 and |γ| ≤ T . An upper
+bound for N (σ, T ) of the form
+
+                           N (σ, T )  T A(1−σ) logB T,         T → ∞,
+where A, B ≥ 0 is called a zero-density theorem. We restrict the range of σ in the
+deﬁnition of N (σ, T ) because, for any 0 ≤ σ ≤ 1/2, (3) yields N (σ, T ) ≤ N (T ) ∼
+T log T . We will discuss zero-density theorems more thoroughly in the next section,
+but for the moment let’s sketch how to use such a result to prove the Prime Number
+Theorem in a short interval.
+   As discussed in [Ing37] (see, also, Section 10.5 of [IK04]), Hoheisel’s work required
+two key inserts. Firstly, he made use of a precursor to (11) due to Littlewood [Lit22],
+which states that ζ(s) is free of zeros in the region
+                                              log log t
+(15)                              σ ≥1−c                ,   t ≥ t0
+                                                log t
+where the constant c > 0 is very small. Secondly, he made use of Carlson’s zero-
+density theorem [Car21], which for 1/2 ≤ σ ≤ 1 implies
+
+(16)                        N (σ, T )  T 4(1−σ) log6 T,       T → ∞.
+
+    3 Of course, if RH is true, this hypothetical set of “bad” zeros is empty!
+    BREAKTHROUGH IN ZERO-DENSITY ESTIMATES, PRIMES IN SHORT INTERVALS                                 7
+
+
+With these results in hand, we return to (13). The Fundamental Theorem of
+Calculus yields
+                             β                  1 
+            (xβ−1 − x−1 ) =       xσ−1 log x dσ =       xσ−1 log x dσ.
+         |γ|≤T                     |γ|≤T       0                      0 |γ|≤T
+                                                                         β≥σ
+
+Thus
+                                    1/2                                  1
+        xβ−1 ≤ 2x−1 N (T ) + 2                N (T )xσ−1 log x dσ + 2            N (σ, T )xσ−1 log x dσ
+|γ|≤T                                   0                                  1/2
+                                                         1−η(T )
+              x−1 T log T + x−1/2 T log T +                        N (σ, T )xσ−1 log x dσ,
+                                                         1/2
+
+where η(T ) = c log log T / log T as in (15). Making the change of variable σ → 1 − σ
+and applying the zero-density estimate (16), we ﬁnd
+                                                         1/2  4 σ
+                                                                T
+                 xβ−1  x−1/2 T log T + (log x) log6 T                 dσ.
+                                                          η(T )  x
+             |γ|≤T
+
+As before, we aim to pick θ and α such that (14) holds. Take T = xα , where
+0 < α < 1/4. Then
+                                     4 η(T )
+                                      T             1               α
+        xβ−1  xα−1/2 log x + log6 T                   + x(4α−1)η(x ) log6 x.
+                                       x          log x
+   |γ|≤T
+
+Moreover,
+                                                                    
+                 (4α−1)η(xα )               c(4α − 1)                                c(4α−1)
+             x                  = exp                 log(α log x)        (log x)      α      .
+                                                α
+Thus, taking α = 1/(4 + 7c−1 ) < 1/4, we ﬁnd
+                                1            c(4α−1)   1
+                      xβ−1          + (log x) α +6        .
+                               log x                  log x
+                       |γ|≤T
+
+The choice of θ > 1 − α + ε thus depends on the value of c. Using (15), for which
+we recall c > 0 is very, very small Hoheisel was able to take θ = 32999/33000. If
+we instead use the Vinogradov-Korobov zero-free region (11), this argument yields
+θ = 3/4 + ε.
+
+                           4. Zero-density estimates for ζ(s)
+   Let us know look more carefully into N (σ, T ). What do we expect to be true?
+We noted earlier that N (σ, T ) ≤ N (T ) ∼ T log T for 0 ≤ σ < 1/2. In 1937,
+Ingham [Ing37, Theorem 3] proved that the Lindelöf Hypothesis4 implies that for
+all 1/2 ≤ σ ≤ 1,
+                             N (σ, T )  T 2(1−σ)+o(1) .
+These observations lead to the formulation of the Density Hypothesis and, in turn,
+a new problem.
+Density Hypothesis. For all 1/2 ≤ σ ≤ 1, we have N (σ, T )  T 2(1−σ)+o(1) as
+T → ∞.
+  4 The Lindelöf Hypothesis conjectures that for every ε > 0, ζ(1/2 + it)  tε as t → ∞.
+8                          C. L. TURNAGE-BUTTERBAUGH
+
+
+Problem B. Fix 1/2 ≤ σ < 1. Determine the least exponent A(σ) for which one
+has the zero-density theorem N (σ, T )  T A(σ)(1−σ)+o(1) as T → ∞.
+  Notice that in the notation of Problem B, the Density Hypothesis asserts that
+A(σ) ≤ 2.
+4.1. Timeline of a few key zero-density theorems. We now highlight a few key
+results concerning Problem B; we will discuss these results more thoroughly in the
+next sections. In 1914, Bohr and Landau [BL14] proved the ﬁrst zero-density result,
+which shows that for ﬁxed σ > 1/2, N (σ, T )  T . Note that since N (T ) ∼ T log T ,
+this result tells us that the proportion of zeros of ζ(s) for which 1/2 < β < 1 tends
+to 0 as T → ∞. In 1940, Ingham [Ing40], building oﬀ the work of Carlson [Car21],
+proved the following.
+Theorem 4.1 (Ingham, 1940). The estimate
+                                            3(1−σ)
+(17)                          N (σ, T )  T 2−σ +o(1)
+holds uniformly for 1/2 ≤ σ ≤ 1 as T → ∞.
+  In 1969, Montgomery [Mon69a,Mon69b] introduced a new method to prove zero-
+density theorems, which recovers Ingham’s bound (17) in the range 1/2 ≤ σ ≤ 4/5,
+and improves it in the range 4/5 < σ ≤ 1. Soon after, Huxley [Hux72] modiﬁed
+Montgomery’s techniques, recovering Ingham’s bound (17) in the range 1/2 ≤ σ ≤
+3/4, and improving Montgomery’s bound in the range 3/4 < σ ≤ 1.
+Theorem 4.2 (Huxley, 1972). The estimate
+                                            3(1−σ)
+                              N (σ, T )  T 3σ−1 +o(1)
+holds uniformly for 3/4 ≤ σ ≤ 1 as T → ∞.
+  Taken together, Theorem 4.1 and Theorem 4.2 show that Problem B holds for
+A(σ) < 12/5 = 2.4 over the range 1/2 ≤ σ ≤ 1, that is
+                                     12
+                       N (σ, T )  T 5 (1−σ)+o(1) ,   T → ∞.
+This was the strongest bound known for all 1/2 ≤ σ ≤ 1 until very recently.
+
+
+
+
+       Figure 1. Upper bounds on A(σ) for all 1/2 ≤ σ ≤ 1, prior to 2024
+
+   On May 31, 2024, Larry Guth and James Maynard [GM24] announced a new
+zero-density result which gives the ﬁrst improvement towards Problem B in the
+range 1/2 ≤ σ ≤ 3/4 since the 1940 estimate of Ingham (17). (That’s an 84-year
+gap!) In particular, they prove the following.
+    BREAKTHROUGH IN ZERO-DENSITY ESTIMATES, PRIMES IN SHORT INTERVALS                     9
+
+
+Theorem 4.3 (Guth-Maynard, 2024+). Let N (σ, T ) denote the number of zeros
+ρ of ζ(s) with Re(ρ) ≥ σ and | Im(ρ)| ≤ T . Then we have
+                                        15(1−σ)
+                        N (σ, T )  T    3+5σ +o(1)   ,   T → ∞.
+  Combining this estimate with Ingham’s bound (17) when σ ≤ 7/10, we see that
+Problem B holds A(σ) < 30/13 ≈ 2.308 over the range 1/2 ≤ σ ≤ 1, that is
+                                        30
+                         N (σ, T )  T 13 (1−σ)+o(1) ,    T → ∞.
+
+
+
+
+               Figure 2. Upper bounds on A(σ) for all 1/2 ≤ σ ≤ 1
+
+Remark. A detailed account of the strongest bounds on A(σ) for various subinter-
+vals of [1/2, 1] may be found in [GT25].
+   It is well-known (see, for example [IK04] and Section 13 of [GM24]) that improve-
+ments on Problem B directly lead to improvements on Problem A. In fact, improve-
+ments on Problem B also yield results on the Prime Number Theorem in almost
+all short intervals. We now state this relationship precisely, as in [GT25, Theorem
+1.1].
+Theorem 4.4. Let A0 > 0 be such that for all 1/2 ≤ σ < 1, A(σ) ≤ A0 . Let
+1/2 ≤ σ < 1 be ﬁxed, and set y = xθ .
+     (i) If θ > 1 − 1/A0 , then (12) holds for all x.
+    (ii) If θ > 1 − 2/A0 , then (12) holds for all x outside of an exceptional set of
+         density zero.
+   Therefore, by Theorem 4.4, we obtain the following immediate corollary to The-
+orem 4.3.
+Corollary 4.1 (Guth-Maynard, 2024+). The prime number theorem in short in-
+tervals holds in all intervals (x, x + x17/30 ] and in almost all intervals (x, x + x2/15 ].
+
+                 5. Counting zeros via Littlewood’s Lemma
+   How does one go about proving a zero-density estimate, and what made Ingham’s
+bound resist improvement for so long? Let’s start with the ﬁrst zero-density result
+obtained by Bohr and Landau in 1914 which states that for any ﬁxed σ > 1/2,
+N (σ, T )  T .
+   We begin with a special case of Littlewood’s Lemma [Lit22] (see, also [Tit86,
+Equation 9.9.1]), an analogue of Jensen’s Formula (see, e.g., [SS03, p.135]) con-
+cerning the zeros of a holomorphic function in a rectangle.
+10                                C. L. TURNAGE-BUTTERBAUGH
+
+
+Littlewood’s Lemma. Suppose that f (s) is analytic and nonzero on the rectangle
+C with vertices σ0 , σ1 , σ0 + iT , and σ1 + iT , where σ0 < σ1 . Let v(σ, T ) denote the
+number of zeros of f (s) in the part of the rectangle C for which Re(s) > σ. Then
+             σ1                  T                          T
+(18)    2π       v(σ, T ) dσ =        log |f (σ0 + it)| dt −     log |f (σ1 + it)| dt
+             σ0                    0                          0
+                                       σ1                         σ1
+                                    +       arg f (σ + iT ) dσ −       arg f (σ) dσ.
+                                          σ0                              σ0
+
+5.1. The ﬁrst zero-density theorem. Let f (s) = ζ(s), σ1 = 2, and ﬁx 1/2 <
+σ0 ≤ 1. Applying Littlewood’s Lemma and recalling N (σ, T ) = 0 for σ > 1, we
+have                          
+                   1                           T
+                       N (σ, T ) dσ =              log |ζ(σ0 + it)| dt + O(log T ).
+                  σ0                       0
+(For details on the error term, see [Tit86, p.229]). Next, ﬁx α such that σ0 < α < 1.
+Since N (σ, T ) is decreasing in σ,
+                                  α                          1
+                            1                           1
+             N (α, T ) ≤             N (σ, T ) dσ ≤              N (σ, T ) dσ
+                         α − σ 0 σ0                  α − σ 0 σ0
+                                     T
+                               1
+                         =              log |ζ(σ0 + it)| dt + O(log T ).
+                            α − σ0 0
+To continue, we may apply Jensen’s Inequality (see, e.g., [Roy88, p.115]) to obtain
+a suitable upper bound on the integral. We ﬁnd
+                                            T
+             1 T                          1                     
+                   log |ζ(σ0 + it)| dt =        log |ζ(σ0 + it)|2 dt
+             T 0                         2T 0
+                                                                   
+                                         1      1 T
+                                       ≤ log          |ζ(σ0 + it)| dt .
+                                                                  2
+                                         2      T 0
+We have reduced the problem to another central problem in analytic number the-
+ory: mean values of the Riemann zeta-function. Using the approximate functional
+equation of ζ(s) (see, e.g., Theorem 4.11 and Theorem 7.2 of [Tit86]), we can show
+that                         T
+                                  |ζ(σ0 + it)|2 dt  cT,           T → ∞,
+                          0
+where c > 0 is a constant depending on σ0 . Thus for any ﬁxed σ ≥ σ0 > 1/2, we
+have
+                            N (σ, T ) ≤ T log(c)  T.
+
+5.1.1. Historical note. The argument given above is anachronistic: Bohr and Lan-
+dau’s result was published in 1914, nearly 10 years before Littlewood’s Lemma
+appeared. Bohr and Landau, in fact, proved their result using Jensen’s Formula,
+which we now state for comparison. Let f (s) be an analytic function in a region
+of the complex plane which contains the closed disc DR of radius R > 0 about the
+origin. Suppose that f (0) = 0 and f (s) is nonzero on the boundary of DR . Let n(t)
+denote the number of zeros of f (s) in the disc of radius t centered at the origin.
+Then              R                2π
+                     n(r)        1
+                          dr =           log |f (Reiθ )| dθ − log |f (0)|.
+                  0    r        2π 0
+    BREAKTHROUGH IN ZERO-DENSITY ESTIMATES, PRIMES IN SHORT INTERVALS                    11
+
+
+As discussed in [IK04, p.250–251], to count the number of zeros of f (s) in DR , it
+is helpful to apply Jensen’s Formula not to f (s) directly, but instead to a product
+f (s)g(s), where g(s) is holomorphic in DR and large when f (s) is small. In the case
+of f (s) = ζ(s), Bohr and Landau took g(s) to be a truncation of the reciprocal of
+the Euler product (4) of ζ(s), i.e. g(s) = p≤X (1 − p−s ). As we will see in the next
+sections, subsequent improvements on upper bounds on N (σ, T ) employ a similar
+idea, replacing the Euler product with its Dirichlet series counterpart.
+5.2. Ingham’s 1940 zero-density theorem. As we have stated, Ingham made
+use of Littlewood’s Lemma to prove Theorem 4.1, so we should expect some sort of
+mean value theorem involving ζ(s) to appear in the proof. We focus on this aspect
+of Ingham’s result in this section. As Ingham writes in an earlier paper [Ing37]
+on the subject, “The standard proofs of theorems of the type [in Problem B] are
+based on the estimation of a certain integral. . . .” This integral corresponds to the
+ﬁrst integral on the right hand side (18) with f (s) constructed as follows. Let μ(n)
+denote the Möbius function, where μ(1) := 1 and
+                    
+                      (−1)k if n is the product of k distinct primes,
+            μ(n) :=
+                      0       if n is divisible by a square greater than 1.
+Two important properties of μ(n) that we will make use of here are that
+                                                   ∞
+                  1 if n = 1,                1       μ(m)
+(19)      μ(n) =                   and           =           ,     Re(s) > 1.
+                   0 if n > 1,              ζ(s)   m=1
+                                                         ms
+      d|n
+
+Let X be large, and deﬁne
+                                             μ(n)
+(20)                            MX (s) :=              .
+                                                  ns
+                                            n≤X
+
+For Re(s) > 1 we have
+                     ∞           ∞                                      
+                           μ(m)        an
+(21)    ζ(s)MX (s) =           s
+                                 =        ,                where   an :=          μn .
+                     n=1
+                          (mn)     n=1
+                                       ns
+                           m≤X                                              d|n
+                                                                           n≤X
+
+Notice that if ζ(ρ) = 0 then ζ(ρ)MX (ρ) = 0 too, and that for large X, we might
+expect that ζ(s)MX (s) ≈ 1 for 1/2 ≤ σ ≤ 1. With the remarks of Section 5.1.1 in
+mind, set fX (s) := ζ(s)MX (s) − 1. The “certain integral” to which Ingham refers
+is
+                                T
+(22)                               |fX (σ + it)|2 dt,
+                                 1
+and he proves an upper bound on (22) that holds uniformly on 1/2 ≤ σ ≤ 1. The
+bound is obtained via a convexity theorem for mean values of analytic functions,
+and in practice this involves ﬁnding a suitable bound for (22) with σ = 1/2 and
+another for (22) with σ = 1 + δ, where δ > 0. In his 1940 paper [Ing40], Ingham
+takes this further to show the following.
+Theorem 5.1 (Ingham, 1940). Let T > 1, X ≥ 3, and 1/2 ≤ σ ≤ 1. Then
+        T
+           |fX (σ + it)|1/K dt  (T + X)X −(2σ−1)/(2−σ) log4 (T + X),
+           1
+where 1/2 ≤ K ≤ 3/4.
+12                               C. L. TURNAGE-BUTTERBAUGH
+
+
+   Ingham proves this bound using a two-variable convexity theorem of Gabriel
+                                                                  T
+[Gab27], which allows one to interpolate between an upper bound on 0 |fX (1 +
+δ + it)|2 dt, where 0 < δ < 1, and an upper bound on
+                                T
+(23)                               |fX (1/2 + it)|4/3 dt.
+                                        0
+
+We now sketch the proof of (23). First, Ingham uses the triangle inequality and
+Hölder’s inequality with p = 3 and q = 3/2 to show
+      T
+          |fX (1/2 + it)|4/3 dt
+       0
+                     T                                       
+                       |ζ(1/2 + it)|4/3 |MX (1/2 + it)|4/3 + 1 dt
+                      0
+                                                      1/3                                 2/3
+                                 T                                    T
+                  T +               |ζ(1/2 + it)| dt
+                                                 4
+                                                                          |MX (1/2 + it)| dt
+                                                                                        2
+                                                                                                      .
+                             0                                    0
+
+                                          T
+Hardy and Littlewood [HL23] showed that 0 |ζ(1/2+it)|4 dt  T log4 T . To bound
+the remaining integral, we appeal to the following classical mean value theorem.
+Theorem 5.2 (Mean Value Theorem for Dirichlet Polynomials). For any complex
+numbers bn , we have
+                                 2
+                 T                              
+                                 
+                              it 
+                           bn n  dt = (T + O(N ))       |bn |2 ,
+                     
+                  0 1≤n≤N                        1≤n≤N
+
+where the implied constant is absolute.
+     Thus
+             T                                                      1
+                  |MX (1/2 + it)|2 dt  (T + X)                          (T + X) log X,
+             0                                                        n
+                                                         1≤n≤X
+
+and hence
+                     T
+                          |fX (1/2 + it)|4/3 dt  (T + X) log2 (T + X).
+                      0
+
+For full details of Ingham’s proof of Theorem 5.1, see [Ing40] and [Ing37].
+
+            6. Counting zeros with zero-detecting polynomials
+   Twenty-ﬁve years after Ingham’s paper, A. I. Vinogradov [Vin65] introduced a
+new method to estimate N (σ, T ), which Montgomery [Mon69b] developed just a
+few years later. Unlike the arguments presented above, the method does not ap-
+proach counting zeros via Littlewood’s Lemma. Instead, it counts zeros by detecting
+how often a particular Dirichlet polynomial is large. We will see that the method
+produces much stronger bounds when treating zeros close to the line (s) = 1.
+   We now set up the zero-detecting method, combining aspects of the expositions
+of [Mon69b] and [MP24]. Let T be large, and let X ≤ Y ≤ T A for some absolute
+     BREAKTHROUGH IN ZERO-DENSITY ESTIMATES, PRIMES IN SHORT INTERVALS                 13
+
+
+constant. We will specify X and Y in terms of T at the end of the argument.
+Recalling (20) and (21), consider the Dirichlet series
+                                          ∞
+                                           an
+(24)                            I(s) :=              e−n/Y ,
+                                          n=1
+                                                ns
+and note that since a1 = 1 and an = 0 for n ≤ X, we have
+                                           an
+(25)                      I(s) = e−1/Y +         e−n/Y .
+                                              ns
+                                                n>X
+
+  We may express I(s) another way using the inverse Mellin transform of the
+Gamma function, which for Re(z) > 0 and c > 0 states
+                                   
+                                1
+                         e−z =         Γ(w)z −w dw.
+                               2πi (c)
+Applying this to (24) and taking c = 2, say, we ﬁnd
+                            
+                         1
+(26)             I(s) =         ζ(s + w)MX (s + w)Y w Γ(w) dw.
+                        2πi (2)
+Let ρ = β + iγ denote a zero of ζ(s) counted by N (σ, T ). We may assume that
+β ≥ σ ≥ 1/2 + 1/ log T , and we recall that |γ| ≤ T . Evaluate I(ρ) in (26) and then
+shift the contour to Re(w) = 1/2 − β. We pass through a pole at w = 1 − ρ from
+ζ(ρ + w) with residue MX (1)Y 1−ρ Γ(1 − ρ). Comparing the resulting expression to
+(25) evaluated at s = ρ, we ﬁnd
+            an
+ e−1/Y +          e−n/Y = MX (1)Y 1−ρ Γ(1 − ρ)
+               nρ
+           n>X
+                                   
+                                 1
+                             +              ζ(ρ + w)MX (ρ + w)Y w Γ(w) dw + o(1).
+                               2πi ( 12 −β)
+Consider the left-hand side of the above equation. Since Y is large, e−1/Y = 1+o(1),
+and the tail of the Dirichlet series is negligible since the factor e−n/Y decays rapidly.
+On the right-hand side, if |γ| ≥ (log T )2 then MX (1)Y 1−ρ Γ(1 − ρ) = o(1) due to
+the rapid decay of the Gamma function in vertical strips. Therefore, for any ρ for
+which |γ| ≥ (log T )2 we have
+              an                      
+                        −n/Y       1
+(27) 1 +               e       =               ζ(ρ + w)MX (ρ + w)Y w Γ(w) dw + o(1).
+                  2
+                    nρ            2πi ( 12 −β)
+          X<n≤Y
+
+   We are now able to make a key observation: because of the 1 appearing on
+the left-hand side of (27), it is not possible for the Dirichlet polynomial and the
+integral to be simultaneously small. Splitting up the Dirichlet polynomial into
+ log T dyadic sub-intervals, we can rephrase this observation to state that, apart
+from the zeros of ζ(s) with |γ| ≤ (log T )2 , either
+                                
+                               
+                      a              1                              
+(28)                    n
+                           e−n/Y 
+                                   ≥              for some N ∈ X , Y 2
+                      n ρ       
+             N <n≤2N             3 log T
+or
+                                                        
+                 1                                      1
+                                                        
+(29)                         ζ(ρ + w)MX (ρ + w)Y Γ(w) dw ≥ .
+                                                 w
+                 2πi (1/2−β)                             3
+14                          C. L. TURNAGE-BUTTERBAUGH
+
+
+A zero that satisﬁes (28) is called a Type I zero, and a zero that satisﬁes (29) is
+called a Type II zero. Let R denote a subset of the zeros counted by N (σ, T ) for
+which |γ1 − γ2 | ≥ 1, ρ1 , ρ2 ∈ R. Such a set is called well-spaced or 1-separated. By
+(3), there are O(log T ) nontrivial zeros with γ ∈ (t, t + 1] for any t ∈ [0, T ], so R
+exists. Let R1 , R2 denote the number of Type I, Type II zeros in R, respectively.
+Since there are  log3 T zeros counted by N (σ, T ) for which |γ| ≤ (log T )2 , we
+have
+                   N (σ, T )  R1 (log T )2 + R2 (log T )2 + (log T )3 .
+We now aim to understand the frequency for which Dirichlet polynomials over
+well-spaced sets can be large.
+
+                 7. Large values of Dirichlet polynomials
+  Let W be a set of 1-separated points in [0, T ] with T ≥ 1. Let N ≥ 1 and
+consider the Dirichlet polynomial
+                                  
+                       DN (s) :=      bn n−s ,     bn ∈ C.
+                                   N ≤n≤2N
+
+Suppose that |DN (t)| ≥ V for some V > 0, where for t ∈ W . Then
+                                          
+                        |W | =    1 ≤ V −2    |DN (t)|2 .
+                                 t∈W          t∈W
+
+Thus we can obtain a bound on |W | via a mean value theorem for DN (t) over W .
+(We note that by deﬁnition, W contains at most T + 1 points.)
+7.1. Discrete Mean Value Theorem. In 1967, Gallagher [Gal67] proved a dis-
+crete version of Theorem 5.2, which in the context of Dirichlet polynomials may be
+stated as follows. (See [IK04, Theorem 9.4].)
+Theorem 7.1 (Discrete Mean Value Theorem). Let W be a set of 1-separated
+points in [0, T ] with T ≥ 1, and let bn be any complex numbers. Then we have
+                                 2
+                                                                 2
+                             bn nit   (T + N )(log 2N )    |bn | ,
+               t∈W   1≤n≤N                               1≤n≤N
+
+where the implied constant is absolute.
+7.1.1. Recovering Ingham’s zero-density estimate. In this section we show how to
+recover Ingham’s zero-density estimate using large values of Dirichlet polynomials.
+In particular, we focus on obtaining an upper bound on R1 , the number of 1-
+separated Type I zeros in R counted by N (σ, T ). We follow the argument of
+Montgomery [Mon69a].
+   Set bn = an n−β e−n/Y . By (28) and Theorem 7.1, there exists an N ∈ (X, Y 2 ]
+such that
+                                                              2
+(30)               R1  (T + N )(log 2N )(log T )2        |bn | .
+                                                    N ≤n≤2N
+
+By the deﬁnition of a(n) given in (21), |a(n)| ≤ d(n), where d(n) denotes the divisor
+function which counts the number of divisors of an integer n ≥ 1. It is a result of
+Dirichlet (see, e.g., [Apo76, Theorem 3.3]) that for all x ≥ 1,
+                              
+                                 d(n) = x log x + O(x).
+                             n≤x
+    BREAKTHROUGH IN ZERO-DENSITY ESTIMATES, PRIMES IN SHORT INTERVALS              15
+
+
+By induction and partial summation (see, e.g., [Apo76, Theorem 4.2]) we can show
+that for integers k ≥ 1,
+                            
+                               d(n)  x(log x)2 −1 .
+                                                 k
+(31)
+                               n≤x
+
+Applying (31) with k = 2 and recalling that β ≥ σ, we ﬁnd
+                     
+            |bn |2         |a(n)|2 n−2β e−2n/Y  N −2σ e−2X/Y N (log 2N )3 .
+    N ≤n≤2N           N ≤n≤2N
+
+Inserting this bound into (30) and recalling X ≤ N ≤ Y 2 , we ﬁnd
+
+                       R1  (T X 1−2σ + Y 2−2σ )(log T )O(1) .
+   To deduce an upper bound on R2 , we further partition the well-spaced Type II
+zeros, i.e., the zeros satisfying (29), depending on the size of |M (ρ + w)|. Using
+Theorem 7.1 and the upper bound on the fourth moment on ζ(1/2 + it) referenced
+above the statement of Theorem 5.2, one can show
+                                          2−4σ
+                               R2  T Y     3    (log T )O(1) .
+(See [Mon69b, p. 352] for the details on obtaining this bound.) Combining these
+estimates, we ﬁnd
+                                                 2−4σ
+                                                       
+              N (σ, T )  T X 1−2σ + Y 2−2σ + T Y 3      (log T )O(1) .
+                           3
+Take X = T and Y = T 2(2−σ) , which balances the two terms involving Y . We have
+                                           3(1−σ)
+                           N (σ, T )  T 2−σ (log T )O(1) ,
+which recovers Ingham’s bound (17) up to logarithms.
+
+
+7.2. Montgomery-Halász-Huxley Large Values Estimate. In 1969, Mont-
+gomery [Mon69a] used a method of Halász [Hal68] to prove a new mean value
+theorem for Dirichlet polynomials over a set W of 1-separated points. Using the
+duality principle of bilinear forms and bounds on exponential sums, Montgomery’s
+mean value theorem produces an upper bound that, in contrast to Theorem 7.1, is
+sensitive to the cardinality of W . In particular, the bound is much stronger when
+|W | is smaller than T 1/2 .
+Theorem 7.2 (Montgomery-Halász Mean Value Theorem). Suppose (bn ) is a se-
+quence of complex numbers and (tr )r≤R is a sequence of 1-separated points in [0, T ]
+with T ≥ 1. Then we have
+                           2
+                                                                     2
+                      bn nitr   (N + RT 1/2 ) log(2T )         |bn | ,
+            tr   N ≤n≤2N                                          N ≤n≤2N
+
+where the implied constant is absolute.
+  Reﬁning the ideas in [Mon69a] and [Mon69b], Huxley [Hux72] proved what we
+now refer to as the Montgomery-Halász-Huxley large values estimate.
+16                         C. L. TURNAGE-BUTTERBAUGH
+
+
+Theorem 7.3 (Montgomery-Halász-Huxley Large Values Estimate). Suppose (bn )
+is a sequence of complex numbers with |bn | ≤ 1 and (tr )r≤R is a sequence of 1-
+separated points in [0, T ] such that
+                                            
+                                             
+                                     bn nitr  ≥ V
+                                N ≤n≤2N
+
+for some V > 0. Then
+                                                            
+                 R ≤ T o(1) N 2 V −2 + T min N V −2 , N 4 V −6 ,
+where the implied constant is absolute.
+  We remark that the Montgomery-Halász-Huxley Large Values Estimate yields
+much better bounds on Type I zeros for which β ≥ σ ≥ 3/4 but cannot do so for
+1/2 ≤ σ < 3/4 due to the framework on which it is built.
+7.3. Guth-Maynard Large Values Estimate. In 2024, Guth and Maynard
+[GM24] introduced a new method to obtain large value estimates of Dirichlet poly-
+nomials. Their remarkable work gives a new way to count Type I zeros, which in
+turn provides a stronger zero-density theorem for 7/10 ≤ σ ≤ 8/10. It is worth
+stating again that this gives the ﬁrst progress for σ ≤ 3/4 since 1940!
+Theorem 7.4 (Guth-Maynard Large Values Estimate, 2024+). Suppose (bn ) is a
+sequence of complex numbers with |bn | ≤ 1 and (tr )r≤R is a sequence of 1-separated
+points in [0, T ] such that                   
+                                               
+                                       bn nitr  ≥ V
+                                N ≤n≤2N
+for some V > 0. Then
+                                                                 
+                 R ≤ T o(1) N 2 V −2 + N 18/5 V −4 + T N 12/5 V −4 .
+where the implied constant is absolute.
+7.3.1. Obtaining a new zero-density theorem. As Guth and Maynard explain on
+[GM24, page 45], Theorem 7.4 is applied when the length of the relevant polynomial
+satisﬁes
+                                                               2
+                     T 5/(3+5σ) ≤ N 2 ≤ T 75(1−σ)/(54+30σ−100σ ) .
+The term N 2 V −2 is dominated by N 18/5 V −4 in the critical range 7/10 ≤ σ ≤ 8/10,
+and in this regime they show
+(32)                          R1  T 15(1−σ)/(3+5σ) .
+For N 2 outside of the range above, the authors use classical estimates to bound R1
+which, together with (32), which ultimately yield their zero-density estimate
+                         N (σ, T )  T 15(1−σ)/(3+5σ)+o(1) .
+7.3.2. The additive energy of large value sets. The authors observe (see [GM24,
+page 4]) that one might expect to have improved bounds for Dirichlet polynomials
+whose large value set W has a lot structure. For example, if the points of W form an
+arithmetic progression, it seems reasonable that this information could be harnessed
+to obtain improved bounds. They make this precise in terms of the additive energy
+of a ﬁnite set W , which is deﬁned as
+           E(W ) := #{w1 , w2 , w3 , w4 ∈ W : |w1 + w2 − w3 − w4 | < 1}.
+    BREAKTHROUGH IN ZERO-DENSITY ESTIMATES, PRIMES IN SHORT INTERVALS                     17
+
+
+They show that a result of Heath-Brown [HB79, Theorem 1] implies that one may
+indeed obtain stronger bounds for Dirichlet polynomials whose large value set W
+has a lot of additive energy. For sets with low additive energy, Guth and Maynard
+give a new method to obtain good bounds.
+   We now follow Section 2 of [GM24] to sketch the set-up of the method and
+highlight a few of their key remarks. Let N ≥ 1 denote the length of the Dirichlet
+polynomial DN (t) and W a set of 1-separated points. As we have seen above, we
+can obtain an upper bound on |W | by ﬁnding an upper bound on
+                                    
+                                        |DN (t)|2 .
+                                         t∈W
+We now rephrase this task in terms of bounding singular values of matrices. Let
+M denote a |W | × N matrix for which Mt,n = nit . Then for b ∈ RN ,
+                                  
+                       (Mb)t =         bn nit = DN (t).
+                                        N ≤n≤2N
+
+Thus                       
+                                 |DN (t)|2 = Mb 2 ≤ N M 2 ,
+                           t∈W
+where M denotes the matrix norm of M and M = s1 (M ) is the largest singular
+value of M . The authors describe how various reasonable approaches to bounding
+s1 (M ) would eventually fail, and then they state that one can prove a bound similar
+to                                                                        
+                                                 i(t −t ) i(t −t ) i(t −t ) 
+          s1 (M )6                             n1 1 2 n2 2 3 n3 3 1 .
+                            t1 ,t2 ,t3 ∈W   n1 ,n2 ,n3 ∼N
+                         |tj −tk |>T  ∀j,k
+The aim, then, is to show that the right-hand side is small. As the authors discuss,
+after applying Poisson summation above, the next maneuver would typically be
+to apply stationary phase. By refraining from taking this natural next step, the
+authors obtain an expression in which the variables t1 , t2 , t3 above are separated
+from one another. In doing so, however, they have given up a factor of T 3/2 .
+Nevertheless, the authors show how to harness the additive structure of W , whether
+it be high or low, to obtain enough cancellation to win.
+
+                                    Acknowledgments
+   The author thanks Brian Conrey, Dan Goldston, and Micah Milinovich for their
+helpful feedback. She is partially supported by NSF CAREER DMS-2239681.
+
+                                         References
+[Apo76]   Tom M. Apostol, Introduction to analytic number theory, Undergraduate Texts in
+          Mathematics, Springer-Verlag, New York-Heidelberg, 1976. MR434929
+[BL14]    H. Bohr and E. Landau, Sur les zeros de la fonction ζ(s) de Riemann, Comptes Rendus
+          Acad. Sci. Paris, 158 (1914), 106–110.
+[Car21]   F. Carlson, Über die nullstellen der dirichletschen reihen und der riemannschen ζ-
+          funktion, Ark. Mat. Astron. Fys. 15 (1921), no. 20, 28 pp.
+[Gab27]   R. M. Gabriel, Some Results Concerning the Integrals of Moduli of Regular Func-
+          tions Along Certain Curves, J. London Math. Soc. 2 (1927), no. 2, 112–117, DOI
+          10.1112/jlms/s1-2.2.112. MR1574583
+[Gal67]   P. X. Gallagher, The large sieve, Mathematika 14 (1967), 14–20, DOI
+          10.1112/S0025579300007968. MR214562
+[GM24]    L. Guth and J. Maynard, New large value estimates for Dirichlet polynomials, 2024.
+18                             C. L. TURNAGE-BUTTERBAUGH
+
+
+[GT25]   A. Gafni and T. Tao, On the number of exceptional intervals to the prime number
+         theorem in short intervals, 2025.
+[Hal68]  G. Halász, Über die Mittelwerte multiplikativer zahlentheoretischer Funktio-
+         nen (German), Acta Math. Acad. Sci. Hungar. 19 (1968), 365–403, DOI
+         10.1007/BF01894515. MR230694
+[HB79]   D. R. Heath-Brown, A large values estimate for Dirichlet polynomials, J. London Math.
+         Soc. (2) 20 (1979), no. 1, 8–18, DOI 10.1112/jlms/s2-20.1.8. MR545197
+[HL23]   G. H. Hardy and J. E. Littlewood, The Approximate Functional Equation in the The-
+         ory of the Zeta-Function, with Applications to the Divisor-Problems of Dirichlet and
+         Piltz, Proc. London Math. Soc. (2) 21 (1923), 39–74, DOI 10.1112/plms/s2-21.1.39.
+         MR1575368
+[Hoh30] G. Hoheisel, Primzahlprobleme in der analysis, Sitz.ber. Preuss. Alad. Wiss. 33 (1930),
+         580–588.
+[Hux72] M. N. Huxley, On the diﬀerence between consecutive primes, Invent. Math. 15 (1972),
+         164–170, DOI 10.1007/BF01418933. MR292774
+[IK04]   Henryk Iwaniec and Emmanuel Kowalski, Analytic number theory, American Math-
+         ematical Society Colloquium Publications, vol. 53, American Mathematical Society,
+         Providence, RI, 2004, DOI 10.1090/coll/053. MR2061214
+[Ing37]  A. E. Ingham, On the estimation of N (σ, T ), Quart. J. Math. Oxford Ser. 11 (1940),
+         291–292. MR3649
+[Ing40]  A. E. Ingham, On the estimation of N (σ, T ), Quart. J. Math. Oxford Ser. 11 (1940),
+         291–292. MR3649
+[Kor58] N. M. Korobov, Estimates of trigonometric sums and their applications (Russian),
+         Uspehi Mat. Nauk 13 (1958), no. 4(82), 185–192. MR106205
+[Lit22]  J. E. Littlewood, On Inequalities in the Theory of Functions, Proc. London Math. Soc.
+         (2) 23 (1925), no. 7, 481–519, DOI 10.1112/plms/s2-23.1.481. MR1575208
+[vM05]   H. v. Mangoldt, Zur Verteilung der Nullstellen der Riemannschen Funktion γ(t)
+         (German), Math. Ann. 60 (1905), no. 1, 1–19, DOI 10.1007/BF01447494. MR1511287
+[Mon69a] H. L. Montgomery, Mean and large values of Dirichlet polynomials, Invent. Math. 8
+         (1969), 334–345, DOI 10.1007/BF01404637. MR268130
+[Mon69b] H. L. Montgomery, Zeros of L-functions, Invent. Math. 8 (1969), 346–354, DOI
+         10.1007/BF01404638. MR249375
+[MP24]   James Maynard and Kyle Pratt, Half-isolated zeros and zero-density estimates,
+         Int. Math. Res. Not. IMRN 19 (2024), 12978–13014, DOI 10.1093/imrn/rnae191.
+         MR4805841
+[Rie59]  B. Riemann, Ueber die anzahl der primzahlen unter einer gegebenen grösse, Monatsber.
+         Akad. Berlin. (1859), 670–680.
+[Roy88] H. L. Royden, Real analysis, 3rd ed., Macmillan Publishing Company, New York, 1988.
+         MR1013117
+[SS03]   Elias M. Stein and Rami Shakarchi, Complex analysis, Princeton Lectures in Analysis,
+         vol. 2, Princeton University Press, Princeton, NJ, 2003. MR1976398
+[Tit86]  E. C. Titchmarsh, The theory of the Riemann zeta-function, 2nd ed., The Clarendon
+         Press, Oxford University Press, New York, 1986. Edited and with a preface by D. R.
+         Heath-Brown. MR882550
+[dlV00]  Charles-Armand de La Vallée Poussin, Charles-Jean de La Vallée Poussin: l’homme,
+         sa vie et sa pensée (French), Collected works/Oeuvres scientiﬁques, Vol. I, Acad. Roy.
+         Belgique, Brussels, 2000, pp. 11–15. MR1805772
+[Vin58]  I. M. Vinogradov, A new estimate of the function ζ(1 + it) (Russian), Izv. Akad. Nauk
+         SSSR Ser. Mat. 22 (1958), 161–164. MR103861
+[Vin65]  A. I. Vinogradov, The density hypothesis for Dirichet L-series (Russian), Izv. Akad.
+         Nauk SSSR Ser. Mat. 29 (1965), 903–934. MR197414

@@ -1,0 +1,726 @@
+
+
+Long-Sought Proof Tames Some of Math’s Unruliest Equations | Quanta Magazine
+
+ 
+
+ 
+Quanta Homepage
+ 
+ 
+ 
+ 
+ 
+ 
+
+Physics
+
+Mathematics
+
+Biology
+
+Computer Science
+
+Topics
+
+Archive
+
+Special Issues
+
+Podcasts
+
+Videos
+
+Qualia Essays
+
+Multimedia
+
+Q&As
+
+Explainers
+
+About Quanta
+
+ Search
+ 
+
+Search for:
+
+Search
+
+Search
+ 
+
+ Newsletter 
+
+Get the latest news delivered to your inbox.
+
+Email
+
+Subscribe
+
+Recent newsletters
+
+ 
+ 
+ 
+
+ Follow Quanta
+ 
+
+Facebook
+
+ 
+Youtube
+ 
+
+ 
+Instagram
+ 
+
+RSS
+
+An editorially independent publication supported by the Simons Foundation.
+
+ 
+Quanta Homepage
+ 
+ 
+ 
+ 
+ 
+ 
+
+Physics
+
+Mathematics
+
+Biology
+
+Computer Science
+
+Topics
+
+Archive
+
+Saved articles
+ 
+
+Saved Articles
+
+Create a reading list by clicking the Read Later icon next to the articles you wish to save.
+
+See all saved articles
+
+ 
+ 
+ 
+
+Login
+ 
+
+Log out
+
+Change password
+
+Search
+ 
+
+Type search term(s)
+ and press enter
+
+What are you looking for?
+
+Search
+ 
+
+Popular
+ Searches
+
+ Mathematics
+ 
+ 
+ 
+
+ Physics
+ 
+ 
+ 
+
+ Black Holes
+ 
+ 
+ 
+
+ Evolution
+ 
+ 
+ 
+
+ 
+Home
+
+ Long-Sought Proof Tames Some of Math’s Unruliest Equations 
+
+Comment
+ 
+
+Save Article
+ 
+
+Read Later
+
+ 
+Share
+
+Facebook
+
+Copied!
+
+Copy link
+
+Email
+
+Pocket
+
+Reddit
+
+Ycombinator
+
+ 
+
+Comment
+ 
+
+Comments
+
+Save Article
+ 
+
+ Read Later
+ 
+
+Read Later
+
+partial differential equations
+ 
+
+Long-Sought Proof Tames Some of Math’s Unruliest Equations
+
+By 
+
+Paulina Rowińska
+
+February 6, 2026
+ 
+
+ Mathematicians finally understand the behavior of an important class of differential equations that describe everything from water pressure to oxygen levels in human tissues. 
+
+Comment
+ 
+
+Save Article
+ 
+
+Read Later
+
+ 
+
+To study the flow of air around an airplane’s wing, the distribution of stress on a bridge, or various other situations, researchers use elliptic partial differential equations. These equations are notoriously difficult to understand.
+
+Kristina Armitage; Michael Kanyongolo/Quanta Magazine
+
+Introduction
+
+ 
+
+By 
+Paulina Rowińska 
+
+Contributing Writer
+ 
+
+February 6, 2026
+ 
+
+View PDF/Print Mode
+
+ 
+
+complex systems
+
+fluid dynamics
+
+mathematics
+
+nonlinear dynamics
+
+partial differential equations
+
+All topics
+
+ 
+ 
+ 
+
+The trajectory of a storm, the evolution of stock prices, the spread of disease — mathematicians can describe any phenomenon that changes in time or space using what are known as partial differential equations. But there’s a problem: These “PDEs” are often so complicated that it’s impossible to solve them directly.
+
+Mathematicians instead rely on a clever workaround. They might not know how to compute the exact solution to a given equation, but they can try to show that this solution must be “regular,” or well-behaved in a certain sense — that its values won’t suddenly jump in a physically impossible way, for instance. If a solution is regular, mathematicians can use a variety of tools to approximate it, gaining a better understanding of the phenomenon they want to study.
+
+But many of the PDEs that describe realistic situations have remained out of reach. Mathematicians haven’t been able to show that their solutions are regular. In particular, some of these out-of-reach equations belong to a special class of PDEs that researchers spent a century developing a theory of — a theory that no one could get to work for this one subclass. They’d hit a wall.
+
+Now, two Italian mathematicians have finally broken through, 
+extending the theory
+ to cover those messier PDEs. Their paper, published last summer, marks the culmination of an ambitious project that, for the first time, will allow scientists to describe real-life phenomena that have long defied mathematical analysis.
+
+Naughty or Nice
+
+During a volcanic eruption, a scorching, chaotic river of lava flows over the ground. But after hours or days (or perhaps even longer), it cools enough to enter a state of equilibrium. Its temperature is no longer changing from moment to moment, although it still varies from place to place across the vast expanse of space the lava covers.
+
+ 
+
+Mathematicians model systems that change in space but not in time — the temperature of a lava flow at equilibrium, the distribution of nutrients in tissues, the shape of a soap film — using elliptic partial differential equations.
+
+From top: Giles Laurent/Creative Commons;
+Mikael Häggström/Creative Commons; Ted Kinsman/Science Source
+
+Mathematicians describe situations like this using what are called elliptic PDEs. These equations represent phenomena that vary across space but not time, such as the pressure of water flowing through rock, the distribution of stress on a bridge, or the diffusion of nutrients in a tumor.
+
+But solutions to elliptic PDEs are complicated. The solution to the lava PDE, for instance, describes its temperature at every point, given some initial conditions. It depends on a lot of interacting variables.
+
+Researchers want to approximate such a solution even when it’s impossible to write it down. But the methods they use only work well if the solution is regular — meaning that it doesn’t have any sudden jumps or kinks. (There won’t be sharp spikes in the lava’s temperature from place to place.) “If something goes wrong, it’s probably because of the [lack of] regularity,” said 
+Makson Santos
+ of the University of Lisbon.
+
+In the 1930s, the Polish mathematician 
+Juliusz Schauder
+ sought to establish the minimal conditions an elliptic PDE must satisfy to guarantee that its solutions will be regular. He showed that in many cases, all you have to prove is that the rules baked into the equation — such as the rule for how quickly heat will spread in lava — do not change too abruptly from point to point.
+
+In the decades since Schauder’s proof, mathematicians have shown that this condition is enough to ensure that any PDE that describes a nice, “uniform” material has regular solutions. In such a material, there’s a limit on how extreme the underlying rules can get. For example, if you assume your lava is uniform, heat will always flow within certain speed limits, never too quickly or slowly.
+
+But lava is actually a diverse mix of molten rock, dissolved gases, and crystals. In such a nonuniform material, you can’t control the extremes, and you might get more drastic differences in how quickly heat can spread, depending on your location: Some regions in the lava might conduct heat extremely well, and others extremely poorly. In this case, you’ll use a “nonuniformly elliptic” PDE to describe the situation.
+
+For decades, no one could prove that Schauder’s theory held for this kind of PDE.
+
+Unfortunately, “the real world is nonuniformly elliptic,” said 
+Giuseppe Mingione
+, a mathematician at the University of Parma in Italy. That meant mathematicians were stuck. Mingione wanted to understand why.
+
+Time Machine
+
+In August 2000, Mingione — 28 years old and fresh off his Ph.D. — found himself in a dilapidated old resort in Russia, attending a conference on differential equations. One evening, with nothing better to do, he started reading papers by Vasiliĭ Vasil’evich Zhikov, a mathematician he’d met on the trip, and he realized that nonuniformly elliptic PDEs that seem well behaved can have irregular solutions even when they satisfy the condition Schauder had identified. Schauder’s theory wasn’t simply harder to prove in the nonuniform case. It needed an update.
+
+ Share this article
+ 
+
+Facebook
+
+Copied!
+
+Copy link
+
+Email
+
+Pocket
+
+Reddit
+
+Ycombinator
+
+ 
+
+ Newsletter
+ 
+
+Get Quanta Magazine delivered to your inbox
+
+Subscribe now
+
+Recent newsletters
+
+ 
+ 
+ 
+
+ 
+
+Giuseppe Mingione helped prove a conjecture he made 20 years ago. The final proof, he said, was “a miracle by desperation.”
+
+Giampiero Palatucci
+
+Returning to Italy, he teamed up with two colleagues and proposed that nonuniformly elliptic PDEs needed to satisfy 
+an additional condition
+ to guarantee that their solutions would be regular. Not only did the rules governing heat flow have to change gradually from point to point, but these changes had to be tightly controlled to account for the lava’s nonuniformity. In particular, the mathematicians posited, the more uneven the material, the tighter this control would have to be. They represented this condition as an inequality, giving a precise threshold for how much nonuniformity a system could tolerate.
+
+They showed that for PDEs where the inequality did not hold, they could no longer guarantee that the solutions would be regular. But they couldn’t prove that the inequality precisely marked the point where solutions would go from being regular to potentially irregular. Mingione spent years on the problem, to no avail. He eventually abandoned the effort.
+
+Almost 20 years passed. Then in 2017, a first-year graduate student named 
+Cristiana De Filippis
+ heard about the quest to extend Schauder’s theory to nonuniformly elliptic equations. More experienced mathematicians warned her against pursuing the problem, but she ignored their advice and reached out to Mingione. Over a late-night Skype call, she told him that she had some ideas for how to prove his conjecture and was determined to pick up where he had left off.
+
+ 
+
+Cristiana De Filippis has been developing a broad theory to better understand the solutions to partial differential equations, setting her sights on more and more complicated cases.
+
+Giampiero Palatucci
+
+“It was like a time machine,” Mingione said. “It was like meeting myself of 20 years before and knocking at the door of my own mind.”
+
+According to him, it was De Filippis’ “new energy and enthusiasm and faith that this could be done” that persuaded him to revive his long-dormant attempt to prove his conjecture.
+
+Miracles
+
+The key to proving that the solution to a PDE is regular is to show that it always changes in a controlled way. Mathematicians do this by looking at a special function that describes how fast the solution changes at each point. They want to show that this function, which is called the gradient, can’t get too big.
+
+But just as it’s usually impossible to directly compute the solution to a PDE, it’s also usually impossible to calculate its gradient.
+
+ 
+
+The Polish mathematician Juliusz Schauder sought to understand when models of physical systems will provide a nice picture of reality, and when they won’t.
+
+Public Domain
+
+Instead, De Filippis and Mingione derived what they called a “ghost equation” from the original PDE, a shadow of what they actually needed.
+
+This was where Mingione had gotten stuck decades earlier. But De Filippis had an idea for how to hone the ghost equation so that it could give a crisper view of the PDE. Using a long, multistep procedure, the pair was able to gain enough information from the ghost equation to recover the gradient.
+
+“It’s kind of far-fetched to do it like this,” said 
+Simon Nowak
+ of Bielefeld University in Germany. “But it works, and it’s quite beautiful.”
+
+Now they had to figure out how to show that the gradient they’d recovered couldn’t get too large. They split it into smaller pieces and proved that each piece couldn’t exceed a specific size. This took an enormous amount of effort: Even a tiny measurement error on a single piece would throw off their estimate of the gradient, taking them away from the threshold they were aiming to prove.
+
+In a 2022 preprint, they were able to tame all these pieces well enough to show that 
+most nonuniformly elliptic PDEs
+ that satisfy Mingione’s inequality have to have regular solutions. But some PDEs were still missing. To prove the full conjecture, the mathematicians had to get even better bounds on the sizes of the gradient’s pieces. There was absolutely no wiggle room. This required starting over many times — “a never-ending game,” De Filippis said. But eventually, they were able to prove that the threshold Mingione had predicted decades earlier 
+was exactly right
+.
+
+Related:
+
+Using AI, Mathematicians Find Hidden Glitches in Fluid Equations
+
+The Hidden Math of Ocean Waves Crashes Into View
+
+Mathematicians Coax Fluid Equations Into Nonphysical Solutions
+
+It was “a miracle by desperation,” he said.
+
+De Filippis and Mingione haven’t just completed a century-long project. They’ve also made it possible for mathematicians to study complicated real-life processes that until now had to be modeled using unrealistically simplified equations.
+
+Researchers are also excited to apply their techniques to understand other kinds of partial differential equations, including ones that change in both space and time. “The magical part is that they were bringing all this deep theory under one umbrella and then squeezing out the proof,” said 
+Tuomo Kuusi
+ of the University of Helsinki.
+
+PDEs have always been almost prohibitively difficult to analyze mathematically. Now they’ve gotten just a little bit easier. Behind them, De Filippis said, “there is an enormous reality” waiting to be explained.
+
+ 
+
+By 
+Paulina Rowińska 
+
+Contributing Writer
+ 
+
+February 6, 2026
+ 
+
+View PDF/Print Mode
+
+ 
+
+complex systems
+
+fluid dynamics
+
+mathematics
+
+nonlinear dynamics
+
+partial differential equations
+
+All topics
+
+ 
+ 
+ 
+
+ Share this article
+ 
+
+Facebook
+
+Copied!
+
+Copy link
+
+Email
+
+Pocket
+
+Reddit
+
+Ycombinator
+
+ 
+
+ Newsletter
+ 
+
+Get Quanta Magazine delivered to your inbox
+
+Subscribe now
+
+Recent newsletters
+
+ 
+ 
+ 
+
+ The Quanta Newsletter 
+
+Get highlights of the most important news delivered to your email inbox
+
+Email
+
+Subscribe
+
+Recent newsletters
+
+Also in 
+Mathematics
+
+After 80 Years, Mathematicians Give Famed ‘Erdős Method’ an Upgrade
+
+ 
+
+graph theory
+ 
+
+ After 80 Years, Mathematicians Give Famed ‘Erdős Method’ an Upgrade 
+
+By 
+
+Leila Sloman
+
+June 26, 2026
+
+Comment
+ 
+
+Save Article
+ 
+
+Read Later
+
+What Is the Positive Grassmannian and Why Does It Show Up Everywhere?
+
+ 
+
+The Joy of Why
+ 
+
+ What Is the Positive Grassmannian and Why Does It Show Up Everywhere? 
+
+By 
+
+Janna Levin
+
+ +1 author
+
+Steven Strogatz
+
+June 25, 2026
+
+Comment
+ 
+
+Save Article
+ 
+
+Read Later
+
+Seven Perfect Shuffles Randomize a Deck of Cards. But How Many Sloppy Ones?
+
+ 
+
+probability
+ 
+
+ Seven Perfect Shuffles Randomize a Deck of Cards. But How Many Sloppy Ones? 
+
+By 
+
+John Pavlus
+
+June 17, 2026
+
+Comment
+ 
+
+Save Article
+ 
+
+Read Later
+
+Comment on this article
+
+Quanta Magazine moderates comments to facilitate an informed, substantive, civil conversation. Abusive, profane, self-promotional, misleading, incoherent or off-topic comments will be rejected. Moderators are staffed during regular business hours (New York time) and can only accept comments written in English. 
+
+Show comments
+
+ 
+
+Next article
+
+Expansion Microscopy Has Transformed How We See the Cellular World
+
+ 
+Quanta Homepage
+ 
+ 
+ 
+ 
+ 
+ 
+
+Facebook
+
+ 
+Youtube
+ 
+
+ 
+Instagram
+ 
+
+About Quanta
+
+Archive
+
+Contact Us
+
+Terms & Conditions
+
+Privacy Policy
+
+AI Editorial Policy
+
+All Rights Reserved © 2026
+
+An editorially independent publication supported by the Simons Foundation.
+
+Simons Foundation
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+Close
+ 
+
+Log in to Quanta
+
+ 
+ 
+ 
+
+Use your social network
+
+Facebook
+ 
+Connect with Facebook
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Connect with Google
+
+or
+
+email
+
+password
+
+Remember me
+
+Forgot your password ?
+
+ 
+ 
+ 
+
+ Don't have an account yet?
+ 
+Sign up
+
+Close
+ 
+
+Forgot your password?
+
+We’ll email you instructions to reset your password
+
+email
+
+Close
+ 
+
+Change your password
+
+Enter your new password
+
+Password
+
+Retype new password
+
+Close
+ 
+
+Sign Up
+
+ 
+ 
+ 
+
+First Name
+
+Last Name
+
+Email
+
+Password
+
+Retype Password
+
+ Creating an account means you accept Quanta Magazine's
+ 
+
+Terms & Conditions
+ and 
+Privacy Policy
+

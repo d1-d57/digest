@@ -1,0 +1,787 @@
+                                                 ARE MSF WAVELETS MINIMALLY SUPPORTED?
+
+                                               MARCIN BOWNIK, ZIEMOWIT RZESZOTNIK, AND DARRIN SPEEGLE
+
+
+
+
+arXiv:2507.09818v2 [math.CA] 20 Nov 2025
+                                                   Abstract. Larson’s problem [17, Problem 3] asks “Must the support
+                                                   of the Fourier transform of a wavelet contain a wavelet set?". We give
+                                                   an affirmative answer to a non-measurable variant of this question by
+                                                   proving that the Fourier transform of a wavelet must contain a possibly
+                                                   non-measurable wavelet set. We also provide background results on
+                                                   Larson’s problem and propose two new related problems.
+
+
+
+
+                                                                             1. Introduction
+                                              In the early 1990’s, groups led by David Larson and Guido Weiss were
+                                           studying the mathematical underpinnings of wavelets. As would be expected,
+                                           the two groups came up with different terms for objects that were of fun-
+                                           damental interest in their investigations. One such example is a wavelet
+                                           with the property that its Fourier transform (i.e. frequency) is the indicator
+                                           function of a set. Larson focused on the frequency support of the wavelets,
+                                           and called the frequency support of such wavelets wavelet sets [6, 7]. Weiss
+                                           focused on wavelets whose modulus of the frequency is the indicator func-
+                                           tion of a set, and called such wavelets mimimally supported frequency (MSF)
+                                           wavelets [10, 19]. The reasoning behind Weiss’ nomenclature is that mini-
+                                           mally supported wavelets have support with the smallest possible Lebesgue
+                                           measure.1 In the middle of 1990’s, Larson asked whether minimally sup-
+                                           ported wavelets are also minimally supported with respect to set inclusion
+                                           [17]. That is, if ψ is a wavelet whose Fourier transform has support E, and
+                                           ψ is not an MSF wavelet, is there a set F ⊂ E with the Lebesgue measure
+                                           of E \ F positive and such that F is the support of the Fourier transform of
+                                           a wavelet? The most natural way to prove that MSF wavelets are minimally
+                                           supported with respect to set inclusion would be to show that the support
+                                           of the Fourier transform of a wavelet must contain a wavelet set. This was
+                                           formalized as an open problem in [17].
+                                           Problem 1.1. Must the support of the Fourier transform of a wavelet con-
+                                           tain a wavelet set?
+                                             The motivation for this problem (in addition to the nomenclature pre-
+                                           sented above) is two-fold. First, Larson had a program for using operator
+                                             2020 Mathematics Subject Classification. Primary: 42C40.
+                                             Key words and phrases. wavelet set, tilings.
+                                             The first author was partially supported by NSF grant DMS-2349756.
+                                             1
+                                              See the next section for proofs of facts in the introduction, as well as more definitions.
+                                                                                        1
+2       MARCIN BOWNIK, ZIEMOWIT RZESZOTNIK, AND DARRIN SPEEGLE
+
+theory to build more complicated wavelets from simpler wavelets. In par-
+ticular, Larson, together with Dai, had an operator theoretic approach to
+constructing the Lemarie-Meyer wavelets from wavelet sets [6]. Their con-
+struction is similar in spirit to the construction presented in [10]. Larson and
+Dai also proved that operator theoretic techniques could be used on more
+complicated families of wavelet sets to build more general wavelets. A nat-
+ural question is whether every wavelet can be built using these techniques.
+However, since the techniques always produce a wavelet whose frequency sup-
+port is contained in the union of the underlying wavelet sets and contains a
+wavelet set, a necessary condition to be able to construct every wavelet this
+way would be a positive solution to Problem 1.1.
+    The second motivation came later, and is also more tenuous. It is easy to
+see that if π is a rotation on the plane, then there exists an S = Sπ ⊂ R2 such
+that S tiles R2 via translations along π(Z2 ). The Steinhaus tiling problem
+asks whether there exists a set S ⊂ R2 such that for every rotation π, S
+tiles R2 when translated by the elements of π(Z2 ). The Steinhaus problem
+was solved in [14, 15], where a non-measurable set S was constructed. It
+remains an open problem whether a measurable Steinhaus set in R2 can be
+constructed. For a higher dimensional variant of Steinhaus problem, see [8].
+    Similarly, we will see below in Proposition 2.10 that if E is the support
+of a wavelet, E must contain a subset which tiles by translations along Z
+and a different subset which tiles by dilations of powers of 2. Problem 1.1
+asks whether there is a single set which does these simultaneously. In the
+Steinhaus tiling problem and Problem 1.1, we are asking to find a single
+set which tiles via multiple actions. The differences are many: the Steinhaus
+problem has uncountably many tilings, while we only have two, the Steinhaus
+problem only considers translational tilings while our tilings are more diverse,
+and our problem considers the relationship between functional tilings and set
+tilings.
+    It is worth mentioning two other similar works on simultaneous tilings.
+Han and Wang [9] showed that simultaneous translational tiling by two lat-
+tices of the same volume always exists. Kolountzakis and Papageorgiou [16]
+studied simultaneous functional tilings with respect to a collection of lattices.
+    The main result in this paper shows that a possibly non-measurable wave-
+let set exists in the support of the Fourier transform of any wavelet. The
+proof relies on a result of Isbell [12, 13] on the existence of a positive diagonal
+of a doubly stochastic matrix. The original Larson’s problem, whether such
+a set can be chosen to be measurable, remains open.
+
+                      2. Notation and Background
+    A (dyadic, orthonormal) wavelet is a function ψ ∈ L2 (R) such that
+                          {2j/2 ψ(2j x + k) : j, k ∈ Z}
+is an orthonormal basis for L2 (R). In this paper, we will be concerned with
+the Fourier transforms of wavelets. The Fourier transform we use is given
+                     ARE MSF WAVELETS MINIMALLY SUPPORTED?                             3
+
+for functions f ∈ L1 (R) ∩ L2 (R) by
+                                  Z
+                          ˆ
+                          f (ξ) =    f (x)e−2πiξx dx.
+                                             R
+   If ψ is a wavelet, then the following four equations are satisfied [10]:
+                  X              2
+(2.1)                  ψ̂(ξ + k) = 1       for a.e. ξ ∈ R,
+                      k∈Z
+                        X                2
+(2.2)                         ψ̂(2j ξ)       =1   for a.e. ξ ∈ R,
+                        j∈Z
+(2.3)
+             ∞
+             X
+ tq (ξ) :=         ψ̂(2j ξ)ψ̂(2j (ξ + q) = 0      for a.e. ξ ∈ R for any q ∈ 2Z + 1,
+             j=0
+        X
+(2.4)         ψ̂(2j (ξ + k))ψ̂(ξ + k) = 0         for a.e. ξ ∈ R and for any j ≥ 1.
+        k∈Z
+
+Moreover, if equations (2.1) and (2.2) hold, then either one of conditions
+(2.3) and (2.4) implies that ψ is a wavelet, see [1, 10].
+    We note here the similarity between (2.1), (2.2), and geometric notions of
+tilings. In the special case that ψ̂ = 1E , (2.1) holds exactly when {E + k :
+k ∈ Z} is a measurable tiling of R in the sense that
+                        [           
+                m R\        (E + k) = 0         and
+(2.5)                   k∈Z
+              m (E + k) ∩ (E + k ′ ) = 0        for all k ̸= k ′ ∈ Z,
+                                     
+
+where m is the Lebesgue measure on R. Similarly, (2.2) holds exactly when
+{2j E : j ∈ Z} is a measurable tiling of R,
+                         [       
+                                j
+                   m R\       2 E =0        and
+(2.6)                     j∈Z
+                              ′
+                                   
+                m (2j E) ∩ (2j E) = 0       for all j ̸= j ′ ∈ Z,
+A set E ⊂ R, which satisfies both (2.5) and (2.6), is called a wavelet set. It
+can be shown that (2.3) and (2.4) are superfluous whenever ψ̂ = 1E , and we
+have the following theorem, see [10, Corollary 2.4 in Chapter 7] for details.
+Theorem 2.1. Let ψ be a function in L2 (R) such that |ψ̂| = 1E . The
+function ψ is a wavelet if and only if E is a wavelet set.
+  In particular, if W is a wavelet set and m : W → C is a unimodular
+function, then ψ given by ψ̂(ξ) = m(ξ)1W (ξ) is an MSF wavelet.
+  A wavelet ψ as in Theorem 2.1 is called mimimally supported frequency
+(MSF). An MSF wavelet ψ has the smallest possible Lebesgue measure of
+the frequency support supp ψ̂, which is equal to 1. Here and throughout the
+4       MARCIN BOWNIK, ZIEMOWIT RZESZOTNIK, AND DARRIN SPEEGLE
+
+paper, the support of a measurable function f : R → C is defined up to a set
+of measure zero as
+                        supp f = {x ∈ R : f (x) ̸= 0}.
+The support of an MSF wavelet is a wavelet set. Consequently, Theorem 2.1
+provides a correspondence between wavelet sets and MSF wavelets.
+Example 2.2. The following are three basic examples of wavelet sets.
+    (1) (Shannon wavelet set) [−1, −1/2] ∪ [1/2, 1],
+    (2) [−2/3, −1/3] ∪ [2/3, 4/3], and
+    (3) (Journé wavelet set) [−16/7, −2]∪[−1/2, −2/7]∪[2/7, 1/2]∪[2, 16/7].
+  Returning to interpreting equations (2.1) and (2.2) in terms of tiling, a
+function f : R → C is said to tile R by translations if
+                    X
+                        f (ξ + k) = 1     for a.e. ξ ∈ R,
+                     k∈Z
+
+with the convergence being absolute for almost every ξ. Similarly, we say
+that f tiles R by dilations if
+                      X
+                          f (2j ξ) = 1 for a.e. ξ ∈ R.
+                       j∈Z
+
+                                              2
+Equations (2.1) and (2.2) state that ψ̂ tiles R by translations and by
+dilations. In light of Problem 1.1, it is natural to ask the following question,
+a positive answer to which would imply a positive answer to Problem 1.1.
+Problem 2.3. If f is a measurable function which tiles by translations and
+dilations, is there a measurable set W contained in the support of f which
+tiles by translations and dilations?
+   It may not be immediately clear how to leverage equations (2.3) and (2.4)
+to make Problem 1.1 easier. However, note the following consequences of
+(2.3) and (2.4), which provide additional geometric information about the
+support of the Fourier transform of a wavelet.
+Proposition 2.4. Let ψ be a wavelet whose Fourier transform is supported
+on E.
+    (1) If ξ ∈ E and ξ + k ∈ E for an integer k ̸= 0, then there exists
+        0 ̸= j ∈ Z such that 2j ξ ∈ E and 2j (ξ + k) ∈ E, where 2j k ∈ Z.
+    (2) If ξ ∈ E and 2j ξ ∈ E for an integer j ̸= 0, then there exists 0 ̸= k ∈ Z
+        such that ξ + k ∈ E and 2j (ξ + k) ∈ E, where 2j k ∈ Z.
+Proof. For (1), write k = 2J q, where J ≥ 0 and q is odd. Applying (2.3) to
+the point ξ ′ = 2−J ξ, we see that
+
+                    ψ̂(2J ξ ′ )ψ̂(2J (ξ ′ + q)) = ψ̂(ξ)ψ̂(ξ + k)
+                 ARE MSF WAVELETS MINIMALLY SUPPORTED?                        5
+
+is one of the terms in the sum of tq . Since tq = 0 almost everywhere, for
+almost all ξ ∈ E ∩ (E − k), there is a 0 ≤ j ̸= J such that
+            ψ̂(2j ξ ′ )ψ̂(2j (ξ ′ + q)) = ψ̂(2j−J ξ)ψ̂(2j−J (ξ + k)) ̸= 0.
+By definition of q, we also can conclude that 2j−J k ∈ Z. This proves (1).
+   Part (2) follows similarly by using (2.4) instead. Indeed, suppose first
+that j ≥ 1. Since we have a non-zero term in the sum (2.4) corresponding
+to k = 0, there exists another non-zero term corresponding to some k ̸= 0.
+Likewise, if j < 0, then applying (2.4) with ξ replaced by ξ ′ = 2j ξ and j
+replaced by j ′ = −j yields the required conclusion.                       □
+  In order to construct an example that illustrates the additional geometric
+condition that (2.3) imposes, we will need some tools. To simplify state-
+ments, we will say that a set E packs by translations if (E + k) ∩ (E + k ′ )
+has measure zero whenever k ̸= k ′ are integers.
+Theorem 2.5. [11] Let F be a measurable subset of R. Then, F is a subset
+of a wavelet set if and only if
+    (1) F packs by translations,
+    (2) F packs by dilations,
+    (3) there exists a measurable set U ⊃ F such that U packs by translations
+        and U tiles by dilations, and
+    (4) there exists a measurable set V ⊃ F such that V packs by dilations
+        and V tiles by translations.
+Moreover, if the four conditions are met, then the wavelet set can be chosen
+to be a subset of U ∪ V .
+  Note that Theorem 2.5 implies the following.
+Remark 2.6. Larson’s problem has a positive solution if for every wavelet ψ,
+there are measurable sets U, V ⊂ supp ψ̂ such that U packs by translations
+and tiles by dilations, and V packs by dilations and tiles by translations.
+   Theorem 2.5 also generalizes to translations along other lattices and di-
+lations by invertible n × n matrices. It has been used to construct wavelet
+sets of various types, see for example [4, 5]. The following corollary has been
+implicitly used in constructions, but has never appeared as a stand-alone
+fact, so we provide a proof as well.
+Corollary 2.7. Let X be a finite collection of points such that
+                         X ∩ Z = ∅,
+                 X ∩ (X + k) = ∅ whenever 0 ̸= k ∈ Z, and
+                      X ∩ 2j X = ∅ whenever 0 ̸= j ∈ Z,
+then there exists δ > 0 such that whenever 0 < ϵx < δ for all x ∈ X, the set
+                              [
+                                 (x − ϵx , x + ϵx )
+                               x∈X
+6       MARCIN BOWNIK, ZIEMOWIT RZESZOTNIK, AND DARRIN SPEEGLE
+
+is contained in a wavelet set.
+Proof.
+S       From the conditions on X, we can choose δ > 0 such that F =
+  x∈X δ (x) packs by both translations and dilations. By reducing δ if nec-
+       B
+essary, we can also see that
+                             [
+(2.7)                          (F + k) ∩ Z = ∅
+                                  k∈Z
+
+                    2j F contains an interval.
+          S
+and R \       j∈Z
+  Let                                                     [
+                           U1 = ([−2, −1] ∪ [1, 2]) \           2j F.
+                                                          j∈Z
+
+By (2.7), there exists a J ∈ Z such that 2J U1 ∩ k∈Z (F + k) = ∅. Therefore,
+                                                          S
+
+U = 2J U1 ∪ F packs by translations and tiles bySdilations.
+  To see the existence of V , note that V1 = R \ j∈Z 2j F satisfies 2V1 = V1 .
+Therefore, V1 contains an interval of length greater than 2, which packs by
+dilations. Let                                  [
+                                V2 = [0, 1] \         (F + k)
+                                                k∈Z
+and see that there exists a k ∈ Z such that V2 + k ⊂ V1 . Therefore, V =
+F ∪ (V2 + k) packs by dilations and tiles by translations. By Theorem 2.5,
+there exists a wavelet set W which contains F (and is contained in U ∪ V ).
+Note that if we replace δ by 0 < ϵx ≤ δ, then ∪x∈X Bϵx (x) ⊂ F ⊂ W , and
+the result is proven.                                                   □
+  Next, we will see a typical application of Corollary 2.7, which we use to
+provide the promised example of the extra geometry that (2.3) imposes on
+the support.
+Example 2.8. Let X = {1/5, 12/5, 34/5}. Then X satisfies the conditions
+of Corollary 2.7; let δ > 0 be as in the conclusion. (The points in X were
+chosen to satisfy 12/5 = 2(1/5) + 2 and 34/5 = 22 (1/5) + 6.) Let G =
+(1/5 − δ/4, 1/5 + δ/4). Let
+        F = G ∪ 2(G + 1) ∪ (4G + 6) and
+       H = G ∪ (G + 1) ∪ 4G ∪ 2(G + 1) ∪ (2(G + 1) + 1) ∪ (4G + 6),
+reducing the size of δ if necessary to insure that the unions are disjoint.
+   It can be useful to imagine H in matrix form, where sets in the same
+column tile the same subset of R via dilations, and sets in the same row tile
+the same subset of R via translations, as below:
+                                                     
+                         G     G+1
+(2.8)                        2(G + 1) 2(G + 1) + 1 .
+                         4G                 4G + 6
+    Let W be a wavelet set containing F . Define f via
+                 ARE MSF WAVELETS MINIMALLY SUPPORTED?                         7
+
+
+                                      
+                                      1
+                                           ξ ∈ W \ F,
+                            f (ξ) = 12      ξ ∈ H,
+                                   
+                                       0    otherwise.
+                                      
+
+We see that f tiles by translations and by dilations, and the support of f is
+H ∪ W . However, we note that for ξ ∈ G ⊂ H ∪ W , ξ + 1 ∈ H ∪ W , but for
+no j ∈ Z \ {0} is both 2j ξ and 2j (ξ + 1) in H ∪ W . Therefore, by Proposition
+2.4 there is no wavelet whose Fourier transform has support equal to H ∪ W .
+   We can see, however, that the support of f contains a wavelet set; indeed,
+the support of f was constructed to contain W , which is a wavelet set.
+
+   Visualizing the support of ψ̂ as a matrix as in (2.8) is a key to the results
+in this paper. It will be utilized extensively in the proof of Theorem 3.3.
+Two more results relating to Problem 1.1 are now presented.
+   First, let ψ be a wavelet, and let E be the support of ψ̂. In [18], the
+second and the third authors showed that using (2.3), the organizational
+trick of (2.8), and the additional assumptions that
+                     X
+                         1E (ξ + k) ≤ 2    for a.e. ξ ∈ R,
+                    k∈Z
+                      X
+                            1E (2j ξ) ≤ 2     for a.e. ξ ∈ R,
+                      j∈Z
+
+the support E contains a wavelet set. The idea was to show that the support
+of ψ̂ partitions into sets of the form
+                      [
+                          Fi ∪ (Fi + ki ) ∪ 2ji Fi ∪ 2ji (Fi + ki )
+                                                                   
+                  G∪
+                      i
+
+with ji ≥ 1, ki ∈ Z, and G = {ξ : |ψ̂(ξ)| = 1}. The existence of such
+partition implies that
+                           [
+                        G∪   Fi ∪ 2ji (Fi + ki )
+                                  i
+
+is a wavelet set.
+   Second, in [2], the first and second authors showed that the support of the
+Fourier transform of an MRA wavelet contains a wavelet set. Let ψ be an
+MRA wavelet with associated scaling function ϕ. For background on these
+concepts, see for example [10]. The authors showed specifically that the
+support ϕ̂ contains a scaling set whose associated wavelet set is contained in
+the support of ψ̂. In particular, the authors showed that the support of the
+Fourier transform of an MRA wavelet contains a wavelet set associated with
+an MRA.
+   This leads to the following natural strong version of Problem 1.1.
+8      MARCIN BOWNIK, ZIEMOWIT RZESZOTNIK, AND DARRIN SPEEGLE
+
+Problem 2.9. Let ψ be an orthonormal wavelet with the wavelet dimension
+function
+                        ∞ X
+                        X
+             Dψ (ξ) =             |ψ̂(2j (ξ + k))|2     for a.e. ξ ∈ R.
+                        j=1 k∈Z
+
+Does the support of ψ̂ contain a wavelet set whose associated MSF wave-
+let has the same dimension function as ψ? See [3], for example, for more
+information on wavelet dimension function.
+   MRA wavelets are exactly those wavelets whose wavelet dimension func-
+tion Dψ is identically 1. Hence, the result [2, Theorem 2.8] shows that
+Problem 2.9 has a positive solution when Dψ is identically 1. Problem 2.9 is
+open for all other dimension functions.
+   We end this section with two simple observations. The first observation
+is that it is possible to separately find two sets which tile R by translations
+and dilations, respectively.
+Proposition 2.10. Let f be a non-negative, measurable function that tiles
+by translations. The support of f contains a measurable set which tiles by
+translations. The same result is true with translations replaced by dilations.
+Proof. Let E denote the support of f . Since 1E ≥ f a.e., we have
+                        X
+                           1E (ξ + k) ≥ 1      a.e.
+                           k∈Z
+      S
+Thus, k∈Z (E + k) = R up to a set of measure zero.
+  Let {Fn }n∈N be an enumeration of the sets {[0, 1] + k : k ∈ Z}. Define
+G0 = ∅. For each n ≥ 1, define
+                                                        !
+                                           [
+               Gn+1 = Gn ∪ (E ∩ Fn+1 ) \      (Gn + k)
+                                                      k∈Z
+                  S∞
+and see that G = n=1 Gn ⊂ E tiles by translations.
+   The proof for dilations follows similarly by letting {Fn }n∈N be an enumer-
+ation of {2j W : j ∈ Z}, where W = [−1, −1/2] ∪ [1/2, 1].                   □
+Proposition 2.11. Let ψ be a wavelet. Then
+                         Z
+                                   2
+(2.9)                        ψ̂(ξ) dξ = 1,
+                        ZR
+                                  2 dξ
+(2.10)                      ψ̂(ξ)        = log 4.
+                          R          |ξ|
+Proof. Use (2.1) and (2.2).                                                  □
+  The second observation is that it is too much to hope that the support of a
+function that satisfies the conclusion of Proposition 2.11 will always contain
+a wavelet set.
+                 ARE MSF WAVELETS MINIMALLY SUPPORTED?                           9
+
+Example 2.12. Let F = [−1/3, −1/6] ∪ [1/3, 1/2] ∪ [2, 8/3]. It is easy to see
+that F tiles by dilations, but F does not tile by translations. Hence, neither
+F nor any of its subsets is a wavelet set. That is, F does not contain a
+wavelet set. Moreover,
+                            Z
+                                |1F (ξ)|2 dξ = 1,
+                            ZR
+                                          dξ
+                               |1F (ξ)|2      = log 4.
+                             R            |ξ|
+This implies that |ψ̂| ≤ 1, (2.9), and (2.10) do not together imply that the
+support of ψ̂ contains a wavelet set.
+
+                 3. Non-measurable Larson’s problem
+   In this section, we leverage facts about doubly-stochastic matrices to prove
+that if f is a nonnegative function that tiles by translations and dilations,
+then its support contains a possibly non-measurable set W that tiles by
+translations and dilations.
+   Throughout this section, J will denote an index set of the form {1, . . . , N }
+for some N or N. A square matrix A = (aij )i,j∈J with nonnegative entries
+is said to be doubly stochastic if for every k ∈ J
+                      X                        X
+                          akj = 1      and         aik = 1.
+                     j∈J                        i∈J
+
+A diagonal of a square matrix is a set of entries including exactly one from
+each row and one from each column. We will make essential use of the
+following fact due to Isbell [12, 13].
+Theorem 3.1. Let A = (aij )i,j∈J be a nonnegative, doubly stochastic matrix.
+Then, there is a positive diagonal of A. That is, there is a permutation σ of
+J such that aiσ(i) > 0 for all i ∈ J.
+   In the arguments provided below it is convenient to concentrate on irra-
+tional ξ ∈ R. Thus, a set C ⊂ R described below is provided as a subset of
+R \ Q.
+Proposition 3.2. If f : R → R is non-negative and
+           X               X
+(3.1)          f (ξ + k) =    f (2j ξ) = 1   for a.e. ξ ∈ R,
+              k∈Z              j∈Z
+
+then there exists a set C ⊂ R \ Q of full measure, such that (3.1) holds for
+every ξ ∈ C and 2j C + q = C for all j ∈ Z, q ∈ Q.
+                                                              P
+Proof. By (3.1) there is a set F ⊂ R of full measure such that k∈Z f (ξ+k) =
+1 for all ξ ∈ F and a set G ⊂ R of full measure such that j∈Z f (2j ξ) = 1
+                                                              P
+
+for all ξ ∈ G. Therefore, (3.1) holds for all ξ ∈ F ∩ G. Moreover, F ∩ G has
+full measure, since m((F ∩ G)c ) = m(F c ∪ Gc ) ≤ m(F c ) + m(Gc ) = 0.
+10       MARCIN BOWNIK, ZIEMOWIT RZESZOTNIK, AND DARRIN SPEEGLE
+
+     Set F ′ = F ∩ (R \ Q) and G′ = G ∩ (R \ Q) and consider
+                               \                      
+                         C=          2j (F ′ ∩ G′ ) + q .
+                              j∈Z,q∈Q
+
+Since C is an intersection of a countable family of sets of full measure, an
+argument as above assures that C is of full measure.
+   Clearly, if ξ ∈ C, then ξ ∈ F ′ ∩ G′ , so (3.1) holds for such ξ. Take any
+j0 ∈ Z and q0 ∈ Q. Then,
+                           \
+             2j0 C + q0 =      (2j+j0 (F ′ ∩ G′ ) + 2j0 q + q0 ) = C.
+                           j∈Z,q∈Q
+
+Finally, C ⊂ R \ Q, since F ′ ∩ G′ ⊂ R \ Q.                                      □
+Theorem 3.3. If f : R → R is non-negative and
+          X               X
+              f (ξ + k) =    f (2j ξ) = 1   for a.e. ξ ∈ R,
+               k∈Z             j∈Z
+
+then there exists a set G ⊂ supp(f ), such that
+            X                 X
+(3.2)            1G (ξ + k) =   1G (2j ξ) = 1        for a.e. ξ ∈ R.
+              k∈Z              j∈Z
+
+Proof. Let C be the set provided in Proposition 3.2. Consider an equivalence
+relation on C, given as ξ1 ∼ ξ2 ⇐⇒ there exist j ∈ Z and q ∈ Q such that
+ξ1 = 2j ξ2 + q. Since 2j C + q = C for all j ∈ Z, q ∈ Q, the equivalence class
+of ξ ∈ C is [ξ] = {2j ξ + q : j ∈ Z, q ∈ Q} = {2j (ξ + q) : j ∈ Z, q ∈ Q}.
+   Let Z be a set that contains exactly one representative from each equiv-
+alence class. Fix ξ ∈ Z. Let d be the dilation projection and let τ be the
+translation projection from R to W = (−1, − 21 ] ∪ ( 21 , 1]. That is, for any
+subset V ⊂ R, we define
+                  [                                   [
+          d(V ) =     2j V ∩ W        and    τ (V ) =    (V + k) ∩ W.
+                     j∈Z                               k∈Z
+
+   Since the set [ξ] is countable, the sets X := X(ξ) = d([ξ]) and Y :=
+Y (ξ) = τ ([ξ]) can be written as X = {dm : m ∈ N} and Y = {tn : n ∈ N}
+with dm := dm (ξ) and tn := tn (ξ). Indeed, if d(ξ + q) = d(ξ + q ′ ) for some
+q, q ′ ∈ Q, then 2j (ξ + q) = ξ + q ′ for some j ∈ Z. Since ξ is irrational one
+gets that j = 0 and q = q ′ . Therefore, the set X is infinite. Similarly, if
+                 ′                                         ′
+τ (2j ξ) = τ (2j ξ) for some j, j ′ ∈ Z, then 2j ξ + k = 2j ξ for some k ∈ Z. Since
+ξ is irrational one gets that j = j ′ , and therefore, Y is infinite.
+   Assume that for a given pair (dm , tn ) ∈ X × Y there is j(m, n) ∈ Z and
+q(m, n) ∈ Q such that
+      d 2j(m,n) (ξ + q(m, n)) = dm and τ 2j(m,n) (ξ + q(m, n)) = tn .
+                                                                        
+
+                                     ′
+  Note that if d(2j (ξ + q)) = d(2j (ξ + q ′ )) for some j, j ′ ∈ Z and q, q ′ ∈ Q,
+                     ′
+then 2j (ξ + q) = 2j +l (ξ + q ′ ) for some l ∈ Z. Thus, j = j ′ + l since ξ is
+                  ARE MSF WAVELETS MINIMALLY SUPPORTED?                             11
+
+irrational, and therefore, q = q ′ . This implies, that q(m, n) given above does
+not depend on n, so q(m, n) = qm .
+                                       ′
+   Similarly, if τ (2j (ξ + q)) = τ (2j (ξ + q ′ )) for some j, j ′ ∈ Z and q, q ′ ∈ Q,
+                        ′
+then 2j (ξ + q) = 2j (ξ + q ′ ) + k for some k ∈ Z. Thus, j = j ′ since ξ is
+irrational. This implies, that j(m, n) given above does not depend on m, so
+j(m, n) = jn .
+   In particular, for each pair (m, n) ∈ N × N there is at most one choice of
+jn ∈ Z and qm ∈ Q, such that
+             d 2jn (ξ + qm ) = dm and τ 2jn (ξ + qm ) = tn .
+                                                                  
+(3.3)
+   For each n ∈ N one has that tn ∈ Y = τ ([ξ]). Clearly, [ξ] = {2j (ξ + q) :
+j ∈ Z, q ∈ Q}. Thus, tn = τ (2j (ξ + q)) for some j ∈ Z and q ∈ Q. By (3.3)
+this means that j = jn and q ∈ {qm : m ∈ N} with the values of q depending
+on the value of d(2j (ξ + q)) ∈ X = {dm : m ∈ N}. This leads to a definition
+of a non-empty set
+     M (n) = {m ∈ N : d 2jn (ξ + qm ) = dm and τ 2jn (ξ + qm ) = tn }.
+                                                              
+
+   Similarly, for each m ∈ N one has that dm ∈ X = d([ξ]). Thus, dm =
+d(2j (ξ + q)) for some j ∈ Z and q ∈ Q. By (3.3) this means that q = qm
+and j ∈ {jn : n ∈ N} with the values of j depending on the value of
+τ (2j (ξ + q)) ∈ Y = {tn : n ∈ N}. This leads to a definition of a non-empty
+set
+       N (m) = {n ∈ N : τ 2jn (ξ + qm ) = tn and d 2jn (ξ + qm ) = dm }.
+                                                               
+
+  Moreover, m ∈ M (n) iff (3.3) holds, which is equivalent to n ∈ N (m).
+  Define a matrix A = (amn ) by
+                       (
+                         f 2jn (ξ + qm ) if (3.3) holds,
+                                        
+                 amn =
+                         0                 otherwise.
+Note that the definitions provided for the sets M (n) and N (m) give that
+         (                                  (
+           f 2jn (ξ + qm ) m ∈ M (n),         f 2jn (ξ + qm ) n ∈ N (m),
+                                                            
+  amn =                                  =
+           0                 otherwise,       0                otherwise.
+   By construction, A is a doubly stochastic matrix. Indeed, for each n ∈ N
+there is an m0 ∈ M (n), thus forevery k ∈ Z one has that τ 2jn (ξ + qm0 ) +
+k = tn and d 2jn (ξ + qm0 ) + k ∈ X. On the other hand, if m1 ∈ M (n),
+ 
+
+then τ 2jn (ξ + qm1 ) = tn , so 2jn (ξ + qm1 ) = 2jn (ξ + qm0 ) + k for some k ∈ Z.
+Therefore,
+      X∞            X                      X
+                         f 2jn (ξ + qm ) =        f 2jn (ξ + qm0 ) + k = 1,
+                                                                         
+          amn =
+     m=1          m∈M (n)                       k∈Z
+
+by Proposition 3.2, since ξ ∈ C, so 2jn (ξ + q    m0 ) ∈ C.
+  Similarly, for each m ∈ N there
+                                 exists an n0 ∈ N (m), thus for every j ∈ Z
+one has that d 2jn0 +j (ξ + qm ) = dm and τ 2jn0 +j (ξ + qm ) ∈ Y . On the
+12     MARCIN BOWNIK, ZIEMOWIT RZESZOTNIK, AND DARRIN SPEEGLE
+
+other hand, if n1 ∈ N (m), then d 2jn1 (ξ + qm ) = dm , so 2jn1 (ξ + qm ) =
+                                                
+
+2jn0 +j (ξ + qm ) for some j ∈ Z. Therefore,
+      ∞
+      X              X                        X
+                              f 2jn (ξ + qm ) =  f 2jn0 +j (ξ + qm ) = 1,
+                                                                    
+            amn =
+      n=1           n∈N (m)                    j∈Z
+
+by Proposition 3.2, since ξ ∈ C, so 2jn0 (ξ + qm ) ∈ C.
+  Since A is doubly stochastic, by Theorem 3.1 there is a bijection σ : N → N
+such that amσ(m) > 0 for every m ∈ N, and therefore, f 2jσ(m) (ξ + qm ) > 0.
+  Let                                                     [
+             Rξ = {2jσ(m) (ξ + qm ) : m ∈ N} and G =          Rξ .
+                                                            ξ∈Z
+
+Clearly, G ⊂ supp(f ) and the following four steps are needed to establish
+that (3.2) holds.
+   If 2j Rξ1 ∩ Rξ2 ̸= ∅ for some ξ1 , ξ2 ∈ Z and j ∈ Z, then 2jσ(m1 ) +j (ξ1 +
+qm1 ) = 2jσ(m2 ) (ξ2 + qm2 ) for some m1 , m2 ∈ N. Thus, ξ2 ∈ [ξ1 ], so ξ2 = ξ1
+since ξ1 , ξ2 ∈ Z. The irrationality of ξ1 implies that jσ(m1 ) + j = jσ(m2 ) ,
+so qm1 = qm2 . By (3.3), this leads to dm1 = dm2 , so m1 = m2 . Thus,
+σ(m1 ) = σ(m2 ), which yields j = 0. Therefore, 2j G ∩ G = ∅ for j ∈ Z \ {0}.
+   Similarly, if (Rξ1 + k) ∩ Rξ2 ̸= ∅ for some ξ1 , ξ2 ∈ Z and k ∈ Z, then
+2jσ(m1 ) (ξ1 + qm1 ) + k = 2jσ(m2 ) (ξ2 + qm2 ) for some m1 , m2 ∈ N. Thus,
+ξ2 ∈ [ξ1 ], so ξ2 = ξ1 . The irrationality of ξ1 implies that jσ(m1 ) = jσ(m2 ) .
+By (3.3), this leads to tσ(m1 ) = tσ(m2 ) , so σ(m1 ) = σ(m2 ). This implies that
+m1 = m2 , which S yields k = 0. Therefore, (G + k) ∩ G = ∅ for k ∈ Z \ {0}.
+   To see that j∈Z 2j G = R modulo null sets, it suffices to show that d(G) =
+W modulo null sets. Toward this end note that d(Rξ ) = X(ξ) = d([ξ]) for
+ξ ∈ Z, since d 2jσ(m) (ξ + qm ) = dm (ξ) by (3.3). Thus,
+                       [            [              [ 
+              d(G) =      d(Rξ ) =      d([ξ]) = d      [ξ] = d(C).
+                      ξ∈Z            ξ∈Z             ξ∈Z
+
+Since the set C is of full measure, one gets that d(G) = d(C) = W modulo
+null sets.                 S
+   Similarly, to see that k∈Z (G + k) = R modulo null sets, it suffices to
+show that τ (G) = W modulo null sets. Toward this end note that τ (Rξ ) =
+Y (ξ) = τ ([ξ]) for ξ ∈ Z, since τ 2jσ(m) (ξ + qm ) = tσ(m) (ξ) by (3.3), and σ
+is a permutation of N. Thus,
+                      [            [              [ 
+             τ (G) =     τ (Rξ ) =    τ ([ξ]) = τ     [ξ] = τ (C).
+                      ξ∈Z            ξ∈Z             ξ∈Z
+
+Since the set C is of full measure, one gets that τ (G) = τ (C) = W modulo
+null sets.
+   The four steps provided above lead to the conclusion that (3.2) holds for
+a.e. ξ ∈ R.                                                               □
+                 ARE MSF WAVELETS MINIMALLY SUPPORTED?                        13
+
+Remark 3.4. In Theorem 3.3 measurability of f and G is not addressed, f is
+defined in each point of R, supp(f ) = {ξ ∈ R : f (ξ) ̸= 0} and G is possibly
+non-measurable.
+Example 3.5. Let F ⊂ [1/3, 2/3] be a non-measurable set. Define G =
+[1/3, 2/3] \ F . Then, F ∪ 2G ∪ (G − 1) ∪ 2(F − 1) is a non-measurable set
+which tiles by translations and dilations.
+   Note that if aR nonnegative, measurable
+                                  R         function f tiles by translations and
+dilations, then f dm = 1 and f dν = 1, where m is the Lebesgue measure
+and
+R the       measure ν is defined on the Lebesgue measurable sets V by ν(V ) =
+       dx
+  V |x| log 4 . We showed in Example 2.12 that the two integral conditions do
+not imply that the support of f contains a wavelet set. However, if one
+were trying to find a negative solution to Problem 1.1 or Problem 2.3 in
+light of Theorem 3.3, one might hope to find an example of a function which
+tiles by both translations and dilations whose support does not contain sets
+of the correct measures. That is, we are interested in knowing whether
+every nonnegative, measurable f that tiles by translations and dilations has
+support that contains a set F with m(F ) = 1 and ν(F ) = 1. Theorem 3.7
+provides the expected positive answer.
+Lemma 3.6. If U and V are measurable subsets of R such that m(U ) =
+m(V ) = c1 and ν(U ) ≤ c2 ≤ ν(V ), then there exists a set W ⊂ U ∪ V such
+that m(W ) = c1 and ν(W ) = c2 , where 0 ≤ ci < ∞.
+Proof. Without loss of generality, we can assume that ν(V ) < ∞. In fact,
+if ν(V ) = ∞, then for every ϵ > 0, ν(V ∩ [−ϵ, ϵ]) = ∞. Choose ϵ > 0 such
+that ν(V \ [−ϵ, ϵ]) > 1 and let V1 = V \ [−ϵ, ϵ]. Note that
+               m(U \ V1 ) ≥ m(V ) − m(V1 ) = m(V ∩ [−ϵ, ϵ]).
+Hence, there exists a subset V2 of U \ V1 of measure m(V ∩ [−ϵ, ϵ]). Once
+the lemma is proven for U and V1 ∪ V2 , then it also holds for the original U
+and V .
+   Next, we show that it suffices to prove the lemma when U and V are
+disjoint. Let G = U ∩ V , U ′ = U \ G, and V ′ = V \ G. Note that
+     m(U ′ ) = m(V ′ ) = c1 − m(G) and ν(U ′ ) ≤ c2 − ν(G) ≤ ν(V ′ ).
+If we can find W ′ ⊂ U ′ ∪ V ′ such that m(W ′ ) = m(U ′ ) = m(V ′ ) and
+ν(W ′ ) = c2 − ν(G), then W = W ′ ∪ G satisfies m(W ) = c1 and ν(W ) = c2 .
+   Assume U and V are disjoint. Consider Ut = U ∩ [−t, t]. Let t0 =
+sup{t ≥ 0 : m(Ut ) = 0}. For each t > t0 , there exists g(t) > 0 such
+that m(V ∩ [−g(t), g(t)]) = m(Ut ). Define Vt = V \ [−g(t), g(t)] and let
+Wt = Ut ∪ Vt . We have m(Wt ) = 1 for all t, and ν(Wt ) → ν(V ) as t → t0
+and ν(Wt ) → ν(U ) as t → ∞. Since the function t 7→ ν(Wt ) is continuous,
+the lemma follows from the Intermediate Value Theorem.                  □
+14     MARCIN BOWNIK, ZIEMOWIT RZESZOTNIK, AND DARRIN SPEEGLE
+
+Theorem 3.7. Let f be a measurable function on R such that 0 ≤ f ≤ 1
+almost everywhere and
+                 Z                      Z
+                    f dm = c1  and         f dν = c2 ,
+                    R                                    R
+
+where 0 ≤ ci < ∞.
+  Then, there exists a measurable set U ⊂ E = supp(f ) such that m(U ) = c1
+and ν(U ) = c2 .
+Proof. We start with some reductions. If c1 or c2 are 0, then the result is
+obvious. Without loss of generality, the support of f canRbe assumed
+                                                                R       Rto be
+contained in [0, ∞). Let F =R {x : f (x) = 1} and note that
+                                                       R    f =   F f +   Fc f,
+so by replacing c1 with c1 − F f dm and c2 with c2 − F f dν, we can assume
+that 0 ≤ f < 1 almost everywhere, and f is positive on a set of positive
+measure E ⊂ [0, ∞).
+   Choose x0 such that
+                                         Z x0
+                      m (E ∩ [0, x0 ]) =      1E dm = c1
+                                               0
+
+and see that this implies
+                       Z x0                         Z ∞
+                               (1E − f ) dm =                f dm.
+                          0                          x0
+              1
+Let g(x) = x log 4 and see that
+                  Z x0                Z x0
+                       (1E − f ) dν ≥      (1E − f ) g(x0 ) dm
+                   0                   0
+                                      Z ∞
+                                    =      f g(x0 ) dm
+                                       x0
+                                      Z ∞
+                                    ≥      f dν.
+                                          x0
+
+Therefore,
+                                              Z ∞
+                         ν (E ∩ [0, x0 ]) ≥         f dν = c2 .
+                                               0
+Therefore, E ∩ [0, x0 ] satisfies the role of V in Lemma 3.6.
+  Next, suppose that m(E) < ∞. Then, there exists x1 such that
+                                           Z ∞
+                     m (E ∩ [x1 , ∞)) =         1E dm = c1 .
+                                               x1
+
+As before, we see that
+                         Z ∞                        Z x1
+                               (1E − f ) dm =                f dm.
+                          x1                         0
+                  ARE MSF WAVELETS MINIMALLY SUPPORTED?                              15
+
+Note that
+                   Z ∞                     Z ∞
+                         (1E − f ) dν ≤            (1E − f ) g(x1 ) dm
+                    x1                      x
+                                           Z 1x1
+                                       =           f g(x0 ) dm
+                                            0
+                                           Z x1
+                                       ≤           f dν.
+                                            0
+Hence,
+                                                Z ∞
+                         ν (E ∩ [x1 , ∞)) ≤            f dν = c2 .
+                                                   0
+Therefore, E ∩ [x1 , ∞) satisfies the role of U in Lemma 3.6.
+   Finally, if m(E) = ∞, then for x ≥ 0, let Ex be a set of Lebesgue measure
+c1 such that Ex ⊂ [x, ∞). Note that ν(Ex ) < m(Ex )g(x) → 0 as x → ∞,
+so there is an x for which ν(Ex ) ≤ c2 . This Ex can play the role of U in
+Lemma 3.6.
+   Therefore, by Lemma 3.6, the support of f contains a set of Lebesgue
+measure c1 and ν measure c2 , as desired.                                 □
+
+                                    References
+ [1] Marcin Bownik. On characterizations of multiwavelets in L2 (Rn ). Proc. Amer. Math.
+     Soc., 129(11):3265–3274, 2001.
+ [2] Marcin Bownik and Ziemowit Rzeszotnik. Open problems in wavelet theory. In Oper-
+     ator Theory, Operator Algebras and Their Interactions with Geometry and Topology.
+     Ronald G. Douglas Memorial Volume, Operator Theory: Advances and Applications
+     278, pages 77–100. Birkhäuser, 2020.
+ [3] Marcin Bownik, Ziemowit Rzeszotnik, and Darrin Speegle. A characterization of di-
+     mension functions of wavelets. Appl. Comput. Harmon. Anal., 10(1):71–92, 2001.
+ [4] Marcin Bownik and Darrin Speegle. Simultaneous dilation and translation tilings of
+     Rn . Amer.J.Math., to appear.
+ [5] Marcin Bownik and Darrin Speegle. The wavelet dimension function for real dilations
+     and dilations admitting non-MSF wavelets. In Approximation theory, X (St. Louis,
+     MO, 2001), Innov. Appl. Math., pages 63–85. Vanderbilt Univ. Press, Nashville, TN,
+     2002.
+ [6] Xingde Dai and David R. Larson. Wandering vectors for unitary systems and orthog-
+     onal wavelets. Mem. Amer. Math. Soc., 134(640):viii+68, 1998.
+ [7] Xingde Dai, David R. Larson, and Darrin M. Speegle. Wavelet sets in Rn . J. Fourier
+     Anal. Appl., 3(4):451–456, 1997.
+ [8] Daniel Goldstein and R. Daniel Mauldin. On the Steinhaus tiling problem for Z3 . Q.
+     J. Math., 65(2):339–347, 2014.
+ [9] Deguang Han and Yang Wang. Lattice tiling and the Weyl-Heisenberg frames. Geom.
+     Funct. Anal., 11(4):742–758, 2001.
+[10] Eugenio Hernández and Guido Weiss. A first course on wavelets. Studies in Advanced
+     Mathematics. CRC Press, Boca Raton, FL, 1996. With a foreword by Yves Meyer.
+[11] Eugen J. Ionascu and Carl M. Pearcy. On subwavelet sets. Proc. Amer. Math. Soc.,
+     126(12):3549–3552, 1998.
+[12] J. R. Isbell. Birkhoff’s problem 111. Proc. Amer. Math. Soc., 6:217–218, 1955.
+[13] J. R. Isbell. Infinite doubly stochastic matrices. Canad. Math. Bull., 5:1–4, 1962.
+16       MARCIN BOWNIK, ZIEMOWIT RZESZOTNIK, AND DARRIN SPEEGLE
+
+[14] Steve Jackson and R. Daniel Mauldin. On a lattice problem of H. Steinhaus. J. Amer.
+     Math. Soc., 15(4):817–856, 2002.
+[15] Steve Jackson and R. Daniel Mauldin. Sets meeting isometric copies of the lattice Z2
+     in exactly one point. Proc. Natl. Acad. Sci. USA, 99(25):15883–15887, 2002.
+[16] Mihail N. Kolountzakis and Effie Papageorgiou. Functions tiling with several lattices.
+     J. Fourier Anal. Appl., 28(4):Paper No. 68, 19, 2022.
+[17] David R. Larson. Unitary systems and wavelet sets. In Wavelet analysis and applica-
+     tions, Appl. Numer. Harmon. Anal., pages 143–171. Birkhäuser, Basel, 2007.
+[18] Ziemowit Rzeszotnik and Darrin Speegle. On wavelets interpolated from a pair of
+     wavelet sets. Proc. Amer. Math. Soc., 130(10):2921–2930, 2002.
+[19] G. Weiss and E. N. Wilson. The mathematical theory of wavelets. In Twentieth cen-
+     tury harmonic analysis—a celebration (Il Ciocco, 2000), volume 33 of NATO Sci.
+     Ser. II Math. Phys. Chem., pages 329–366. Kluwer Acad. Publ., Dordrecht, 2001.
+
+  Department of Mathematics, University of Oregon, Eugene, OR 97403–
+1222, USA
+  Email address: mbownik@uoregon.edu
+
+     Mathematical Institute, University of Wrocław, 50–384 Wrocław, Poland
+     Email address: zioma@math.uni.wroc.pl
+
+  Department of Mathematics and Statistics, Saint Louis University, St.
+Louis, MO 63103, USA
+  Email address: speegled@slu.edu
+

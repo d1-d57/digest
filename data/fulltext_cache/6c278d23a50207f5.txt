@@ -1,0 +1,152 @@
+Shtetl-Optimized  » Blog Archive   » 50 Years of Aumann’s Agreement Theorem
+Shtetl-Optimized
+The Blog of Scott Aaronson
+If you take nothing else from this blog: quantum computers won't
+solve hard problems instantly by just trying all solutions in parallel.
+«
+My response to the White House executive order on QC
+Spreading the Gospel of Theoretical Computer Science to an Omega(1) Fraction of Humanity: My Trevisan Award Acceptance Speech at STOC
+»
+50 Years of Aumann’s Agreement Theorem
+One of the most popular posts in this blog’s history was
+Common Knowledge and Aumann’s Agreement Theorem
+, based on a lecture that I gave to high-school students 11 years ago.  One of the impacts of that post, I’m proud to say, is that (according to Steven Pinker) it helped to inspire Steve’s excellent recent popular book, which you should read, entitled
+What Everyone Knows That Everyone Knows…: Common Knowledge and the Mysteries of Money, Power, and Everyday Life
+.
+Two weeks ago, I was privileged to attend a workshop in Paris on “50 Years of Agreeing to Disagree,” where (among other things) I got to meet the 96-year-old Economics Nobel Laureate
+Robert Aumann
+for the first time.
+Me and my friend
+Aran Nayebi
+(CS professor at CMU) with Robert Aumann
+I got to catch up there with Steven Pinker as well, who gave a phenomenal talk on the psychology of common knowledge.  My own talk was entitled
+The Complexity of Agreement, with New Directions and Applications
+(link goes to my PowerPoint slides).
+Aran Nayebi has graciously
+posted on YouTube
+some partial video from the meeting, including his talk, brief snippets from my talk, and Aumann’s own remarks:
+Meanwhile, here were the Aumannian insights that I remembered to write down:
+AUDIENCE QUESTION: What questions did people ask you after you published your famous agreement theorem in 1976?
+AUMANN: I don’t remember what happened yesterday, let alone 1976.
+Also:
+ME: I thought you might enjoy knowing that I just came here from a meeting of rationalists…
+AUMANN: A meeting of who?
+ME: Rationalists, they call themselves, at a beautiful venue called Lighthaven in Berkeley, and that they named the main building there
+“Aumann Hall”
+in your honor.
+AUMANN: OK, so I’ve made it then.
+One recent result announced at the workshop, for those who care, is that the proof of Aumann’s Theorem has now been
+formalized in Lean
+, by Scott Kominers at Harvard and a group from the startup company Axiom Math.
+Thanks so much to Christina Katt-Pawlowitsch, Ziv Hellman, and others for organizing the workshop and for including me in it.
+Happy to field questions in the comments, although if someone wants to call me an idiot like usual, we’ll just need to agree to disagree!
+Follow
+This entry was posted
+												on Sunday, June 28th, 2026 at 9:56 am						and is filed under
+Adventures in Meatspace
+,
+Complexity
+.
+						You can follow any responses to this entry through the
+RSS 2.0
+feed.
+
+													You can
+leave a response
+, or
+trackback
+from your own site.
+10 Responses to “50 Years of Aumann’s Agreement Theorem”
+Palvolgyi Domotor
+Says:
+Comment #1
+June 28th, 2026 at 10:37 am
+I’m very happy that I’ve learned about Aumann’s theorem from this blog, however, I’m struggling to see why you hold Pinker’s book in such high regard that you keep on mentioning it with superlatives. To me, it felt like a collection of fairly obvious anecdotes woven together. What did you find so exceptional about it?
+Scott
+Says:
+Comment #2
+June 28th, 2026 at 10:45 am
+Palvolgyi Domotor #1: Mostly just that it was the first-ever popular book about a topic (common knowledge) that badly needed a popular book, and written with Steve’s characteristic clarity and wit.  I wish I wrote it myself.  But I could see that if (for example) someone already knew the main ideas it might not do it for them.
+Paul Sas
+Says:
+Comment #3
+June 28th, 2026 at 10:44 pm
+Wonderful to learn that Aumann’s now got common knowledge of how his work is given pride of place at LightHaven in Berkeley.
+I tend to call the rationalist conference site the “Ratican”, as a nod to the LessWrong community’s commitment to cleaning up their epistemics through rational inquiry & explanation
+Mark Y
+Says:
+Comment #4
+June 29th, 2026 at 9:34 am
+Here’s a maybe dumb question, because I never read your paper:
+1. The base theorem says perfect reasoners should never disagree
+2. You further proved that this doesn’t require mind meld levels of communication to reach agreement
+So, can can two people who read your paper just go through the motions and the agree on something like “chance of rain tomorrow” or “chance favorite party wins presidential election” or maybe even something more complicated like “ai go foom?”
+Or is a catch?
+Scott
+Says:
+Comment #5
+June 29th, 2026 at 11:08 am
+Mark Y #4: They can certainly try!  The theorem guarantees that it will work
+if
+they have a shared prior, and they’re both perfectly honest and rational, and they both know all that, and they know that they know it, and so on ad infinitum.  How often do you think those conditions are satisfied in practice? 🙂
+Olli Järviniemi
+Says:
+Comment #6
+June 29th, 2026 at 6:41 pm
+You might be amused by an Aumann agreement card game I designed and implemented, available at
+https://ollij.fi/aumann/
+It’s a collaborative two-player game played on a standard 52-card deck.
+It works best on computers: the website automatically computes how two ideal Bayesians would have played, thus providing variance-reduced scores on how correctly you and your teammate played. But there’s also a print version for more traditional play (and stochastic scoring).
+Mark Y
+Says:
+Comment #7
+June 29th, 2026 at 9:55 pm
+Thanks!
+BasicQuestion
+Says:
+Comment #8
+June 30th, 2026 at 8:06 pm
+““common knowledge” if, not only does everyone know it, but everyone knows everyone knows i” Seems somewhat different from common information from Information theory isn’t it? In what sense?
+Scott
+Says:
+Comment #9
+June 30th, 2026 at 8:37 pm
+Basic question #8: Yes,
+see here
+for the technical definition of common knowledge.  It is not the same thing as mere shared knowledge or shared information.
+Aran Nayebi
+Says:
+Comment #10
+July 3rd, 2026 at 9:29 am
+Mark Y #4 & Scott #5: Of course, once you generalize Aumann’s agreement theorem in alignment-relevant ways to account for multiple agents (N), multiple objectives (M), and without assuming they have common priors, is where you run into hardnesses (lower bounds) that translate into:
+(1) full-value alignment can be intractable even for computationally unbounded agents.
+(2) reward hacking is an inevitable byproduct of computationally bounded agents & large state spaces.
+More details can be found in my talk at 2:01 of the Aumann conference, right after Scott’s talk:
+https://youtu.be/WD_OQbNzml4?t=121
+.
+Leave a Reply
+You can use rich HTML in comments!  You can also use basic TeX, by enclosing it within
+$$ $$
+for displayed equations or
+\( \)
+for inline equations.
+Comment Policies:
+After two decades of mostly-open comments, in July 2024
+Shtetl-Optimized
+transitioned to the following policy:
+All comments are treated, by default, as personal missives to me, Scott Aaronson---with no expectation either that they'll appear on the blog or that I'll reply to them.
+At my leisure and discretion, and in consultation with the
+Shtetl-Optimized
+Committee of Guardians
+, I'll put on the blog a curated selection of comments that I judge to be particularly interesting or to move the topic forward, and I'll do my best to answer those.  But it will be more like Letters to the Editor.  Anyone who feels unjustly censored is welcome to the rest of the Internet.
+To the many who've asked me for this over the years, you're welcome!
+Name (required)
+Mail (will not be published) (required)
+Website
+Δ
+Shtetl-Optimized is proudly powered by
+WordPress
+Entries (RSS)
+and
+Comments (RSS)
+.

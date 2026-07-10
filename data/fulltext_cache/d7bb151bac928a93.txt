@@ -1,0 +1,1029 @@
+
+
+Another Look at Circles and Squares – Feature Column
+
+Skip to content
+
+Another Look at Circles and Squares
+
+In:
+
+2026
+, 
+Algebra and Number Theory
+, 
+Bill Casselman
+, 
+History of mathematics
+
+Tagged:
+
+approximation
+, 
+Carl Friedrich Gauss
+, 
+lattices (groups)
+
+This is not obviously a difficult problem. But in over two hundred years since Carl Friedrich Gauss first posed it, there has been remarkably little progress...
+
+Another Look at Circles and Squares
+
+Bill Casselman
+
+University of British Columbia
+
+Another look at circles and squares
+
+One of the most intriguing unsolved problems in 
+mathematics is very simple to explain.
+
+A lattice point in the plane is a point $(a,b)$
+in which both $a$ and $b$ are integers. An 
+earlier Feature Column
+
+was concerned with the function
+
+$$ r_{2}(n) = \hbox{ the number of lattice points $(a,b)$ such that
+$a^{2} + b^{2} = n$.} $$
+
+Or, in other words, the number of lattice points 
+lying on the circle of radius $\sqrt{n}$ centred at the origin.
+In this column, let
+
+$$ R_{2}(n) = {\sum}_{m \le n} r_{2}(m) \, . $$
+
+This is the number of lattice points 
+inside the closed disk of radius $\sqrt{n}$.
+For example, $R_{2}(10) = 37$, as this diagram shows:
+
+For large $n$, the number $R_{2}(n)$ is approximately
+equal to the area $\pi n$ of the disk of radius $\sqrt{n}$.
+The problem I have in mind is this:
+
+$\bullet$ What is a good estimate of the
+error $|\Delta(n)| = |R_{2}(n) - \pi n|$ in approximating
+$R_{2}(n)$ by the area?
+
+This is not obviously a difficult problem.
+But in over two hundred years since
+Carl Friedrich Gauss
+first posed it, there has been remarkably
+little progress.  Gauss proved that
+$\Delta(n)$ is bounded by a small
+multiple of the length $2 \pi \sqrt{n}$ of
+the circumference, by an elementary argument.
+Nothing elementary is to be found in any
+subsequent work.
+Mathematicians in the early twentieth century
+showed in various ways that $\Delta(n)$ was of order $n^{1/3}$.
+Since then, improvements have been technical and modest.
+I think it is fair to say that we have 
+essentially no idea of what's going on.
+
+That earlier column derived a formula for $r_{2}(n)$ 
+due to the nineteenth century mathematician Carl Gustav Jacob Jacobi:
+
+$$ r_{2}(n) = 4(d_{1}(n) - d_{3}(n)) \qquad \hbox{( $n \ge 1$ ) } $$
+
+where $d_{i}(n)$ is the number of positive divisors of $n$
+congruent to $i$ modulo $4$.  For example, if $n$ is
+a prime congruent to $1$ modulo $4$ then $r_{2}(n) = 8$,
+and if it is a prime congruent to $3$ then $r_{2}(n) = 0$.
+
+Graph of $r_{2}(n)$
+
+As its graph illustrates, the 
+function $r_{2}(n)$ behaves erratically as $n$ grows,
+but for us the most important thing about it is that 
+it is known
+that $r_{2}(n)$ remains rather small
+as $n$ grows.  A well known result is
+that it grows more slowly than any 
+function $n^{s}$ with $s > 0$.  (This is
+found, for example, at the beginning 
+of Chapter XIII of the 
+
+classic text by Hardy and Wright
+.)
+
+Some details
+
+Gauss' result is that the difference between $R_{2}(n)$ and the area
+of the disk is bounded by a small multiple of its circumference:
+
+Theorem
+.  
+If  $n \ge 2$ then 
+$| \pi n - R_{2}(n) | \le \sqrt{2} \cdot 2 \pi \sqrt{n}$.
+
+Proof.
+  Each lattice point $\lambda$ is the center of 
+a square $S_{\lambda}$ of side $1$. These squares tile the plane.  Let
+$R_{in}(n)$ be the number of those squares fully contained in the disk
+of radius $\sqrt{n}$, $R_{out}(n)$ the number of those
+having a point in common with it.  As the following figures
+show, the squares inside the disk cover
+the disk of radius $\sqrt{n} - \sqrt{2}$, while those in the second group
+are contained in the disk of radius $\sqrt{n} + \sqrt{2}$.  
+
+Therefore
+
+$$ \pi(\sqrt{n} - \sqrt{2})^{2} \le R_{in}(n) 
+	\le R_{2}(n) \le R_{out}(n) \le \pi(\sqrt{n} + \sqrt{2})^{2} $$
+
+or
+
+$$ | R_{in}(n) - \pi n | \le 2 \pi (\sqrt{2} \sqrt{n} + 1) \, . $$
+
+This was apparently first observed by the 
+ nineteenth mathematician Carl Friedrich Gauss, who constructed the 
+table below.
+
+$R^{2}$
+
+$N(R) $
+
+$R^{2}$
+
+$N(R)$
+
+$R^{2}$
+
+$N(R)$
+
+ 100 
+
+ 317 
+
+ 1000 
+
+ 3149 
+
+ 10000 
+
+ 31417 
+
+ 200 
+
+ 633 
+
+ 2000 
+
+ 6293 
+
+ 20000 
+
+ 62845 
+
+ 300 
+
+ 949 
+
+ 3000 
+
+ 9425 
+
+ 30000 
+
+ 94237 
+
+ 400 
+
+ 1257 
+
+ 4000 
+
+ 12581 
+
+ 40000 
+
+ 125629 
+
+ 500 
+
+ 1581 
+
+ 5000 
+
+ 15705 
+
+ 50000 
+
+ 157093 
+
+ 600 
+
+ 1885 
+
+ 6000 
+
+ 18853 
+
+ 60000 
+
+ 188453 
+
+ 700 
+
+ 2209 
+
+ 7000 
+
+ 21993 
+
+ 70000 
+
+ 219901 
+
+ 800 
+
+ 2521 
+
+ 8000 
+
+ 25137 
+
+ 80000 
+
+ 251305 
+
+ 900 
+
+ 2821 
+
+ 9000 
+
+ 28269 
+
+ 90000 
+
+ 282697 
+
+ 1000 
+
+ 3149 
+
+ 10000 
+
+ 31417 
+
+ 100000 
+
+ 314197 
+
+Incidentally, Gauss told us what formula he used for these calculations.
+Recall that $\lfloor x \rfloor$ is the largest integer
+below or equal to $x$.  
+Because of symmetry properties of the circle,
+the number of lattice points in the disk is
+$1$ plus $4$ times the number in the region
+$b \ge 1$, $0 \le a^{2} \le n-b^{2}$.  So
+
+$$ R_{2}(n) = 1 + 4 \, {\sum}_{b^{2} \le n}
+	\Big(  1 + \big \lfloor \sqrt{n - b^{2}} \big \rfloor \Big) \, . $$
+
+The amount of work is proportional to $\sqrt{n}$, and Gauss' table
+represents an impressive amount of effort.
+
+Gauss' result is that the discrepancy is of order $\sqrt{n}$.
+How good is this estimate?
+
+The number $R_{2}(n)$ is the same as the number of those unit
+squares centred at lattice
+points inside the disk of radius $\sqrt{n}$.  But the relation between
+the location of a lattice point and how its unit square
+intersects the disk is a bit complicated.  In the following figure
+the blue areas represent those pieces of squares centred at
+lattice points inside the disk that are not themselves in the disk.
+
+The blue regions represent how lattice points 
+overestimate the area of the disk.
+But they are complemented by the pink areas,
+which are in squares centred outside the disk
+but still touch it.  They contribute to
+an underestimate of the area.  At least visually, the two colored regions
+roughly cancel out.  This means that Gauss' bound on $\Delta$ is pessimistic.
+How far off is it?  With computers we can look at larger numbers than Gauss.
+Here are some more values:
+
+$n$
+
+$R_{2}(n)$
+
+$\Delta(n)$
+
+$10^{1}$
+
+37
+
+-6
+
+$10^{2}$
+
+317
+
+-3
+
+$10^{3}$
+
+3149
+
+-7
+
+$10^{4}$
+
+31417
+
+-1
+
+$10^{5}$
+
+314197
+
+-38
+
+$10^{6}$
+
+3141549
+
+44
+
+$10^{7}$
+
+31416025
+
+-98
+
+$10^{8}$
+
+314159053
+
+212
+
+$10^{9}$
+
+3141592409
+
+245
+
+$10^{10}$
+
+31415925457
+
+1079
+
+$10^{11}$
+
+314159264029
+
+1330
+
+$10^{12}$
+
+3141592649641
+
+3949
+
+$10^{13}$
+
+31415926532017
+
+3881
+
+$10^{14}$
+
+314159265350589
+
+8390
+
+$10^{15}$
+
+3141592653588541
+
+1252
+
+$10^{16}$
+
+31415926535867977
+
+29955
+
+$10^{17}$
+
+314159265358987341
+
+-8017
+
+$10^{19}$
+
+31415926535897744689
+
+187696
+
+$10^{20}$
+
+314159265358978759705
+
+564141
+
+Based on what this list shows,
+one would guess that $\Delta(n)$ is of order
+$n^{1/4}$.  It is this guess that mathematicians, in
+two hundred years of work, have neither confirmed nor contradicted.
+
+A short history
+
+At the beginning of the twentieth century
+the Polish mathematician
+ Wacław Sierpinski, just beginning an extremely productive career,
+ proved that the discrepancy is of order
+$n^{1/3}$.  His methods followed very closely
+earlier work by the Ukrainian mathematician 
+Georgy Voronoi on a related problem
+about hyperbolas rather than circles.
+(Voronoi had been his advisor in Warsaw.)
+ The English mathematician
+G. H. Hardy proved that 
+$n^{1/4}$ is a lower bound for the order of the discrepancy,
+and conjectured that this is in fact the true upper bound as well.
+
+Much work has been spent on this conjecture in the past century,
+but in spite of much talented effort there has been
+little reward.  The sophistication of the mathematics involved is impressive.
+I am not sure what the best current 
+proven estimate is, but a typical value is
+order $n^{r}$ for $r = 131/416 \sim 0.3149$, 
+published in 2003 by Martin Huxley.
+
+An exact formula
+
+There is actually an exact formula for $R_{2}(n)$.
+It was  conjectured by
+Voronoi in 1905 and, after a few false starts, 
+ proved by Hardy and Edmund Landau around 1923.  
+It has some peculiar features,
+and in some ways is more of a tease than a
+magic key.
+But it has played a role in many of the known estimates of $\Delta(n)$.
+This formula is not at all elementary,
+and involves some higher mathematics.  
+I'll first state it, then look at a simple model
+that illustrates nicely some of its difficulties.
+
+The 
+Bessel function
+ $J_{n}(x)$ is defined by its Taylor series at $x = 0$:
+
+$$ J_{n}(x) = {\sum}_{i} { (-1)^{i} \over i! (n + i)! } 
+	\left ( { x \over 2 } \right)^{2i + n} \, , 
+$$
+
+This series converges for all $x$, although there are practical problems in 
+using it for computation, because of cancellation effects.
+However, it will give you absolutely no idea
+of their important properties, or why they are interesting. 
+The Taylor series tells us how to calculate Bessel functions for $|x|$ small;
+ we also have a good idea of what they look like in the opposite case—when $|x|$ is large $J_{n}(x)$ differs very little from
+
+$$ \sqrt{ \left ( {2 \over \pi x} \right )}
+	\cos \left ( x - { (2n+1) \pi \over 4 } \right ) \, . $$
+
+It is oscillating and slowly decreasing
+when $|x|$ is large.
+
+Let $\Lambda$ be the set of lattice points $(a, b)$ in ${\Bbb R}^{2}$.
+Let $\overline{R}_{2}(n)$ be a slight modification of $R_{2}(n)$:
+
+$$ \overline{R}_{2}(n) = {\sum}_{\lambda} \chi_{n}(\lambda)  $$
+
+where
+
+$$ \chi_{n}(x,y) = \cases {
+	\kern3pt 1 & if $x^{2} + y^{2} < n$ \cr
+	1/2 & if $x^{2} + y^{2} = n$ \cr
+	\kern3pt 0 & otherwise. \cr
+} $$
+
+That is to say, lattice points on the 
+circle $|v|^{2} = n$ are counted as $1/2$.
+The quantity  $\overline{R}_{2}$
+ differs little
+from $R_{2}$, but has some useful properties.
+The formula of Hardy and Wright is that
+
+$$ \eqalign {
+\overline{R}_{2}(n) &= \pi n 
++ \sqrt{n} \, {\sum}_{\rho \ne 0} 
+	{ J_{1}(2 \pi |\lambda| \sqrt{n}) \over |\lambda| } \cr
+	&= \pi n 
++ \sqrt{n} \, {\sum}_{m \ne 0} r_{2}(m) 
+	{ J_{1}(2 \pi \sqrt{mn}) \over \sqrt{m} } \, . \cr
+} $$ 
+
+Well ... this looks promising.  Especially if one 
+keeps in mind the asymptotic behaviour of $J_{1}$. This tells us that each individual term is of order $n^{1/4}$.
+But that is an illusion.  The series does not converge
+uniformly, but only conditionally, and 
+one can derive from it no really good
+estimate of $\overline{R}_{2}(n)$.  
+It has turned out not to be useless,
+but it is not easy to apply.
+
+I'll not say more about this formula, but try to 
+give you some idea of the problems that arise 
+by looking at a simple model that we can 
+understand thoroughly.
+
+It involves a one-dimensional analogue of $R_{2}(n)$.
+For the moment, suppose $f$ to
+be a function on ${\Bbb R}$ of bounded support and twice differentiable.
+The function
+
+$$ F(x) = {\sum}_{m} f(x + m) $$
+
+will be invariant under translations by integers,
+and can be expressed in terms of its Fourier series:
+
+$$ F(x) = {\sum}_{m} \widehat{F}(m) e^{2 \pi i mx } $$
+
+where
+
+$$ \widehat{F}(m) 
+	= \int_{0}^{1} F(x) e^{-2 \pi i mx} \, dx 
+	= \int_{{\Bbb R}} f(x) e^{-2 \pi i m x} \, dx \, . 
+$$
+
+In particular,
+
+$$ {\sum}_{i} f(i) 
+	= {\sum}_{j} \widehat{F}(j) \, . $$
+
+This is the 
+summation
+ formula.
+
+Unfortunately, we want to use a formula
+like this when $f$ is of bounded support, but not necessarily continuous.  
+Let
+
+$$ \chi_{\nu}(x) = \cases {
+	\kern 3 pt 1 & if $|x| < \nu$ \cr
+	1/2 & if $|x| = \nu$ \cr
+	\kern 4 pt 0 & otherwise. \cr
+} $$
+
+It is discontinous at $\pm \nu$.
+Is the summation formula valid for $\chi_{\nu}$?
+If $k$ is an integer then
+
+$$ \overline{\chi}_{\nu}(k) = \cases {
+	2k & if $|k| = \nu$ \cr
+	2k+1 & if $k < x < k+1$ \cr
+}
+$$
+
+$$ \widehat{\chi}_{\nu}(m) = 
+\int_{-\nu}^{\nu} \, e^{-2 \pi m x} \, dx 
+$$
+
+If $m=0$ this is $2\nu$, and
+otherwise:
+
+$$ 
+\eqalign {
+\left[ { e^{-2\pi i m x} \over -2 \pi i m } \right ]^{\nu}_{-\nu} 
+	& = { e^{-2\pi i m\nu} \over -2 \pi i m } 
+	- { e^{2\pi i m \nu} \over -2 \pi i m \nu} \cr
+	&=  { \alpha^{m} - \alpha^{-m} \over -2 \pi i m} \cr
+} $$
+
+if $\alpha = e^{-2\pi i \nu}$.
+The terms are the same for $\pm m$, so the sum is
+
+$$ \eqalign {
+{- 1 \over \pi i } {\sum}_{m > 0} 
+	{ \alpha^{m} \over m }
+	- {-1 \over \pi i } {\sum}_{m > 0} { \alpha^{-m} \over m }
+	& = {-1 \over \pi i } \left ( \log(1 + \alpha) - \log(1 + \alpha^{-1}) \right) \cr
+	& = {-1 \over \pi i } \log\left ( { 1 + \alpha\phantom{^{-1}} \over 1 + \alpha^{-1} } \right ) \, . \cr 
+} $$
+
+as long as $\alpha \ne 1$.
+But
+
+$$ { 1 + \alpha \over 1 + \alpha^{-1} } = \alpha $$
+
+so that this becomes
+
+$$ {1 \over \pi i } \log \alpha $$
+
+but $\alpha = e^{2 \pi i \nu}$, $\log \alpha$ is $2 \pi i \nu$.
+
+Well, almost.
+The peculiar feature is that the series for $\log (1 - z)$
+converges only for $|z| < 1$, whereas for us $|z|=1$.
+As $n$ varies, we keep crossing the line $[, \infty)$,
+and we have to change the branch of $\log$.
+
+Incidentally the series we are dealing with does converge,
+but it is not so easy to verify this directly.
+The point is that as $\nu$ approaches an integer,
+the convergence slows up.  Of course it has to,
+since $\chi_{\nu}$ is not continuous. I do not have a
+clear picture of how the series in the Hardy-Landau formula works.
+As far as I know,
+there is no really simple proof of their result.
+Modern mathematicians work with modifications of it.
+
+Loose ends
+
+Curvature?
+
+I find the picture
+
+fascinating.  It suggests that
+the basic problem is one of probability—how the location of a 
+lattice point and the orientation of its 
+attached square interact with the circle 
+$x^{2} + y^{2} = n$.  
+The fact that the circle is curved also plays a role.
+This is a well known observation—see
+
+an article by Alex Iosevich
+.
+
+Computation
+
+Gauss' formula for $R_{2}(n)$ is easy to implement,
+because there is a well known simple
+algorithm to compute integral square roots
+without calling on real numbers.
+But it becomes very slow
+for large numbers.  A faster one has been
+proposed on the anonymous web site
+
+I write, therefore I am
+.
+Unfortunately, the code found there uses
+standard floating point numbers of low precision and does not work 
+for even reasonably large $n$.  There are references to 
+faster and more efficient code in comments, but none explicit.
+They are claimed to have run time
+proportional to $n^{1/3$.  The main difference from Gauss' method is that
+each pass counts points in triangles instead of line segments.
+It would be nice to see a rigorous analysis.
+
+I have myself written a program that 
+follows the suggestion of the anonymous site;
+it computes $R_{2}(n)$ 
+for $n$ up to $10^{20}$, and 
+I have posted it
+.
+It does not take $n^{1/3}$ run time,
+but is much faster than Gauss' algorithm.
+
+Dirichlet's problem
+
+There has been much wotk on the analogue of Gauss'
+problem for hyperbolas $xy=n$, which the number of divisors of
+a positive integer replaces $r_{2}$.  It was for this
+problem that Voronoi proved the $n^{1/3}$ bound in his 
+1903 paper.  Sierpinski followed his argument closely.
+The anonymous algorithm discussed above 
+for the circle problem was first written by Richard Sladkey to 
+deal with the hyperbolic case, and the basic idea
+is derived from one of Voronoi's ideas.
+
+Reading further
+
+Sierpinski's 1906 paper
+
+It is written in Polish, but with a brief summary in French at the end. 
+The title in French is
+exactly the same as that of Voronoi's paper on the
+Dirichlet's divisor problem.
+
+Link to 
+
+a python program of mine
+
+G. H. Hardy and E. Wright,
+
+Introduction to the Theory of Numbers
+,
+Oxford University Press.
+
+Voronoi's 1903 paper
+,
+in 
+Journal für die reine und angewandte Mathematik
+,
+volume 126 (2003),
+pages 241--282
+
+Über den Zusammenhang
+zwischen der Anzahl der Klassen, in welche die binären Formen
+zweiten Grades zerfallen, und ihrer Determinante
+
+Translated from Gauss' Latin.
+
+MIT course notes on Gauss' problem
+are available.  Search for Lectures 20 and 21
+of 18.156.  The lecturer is Larry Guth.
+One of many places where the $n^{1/3}$ bound is proved.
+
+Curvature, Combinatorics, and the Fourier Transform
+
+in the 
+July 2001 issue
+
+of the Notices of the 
+American Mathematical Society
+
+Share this:
+
+Share on Facebook (Opens in new window)
+
+Facebook
+
+Share on X (Opens in new window)
+
+X
+
+Like this:
+Like
+
+Loading…
+
+2026-07-01
+
+Previous Post: 
+The Shapley Value, or How to Split a Bill in n! Easy Steps
+
+Leave a Reply 
+Cancel reply
+Your email address will not be published.
+
+Required fields are marked 
+*
+Comment 
+*
+
+HTML tags are not allowed.
+Name 
+*
+
+Email 
+*
+
+Save my name, email, and website in this browser for the next time I comment.
+
+85,090 Spambots Blocked by 
+Simple Comments
+
+Notify me of follow-up comments by email.
+
+Notify me of new posts by email.
+ Notify me of followup comments via e-mail. You can also 
+subscribe
+ without commenting.
+
+JavaScript must be turned on to leave a comment.
+
+Search
+Subscribe to Feature Column via Email
+
+Enter your email address to subscribe to Feature Column and receive notifications of new posts by email.
+
+							Email Address						
+
+							Subscribe						
+
+Recent Posts
+Another Look at Circles and Squares
+
+The Shapley Value, or How to Split a Bill in n! Easy Steps
+
+The Story Your Ballot Doesn’t Tell
+
+Weekly Maintenance Message
+
+Puzzling Like the Seventeenth Century
+
+Categories
+
+2020
+
+2021
+
+2022
+
+2023
+
+2024
+
+2025
+
+2026
+
+Adam A. Smith
+
+Adriana Salerno
+
+Algebra and Number Theory
+
+Allechar Serrano López
+
+Anil Venkatesh
+
+Anna Haensch
+
+Archive
+
+Audrey St. John
+
+Bevin Maultsby
+
+Bianca Thompson
+
+Bill Casselman
+
+Colm Mulcahy
+
+Courtney Gibbons
+
+David Austin
+
+Deepayan Sarkar
+
+Diana Davis
+
+Discrete Math and Combinatorics
+
+Étienne Ghys
+
+Geometry and Topology
+
+Guillermo Fereyra
+
+History of mathematics
+
+Holley Friedlander
+
+Jessica Sidman
+
+John Eggers
+
+Joseph Malkevitch
+
+Josh Leys
+
+Math and Arts/Humanities
+
+Math and Social Sciences
+
+Math and Technology
+
+Math and the Sciences
+
+Mathematics and Biology
+
+Moira Chas
+
+Noah Giansiracusa
+
+Patrick Ion
+
+Probability and Statistics
+
+Real and Complex Analysis
+
+Sara Chari
+
+Sara Stoudt
+
+Sarah Wolff
+
+Steven H. Weintraub
+
+Sunil Chebolu
+
+Tamsyn Morrill
+
+Teaching and Learning Mathematics
+
+Tony Phillips
+
+Uncategorized
+
+Ursula Whitcher
+
+Tags
+5G
+
+Alan Turing
+
+algebraic geometry
+
+ams
+
+astronauts
+
+Branko Grünbaum
+
+cantor set
+
+chess
+
+Claude Shannon
+
+computability
+
+cryptography
+
+Desargues
+
+economics
+
+elliptic curves
+
+epidemic
+
+Euclidean geometry
+
+feature column history
+
+games
+
+game theory
+
+generating functions
+
+genetics
+
+Geoffrey Colin Shephard
+
+herd immunity
+
+Higgs boson
+
+information theory
+
+lattices (groups)
+
+Lie groups
+
+Machine learning
+
+measles
+
+medieval
+
+partitions
+
+periods
+
+persi diaconis
+
+physics
+
+poetry
+
+polytopes and polyhedra
+
+primes
+
+probability
+
+SEIR model
+
+statistics
+
+string theory
+
+tic-tac-toe
+
+tilings
+
+video games
+
+voting
+
+Meta
+
+Log in
+
+Entries feed
+
+Comments feed
+
+WordPress.org
+
+					 Designed using 
+Hoot Business
+. Powered by 
+WordPress
+.				
+
+%d
+

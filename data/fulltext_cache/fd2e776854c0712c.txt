@@ -1,0 +1,41 @@
+Yet another example of the kind of problem that falls under the
+sphere packing / cap set / Turan umbrella I blogged about last week
+.
+Let G be SL_2(Z) and H be upper triangular matrices. Then G/H is identified with the set of pairs (a,b) in Z^2 with a,b relatively prime and a positive. Let m = 2. The orbits of G on (G/H)^2 are indexed by natural numbers: a pair (a,b),(c,d) of points in G/H is sent to the determinant |ad-bc|. If we take R to be the set {0,..,k}, then an R-set is a subset of Z^2 such that every one of these determinants has absolute value at most k. This is a very natural problem and it has a large literature: see e.g.
+this paper
+and this
+more recent one
+by Aougab and Gaster, which shows that an R-set has size at most k + O(sqrt(k) log k). But we know of no examples of an R-set of size larger than k+6!
+Update
+:  Blogging gets results!  Two readers have informed me that this problem has recently been solved, and indeed, there is no R-set of size larger than k+6, and for large enough k, no R-set of size larger than k+4.  And why do I specify that
+two
+readers informed me?  Because there are two completely separate proofs!
+One by Kriepke and Schymura
+, and
+one by Balla, Filakovský, Kielak, Kráľ, and Schlomberg
+.  It was actually a talk by Kráľ I saw this summer where I first learned about this problem; somehow I didn’t catch while preparing the post that he’d proved this theorem!
+The two papers do not refer to each other.  And in fact it looks like there are two completely separate groups of people working on this in parallel, and have been for years!  There are the integral programming people, who think of the problem as the case r=2 of the question of r x n integer matrices with all rxr determinants bounded.  And there are the topologists, who think of the problem as the case g=1 of the question of loops on a genus g Riemann surface with bounded pairwise intersection.  The torus, where all fields of mathematics converge!  The Wood Between The Worlds of math.
+End of update, back to the original post.
+This story generalizes.  A coprime pair (a,b) in Z^2 is a loop on the torus, and |ad-bc| is the number of intersections between the loops (a,b) and (c,d).  So we can ask: how many simple loops can there be on a genus g surface with no two having more than k intersections?  This is an old question of Farb and Leininger when k=1 and the answer,
+proved by Aougab and Gaster this summer
+, is that the size grows at most quadratically in g.  You can set this up as an R-set question for G the mapping class group of genus g.  (Or you almost can;  I think this question would ask about sets of simple loops which were all in the same orbit of the mapping class group.)  For general k, the maximal size is expected to grow like g^{k+1}, and this i
+s almost known
+.  The case of a punctured disc is
+a theorem of Przyticki
+.   The polynomial growth in g seems to me in the same spirit as what Guan and Ramos conjecture.  The chromatic number version of this problem
+has also been studied
+.
+Sorry if this is telegraphic!  I just wanted to remind myself about the connection of this interesting body of problems in topology to the setup I mentioned earlier.  I really do think that any interesting group (and the mapping class groups sure are interesting) produces interesting combinatorial questions via this machine.
+We could also generalize the first question in a more number-theoretic, less low-dimensional topology direction, and ask: for a fixed m, how large can n be if there is an mxn matrix with primitive columns whose mxm minors all have determinant at most k?
+Share this:
+Email a link to a friend (Opens in new window)
+Email
+Share on Facebook (Opens in new window)
+Facebook
+Share on Reddit (Opens in new window)
+Reddit
+Share on X (Opens in new window)
+X
+Like
+Loading...
+Related

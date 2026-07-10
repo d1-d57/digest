@@ -1,0 +1,643 @@
+AMS :: Notices of the American Mathematical Society
+
+AMS Website Down
+
+Notice: All AMS websites will be down for maintenance on Saturday, July 11 from 8 am until 1 pm. 
+
+PDFLINK
+
+Education
+
+Teaching Mathematics with Lean: Interactive Theorem Provers in the Classroom
+Paola Iannone
+Gihan Marasingha
+Athina Thoma
+Communicated by 
+Notices
+ Associate Editor Yvonne Lai
+
+Prologue
+
+In September 2018, I
+*
+ (Paola) received an email from a mathematician at Imperial College London whom I had met a couple of years previously at a meeting. He asked me whether I was interested in studying the impact of introducing Lean, an Interactive Theorem Prover (ITP), on students’ understanding of proof in his transition to proof course. I did not know at that time what an Interactive Theorem Prover was, but it sounded interesting as it was linked to proof writing and mathematical reasoning—one of my research interests—so I agreed to meet and discuss the course. The mathematician was Kevin Buzzard and eventually I and Athina Thoma
+‡
+ designed and carried out that study. Since then we have collaborated with mathematicians in Europe and the United States to study the impact that interacting with Lean (
+https://leanprover-community.github.io
+) has on students’ understanding of mathematics, the development of their mathematics epistemology, and the way in which students and, more recently, teachers use this tool.
+
+One of the mathematicians we collaborated with is Gihan Marasingha,
+†
+ who let us into his classroom for one of our projects. In this article, we discuss in turn our research findings and Gihan’s experience with using Lean for teaching to outline some of the potential of this tool for learning mathematics at the undergraduate level.
+
+Introduction
+
+In 
+BBB
+$^{+}$
+24
+ several mathematicians have written about the potential of Lean for the formalization of mathematics and how this tool is now—in their view—indispensable given the complexity of modern proofs. A more recent article 
+Tao25
+ suggests that indeed the mathematics of the future will combine ITPs, machine learning, and large language models to allow for, among other things, a systematic formalization of proofs. It seems, therefore, important that we train our students to use these tools and that we do so in a way that contributes to their mathematical understanding. In this article, we write about the potential of Lean as a tool that can be used in classrooms to help students to come to terms with proof and the requirement of rigor necessary for university mathematics. We do so in two ways. First, we present some results from educational studies concerning the potential of Lean for learning about proof by focusing on the questions we asked and on our findings. Then, Gihan discusses his experience of using Lean in a transition to proof course, sharing also from his perspective the benefits and challenges. Finally, we draw our writing together hoping to inspire more colleagues to use this tool in their teaching. Before we start, we need to make two disclaimers. The first concerns the implementation of Lean for teaching that we are interested in: We will focus on first-year courses of a degree in mathematics that have included learning to use Lean. We know that Lean is now taught and used at the MSc and PhD levels, but these courses are not the focus here. The second disclaimer is that we believe that this educational research is needed, given the growing interest that undergraduate students are showing for Lean and other ITPs. At the University of Edinburgh (UK) there is a Lean club that is student-led and is running with no input from the faculty. We know this to be the case in other mathematics departments as well. Considering that students are actively involved in learning and using Lean and contributing to its library, it is becoming important to see the impact Lean has on the mathematical understanding of undergraduate mathematics students.
+
+Figure 1
+.
+This is the interface of the Natural Number Game in Lean 3 (Level 9 of the Multiplication World). On the left-hand side is the space for writing Lean code, while the right-hand side contains two windows: The top window displays the context and the goal, and the bottom window shows any error messages.
+
+Interactive Theorem Provers
+
+Interactive Theorem Provers have been used in pure mathematics and computer science research since de Bruijn’s creation in the 1960s of the Automath prover (
+dB94
+). ITPs are software tools which bring together proof automation and human-machine proof interaction. They typically contain an interactive proof editor where it is possible to write lines of code following the ITP’s syntax, and draw on a verified symbolic library of mathematical objects. Among the most popular ITPs are Rocq (
+https://rocq-prover.org
+), Isabelle (
+https://isabelle.in.tum.de
+), and Lean. Lean is the ITP which we discuss in this paper. Figures 
+1
+ and 
+2
+ show the interface for the Natural Number Game in Lean 3 (
+https://www.ma.imperial.ac.uk/~buzzard/xena/natural_number_game/index2.html
+). This game was designed by Kevin Buzzard and Mohammad Pedramfar in 2019 as an entry point to Lean for first-year students. The underlying idea of the design was that students could focus on the Lean programming aspect as the mathematics of the game would be familiar to them. In the game, the students progress by coding their way through the construction of the natural numbers completing levels which contain statements regarding addition, multiplication, and more. It was updated by Kevin Buzzard and Jon Eugster for Lean 4, and it can be found at 
+https://adam.math.hhu.de
+.
+
+For the Natural Number Game in Lean 3 each of the levels of the game is preceded by a short description of the statement to prove and of the available tools (e.g., tactics and previously proved theorems). On the left-hand side of the interface is the coding space, where proofs are written after the word “begin.” On the right-hand side, there are two windows: The top window displays the context and the goal that needs to be proved next; the bottom window presents error messages. Once a line of code is written, the error message window may display syntax errors or logic errors (e.g., the object in the code line does not belong to the right type). The top window also provides feedback to the user: It displays the context in which the user is working as well as the goals in each line of written code. These goals can be (logic) correct goals but not necessarily the right ones for the proof. In this game, Lean is used in tactic mode; tactics are automations that can close goals. For example, the tactic 
+refl
+ (for reflexivity) applies this property to the goal of the proof (for example, 
+refl
+ can be used to close the goal presented in Figure 
+2
+). The research reported in this article was carried out before the release of Lean 4. However, the interface for the Natural Number Game in Lean 4 contains elements similar to that of Lean 3—although with more customization features.
+
+The UK Context
+
+Before we discuss our studies and their findings, we introduce the UK higher education context. Students pursuing mathematics degrees must have had mathematics as one of their chosen subjects in high school, and admission to a given university depends on that university’s entrance requirements. Given the nature of the universities we worked with, the students in our studies would have achieved high marks in their final school exams. Degree courses last three years (four years in Scottish universities), and they are modularized: Students need to take a set number of credits associated to courses in each year and to achieve marks that allow them to proceed to the following year.
+
+It is not unusual for mathematics departments in the UK to offer an “introduction to proof” course in the first semester of the first year of the degree, in recognition of the difficulties students have in the transition to university mathematics. The courses that students in our studies took, and the course where Gihan implemented the use of Lean, were of this type. These courses typically include a combination of topics such as number systems, sets, permutations and combinations; the binomial theorem; equivalence relations and arithmetic modulo 
+$n$
+;
+ Euclid’s algorithm; and an introduction to limits. Teaching is conducted in lectures with a large number of students and smaller group tutorials, depending on the size of the cohort and on the university. Assessment is typically based by coursework set during the teaching period and a final closed-book exam.
+
+Figure 2
+.
+This figure shows the continuation of the proof from Figure 
+1
+, reflecting the updated goal after applying different tactics.
+
+Our Starting Point—Key Considerations and Questions
+
+Educational research on the challenges that students face with proof when joining a mathematics degree has highlighted several areas of concern. We list them below, and to each of them we add one or two references to one of the many papers that reports research in that area:
+
+•
+
+Epistemological difficulties:
+ It is well documented that students arriving at a university often fail to realize the role that proof has in pure mathematics and why it is necessary 
+GBD
+$^{+}$
+16
+.
+
+•
+
+Proof comprehension:
+ How well students understand proofs which are presented to them has been a preoccupation of researchers for many years. The overwhelming message is that students often do not have a general understanding of the key ideas of a proof but at best check line-by-line reasoning 
+MRFW
+$^{+}$
+12
+.
+
+•
+
+Proof writing:
+ Several studies show that students and their lecturers do not share the same understanding on what constitutes an “academic style” of proof writing or of the difference between natural and technical language 
+LMR19
+.
+
+•
+
+Proof appraisal:
+ Students are often unable to ascertain the validity of proofs when they read them, often trusting the “authority” of the person who presented the proof to them (e.g., their teacher) 
+SS08
+.
+
+•
+
+Proof composition:
+ Several students’ difficulties are found regarding proof composition. Among these there is the inability to use the definitions in the context of a proof, the uncertainty of how to start a proof, and how to partition a proof into goals and subgoals 
+Pol14
+, 
+Moo94
+.
+
+In the first study, we explored whether interaction with Lean could help students overcome at least some of the difficulties mentioned above. Therefore, the focus was on ascertaining the impact of engagement with Lean on writing proofs with pen and paper. We collected task-based interviews with students in an introduction to proof course at a university in the UK and two surveys focusing on students’ use of and perspectives on Lean. For the analysis of the task-based interviews, we considered 36 proofs of an unseen statement the students were asked to prove. We then asked a mathematician external to the project to score the 36 proofs we had collected from 0 (no attempt made) to 4 (a proof that would get full marks) so that we could compare proofs that were scored at the same level. Through the comparison between proofs written by Lean users and non-Lean users which scored equally, we found that Lean users used mathematical language more precisely (proof writing 
+TI22
+). Lean users also structured proofs in “chunks” by explicitly reporting goals and subgoals of the proof (proof composition 
+Pol14
+). For some students the need of formalizing results they were familiar with helped the shift from naïve to more advanced views of mathematics (mathematics epistemology 
+IT23
+). However, we also noticed that for some students who were Lean users the perceived need for formalization got in the way of writing a relatively simple proof, and sometimes they deployed a very heavy logical language, which may have hampered their mathematical intuition. As engaging with Lean was not a compulsory part of the course, after the third week of the course only 18 out of 300 students said they still worked with Lean and attended the optional Lean workshops. Reasons for nonengagement the students gave included difficulties with the Lean syntax, competing demands on their time from other compulsory parts of their degree, and—more worryingly—the lack of appreciation of how what they saw as a programming activity could relate to learning pure mathematics and proof. The latter issue was unexpected and could be the outcome of the fact that programming in university mathematics is generally linked to computational tasks, statistical analysis, and mathematical modeling. So whereas on the one hand this implementation of Lean was not successful in engaging a high number of students, we were hopeful that a differently organized interaction with Lean could have more benefits in the transition to proof.
+
+Our Next Step—Students’ Interaction with Lean
+
+One of the outcomes of our first study, as also noted in 
+BBB
+$^{+}$
+24
+, was that teaching mathematical content that students found difficult and teaching how to use Lean at the same time was not helping the majority of students with either task, especially in 2018/2019 when there were no Lean resources but the manual which is—by mathematicians’ own admission—difficult to use. At this time, and with these difficulties in mind, games such as the Natural Number Game were constructed (here we refer to the Natural Number Game in Lean 3). This game has become popular with students as an entry point for Lean; for example, this was the first task that students in the Lean club at Edinburgh University engaged with. One of Lean’s key features, also present in the Natural Number Game(s), is its ability to provide immediate feedack on each line of code the user types.
+
+We decided to investigate whether just engaging with the Natural Number Game—not supported by any input by a teacher—could help first-year students with mathematics learning, especially with using mathematical language correctly, and composing and understanding proofs. We thought about this in terms of studying the way in which a human (a student) interacts with a tool (Lean) in order to complete a goal (write a proof). We adopted an approach that takes into account the actions performed by the human while using the tool, the reasons why such actions are performed, and the concepts (mathematical or otherwise) which appear relevant to the human in that situation 
+Tro05
+. During the summer of 2022, we interviewed four students for a total of approximately 70 hours while they made their way though the Natural Number Game. We found that even with four students the ways of engaging with the game could be very different. The first observation we made was that these students, who had just finished the first year of a mathematics degree in a university in the UK, already had their own ways of tackling mathematics problems which they developed at school and then at the university. They had also prior programming experiences which shaped the way they worked within the programming context. Now they were asked to somehow link these “ways of reasoning and acting” together while programming proofs in Lean. This interaction between these “ways of reasoning and acting” gave rise to very different outcomes. One of the students, for example, always referred to what they would do in a pen-and-paper proof before they wrote lines of code in Lean. Their actions (writing the lines of code) were justified by the belief that the proof should follow the outline of the proof that they would write if they were not interacting with the tool (the ITP). In this way the student did not perhaps deploy the full power of the ITP, but they were able to check and refine the proof they were writing. They also admitted that at times the ITP helped them to see inconsistencies and mistakes in the pen-and-paper proof they would have not otherwise seen. This back and forth between programming in Lean and thinking about how to write the corresponding pen-and-paper proof helped them clarify their proofs and occasionally find problems in them and—we argue—helped this student with proof writing and proof composition. On the other end of the spectrum, one of the students interviewed consistently “played the game.” Their actions were reactive, trying out lines of code when they didn’t know what to do and reacting to the feedback provided by Lean. They also often utilized lines of code that closed multiple goals at the same time. We argue that this interaction may not be helpful for learning how to write proofs as it depends on the reactive engagement with the Lean feedback. We concluded that, in order for Lean to be helpful to students to overcome at least some of the difficulties they encounter in the first year of university related to proof, it must be carefully integrated into teaching. In the next part of this article, our colleague Gihan Marasingha will write about how he used Lean in his teaching.
+
+One Experience of Teaching Mathematics with Lean
+
+I (Gihan) have taught an introductory mathematics class of over 200 students at the University of Exeter in England for many years. The topics taught include sets, functions, logic, and the basics of group theory, linear algebra, number theory, and analysis. In 2019, I introduced Lean-based teaching resources and have tried different approaches since then. These include delivery via interactive lecture notes, Lean “games,” and standard lecture notes supplemented via Lean environments hosted on cloud-computing platforms; and they include changing between noncredit-bearing and credit-bearing student submissions.
+
+This experience, and my engagement with mathematics education research, has made clear the issues faced by beginning undergraduates. In what follows, I discuss my introduction of Lean in that class as a way to address some of these issues, commenting on the benefits and challenges.
+
+The transition from high school to university can be difficult. High school mathematics focuses on 
+processes
+ for manipulating algebraic expressions, rather than developing a conceptual understanding of the underlying mathematical objects. This leaves students confused regarding the difference between a function 
+$f : X \to Y$
+ and a value 
+$f(x)$
+ in 
+$Y$
+,
+ for 
+$x \in X$
+.
+ Likewise, students can struggle with the distinction between a set, its elements, and related constructions. A classic example is the confusion students encounter when asked: “What is the symmetric group 
+$S_n$
+?”
+ Beginning students may say that it is the set of integers between 
+$1$
+ and 
+$n$
+.
+
+These are 
+type errors
+. To help give students feedback on type errors, I used the strongly typed functional programming language Haskell to run outreach courses with high school students in the 2010s. As in Lean, certain mathematical objects can be expressed in the Haskell language. If a student uses a value 
+$f(x) \in Y$
+ where a function 
+$f : X \to Y$
+ is expected, Haskell responds with an appropriate error message. However, Haskell is not designed to deal with proofs.
+
+Proofs, like functions and sets, are mathematical objects, albeit objects of far greater complexity. As discussed in the previous section, this complexity presents challenges for students when understanding and writing proofs. For many beginning students, the logical internal structure of a proof is not immediately apparent. Students are often unsure of how to begin a proof and cannot tell if their proofs are correct.
+
+This is where Lean is most effective. To write a proof in Lean is to construct a (dependent) function of an appropriate type. The input to the function is the hypothesis and the output is the conclusion on the theorem. This description may seem baffling to the uninitiated, but Lean’s syntactic sugar ensures that the body of such a function resembles, at least in structure, a traditional proof.
+
+In representing propositional logic, Lean treats logical connectives via rules of inference. Thus, the implication 
+$p \to q$
+ is 
+defined
+ by two rules: (1) To 
+prove
+
+$p \to q$
+ is to assume 
+$p$
+ and deduce 
+$q$
+ and (2) 
+$q$
+ follows 
+given
+ proofs of 
+$p \to q$
+ and 
+$p$
+.
+ This is not a new idea and is familiar to mathematical logicians, but this approach was absent from my undergraduate education. It is more intuitive than truth tables and is a more accurate model of the natural deductive processes of real mathematics.
+
+Moreover, Lean reifies the narrative of a proof by presenting the user, at each stage, with one or more 
+goals
+. Each goal consists of a 
+target
+, that which is to be proved, and the 
+context
+, the set of initial premises together with the variables and facts that have been introduced.
+
+For example, consider the task of proving that for every integer 
+$x$
+,
+ if 
+$x > 5$
+,
+ then there exists an integer 
+$y$
+ such that 
+$xy > 5$
+.
+ The first step of the proof is to assume 
+$x$
+ is an integer. This introduces the integer variable 
+$x$
+ into the context and changes the target to one of proving that if 
+$x > 5$
+,
+ then there exists an integer 
+$y$
+ such that 
+$xy > 5$
+.
+
+The next step is to assume 
+$x > 5$
+.
+ This new assumption is introduced into the context and the target changes to one of proving that there exists an integer 
+$y$
+ such that 
+$xy > 5$
+.
+
+All these changes are presented to students as they proceed with their proof. By working with the goal(s), a student is led more concretely through the proof journey. Moreover, they come to make a connection between each line of the proof and its effect on the goal state.
+
+The two biggest improvements in my students’ proof understanding that I can attribute to Lean are (1) their use of the language of goals and targets, even in later courses, to self-explain when working through a proof and (2) the ability to identify what is required to prove any given kind of statement. For instance, knowing that to prove a statement 
+$\exists x, P(x)$
+ is to 
+exhibit
+ a value 
+$x$
+ together with a proof of 
+$P(x)$
+.
+ By combining these skills, students are able to make progress with some proofs entirely mechanistically. This improvement in mathematical thinking and communication through the use of Lean agrees with the mathematics education findings presented in the previous section.
+
+Lean is by no means limited to simple results in logic. Its foundation is rich, allowing easy representation of standard mathematical objects such as group, vector space, and topological space. Indeed, most topics in undergraduate mathematics are currently represented in Lean’s mathematical library, Mathlib. For instance, students can use Lean to prove Lagrange’s theorem on the order of a subgroup of a finite group.
+
+This richness and the game-like nature of Lean mean that many students find it fun and addictive, going on to work with Lean and other Interactive Theorem Provers on their own time, either for further study of formal mathematics or for applications in computer science.
+
+Teaching with Lean requires thought and planning. In practical terms, learning mathematics and Lean simultaneously is too overwhelming for beginning undergraduates. Part of my approach is to run Lean computer labs on the topics students have encountered at least a week previously in lectures.
+
+Beginning students will not automatically see the connection between Lean and mathematical proofs. I find this is often because they have not yet developed a strong understanding of what a proof is, as referred to in the previous section. Just as some students will present logically nonsensical arguments that look like traditional proofs, they will fail to recognize that a Lean proof is structurally identical to a traditional proof, simply because it looks different. For Lean to be useful, a Lean workshop should include time writing traditional proofs and translating between them and Lean.
+
+A major hurdle for teaching with Lean is that, being a formal computer language, it is unforgiving. A misplaced colon or unmatched parenthesis will result in an angry red error message. Students, especially those without coding experience, find this frustrating. Their original challenging task, that of learning mathematical proof, has been doubled by the task of learning to code in Lean. Students cannot be expected to cope with error messages without instruction.
+
+The skeptic could argue that any benefit attributable to the use of Lean is outweighed by the time and effort involved in dealing with the formal aspects of Lean and error messages, all of which seem superfluous to mathematics. However, the “coding” skills needed to write correct Lean code are directly transferable to traditional proof writing and have the benefit that students get immediate feedback on proof correctness. One such coding skill is the art of decomposing a complicated function into smaller functions. But this is precisely what professional mathematicians do when expressing a (hoped-for) theorem in terms of lemmas. Lean will even check that the skeleton proof is correct, assuming the truth of conjectured lemmas.
+
+One may legitimately question the extent to which facility with Lean transfers over to facility with traditional proof. Certainly some theorems can be proved by referring to Lean’s output of the goal state at every step and throwing Lean tactics at the problem until something works. If the student sees no connection between the Lean proof and their handwritten work, this is indeed a problem. It is less of a concern for more advanced theorems, where “tactic bashing” simply will not work. This reiterates the need, especially for beginners, to require them to give both Lean and handwritten proofs of their arguments.
+
+There are many options for running Lean. The lowest-friction option is to use the Lean 4 web editor, running over the internet. This requires no installation and no preparation. This doesn’t permit working with multifile projects, but it is a great way to get started and presents a similar interface to a standard Visual Studio Code installation.
+
+Another no-install option is to use a cloud computing service like CoCalc, GitHub CodeSpaces, or GitPod. I have used two of these services successfully with my undergraduates. Some cloud-computing services offer classroom management, making it possible for students to submit automatically graded Lean coursework. I have used graded coursework in my class. This improves engagement with Lean, but you should be aware of the potential for plagiarism.
+
+Lean “games,” running on the Lean Game Engine, are an excellent alternative for self-study. The latest version of the engine permits users to enter proofs a line at a time, provides hints, and maintains a store of useful Lean tactics and theorems. A game designer can restrict which tactics and theorems are available to the user at any stage in the game.
+
+Lean Verbose (
+https://github.com/PatrickMassot/verbose-lean4
+), led by Patrick Massot, is a controlled natural language interface to Lean. It allows the user to write Lean proofs in a formal language that looks much more like a natural language than standard Lean.
+
+Most of my Lean-using colleagues will tell you that using Lean has changed how they think about mathematics. It has certainly changed how I 
+teach
+ mathematics. Early material in my lecture notes focuses on developing the ability to parse expressions, building mental models of mathematical objects, including proofs. Students then instantiate and check these mental models in Lean. Making a strong connection between traditional mathematics and Lean makes proof much more concrete and accessible.
+
+Some Concluding Remarks
+
+In this article, we discussed the possible benefits as well as some of the drawbacks of using Lean as part of a first-year introduction to proof course. We presented both results from current research in mathematics education and the experience of using Lean in teaching. The picture that emerges suggests that introducing this tool in teaching needs to be done with caution: There is the need to create suitable resources for the students, and there are some initial hurdles to overcome for both students and teachers. However, the results may be worth the effort not only in terms of enhancing students’ learning about proof but also to improve their programming skills, which are highly valued in the workplace.
+
+There is one more interesting aspect of the current popularity of Lean (and of Interactive Theorem Provers in general) with students and with mathematicians who want to use this tool in their teaching. This is one of the very few examples of a tool that mathematicians may use for their research entering their teaching practice. Of course there are other computer-based tools used in teaching mathematics (e.g., Python), but these are not designed specifically for mathematics research. The way in which we teach mathematics at a university has often been criticized for being detached from the way in which mathematicians do mathematics, and this has had undesirable consequences for how students think about and learn mathematics. Moreover, 
+DW23
+ discusses the viability of pedagogical interventions in university mathematics teaching and explores why so many pedagogical interventions are started by enthusiastic colleagues but very few survive in the long term. The authors conclude that pedagogical interventions are unlikely to endure beyond their initial implementation if they are disconnected from the practices of doing mathematics and are designed by “others” (researchers in education) without a strong collaborative approach. Using Lean—and Interactive Theorem Provers in general—to support the teaching of transition to proof courses could be an example of a lasting pedagogical innovation. Its adoption originates from course designs initiated by mathematicians and involves a tool now used for research in mathematics. Furthermore, the affordances and drawbacks of the use of Lean in terms of students’ learning are being collaboratively investigated by mathematicians and mathematics educators.
+
+The Lean community is now very active and constantly growing, which also means that the mathematical library is expanding and more mathematical topics are formalized. At the same time, there are several conferences about using Lean (or Interactive Theorem Provers) in research (
+https://lftcm2023.github.io
+) and mathematics teaching (
+https://sites.google.com/view/learning-math-with-lean-events/home
+). Our next steps, as educational researchers, will be to investigate the implementation of a series of resources designed for a first-year course that is supported by Lean and the impact that those resources have on students’ learning about proof. For those who wish to incorporate this tool in their classrooms, the next steps involve being informed by the experience of others and engaging with considering the potential outcomes of using the tool within their specific contexts.
+
+References
+[
+BBB
+$^{+}$
+24
+]
+ Jonas Bayer, Christoph Benzmüller, Kevin Buzzard, Marco David, Leslie Lamport, Yuri Matiyasevich, Lawrence Paulson, Dierk Schleicher, Benedikt Stock, and Efim Zelmanov, 
+Mathematical proof between generations
+, Notices Amer. Math. Soc. 
+71
+ (2024), no. 1, 79–92. MR
+4693604
+, 
+
+Show raw
+AMSref
+
+\bib{bayer2022mathematical}{article}{
+  author={Bayer, Jonas},
+  author={Benzm\"{u}ller, Christoph},
+  author={Buzzard, Kevin},
+  author={David, Marco},
+  author={Lamport, Leslie},
+  author={Matiyasevich, Yuri},
+  author={Paulson, Lawrence},
+  author={Schleicher, Dierk},
+  author={Stock, Benedikt},
+  author={Zelmanov, Efim},
+  title={Mathematical proof between generations},
+  journal={Notices Amer. Math. Soc.},
+  volume={71},
+  date={2024},
+  number={1},
+  pages={79--92},
+  issn={0002-9920},
+  review={\MR {4693604}},
+}
+
+[
+DW23
+]
+ Paul Christian Dawkins and Keith Weber, 
+Identifying minimally invasive active classroom activities to be developed in partnership with mathematicians
+, Mathematicians’ reflections on teaching: A symbiosis with mathematics education theories, 2023, pp. 103–121., 
+
+Show raw
+AMSref
+
+\bib{dawkins2023identifying}{incollection}{
+  author={Dawkins, Paul~Christian},
+  author={Weber, Keith},
+  title={Identifying minimally invasive active classroom activities to be developed in partnership with mathematicians},
+  date={2023},
+  booktitle={Mathematicians' reflections on teaching: A symbiosis with mathematics education theories},
+  publisher={Springer},
+  pages={103\ndash 121},
+}
+
+[
+dB94
+]
+ N. G. de Bruijn, 
+A survey of the project Automath [MR0592822 (81m:03017)]
+, Selected papers on Automath, Stud. Logic Found. Math., vol. 133, North-Holland, Amsterdam, 1994, pp. 141–161, DOI 
+10.1016/S0049-237X(08)70203-9
+. MR
+1429401
+, 
+
+Show raw
+AMSref
+
+\bib{de1994survey}{article}{
+  author={de Bruijn, N. G.},
+  title={A survey of the project Automath [MR0592822 (81m:03017)]},
+  conference={ title={Selected papers on Automath}, },
+  book={ series={Stud. Logic Found. Math.}, volume={133}, publisher={North-Holland, Amsterdam}, },
+  date={1994},
+  pages={141--161},
+  review={\MR {1429401}},
+  doi={10.1016/S0049-237X(08)70203-9},
+}
+
+[
+GBD
+$^{+}$
+16
+]
+ Ghislaine Gueudet, Marianna Bosch, Andrea A DiSessa, Oh Nam Kwon, and Lieven Verschaffel, 
+Transitions in mathematics education
+, Springer Nature, 2016, 
+https://library.oapen.org/bitstream/handle/20.500.12657/27698/1/1002308.pdf
+., 
+
+Show raw
+AMSref
+
+\bib{gueudet2016transitions}{book}{
+  author={Gueudet, Ghislaine},
+  author={Bosch, Marianna},
+  author={DiSessa, Andrea~A},
+  author={Kwon, Oh~Nam},
+  author={Verschaffel, Lieven},
+  title={Transitions in mathematics education},
+  publisher={Springer Nature},
+  date={2016},
+  url={https://library.oapen.org/bitstream/handle/20.500.12657/27698/1/1002308.pdf},
+}
+
+[
+IT23
+]
+ Paola Iannone and Athina Thoma, 
+Interactive theorem provers for university mathematics: an exploratory study of students’ perceptions
+, Int. J. Math. Educ. Sci. Technol. (2023), 1–23., 
+
+Show raw
+AMSref
+
+\bib{iannone2023interactive}{article}{
+  author={Iannone, Paola},
+  author={Thoma, Athina},
+  title={Interactive theorem provers for university mathematics: an exploratory study of students' perceptions},
+  date={2023},
+  journal={Int. J. Math. Educ. Sci. Technol.},
+  pages={1\ndash 23},
+}
+
+[
+LMR19
+]
+ Kristen Lew and Juan Pablo Mejia-Ramos, 
+Linguistic conventions of mathematical proof writing at the undergraduate level: Mathematicians’ and students’ perspectives
+, J. Res. Math. Educ. 
+50
+ (2019), no. 2, 121–155., 
+
+Show raw
+AMSref
+
+\bib{lew2019linguistic}{article}{
+  author={Lew, Kristen},
+  author={Mejia-Ramos, Juan~Pablo},
+  title={Linguistic conventions of mathematical proof writing at the undergraduate level: Mathematicians' and students' perspectives},
+  date={2019},
+  journal={J. Res. Math. Educ.},
+  volume={50},
+  number={2},
+  pages={121\ndash 155},
+}
+
+[
+MRFW
+$^{+}$
+12
+]
+ Juan Pablo Mejia-Ramos, Evan Fuller, Keith Weber, Kathryn Rhoads, and Aron Samkoff, 
+An assessment model for proof comprehension in undergraduate mathematics
+, Educ. Stud. Math. 
+79
+ (2012), 3–18., 
+
+Show raw
+AMSref
+
+\bib{mejia2012assessment}{article}{
+  author={Mejia-Ramos, Juan~Pablo},
+  author={Fuller, Evan},
+  author={Weber, Keith},
+  author={Rhoads, Kathryn},
+  author={Samkoff, Aron},
+  title={An assessment model for proof comprehension in undergraduate mathematics},
+  date={2012},
+  journal={Educ. Stud. Math.},
+  volume={79},
+  pages={3\ndash 18},
+}
+
+[
+Moo94
+]
+ Robert C Moore, 
+Making the transition to formal proof
+, Educ. Stud. Math. 
+27
+ (1994), no. 3, 249–266., 
+
+Show raw
+AMSref
+
+\bib{moore1994making}{article}{
+  author={Moore, Robert~C},
+  title={Making the transition to formal proof},
+  date={1994},
+  journal={Educ. Stud. Math.},
+  volume={27},
+  number={3},
+  pages={249\ndash 266},
+}
+
+[
+Pol14
+]
+ G. Polya, 
+How to solve it: A new aspect of mathematical method
+, Princeton Science Library, Princeton University Press, Princeton, NJ, 2014. With a foreword by John H. Conway; Reprint of the second (2004) edition [MR2183670]. MR
+3289212
+, 
+
+Show raw
+AMSref
+
+\bib{polya2014solve}{book}{
+  author={Polya, G.},
+  title={How to solve it: A new aspect of mathematical method},
+  series={Princeton Science Library},
+  note={With a foreword by John H. Conway; Reprint of the second (2004) edition [MR2183670]},
+  publisher={Princeton University Press, Princeton, NJ},
+  date={2014},
+  pages={xxviii+253},
+  isbn={978-0-691-16407-6},
+  review={\MR {3289212}},
+}
+
+[
+SS08
+]
+ Annie Selden and John Selden, 
+Overcoming students’ difficulties in learning to understand and construct proofs
+, Making the connection: Research and teaching in undergraduate mathematics (2008), 95–110., 
+
+Show raw
+AMSref
+
+\bib{selden2008overcoming}{article}{
+  author={Selden, Annie},
+  author={Selden, John},
+  title={Overcoming students' difficulties in learning to understand and construct proofs},
+  date={2008},
+  journal={Making the connection: Research and teaching in undergraduate mathematics},
+  pages={95\ndash 110},
+}
+
+[
+Tao25
+]
+ Terence Tao, 
+Machine-assisted proof
+, Notices Amer. Math. Soc. 
+72
+ (2025), no. 1, 6–13. MR
+4845676
+, 
+
+Show raw
+AMSref
+
+\bib{Tao2025Notices}{article}{
+  author={Tao, Terence},
+  title={Machine-assisted proof},
+  journal={Notices Amer. Math. Soc.},
+  volume={72},
+  date={2025},
+  number={1},
+  pages={6--13},
+  issn={0002-9920},
+  review={\MR {4845676}},
+}
+
+[
+TI22
+]
+ Athina Thoma and Paola Iannone, 
+Learning about proof with the theorem prover LEAN: the abundant numbers task
+, Int. J. Res. Undergrad. Math. Educ. (2022), 64–93., 
+
+Show raw
+AMSref
+
+\bib{thoma2022learning}{article}{
+  author={Thoma, Athina},
+  author={Iannone, Paola},
+  title={Learning about proof with the theorem prover {LEAN}: the abundant numbers task},
+  date={2022},
+  journal={Int. J. Res. Undergrad. Math. Educ.},
+  pages={64\ndash 93},
+}
+
+[
+Tro05
+]
+ Luc Trouche, 
+An instrumental approach to mathematics learning in symbolic calculator environments
+, The didactical challenge of symbolic calculators: Turning a computational device into a mathematical instrument (2005), 137–162., 
+
+Show raw
+AMSref
+
+\bib{trouche2005instrumental}{article}{
+  author={Trouche, Luc},
+  title={An instrumental approach to mathematics learning in symbolic calculator environments},
+  date={2005},
+  journal={The didactical challenge of symbolic calculators: Turning a computational device into a mathematical instrument},
+  pages={137\ndash 162},
+}
+
+Paola Iannone
+*
+ is a reader in mathematics education at the University of Edinburgh. Her email address is 
+[email protected]
+.
+
+Gihan Marasingha
+†
+ is an associate professor in mathematics at the University of Exeter. His email address is 
+[email protected]
+.
+
+Athina Thoma
+‡
+ is a lecturer in mathematics education at the University of Southampton. Her email address is 
+[email protected]
+.
+
+Article DOI: 
+10.1090/noti3184
+Credits
+
+Figures 1 and 2 and photo of Paola Iannone are courtesy of Paola Iannone.
+
+Photo of Gihan Marasingha is courtesy of Gihan Marasingha.
+
+Photo of Athina Thoma is courtesy of Athina Thoma.

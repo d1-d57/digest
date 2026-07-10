@@ -1,0 +1,1489 @@
+
+
+Notices of the American Mathematical Society
+
+Welcome to the 
+Notices of the American Mathematical Society
+.
+With 
+support from AMS membership
+, we are pleased to share the journal with the global mathematical community.
+
+PDFLINK
+
+Topology Meets Machine Learning: An Introduction Using the Euler Characteristic Transform
+Bastian Rieck
+Communicated by 
+Notices
+ Associate Editor Emilie Purvine
+
+Machine learning is shaping up to be 
+the
+ transformative technology of our times: Many of us have interacted with models like ChatGPT, new breakthroughs in applications like healthcare are announced on an almost daily basis, and novel avenues for integrating these tools into scientific research are opening up, with some mathematicians already using large language models as proof assistants 
+Ghr25
+Won24
+.
+
+Written for an audience of mathematicians with limited prior exposure to machine learning, this article aims to dispel some myths about the field, hoping to make it more welcoming and open. Indeed, from the outside, machine learning might look like a homogeneous entity, but in fact, the field is highly diverse, like mathematics itself. While the main thrust of the field arises from engineering advances, with bigger and better models, there is also plenty of space for mathematics and mathematicians. As a running example of how mathematics—beyond linear algebra and statistics, the classical drivers of machine learning—may enrich the field, this article focuses on 
+topology
+, which recently started providing novel insights into the foundations of machine learning: 
+Point-set topology
+, harnessing concepts like neighborhoods, can be used to extend existing algorithms from graphs to cell complexes 
+HIZ20
+. 
+Algebraic topology
+, making use of effective invariants like homology, improves the results of models for 3D shape reconstruction 
+WAM
+$^{+}$
+22
+. Finally, 
+differential topology
+, providing tools to study smooth properties of data, results in efficient methods for analyzing geometric simplicial complexes 
+MHR24
+. These (and many more) research strands are finding a home in the nascent field of 
+topological deep learning
+
+PBB
+$^{+}$
+24
+.
+
+1
+.
+
+What is Machine Learning?
+
+Before diving into concrete examples, let us first take a step back and introduce the field of machine learning. Machine learning is broadly construed as the art and science of employing algorithms to solve tasks, but with the added restriction that the algorithm should—in a certain sense that will become clear below—adapt itself to the data at hand. To substantiate this informal definition, we need to introduce some terms, beginning with the notion of a 
+feature
+, which denotes a quantity derived from “raw” input data. For instance, given a set of chemical structures, the number of carbon atoms could be a feature. Adding other features—such as the number of oxygen atoms, ring structures, or aromatic bounds—then yields a high-dimensional representation of a chemical structure in the form of a 
+feature vector
+, which, for convenience, we assume to live in some 
+$\mathbb{R} ^d$
+.
+
+Machine-learning algorithms may thus, on a very high level, be seen as functions of the form 
+$f\colon \mathbb{R} ^d \to \mathcal{D}$
+,
+ where 
+$\mathcal{D}$
+ indicates some domain of interest. When 
+$\mathcal{D} = \mathbb{R}$
+,
+ we say that this is a 
+regression task
+,⁠
+Footnote
+1
+ whereas when 
+$\mathcal{D}$
+ is a set, we are dealing with a 
+classification task
+. As a running example, suppose we are interested in classifying chemical structures. The domain 
+$\mathcal{D}$
+ could consist of the labels “toxic” and “harmless.” Since we have access to labels, our classification task is an example of 
+supervised machine learning
+.⁠
+Footnote
+2
+ Not every function 
+$f$
+ is equally useful in this context, though. If 
+$f$
+ would always predict “toxic,” it would not be a suitable function for our task (even though its prediction might be the safest bet). The allure of machine learning lies in the fact that it provides a framework to 
+learn
+ a suitable function 
+$f$
+ by presenting the algorithm with numerous examples of different chemical structures, in the hope that with sufficient data, the underlying mechanism(s) driving toxicity can be derived. Thus, when we show this function a new example, its guess as to whether it is toxic or not is based on all previously seen examples. The field of machine learning has developed many suitable models for finding or approximating such functions. Chief among those is the concept of 
+deep neural networks
+.⁠
+Footnote
+3
+ Deep-learning models started a veritable revolution in some fields like computer vision, mostly because (i) they obviate the need for “hand-crafted” features, as used at the beginning of this section, and (ii) they consist of standalone building blocks, i.e., 
+layers
+, that can be easily combined to build new models for solving domain-specific problems.
+1
+This also generalizes to predicting more than one value.
+✖
+2
+In 
+unsupervised machine learning
+, by contrast, input data are not labeled, requiring models to “learn” characteristic properties or patterns of the data-generation process such as clusters.
+✖
+3
+See Schmidhuber 
+Sch22
+ for a “deep dive” into the respective algorithms and their origin stories.
+✖
+
+Initially, all layers of a deep neural network start with a random set of parameters or 
+weights
+, which are then subsequently adjusted to minimize a 
+loss function
+. A simple deep neural network—a 
+fully connected neural network
+—produces an 
+output
+
+$y_i^{(l)} \in \mathbb{R} ^{d_l}$
+ based on an 
+input
+
+$y_i^{(l-1)} \in \mathbb{R} ^{d_{l-1}}$
+ via the recursion
+
+$$\begin{equation} y_i^{(l)} \coloneq \sigma \left(W^{(l)} y_i^{(l-1)} + b^{(l)}\right), \tag{1} \end{equation}$$
+
+where 
+$l \in \{1, \dotsc , L\}$
+ ranges over the layers, 
+$W^{(l)}$
+ denotes a 
+$d_l \times d_{l-1}$
+ matrix of weights, 
+$b^{(l)} \in \mathbb{R}$
+ is a 
+bias term
+, and 
+$\sigma$
+ refers to a nonlinear 
+activation function
+ (like a sigmoid or 
+$\tanh$
+).
+ Any original input 
+$y_i^{(0)} \in \mathbb{R} ^d$
+ is thus transformed in a nonlinear fashion,⁠
+Footnote
+4
+ resulting in a final 
+prediction
+
+$y_i \coloneq y_i^{(L)} \in \mathbb{R} ^{d_L}$
+,
+ which is often normalized to 
+$[0, 1]$
+ using a 
+softmax
+ function, i.e.,
+4
+In practice, layers can also perform different operations or transformations to the input data.
+✖
+
+$$\begin{equation} [y_i]_j \mapsto \frac{\exp \left([y_i]_j\right)}{\sum _{k=1}^{d_L}\exp \left([y_i]_k\right)}, \tag{2} \end{equation}$$
+
+where 
+$[y_i]_j$
+ denotes the 
+$j$
+th
+ component of 
+$y_i$
+.
+ In our running example, 
+binary cross-entropy
+ (BCE) would then be a suitable loss function. Mapping 
+$\{$
+“harmless,”
+
+“toxic”
+$\}$
+ to 
+$\{0, 1\}$
+,
+ the BCE loss for 
+$n$
+ predictions is
+
+3
+
+$$\begin{equation} \frac{1}{n} \sum _{i = 1}^{n} \widehat{y_i} \log (y_i) + (1 - \widehat{y_i}) \log (1 - y_i), \cssId{texmlid1}{\tag{3}} \end{equation}$$
+
+where 
+$\widehat{y_i} \in \{0, 1\}$
+ represents the true label of a sample and 
+$y_i \in [0, 1]$
+ refers to the softmax-normalized prediction of the neural network, which we interpret as the probability of the sample being in class 
+$1$
+,
+ i.e., being toxic. The parameters of the neural network are now subsequently adjusted using 
+gradient descent
+ or similar procedures, with the goal of minimizing 
+Equation 
+(
+3
+)
+. To this end, we repeatedly perform the prediction for a set of predefined samples, the so-called 
+training data set
+, which is presented to the neural network in equal-sized 
+batches
+ (as opposed to using the full data set as an input, which would often be prohibitive in terms of memory requirements). Once we are satisfied with the results, we evaluate the prediction on the 
+test data set
+, which crucially, must be kept separate from the training data set.
+
+A common myth concerning deep learning is that it “just” performs curve-fitting, arguably in a highly elaborate way. While this article cannot possibly counter all such claims, it should be pointed out that some neural networks can approximate functions in certain function spaces arbitrarily well. This property is also known as 
+universal function approximation
+ and implies that a certain class of neural networks is dense (usually with respect to the compact convergence topology) in the function space. For instance, feedforward neural networks are known to be able to approximate any Borel-measurable function between finite-dimensional spaces 
+HSW89
+. Similar theorems exist for other architectures and this property is often invoked when discussing the merits of deep learning: A deep neural network with sufficient data may be the simplest way to approximate functions that do not permit analytical solutions.
+
+The conceptual simplicity and modularity of deep neural networks is not without its downsides, though. To perform well, deep neural networks typically require enormous amounts of data as well as a humongous number of parameters. Unless specific provisions are taken, deep neural networks are not energy efficient, and their data requirements still pose serious obstacles in many domains. In addition, neural networks are still black box models with opaque outputs. Despite research in 
+interpretable machine learning
+ aiming to improve this state of affairs, there are still few models whose outputs can be checked easily by human operators, for instance. Even 
+large language models
+ (LLMs), arguably one of the most impressive feats of the field, suffer from shortcomings and are incapable of assessing their own outputs. Like other deep neural networks, they also remain vulnerable to 
+adversarial attacks
+, i.e., inputs that are generated to provoke a bad response, often without the original user of the model being aware of it 
+CAD
+$^{+}$
+21
+. Adversarial examples for vision models can appear innocuous to a human observer but can cause incorrect predictions: For example, traffic signs can be slightly remodeled using adhesive tape, making a vision system unable to detect them. This dispels the common myths that (i) deep neural networks are always robust, and that (ii) deep-learning research is complete (in the sense that, moving forward, there will not be any novel conceptual insights). On the contrary—there are still fundamental challenges that necessitate an analysis of the very foundations of deep learning. It is here that topology and mathematics in general can provide a new perspective.
+
+2
+.
+
+Euler Characteristics Galore
+
+Figure 1
+.
+The five platonic solids (tetrahedron, cube, octahedron, dodecahedron, and icosahedron) all have Euler characteristic 
+$\chi = 2$
+.
+
+Polyhedron
+$\chi$
+Vertices
+Edges
+Faces
+Tetrahedron
+2
+4
+6
+4
+Cube
+2
+8
+12
+6
+Octahedron
+2
+6
+12
+8
+Dodecahedron
+2
+20
+30
+12
+Icosahedron
+2
+12
+30
+20
+
+Figure 2
+.
+An illustration of the Euler Characteristic Curve calculation procedure. Starting from a 3D model, specified as a 
+mesh
+ with vertices, edges, and faces, we perform a single filtration in the direction of the 
+$y$
+-
+axis. The filtration values are shown in the cross-section of the shaded model, with warmer colors corresponding to larger filtration values. Finally, the Euler Characteristic Curve is plotted for all thresholds. (The mesh depicts the “Enterprise NCC-1701-D,” from 
+Star Trek: The Next Generation
+. It was originally created by Moreno Stefanuto and made available under a “Free Standard” license. This paper depicts a modified version by the author.) 
+
+We focus our discussion on the 
+Euler Characteristic Transform
+ (ECT). Being an invariant that bridges geometry and topology, it is perfectly suited for such an overview article because it provides connection points for the largest number of researchers. The ECT is based on the concept of the 
+Euler characteristic
+. This integer-based quantity serves as a summary statistic of the “shape” of a graph or simplicial complex. We define an (abstract) simplicial complex as a family of sets that is closed under taking subsets (also known as 
+faces
+). A simplicial complex generalizes a graph by permitting more than mere dyadic relations. We refer to the elements (sets) of a simplicial complex as its 
+simplices
+ and, given a 
+simplex
+
+$\{v_0, \dots , v_i\}$
+,
+ we say that its 
+dimension
+ is 
+$i$
+.
+ A 
+$p$
+-
+dimensional simplicial complex thus consists of simplices of dimension up to and including 
+$p$
+.
+ For example, graphs can be considered 
+$1$
+-
+dimensional simplicial complexes, consisting of edges (dimension 
+$1$
+)
+ and vertices (dimension 
+$0$
+).
+ Given a 
+$p$
+-
+dimensional simplicial complex 
+$K$
+,
+ we write 
+$K^{(i)}$
+ to refer to its simplices of dimension 
+$i$
+.
+ The 
+Euler characteristic
+ of 
+$K$
+ is then defined as an alternating sum of simplex counts, i.e.,
+
+$$\begin{equation} \chi (K) \coloneq \sum _{i=0}^{p} (-1)^i \left|K^{(i)}\right|. \tag{4} \end{equation}$$
+
+The Euler characteristic affords several equivalent definitions (for instance, in terms of the 
+Betti numbers
+ of 
+$K$
+),
+ generalizes to different objects (graphs, simplicial complexes, polyhedra, …), and is a 
+topological invariant
+, meaning that if two spaces (objects) are homotopy equivalent, their Euler characteristic is the same. This is depicted in 
+Figure 1
+ by means of the classical example of the five platonic solids. Since all these spaces are homotopy-equivalent to the 
+$2$
+-
+sphere, they all share Euler characteristic 
+$2$
+.
+
+While a single number 
+$\chi (K)$
+ is insufficient to fully characterize a shape, it is possible to lift it to a multiscale summary known as the 
+Euler Characteristic Transform
+ (ECT), introduced by Turner et al. 
+TMB14
+. The ECT requires a 
+geometric simplicial complex
+
+$K$
+ in 
+$\mathbb{R} ^d$
+.
+ We can think of such a complex as having an associated coordinate 
+$x_v$
+ for each vertex 
+$v$
+ of a simplex 
+$\sigma$
+ such that every face of 
+$\sigma$
+ is in 
+$K$
+ and the intersection of two simplices in 
+$K$
+ is either empty or a face of both. Taking now any direction 
+$w \in \mathbb{S} ^{d-1}$
+,
+ i.e., any point on the 
+$(d-1)$
+-
+sphere, we obtain a real-valued function defined for all simplices of 
+$K$
+ via
+
+5
+
+$$\begin{equation} \begin{split} f_w\colon K &\to \mathbb{R} \\ \sigma & \mapsto \max _{v\in \sigma } \langle x_v, w \rangle , \end{split} \cssId{texmlid3}{\tag{5}} \end{equation}$$
+
+where 
+$\langle \cdot , \cdot \rangle$
+ denotes the standard Euclidean inner product. In the parlance of computational topology, this function 
+$f_w$
+ can be used to obtain a 
+filtration
+ of 
+$K$
+ in terms of its subcomplexes: Given a threshold 
+$t \in \mathbb{R}$
+,
+ we define 
+$K_{t, w} \coloneq \{\sigma \in K \mid f_w(\sigma ) \leq t\}$
+.
+ Evaluating the Euler characteristic of each 
+$K_{t,w}$
+ then yields the 
+Euler Characteristic Curve
+ (ECC) associated to the direction 
+$w$
+.
+ Referring to the set of all finite geometric simplicial complexes as 
+$\mathcal{K}$
+,
+ the ECC is an integer-valued function of the form
+
+6
+
+$$\begin{equation} \begin{split} \operatorname {ECC}\colon \mathcal{K} \times \mathbb{S} ^{d-1} \times \mathbb{R} &\to \mathbb{Z} \\ (K, w, t) & \mapsto \chi (K_{t, w}). \end{split} \cssId{texmlid2}{\tag{6}} \end{equation}$$
+
+The ECC thus maps a simplicial complex 
+$K$
+,
+ together with a direction 
+$w$
+ and a threshold 
+$t$
+,
+ to the Euler characteristic of its corresponding subcomplex. 
+Figure 2
+ depicts the ECC calculation procedure for a 
+mesh
+, i.e., a geometric simplicial complex in 
+$\mathbb{R} ^3$
+,
+ consisting of 
+$276{,}497$
+ vertices, 
+$821{,}475$
+ edges, and 
+$604{,}393$
+ faces (triangles). We consider a single filtration along the 
+$y$
+-
+axis of the mesh, i.e., 
+$w = (0, 1, 0)$
+,
+ sweeping the spaceship from bottom to top via 
+$K_{t, w}$
+,
+ where 
+$t \in [2.93, 5.22]$
+ as a consequence of the range of the vertex coordinates of the mesh. For each 
+$t$
+,
+ we calculate the Euler characteristic 
+$\chi (K_{t, w})$
+,
+ leading to the ECC associated to the direction 
+$w$
+.
+
+While more “expressive” than a single Euler characteristic, the ECC still depends on the choice of direction. By using multiple directions, we may hope to obtain a better representation of 
+$K$
+.
+ This leads to the 
+Euler Characteristic Transform
+, which is defined as the function that assigns each direction 
+$w \in \mathbb{S} ^{d-1}$
+ to its corresponding ECC, i.e.,
+
+7
+
+$$\begin{equation} \begin{split} \operatorname {ECT}\colon \mathcal{K} \times \mathbb{S} ^{d-1} & \to \mathbb{Z} ^{\mathbb{R}}\\ (K,w) & \mapsto \operatorname {ECC}(K, w, \cdot ), \end{split} \cssId{texmlid4}{\tag{7}} \end{equation}$$
+
+where 
+$\mathbb{Z} ^{\mathbb{R}}$
+ denotes the set of functions from 
+$\mathbb{R}$
+ to 
+$\mathbb{Z}$
+.
+ Turner et al. 
+TMB14
+ proved that the ECT serves as a sufficient “shape statistic,” yielding an injective mapping for dimensions 
+$2$
+ and 
+$3$
+ if an infinite number of directions is used. Thus, given two simplicial complexes 
+$K \neq K'$
+,
+ we have 
+$\operatorname {ECT}(K, \cdot ) \neq \operatorname {ECT}(K', \cdot )$
+.
+ This result was later generalized to arbitrary dimensions by Ghrist et al. 
+GLM18
+ and Curry et al. 
+CMT22
+,⁠
+Footnote
+5
+ who also showed that, somewhat surprisingly, a 
+finite
+ number of directions is sufficient to guarantee injectivity.
+5
+Despite their different publication dates, both works appeared concurrently as preprints.
+✖
+
+We briefly recapitulate the proof idea underlying Ghrist et al. 
+GLM18
+, which draws upon Euler calculus on 
+o-minimal structures
+ to only permit inputs that are “well-behaved” or “tame.” An o-minimal structure 
+$\mathcal{O} = \{\mathcal{O}_d\}$
+ over 
+$\mathbb{R}$
+ consists of a collection of subsets 
+$\mathcal{O}_d \subset \mathbb{R} ^d$
+,
+ which are closed under both intersection and complement. Moreover, 
+$\mathcal{O}$
+ needs to satisfy certain axioms, including⁠
+Footnote
+6
+ being closed under cross products and containing all algebraic sets. In addition 
+$\mathcal{O}_1$
+ must consist of finite unions of open intervals and points. The sets in 
+$\mathcal{O}$
+ are called 
+definable
+ or 
+tame
+. Letting 
+$X$
+ be a definable subset (intuitively, 
+$X$
+ can be seen as a generalized variant of a geometric simplicial complex) of 
+$\mathbb{R} ^d$
+,
+ the 
+constructible functions
+ on 
+$X$
+ are integer-valued functions with definable level sets, denoted by 
+$h\colon X \to \mathbb{Z}$
+.
+ Letting 
+$\operatorname {CF}(X)$
+ refer to the set of constructible functions on 
+$X$
+,
+ the 
+Euler integral
+ on 
+$X$
+ is the functional 
+$\int _X \cdot \mathrm{d}_{\chi }\colon \operatorname {CF}(X) \to \mathbb{Z}$
+ that maps 
+$\mathbb{1} _\sigma \mapsto (-1)^{\dim \sigma }$
+ for each simplex 
+$\sigma$
+.
+ Given definable subsets 
+$X, Y$
+ and a constructible function 
+$k \in \operatorname {CF}(X \times Y)$
+,
+ the 
+Radon transform
+ is defined as
+6
+This expository article strives for clarity. Interested readers are invited to dive into Curry et al. 
+CMT22
+ and the references therein to learn more about o-minimal structures.
+✖
+
+$$\begin{equation} \mathcal{R}_k h(y) \coloneq \int _X h(x) k(x, y) \mathrm{d}_\chi (x). \tag{8} \end{equation}$$
+
+Ghrist et al. 
+GLM18
+ now show that the ECT can be considered a Radon transform, using 
+$X = \mathbb{R} ^d$
+ and 
+$Y = \mathbb{S} ^{d-1} \times \mathbb{R}$
+,
+ with 
+$k(x, (w, t))$
+ being the indicator function on 
+$\{(x,(w, t)) \mid \langle x, w \rangle \leq t \}$
+.
+ Since prior work already shows under which conditions one can recover the input to a Radon transform, Ghrist et al. 
+GLM18
+ obtain a short, elegant proof of the fact that the ECT is not only injective but also 
+invertible
+.
+
+3
+.
+
+Using the Euler Characteristic Transform in a Machine-Learning Model
+
+Given the invertibility results and the fact that the ECT is highly efficient to implement, its integration into machine-learning models is only logical. Before we discuss how to use the ECT with a deep-learning model, let us first ponder some of its practical uses with classical⁠
+Footnote
+7
+ machine-learning methods like 
+support vector machines
+. Central to such algorithms is their use of handcrafted features; while often eschewed in deep learning,⁠
+Footnote
+8
+ the power of such features should not be underestimated—in particular when combined with methods like the ECT.
+7
+While this is the common nomenclature as used in the machine-learning community, it should be pointed out that some of these methods predate deep learning by a couple of years only. This indicates the rapid pace of the field.
+✖
+8
+It is a common myth that classical machine-learning techniques are always outperformed by deep learning; in fact, there are many applications in which such techniques exhibit strong performance while remaining computationally efficient.
+✖
+
+The results by Curry et al. 
+CMT22
+ indicate that one could use a finite set of directions to calculate the ECT. However, it is unclear how to find such directions. This leaves us with the option to 
+sample
+ directions 
+$W \coloneq \{w_1, \dots , w_k\} \subset \mathbb{S} ^{d-1}$
+,
+ and consider the ECT restricted to 
+$W$
+.
+ The hope is that the sample is sufficient to capture shape characteristics. Another discretization applied in practice involves the choice of thresholds. For example, if each coordinate 
+$x_v$
+ has at most unit norm, we know that 
+$\langle x_v, w \rangle \in [-1, 1]$
+.
+ Thus, we may sample thresholds 
+$T \coloneq \{t_1, \dots , t_l\} \subset [-1, 1]$
+ and evaluate each ECC for a specific direction 
+$w$
+ only at thresholds in 
+$T$
+.
+ This discretization allows us to represent the ECT as a matrix, where columns are indexed by 
+$W$
+ and rows are indexed by 
+$T$
+.
+ In this representation, each column corresponds to the ECC for some direction 
+$w$
+ and all ECCs are aligned in the sense that a row index 
+$i$
+ within any column corresponds to the 
+same
+ threshold 
+$t_i \in [-1, 1]$
+.
+ An alternative discretization involves picking a set of 
+$l$
+ thresholds 
+$T_w$
+ for each direction 
+$w$
+ individually. While each column of the resulting matrix still represents an ECC, the same row index 
+$i$
+ within columns now generally corresponds to 
+different
+ thresholds, depending on the set of directions 
+$W$
+.
+ Both discretization strategies have their merits. The first strategy is preferable when the input data is contained in (or normalized to) a unit sphere; the second strategy can be useful in situations in which size differences between individual ECCs do not matter.
+
+Regardless of the discretization strategy, the resulting matrix can be viewed as an 
+image
+, although care must be taken to understand that the ordering of directions, i.e., the columns of the matrix/image, is entirely arbitrary. 
+Figure 3
+ depicts this visualization for 
+$256$
+ randomly selected directions. When using the “raw” values of 
+$t$
+ to index the rows, we observe substantially more zeros. This is because we chose thresholds based on the global minimum and maximum across 
+all
+ filtrations, meaning that any individual ECT, whose range is typically much smaller than the global one, rises to its respective maximum very quickly. The column-normalized version, by contrast, exhibits more variability, with different columns appearing to have a smaller width—this is a perceptual illusion, though, arising from the fact that each column now gradually increases in intensity. Unlike the “raw” version, care must be taken when considering differences between individual columns.
+
+Figure 3
+.
+Visualizing the ECT of the model in 
+Figure 2
+ as a discretized image using either the raw 
+$t$
+-
+values (left), or a rescaled version (right) where each column is normalized individually to 
+$[-1, 1]$
+.
+ Each 
+$x$
+-
+axis shows 
+$256$
+ randomly selected directions, while each 
+$y$
+-
+axis corresponds to the filtration values 
+$t$
+,
+ with the lowest value starting at the top of the image. Every column in the image corresponds to an individual ECT, with the pixel color indicating the value for a specific filtration threshold 
+$t$
+.
+
+(
+a
+)
+Raw
+
+(
+b
+)
+Column-normalized
+
+Setting aside the dissimilarities between the two variants, it is possible to compare shapes by calculating an appropriate distance between their respective ECT images. Such approaches work best when shapes are aligned to a shared coordinate system 
+Mun25
+ since 
+any
+ column permutation of the resulting matrix describes the same ECT in the sense that there is no canonical ordering of different directions in higher dimensions. The matrix representation can also be used directly as an input to a machine-learning model by “flattening” the matrix, thus effectively turning the matrix into a long feature vector. Similar to our initial example with chemical structures, this process enables us to represent a complex shape as a fixed-size vector. Such a representation crucially depends on the choices of thresholds and directions, but is seen to lead to good results in practice 
+Mun25
+.
+
+How can we move beyond such handcrafted features and use deep learning to find task-specific ECTs? The answer lies in picking a different representation, which enables us to 
+learn
+ an appropriate set of directions 
+$W$
+ as opposed to 
+sampling
+ it. One obstacle to overcome here involves the fact that the ECT is a discrete quantity based on step functions. Such functions are at odds with deep-learning models, which prefer their inputs to be smooth and differentiable. While different variants of the ECT exist, for instance a smooth one obtained by mean-centering and integration 
+Mun25
+, we may also apply another trick often found in machine-learning research: Instead of working with the original definition of a function, we just work with a smooth 
+approximation
+ of it! While this technically solves a different problem than what we originally set out to achieve, it often works surprisingly well. Regardless of the specific approximation method, this procedure will permit us to use the ECT as a differentiable building block of deep-learning models. The ECT may thus be said to constitute an 
+inductive bias
+, a term that refers to the specific assumptions built into a machine-learning model to affect its inner workings and results.⁠
+Footnote
+9
+9
+The quintessential example of an inductive bias involves the locality assumption of convolutional neural networks, i.e., the focus on small “patches” of an input image.
+✖
+
+To approximate the ECT, we first notice that any ECC can be written as a sum of 
+indicator functions
+, i.e., we rewrite 
+Equation 
+(
+6
+)
+ as
+
+9
+
+$$\begin{equation} (K, w, t) \mapsto \sum _{i=0}^{p}(-1)^i\sum _{\sigma \in K_{t, w}^{(i)}}\mathbb{1} _{\leq t}( f_w(\sigma ) ), \cssId{texmlid5}{\tag{9}} \end{equation}$$
+
+where 
+$K_{t,w}^{(i)}$
+ denotes all 
+$i$
+-
+simplices of 
+$K_{t,w}$
+,
+ and 
+$f_w$
+ refers to the filtration from 
+Equation 
+(
+5
+)
+. Equivalently, 
+Equation 
+(
+7
+)
+ permits a rephrasing via indicator functions. So far, this is still an exact expression. The approximation comes into play when we notice that an indicator function can be replaced by a 
+sigmoid function
+, i.e., 
+$S(x) = 1/1 + \exp (-x)$
+.
+ This lets us define an approximate ECC by rewriting 
+Equation 
+(
+9
+)
+ as
+
+10
+
+$$\begin{equation} (K, w, t) \mapsto \sum _{i=0}^{p}(-1)^i\sum _{\sigma \in K_{t, w}^{(i)}}S\left(\lambda \left(t - f_w(\sigma )\right)\right), \cssId{texmlid6}{\tag{10}} \end{equation}$$
+
+where 
+$\lambda \in \mathbb{R}$
+ denotes a scaling parameter that controls the tightness of the approximation. 
+Figure 4
+ depicts this approximation for various values; we can see that 
+$S(\lambda x)$
+ is indeed a suitable (smooth) replacement for an indicator function. This minor modification has major advantages: 
+Each
+ of the summands in 
+Equation 
+(
+10
+)
+ is differentiable with respect to 
+$w$
+,
+
+$t$
+,
+ and 
+$f_w(\cdot )$
+.
+ It is thus possible to use 
+Equation 
+(
+10
+)
+ to transform a geometrical simplicial complex in a way that is fundamentally compatible with a deep-learning model.
+
+Lest we get lost in implementation details, it is better to assume a more elevated position and take stock of what we already have: Using the approximation above, we have turned the ECT from a discrete function into a function that 
+continuously
+ depends on its input parameters. In machine-learning terminology, we may thus treat this calculation as a 
+layer
+. Assuming that all coordinates have at most unit norm so that 
+$\langle x_v, w\rangle \in [-1, 1]$
+,
+ our ECT layer has two hyperparameters, namely (i) the number 
+$l$
+ of thresholds to discretize 
+$[-1, 1]$
+,
+ and (ii) the number 
+$k$
+ of directions. The input to our layer is a geometric simplicial complex 
+$K$
+,
+ and the output is an 
+$l \times k$
+ matrix (equivalently, we may apply such a construction to all types of spaces that afford an Euler characteristic, including 
+cell complexes
+, for instance). Notice that when learning an ECT for a data set of different objects, one matrix (i.e., the discretized image of an ECT) for each sample in the input batch is returned, resulting in a multidimensional array output, which is also referred to as a 
+tensor
+.⁠
+Footnote
+10
+ Given the continuous dependence on its input parameters, we refer to the construction above as the 
+Differentiable Euler Characteristic Transform
+
+RR24
+.
+10
+This terminology can be confusing for mathematicians at first since machine learning does not (always) make use of any of the properties that would make up a “mathematical” tensor.
+✖
+
+Figure 4
+.
+An indicator function (dashed) and its approximation using differently scaled sigmoid functions, with 
+$\lambda \in \{1, 2, 3, 4, 5\}$
+.
+
+4
+.
+
+Two Applications of Differentiable Euler Characteristic Transforms
+
+Figure 5
+.
+(a)
+ We can learn the directions required to match the ECT of a simple data set. 
+(b)
+ Starting with a set of random directions, our initial “guess” of the ECT looks nothing like the original. 
+(c)
+ After several optimization steps, which minimize the dissimilarity between “our” ECT and the original one, we obtain a good approximation. We have thus learned a set of suitable directions for calculating the ECT.
+(
+a
+)
+Original
+
+(
+b
+)
+Untrained
+
+(
+c
+)
+Trained
+
+The ECT layer we defined above gives rise to a fixed-size vectorial representation, which may either be integrated into a larger neural network—thus effectively handing off the ECT results for deeper processing—or which can be used directly on its own. As an example of the latter case, we can for instance 
+compare
+ two outputs of an ECT layer using a loss function. Treating the outputs as high-dimensional vectors 
+$x$
+ and 
+$y$
+,
+ we can use the squared 
+$l^2$
+-
+norm of their difference, normalized by the dimension, as a criterion of how well they are aligned. This loss function is also known as the 
+mean squared error
+ (MSE). It is commonly used to solve problems in 
+representation learning
+, so it is perfectly suited for a small experiment: Suppose we have a simple data set in 
+$\mathbb{R} ^2$
+ whose (discretized) ECT we know. Starting from a randomly initialized set of directions, can we 
+learn
+ the “best” set of directions to align the two ECTs? It turns out that the approximation scheme defined in 
+Equation 
+(
+10
+)
+ indeed permits solving such problems. In our toy example, we start with 
+$32$
+ uniformly sampled directions, which we can parametrize using a single angle. We then sample the same number of angles from a normal distribution and minimize the MSE loss between the ECT based on the random directions to the “original” ECT. 
+Figure 5
+ depicts this experiment, and we observe that only a couple of optimization steps—using 
+gradient descent
+, for example—are required to obtain a suitable approximation to our input ECT. Moreover, this approximation gets better with longer training times and more discretization steps.
+
+Figure 6
+.
+We can also learn the 
+coordinates
+ of a point cloud based on the ECT. 
+(a)
+ We sample 
+$100$
+ points from a double annulus. 
+(b)
+ The initial configuration of our coordinates is a random sample from a noisy circle. 
+(c)
+ After minimizing the coordinates based on measuring the dissimilarity between the “desired” ECT and the current one, we are able to approximate the input point cloud closely (
+red
+ points show the learned coordinates, black points the original ones). 
+
+(
+a
+)
+Original
+
+(
+b
+)
+Untrained
+
+(
+c
+)
+Trained
+
+However, learning the directions could be considered somewhat solipsistic in that we derived a new representation (the ECT) and then showed that we can learn its parameters. Indeed, this experiment is more of a “smoke test,” since learning the parameters of a representation is the very basis of machine learning! To build a stronger experiment showcasing the power of the ECT, let us consider learning 
+coordinates
+ instead. Recall that our approximation from 
+Figure 4
+ permits us to also affect the coordinates themselves: Any loss function that we evaluate will depend on the directions 
+and
+ the coordinates; thus, if we make the coordinates a parameter of our layer, we can modify them similarly to the example shown above. Using an MSE loss, this time we search for input coordinates that minimize the differences of our ECT to a target ECT (machine-learning researchers also like to use the term 
+ground truth
+). 
+Figure 6
+ depicts an example, using 
+$k = 256$
+ directions and 
+$l = 256$
+.
+ We again manage to learn suitable coordinates that align our two point clouds. This can be very helpful when working with coarser representations of data, i.e., we may use this procedure to find the best approximation of a downsampled point cloud to its original version, leading to an ECT-based compression algorithm.
+
+These tasks provide a glimpse of the versatility of the ECT. While learning directions or coordinates is not necessarily a machine-learning task 
+sui generis
+, a computational layer based on the ECT permits more flexible applications. In conjunction with a loss term, we can employ the ECT in a variety of tasks. For instance, we can use it to classify 
+geometric graphs
+, i.e., low-dimensional simplicial complexes whose vertices and edges are embedded in some 
+$\mathbb{R} ^n$
+.
+ This task is typically dominated by graph neural networks, which employ a mechanism called 
+message passing
+ that amounts to locally transporting information via the edges of a graph.⁠
+Footnote
+11
+ The ECT offers a new and surprisingly competitive method for classifying such graphs 
+RR24
+. Together with its extremely small memory footprint—recall that the ECT is essentially “just” counting the constituent parts of an input object—this makes the ECT an interesting paradigm to consider for new machine-learning applications. Some of these applications are already discussed by Turner et al. 
+TMB14
+, while others, including the experiments for learning directions and coordinates, have been introduced in our recent work 
+RR24
+. As always, there is more work to be done, some enticing directions being (i) an assessment of the theoretical expressivity of the ECT when it comes to distinguishing between geometric graphs, (ii) the analysis of the 
+inverse problem
+, i.e., the reconstruction or generation of objects based on an ECT (in the discrete setting), and (iii) algorithmic aspects that enable the ECT to perform efficiently in the context of high-volume geometry-based streaming data arising from LiDAR sensors, for instance.
+11
+An expository article like this cannot possibly do justice to the large body of research available under that moniker. The reader is therefore invited to consult a recent position paper for more details 
+Vel23
+.
+✖
+
+5
+.
+
+The Future of Topology in Machine Learning
+
+The ECT served as the 
+leitmotif
+ of this article, demonstrating how to connect concepts from applied topology and modern machine-learning methods with relatively few hitches. The reader is strongly recommended to check out an excellent overview article by Munch 
+Mun25
+ to learn more about it. However, toward the end, let us briefly zoom out and consider the larger picture (knowing full well that predictions are hard, especially when concerning the future). By design, this article could merely scratch the surface, but the author firmly believes that topology and topological concepts have a strong role to play in machine learning. Many interesting directions are bound to fall into one of the following three areas:
+
+1.
+
+Learning functions on topological spaces such as simplicial complexes or cell complexes.
+
+2.
+
+Building hybrid models that imbue neural networks with knowledge about topological structures in the data.
+
+3.
+
+Analyzing qualitative properties of neural networks.
+
+In the first area, topology can be used to generalize existing machine-learning paradigms to a larger variety of input data sets; this is appealing because not every data set “lives” in a nice Euclidean space or a graph, and the inclusion of higher-order neighborhoods would provide a shift in perspective, aiding knowledge discovery. Researchers in 
+topological data analysis
+ (TDA) might feel particularly comfortable in the second area since it is one of the declared aims of TDA to understand topological features in data. Nevertheless, hybrid models do not necessarily have to draw upon concepts from TDA; new and daring methods could for instance focus on computational aspects of Riemannian geometry like curvature or make use of new invariants like metric-space magnitude. Finally, the third area shifts the perspective and lets topology return to its roots in that it can serve as a lens through which to study, for instance, the training behavior of neural networks. Understanding these training dynamics could lead to smaller, more efficient models, but also shed some light on the soft underbelly of deep-learning models, namely their susceptibility to unstable training regimens, “adversarial” input data, or their propensity for hallucinations.
+
+Each of the three areas for new research has something enticing to offer, not only for machine learning but also for (applied) topology. There is vast potential for new topology-aware models to serve as proof assistants or even try to search for new conjectures and counterexamples. It is said that only those with their feet on rock can build castles in the air. Topology can provide this rock upon which robust machine-learning research can be built. Thinking 
+beyond
+ topology, the author hopes that this article may also stir up the curiosity of mathematicians coming from other domains. Machine-learning research will only benefit from more inquisitive minds and there are countless things waiting to be discovered. To get a taste of potential directions, readers are invited to peruse an excellent expository article on deep learning 
+HH19
+. The author of this article also prepared additional scripts and literature on the ECT, which are made available under 
+https://topology.rocks/ect
+.
+
+Acknowledgments
+
+The author is indebted to Ernst Röell, Emily Simons, and the anonymous referees for their helpful comments, which served to substantially improve this article.
+
+This work has received funding from the Swiss State Secretariat for Education, Research, and Innovation (SERI).
+
+References
+[
+CAD
+$^{+}$
+21
+]
+ Anirban Chakraborty, Manaar Alam, Vishal Dey, Anupam Chattopadhyay, and Debdeep Mukhopadhyay, 
+A survey on adversarial attacks and defences
+, CAAI Transactions on Intelligence Technology 
+6
+ (2021), no. 1, 25–45., 
+
+Show raw
+AMSref
+
+\bib{Chakraborty21a}{article}{
+ author={Chakraborty, Anirban},
+ author={Alam, Manaar},
+ author={Dey, Vishal},
+ author={Chattopadhyay, Anupam},
+ author={Mukhopadhyay, Debdeep},
+ title={A survey on adversarial attacks and defences},
+ date={2021},
+ journal={CAAI Transactions on Intelligence Technology},
+ volume={6},
+ number={1},
+ pages={25\ndash 45},
+}
+
+[
+CMT22
+]
+ Justin Curry, Sayan Mukherjee, and Katharine Turner, 
+How many directions determine a shape and other sufficiency results for two topological transforms
+, Trans. Amer. Math. Soc. Ser. B 
+9
+ (2022), 1006–1043, DOI 
+10.1090/btran/122
+. MR
+4505675
+, 
+
+Show raw
+AMSref
+
+\bib{Curry22a}{article}{
+ author={Curry, Justin},
+ author={Mukherjee, Sayan},
+ author={Turner, Katharine},
+ title={How many directions determine a shape and other sufficiency results for two topological transforms},
+ journal={Trans. Amer. Math. Soc. Ser. B},
+ volume={9},
+ date={2022},
+ pages={1006--1043},
+ review={\MR {4505675}},
+ doi={10.1090/btran/122},
+}
+
+[
+Ghr25
+]
+ Robert Ghrist, 
+AI & mathematics as a career
+ (January 2025)., 
+
+Show raw
+AMSref
+
+\bib{Ghrist25a}{article}{
+ author={Ghrist, Robert},
+ title={{AI} \& mathematics as a career},
+ date={2025-01},
+ url={https://x.com/robertghrist/status/1883646365777236306},
+}
+
+[
+GLM18
+]
+ Robert Ghrist, Rachel Levanger, and Huy Mai, 
+Persistent homology and Euler integral transforms
+, J. Appl. Comput. Topol. 
+2
+ (2018), no. 1-2, 55–60, DOI 
+10.1007/s41468-018-0017-1
+. MR
+3873179
+, 
+
+Show raw
+AMSref
+
+\bib{Ghrist18a}{article}{
+ author={Ghrist, Robert},
+ author={Levanger, Rachel},
+ author={Mai, Huy},
+ title={Persistent homology and Euler integral transforms},
+ journal={J. Appl. Comput. Topol.},
+ volume={2},
+ date={2018},
+ number={1-2},
+ pages={55--60},
+ issn={2367-1726},
+ review={\MR {3873179}},
+ doi={10.1007/s41468-018-0017-1},
+}
+
+[
+HH19
+]
+ Catherine F. Higham and Desmond J. Higham, 
+Deep learning: an introduction for applied mathematicians
+, SIAM Rev. 
+61
+ (2019), no. 4, 860–891, DOI 
+10.1137/18M1165748
+. MR
+4027841
+, 
+
+Show raw
+AMSref
+
+\bib{Higham19a}{article}{
+ author={Higham, Catherine F.},
+ author={Higham, Desmond J.},
+ title={Deep learning: an introduction for applied mathematicians},
+ journal={SIAM Rev.},
+ volume={61},
+ date={2019},
+ number={4},
+ pages={860--891},
+ issn={0036-1445},
+ review={\MR {4027841}},
+ doi={10.1137/18M1165748},
+}
+
+[
+HIZ20
+]
+ Mustafa Hajij, Kyle Istvan, and Ghada Zamzmi, 
+Cell complex neural networks
+, “Topological Data Analysis and Beyond” Workshop at NeurIPS, 2020, 
+https://openreview.net/forum?id=6Tq18ySFpGU
+., 
+
+Show raw
+AMSref
+
+\bib{Hajij20a}{inproceedings}{
+ author={Hajij, Mustafa},
+ author={Istvan, Kyle},
+ author={Zamzmi, Ghada},
+ title={Cell complex neural networks},
+ date={2020},
+ booktitle={``{T}opological {D}ata {A}nalysis and {B}eyond'' {W}orkshop at {NeurIPS}},
+ url={https://openreview.net/forum?id=6Tq18ySFpGU},
+}
+
+[
+HSW89
+]
+ Kurt Hornik, Maxwell Stinchcombe, and Halbert White, 
+Multilayer feedforward networks are universal approximators
+, Neural Networks 
+2
+ (1989), no. 5, 359–366., 
+
+Show raw
+AMSref
+
+\bib{Hornik89a}{article}{
+ author={Hornik, Kurt},
+ author={Stinchcombe, Maxwell},
+ author={White, Halbert},
+ title={Multilayer feedforward networks are universal approximators},
+ date={1989},
+ journal={Neural Networks},
+ volume={2},
+ number={5},
+ pages={359\ndash 366},
+}
+
+[
+MHR24
+]
+ Kelly Maggs, Celia Hacker, and Bastian Rieck, 
+Simplicial representation learning with neural 
+$k$
+-
+forms
+, International Conference on Learning Representations, 2024, 
+https://openreview.net/forum?id=Djw0XhjHZb
+., 
+
+Show raw
+AMSref
+
+\bib{Maggs24a}{inproceedings}{
+ author={Maggs, Kelly},
+ author={Hacker, Celia},
+ author={Rieck, Bastian},
+ title={Simplicial representation learning with neural $k$-forms},
+ date={2024},
+ booktitle={International {C}onference on {L}earning {R}epresentations},
+ url={https://openreview.net/forum?id=Djw0XhjHZb},
+}
+
+[
+Mun25
+]
+ Elizabeth Munch, 
+An invitation to the Euler characteristic transform
+, Amer. Math. Monthly 
+132
+ (2025), no. 1, 15–25, DOI 
+10.1080/00029890.2024.2409616
+. MR
+4839811
+, 
+
+Show raw
+AMSref
+
+\bib{Munch25a}{article}{
+ author={Munch, Elizabeth},
+ title={An invitation to the Euler characteristic transform},
+ journal={Amer. Math. Monthly},
+ volume={132},
+ date={2025},
+ number={1},
+ pages={15--25},
+ issn={0002-9890},
+ review={\MR {4839811}},
+ doi={10.1080/00029890.2024.2409616},
+}
+
+[
+PBB
+$^{+}$
+24
+]
+ Theodore Papamarkou, Tolga Birdal, Michael Bronstein, Gunnar Carlsson, Justin Curry, Yue Gao, Mustafa Hajij, Roland Kwitt, Pietro Liò, Paolo Di Lorenzo, Vasileios Maroulas, Nina Miolane, Farzana Nasrin, Karthikeyan Natesan Ramamurthy, Bastian Rieck, Simone Scardapane, Michael T. Schaub, Petar Veličković, Bei Wang, Yusu Wang, Guo-Wei Wei, and Ghada Zamzmi, 
+Position: Topological deep learning is the new frontier for relational learning
+, Proceedings of the 41st International Conference on Machine Learning, 2024, pp. 39529–39555, 
+https://proceedings.mlr.press/v235/papamarkou24a.html
+., 
+
+Show raw
+AMSref
+
+\bib{Papamarkou24a}{inproceedings}{
+ author={Papamarkou, Theodore},
+ author={Birdal, Tolga},
+ author={Bronstein, Michael},
+ author={Carlsson, Gunnar},
+ author={Curry, Justin},
+ author={Gao, Yue},
+ author={Hajij, Mustafa},
+ author={Kwitt, Roland},
+ author={Li\`o, Pietro},
+ author={Lorenzo, Paolo~Di},
+ author={Maroulas, Vasileios},
+ author={Miolane, Nina},
+ author={Nasrin, Farzana},
+ author={Ramamurthy, Karthikeyan~Natesan},
+ author={Rieck, Bastian},
+ author={Scardapane, Simone},
+ author={Schaub, Michael~T.},
+ author={Veli\v {c}kovi\'c, Petar},
+ author={Wang, Bei},
+ author={Wang, Yusu},
+ author={Wei, Guo-Wei},
+ author={Zamzmi, Ghada},
+ title={Position: Topological deep learning is the new frontier for relational learning},
+ date={2024},
+ booktitle={{P}roceedings of the 41st {I}nternational {C}onference on {M}achine {L}earning},
+ editor={Salakhutdinov, Ruslan},
+ editor={Kolter, Zico},
+ editor={Heller, Katherine},
+ editor={Weller, Adrian},
+ editor={Oliver, Nuria},
+ editor={Scarlett, Jonathan},
+ editor={Berkenkamp, Felix},
+ series={Proceedings of Machine Learning Research},
+ publisher={PMLR},
+ pages={39529\ndash 39555},
+ url={https://proceedings.mlr.press/v235/papamarkou24a.html},
+}
+
+[
+RR24
+]
+ Ernst Röell and Bastian Rieck, 
+Differentiable Euler characteristic transforms for shape classification
+, International Conference on Learning Representations, 2024, 
+https://openreview.net/forum?id=MO632iPq3I
+., 
+
+Show raw
+AMSref
+
+\bib{Roell24a}{inproceedings}{
+ author={R{\"o}ell, Ernst},
+ author={Rieck, Bastian},
+ title={Differentiable {E}uler characteristic transforms for shape classification},
+ date={2024},
+ booktitle={International {C}onference on {L}earning {R}epresentations},
+ url={https://openreview.net/forum?id=MO632iPq3I},
+}
+
+[
+Sch22
+]
+ Jürgen Schmidhuber, 
+Annotated history of modern AI and deep learning
+, 2022., 
+
+Show raw
+AMSref
+
+\bib{Schmidhuber22a}{misc}{
+ author={Schmidhuber, J\"urgen},
+ title={Annotated history of modern {AI} and deep learning},
+ date={2022},
+}
+
+[
+TMB14
+]
+ Katharine Turner, Sayan Mukherjee, and Doug M. Boyer, 
+Persistent homology transform for modeling shapes and surfaces
+, Inf. Inference 
+3
+ (2014), no. 4, 310–344, DOI 
+10.1093/imaiai/iau011
+. MR
+3311455
+, 
+
+Show raw
+AMSref
+
+\bib{Turner14a}{article}{
+ author={Turner, Katharine},
+ author={Mukherjee, Sayan},
+ author={Boyer, Doug M.},
+ title={Persistent homology transform for modeling shapes and surfaces},
+ journal={Inf. Inference},
+ volume={3},
+ date={2014},
+ number={4},
+ pages={310--344},
+ issn={2049-8764},
+ review={\MR {3311455}},
+ doi={10.1093/imaiai/iau011},
+}
+
+[
+Vel23
+]
+ Petar Veličković, 
+Everything is connected: Graph neural networks
+, Current Opinion in Structural Biology 
+79
+ (2023), 102538., 
+
+Show raw
+AMSref
+
+\bib{Velickovic23a}{article}{
+ author={Veli\v {c}kovi\'c, Petar},
+ title={Everything is connected: Graph neural networks},
+ date={2023},
+ journal={Current Opinion in Structural Biology},
+ volume={79},
+ pages={102538},
+}
+
+[
+WAM
+$^{+}$
+22
+]
+ Dominik J. E. Waibel, Scott Atwell, Matthias Meier, Carsten Marr, and Bastian Rieck, 
+Capturing shape information with multi-scale topological loss terms for 3D reconstruction
+, Medical Image Computing and Computer Assisted Intervention, 2022, pp. 150–159., 
+
+Show raw
+AMSref
+
+\bib{Waibel22a}{inproceedings}{
+ author={Waibel, Dominik J.~E.},
+ author={Atwell, Scott},
+ author={Meier, Matthias},
+ author={Marr, Carsten},
+ author={Rieck, Bastian},
+ title={Capturing shape information with multi-scale topological loss terms for {3D} reconstruction},
+ date={2022},
+ booktitle={{Medical Image Computing and Computer Assisted Intervention}},
+ editor={Wang, Linwei},
+ editor={Dou, Qi},
+ editor={Fletcher, P.~Thomas},
+ editor={Speidel, Stefanie},
+ editor={Li, Shuo},
+ publisher={Springer},
+ address={Cham, Switzerland},
+ pages={150\ndash 159},
+}
+
+[
+Won24
+]
+ Matteo Wong, 
+We’re entering uncharted territory for math
+, The Atlantic (October 2024)., 
+
+Show raw
+AMSref
+
+\bib{Wong24a}{article}{
+ author={Wong, Matteo},
+ title={We're entering uncharted territory for math},
+ date={2024-10},
+ journal={The Atlantic},
+ url={https://www.theatlantic.com/technology/archive/2024/10/terence-tao-ai-interview/680153},
+}
+
+Bastian Rieck is a professor of computer science at University of Fribourg. His email address is 
+[email protected]
+.
+
+Article DOI: 
+10.1090/noti3193
+Credits
+
+All figures are courtesy of Bastian Rieck.
+
+Part of Figure 2 is from public domain. Please find a copy of the license here: 
+https://sketchfab.com/licenses
+.
+
+Photo of Bastian Rieck is courtesy of Bastian Rieck.
+

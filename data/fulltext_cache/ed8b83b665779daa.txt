@@ -1,0 +1,919 @@
+
+
+Notices of the American Mathematical Society
+
+Welcome to the 
+Notices of the American Mathematical Society
+.
+With 
+support from AMS membership
+, we are pleased to share the journal with the global mathematical community.
+
+PDFLINK
+
+Deciphering Scrolls with Tomography: A Training Experiment
+Sonia Foschiatti
+Axel Kittenberger
+Otmar Scherzer
+Communicated by 
+Notices
+ Associate Editor Krystal Taylor
+
+In recent years there has been a growing interest in the recovery of ancient written documents that have been damaged by time, inadequate storage conditions, chemical corrosion, and misguided attempts to open them. For instance, papyrus sheets, produced from the papyrus plant, were a widely used writing surface for documents in antiquity. However, the surviving scrolls and fragments require specific climatic conditions for their preservation. High levels of humidity can cause severe deformations in their layers, altering the written content. In such cases, physical unwrapping is not feasible as it increases the risk of permanent damage. Moreover, for other materials such as parchment, wood, and bamboo, the physical cleaning processes can lead to material degradation and require a substantial working time-experiment investment.
+
+Recent advancements in the field of computer science, particularly in the areas of image processing and computer vision, have paved the way for virtual restoration of damaged documents avoiding physical unwrapping, a process called 
+virtual unwrapping
+. This term, adopted from 
+SPS
+$^{+}$
+16
+, refers to the use of software to reveal text that was hidden for centuries, thereby making it accessible to mankind. Virtual reconstructions are based on data acquired through various tomography modalities. The term “tomography” derives from the Greek word 
+tomos
+, meaning “slice,” and can be defined as a method of imaging by sections using any type of penetrating wave. The use of X-ray tomography in the recovery of ancient manuscripts can be attributed to the nondestructive and noninvasive nature of X-ray radiation. Its application to paleontology and archaeology can be traced back to the early twentieth century, to reveal ancient texts buried in altars, or rolled silver scrolls, sealed letters, damaged manuscripts from ancient libraries, and carbonized scrolls that have been discovered in the Villa of the Papyri near Herculaneum, Italy 
+MBFD15
+.
+
+In this note, we present a didactic experiment for the virtual restoration of text printed on a transparent scroll. Drawing inspiration from the intriguing archaeology application, we have developed an educational laboratory for teaching X-ray tomographic reconstruction of written documents. This initiative is particularly well suited for undergraduate courses in applied mathematics, physics, or archaeology, as well as science communication workshops. In our experimental setup, we employ visible light as a surrogate to simulate X-rays. This approach is based on the premise that the propagation characteristics of electromagnetic waves, despite their different wavelengths, can be described by analogous mathematical formalism. Within our experimental framework, the wrapped scrolls are composed of transparent cellulose acetate sheets, which exhibit minimal interaction with visible light. The idea of employing a transparent film and the light as an illumination source to simulate X-ray tomography in an educational setting was initially proposed by Kittenberger et al. 
+KMS22
+. To simulate the ancient writings, a Greek text from Homer’s 
+Hymni Homerici XV
+ (VII-VI century BC) and a Latin text from Lucrezio’s 
+De Rerum Natura
+ have been printed on a transparent film (see Figure 
+1
+). The educational experiment has been designed to develop and strengthen the mathematical intuition of tomography modeling, a process that necessitates active student participation. In order to assist students and instructors in the reconstruction of their own scrolls, the Archeolab software (
+https://csc1.gitlab.io/archeolab/
+) has been developed as a virtual guide with documentation of the Python and Matlab code, in addition to the theoretical foundations.
+
+Figure 1
+.
+The Greek phantom scroll.
+
+X-ray Tomography in a Nutshell
+
+X-ray computed tomography (abbreviated as X-ray CT) is a nondestructive imaging technique used to visualize the internal structure of an object. The key observation granting the success of this approach is that different materials exhibit differed absorption and scattering properties when interacting with X-rays. Most of the objects are transparent to them, enabling the clear identification of internal structures of interest. From a physical point of view, in the electromagnetic spectrum X-rays are characterized by shorter wavelengths than visible light, ranging from 10 nanometers to 10 picometers.
+
+From a mathematical perspective, the problem of recovering the attenuation coefficients of an object is formulated as the problem of determining a function from the knowledge of its line integrals. The first solution to this problem was provided by Johann Radon, an Austrian mathematician who derived the first reconstruction formula in his 1917 paper 
+Rad94
+.
+
+A brief history of X-ray computed tomography
+
+The first documented application of CT was by Bracewell in radioastronomy in 1956 
+Bra56
+, who sought to reconstruct a map of the solar microwave emissions from a series of radiation measurements across the solar surface. In the same years, the South African-American physicist Allan M. Cormack made a significant contribution to the field of cancer treatment by radiation therapy. In 1955, he spent a day and a half a week at Groote Schuur Hospital in Cape Town, South Africa. During this period, he observed the planning of radiotherapy treatments, and recognized the importance of determining the attenuation coefficient of the object. During his sabbatical year at Harvard in 1956, he derived a mathematical theory for image reconstruction. Subsequent to his return to South Africa in 1957, he proceeded to test his theory on a 5-cm-thick disk measuring 20 cm in diameter composed by different materials in order to simulate the skull. Thanks to its radial symmetry, only one measurement at one angular position was needed, and the attenuation coefficient was calculated applying the formulas derived by Allan M. Cormack.
+
+The development of the first clinical CT scanner was initiated in 1967 by Godfrey N. Hounsfield at the Central Research Laboratories EMI in England. Hounsfield, independently of Cormack, deduced that X-ray measurements of a body taken from different directions would allow the reconstruction of its internal structure. In 1979 Allan M. Cormack and Godfrey N. Hounsfield were jointly awarded the Nobel Prize in Physiology and Medicine for their seminal contributions (see 
+Hsi09
+ for the complete history).
+
+Application of X-ray CT in archaeology
+
+In the field of archaeology, X-rays are employed to examine scrolls without the need for invasive physical interaction, thereby preserving their integrity. An X-ray experiment comprises a source, a detector, and the object to be imaged. During the scanning process, a source emits one or more thin X-ray beams, modelled as straight lines. When the beams encounter the object, their intensity decreases as they interact with its electrons. Detectors placed opposite the sources measure the intensity diminution. In CT, each X-ray image captured at a fixed angle is called a projection. A series of projection data is acquired by rotating the X-ray sources and detectors around the body, which is motionless. By acquiring a sufficient number of projections, it is possible to reconstruct multiple cross-sections, or slices, of the three-dimensional object, resulting in a volumetric representation of the body called volumetric data or image. The information regarding location and intensity is saved in a single unit called a 
+voxel
+, which represents the three-dimensional counterpart of the two-dimensional pixel. The slices represent a map of the spatial distribution of the attenuation coefficient of the object.
+
+The En-Gedi scroll
+
+The process of extracting hidden text from volumetric X-ray CT scans of the objects of interest using computer vision algorithms is often called 
+software pipeline
+. To illustrate this process, we will refer to a successful application of the virtual pipeline, the digital reconstruction of the En-Gedi scroll presented in 
+SPS
+$^{+}$
+16
+. In 1970, several fragments of carbonized parchment were unearthed at the archaeological site of En-Gedi, west of the Dead Sea, in an altar. These fragments are pieces of charcoal, some of which have undergone disintegration and deterioration due to human interaction and other agents over time. The data collected are volumetric X-ray micro-CT scans which provide high-resolution greyscale cross-sections of the body. These images facilitate the distinction of the internal layers of the scroll. The team led by Professor W. B. Seales developed a virtual pipeline with the objective of recovery the concealed text of the scrolls without altering them. The full process consists of the following four steps: segmentation, flattening, texturing, and merging. The initial step, segmentation, involves the identification of layers in each slice of the volume (e.g., the isolation of thin, warped regions of interest). This operation poses a significant challenge due to the presence of noisy measurements in the scans derived from the animal’s skin. The result of this initial phase is a segmented surface representing a layer of the scroll. The subsequent step is texturing, which consists in assigning the intensity values to the corresponding points on the segmented surface. The subsequent step is flattening, and consists in mapping the three-dimensional wrapped segmented surface onto a two-dimensional image. Finally, the different segments of the flat surface obtained from the slices are merged to create an image of the entire readable scroll.
+
+The Vesuvius Challenge
+
+Let us travel back in time to the thriving years of Roman empire when a cataclysmic event happens. In 79 AD there was a devastating eruption of Mount Vesuvius; the towns of Herculaneum and Pompeii, along with their buildings and palaces, were covered by pyroclastic flow, reaching depths of up to 30 meters. Among them was the villa of Lucio Calpurnius Piso Pontifex, the father-in-law of Julius Caesar, buried under the ashes. The luxurious villa, known as the Villa of the Papyri, contains the only complete library of the Greco-Roman world that has survived to the present day. For centuries, the villa and the other buildings remained concealed beneath the ashes, their existence obscured, until the mid-eighteenth century. Around the year 1750 AD, an Italian farmer, while digging a well, uncovered marble pavements, opening the way to possibly groundbreaking archaeological discoveries. The first excavations on the site were conducted by the Swiss architect Karl Weber between 1750 and 1765, employing tunnels. During these excavations around 1,800 carbonized scrolls were disinterred, referred to as the 
+Herculaneum papyri
+. Ingenuous attempts to open them caused the irremediable loss of ancient books along with their content. It seemed that the text of those manuscripts would have been unrevealed for centuries. Fortunately, the advancements in science and technology have allowed us to aspire to reveal once and for all the concealed text of the Herculaneum papyri. The same group led by Professor Seales conducted X-ray data acquisition from 2010 to 2020 using different X-ray CT machines, collecting the volumetric images in the EduceLab dataset. The acquired data encompasses two types of imaging: besides the volumetric X-ray micro-computed tomography, employed to image the entire collection (e.g., intact scrolls and detached scroll fragments), it includes spectral imaging of surface fragments, used to detect the presence of exposed ink on the surface 
+PPCH24
+.
+
+In March 2023, Nat Friedman, Daniel Gross, and computer scientist Brent Seales announced the 
+Vesuvius Challenge
+ (
+Wik
+), a machine learning and computer vision competition, with the objective of developing an automated software pipeline capable of reading the hidden text of the Herculaneum carbonized scrolls. Since its launch, it has captured the attention of media, the general public and scientists. Groups of amateurs worldwide has been involved in a collaborative project that aims at developing an automated software pipeline for the virtual reading of the carbonised scrolls. In 2024, a significant discovery was made by the 21-year-old computer scientist Luke Farritor, who was able to identify the word 
+πορφυραζ
+ meaning “violet” (color or tissue). Another recent discovery from the Herculaneum scrolls is a newly deciphered passage from a scroll written by Philodemus of Gadara, which reveals details about the lost tomb of the Greek philosopher Plato 
+Sta
+. It is still possible to take part in the challenge, and rich prizes are awarded each month for relevant contributions to the software pipeline.
+
+Our Experiment
+
+The groundbreaking discoveries and achievements that have followed the development of X-ray CT have motivated us to develop a didactic laboratory that allows students and amateurs to tackle the same problem that Johann Radon, Allan M. Cormack, and Godfrey N. Hounsfield solved with a focus on the archaeological application.
+
+The experimental setup
+
+In the preliminary part of the laboratory, the acquisition of X-ray projections of an ancient written document is simulated. For test purposes, Greek and Latin texts have been selected for printing on two transparent films composed of cellulose acetate (CA). The first phantom features text from 
+Hymni Homerici XV - In Herculem
+, verses 1–3:
+
+Ἡρακλέα Διὸς υἱὸν ἀείσομαι, ὃν μέγ’ ἄριστον γείνατ’ ἐπιχθονίων Θήβῃς ἔνι καλλιχόροισιν Ἀλκμήνη μιχθεῖσα κελαινεφέϊ Κρονίωνι
+ ὃς πρὶν μὲν κατὰ γαῖαν ἀθέσφατον ἠδὲ θάλασσαν πλαζόμενος πομπῆισιν ὕπ᾿ Εὐρυσθῆος ἄνακτοςπολλὰ μὲν αὐτὸς ἔρεξεν ἀτάσθαλα, πολλὰ δ᾿
+ ἀνέτλη·νῦν δ᾿ ἤδη κατὰ καλὸν ἕδος νιφόεντος Ὀλύμπουναίει τερπόμενος καὶ ἔχει καλλίσφυρον Ἥβην.
+
+The second phantom features text from 
+De Rerum Natura
+ by Lucretius, verses 72–74:
+
+Ergo vivida vis animi pervicit, et extra
+ processit longe flammantia moenia mundi
+ atque omne immensum peragravit mente animoque
+ unde refert nobis victor quid possit oriri,quid nequeat, finita potestas denique
+
+The original texts can be found in 
+Hom
+.
+
+Figure 2
+.
+The experimental setup (top: schematic, bottom: our build).
+
+To avoid fused layers in the projections, hook-and-loop tape is applied to the phantoms and then they are wrapped. A stepper-motor controlled by the microprocessor Arduino mounted on a breadboard is used to simulate the X-ray gantry. The phantoms are mounted on a pulley that is screwed onto the axle of a stepper motor. The pulley can be either glued to a base or clamped in a vice to provide a stable vertical axis of rotation, oriented orthogonally to the stage. The complete setup is depicted in Figure 
+2
+.
+
+A projector is used to emit visible light, which serves as the emitting source. A Fresnel lens is placed at a distance determined by its focal length to mitigate the parallax effect, which would otherwise lead to the formation of significant artifacts in the reconstruction. A white sheet of paper acts as the canvas for the experiment. On the opposite side of the canvas, a digital camera is positioned as the detector. A USB cable connects the personal computer and the board controller, with the Arduino controlling the motor stepper. The computer synchronizes also the acquisition of the photograms (the radiographs in X-ray tomography) by the digital camera with the rotation of the stepper motor using the Canon Hack Development Kit (CHDK) 
+CHD
+. All the relevant scripts for this technical part can be found at 
+https://gitlab.com/csc1/archeolab/
+ or 
+https://phaidra.univie.ac.at/detail/o:2157218
+.
+
+The beamer constantly emits visible light while the CA phantoms rotate at a frame rate of 0.44 fps around 
+360
+$^{\circ }$
+,
+ for a total of 30 minutes for 800 shots. The total number of projections acquired is 
+$N=800$
+.
+ In this particular instance, the remote-shoot function of the CHDK is used to transfer the images to the PC.
+
+Figure 3
+.
+Projection on the white screen.
+
+The virtual unwrapping
+
+In the subsequent stage of the practical laboratory session, students will be instructed in the utilization of the virtual pipeline employed for the reconstruction of the contents of the transparent scrolls. At this stage, the data comprises 800 projections of the transparent scroll on the canvas (see Figure 
+3
+).
+
+The virtual workflow commences with the determination of the axis of rotation of the scroll calling the script 
+guiAxisFinder
+. After loading the projections, the graphical user interface (GUI) takes as input the first image at index 
+$i$
+ and its 180° counterpart. Subsequently, the images undergo a series of preprocessing steps (i.e., cropped based on a central point, rotated and cut). The user will observe green and red regions in the plotted image, which correspond to negative and positive pixel intensity differences between the two images, respectively. The process of minimizing these differences serves to converge to the actual rotation axis.
+
+After the determination of the actual axis of rotation, the projections are subjected to further preprocessing and then filtered back-projection is performed. The 
+iradon
+ function is applied with linear interpolation and the Ram-Lak filter as options, since these are more suitable for edge detection. Subsequent to the filtered back-projection, a mask is applied to remove artifacts from the central and external regions of the slices.
+
+Figure 4
+.
+Cross-section of the transparent scroll (inverted) with a segmented path.
+
+Subsequently, the script 
+guiSegment
+ is invoked to perform manual segmentation. This is the only manual step required by the pipeline. The user inserts a set of initial control points on a selected cross-section of the scroll, drawing a spiral-shaped curve that follows the layers of the scroll. A genetic algorithm is then employed to optimize the manual segmentation. Subsequently, a cubic smoothing spline through the control points is calculated and sampled to obtain a set of points for plotting.
+
+Figure 5
+.
+Three-dimensional view of the Greek phantom scroll.
+
+The final step involves the implementation of the Maximum Intensity Projection (MIP) method, which reveals the hidden text of the scroll. The MIP method selects the maximum intensity value 
+$I(x,y,z)$
+ from the voxels 
+$V(x,y,z)$
+ for a fixed pair of coordinates 
+$(x,y)$
+:
+
+$$\begin{equation} MIP (x,y) = \max _z I(x,y,z). \tag{1} \end{equation}$$
+
+This method projects the maximum intensity values onto a plane, thereby facilitating the visualization of the text and corresponds to the texturing and flattening step. The reconstruction of the Greek and Latin transparent scroll is shown in Figure 
+6
+ and 
+7
+, and a three-dimensional view of the Greek scroll in Figure 
+5
+. Despite the presence of artifacts, most of the Greek and Latin letters are legible without the application of any post-processing steps.
+
+As illustrated in the figures, characters of greater dimensions exhibit less blurring compared to smaller ones. This disparity can be attributed to the location of words in the internal layer, which may have been more susceptible to interference from the external writings during the reconstruction process.
+
+Figure 6
+.
+Reconstruction (right, inverted) of the Greek scroll (left).
+
+Figure 7
+.
+Reconstruction (right, inverted) of the Latin scroll (left).
+
+The educational laboratory
+
+The material presented in this note may be adapted for a demonstration intended for undergraduate students enrolled in courses related to applied mathematics or physics. The experimental phase of the laboratory will be conducted by an instructor with the assistance of a laboratory technician if needed to facilitate the setup assembly. The acquisition of the projections is expected to take approximately 30 minutes, during which time the instructor may introduce the mathematical model of X-ray tomography or explain the virtual pipeline and the code. A concise overview of the mathematical model of X-ray with a summary of the relevant notions is provided in the last section of this contribution. The documentation of the virtual pipeline is available in the form of a Matlab workflow or a Jupyter Notebook on the webpage 
+https://gitlab.com/csc1/archeolab/
+. Subsequent to the acquisition of the projections, the students will utilize the code and adhere to the implemented workflow, adjusting the parameters and control points as required.
+
+Following the completion of the virtual unwrapping, students may be requested to write a report or a presentation that summarizes the results obtained, the observations made, the difficulties encountered, and possible improvements. The report could be structured like a scientific article including the following sections: Introduction, Methods, Results, Discussion and Conclusion. The Introduction should provide an overview of the experiment and its objectives. In the Methods section, students should detail the experimental setup and the algorithms that were utilized. The subsequent section is dedicated to the description of the results, including the reconstructed scrolls. The final section summarizes the experimental outcomes, the problems experienced, and gives suggestions for potential improvements and future directions.
+
+Expected results and conclusion
+
+The proposed training experience serves as a valuable resource for instructors in addressing the complexity of the subject matter as well as in the abstract modeling of physical phenomena.
+
+We proceed to analyze the potential outcomes of the educational laboratory. From a didactic perspective, we anticipate significant interaction among students and instructors, with the latter posing questions and exploring diverse methodologies. The presentation component or the final report constitutes a pivotal element of the laboratory, offering valuable feedback to the instructor concerning students’ comprehension of the subject and evaluation of their problem-solving skills.
+
+Upon the completion of the experiment by the instructor, students are tasked with processing the projections and constructing their own reconstructed text. The report or presentation will reflect the assimilation of the theory, and outline encountered challenges, results obtained, and mathematical model employed. Indeed, at the end of the experimental laboratory, students should be able to provide clear explanations of the experiment, results obtained, and ability to connect these to the theoretical framework. From a theoretical standpoint, it is expected that students will grasp the fundamentals of X-ray tomography and its significance in the domain of archaeology. In this laboratory, students have the opportunity to sharpen their problem-solving skills, whether individually or collectively. Moreover, the final discussion will contribute to promote peer instruction, an effective learning methodology substantiated by current educational studies. The reconstruction of hidden text is deemed successful when the resulting images clearly display the text, with the majority of letters being legible (see Figures 
+6
+ and 
+7
+). Characters within the internal layers are expected to be more blurred compared to the external layers, due to light bending effects. The cross-sections obtained through the reconstruction process are expected to reveal the layers of the phantom, thereby enabling students to comprehend the structure and depth of the text. To help the instructor in the laboratory simulation or in case of emergency, a database containing tuned images is included in our webpage to serve as a base for the expected reconstruction.
+
+In summary, this note has proposed a simulated recovery of hidden text in ancient papyrus scrolls, utilizing an educational setting to illustrate the principles of X-ray tomography and the development of a rudimentary virtual pipeline for hidden text recovery. It provides detailed instructions for constructing the experimental setup and conducting the experiment, ensuring its reproducibility in scientific events, and educational laboratories. The scripts developed for the virtual reconstruction have been implemented on 
+Matlab
+ and Jupiter Notebook with documentation available at 
+https://csc1.gitlab.io/archeolab/
+. Finally, a training activity have been proposed, which can be adapted to the audience and the goals of the instructor.
+
+The Mathematical Model of X-ray Tomography
+
+In this section, the mathematical model of X-ray tomography is described. This model is based on the computerized transverse axial (CTA) scanners, where three-dimensional objects are modeled as a collection of two-dimensional reconstructed slices. As text references for undergraduate students, we suggest 
+The Mathematics of Medical Imaging
+ of Timothy Feeman 
+Fee15
+ and 
+The Radon Transform and Medical Imaging
+ of Peter Kuchment 
+Kuc14
+. For advanced undergraduate and graduate students, the classical textbook 
+The Mathematics of Computerized Tomography
+ of Frank Natterer 
+Nat01
+ is recommended.
+
+The plane 
+$\mathbb{R}^{2}$
+ is considered with points denoted by the coordinates 
+$(x,y)$
+.
+ The object is described by a bounded, connected subset of the plane, denoted by 
+$\Omega$
+.
+ The X-ray attenuation coefficient is modeled by a function 
+$f:\mathbb{R}^{2}\rightarrow \mathbb{R}$
+,
+
+$(x,y)\mapsto f(x,y)$
+,
+ which is compactly supported in 
+$\Omega$
+.
+ In this setting, it is assumed that the geometry of the experiment is the parallel beam geometry (i.e., each source has a corresponding detector that measures the attenuation of the emitted beam, and all the beam lines are parallel). In modern application, the fan beam geometry is more frequently employed than the parallel beam geometry. In this case, a source emits several X-ray beams in different directions contained in a plane, and an array of detectors registers their variations in intensity.
+
+The intensity of the X-ray beam, denoted by 
+$I$
+,
+ is defined as the quantity of radiation per unit area, the latter measured on a plane perpendicular to the X-ray beam. The source point is denoted by 
+$P_0=(x_0,y_0)$
+ and the detector point by 
+$P_1=(x_1,y_1)$
+.
+ Let 
+$L$
+ be the line through 
+$P_0$
+ and 
+$P_1$
+ with parametrization 
+$\gamma$
+ given by
+
+$$\begin{equation*} \gamma (t)=(x_0,y_0)+t(\cos \theta ,\sin \theta ), \end{equation*}$$
+
+where 
+$\theta \in [0,2\pi )$
+ and 
+$t\in \mathbb{R}$
+.
+ Conventionally, the center of rotation is the origin 
+$(0,0)$
+,
+ sources and detectors rotate around it. To represent lines, the so-called 
+normal parametrization
+ is commonly used, defined as follows: for 
+$t\in \mathbb{R}$
+,
+
+$$\begin{align*} \gamma (t) = (s\cos \theta -t\sin \theta ,s\sin \theta + t\cos \theta ) \end{align*}$$
+
+(see Figure 
+8
+). Here, the variable 
+$s$
+ is called affine parameter, denoting the oriented distance of the line 
+$L$
+ from the origin, while the variable 
+$\theta$
+ is the counter-clockwise rotation of the line perpendicular to 
+$L$
+ with respect to the 
+$x$
+-
+axis. A useful expression that connects the variables 
+$x, y, s, \theta$
+ is the following formula, called the normal equation:
+
+2
+
+$$\begin{equation} s = x\cos \theta + y\sin \theta . \cssId{texmlid5}{\tag{2}} \end{equation}$$
+
+Figure 8
+.
+Normal parametrization of lines.
+
+The physical law that enables us to combine the information about the intensity variation of the radiation and the unknown attenuation coefficient 
+$f$
+ is known as the Beer-Lambert law. This law states that the intensity variation at a point of the object lying on the X-ray beam, denoted by 
+$\gamma (t)$
+,
+ is directly proportional to the X-ray intensity at a specific point and path length. The standard formula for this law is expressed as follows:
+
+3
+
+$$\begin{equation} I(t+\Delta t) - I(t) \simeq - f(t) I(t) \Delta t. \cssId{texmlid1}{\tag{3}} \end{equation}$$
+
+The function 
+$f(t)=f(\gamma (t))$
+ represents the attenuation coefficient at position 
+$\gamma (t)$
+.
+ If the limit of the parameter increment 
+$\Delta t$
+ goes to zero in equation 
+(
+3
+)
+, under the assumption that the initial intensity, denoted by 
+$I_0$
+,
+ at the source position 
+$P_0$
+ for 
+$t=t_0$
+ is known, the following initial value problem is obtained:
+
+$$\begin{equation*} \begin{cases} \frac{dI}{dt}(t) = -f(t) I(t) &t\in \mathbb{R},\\ I(t_0) = I_0. \end{cases} \end{equation*}$$
+
+The solution 
+$I$
+ to this problem is given by the exponential function
+
+4
+
+$$\begin{equation} I = I_0 \exp \Big (-\int _L f(t) dt\Big ). \cssId{texmlid2}{\tag{4}} \end{equation}$$
+
+Equation 
+(
+4
+)
+ is consistent with the physical experiment, since the intensity 
+$I(t)$
+ at a position 
+$P_1$
+ for 
+$t=t_1$
+ is always smaller or equal to the initial intensity 
+$I_0$
+.
+ Applying the logarithm on 
+(
+4
+)
+, and denoting with 
+$I_1=I(t_1)$
+ the recorded intensity at position 
+$P_1$
+,
+ the X-ray projection formula is obtained:
+
+5
+
+$$\begin{equation} p(t_1) = -\log \bigg (\frac{I_1}{I_0} \bigg ) = \int _L f(x,y) dt. \cssId{texmlid7}{\tag{5}} \end{equation}$$
+
+In the plane the projection is formally known as the 
+Radon Transform
+. It is defined as the line integral of the attenuation coefficient 
+$f$
+ along an X-ray beam 
+$L$
+:
+
+$$\begin{equation} \mathcal{R}f(L) = \int _{L} f(x,y) d\mathrm{l}. \tag{6} \end{equation}$$
+
+Under the normal parametrization, the Radon transform in the plane of a line 
+$L$
+ characterized by the parameters 
+$(s,\theta )$
+ corresponds to the projection 
+$p(s,\theta )$
+.
+ It has the formula
+
+$$\begin{align*} p(s,\theta ) &= \int _{-\infty }^{+\infty } f(\gamma (t)) |\gamma '(t)| dt\\ &= \int _{-\infty }^{+\infty } f(s\cos \theta -t\sin \theta ,s\sin \theta + t\cos \theta ) dt, \end{align*}$$
+
+and
+
+$$\begin{equation} \mathcal{R}f(s,\theta ) = p(s,\theta ). \tag{7} \end{equation}$$
+
+A pivotal quantity associated with the Radon transform is the 
+sinogram
+, representing the projection data at each angle, denoted by the variable 
+$\theta$
+,
+ and distance from the origin, denoted by the variable 
+$s$
+.
+ The name “sinogram” derives from the observation that a fixed point of the object traces out a sinusoidal curve in the sinogram.
+
+The objective is to recover the function 
+$f$
+ from the knowledge of the projections 
+$p(s,\theta )$
+,
+ subject to the variation of the parameters 
+$(s,\theta )$
+.
+ The back-projection method can be regarded as a first naive reconstruction technique. This method involves back-projecting each projection onto the plane to recover the value of the function 
+$f$
+ at a specific point 
+$(x,y)$
+.
+ This operation gives rise to the adjoint Radon transform, also known as the 
+back-projection operator
+:
+
+8
+
+$$\begin{equation} \mathcal{B}[\mathcal{R}f(s,\theta )](x,y) = \int _0^{2\pi } \mathcal{R}f(s,\theta ) d\theta , \cssId{texmlid6}{\tag{8}} \end{equation}$$
+
+that can be equivalently express in terms of the projection:
+
+$$\begin{equation} \begin{split} \mathcal{B}[&p(s,\theta )](x,y) =\\ &\int _0^{2\pi } \int _{-\infty }^{+\infty } f(s\cos \theta -t\sin \theta ,s\sin \theta + t\cos \theta ) dt d\theta . \end{split} \tag{9} \end{equation}$$
+
+Here, the definition from reference 
+ÓQ06
+, 
+Equ. (2.5)
+ is used. The inner integral determines the projection 
+$p(s,\theta )$
+,
+ which corresponds to a unique point 
+$(s,\theta )$
+ in the sinogram. The back-projection operation involves the summation of ray-projections over all ray-paths through a given point 
+$(x,y)$
+.
+ The back-projection technique was originally introduced by Oldendorf 
+Old61
+ in the context of X-ray tomography. However, the reconstruction of the function 
+$f$
+ is not optimal due to the fact that the summation of projections is applied not only to points of high density, but also to other points of the object. This results in the presence of star artifacts in the reconstruction and a blurred background. Furthermore, the back-projection method smoothens the edges. Examples can be found in 
+Fee15
+.
+
+The back-projection formula can be improved by integrating a filtering operation. This approach, called 
+filtered back-projection
+, involves the application of a filter to the projections, enabling the enhancement or reduction of high frequencies in the Fourier domain, which are known to be associated with edge detection.
+
+Let us begin with the definition of the two-dimensional Fourier transform of the function 
+$f(x,y)$
+ given by
+
+10
+
+$$\begin{equation} \mathcal{F}f(k_x,k_y) = \frac{1}{2\pi } \int _{\mathbb{R}^{2}} f(x,y)e^{-i(k_x x+k_y y)} dx dy. \cssId{texmlid8}{\tag{10}} \end{equation}$$
+
+The reconstruction formula presented here is based on the application of the Fourier slice theorem, which states that the one-dimensional Fourier transform of the Radon transform, the projection, with respect to the affine parameter 
+$s$
+ is equal to the two-dimensional Fourier transform of the function 
+$f$
+
+ÓQ06
+:
+
+11
+
+$$\begin{equation} \mathcal{F}f(\sigma \theta ) = \frac{1}{\sqrt {2\pi }} \mathcal{F}_s \mathcal{R}f(\sigma ,\theta ), \cssId{texmlid4}{\tag{11}} \end{equation}$$
+
+where
+
+$$\begin{equation} \mathcal{F}_s \mathcal{R}f(\sigma ,\theta ) = \frac{1}{\sqrt {2\pi }} \int _{\mathbb{R}} e^{-is\sigma } \mathcal{R}f(s,\theta ) ds. \tag{12} \end{equation}$$
+
+To derive the the filtered back-projection formula, commence with representing the attenuation coefficient 
+$f$
+ in terms of its two-dimensional Fourier transform:
+
+13
+
+$$\begin{equation} \begin{split} f(x,y) = \frac{1}{2\pi }\int _{\mathbb{R}^{2}} &\mathcal{F}f(k_x,k_y)\\ &\cdot e^{ i(k_x x+k_y y)} dk_x dk_y. \end{split} \cssId{texmlid3}{\tag{13}} \end{equation}$$
+
+In this representation, the function 
+$f$
+ is expanded as a superposition of sinusoidal waves, encoded in the complex exponential. The parameters 
+$k_x$
+ and 
+$k_y$
+ represent the Fourier parameters along the directions 
+$x$
+ and 
+$y$
+,
+ respectively. By switching to polar coordinates in equation 
+(
+13
+)
+, thanks to the symmetry of the Radon transform, one can derive
+
+14
+
+$$\begin{equation} \begin{split} f(x,y) = \frac{1}{2(2\pi )}& \int _0^{2\pi } \int _{\mathbb{R}} \mathcal{F}f(\sigma \theta )\cdot \\ &\cdot e^{i \sigma (x\cos \theta +y\sin \theta )}|\sigma | d\sigma d\theta . \end{split} \cssId{texmlid9}{\tag{14}} \end{equation}$$
+
+Since the value of 
+$k$
+ ranges from 
+$-\infty$
+ to 
+$+\infty$
+,
+ the inner integral has the form of a one-dimensional Fourier transform. Hence, by 
+(
+11
+)
+ and 
+(
+2
+)
+
+15
+
+$$\begin{equation} \begin{split} f(x,y) = \frac{1}{4\pi } \int _0^{2\pi } &\frac{1}{\sqrt {2\pi }}\int _{\mathbb{R}} \mathcal{F}_s \mathcal{R}f(\sigma ,\theta ) \\ &\cdot e^{i \sigma s}|\sigma | d\sigma d\theta . \end{split} \cssId{texmlid10}{\tag{15}} \end{equation}$$
+
+At this point, the inner integral is the inverse Fourier transform 
+$\mathcal{F}^{-1}_{\sigma }$
+ of the function 
+$\mathcal{F}_s \mathcal{R}f(\sigma ,\theta )|\sigma |$
+ with respect to the parameter 
+$\sigma$
+,
+ while the outer integral is the back-projector operator 
+(
+8
+)
+. Therefore, a formula for the filtered back-projection is derived:
+
+$$\begin{equation} f(x,y) = \frac{1}{4\pi } \mathcal{B}(\mathcal{F}^{-1}_{\sigma } (|\sigma |\mathcal{F}_s \mathcal{R}f(\sigma ,\theta ))). \tag{16} \end{equation}$$
+
+The function 
+$|\sigma |$
+ is referred to as a ramp filter. In practice, the acquired data is subject to noise, which typically exhibits a high-frequency component in the Fourier domain. Consequently, it is common to apply a low-pass filter to the ramp filter, a function that attenuates the high-frequency contributions.
+
+In the experiment, the Ram-Lak filter was used. This filter was first introduced by G. N. Ramachandran and A. V. Lakshminarayanan in 1971 
+RL71
+. This type of filter is applied to the ramp filter in the Fourier domain yielding the function 
+$|\sigma |$
+ if 
+$\sigma \leq 1$
+,
+ and 
+$0$
+ otherwise (see also 
+Fee15
+).
+
+Acknowledgment
+
+This research was funded in whole or in part by the Austrian Science Fund (FWF) SFB 10.55776/F68 “Tomography Across the Scales,” project F6801 and F6807. For open access purposes, the authors have applied a CC BY public copyright license to any author-accepted manuscript version arising from this submission. The financial support by the Austrian Federal Ministry for Digital and Economic Affairs; the National Foundation for Research, Technology, and Development; and the Christian Doppler Research Association is gratefully acknowledged.
+
+References
+[
+Bra56
+]
+ R. N. Bracewell, 
+Strip integration in radio astronomy
+, Austral. J. Phys. 
+9
+ (1956), 198–217, DOI 
+10.1071/PH560198
+. MR
+80017
+, 
+
+AMSref
+
+\bib{MR80017}{article}{
+ label={Bra56},
+ author={Bracewell, R. N.},
+ title={Strip integration in radio astronomy},
+ journal={Austral. J. Phys.},
+ volume={9},
+ date={1956},
+ pages={198--217},
+ issn={0004-9506},
+ review={\MR {80017}},
+ doi={10.1071/PH560198},
+}
+
+[
+CHD
+]
+CHDK, Canon hack development kit, Wiki.
+[
+Fee15
+]
+ Timothy G. Feeman, 
+The mathematics of medical imaging
+: 
+A beginner’s guide
+, 2nd ed., Springer Undergraduate Texts in Mathematics and Technology, Springer, Cham, 2015, DOI 
+10.1007/978-3-319-22665-1
+. MR
+3410524
+, 
+
+AMSref
+
+\bib{MR3410524}{book}{
+ label={Fee15},
+ author={Feeman, Timothy G.},
+ title={The mathematics of medical imaging},
+ series={Springer Undergraduate Texts in Mathematics and Technology},
+ edition={2},
+ subtitle={A beginner's guide},
+ publisher={Springer, Cham},
+ date={2015},
+ pages={xiv+197},
+ isbn={978-3-319-22664-4},
+ isbn={978-3-319-22665-1},
+ review={\MR {3410524}},
+ doi={10.1007/978-3-319-22665-1},
+}
+
+[
+Hom
+]
+Homer, 
+Hymni homerici xv - in herculem
+, accessed: February 11, 2025.
+[
+Hsi09
+]
+Jiang Hsieh, 
+Computed Tomography Principles, Design, Artifacts, and Recent Advances
+, John Wiley and Sons Inc. (Verlag), 2009.
+[
+KMS22
+]
+ Axel Kittenberger, Leonidas Mindrinos, and Otmar Scherzer, 
+Computed origami tomography
+, SIAM Rev. 
+64
+ (2022), no. 2, 469–484, DOI 
+10.1137/20M1378247
+. MR
+4416990
+, 
+
+AMSref
+
+\bib{MR4416990}{article}{
+ label={KMS22},
+ author={Kittenberger, Axel},
+ author={Mindrinos, Leonidas},
+ author={Scherzer, Otmar},
+ title={Computed origami tomography},
+ journal={SIAM Rev.},
+ volume={64},
+ date={2022},
+ number={2},
+ pages={469--484},
+ issn={0036-1445},
+ review={\MR {4416990}},
+ doi={10.1137/20M1378247},
+}
+
+[
+Kuc14
+]
+ Peter Kuchment, 
+The Radon transform and medical imaging
+, CBMS-NSF Regional Conference Series in Applied Mathematics, vol. 85, Society for Industrial and Applied Mathematics (SIAM), Philadelphia, PA, 2014. MR
+3137435
+, 
+
+AMSref
+
+\bib{MR3137435}{book}{
+ label={Kuc14},
+ author={Kuchment, Peter},
+ title={The Radon transform and medical imaging},
+ series={CBMS-NSF Regional Conference Series in Applied Mathematics},
+ volume={85},
+ publisher={Society for Industrial and Applied Mathematics (SIAM), Philadelphia, PA},
+ date={2014},
+ pages={xvi+240},
+ isbn={978-1-611973-28-0},
+ review={\MR {3137435}},
+}
+
+[
+MBFD15
+]
+Vito Mocella, Emmanuel Brun, Claudio Ferrero, and Daniel Delattre, 
+Revealing letters in rolled herculaneum papyri by x-ray phase-contrast imaging
+, Nature Communications 
+6
+ (2015), no. 1.
+[
+Nat01
+]
+ F. Natterer, 
+The mathematics of computerized tomography
+, Classics in Applied Mathematics, vol. 32, Society for Industrial and Applied Mathematics (SIAM), Philadelphia, PA, 2001. Reprint of the 1986 original, DOI 
+10.1137/1.9780898719284
+. MR
+1847845
+, 
+
+AMSref
+
+\bib{MR1847845}{book}{
+ label={Nat01},
+ author={Natterer, F.},
+ title={The mathematics of computerized tomography},
+ series={Classics in Applied Mathematics},
+ volume={32},
+ note={Reprint of the 1986 original},
+ publisher={Society for Industrial and Applied Mathematics (SIAM), Philadelphia, PA},
+ date={2001},
+ pages={xviii+222},
+ isbn={0-89871-493-1},
+ review={\MR {1847845}},
+ doi={10.1137/1.9780898719284},
+}
+
+[
+Old61
+]
+W. H. Oldendorf, 
+Isolated flying spot detection of radiodensity discontinuities—displaying the internal structural pattern of a complex object
+, IRE Transactions on Bio-Medical Electronics 
+8
+ (1961), no. 1, 68–72.
+[
+ÓQ06
+]
+ Gestur Ólafsson and Eric Todd Quinto (eds.), 
+The Radon transform, inverse problems, and tomography
+, Proceedings of Symposia in Applied Mathematics, vol. 63, American Mathematical Society, Providence, RI, 2006. Papers from the American Mathematical Society Short Course on the Radon Transform and Applications to Inverse Problems held in Atlanta, GA, January 3–4, 2005; AMS Short Course Lecture Notes, DOI 
+10.1090/psapm/063
+. MR
+2207138
+, 
+
+AMSref
+
+\bib{MR2207138}{collection}{
+ title={The Radon transform, inverse problems, and tomography},
+ series={Proceedings of Symposia in Applied Mathematics},
+ volume={63},
+ editor={\'{O}lafsson, Gestur},
+ editor={Quinto, Eric Todd},
+ note={Papers from the American Mathematical Society Short Course on the Radon Transform and Applications to Inverse Problems held in Atlanta, GA, January 3--4, 2005; AMS Short Course Lecture Notes},
+ publisher={American Mathematical Society, Providence, RI},
+ date={2006},
+ pages={xii+158},
+ isbn={0-8218-3930-6},
+ review={\MR {2207138}},
+ doi={10.1090/psapm/063},
+}
+
+[
+PPCH24
+]
+Stephen Parsons, C. Seth Parker, Christy Chapman, and Mami Hayashida, 
+Educelab-scrolls: Verifiable recovery of text from herculaneum papyri using x-ray CT
+, arXiv preprint, 2024.
+[
+Rad94
+]
+ Johann Radon, 
+Über die Bestimmung von Funktionen durch ihre Integralwerte längs gewisser Mannigfaltigkeiten
+
+(
+German, with German summary
+)
+, 75 years of Radon transform (Vienna, 1992), Conf. Proc. Lecture Notes Math. Phys., IV, Int. Press, Cambridge, MA, 1994, pp. 324–339. MR
+1313944
+, 
+
+AMSref
+
+\bib{MR1313944}{article}{
+ label={Rad94},
+ author={Radon, Johann},
+ title={\"{U}ber die Bestimmung von Funktionen durch ihre Integralwerte l\"{a}ngs gewisser Mannigfaltigkeiten},
+ language={German, with German summary},
+ conference={ title={75 years of Radon transform}, address={Vienna}, date={1992}, },
+ book={ series={Conf. Proc. Lecture Notes Math. Phys., IV}, publisher={Int. Press, Cambridge, MA}, },
+ date={1994},
+ pages={324--339},
+ review={\MR {1313944}},
+}
+
+[
+RL71
+]
+ G. N. Ramachandran and A. V. Lakshminarayanan, 
+Three-dimensional reconstruction from radiographs and electron micrographs: Application of convolutions instead of Fourier transforms
+, Proc. Nat. Acad. Sci. U.S.A. 
+68
+ (1971), 2236–2240, DOI 
+10.1073/pnas.68.9.2236
+. MR
+287750
+, 
+
+AMSref
+
+\bib{MR287750}{article}{
+ label={RL71},
+ author={Ramachandran, G. N.},
+ author={Lakshminarayanan, A. V.},
+ title={Three-dimensional reconstruction from radiographs and electron micrographs: Application of convolutions instead of Fourier transforms},
+ journal={Proc. Nat. Acad. Sci. U.S.A.},
+ volume={68},
+ date={1971},
+ pages={2236--2240},
+ issn={0027-8424},
+ review={\MR {287750}},
+ doi={10.1073/pnas.68.9.2236},
+}
+
+[
+SPS
+$^{+}$
+16
+]
+William Brent Seales, Clifford Seth Parker, Michael Segal, Emanuel Tov, Pnina Shor, and Yosef Porath, 
+From damage to discovery via virtual unwrapping: Reading the scroll from En-Gedi
+, Science Advances 
+2
+ (2016), no. 9.
+[
+Sta
+]
+Der Standard, 
+Verkohlte antike schriftrollen verraten platos begräbnisort
+.
+[
+Wik
+]
+Wikipedia, 
+Herculaneaum papyri, Vesuvius challenge
+, version: 24 May 2025.
+
+Sonia Foschiatti is a postdoctoral researcher at the University of Vienna, Austria. Her email address is 
+[email protected]
+.
+
+Axel Kittenberger is an information technology expert at the University of Vienna, Austria. His email address is 
+[email protected]
+.
+
+Otmar Scherzer is a full professor and head of the CD Laboratory for Mathematical Modelling and Simulation of Next-Generation Medical Ultrasound Devices (MaMSi) at the University of Vienna and group leader at the Radon Institute for Computational and Applied Mathematics (RICAM), Austrian Academy of Sciences, Linz, Austria. His email address is 
+[email protected]
+.
+
+Article DOI: 
+10.1090/noti3248
+Credits
+
+Figure 
+1
+ is courtesy of Yakun Dong.
+
+Figures 
+2
+–
+7
+ are courtesy of Axel Kittenberger.
+
+Figure 
+8
+ is courtesy of Sonia Foschiatti.
+
+Photos of the authors are courtesy of Yakun Dong.
+

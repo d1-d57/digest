@@ -1,0 +1,387 @@
+Shtetl-Optimized  » Blog Archive   » Spreading the Gospel of Theoretical Computer Science to an Omega(1) Fraction of Humanity: My Trevisan Award Acceptance Speech at STOC
+Shtetl-Optimized
+The Blog of Scott Aaronson
+If you take nothing else from this blog: quantum computers won't
+solve hard problems instantly by just trying all solutions in parallel.
+«
+50 Years of Aumann’s Agreement Theorem
+An American privacy emergency: Guest post from Cynthia Dwork et al.
+»
+Spreading the Gospel of Theoretical Computer Science to an Omega(1) Fraction of Humanity: My Trevisan Award Acceptance Speech at STOC
+Take that,
+Shtetl-Optimized
+haters of the world!
+With longtime friend and colleague
+Salil Vadhan
+, as well as Luca Trevisan’s widower Junce Zhang, at the STOC banquet on Tuesday, before I was given half an hour to try to make people laugh
+Spreading the Gospel of Theoretical Computer Science to an Ω(1) Fraction of Humanity (Or, How We Can Do Like the Physicists)
+Scott Aaronson’s Trevisan Award Acceptance Speech
+Salt Lake City, Utah, June 23, 2026
+Thank you so much!  It’s one of the highlights of my life, frankly, to accept the first-ever
+Luca Trevisan Award for Expository Work in Theoretical Computer Science
+—because of, firstly, what this entire STOC community means to me, but also what
+Luca Trevisan
+in particular meant to me.  Luca was one of the main people who taught me complexity theory—first at an IAS summer school in 2000, then at UC Berkeley, where I took two of his courses and TA’ed for him.  As a member of my dissertation committee, Luca once stood on a street corner in San Francisco to meet my friend to sign the signature page of my
+thesis
+, as I struggled to get the thing in by the deadline.  Later, Luca’s theoretical computer science blog,
+In Theory
+, bounced off of my blog.
+I wish Luca were here now.  But knowing him as well as I did for a quarter century, I feel like I know what he’d say if he learned that I had received the inaugural prize that bears his name.  I imagine he’d slap his forehead and say “Seriously, there was no other option??”  But I’d like to think that he’d eventually reconcile himself to the choice!
+By the way, I noticed that in the committee’s prize announcement, which I found so moving, they added a special paragraph at the end that basically said, “
+please
+don’t imagine that to win this prize in the future, you need to behave the way Aaronson behaves.  You can just write beautiful textbooks or survey articles or whatnot, and be normal and sane.”
+The foundation of my career is that I realized 25 years ago that there were better theoretical computer scientists than me—like many in this room, or like
+Ryan Williams
+or
+Andris Ambainis
+, both of whom I knew at the time.
+Certainly
+there were better quantum physicists than me.  There were better writers, better expositors, better performers.  On the other hand, if you looked specifically at the intersection of computational complexity
+and
+quantum physics
+and
+standup comedy, that was just this totally uncontested territory!
+I’ll let you in on a secret: pretty much everything I’ve done for decades has just been drawing out one joke.  That joke is, basically, “computer scientists they be like
+this
+, but physicists they be like
+that
+.”  The physicists they be like
+[exaggerated doofus voice]
+“duhhhh,
+NP
+, what’s that stand for?  Not Polynomial?”  See, but then there’s also a Rodney Dangerfield aspect to it, because it’s like, how come we never get as much respect as the physicists get?  (Though when we
+do
+get that respect, I confess that I complain all the more, because then I lose my shtick…)
+It’s true that the physicists have certain built-in advantages.  They had Einstein, Stephen Hawking, the atom bomb—and just the fact that they’re ultimately talking about, or trying to talk about, the world that we can see and touch.  A black hole is an actual place that you could visit, even though I wouldn’t recommend it.  But physicists also have much better names for things than we do.  I mean, black hole?  Big Bang?  Quark?  Gluon?  Supersymmetry?  Dark matter?
+Meanwhile, what names have we got?
+TFNP
+.
+NC
+1
+. And worst of all,
+PP
+. These are names that you want to flush down the toilet.  But also, the
+concept
+of a
+zero-knowledge protocol
+, or a
+two-source extractor
+, just inherently take longer to explain to people than the concept of a particle, or even a field—even though the latter
+also
+turn out to be extremely abstract and mathematical when you push on them.  Ask a physicist what a particle is, they’ll tell you that it’s an
+irreducible representation of the Poincaré group
+.  See, but people
+think
+they know what a particle is, it’s just a tiny little hard sphere that moves around, and that’s good enough for them.
+So then, how can we win the grand popularity contest against the physicists?  How can we, as I put it in my title, spread the gospel of CS theory to a constant fraction of the human race?  In my view, the first step is to reframe who we are and what we’re about.  We’re not this obscure little community off to the side, proving its little theorems about derandomization and catalytic space.  No!  What we are is the conceptual and mathematical core of computer science, the field that’s changing the face of civilization in obvious and undeniable ways.
+This was even true a long time ago. The physicists had Galileo and Einstein? Well, we had Turing, a figure so heroic and so tragic that no one would’ve believed him as a fictional character. And while we’re at it, we’ll claim Gödel and Shannon and von Neumann, Leibniz and Babbage and Ada Lovelace—they’re all ours too.
+That’s our proud history.  But then when we turn to today, it’s like, holy crap!  Even the densest ignoramus can now see how deep intellectual ideas originating in CS are changing the world.
+Blockchains—some people might wish they’d never been invented, but they
+were
+invented, so we all need to think about how they change the world’s economy for better and worse.  And of course, they’re fundamentally based on hardness assumptions; they couldn’t exist in a world where NP was easy.
+Part of my outreach job these days is to explain to finance people, over and over, why a quantum computer could break the elliptic curve signature schemes used by Bitcoin and many other coins, but would have only a more modest effect on the proof-of-work part, the hash function.  And it’s like, if you actually want to know, then we need to talk about BQP versus NP, Grover’s algorithm and its optimality, black-box problems with and without abelian group structure—and now we’re deep into TCS!
+Speaking of quantum computing—even if we set aside the question of whether quantum computing is going to revolutionize materials science or chemistry or pharmaceuticals design—or whether it will revolutionize AI and machine learning and optimization
+[I shake my head, make a thumbs-down, and blow a raspberry]
+—even if we set aside those practical questions, quantum computing plausibly represents the most dramatic test of quantum mechanics itself that we’re ever going to see.  And it now looks clear that we
+will
+see that test within the next decade or sooner.  One way or the other, we’re going to learn the truth.
+People sometimes ask me, why did it take until the 1980s for anyone to propose the idea of quantum computing? You know, Heisenberg and Schrödinger were in the 1920s, Turing was in the 1930s, so it seems like all the ingredients were in place a half-century earlier!  In my
+Quantum Computing Since Democritus
+book, I reflected on this, and I think the deepest answer is that
+not
+quite all of the intellectual ingredients were in place.  Quantum computing is something that it doesn’t make a great deal of sense even to ask about until you’ve established polynomial versus exponential, and even P and NP and NP-hard, as central concepts.  And that’s what didn’t happen until the 1970s.
+But of course, the
+biggest
+thing that our CS concepts have unleashed on humanity—the thing that the entire world now realizes holds even greater promise and greater peril than nuclear energy did in the last century—is
+[pause for effect]
+the
+Razborov-Smolensky lower bound method
+.
+No, I’m kidding of course.  It’s generative AI.
+Twenty years ago, I remember people in our community—was it Fortnow? Impagliazzo? I’m not sure—saying, “you know the
+real
+reason why P vs. NP is such an important problem?  Suppose P=NP, via an algorithm that was fast in practice.  Then it’s not just that you could break all the encryption systems, or have your computer find a proof of the Riemann Hypothesis, or whatever.  No, it’s that you could program your computer to find the shortest efficient compression of, for example, the full text of Wikipedia.  For in order to create that compression, it seems plausible that your computer would need to create an AGI as a byproduct.”
+I remember thinking to myself: “that’s an amusing thought experiment, I’ll need to steal it sometime, but still, what an utterly simplistic vision of the nature of intelligence!  There
+has
+to be more to intelligence than sheer data compression!”
+Fast forward to spring 2022, when I accepted an invitation to go on leave for a couple of years, to join what was then a relatively obscure little nonprofit foundation by the name of … err … OpenAI.  When I flew to San Francisco to start my assignment, I had lunch with
+Ilya Sutskever
+, the cofounder of OpenAI and then its chief scientist.  And Ilya said to me, “Scott, let me explain to you how we think about things here at OpenAI.  For us, intelligence is fundamentally about prediction, and prediction is fundamentally about compressing your training data.  As you know,
+Kolmogorov complexity
+is uncomputable, but one can get better and better computable upper bounds on it.  We conjectured that, in order to get sufficiently good at predicting and compressing all the text on the Internet, you’d need to build a model of the entire world that had led to that text being written.  And we made a gamble that large neural nets would do that well enough, despite the problem’s worst-case intractability.”
+That conversation was when it hit me that, if only we in CS theory had taken our own concepts and thought experiments more seriously, one of
+us
+could’ve started OpenAI 15 or 20 years ago.  So OK, we didn’t, and that’s why I flew coach to get here.  But this is the kind of story that it seems to me we could be singing from the rooftops.
+(Incidentally, the reason why OpenAI wanted me back in 2022, was to use theoretical computer science to figure out how to make AI safe for humanity.  Alas, that problem is still open!  But I’m thrilled that there are so many sessions about exactly this question at STOC this year, and I hope many of you will choose to get involved.)
+In the rest of this talk, I’d like to offer some advice—such as I have—for any of you who’d like to try
+your
+hand at speaking or writing or blogging or podcasting about theoretical computer science for a broad audience.  You see how my hair is starting to gray?  Yeah, that’s what authorizes me to go into advice mode.
+Let’s start with the obvious: meeting the audience where they are.  This is something that I learned years ago from
+Steven Rudich
+, who along with Luca, was another irreplaceable figure who our community recently lost, and lost too soon.  I remember 26 years ago, at that same IAS summer school where I learned from Luca, Rudich gave the students a talk about how to give talks.  In it, he showed a cartoon of someone lecturing.  And there were little thought bubbles that said:
+What the speaker thinks the audience is thinking:
+MORE!  HARDER!  FASTER!  Ah yes, QED, truth is beauty and beauty is truth!
+What the audience is
+actually
+thinking:
+What the hell are they talking about?  When is this over?  Can I get a date with the person sitting next to me?
+You know, this misconception that because something has become obvious to you, after thinking about it for years,
+therefore
+it should be equally obvious to your readers or listeners encountering it for the first time?  This is what
+Steven Pinker dubbed “the Curse of Knowledge,”
+and calls the most fundamental problem of all exposition.  (I could mention the related misconception that because something has become
+interesting
+to you, therefore it’s
+interesting
+to your audience.  But you can make just about anything that’s interesting to you interesting to your audience, by telling a suitable story about it.)
+What can you do about the Curse of Knowledge?  Practice giving a buttload of talks to undergrads, high school clubs, even physicists, and
+listen
+to the feedback you get.  If the same weird confusion shows up at least twice, it’s a safe bet that it’s going to keep showing up—which means, now you can anticipate and preempt it the next time you explain the same concept.
+But it’s not just misconceptions that you should listen for.  Listen for which of your metaphors and anecdotes actually land.
+Certainly
+listen for which of your jokes get a laugh.  Use those more the next time.  And if saying, for example, “hur hur, I’m in a
+quantum superposition
+of two different topics that I could talk about next”—if that
+fails
+to get a laugh, then DROP IT.
+Eventually, you’ll build up what Carl Sagan
+once called
+“consumer-tested stepping stones”: that is, a library of jokes, anecdotes, and metaphors that can get you from wherever you see the audience is to wherever you need them to be. Here’s an intentionally tiny example of one of my stepping stones: “Why is P contained in NP? Because the verifier just says to the prover, dude, take a hike, you’re not needed here.” Or another stepping stone, for when we reach the question of the likelihood of P=NP: “look, if we were physicists, we would’ve declared P≠NP to be a law of nature. We would’ve given ourselves Nobel Prizes for the discovery of that law. And if it later turned out that P=NP? We’d just give ourselves more Nobel Prizes for the law’s overthrow!”
+This brings me to a broader point.  CS theory is unusually rich with facts that are true for silly or absurd or ironic reasons.  Lean into that!  Don’t hide it!
+I mean, “if NP has small circuits then this theorem is true, but if NP doesn’t have small circuits, the theorem is
+again
+true, but now for a totally different reason”?  That’s sidesplittingly hilarious!  OK, maybe only to some of us.
+Or why does IP=PSPACE?  An alien lands and is like, “I COME TO EARTH TO TELL YOU THAT WHITE HAS THE WIN IN YOUR GAME CALLED CHESS.”  And we’re like, “why should we believe that?”  So the alien is like, “LET US PLAY A GAME.  I’LL PLAY WHITE AND WILL WIN.”  And we’re like, “oh, we assume you’re smarter than us!  You came all the way here in a spaceship and all!  But that still doesn’t prove it.”  So the alien is like, “THEN LET US PLAY A DIFFERENT GAME, MATHEMATICALLY EQUIVALENT TO CHESS, INVOLVING SUMS OF POLYNOMIALS OVER A FINITE FIELD.  IN THIS TRANSFORMED GAME, THE BEST YOU CAN DO IS TO MOVE RANDOMLY.  SO IF I STILL WIN, YOU’RE STATISTICALLY CERTAIN I WOULD’VE WON REGARDLESS OF HOW YOU PLAYED.”  It’s like, dude.  Dude!
+Of course, our founding irony, our founding absurdity, was self-reference and diagonalization. Like, “you can’t predict what any human brain will do 5 seconds from now, because if you could, you could predict what
+you yourself
+were going to do 5 seconds from now, and then do the opposite of that!” BOOM! Therefore the halting problem is undecidable and the
+Time Hierarchy Theorem
+is true, QED. But beyond that: “
+black-box program obfuscation is impossible
+, because one thing you can always do, if given the actual code of a program, is to
+run the program on its own code
+and see what happens.” Dude! Or: the reason why it’s so hard to prove P≠NP, is that it’s presumably
+true
+that P≠NP.  That’s a wisecrack that, in the context of the
+Natural Proofs barrier
+, becomes so much more than a wisecrack.
+One special case of leaning into absurdity concerns the central role in our field played by asymptotics.  I’m always slightly at a loss when someone asks me, “so, how many times faster would a quantum computer be than a classical computer?  A million times faster?  A billion?”
+Part of me wants to reply: “I
+must
+educate you about polynomial versus exponential scaling until you see the profound error of your question, and retract it.”  But another part of me simply wants to say: “depending on the problem, a quantum computer could be anywhere from not faster at all to, let’s say,
+10
+10000
+times
+faster.”
+The truth is, I think we need to do both. Anytime you’re talking about asymptotics to laypeople, if you can plug in some representative numbers, it will help them understand what you’re talking about. And then, if the asymptotics are what really control the real-world numbers, so much the better! If, on the other hand, the asymptotics are comically disconnected from the real-world numbers—if, for example, you’re trying to improve something from
+log*(n)
+to
+Ackermann
+-1
+(n)
+or whatever—well then, you can lean into that as an additional source of humor.
+Alright, one last piece of advice.  Tell true stories about how
+you
+came to understand or discover whatever it is that you’re talking about.  Don’t be like the mathematicians who love to cover their tracks.
+When people ask me how I proved the
+lower bound
+on the number of steps needed for a quantum computer to find collisions in a list—a centerpiece of my PhD thesis, and one of the two or three hardest technical things I’ve done in my career—I say, look, I was 20 years old and I had no social life.  So I just pulled many all-nighters trying every possible approach.  Eventually, I came across some complicated expression that had no right to be a polynomial.  But somehow, every term in the denominator cancelled against a corresponding term in the numerator, and it
+was
+a polynomial!  And that let me use the
+polynomial method
+to prove a lower bound.  Why was it a polynomial?  I still don’t really understand, a quarter-century later!  My point is, people want the truth.
+The secret of blogging is that, even if people despise what you’re saying, even if they think it’s wrong, offensive, problematic, cringe, you name it, they need to trust that you’re telling them the truth of what
+you
+know or believe or remember about the subject at hand, the same as you’d tell your closest friend.
+In summary: we, the CS theory community, are sitting on top of one of the greatest conceptual and intellectual goldmines of our whole civilization.  I exhort everyone here: please help tell the world about it!  As you do so, think about how to honor Luca’s memory and make him proud.  But also think about how to make me, and my silly little blog, superfluous and obsolete.
+Thank you for this honor, thank you for the incredible privilege of being part of the CS theory community, and thank you for listening.
+Follow
+This entry was posted
+												on Sunday, June 28th, 2026 at 8:32 pm						and is filed under
+Adventures in Meatspace
+,
+Complexity
+,
+Quantum
+.
+						You can follow any responses to this entry through the
+RSS 2.0
+feed.
+
+													You can
+leave a response
+, or
+trackback
+from your own site.
+20 Responses to “Spreading the Gospel of Theoretical Computer Science to an Omega(1) Fraction of Humanity: My Trevisan Award Acceptance Speech at STOC”
+Eric Binnendyk
+Says:
+Comment #1
+June 28th, 2026 at 8:38 pm
+Congrats on the award, Scott!
+Student
+Says:
+Comment #2
+June 29th, 2026 at 1:35 am
+Suppose being a mathematical expression living in the Platonic world from everlasting to everlasting in eternal union with a polynomial and a mere mortal sneering you that you “had no right to be a polynomial.”
+By the way, congrats again!
+Jim Hefferon
+Says:
+Comment #3
+June 29th, 2026 at 5:59 am
+Congratulations!  The prize is richly deserved, and the talk is a lot of fun.
+Adam Treat
+Says:
+Comment #4
+June 29th, 2026 at 7:52 am
+Just in case you don’t know, Scott, dude, you are hilarious 😂
+Ethan Bruel
+Says:
+Comment #5
+June 29th, 2026 at 11:37 am
+Congratulations Scott, excellent speech as usual!
+Meanwhile, the first troubling signs of Sharia Law in NYC:
+https://youtu.be/8zRIkL7Advs
+Alex Xanthakis
+Says:
+Comment #6
+June 29th, 2026 at 12:09 pm
+Thanks for sharing!
+Raoul Ohio
+Says:
+Comment #7
+June 29th, 2026 at 8:04 pm
+Ethan Bruel #5: well, you can’t say Scott didn’t warn us.
+Scott
+Says:
+Comment #8
+June 29th, 2026 at 8:54 pm
+Ethan Bruel #5 and Raoul Ohio #7: For realz, not once did I ever suggest that Mamdani or other decolonial leftists have any desire to impose Sharia law or persecute LGBT people.  Exactly the contrary, obviously.
+Nevertheless, out of mutual disdain for Western civilization, Israel, etc., the decolonial leftists
+have
+formed an alliance with Islamists who would gleefully kill the leftists the moment the Islamists attained actual power.  This may seem like one of the strangest, most one-sided alliances in all of human history, and it is, but it has plenty of precedent—eg, it’s exactly what brought the Ayatollahs to power in 1979.  Ask any Iranian who lived through it; they’ll tell you.
+Student
+Says:
+Comment #9
+June 30th, 2026 at 8:36 am
+Scott #8:
+To destroy the worldview of decolonial leftists just ask them whether they know of a country named Iran. In cases they
+have
+actually heard of such a country, they can only resort to hysterical comments on what Iranians say. To witness an example watch this crypto-Islamist professional sophist Mehdi Hassan’s engagement with the Iranian opposition on Twitter.
+Anonimus
+Says:
+Comment #10
+June 30th, 2026 at 10:22 am
+For context, according to the evil “decolonial leftists”, the root cause of what brought the Ayatollahs to power in 1979 was the West organizing a coup against the democratically elected Mosaddegh:
+https://en.wikipedia.org/wiki/1953_Iranian_coup_d%27%C3%A9tat
+“Mosaddegh had sought to audit the documents of the Anglo-Iranian Oil Company (AIOC), a British corporation (now part of BP), to verify that AIOC was paying the contracted royalties to Iran, and to limit their control over Iranian oil reserves. Upon the AIOC’s refusal to cooperate with the Iranian government, the parliament (Majlis) voted to nationalize Iran’s oil industry and to expel foreign corporate representatives from the country. After this vote, Britain instigated a worldwide boycott of Iranian oil to pressure Iran economically.
+Initially, Britain mobilized its military to seize control of the British-built Abadan oil refinery, then the world’s largest, but Prime Minister Clement Attlee opted instead to tighten the economic boycott while using agents to undermine Mosaddegh’s government.  Judging Mosaddegh to be unamenable and fearing the growing influence of the communist Tudeh, UK prime minister Winston Churchill decided in early 1953 to solicit the Eisenhower administration and overthrow Iran’s government.
+[…]
+Following the coup, a government under General Fazlollah Zahedi was formed which allowed Mohammad Reza Pahlavi, the shah of Iran (Persian for ‘king’), to rule more firmly as monarch. He relied heavily on United States support to hold on to power. According to the CIA’s declassified documents and records, some of the most feared mobsters in Tehran were hired by the CIA to stage pro-shah riots on 19 August”
+Anonimus
+Says:
+Comment #11
+June 30th, 2026 at 10:41 am
+And let’s not forget “the Ayatollahs taking power in 1979” involved Khomeini being kindly transported from his exile near Paris to Tehran on nothing less than a chartered Air France Boeing 747!
+https://c.files.bbci.co.uk/1B13/production/_105413960_gettyimages-515411182-1.jpg
+https://www.bbc.com/news/world-middle-east-47043561
+Andy Pezzi
+Says:
+Comment #12
+June 30th, 2026 at 10:49 am
+Congratulations Scott! You deserve this prize. Your talk is brilliant and witty, just as it fits into your temper. Wrt decolonial leftists I totally agree with you. I think only the alliance of sharp-witted minds like you could run counter the plague of that heinous decolonial leftism, capable of spreading across the “once upon a time” more prestigious universities in the world.
+Matteo Vitturi
+Says:
+Comment #13
+June 30th, 2026 at 11:10 am
+Congratulations on the award and the speech, Professor Aaronson! I really enjoyed it — funny and engaging as always. I only understood a constant fraction of it (!), but TCS is among my life purposes now: I’m definitely part of that Ω(1) fraction of humanity.
+Your talk also reminded me prof. Hofstadter’s 1979 book Gödel, Escher, Bach; same vibes around self-reference and AI consciousness.
+Thanks again for sharing it!
+Anonimus
+Says:
+Comment #14
+June 30th, 2026 at 3:13 pm
+https://lucatrevisan.wordpress.com/2006/05/02/labor-day/
+Doug S.
+Says:
+Comment #15
+July 2nd, 2026 at 6:09 pm
+Presumably if there hadn’t been a coup to overthrow Mosaddegh’s government, there wouldn’t have been a Shah in 1979 for the Iranians to overthrow; there would have been something else there between 1953 and 1979, and whether or not that “something else” would eventually evolve into or be replaced by an Islamic theocracy is something I don’t know enough to make even an informed guess. Whether or not you want to call the coup a “root cause” is up to you, but what is predictable is that, when you have a revolution, it’s usually the most radical faction within the revolution that ends up in charge, because they’re invariably the first to start killing their former fellow revolutionaries once the revolution “wins”.
+John Smith
+Says:
+Comment #16
+July 2nd, 2026 at 7:50 pm
+“if NP has small circuits then this theorem is true, but if NP doesn’t have small circuits, the theorem is again true, but now for a totally different reason”
+What theorem does this refer to? 🙂
+Anon
+Says:
+Comment #17
+July 2nd, 2026 at 9:44 pm
+So much false narratives among anti-westerns (whether islamists or anti-capitalists or progressive leftists) about the world.
+There is a unbelievable amount of self-hate among some people coming and living in the Western civilization.
+Did CIA support the coup in Iran in forties? yes.
+Was the government of the time a reasonable democratic government? the common myth says yes.
+the reality, none of political actors inside Iran, from monarchists to islamists to other groups opposed the coup. the prime minister of Iran at the time was himself a nationalist populist dictator, violating constitution, pushing the monarch out of the country, grabbing power that constitutionally was for the monarch, disolved the parliament, …
+Iran had no use for oil at the time, and had no capability to extract oil without British.
+however he wanted to own 100% of the oil revenue which he could neither extract nor sell nor use. he rejected 50-50 deal that the Americans negotiated between Iran and Britain, similar to the deal that British had with Saudi Arabia, cause it would go against his populist nationalist propaganda.
+everyone at the time were worried about a communist take over because of communist party in Iran closeness with the prime minister.
+The US didn’t support the coup during Truman, but Eisenhower was a different character and had no stomach for obstructionist Iranian prime minister.
+So we toppled a nationalist populist who every other political inside Iran was opposed to. no one came to help him.
+in the grand scheme of the cold war, and from realist perspective and based on information we had at the time, Eisenhower made the right decision. It was not for oil, it was too prevent Iran from falling to communism. The best years of Iran’s economic growth happened after that prime minister was toppled.
+If Iranians were so keen on sovereignty, they would not interfere in so many countries in their region against the will of the people of those countries. Just go look at the destruction IRGC caused in Syria, or see how they prevent Lebanese government from disarming Hezbollah, and armed militia that publicly claims aligience to the religious leader of Iran. Or how they keep interfering in politics of Iraq and trying to prevent people that are not loyal to IRGC from becoming prime minister, causing massive amount of corruption in oil revenues, …
+They complain for toppling of an obnoxious undemocratic nationalist populist prime minister who regularly violated the constitutional order and was opposed by all other political groups in Iran, but when it comes to all the meddling and massive destruction and killing that IRGC had carried out in the region, they become apologists.
+Iranians committed so much killing it civilians in Syria that they are hated by syrians the most.
+If someone complains about the toppling of that Iranian prime minister but is silent about all the crimes that IRGC and Iranian government have committed in Syria at the massive scale, killing hundreds of thousands of civilians and publicly admitting to using heavy weapons in civilian areas, you can be sure you are taking to either an ignorant person who doesn’t know what they are talking about or an unparalleled hypocrite.
+One can complain about democracy or human rights or international laws that themselves respect them and aspires to uphold them.
+Anon
+Says:
+Comment #18
+July 2nd, 2026 at 10:11 pm
+Iranian leftists and islamists hated West, even before the coup. It is well featured in the writings of Iranian intellectuals and writers of the time. It needs quite a bit of imagination to claim that if that Iranian prime minister was not toppled, we wouldn’t have 1979 revolution.
+That prime minister had forced the monarch to leave the country already and taken over the monarch’s powers for himself.
+John Tromp
+Says:
+Comment #19
+July 4th, 2026 at 7:57 am
+Congratulations, Scott!
+> the proof-of-work part, the hash function
+Hash functions are just one type of proof-of-work. Technically, they are part of the Hashcash [1]
+proof-of-work algorithm, which is about finding an hash function input whose output is below some threshold. Hash-cash is mildly vulnerable to quantum computers due to Grover’s algorithm.
+But there are many other PoW algorithms [2], some of which have no (known) quantum speedup at all. One example is the Cuckoo Cycle PoW [3], which is about finding fixed length cycles in huge random bipartite graphs.
+[1]
+https://en.wikipedia.org/wiki/Hashcash
+[2]
+https://en.wikipedia.org/wiki/Proof_of_work#List_of_proof-of-work_functions
+[3]
+https://github.com/tromp/cuckoo
+Scott
+Says:
+Comment #20
+July 4th, 2026 at 8:38 am
+John Tromp #19: Thanks!!  Yes, of course I’m aware of the line of work that’s sought to reduce or eliminate the Grover advantage for proof-of-work, by doing something other than pure hash function inversion.  It’s a shame I didn’t have time to go into it in the talk.
+Leave a Reply
+You can use rich HTML in comments!  You can also use basic TeX, by enclosing it within
+$$ $$
+for displayed equations or
+\( \)
+for inline equations.
+Comment Policies:
+After two decades of mostly-open comments, in July 2024
+Shtetl-Optimized
+transitioned to the following policy:
+All comments are treated, by default, as personal missives to me, Scott Aaronson---with no expectation either that they'll appear on the blog or that I'll reply to them.
+At my leisure and discretion, and in consultation with the
+Shtetl-Optimized
+Committee of Guardians
+, I'll put on the blog a curated selection of comments that I judge to be particularly interesting or to move the topic forward, and I'll do my best to answer those.  But it will be more like Letters to the Editor.  Anyone who feels unjustly censored is welcome to the rest of the Internet.
+To the many who've asked me for this over the years, you're welcome!
+Name (required)
+Mail (will not be published) (required)
+Website
+Δ
+Shtetl-Optimized is proudly powered by
+WordPress
+Entries (RSS)
+and
+Comments (RSS)
+.

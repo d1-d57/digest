@@ -1,0 +1,2240 @@
+                                                  The time-fractional heat equation driven by
+                                                       fractional time-space white noise
+
+
+
+
+arXiv:2402.16900v1 [math.PR] 24 Feb 2024
+                                                    Rahma Yasmina Moulay Hachemi1 & Bernt Øksendal2
+
+                                                                             19 February 2024
+                                                                       In memory of Bent Fuglede
+
+
+
+                                           MSC [2020]: 30B50; 34A08; 35D30; 35D35; 35K05; 35R11; 60H15; 60H40
+
+
+                                           Keywords: Fractional stochastic heat equation; Caputo derivative: Mittag-Leffler
+                                           function; fractional time-space white noise; additive noise; multiplicative noise; tem-
+                                           pered distributions; mild solution.
+
+                                                                                    Abstract
+                                                     We give an introduction to the time-fractional stochastic heat equation
+                                                 driven by 1+d-parameter fractional time-space white noise, in the following
+                                                 two cases:
+                                                  (i) With additive noise
+                                                 (ii) With multiplicative noise.
+                                                 The fractional time derivative is interpreted as the Caputo derivative of order
+                                                 α ∈ (0, 2) and we assume that the Hurst coefficient H = (H0 , H1 , H2 , ..., Hd )
+                                                 of the time-space fractional white noise is in ( 21 , 1)1+d .
+                                                     We find an explicit expression for the unique solution in the sense of dis-
+                                                 tribution of the equation in the additive noise case (i).
+                                             1
+                                               Department of Mathematics, University of Saida, Algeria.
+                                           Email: yasmin.moulayhachemi@yahoo.com
+                                             2
+                                               Department of Mathematics, University of Oslo, Norway. Email: oksendal@math.uio.no.
+
+
+                                                                                        1
+          In the multiplicative case (ii) we show that there is a unique solution in
+      the Hida space (S)∗ of stochastic distributions and we show that the solu-
+      tion coincides with the solution of an associated fractional stochastic Volterra
+      equation.Then we give an explicit expression for the solution of this Volterra
+      equation.
+          A solution Y (t, x) is called mild if E[Y 2 (t, x)] < ∞ for all t, x. For both
+      the additive noise case and the multiplicative noise case we show that if α ≥ 1
+      then the solution is mild if d = 1 or d = 2, while if α < 1 the solution is not
+      mild for any d.
+          The paper is partly a survey paper, explaining the concepts and methods
+      behind the results. It is also partly a research paper, in the sense that some
+      results appears to be new.
+
+
+1    Introduction
+The purpose of this paper is to study the time-fractional heat equation driven by
+multi-parameter fractional Brownian motion. We discuss both the additive noise
+case and the case with multiplicative noise. Using basic methods of Laplace and
+Fourier transforms combined with white noise calculus we obtain explicit solution
+formulas in the sense of distribution for any order α ∈ (0, 2) of the time -derivative
+and for any space dimension d. Then we investigate for what values of α and d the
+solution has finite second moment.
+    It was Niels Henrik Abel who first introduced the fractional derivative of a func-
+tion. In 1823 [1] he used the fractional derivative to solve the tautochrone (isochrone)
+problem in mechanics. Then in 1903 [22] Gosta Magnus Mittag- Leffler introduced
+what was later called the the Mittag-Leffler function Eα (z). Subsequently it became
+clear that this function has a connection to the fractional derivative introduced by
+Abel.
+    As a modelling tool the fractional derivative of order α ∈ (0, 2) is useful for many
+situations, e.g. in the study of heat transfer and waves. For an example see Section
+9. For many applications of fractional derivatives we refer to the book by S. Holm
+[15].
+    - The classical diffusion case corresponds to α = 1. In that case our equation
+models the normal diffusion of heat in a random or noisy medium, the noise being
+represented by the fractional time-space white noise WH (t, x).
+    - The superdiffusion case corresponds to α > 1. Then the equation models a
+situation where the particles spread faster than in regular diffusion. This may occur
+for example in some biological systems.
+
+
+                                              2
+    - The subdiffusion case occures when α < 1. Then the equation models a situation
+in which travel times of the particles are longer than in the standard case. Such
+situations may occur for example in some transport systems. For more details see
+[10].
+    Specifically, in this paper we study the following two time-fractional stochastic
+heat equations driven by fractional time-space white noise:
+      Additive noise:
+      ∂α
+          Y (t, x) = λ∆Y (t, x) + σWH (t, x); (t, x) ∈ (0, ∞) × Rd .                (1.1)
+      ∂tα
+      Multiplicative noise:
+      ∂α
+          Y (t, x) = λ∆Y (t, x) + σY (t, x) ⋄ WH (t, x); (t, x) ∈ (0, ∞) × Rd ,     (1.2)
+      ∂tα
+                                   α
+where d ∈ N = {1, 2, ...} and ∂t
+                              ∂
+                                α is the Caputo derivative of order α ∈ (0, 2), and
+
+λ > 0 and σ ∈ R are given constants. Here
+                                          d
+                                          X ∂2Y
+                                   ∆Y =              (t, x)                         (1.3)
+                                          j=1
+                                              ∂x2j
+
+denotes the Laplacian operator acting on x, WH (t, x) is multiparameter fractional
+white noise, defined by
+                                          ∂ ∂ d BH (t, x)
+                              WH (t, x) =                 ,                         (1.4)
+                                          ∂t ∂x1 ...∂xd
+where BH (t, x) = B(t, x, ω); t ≥ 0, x ∈ Rd , ω ∈ Ω is time-space fractional Brownian
+motion with Hurst parameter H = (H0 , H1 , ..., Hd ) ∈ ( 12 , 1)d+1 with probability law
+P, and ⋄ denotes the Wick product.
+    The boundary conditions are
+                              Y (0, x) = δ0 (x) (the point mass at 0),              (1.5)
+                      lim     Y (t, x) = 0.                                         (1.6)
+                    x→+/− ∞
+
+We consider the equation (1.1) in the sense of distribution, and we find an explicit
+expression for the S ′ -valued solution Y (t, x), where S ′ is the space of tempered dis-
+tributions. See Theorem 6.2.
+
+    The equation (1.2) is considered in the Hida space (S)∗ of stochastic distributions.
+We show that Y (t, x) solves (1.2) if and only if Y (t, x) solves a Volterra equation
+driven by the same fractional Brownian motion. See Theorem 7.2.
+
+                                             3
+   Then we find an explicit expression for the solution of such Volterra equations.
+See Theorem 8.2.
+   The solution is called mild if Y (t, x) ∈ L2 (P) for all t, x. It is well-known (see e.g.
+Y. Hu [14]) that in the classical case with α = 1, the solution is mild if and only if
+the space dimension d = 1. We prove that if α ∈ (1, 2) the solution is mild if d = 1
+or d = 2. If α < 1 we prove that the solution is not mild for any d. This holds for
+both the additive noise and the multiplicative noise case and for all Hurst vectors
+H = (H0 , H1 , ..., Hd ) ∈ ( 21 , 1)1+d . See Theorem 6.5 and Theorem 8.3.
+   A crucial base for our results is our L2 (P )-estimate for WIS-stochastic integrals
+with respect to fractional Brownian motion (Theorem 5.1).This result appears to be
+new.
+
+    There are many papers dealing with various forms of stochastic fractional differ-
+ential equations. Some papers which are related to ours are:
+- In the paper by Kochubel et al [19] the fractional heat equation corresponding to
+random time change in Brownian motion is studied.
+- The papers by Bock et al [4], [5] are considering stochastic equations driven by grey
+Brownian motion.
+- The paper Roeckner et al [21] proves existence and uniqueness of general time-
+fractional linear evolution equations in the Gelfand triple setting.
+-The paper Yalin et al [29] study the time-regularity of the paths of solutions to
+stochastic partial differential equations driven by additive infinite-dimensional frac-
+tional Brownian noise.
+-The paper by Binh et al [3] study the spatially-temporally Hølder continuity of mild
+random field solution of space time fractional stochastic heat equation driven by
+colored noise.
+- The paper which is closest to our paper is Chen et al [9], where a comprehensive
+discussion is given of a general fractional stochastic heat equations with multiplica-
+tive noise, and with fractional derivatives in both time and space, is given. In that
+paper the authors prove existence and uniqueness results as well as regularity results
+of the solution, and they give sufficient conditions on the coefficients and the space
+dimension d, for the solution to be a random field. Their method is based on the use
+of fundamental solutions of the corresponding deterministic equations.
+    In comparison, our paper is dealing with both the additive and multiplicative
+noise case. We consider a more special class of fractional heat equations than in Chen
+et al [9] and this allows us to use basic methods of Laplace and Fourier transform
+and to find explicit solution formulas in the sense of distributions. In Section 5 we
+prove a new L2 (P )-estimate of independent interest for fBm integrals. Then we use
+
+
+                                             4
+this estimate combined with the explicit solution formulas to find conditions under
+which the solutions are random fields in L2 (P). Our paper may be regarded as an
+extension of the paper [47], where only the case with additive classical Brownian
+sheet noise (not fractional noise) is considered.
+    We refer to Holm [15], Ibe [16], Kilbas et al [18] and Samko et al [26] for more
+information about fractional calculus and their applications.
+
+
+2     Preliminaries
+In this section we summarise some of the background notation and results needed in
+this paper.
+
+2.1    The space of tempered distributions
+For the convenience of the reader we recall some of the basic properties of the
+Schwartz space S of rapidly decreasing smooth functions and its dual, the space
+S ′ of tempered distributions. Let n be a given natural number. Let S = S(Rn ) be
+the space of rapidly decreasing smooth real functions f on Rn equipped with the
+family of seminorms:
+                                    
+                      kf kk,α := sup (1 + |y|k )|∂ α f (y)| < ∞,
+                                   y∈Rn
+
+
+where k = 0, 1, ..., α = (α1 , ..., αn ) is a multi-index with αj = 0, 1, ... (j = 1, ..., n)
+and
+                                                ∂ |α|
+                                  ∂ α f := α1               f
+                                            ∂y1 · · · ∂ynαn
+for |α| = α1 + ... + αn .
+    Then S = S(Rn ) is a Fréchet space.
+    Let S ′ = S ′ (Rn ) be its dual, called the space of tempered distributions. Let B
+denote the family of all Borel subsets of S ′ (Rn ) equipped with the weak* topology.
+If Φ ∈ S ′ and f ∈ S we let
+                                      Φ(f ) or hΦ, f i                            (2.1)
+denote the action of Φ on f .
+
+Example 2.1       • (Evaluations) For y ∈ R define the function δy on S(R) by
+    δy (φ) = φ(y). Then δy is a tempered distribution.
+
+
+                                             5
+   • (Derivatives) Consider the function D, defined for φ ∈ S(R) by D[φ] = φ′ (y).
+     Then D is a tempered distribution.
+
+
+   • (Distributional derivative)
+                                                  ′
+     Let T be a tempered distribution, i.e. T ∈ S (R). We define the distributional
+                 ′
+     derivative T of T by
+                                  ′           ′
+                                 T [φ] = −T [φ ]; φ ∈ S.
+             ′
+      Then T is again a tempered distribution.
+
+   In the following we will apply this to the case when n = 1 + d and y = (t, x) ∈
+R × Rd .
+
+2.2    The Mittag-Leffler functions
+Definition 2.2 (The two-parameter Mittag-Leffler function) The Mittag-Leffler func-
+tion of two parameters α, β is denoted by Eα,β (z) and defined by:
+                                          ∞
+                                          X      zk
+                             Eα,β (z) =                                       (2.2)
+                                          k=0
+                                              Γ(αk + β)
+
+where z, α, β ∈ C (the set of complex numbers), Re(α) > 0 and Re(β) > 0, and Γ
+is the Gamma function.
+
+    For β = 1 we obtain the Mittag-Leffler function of one parameter α denoted by
+Eα (z). This function is defined as
+                                          ∞
+                                          X  zk
+                             Eα (z) =                                         (2.3)
+                                      k=0
+                                          Γ(αk + 1)
+
+where z, α ∈ C, Re(α) > 0.
+
+Remark 2.3 Note that Eα (z) = Eα,1 (z) and that
+                               ∞
+                               X              ∞
+                                              X
+                                       zk        zk
+                       E1 (z) =             =       = ez .                    (2.4)
+                                k=0
+                                    Γ(k + 1) k=0 k!
+
+
+
+
+                                           6
+2.3    The (Abel-)Caputo fractional derivative
+In this section we present the definitions and some properties of the Caputo deriva-
+tives.
+Definition 2.4 The (Abel-)Caputo fractional derivative of order α > 0 of a function
+                                                             dα
+f such that f (x) = 0 when x < 0 is denoted by D α f (x) or dx α f (x) and defined by
+                           (          R x f (n) (u)du
+                                 1
+                  α          Γ(n−α) 0 (x−u)α+1−n
+                                                      ; n−1 <α <n
+                D f (x) : = dn                                                    (2.5)
+                             dx n f (x);  α   =   n.
+Here n is an smallest integer greater than or equal to α.
+
+If f is not smooth these derivatives are interpreted in the sense of distributions.
+Example 2.5 If f (x) = x and α ∈ (0, 1) then
+
+                                                   x1−α
+                               D α f (x) =                   .                    (2.6)
+                                             (1 − α)Γ(1 − α)
+In particular, choosing α = 21 we get
+                                                        √
+                                       1         2 x
+                                     D 2 f (x) = √ .                              (2.7)
+                                                          π
+
+2.4    Laplace transform of Caputo derivatives
+   • The 1-dimensional case.
+     Recall that the (1-dimensional) Laplace transform L is defined by
+                                             Z ∞
+                                Lf (s) =             e−st f (t)dt = fe(s)         (2.8)
+                                             0
+      for all f such that the integral converges.
+      Some of the properties of the Laplace transform that we will need are:
+
+                             ∂α
+                          L[    f (t)](s) = sα (Lf )(s) − sα−1 f (0)              (2.9)
+                            ∂tα
+                                             sα−1
+                          L[Eα (bxα )](s) = α                                   (2.10)
+                                            s −b
+                                                        1
+                          L[xα−1 Eα,α (−bxα )](s) = α                           (2.11)
+                                                      s +b
+
+                                                 7
+  Recall that the convolution f ∗ g of two functions f, g : [0, ∞) 7→ R is defined
+  by
+                                  Z t
+                     (f ∗ g)(t) =     f (t − r)g(r)dr; t ≥ 0.               (2.12)
+                                                 0
+
+
+  The convolution rule for Laplace transform states that
+                     Z t                 
+                   L       f (t − r)g(r)dr (s) = Lf (s)Lg(s),
+                                  0
+
+  or                   Z t
+                                f (t − r)g(r)dr = L−1 (Lf (s)Lg(s)) (t).                           (2.13)
+                            0
+
+• The multidimensional case
+  If g : Rd+ 7→ R is bounded, we define the multidimensional Laplace transform
+  L of g by
+                                      Z
+                     L{g}(y) =               e−xy g(x)dx =: gb(y);             y ∈ Rd+ ;           (2.14)
+                                       Rd+
+
+  where xy = x1 y2 + x2 y2 + ... + xd yd when x = (x1 , x2 , ..., xd ), y = (y1 , y2, ..., yd ).
+  In this case the convolution f ∗ g of two functions f, g : [0, ∞)d 7→ R is defined
+  by
+                                   Z x
+                     (f ∗ g)(x) =      f (x − z)g(z)dz; x ∈ Rd+ ,                      (2.15)
+                                             0
+                                      Rx         R x1 R x2       Rx
+  where we use the notation            0
+                                           =      0       0
+                                                              ... 0 d if x = (x1 , x2 , ...xd ).
+
+  The convolution rule for the multidimensional Laplace transform states that
+                     Z x                 
+                   L       f (x − z)g(z)dz (y) = Lf (y)Lg(y),
+                                 0
+
+  or                  Z x
+                                f (x − z)g(z)dz = L−1 (Lf (y)Lg(y)) (x).                           (2.16)
+                        0
+
+
+
+
+                                                      8
+3     Time-space white noise
+In this section we briefly review the basic notation and results of time-space white
+noise.
+    Let n be a fixed natural number. Later we will set n = 1 + d. Define Ω = S ′ (Rn ),
+equipped with the weak-star topology. This space will be the base of our basic
+probability space, which we explain in the following:
+   As events we will use the family F = B(S ′ (Rn )) of Borel subsets of S ′ (Rd ), and
+our probability measure P is defined by the following result:
+
+Theorem 3.1 (The Bochner–Minlos theorem)
+There exists a unique probability measure P on B(S ′ (Rn )) with the following property:
+                                Z
+                                                    1    2      √
+                  E[eih·,φi
+                            ] := eihω,φi dµ(ω) = e− 2 kφk ; i = −1
+                                  S′
+
+for all φ ∈ S(Rn ), where kφk2 = kφk2L2 (Rn ) , hω, φi = ω(φ) is the action of ω ∈
+S ′ (Rn ) on φ ∈ S(Rn ) and E = EP denotes the expectation with respect to P.
+
+We will call the triplet (S ′ (Rn ), B(S ′ (Rn )), P) the white noise probability space, and
+P is called the white noise probability measure.
+    The measure P is also often called the (normalised) Gaussian measure on S ′ (Rn ).
+It is not difficult to prove that if φ ∈ L2 (Rn ) and we choose φk ∈ S(Rn ) such that
+φk → φ in L2 (Rn ), then
+
+                          hω, φi := lim hω, φk i exists in L2 (P)
+                                       k→∞
+
+and is independent of the choice of {φk }. In particular, if we define
+      e
+      B(x)    e 1 , · · · , xn , ω) = hω, χ[0,x ]×···×[0,xn] i;
+           := B(x                                                 x = (x1 , · · · , xn ) ∈ Rn ,
+                                               1
+
+
+                                                          e ω) has an x-continuous
+where [0, xi ] is interpreted as [xi , 0] if xi < 0, then B(x,
+version B(x, ω), which becomes an n-parameter Brownian motion, in the following
+sense:
+   By an n-parameter Brownian motion we mean a family {B(x, ·)}x∈Rn of random
+variables on a probability space (Ω, F , P) such that
+    • B(0, ·) = 0 almost surely with respect to P,
+
+    • {B(x, ω)} is a continuous and Gaussian stochastic process
+
+                                                 9
+               Qn(x1 , · · · , xn ), y = (y1 , · · · , yn ) ∈ R+ , B(x, ·), B(y, ·) have the
+                                                               n
+   • For all x =
+     covariance i=1 xi ∧ yi .
+
+   It can be proved that the process B(x, e ω) defined above has a modification
+B(x, ω) which satisfies all these properties. This process B(x, ω) then becomes an
+n-parameter Brownian motion.
+   We remark that for n = 1 we get the classical (1-parameter) Brownian motion
+B(t) if we restrict ourselves to t ≥ 0. For n ≥ 2 we get what is often called the
+Brownian sheet.
+  With this definition of Brownian motion it is natural to define the n-parameter
+Wiener–Itô integral of φ ∈ L2 (Rn ) by
+                      Z
+                         φ(x)dB(x, ω) := hω, φi; ω ∈ S ′ (Rn ).
+                      Rn
+
+We see that by using the Bochner–Minlos theorem we have obtained an easy con-
+struction of n-parameter Brownian motion that works for any parameter dimension
+n. Moreover, we get a representation of the space Ω as the Fréchet space S ′ (Rn ).
+This is an advantage in many situations, for example in the construction of the Hida-
+Malliavin derivative, which can be regarded as a stochastic gradient on Ω. See e.g.
+[11] and the references therein.
+    In the following we put n = 1 + d and let
+
+                       B(t, x) = B(t, x, ω); t ≥ 0, x ∈ Rd , ω ∈ Ω
+
+denote the (1-dimensional) time-space Brownian motion (also called the Brownian
+sheet) with probability law P. Since this process is (t, x)-continuous a.s., we can for
+a.a. ω ∈ Ω define its derivatives with respect to t and x in the sense of distributions.
+Thus we define the time-space white noise W (t, x) = W (t, x, ω) by
+
+                                          ∂ ∂ d B(t, x)
+                                W (t, x) =              .                             (3.1)
+                                         ∂t ∂x1 ...∂xd
+In particular, for d = 1 and x1 = t and get the familiar identity
+                                           d           ′
+                                 W (t) =      B(t) in S .
+                                           dt
+    The definition (3.1) can also be interpreted as an element of the Hida space (S)∗
+of stochastic distributions, and in that setting it has been proved (see Lindstrøm, Ø.
+
+                                             10
+& Ubøe [20] and Benth [2]) that the Ito-Skorohod integral with respect to B(dt, dx)
+can be expressed as
+           Z TZ                           Z TZ
+                   f (t, x, ω)B(dt, dx) =      f (t, x, ω) ⋄ W (t, x)dtdx,    (3.2)
+              0   Rd                         0       Rd
+
+where ⋄ denotes the Wick product.
+This is the interpretation we are using in (1.2) and elsewhere in this paper.
+   In particular, if f (t, x, ω) = f (t, x) is deterministic, we can drop the Wick product
+and get
+                Z TZ                             Z TZ
+                           f (t, x)B(dt, dx) =          f (t, x)W (t, x)dtdx.         (3.3)
+                  0    Rd                        0    Rd
+
+
+4     Fractional Brownian motion and fractional white
+      noise calculus
+There are several ways to introduce fractional Brownian motion and fractional white
+noise calculus. One commonly used approach due to Hu et al [14] is recalled in the
+Appendix. For our purpose it is more convenient to follow the approach presented
+by Elliott and van der Hoek (see [38] and the references therein, including [41]).
+Hence we introduce the multi-parameter (time-space) fractional Brownian motion
+as obtained by applying an operator M to the classical multi-parameter Brownian
+motion. This approach has several advantages. For example, all the different fBm’s
+corresponding to different Hurst coefficients H ∈ (0, 1) are defined on the same white
+noise probability space (Ω, F, P ) introduced in Section 3. There are also several com-
+putational advantages, as shown later. See also e.g. [12].
+
+    In the following we let f : Rn 7→ R be a function such that its Fourier transform
+                                      Z
+                                    n                                √
+                    b
+       F (f )(y) := f (y) := (2π) −
+                                    2   e−ixy f (x)dx; y ∈ Rn , (i = −1)         (4.1)
+                                     Rn
+
+exists. Let F −1 denote the inverse Fourier transform, defined by
+                                              Z
+                                            n
+                                          −
+                           −1
+                         F g(x) := (2π) 2        eixy g(y)dy,                        (4.2)
+                                                     Rn
+
+for all functions g such that the integral converges.
+
+
+                                            11
+Definition 4.1 ([38],(A10)) Let H = (H1 , H2 , ..., Hn ) ∈ ( 21 , 1)n and let S be the
+Schwartz space of rapidly decreasing smooth functions on Rn . The operator M =
+M (H) : S 7→ S is defined by
+                                n
+                                Y            1
+          Mf (x) = F   −1
+                            (           |yj | 2 −Hj (F f )(y))(x)                                                     (4.3)
+                                j=1
+                                    Z                  n
+                                                       Y                                    Z
+                                d                                    1                  d
+                            −                ixy                                    −
+                  = (2π)        2            e     (         |yj |   2
+                                                                       −Hj
+                                                                             (2π)       2         e−ixy f (x)dx)dy    (4.4)
+                                        Rn             j=1                                  Rn
+
+
+If Hj > 12 for all j then the operator M can also be defined as follows:
+                                    Z        n
+                                             Y                          3
+                 MH f (x) =                        CHj |yj |Hj − 2 f (x + y)dy;                      f ∈ S,           (4.5)
+                                        Rn j=1
+
+
+where
+                        CHj = [2Γ(Hj − 12 ) cos( π2 (Hj − 12 ))]−1 ,                                                  (4.6)
+Γ being the classical Gamma function.
+
+From now on we assume that H ∈ ( 12 , 1)n .
+
+   Since H ∈ ( 12 , 1)n is fixed, we will suppress the index H and write M (H) = M in
+the following.
+We can in a natural way extend the operator M from S to the space
+
+                       L2H (Rn ) := {f : Rn 7→ R; Mf ∈ L2 (Rn )}.                                                     (4.7)
+
+Note that L2H (Rn ) is a Hilbert space when equipped with the inner product
+
+             (f, g)H := (f, g)L2H (Rn ) = (Mf, Mg)L2 (Rn ) ;                                    f, g ∈ L2H (Rn ).     (4.8)
+
+   The following result is useful:
+Lemma 4.2 Let ϕ ∈ L2 (Rn ) and ψ ∈ L2H (Rn ). Then
+
+                                 (ϕ, Mψ)L2 (Rn ) = (Mϕ, ψ)L2 (Rn )                                                    (4.9)
+
+Proof.   Since
+                                    Z        n
+                                             Y                         3
+                 Mf (x) =                        CHj |yj |Hj − 2 f (x + y)dy;                       f ∈ S,           (4.10)
+                                      Rn j=1
+
+
+                                                               12
+we get by the Fubini-Tonelli theorem
+                       Z                                      Z               Z       n
+                                                                                      Y              3
+  (ϕ, Mψ)L2 (Rn ) =             ϕ(x)Mψ(x)dx =                          ϕ(x)               CHj |yj |Hj − 2 ψ(x + y)dydx
+                       Rn                                         Rn          Rn j=1
+                       Z        Z                      n
+                                                       Y                      3
+                  =                   ϕ(z − y)               CHj |yj |Hj − 2 ψ(z)dydz
+                       Rn        Rn                    j=1
+                       Z        Z              n
+                                               Y                          3
+                  =                   ψ(z)             CHj |yj |Hj − 2 ϕ(z + y)dydz = (Mϕ, ψ)L2 (R) ,
+                       Rn        Rn            j=1
+
+
+which completes the proof.
+                                                                                                                     
+
+   The following property of the operator M will be used in the sequel.
+
+Lemma 4.3 The operator M satisfies following property:
+                                     Z     Z       n
+                                                   Y                          3
+                   2                                      2
+                 M f (x) =                               CH j
+                                                              |yj zj |Hj − 2 f (y + z + x)dydz.                  (4.11)
+                                      Rn     Rn j=1
+
+
+Proof.   Since                                 Z       n
+                                                       Y                      3
+                            Mf (x) =                         CHj |yj |Hj − 2 f (x + y)dy
+                                                   Rn j=1
+
+we get
+                                                   Z     n
+                                                         Y                        3
+           2
+         M f (x) = M(Mf )(x) =                                   CHj |zj |Hj − 2 Mf (x + z)dz
+                                                       Rn j=1
+                       Z        n
+                                Y                            Z     n
+                                                                   Y                      3
+                                                   Hj − 23
+                  =                   CHj |zj |                           CHj |yj |Hj − 2 f (x + z + y)dydz
+                           Rn j=1                                Rn j=1
+                       Z        Z        n
+                                         Y                            3
+                                              2
+                  =                          CH j
+                                                  |yj zj |Hj − 2 f (y + z + x)dydz.
+                           Rn       Rn j=1
+
+
+This completes the proof.                                                                                            
+
+    Results from previous lemmas can be gathered in the extended equality which is
+given in following lemma.
+
+                                                                 13
+Lemma 4.4 Let f, g : Rn → R. Then
+    Z                    Z                  Z
+              2                   2
+        f (x)M g(x)dx =      g(x)M g(x)dx =                                               Mf (x)Mg(x)dx.          (4.12)
+              Rn                                   Rn                                Rn
+
+Proof. From Lemma 4.3 it follows that
+ Z                   Z       Z Z Y  n
+                                                        3
+           2                           2
+     f (x)M g(x)dx =   f (x)          CH j
+                                           |yj zj |Hj − 2 g(y + z + x)dydzdx (4.13)
+    Rn                                   Rn                 Rn    Rn j=1
+
+.
+    If we substitute
+                 
+                  u=x+y+z   x = u − v − w =: X(u, v, w)
+                     v=y   ⇔ y = v =: Y (u, v, w)
+                 
+                     w=z     z = w =: Z(u, v, w),
+then the Jacobian is
+                                          ∂X       ∂X            ∂X
+                                          ∂u       ∂v            ∂w
+                                                                        1 −1 −1
+                                          ∂Y       ∂Y            ∂Y
+                                          ∂u       ∂v            ∂w
+                                                                      = 0 1   0 = 1,                              (4.14)
+                                          ∂Z       ∂Z            ∂Z
+                                          ∂u       ∂v            ∂w
+                                                                        0 0   1
+
+    and we obtain
+    Z                   Z                          Z        Z     n
+                                                                  Y                       3
+              2                                                            2
+        f (x)M g(x)dx =                                                   CH j
+                                                                               |uj wj |Hj − 2 f (u − v − w)g(u)dudvdw
+         Rn                                   Rn       Rn    Rn j=1
+          Z        Z        Z           n
+                                        Y                             3
+                                               2
+     =                           g(u)         CH j
+                                                   |uj wj |Hj − 2 f (u − v − w)g(u)dudvdw
+              Rn       Rn   Rn          j=1
+          Z
+     =             g(u)M 2 f (u)du.                                                                               (4.15)
+              Rn
+
+This proves the first identity. A similar argument proves the second identity.                                          
+
+    Now we can give a formal definition of multi-parameter fractional Brownian mo-
+tion:
+
+Definition 4.5 (Fractional Brownian motion revisited)
+For x ∈ Rn define
+
+                                   BH (x) := BH (x, ω) := hω, Mx (·)i;                        ω∈Ω                 (4.16)
+
+                                                                          14
+where we have put
+                                                 n
+                                                 Y                  xj − yj                yj       
+Mx (y) := M(χ[0,x1 ]×[0,x2 ]×...×[0,xn] )(y) =          −1
+                                                       CH j                    3
+                                                                                 −H
+                                                                                    +           3
+                                                                                                  −H
+                                                                                                      ;   y, x ∈ Rn .
+                                                 j=1              |xj − yj |   2        |yj |   2
+
+
+                                                                                                            (4.17)
+    Then BH is a Gaussian process, and by the properties of the classical Bm we have
+                                       E[BH (x)] = BH (0) = 0,                                              (4.18)
+and (see [38],(A10))
+                            d
+                            Y                                            
+   E[BH (x)BH (y)] =              CHj |xj |2Hj + |yj |2Hj − |xj − yj |2Hj ];              x, y ∈ Rn .       (4.19)
+                            j=1
+
+    By the Kolmogorov continuity theorem the process BH has a continuous version,
+which we will also denote by BH . Except for a constant, this process coincides with
+the fractional Brownian motion BH (x) introduced in the Appendix. From now on we
+call this process the fractional Brownian motion (fBm) with Hurst parameter H and
+denote it by BH (x).
+
+4.1     Fractional white noise calculus
+By (4.16) it follows by approximating f ∈ S by step functions that
+                   Z                             Z
+                       f (x)dBH (x) = hω, Mf i =   Mf (x)dB(x)                                              (4.20)
+                       Rn                                           Rn
+
+and hence
+                   Z    n
+                        Y                               Z
+        BH (x) =              χ[0,xj ] (yj )dBH (y) =         Mx (y)dB(y) = hω, Mx i.                       (4.21)
+                     Rn j=1                              Rn
+
+
+We know that the action of ω ∈ S ′ (Rn ) extends from S(Rn ) to L2 (Rn ), and that if
+f ∈ S then Mf ∈ L2 (Rn ). Therefore we can define M on S ′ (Rn ) by setting
+                       hMω, ϕi = hω, Mϕi; ϕ ∈ S(Rn ), ω ∈ S ′ (Rn ).                                        (4.22)
+Using this, we can write
+                                                        n
+                                                        Y
+                  BH (x, ω) = hω, Mx i = hMω,                 χ[0.xj ](·) i = B(x, Mω).                     (4.23)
+                                                        j=1
+
+
+
+                                                   15
+   We define the fractional white noise WH (x) = WH (x, ω) by
+
+                                   ∂n
+                  WH (x, ω) =              BH (x) (derivative in (S)∗ ).            (4.24)
+                                ∂x1 ...∂xn
+By the above it follows that
+
+
+                                WH (x, ω) = W (x, Mω),                              (4.25)
+
+where
+                            ∂n
+    W (x) = W (x, ω) =              B(x) is the classical white noise in (S)∗ .     (4.26)
+                         ∂x1 ...∂xn
+
+Let L2H (Rn ) denote the set of measurable processes f (x) = f (x, ω) : Rn × Ω 7→ R
+such that
+                                 Z
+                              E[    (Mf )2 (x)dx] < ∞.                        (4.27)
+                                   Rn
+
+Then we define the Wick-Ito-Skorohod (WIS)-integral of f ∈ L2H (Rn ) as follows:
+
+Definition 4.6 (The fractional Wick–Itô–Skorohod (WIS) integral)
+Let f : Rn → (S)∗ be such that f (x) ⋄ WH (x) is dx-integrable in (S)∗ . Then we
+say that f is dBH -integrable and we define the Wick–Itô–Skorohod (WIS) integral of
+f (·) = f (·, ω) with respect to BH by
+                         Z                  Z
+                             f (x)dBH (x) =   f (x) ⋄ WH (x)dx,              (4.28)
+                         Rn                  Rn
+
+where the integral on the right is the (Pettis) Lebesgue integral with values in (S)∗ .
+
+   By (4.20) and Lemma 4.4 we obtain the following isometry:
+
+Theorem 4.7
+       Z                     Z                  Z
+                      2             2
+   E[(   f (x)dBH (x)) ] = E[  (Mf ) (x)dx] = E[                f (x)M 2 f (x)dx]   (4.29)
+         Rn                        Rn                      Rn
+
+
+
+
+                                           16
+5       An L2(P )-estimate for fBm -integrals
+The following theorem gives a fundamental L2 (P )-inequality for WIS-integrals with
+respect to fBm. It is a multi-parameter extension of Theorem 3.1 in [12].
+Theorem 5.1 Let f (x) = f (x, ω) be a measurable stochastic process such that
+                            Z               
+                                       2
+                          E       (Mf ) (x)dx < ∞.
+                                          Rn
+
+Assume that f is supported on the set S = [0, x̄1 ] × [0, x̄2 ] × ... × [0, x̄n ]. Define
+
+                      Z x̄                     Z
+                Y =       f (x)dBH (x) =       f (x)dBH (x)                              (5.1)
+                       0                    S
+                     Z x̄1 Z x̄2 Z x̄n
+                   =            ...    f (x1 , x2 , ..., xn )dBH (x1 , x2 , ..., xn ),   (5.2)
+                       0     0        0
+
+where the integral is interpreted in the WIS sense.
+   Then                           Z              n
+                                                Y        2H −1
+                            2            2
+                        E[Y ] ≤ ( E[f (x)]dx)       Kj x̄j j ,                           (5.3)
+                                          S               j=1
+
+where
+                            n                                          o
+                        2            3 −2           1 −1            −1
+                 Kj := CH j
+                             4(H j − 2
+                                       )  + 2(H j − 2
+                                                      )  (1 − H j )     .                (5.4)
+
+Remark 5.2 Note that we do not assume that f is adapted.
+
+Remark 5.3 Sufficient conditions (in terms of Malliavin derivatives) for the exis-
+tence in L2 (P ) of the WIS integral with respect to 1-parameter fractional Brownian
+motion can be found in Bender [33], Corollary 3.5. For general (S)∗ -valued inte-
+grands, conditions for the existence of the WIS-integral as an element of (S)∗ are
+given by Mishura [46], Theorem 2.3.1, using an inequality of Vaage.
+
+Proof.    By Theorem 4.7 we have
+                         Z                         Z
+                2                         2
+             E[Y ] = E[(     f (x)dBH (x)) ] = E[(      (Mf )(x)dB(x))2 ]
+                       ZR                            Rn
+                           n
+                                              Z
+                   = E[    (Mf )2 (x)dx] = E[      f (x)M 2 f (x)dx].                    (5.5)
+                              Rn                          Rn
+
+
+                                                   17
+Also, by Lemma 4.3
+                                                    Z        Z     n
+                                                                   Y                             3
+                                  2                                          2
+                          M f (x) =                                         CH j
+                                                                                 |yj zj |Hj − 2 f (y + z + x)dydz.
+                                                      Rn     Rn j=1
+
+   Hence, using the Cauchy-Schwartz inequality twice we obtain
+
+          Z      Z                             Z     n
+                                                     Y                                   3
+    2                                                         2
+E[Y ] = E[ f (x)                                             CH j
+                                                                  |yj zj |Hj − 2 f (y + z + x)dydzdx]
+                     S                    Rn       Rn j=1
+            Z             Z               Z Y
+                                            n
+                                                                                3
+                                                     2
+        = E[                          (             CH j
+                                                         |yj zj |Hj − 2 f (x)f (y + z + x)dx)dydz)]
+                     Rn       Rn           S j=1
+            Z             Z           n
+                                      Y                                     Z
+                                                                 3
+                                                2
+        = E[                                   CH j
+                                                    |yj zj |Hj − 2 (                f (x)f (y + z + x)dx)dydz]
+                     Rn       Rn j=1                                         S
+            Z        Z        n
+                              Y                                     Z
+                                                            3
+                                           2
+        =                                 CH j
+                                               |yj zj |Hj − 2 (             E[f (x)f (y + z + x)]dx)dydz
+                Rn       Rn j=1                                       S
+            Z        Z        n
+                              Y                                     Z
+                                                            3                                1                              1
+        ≤                                  2
+                                          CH j
+                                               |yj zj |Hj − 2 (             E[f 2 (x)] 2 E[f 2 (y + z + x)] 2 dx)dydz
+                Rn       Rn j=1                                         S
+            Z        Z        n
+                              Y                                     Z                            Z
+                                                            3                                                                        1
+                                                                                     2
+        ≤                                  2
+                                          CH j
+                                               |yj zj |Hj − 2 (             E[f (x)]dx                   E[f 2 (y + z + x)]dx) 2 dydz
+                Rn       Rn j=1                                         S                            S
+             Z                                       Z       Z     n
+                                                                   Y                                     Z
+                                          1                                                   3                                          1
+        =(           E[f      2
+                                  (x)]dx) 2                                  2
+                                                                            CH j
+                                                                                 |yj zj |Hj − 2 (                E[f 2 (y + z + x)]dx) 2 dydz
+                S                                       Rn       Rn j=1                                      S
+             Z                                       Z                          n
+                                                                                Y                                  Z
+                                          1                                                             3                                    1
+                                                                                       2
+        ≤(           E[f      2
+                                  (x)]dx) 2                                           CH j
+                                                                                           |yj zj |Hj − 2 (             E[f 2 (y + z + x)]dx) 2 dydz
+                 S                                       {(y,z);y+z∈S} j=1                                          S
+            Z                                  Z                      n
+                                                                      Y                                  3
+        ≤           E[f 2 (x)]dx                                                 2
+                                                                                CH j
+                                                                                     |yj zj |Hj − 2 dydz
+                S                                  {(y,z);y+z∈S} j=1
+            Z                                  n
+                                               Y             Z
+                                                                                                     3
+        ≤                 2
+                    E[f (x)]dx                        2
+                                                     CH j
+                                                                                      |yj zj |Hj − 2 dyj dzj .
+                S                              j=1               0≤yj +zj ≤x̄j
+
+
+Here we have used that if x+y +z ∈ S and x ∈ S, then y +z ∈ S, i.e. 0 ≤ yj +zj ≤ x̄j
+for all j.
+
+
+                                                                                    18
+It remains to estimate the integral
+                      Z
+                                                                            3
+                 J :=                                      |yj zj |Hj − 2 dyj dzj ≤ J1 + J2 ,             (5.6)
+                              {(yj ,zj );0≤yj +zj ≤x̄j }
+
+where
+                                   Z
+                                                                                       3
+                        J1 =                                             |yj zj |Hj − 2 dyj dzj           (5.7)
+                                     {(yj ,zj );|yj |≤x̄j ,|zj |≤x̄j }
+
+and
+                        Z
+                                                                                             3
+                 J2 =                                                            |yj zj |Hj − 2 dyj dzj   (5.8)
+                            {(yj ,zj );|yj |>x̄j ,|zj |>x̄j & 0≤yj +zj ≤x̄j }
+
+By direct computation we get that
+                                                                           2H −1
+                                          J1 = 4(Hj − 23 )−2 x̄j j                 .                      (5.9)
+
+   It is also easy to see by first integrating wrt. dyj and then using the mean value
+theorem, that
+                           Z ∞
+                      1 −1        2H −3                                2H −1
+      J2 ≤ 2x̄j (Hj − 2 )       zj j dzj ≤ 2(Hj − 12 )−1 (1 − Hj )−1 x̄j j .   (5.10)
+                                    x̄j
+
+   We conclude that
+
+           Z              Y
+                            n    n                                     o
+      2             2          2         3 −2         1 −1          −1    2H −1
+ E[Y ] ≤         E[f (x)]dx   CHj 4(Hj − 2 ) + 2(Hj − 2 ) (1 − Hj )     x̄j j ,
+             S                       j=1
+
+
+which completes the proof.
+                                                                                                            
+
+
+Remark 5.4 In this proof we have made no attempt to make the estimate as sharp
+as possible. It would be of interest to find the best constant in (5.3).
+
+
+
+
+                                                            19
+6     The fractional heat equation with additive noise
+In this section we study the additive noise case, i.e. we study the equation
+              ∂α
+                α
+                  Y (t, x) = λ∆Y (t, x) + σWH (t, x); (t, x) ∈ (0, ∞) × Rd          (6.1)
+              ∂t
+with boundary conditions
+
+                            Y (0, x) = δ0 (x) (the Dirac measure at x),
+                    lim     Y (t, x) = 0,                                           (6.2)
+                  x→+/− ∞
+
+
+Definition 6.1 We say that a process Y (t, x) = Y (t, x, ω) : [0, T ] × Rd × Ω 7→ R is
+a solution of of the fractional stochastic heat equation (6.1) - (6.2) if
+(i) ω 7→ Y (t, x, ω) ∈ (S)∗ for all t, x,
+(ii) (t, x) 7→ Y (t, x, ω) ∈ S ′ for all ω ∈ Ω, and
+(iii) the function (t, x) 7→ Y (t, x, ω) satisfies the equation (6.1) - (6.2) in the sense
+of distribution, for all ω.
+
+Our first main result in this section is the following:
+
+Theorem 6.2 The unique solution Y (t, x) ∈ S ′ of the fractional heat equation (6.1)
+- (6.2) is given by
+                    Z
+ Y (t, x) = (2π) −d
+                         eixy Eα (−λ|y|2tα )dy
+                     ZR t
+                       d
+                                      Z xZ                                  
+                  −d              α−1           i(x−z)y          2       α
+          + σ(2π)         (t − r)              e        Eα (−λ|y| (t − r) )dy BH (dr, dz).
+                     0               0     Rd
+                                                                                    (6.3)
+
+Proof.    In the following we let
+                                                    Z t
+              L{f (·, x)}(s, x) = f^
+                                   (·, x)(s, x) =         e−rs f (r, x)dr;   s≥0    (6.4)
+                                                     0
+
+denote the Laplace transform of f (t, x) as a function of t.
+
+    In the following we let
+
+                                                  \
+                              L{f (t, ·)}(t, y) = f (t, ·)(t, y)                    (6.5)
+
+                                             20
+denote the (multi-dimensional) Laplace transform of f (t, x) as a function of x =
+(x1 , x2 , ..., xd ).
+
+   First assume that Y (t, x) is a solution of (6.1). We apply the Laplace transform
+L to both sides of (6.1) and obtain
+
+                sα Ye (s, x) − sα−1 Y (0+ , x) = β ∆Y
+                                                   g (s, x) + σ W
+                                                                fH (s, x).      (6.6)
+Applying the multi-dimensional
+                            Pd Laplace transform L to this equation we get, since
+b                         2       2
+Y (0, y) = 1, or, with |y| = j=1 yj ,
+
+                             b                                d
+                   sα + λ|y|2 Ye (s, y) = sα−1 Yb (0+ , y) + σ W
+                                                               fH (s, y)        (6.7)
+
+Hence
+                                                      d
+                                                      f
+                           b                sα−1     σW H (s, y)
+                          Ye (s, y) =     α       2
+                                                    + α          .              (6.8)
+                                         s + λ|y|    s + λ|y|2
+
+Since the Laplace transform and the multi-dimensional Laplace transform commute,
+this can be written
+                                                      g
+                                                      c
+                           e                sα−1     σW H (s, y)
+                          Yb (s, y) =     α       2
+                                                    + α          .              (6.9)
+                                         s + λ|y|    s + λ|y|2
+
+Applying the inverse Laplace operator L−1 to this equation we get
+
+                                                     cg
+                                 sα−1             −1 σ WH (s, y)
+                                                                     
+              Yb (t, y) = L−1            (t, y) + L                   (t, y)
+                              sα + λ|y|2               sα + λ|y|2
+                                               c g        
+                                   2 α     −1 σ WH (s, y)
+                      = Eα,1 (−λ|y| t ) + L                  (t, y),           (6.10)
+                                                sα + λ|y|2
+
+where in general
+                                                 ∞
+                                                 X        zk
+                                    Eα,β (z) =                                 (6.11)
+                                                       Γ(αk + β)
+                                                 k=0
+
+is the Mittag-Leffler function.
+
+
+
+                                                 21
+                                                 
+                                      d
+                                      f
+                                     σW H (s,y)
+     It remains to find L−1          s +λ|y|2
+                                      α            :
+Recall that the convolution f ∗ g of two functions f, g : [0, ∞) 7→ R is defined by
+                                   Z t
+                      (f ∗ g)(t) =     f (t − r)g(r)dr; t ≥ 0.                   (6.12)
+                                                  0
+
+The convolution rule for Laplace transform states that
+                       Z t                
+                    L       f (t − r)g(r)dr (s) = Lf (s)Lg(s),
+                                 0
+
+or                   Z t
+                            f (t − w)g(w)dw = L−1 (Lf (s)Lg(s)) (t).                    (6.13)
+                        0
+
+Now (see [16],p.312)
+                                             
+                       −1          1
+                    L                                 (t) = tα−1 Eα,α (−λtα |y|2)
+                                s + λ|y|2
+                                 α
+                                                             ∞ α−1
+                                                             X t (−λtα |y|2)k
+                                                         =
+                                                             k=0
+                                                                    Γ(αk + α)
+                                                             X∞
+                                                                  (−λ|y|2)k tα(k+1)−1
+                                                         =
+                                                              k=0
+                                                                    Γ(α(k + 1))
+                                                             ∞
+                                                             X (−λtα |y|2)k tα−1
+                                                         =
+                                                              k=0
+                                                                    Γ(α(k + 1))
+                                                         =: Λ(t, y).                    (6.14)
+
+In other words,
+                                             σ
+                                                          = σLΛ(s, y),                  (6.15)
+                                        sα + λ|y|2
+Combining with (6.13) we get
+                                                               
+        −1       σ      c
+                        f (s, y) (t) = L−1                f
+                                                          c (s, y) (t)
+      L                 W                    L (σΛ(s, y)) W                             (6.16)
+             sα + λ|y|2
+                                         Z t
+                                     =σ                 cH (r, y)dr.
+                                             Λ(t − r, y)W                               (6.17)
+                                                             0
+
+
+
+
+                                                         22
+Substituting this into (6.10) we get
+                                                                 Z t
+                                              
+                    Yb (t, y) = Eα,1 −λtα |y|2 + σ                                  cH (r, y)dr.
+                                                                         Λ(t − r, y)W                (6.18)
+                                                                     0
+
+Taking inverse multidimensional Laplace transform we end up with
+                                           Z t                       
+                               
+ Y (t, x) = L −1         α   2
+                 Eα,1 −λt |y| (x) + σL  −1                 c
+                                                Λ(t − r, y)WH (r, y)dr (x). (6.19)
+                                                                         0
+
+     Now, we use that
+                 Z x
+              L{     f (x − z)g(z)dz}(y) = L{f }(y)L{g}(y),                                x ∈ Rd+   (6.20)
+                          0
+or                 Z x                                       
+                         f (x − z)g(z)dz = L−1 L{f }(y)L{g}(y) (x) x ∈ Rd+ ,                         (6.21)
+                    0
+where we are using the notation
+            Z x           Z xd Z xd−1 Z x1
+                ϕ(z)dz =             ...   ϕ(z1 , z2 , ..., zd )dz1 dz2 ...dz1
+                    0                0       0              0
+
+when x = (x1 , x2 , ..., xd ), z = (z1 , z2 , ..., zd ),
+   This gives,
+
+         Z t                                     Z t                            
+L   −1                     c(r, y)dr (x) =
+                Λ(t − r, y)W                                              cH (r, y) (x)dr
+                                                           L−1 Λ(t − r, y)W
+           0                                           0
+                                                   Z t                                            
+                                                                −1  −1
+                                                                                  
+                                                 =      L     L L Λ(t − r, y) (y)LWH (r, x)(y) (x)dr
+                                                   Z0 x Z x
+                                                                                       
+                                                 =            L−1 Λ(t − r, y)(x − z) WH (r, z)dzdr
+                                                   Z0 t Z 0x          Z                         
+                                                                    −d      i(x−z)y
+                                                 =             (2π)        e        Λ(t − r, y)dy WH (r, z)dzdr
+                                                    0    0              Rd
+                                                            Z t Z x Z                           
+                                                         −d                 i(x−z)y
+                                                 = (2π)                    e        Λ(t − r, y)dy BH (dr, dz).
+                                                                     0       0       Rd
+
+Here we have used that the function
+                                                 ∞
+                                                 X (−λtα y 2 )k tα−1
+                              y 7→ Λ(t, y) =                                     ;    y ∈ Rd         (6.22)
+                                                 k=0
+                                                           Γ(α(k + 1))
+
+
+                                                           23
+can be extended to an entire complex function in the complex space Cd , and hence
+its inverse Laplace transform coincides with the inverse Fourer transform.
+Combining this with (7.19), (6.11) and (7.14) we get
+                 ∞
+                 X                                               Z t Z x Z                                   
+            −1     (−λtα |y|2)k                             −d                      i(x−z)y
+Y (t, x) = L (                    ) + σ(2π)                    e     Λ(t − r, y)dy BH (dr, dz)
+               k=0
+                     Γ(αk   +  1)                 0   0    R d
+
+                  Z         X∞
+               −d       ixy     (−λtα |y|2)k
+        = (2π)         e                      dy
+                    Rd           Γ(αk + 1)
+                            k=0
+                   Z t             Z x Z                ∞
+                                                                                   !
+                                                        X (−λ(t   − r) α
+                                                                         |y| 2 k
+                                                                              )
+        + σ(2π)−d (t − r)α−1                  ei(x−z)y                           dy BH (dr, dz)
+                     0               0    R d                  Γ(α(k + 1))
+                                                                         k=0
+                                                                                                                  (6.23)
+                   Z
+        = (2π)−d     eixy Eα (−λ|y|2tα )dy
+                       Rd
+                   Z t             Z xZ                                  
+                −d             α−1
+        + σ(2π)        (t − r)             ei(x−z)y Eα (−λ|y|2(t − r)α )dy BH (dr, dz)
+                        0                     0            Rd
+                                                                                                                  (6.24)
+
+This proves uniqueness and also that the unique solution (if it exists) is given by (6.3).
+
+    b) Next, define Y (t, x) by (7.23). Then we see that we can prove that Y (t, x)
+satisfies (6.2) by reversing the argument above. We skip the details.           
+
+                                                                                                                      
+
+
+6.1    The classical case (α = 1)
+It is interesting to compare the above result with the classical case when α=1:
+If α = 1, we get Y (t, x) = I0 (x) + I1 (t, x), where
+                            Z           ∞
+                                        X           k                               Z
+                                          (−λt|y|2)
+      I0 (x) = (2π)   −d
+                                 eixy
+                                                                 dy = (2π)     −d
+                                                                                             eixy Eα (−λ|y|2tα )dy,
+                            Rd          k=0
+                                                       k!                               Rd
+                                 Z tZ xZ                                               
+                            −d                          i(x−z)y                2              α
+      I1 (t, x) = σ(2π)                                e             Eα (−λ|y| (t − r) ) BH (dr, dz)
+                                  0     0         Rd
+
+
+
+
+                                                                24
+Using that that Γ(k + 1) = k! and the Taylor expansion of the exponential function,
+we get
+                                        Z
+                                                       2
+                           I0 = (2π) −d
+                                           eixy e−λt|y| dy
+                                                                  Rd
+                                                                  π  d2        |x|2
+                                         = (2π)−d                             e− 4λt
+                                                                   λt
+                                                                        |x|2
+                                                             − d2
+                                         = (4πλt)                    e− 4λt ,
+where we used the general formula
+                  Z                       π  d2 b2
+                      e−(a|y| +2by) dy =
+                             2
+                                                 e a ; a > 0; b ∈ Cd .                                          (6.25)
+                   Rd                      a
+
+Similarly,
+                                Z tZ xZ                                 ∞
+                                                                        X                 k
+                           −d                           i(x−z)y           (−λ(t − r)|y|2)
+       I1 (t, x) = σ(2π)                              e                                         dyBH (dr, dz)
+                                 0       0       Rd                     k=0
+                                                                                         k!
+                                Z tZ x                               d2
+                                                    π                           |x−z|2
+               = σ(2π)     −d
+                                                                            e− 4λ(t−r) BH (dr, dz)
+                                 0       0       λ(t − r)
+                                 Z tZ x                                         2
+                         d                                           d
+                                                                        − |x−z|
+               = σ(4πλ)− 2                       (t − r)         −
+                                                                     2 e 4λ(t−r) BH (dr, dz).
+                                     0       0
+
+Summarizing the above, we get, for α = 1,
+                                             d        |x|2
+               Y (t, x) = (4πλt)− 2 e− 4λt
+                                      Z tZ x
+                                                           |x−z|2
+                                 − 2d                 d
+                        + σ(4πλ)             (t − r)− 2 e− 4λ(t−r) BH (dr, dz)                                  (6.26)
+                                                  0          0
+
+This is in agreement with a well-known classical result. See e.g. Section 4.1 in [14].
+
+6.2    When is Y (t, x) a mild solution?
+It was pointed out already in 1984 by John Walsh [28] that (classical) SPDEs driven
+by time-space white noise W (t, x); (t, x) ∈ [0, ∞) × Rd may have only distribution
+valued solutions if d ≥ 2. Indeed, the solution Y (t, x) that we found in the previous
+section is in general distribution valued. But in some cases the solution can be
+represented as an element of L2 (P). Following Y. Hu [14] we make the following
+definition:
+
+                                                                  25
+Definition 6.3 The solution Y (t, x) is called mild if Y (t, x) ∈ L2 (P)
+for all t > 0, x > 0.
+
+   We now ask the following:
+
+Problem 6.4 For what values of α ∈ (0, 2) and what dimensions d = 1, 2, ... is
+Y (t, x) mild?
+
+   By the Ito isometry we have
+                                             h        i
+                                               2
+                                            E Y (t, x) = J1 + J2 ,                                            (6.27)
+
+where
+                  Z              ∞
+                                  X (−λtα |y|2 )k        2
+            −2d             ixy
+J1 = (2π)                   e                       dy
+                       RdΓ(αk + 1)
+                                  k=0
+               Z tZ x            Z                                                               !
+      h                                                            ∞
+                                                                    X (−λ(t − r)α |y|2 )k                       2 i
+J2 = E σ(2π)−d
+                      (t − r)α−1
+                                                         ei(x−z)y                           dy       BH (dr, dz)
+                            0     0                 Rd              Γ(α(k + 1))
+                                                                    k=0
+       Z tZ x                         Z            ∞
+                                                                           !2
+                                                   X (−λ(t − r)α |y|2 )k
+   ∼            (t − r)2α−2               ei(x−z)y                       dy drdz,                             (6.28)
+        0   0                          Rd              Γ(α(k + 1))
+                                                 k=0
+
+where the notation f ∼ g means that there exist functions c(t, x) > 0, C(t, x) > 0 such
+that c(t, x)f (t, x) ≤ g(t, x) ≤ C(t, x)f (t, x).
+   This is the same estimate as in Theorem in [47]. Therefore the proof of that theorem
+applies here, and we can conclude the following:
+
+Theorem 6.5 Let Y (t, x) be the solution of the α-fractional stochastic heat equation with
+additive noise. Then the following holds for all H = (H1 , H2 , ..., Hd ) ∈ ( 21 , 1)d :
+
+   • a) If α = 1, then Y (t, x) is mild if and only if d = 1.
+
+   • b) If α > 1 then Y (t, x) is mild if d = 1 or d = 2.
+
+   • c) If α < 1 then Y (t, x) is not mild for any d.
+
+Remark 6.6      • See Y. Hu [14], Proposition 4.1 for a generalisation of the above result
+    in the case α = 1.
+
+   • In the cases α > 1, d ≥ 3 we do not know if the solution Y (t, x) is mild or not. This
+     is a topic for future research.
+
+
+                                                              26
+7       The fractional heat equation with multiplicative
+        noise
+In this section we study the multiplicative noise case, i.e. we study the equation
+            ∂α
+                Y (t, x) = λ∆Y (t, x) + σY (t, x) ⋄ WH (t, x); (t, x) ∈ (0, ∞) × Rd                                (7.1)
+            ∂tα
+with boundary conditions
+
+                                    Y (0, x) = δ0 (x) (the Dirac measure at x),
+                            lim     Y (t, x) = 0,                                                                  (7.2)
+                      x→+/− ∞
+
+We first clarify what we mean by a solution:
+
+Definition 7.1 We say that a process Y (t, x) = Y (t, x, ω) : [0, T ] × Rd × Ω 7→ R is a
+solution of of the fractional stochastic heat equation (7.1) - (7.2) if
+(i) ω 7→ Y (t, x, ω) ∈ (S)∗ for all t, x,
+(ii) (t, x) 7→ Y (t, x, ω) ∈ S ′ for all ω ∈ Ω, and
+(iii) the function (t, x) 7→ Y (t, x, ω) satisfies the equation (6.1) - (1.6) in the sense of
+distribution, for all ω.
+
+    Our first main result in this section is the following:
+
+Theorem 7.2 A process Y (t, x) is a solution of the of the fractional stochastic heat equa-
+tion (7.1) - (7.2) if and only if Y (t, x) is a solution of the following time-space stochastic
+Volterra equation:
+                                       Z tZ x
+                 Y (t, x) = f (t, x) +        g(t − r, x − z)Y (r, z)BH (dr, dz),         (7.3)
+                                              0   0
+
+where
+                        Z                                                   Z              ∞
+                                                                                           X
+                   −d         ixy             α   2                    −d            ixy     (−λtα |y|2 )k
+    f (t, x) = (2π)          e      Eα (−λt |y| )dy = (2π)                           e                       dy,   (7.4)
+                        Rd                                                      Rd               Γ(αk + 1)
+                                                                                           k=0
+
+and
+                                                            Z
+                                        −d            α−1
+          g(t − r, x − z) = σ(2π)            (t − r)                 ei(x−z)y Eα,α (−λ(t − r)α |y|2 )dy            (7.5)
+                                                                Rd
+                      Pd
+where |y|2 = y 2 =           2
+                        j=1 yj .
+
+
+
+
+                                                       27
+Remark 7.3 We say that Y (t, x) solves the fractional Volterra equation (7.3) if Y (t, x) is
+an (S)∗ -valued solution of the equation
+                                    Z tZ x
+              Y (t, x) = f (t, x) +        g(t − r, x − z)Y (r, z) ⋄ WH (r, z)drdz,    (7.6)
+                                         0   0
+
+    Proof of Theorem 7.2:
+a) We proceed as in the proof of Theorem 6.2:
+First assume that Y (t, x) is a solution of (7.2). We apply the Laplace transform L to both
+sides of (6.1) and obtain
+
+                  sα Ye (s, x) − sα−1 Y (0+ , x) = β ∆Y
+                                                     g (s, x) + σ Yg
+                                                                   W H (s, x).            (7.7)
+Applying the multi-dimensional
+                 Pd            Laplace transform L to this equation we get, since Yb (0, y) =
+               2        2
+1, or, with |y| = j=1 yj ,
+                               b                                 \
+                     sα + λ|y|2 Ye (s, y) = sα−1 Yb (0+ , y) + σ Yg
+                                                                  W H (s, y)              (7.8)
+
+Hence
+                                                             \
+                             b                  sα−1      σ Yg
+                                                             W H (s, y)
+                            Ye (s, y) =                 +               .                 (7.9)
+                                             sα + λ|y|2    sα + λ|y|2
+Since the Laplace transform and the multi-dimensional Laplace transform commute, this
+can be written
+                                                             ^
+                             e                  sα−1      σ Yd
+                                                             W H (s, y)
+                            Yb (s, y) =                 +               .                (7.10)
+                                             sα + λ|y|2    sα + λ|y|2
+
+Applying the inverse Laplace operator L−1 to this equation we get
+
+                                                              d^
+                                         sα−1              −1 σ Y W H (s, y)
+                                                                              
+                Yb (t, y) = L−1                  (t, y) + L                    (t, y)
+                                      sα + λ|y|2                sα + λ|y|2
+                                                               σ Y^
+                                                                   W H (s, y) 
+                                                                   d
+                        = Eα,1 (−λ|y|2 tα ) + L−1                              (t, y).   (7.11)
+                                                                 sα + λ|y|2
+                                                
+                                  \
+                                σYg
+                                  W H (s,y)
+   It remains to find L−1        sα +λ|y|2
+                                                     :
+Recall that the convolution f ∗ g of two functions f, g : [0, ∞) 7→ R is defined by
+                                       Z t
+                          (f ∗ g)(t) =     f (t − r)g(r)dr; t ≥ 0.                       (7.12)
+                                                 0
+
+
+                                                         28
+The convolution rule for Laplace transform states that
+                          Z t                
+                        L      f (t − r)g(r)dr (s) = Lf (s)Lg(s),
+                                     0
+or                         Z t
+                                 f (t − w)g(w)dw = L−1 (Lf (s)Lg(s)) (t).                        (7.13)
+                            0
+Now (see [16],p.312)
+                                               
+                                       1
+                       L   −1
+                                                    (t) = tα−1 Eα,α (−λtα |y|2 )
+                                    s + λ|y|2
+                                     α
+                                                           ∞ α−1
+                                                           X t   (−λtα |y|2 )k
+                                                       =
+                                                                         Γ(αk + α)
+                                                           k=0
+                                                           X∞
+                                                                     (−λ|y|2 )k tα(k+1)−1
+                                                       =
+                                                                        Γ(α(k + 1))
+                                                           k=0
+                                                           ∞
+                                                           X (−λtα |y|2 )k tα−1
+                                                       =
+                                                                         Γ(α(k + 1))
+                                                           k=0
+                                                       =: Λ(t, y).                               (7.14)
+In other words,
+                                             σ
+                                                        = σLΛ(s, y),                             (7.15)
+                                         sα + λ|y|2
+Combining with (6.13) we get
+                                                                        
+            −1       σ      d
+                            g                  −1                g
+                                                                 d
+          L                 Y W (s, y) (t) = L      L (σΛ(s, y)) Y W (s, y) (t)                  (7.16)
+                 sα + λ|y|2
+                                               Z t
+                                           =σ      Λ(t − r, y)Yd
+                                                               W H (r, y)dr.                     (7.17)
+                                                                 0
+
+Substituting this into (6.10) we get
+                                                           Z t
+                                            
+                  Yb (t, y) = Eα,1 −λtα |y|2 + σ                     Λ(t − r, y)Yd
+                                                                                 W H (r, y)dr.   (7.18)
+                                                             0
+
+Taking inverse multidimensional Laplace transform we end up with
+                                               Z t                         
+                                
+  Y (t, x) = L −1          α
+                  Eα,1 −λt |y|2
+                                   (x) + σL −1
+                                                    Λ(t − r, y)Yd
+                                                                W H (r, y)dr (x).                (7.19)
+                                                                     0
+
+     Now, we use that
+                    Z x
+                 L{     f (x − z)g(z)dz}(y) = L{f }(y)L{g}(y),                         x ∈ Rd+   (7.20)
+                       0
+
+
+                                                        29
+or                    Z x                                       
+                            f (x − z)g(z)dz = L−1 L{f }(y)L{g}(y) (x)             x ∈ Rd+ ,         (7.21)
+                       0
+where we are using the notation
+               Z x           Z xd Z xd−1 Z x1
+                   ϕ(z)dz =             ...   ϕ(z1 , z2 , ..., zd )dz1 dz2 ...dz1
+                       0                0     0              0
+
+when x = (x1 , x2 , ..., xd ), z = (z1 , z2 , ..., zd ),
+   This gives,
+
+         Z t                                        Z t                            
+L   −1
+                Λ(t − r, y)Yd
+                            W (r, y)dr (x) =                L−1 Λ(t − r, y)Yd
+                                                                            W H (r, y) (x)dr
+           0                                           0
+                                                      Z t                                               
+                                                                                  
+                                                  =     L−1 L L−1 Λ(t − r, y) (y)L{Y WH }(r, x)(y) (x)dr
+                                                    Z0 x Z x
+                                                                                      
+                                                  =           L−1 Λ(t − r, y)(x − z) Y (r, z)WH (r, z)dzdr
+                                                     0    0
+                                                    Z tZ x           Z                          
+                                                                   −d       i(x−z)y
+                                                  =            (2π)        e        Λ(t − r, y)dy Y (r, z)WH (r, z)dzdr
+                                                     0    0             Rd
+                                                             Z t Z x Z                          
+                                                         −d                 i(x−z)y
+                                                  = (2π)                   e        Λ(t − r, y)dy Y (r, z)BH (dr, dz).
+                                                                  0   0   Rd
+
+Here we have used that the function
+                                                            ∞
+                                                            X (−λtα y 2 )k tα−1
+                                     y 7→ Λ(t, y) =                                                 (7.22)
+                                                                  Γ(α(k + 1))
+                                                            k=0
+
+can be extended to an entire complex function in the complex plane, and hence its inverse
+Laplace transform coincides with the inverse Fourer transform.
+
+
+
+
+                                                             30
+Combining this with (7.19), (6.11) and (7.14) we get
+                X∞                              Z t Z x Z                           
+             −1     (−λtα |y|2 )k            −d                i(x−z)y
+Y (t, x) = L (                    ) + σ(2π)                   e        Λ(t − r, y)dy Y (r, z)BH (dr, dz)
+                     Γ(αk + 1)                    0  0     Rd
+                k=0
+                  Z         X∞
+                                (−λtα |y|2 )k
+         = (2π)−d      eixy                   dy
+                    Rd           Γ(αk + 1)
+                            k=0
+                    Z t            Z x Z               ∞
+                                                                                   !
+                                                       X  (−λ(t   − r) α |y|2 )k
+         + σ(2π)−d      (t − r)α−1            ei(x−z)y                           dy Y (r, z)BH (dr, dz)
+                     0               0     Rd                 Γ(α(k + 1))
+                                                         k=0
+                                                                                              (7.23)
+                   Z
+        = (2π)−d     eixy Eα (−λ|y|2 tα )dy
+                    Rd
+                  Z t            Z xZ                                      
+               −d
+        + σ(2π)       (t − r)α−1
+                                            ei(x−z)y Eα (−λ|y|2 (t − r)α )dy Y (r, z)BH (dr, dz)
+                       0             0     Rd
+                                                                                              (7.24)
+This proves uniqueness and also that the unique solution (if it exists) is given by (6.3).
+
+    b) Next, define Y (t, x) by (7.23). Then we see that we can prove that Y (t, x) satisfies
+(6.2) by reversing the argument above. We skip the details.                               
+
+
+
+8     A solution formula of the Volterra equation
+In the is section we find a formula for the Volterra eqiation (7.3) and we use it to study
+the properties of the solution.
+
+   We will need the following general result about stochastic linear Volterra equations,
+based on [24]:
+Theorem 8.1 Let F (u) : [0, ∞)n 7→ R and G(u, w) : [0, ∞)n × [0, ∞)n 7→ R be locally
+bounded deterministic functions such that F ∈ L2 (Rn+ ) and
+                                         Z u
+   kG(u, ·)k2 := kG(u, ·)k2L2 ([0,u]) :=      G2 (u, w)dw
+                                          0
+                 Z u1 Z u2 Z un
+              :=           ...        G2 (u1 , u2 , ..., un , w1 , w2 ...wn )dwn ...dw2 dw1 < ∞ (8.1)
+                       0   0     0
+for all u = (u1 , u2 , ..., un ) ∈ Rn+ . Then there is a unique solution Y (u) ∈ L2 (P ) of the
+stochastic Volterra equation
+                                             Z u
+                             Y (u) = F (u) +     G(u, w)Y (w)BH (dw).                     (8.2)
+                                                0
+
+
+                                                    31
+The solution is given by
+                                                     Z u
+                              Y (u) = F (u) +              H(u, w)F (w)BH (dw).                         (8.3)
+                                                      0
+
+where
+                                                           ∞
+                                                           X
+                                          H(u, w) =              Gm (u, w)                              (8.4)
+                                                           m=1
+
+with Gm given inductively by
+                                         Z u
+                   Gm+1 (u, w) =               Gm (u, v)G(v, w)BH (dv);          m = 1, 2, ...
+                                          w
+                        G1 (u, w) = G(u, w).                                                            (8.5)
+
+Proof.     The proof is based on a suitably adapted modification of the proof of Theorem
+3.1 in [24]. We give an outline:
+
+   By induction we see that
+                              Z         Z m−1
+                                          Y
+            Gm (u, w) =           ...           G(zk , zk+1 )BH (dz1 )BH (dz2 )...BH (dzm−1 ),          (8.6)
+                               S(u,w) k=0
+
+where z0 = u, zn = w and the integration is taken over the set
+                n                                                                  o
+    S(u, w) := (z1 , z2 , ..., zm−1 ) ∈ (Rn+ )m−1 ; w ≤ zm−1 ≤ zm−2 ≤ ... ≤ z1 ≤ u                      (8.7)
+
+Here we use the notation
+
+          x = (x1 , x2 , ..., xn ) ≤ y = (y1 , y2 , ..., yn ) iff xj ≤ yj ; for all j = 1, 2, ..., n.
+
+By applying Theorem 8.1 repeatedly we get that
+                                                 Z         m−1
+                                                           Y
+                                  2       m−1
+                 E[Gm (u, w) ] ≤ A                               G2 (zk , kk+1 )dz1 dz2 ...dzm−1
+                                                  S(u,w) k=0
+
+                                                                 V ol(S(u, w))
+                                      ≤ Am−1 kG(u, ·)k2m                                                (8.8)
+                                                                  ((m − 1)!)n
+where
+         n
+         Y                                   n                                          o
+                    2Hj −1               2             3 −2           1 −1           −1
+    A=         Kj x̄j        with Kj := CH j
+                                               4(H j − 2 )  + 2(H j − 2 )  (1 − H j )     .             (8.9)
+         j=1
+
+
+
+                                                           32
+Hence       P
+   H(u, w) = ∞                               2
+               m=0 Gm (u, w) converges in L (P ) for all u, w.
+By Theorem 8.1 it follows that
+                               Z u
+             Y (u) = F (u) +       H(u, w)F (w)BH (dw) ∈ L2 (P ) for all u.                                                       (8.10)
+                                                    0
+
+                                                                                                                                     
+
+     We now apply this general result to our situation and obtain the following:
+
+Theorem 8.2 (Solution of the fractional Volterra equation)
+As before put
+                           Z                                                            Z               ∞
+                                                                                                        X
+                      −d            ixy                 α        2                 −d                         (−λtα |y|2 )k
+     f (t, x) = (2π)                e       Eα (−λt |y| )dy = (2π)                               eixy                       dy,   (8.11)
+                               Rd                                                           Rd                 Γ(αk + 1)
+                                                                                                        k=0
+
+ and
+
+                                                                         Z
+        g(t − r, x − z) = σ(2π)              −d
+                                                   (t − r)   α−1
+                                                                              ei(x−z)y Eα,α (−λ(t − r)α |y|2 )dy                  (8.12)
+                                                                         Rd
+
+The solution of the fractional Volterra equation ( (7.3)):
+                                                        Z tZ x
+                  Y (t, x) = f (t, x) +                              g(t − s, x − z)Y (s, z)BH (ds, dz),                          (8.13)
+                                                         0       0
+
+is
+                                                         Z tZ x
+                       Y (t, x) = f (t, x) +                             h(t, x, s, z)f (s, z)BH (ds, dz),                        (8.14)
+                                                             0       0
+
+where
+                                                                         ∞
+                                                                         X
+                                                 h(t, x, s, z) =               gm (t, x, s, z).                                   (8.15)
+                                                                         m=1
+
+with gm given inductively by
+                  Z tZ xZ sZ z                                            
+gm (t, x, s, z) =               gm−1 (t, x, r, w)g1 (s, z, r, w)BH (dr, dw) BH (ds, dz);                                          m = 2, 3, ...
+                  0        0            0    0
+g1 (t, x, s, z) = g(t − s, x − z),                                                                                                (8.16)
+
+
+
+                                                                         33
+i.e.
+
+   gm (t, x, s, z)
+        Z       Z m−1
+                   Y
+    =       ...       g(sk , zk , sk+1 , zk+1 )BH (ds1 , dz1 )BH (ds2 , dz2 )...BH (dsm−1 , dzm−1 ).
+        S((t,x),(s,z)) k=0
+
+Here (s0 , z0 ) = (t, x), (sm , zm ) = (s, z) and the integration is taken over the set
+                           n
+    S((t, x), (s, z)) := (s1 , z1 , s2 , z2 , ..., sm−1 , zm−1 ) ∈ (R1+d
+                                                                     + )
+                                                                         m−1
+                                                                             ;
+                                                                                      o
+                       s ≤ sm−1 ≤ sm−2 ≤ ... ≤ t & z ≤ zm−1 ≤ ... ≤ z1 ≤ x              .                              (8.17)
+
+
+8.1      When is the solution mild?
+We now apply the result above to the Volterra equation (7.3):
+In this case we have u = (t, x), w = (r, z) and
+                                            Z
+             G(u, w) = σ(2π)−d (t − r)α−1       ei(x−z)y Eα,α (−λ(t − r)α |y|2 )dy.                                    (8.18)
+                                                           Rd
+
+Hence
+                                   Z tZ x                     Z                                                 2
+               2       2     −2d
+   kG(u, ·)k = σ (2π)                         (t − r)  2α−2
+                                                                        ei(x−z)y Eα,α (−λ(t − r)α |y|2 )dy            drdz
+                                    0     0                        Rd
+                                   Z tZ x                     Z                                        2
+                   ≤ σ 2 (2π)−2d              (t − r)2α−2               |Eα,α (−λ(t − r)α |y|2 )|dy           drdz.
+                                    0     0                        Rd
+                                                                                                                       (8.19)
+
+We split into two cases:
+1) Assume α ≥ 1.
+Then by Jia et al [17] we have
+                                                                                   α   2
+                                   |Eα,α (−λ(t − r)α |y|2 )| ≤ e−λ(t−r) |y| .                                          (8.20)
+
+Hence
+                                          Z tZ x                     Z                          2
+                      2      2      −2d                                                α   2
+          kG(u, ·)k ≤ σ (2π)                          (t − r) 2α−2
+                                                                               e−λ(t−r) |y| dy        drdz.            (8.21)
+                                              0   0                       Rd
+
+
+
+
+                                                            34
+                                                                 1
+If we introduce the change of variable v = (λ(t − r)α ) 2 y we get
+                                Z t                                Z                    d
+                                                                                        Y
+                        2                   2α−2           α −d             −v2     2
+              kG(u, ·)k ≤             (t − r)      (λ(t − r) )    (         e     dv)         xj dr
+                                 0                                     Rd               j=1
+                                Z t                               d
+                                                                  Y
+                                            2α−2           α −d
+                            ∼         (t − r)      (λ(t − r) )          xj dr
+                                 0                                j=1
+                                Z t
+                            ∼         (t − r)2α−2−αd dr,                                              (8.22)
+                                 0
+
+which is finite if and only if 2α − 2 − αd > −1, i.e. if and only if d = 1.
+
+   2) Assume α < 1.
+Then we have
+                                                 2
+                                 Eα,α (−λtα |y|2 ) ∼ (λtα )−2 |y|−4                                   (8.23)
+
+and by (8.19) we see that kG(u, ·)k2 = ∞ in that case.
+Combining this with Theorem 8.1 we get that the solution is not mild.
+
+    We summarise what we have proved in the following:
+Theorem 8.3 For all H = (H0 , H1 , ..., Hd ) ∈ ( 21 , 1)1+d the following holds for the stochas-
+tic fractional Volterra equation (7.3):
+    • (i) If α = 1 the solution Y (t, x) is mild if and only if d = 1.
+    • (ii) If α > 1 the solution is mild if d = 1 or d = 2.
+    • (iii) If α < 1 the solution is not mild for any d.
+
+Remark 8.4 It is surprising that these results do not depend on the Hurst parameter
+H = (H0 , H1 , ..., Hd ) ∈ ( 12 , 1)1+d .
+
+
+9     Application
+9.1     Distillation columns
+Distillation process separates between liquid and vapor in many fields, where it works by
+applying and removing a heat. Heat causes components with lower boiling points and
+higher volatility to vaporize, leaving less volatile components in liquid form.
+    It separates binary mixtures. Many variables, such as column pressure, temperature,
+size, and diameter are determined by the properties of the feed and the desired products.
+
+                                                     35
+9.2     A model for the heat transfer in distillation columns
+To model the transfer of heat in such a mixture we use the following fractional heat equation
+for the temperature T (t, x) at time t and at the position x in the 3−dimensional space:
+
+           ∂α
+               T (t, x) = λ∆T (t, x) + σT (t, x) ⋄ WH (t, x); (t, x) ∈ [0, ∞) × [0, ∞)3                (9.1)
+           ∂tα
+with boundary conditions
+                             T (0, x) = δ0 (x) (the Dirac measure at x),
+                             T (t, 0) = 0 when t > 0.                                                  (9.2)
+By Theorem 7.2 the solution of this fractional stochastic differential equation coincides
+with the solution of the following fractional Volterra equation:
+                                      Z tZ x
+                T (t, x) = f (t, x) +        g(t − r, x − z)T (r, z)BH (dr, dz),    (9.3)
+                                           0   0
+
+where
+                        Z                                           Z          ∞
+                                                                               X
+                   −d         ixy          α   2               −3        ixy     (−λtα |y|2 )k
+     f (t, x) = (2π)         e      Eα (−λt |y| )dy = (2π)               e                       dy,   (9.4)
+                        R3                                          Rd               Γ(αk + 1)
+                                                                               k=0
+
+and
+                                                    Z
+           g(t − r, x − z) = σ(2π)−3 (t − r)α−1              ei(x−z)y Eα,α (−λ(t − r)α |y|2 )dy        (9.5)
+                                                        R3
+
+A solution formula for this Volterra equation is given in Theorem 8.2.
+
+   The question is:
+For what values of α do we obtain vaporisation, and for what α do we obtain volatility?
+
+    Fractional calculus have an important role to describe real-world phenomena called
+memory effect. The Caputo derivative is used because the memory effect and a constant
+function derivatives yield zero. Or the distillation need the memory effect so we use it to
+interpret the situation. In our previous paper [47] we show that in the case where α < 1
+the travel time of the particles are longer than the standard diffusion, this case models also
+the removal of heat. Where α > 1 the particles spread faster than in regular diffusion, in
+this case we obtain a vaporisation.
+
+
+10       Acknowledgments
+We are grateful to Yaozhong Hu for helpful comments.
+
+                                                   36
+References
+ [1] Abel, N. H. (1823): Oppløsning av et par oppgaver ved hjelp av bestemte integraler
+     (in Norwegian). Magazin for naturvidenskaberne, pp. 55-68.
+
+ [2] Benth, F. E. (1993). Integrals in the Hida distribution space (S)*. In B. Lindstrom,
+     B. Oksendal, and A.S. Ustunel (editors): ”Stochastic Analysis and Related Topics”,
+     Vol. 8, 89-99. Gordon & Breach.
+
+ [3] Binh, T. T., Tuan, N. H., & Ngoc, T. B. (2021). Holder continuity of mild solutions of
+     space-time fractional stochastic heat equation driven by colored noise. The European
+     Physical Journal Plus, 136(9), 1-21.
+
+ [4] Bock, W., Grothaus, M. & Orge, K.:Stochastic analysis for vector valued generalized
+     grey Brownian motion. ArXiv: 2111.09229v1, 17 Nov. 2021.
+
+ [5] Bock, W. & da Silva, J. L.:Wick type SDEs driven by grey Brownian motion. AIP
+     Conference Proceedings, 1871(1): 020004, 2017.
+
+ [6] Butkovsky, O., & Mytnik, L. (2019). Regularization by noise and flows of solutions
+     for a stochastic heat equation. The Annals of Probability, 47(1), 165-212.
+
+ [7] Capelas de Oliveira, E., Mainardi,F.Vaz, J. (2011): Models based on Mittag Leffler
+     functions for anomalous relaxation in dielectrics. arXiv: 1106.1761 v2, 13 Feb. 2014.
+
+ [8] Chen, L. , Guo, Y. & Song, J. (2022): Moments and asymptotics for a class of SPDEs
+     with space-time white noise. arXiv 2206.10069v1.
+
+ [9] Chen, L. , Hu, Y. & Nualart, D. (2019): Nonlinear stochastic time-fractional slow
+     and fast diffusion equations on Rd . Stochastic Processes and their Applications 129,
+     5073-5112.
+
+[10] Cherstvy, A. G., Chechkin, A. V., & Metzler, R. (2013). Anomalous diffusion and er-
+     godicity breaking in heterogeneous diffusion processes. New Journal of Physics, 15(8),
+     083039.
+
+[11] Di Nunno, G., Øksendal, B. & Proske, F. (2008): Malliavin Calculus for Levy Pro-
+     cesses with Applications to Finance. Springer.
+
+[12] Dordevic, J. & Øksendal, B. (2023): Stochastic differential equations driven by frac-
+     tional Brownian motion. Submitted. arXiv.org/abs/2306.08324
+
+[13] Hu,Y. & Øksendal, B. (2003): Fractional white noise calculus and applications to
+     finance. Infinite Dim. Analysis, Quantum Probab. and Related Topics 6, 1-32.
+
+
+
+                                            37
+[14] Hu, Y. (2019): Some recent progress on stochastic heat equations. Acta Mathematica
+     Scientia 39B(3); 874-914.
+
+[15] Holm, S. (2019): Waves with Power-Law Attenuation. Springer.
+
+[16] Ibe, Oliver C. (2013): Markov Processes for Stochastic Modelling. 2nd edition. Elsevier.
+
+[17] Jia, j. , Wang, Z. , Huang, X. ,& Wei, Y. (2019): Some remarks on estimate of Mittag-
+     Leffler function. Journal of Function Spaces, https://doi.org/10.1155/2019/6091602
+
+[18] Kilbas, A.A., Srivastava, H.M., Trujillo, J.J. (2006): Theory and Applications of
+     Fractional Differential Equations, Elsevier Science B.V.
+
+[19] Kochubel, A. N., Kondratiev, Y. & da Silva, J. L. (2021): On fractional heat equation.
+     Fractional Calculus & Applied Analysis 24 (1), 73-87.
+
+[20] Lindstrøm, T., Øksendal, B. & Ubøe, J. (1992): Wick multiplication and Ito-Skorohod
+     stochastic differential equations. In S. Albeverio et al (editors): ”Ideas and Methods
+     in Mathematical Analysis, Stochastics and Applications”. Cambridge Univ. Press,
+     pp.183-206.
+
+[21] Liu, W., Roeckner, M. & da Silva, J. L.: Quasilinear (stochastic) partial differential
+     equations with time-fractional derivatives (2018), SIAM J. Math. Anal. 50(3), 2588-
+     2607.
+
+[22] Mittag-Leffler, M.G. (1903): Sur la nouvelle fonction E(x). C. R. Acad. Sci. Paris 137,
+     554?558
+
+[23] Meerschaert, M. M., Sikorskii, A. (2019): Stochastic Models for Fractional Calculus,
+     2nd edition. De Greuter.
+
+[24] Øksendal, B. & Zhang, T. (2001): Multiparameter fractional Brownian motion
+     and quasi-linear stochastic partial differential equations, Stochastics: An Inter-
+     national Journal of Probability and Stochastic Processes, 71:3-4, 141-163, DOI:
+     10.1080/17442500108834263
+
+[25] Pollard, H. (1948): The completely monotone character of the Mittag-Leffler function
+     Eα (−x). Bull. Amer. Math-Soc.54, 1115-1116.
+
+[26] Samko, S.G., Kilbas, A.A., Marichev, O.I.: Fractional Integrals and Derivatives. The-
+     ory and Applications. Gordon and Breach Science Publishers, New York (1993).
+
+[27] Schneider, W.B. (1996): Completely monotone generalized Mittag Leffler functions.
+     Expositiones Mathematicae 14, 3-16.
+
+
+
+                                             38
+[28] Walsh, J. (1984): An Introduction to Stochastic Partial Differential Equations.
+     Springer Lecture Notes.
+
+[29] Yalin Sarol, Frederi Viens. Time regularity of the evolution solution to fractional
+     stochastic heat equation. Discrete and Continuous Dynamical Systems - B, 2006, 6(4):
+     895-910.
+
+[30] Bainov, D. & Simeonov, P. (1992): Integral Inequalities and Applications, Kluwer
+     Academic Publishers, Dordrecht, Netherlands.
+                                                                ˆ formula for fractional
+[31] Biagini, F., Øksendal, B. (2008): Forward integrals and an Ito
+     Brownian motion, Infinite Dimensional Analysis, Quantum Probabilityand Related
+     Topics Vol. 11, No. 2, 1–21.
+
+[32] Biagini, F., Hu, Y., Øksendal, B., & Zhang, T. (2008): Stochastic Calculus for Frac-
+     tional Brownian Motion and Applications. Springer.
+
+[33] Bender, C. (2003): An S-transform approach to integration with respect to a fractional
+     Brownian motion, Bernoulli 9(6), 955–983.
+
+[34] Boudaoui, A., Caraballo, T. & Ouahab, A. (2017): Stochastic differential equations
+     with non-instantaneous impulses driven by a fractional Brownian motion, Discrete
+     and Continuous Dynamical Systems - Series B, Volume 22, Issue 7: 2521-2541. Doi:
+     10.3934/dcdsb.2017084.
+
+[35] Carmona, P. & Coutin, L. (1998): Fractional Brownian motion and the Markov prop-
+     erty, Elect. Comm. in Probab. 3, 95–107.
+
+[36] Zhao, C. , Zhibo, Z. & Qinghui, D. (2021): Optimal control of stochastic system with
+     fractional Brownian motion, Mathematical Biosciences and Engineering, vol. 18, no.
+     5, Sept.-Oct. , pp. 5625-5634.
+
+[37] Decreussefond, L. & Ustunel, A.S. (1999): Stochastic Analysis of the FractionalBrow-
+     nian Motion, Potential Analysis 10: 177-214.
+
+[38] Elliot, R. & var det Hoek, J. (2003): A general fractional white noise theory and
+     applications to finance. Mathematical Finance 13 (2), 301-330.
+
+[39] Guerrera, J. & Nualart, D. (2008): Stochastic differential equations driven by frac-
+     tional Brownian motion and standard Brownian motion, Stochastic Analysis and Ap-
+     plications Volume 26, Issue 5, 1053–1075.
+
+[40] Jafari, H., Malinowski, M.T. & Ebadi, M.J. (2021): Fuzzy stochastic differen-
+     tial equations driven by fractional Brownian motion. Adv. Diff. Eq. 2021, 16.
+     https://doi.org/10.1186/s13662-020-03181-z.
+
+                                            39
+[41] Linstrøm, T. (1993): Fractional Brownian fields as integrals of white noise. Bull.
+     London Math. Soc. 35, 83-88.
+[42] Jien, Y., & Ma, J. (2009): Stochastic differential equations driven by fractional Brow-
+     nian motions, Bernoulli Vol. 15, No. 3, pp. 846–870.
+[43] Mandelbrot, B., Van Ness, J. (1968): Fractional Brownian motions, fractional noises
+     and applications. SIAM Review, 10(4), 422-437.
+[44] Mao, X. (2011): Stochastic Differential Equations and Applications, Woodhea Pub-
+     lishing Limited.
+[45] Mémina, J., Mishura, Y. & Valkeila, E. (2001): Inequalities for the moments of Wiener
+     integrals with respect to a fractional Brownian motion, Statistics & Probability Letters
+     51 (2001) 197–206.
+[46] Mishura, Y. (2008): Stochastic Calculus for Fractional Brownian Motion and Related
+     Processes. Springer Lecture Notes in Mathematics no. 1929.
+[47] Moulay Hachemi, R.Y., Øksendal, B. The fractional stochastic heat equation driven
+     by time-space white noise. Fract Calc Appl Anal 26, 513-532 (2023).
+[48] Nakajima, S., Shimizu, Y. (2023): Asymptotic inference for stochastic differential
+     equations driven by fractional Brownian motion. Jpn J Stat Data Sci 6, 431-455.
+     https://doi.org/10.1007/s42081-022-00181-z
+[49] Sayed Ahmed, A.M. (2022): Stochastic delayed fractional-order differential equa-
+     tions driven by fractional Brownian motion, MALAYA JOURNAL OF MATEMATIK
+     Malaya J. Mat.10(03), 187-197. http://doi.org/10.26637/mjm1003/00.
+[50] Tindel, S., Tudor, C. Viens, F. (2003): Stochastic evolution equations with
+     fractional Brownian motion. Probab. Theory Relat. Fields 127, 186-204 .
+     https://doi.org/10.1007/s00440-003-0282-2.
+[51] Øksendal, B. (2013): Stochastic Differential Equations. 6th edition 2013. Springer.
+[52] Øksendal, B. & Sulem, A. (2019): Applied Stochastic Control of Jump Diffusions.
+     Third Edition. Springer.
+
+
+11      Appendix
+11.1     Multiple-parameter fractional Brownian motion
+Next we introduce the multiple-parameter fractional Brownian motion and give some of
+its properties:
+
+                                             40
+Definition 11.1 [24] We define n-parameter fractional Brownian motion BH (x); x =
+(x1 , x2 , ..., xd ) ∈ Rn with Hurst parameter H = (H1 , ..., Hn ) ∈ (0, 1)n as a Gaussian process
+on Rn with mean
+                                    E[BH (x)] = 0 for all x ∈ Rn
+and covariance
+                                                           n
+                                                    1 n Y                                     
+                   E[BH (x)BH (y)] =                       |xj |2Hj + |yj |2Hj − |xj − yj |2Hj
+                                                    2
+                                                        j=1
+
+We also assume that
+                                                      BH (0) = 0 a.s.
+
+From now, we assume that 21 < Hi < 1 for i = 1, ..., n.
+
+
+Definition 11.2 For x = (x1 , x2 , ..., xn ), y = (y1 , y2 , ..., yn ) ∈ Rn define
+                                                           n
+                                                           Y
+                       ϕ(x, y) = ϕH (x, y) =                     Hj (2Hj − 1)|xj − yj |2Hj −2 ,          (11.1)
+                                                           j=1
+
+and let L2ϕ (Rn ) be the set of all functions f : Rn 7→ R such that
+                                    Z Z
+                          |f |2ϕ :=        f (x)f (y)ϕ(x, y)dxdy < ∞.                                    (11.2)
+                                               Rn     Rn
+
+Then L2ϕ (Rn ) is a separable Hilbert space, with inner product
+                             Z Z
+                   hf, gi :=        f (x)g(y)ϕ(x, y)dxdy; f, g ∈ L2ϕ (Rn ).                              (11.3)
+                                     Rn       Rn
+
+The following fractional Ito isometry is useful:
+
+Proposition 11.3 Let f : Rn 7→ R be a deterministic function. Then
+        Z                               Z Z
+     E[(    f (x)dBH (x))2 ] = |f |2φ =     f (x)f (y)ϕ(x, y)dxdy =
+             Rn                                            Rn    Rn
+            n
+            Y                    Z        Z
+        =         Hj (2Hj − 1)                     f (x)f (y)|xj − yj |2Hj −2 dxdy;     f ∈ L2ϕ (Rn ).   (11.4)
+            j=1                      Rn       Rn
+
+
+
+
+                                                                 41
+11.2      Multiparameter fractional white noise
+                                                                                  
+We need to define the multiparameter fractional Hida test function space S H and dis-
+                   ∗
+tribution space S H . Let N0 = {0, 1, 2, ...} denote the set of nonnegative integers, and
+let J denote the set of all (finite) multi-indices α = (α1 , α2 , ..., αm ) with αi ∈ N0 ; i =
+1, 2, ..., m; m = 1, 2, ....
+
+Definition 11.2.1 [24] Let Hα be as in [24],Section 2.
+
+   • (The multiparameter fractional Hida test function spaces)
+     For k ∈ N, define (S)H,k to be the space of all expansions
+                                             X
+                                     ψ(ω) =      aα Hα (ω)
+                                                         α∈J
+
+       such that                                       X
+                                         kψk2H,k :=          α!a2α (2N)kα < ∞,
+                                                       α∈J
+                       Q
+       where (2N)γ =       j   (2j)γj   if γ = (γ1 , ...γm ) ∈ J .
+                       T∞
+       Define (S)H =    k=1 (S)H,k , equipped with the projective topology.
+
+   • (The multiparameter fractional Hida distribution spaces)
+     For q ∈ N , let (S)∗H,−q be the space of all formal expansions
+                                                         X
+                                                G(ω) =         bβ Hα (ω),
+                                                         β∈J
+
+       such that                                       X
+                                        kGk2H,−q :=          β!b2β (2N )−qβ < ∞.
+                                                       β∈J
+
+       Define (S)∗H = ∪∞       ∗                                         ∗
+                        q=1 (S)H,−q with the
+                                           Pinductive topology. ∗Then (S)H becomes
+                                                                             P     the dual
+       of (S)H when the action of G(ω) = β∈J bβ Hα (ω) ∈ (S)H on ψ(ω) = α∈J aα Hα (ω) ∈
+       (S)H is defined by                         X
+                                      hhG, ψii :=    α!aα bα .
+                                                              α∈J
+
+Example 11.2.2 [24](Multiparameter fractional white noise)
+Define for y ∈ Rn               "Z                   #
+                             X∞
+                    WH (y) =          ei (v)φ(y, v)dv Hǫ(i) (ω).                       (11.5)
+                                          i=1     Rn
+
+
+
+
+                                                       42
+Then as in [13],Example 3.6 we obtain that WH (y) ∈ (S)∗H for all y. Moreover WH (y) is
+integrable in (S)∗H for 0 ≤ yi ≤ xi , i = 1, ..., d and
+    Z x1 Z x2 Z xn                     "Z Z              Z xn  Z                   #
+                                  X∞       x1     x2                             
+              ...     WH (y)dy =                     ...          ei (v)φ(y, v)dv dy Hǫi (ω)
+     0    0            0                         i=1    0       0             0        Rn
+
+                                             = BH (x).                                                                   (11.6)
+
+Therefore BH (x) is differentiable with respect to x in (S)∗H and we have
+
+                                            ∂n
+                                                      BH (x) = WH (x) in (S)∗H .                                         (11.7)
+                                       ∂x1 , ..., ∂xn
+
+This justifies the name (multiparameter) fractional white noise for WH (x).
+                                                            P                                            P
+Definition 11.2.3 [24] Suppose F (ω) =                          α∈J aα H
+                                                                        α (ω) and G(ω) =                     β∈J bβ Hβ (ω) both
+                                                                               
+belong to (S)∗H . Then we define their Wick product                                F ⋄ G (ω) by
+                                                                                                     !
+                             X                  X                                     X
+                   F ⋄ G (ω) =   aα bβ Hα+β (ω) =                                                aα bβ Hγ (ω)            (11.8)
+                                         α,β∈J                                γ∈J     α+β=γ
+
+
+Example 11.2.4 [24]
+
+   • If f, g ⊂ L2φ (Rd ) then
+              Z                !         Z              !           Z                ! Z                !
+                       f dBH       ⋄             gdBH       =                f dBH               gdBH       − (f, g)φ    (11.9)
+                  Rd                        Rd                          Rd                  Rd
+
+
+   • If f ∈ L2φ (Rd ) then
+                          P
+     exp⋄ (< ω, f >) := ∞       1
+                            n=1 n! < ω, f >
+                                            ⋄n converges in (S)∗ and is given by
+                                                               H
+                                                                                         1      
+                                   exp⋄          < ω, f >       = exp             < ω, f > − |f |2φ .                   (11.10)
+                                                                                            2
+
+Definition 11.2.5 [24] Suppose y : Rd −→ (S)∗H is a given function such that x 7→
+y(x)⋄WH (x) is integrable in (S)∗H for x ∈ Rn . Then we define the multiparameter fractional
+stochastic integral (of Ito type) of y(x) by
+                            Z                  Z
+                                y(x)dBH (x) =     y(x) ⋄ WH (x)dx                    (11.11)
+                                       Rn                           Rn
+
+
+
+
+                                                                43
+

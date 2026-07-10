@@ -1,0 +1,520 @@
+- All right. So let's get started. So I'm Dan Freed. It's a pleasure to welcome everybody to the first of this
+series of seven lectures on the Millennium Prize Problems. This is a series of
+problems that was identified by the Clay Math Institute 25 years ago at the turn of the millennium,
+and this lecture series, which is jointly sponsored by
+the Department of Mathematics, by the Harvard Center
+of Mathematical Sciences and Applications, and by
+the Clay Math Institute, this series is designed to, again, bring these problems back
+to everybody's attention and to look at what's been
+happening over the last 25 years. So these seven problems
+also each has a bounty of $1 million for the solution, and exactly one of the seven
+problems has been solved in the intervening 25 years, and it's the one we'll hear about today, the three dimensional Poincaré Conjecture. And there's nobody better
+to tell us the story of that three dimensional
+Poincaré Conjecture than the fellow who solved the four dimensional
+Poincaré Conjecture. (laughs) And that's my old friend, Mike Friedman. In mathematics, we don't tend
+to give long introductions. This one has run way
+longer than most of them, which say the next
+speaker is Mike Friedman. And so here he is. (chuckles) - Thank you, Dan. Yeah, it's a great pleasure to be here. Those of you who know me will notice that I'm talking about the
+wrong Poincaré Conjecture. I believe Perelman was unavailable, so (laughs) I'm going
+to do the best I can. So the Poincaré Conjecture is a question in
+three-dimensional topology, and I'll try to ground
+it in the first slides, but it's remarkable. It was stated by Poincaré somewhat roughly in a
+few places around 1904, and it took roughly 100 years
+for Perelman to solve it using a really innovative method developed by Richard Hamilton,
+this Ricci flow equation. So I want to give you a
+sort of a understanding of the proof and also the context. That's my goal. But I said it's about
+three-dimensional manifolds, and I know this is probably
+a diverse audience. So let's just start with
+one-dimensional manifolds. So today, the interesting
+manifolds will be compact, at least to start with. So in one dimension, there's really only one compact manifold. That's a circle, if you
+want to be pedantic, you could have disjoint unions of circles. So those are the one manifolds. After this point, maybe I'll
+stick with connected manifolds. In two dimensions, the
+list is very familiar. There's a 2-sphere, which I
+drew the same way as a circle, so please interpret it as
+a two-dimensional sphere. There's a torus, then
+there's a two-hole torus, and a three-hole torus and so on. And that turns out up to diffeomorphism to be an exhausted list of the orientable connected 2-manifolds. There's another little list
+of non-orientable ones, starting with the projective plane. Just for fun, I drew sort of a schematic of how to make the projective plane. You can take the sphere, 2-sphere and identify in typical points. And a nice picture for
+that is to cut the 2-sphere into three regions, sort of a polar, northern and southern polar
+cap in an equatorial region indicated in green. And it's easy to see that
+the equatorial region, after you identify in typical points, becomes some Mobius band. And the two caps become
+identified untypically, so all you have to do to
+make the projective plane is to take a sewing machine and sew a disc onto a Mobius band along
+their two boundaries. It actually won't work
+with a sewing machine. The Mobius band will crinkle
+up and get in your way. But it's sort of a fun thing to try. Now, the Poincaré conjecture
+says that any closed, meaning compact and without boundary, simply connected 3-manifold is actually homeomorphic to R3. So homeomorphic is just
+a very simple thing. It means there's a continuous one-to-one correspondence between the points. So think of it as like diffeomorphic, but without the differentiable structure. And then "simply connected" means that every closed
+loop can be deformed. It's called a homotopian topology, can be deformed until it's a point. So strikingly, this test
+is exactly the same test in dimension three that
+you'd apply to surfaces to see if you had a 2-sphere. That is, if every loop shrinks
+to a point on a surface, then it's a 2-sphere compact surface. So the Poincaré conjecture
+is that the same test applies in three dimensions, and you can, the little graphic here
+shows that the test at least works for the 3-sphere, because the 3-sphere is
+just Euclidean 3-space, one point compactified infinity, in any loop that you draw in the 3-sphere, you can assume doesn't meet
+that compactification point. So that's that little red loop. And then you can contract it just by conning to the
+origin, if you like. So the Poincaré conjecture
+is some kind of converse that if this rule works,
+if you can contract loops, then the thing has that same topology as compactified R3. And this is a good moment for an aside, that there is a Poincaré
+conjecture in every dimension. So CPN, and beautifully, they're all true. And this is called the
+generalized Poincaré conjecture. And the test becomes
+slightly more complicated as you go up in dimension. As you go up in dimension,
+it's not sufficient to check that loops contract, you have to check that all maps of spheres up to the middle dimension contract. And if you have a closed
+manifold with this property, then the Poincaré conjecture says it's homeomorphic to a sphere. There are many interesting
+subtleties in high dimension, because famously, the
+Milnor's 28 7-spheres. So it's not true that it's
+differentiably the same. It's differentiably a sphere with this homotopy theoretic test. But in terms of homeomorphism, just continuous correspondence
+in every dimension, we have this result, the
+conjectures of theorem, and the high dimensional
+case was proven first by Smale in 1959. And I did the four dimensional case, leveraging really amazing and innovative work of Andrew Casson, his development of Casson handles and Bob Edward's development
+of decomposition space theory. So it's kind of curious
+historically that the last case, and perhaps the hardest case, is the lowest dimensional case. It's really a very elementary question about three manifolds. It's sort of the first thing you'd ask. Now, although the statement
+of the Poincaré conjecture is entirely topological, strikingly, the proof is through PDEs. There's not much topology in the proof. And Danny Calegari, my colleague
+at University of Chicago, summed this up as saying,
+"The proof of the Poincaré conjecture was the greatest
+insult to topology." The differential
+geometers, the PDE people, took our best problem and solved
+it out from underneath us. So I want to explain
+this insult in detail, and you know why it was worth 100 years of our collective time thinking about it. But before I do that, this
+is a diverse audience. Not all of you are topologists
+or even mathematicians. I just want to step back
+and say a little bit about what mathematics is
+about, what it has been about, and is everything
+changing just as I speak? So we all appreciate that AI's
+really changing the landscape and what Hamilton and Perelman
+did was really heroic, the boldness of these ideas. It's like Mallory
+climbing or not climbing, we'll never know Everest in 1924. And I got this email on this topic of AIs and math from Peter Doyle. And I have to say that I
+received this email a year ago, so it was kind of present. I think many people are thinking this now. This was like 13 months ago. And his email, it was in prose, but then I realized it was a poem. So I just organized the lines
+into as if it were a poem. And it goes like this. "I've been thinking a lot about
+the Wright brothers lately, because the idea that AIs
+will send mathematicians the way they sent Go masters
+seems about as unlikely as heavier than air flight." So we may be all at risk. Actually, yesterday, we
+had a distinguished speaker in lecture hall C, Yann LeCun, who still thought we
+have some breathing room as mathematicians that AIs are
+more glib than intelligence. This is the quick summary. But let's see where we
+stand in a couple years. So I think mathematics is about patterns, usually in very abstract spaces. And it consists of sort of a hierarchical way of compressing information, which is typified by nested definitions. Working mathematician typically is working 10 or 12 definitional layers above whatever the
+foundational axioms are, Peano arithmetic or sub-theory. But they'd hardly notice, because the concepts they're dealing with feel like family members. They're just completely familiar to them. But our efforts to teach AIs to do math really force us to consider what math is. Math seems to be somewhat different. Math as humans know it, somewhat different from just all the formal
+consequences of axioms in some syntactic system. It seems to be a much thinner ribbon. And I think there are
+arguments that can be made that it's sort of a
+polynomial growth thing inside an exponentially large space. And the key example, and I'll
+talk more about this tomorrow actually in our little seminar at CMSA, but I think the key
+example is this observation of 3000 years old that you
+can express exponentially more numbers once you've
+discovered place notation. And if you think about that,
+that's a hierarchical set of definitions, because
+10 is defined as 10-ones, and 100 is defined as 10-tens and so on. And with these little extra definitions, you expand exponentially
+the ball of radius that you can work in and the integers that you can work in notationally. And it's actually a kind
+of fun counting exercise to see that no comparable
+expansion exists, if instead of the natural numbers, you take the free semi-group
+on, say, two generators. It turns out that with
+a logarithmic density of new definitions, you can
+hardly expand the radius at all, only a small polylogarithmic expansion. So there's something
+about slow growing spaces, like the line or the
+plane or a nilpotent group that enable definitional efficiency. And I think our experience
+with mathematics is that we rely on this
+definitional efficiency and we can maybe make some conclusions about the geometry of mathematics. Well, maybe, maybe not, the age of heroic achievement is passing and that AIs will become our assistance, and then soon, we'll
+become their assistance. We don't know. But even if the AI age is passing, that's all the more reason to celebrate what's recently happened,
+Hamilton's and Perelman's work. And that's what I want to convey today. So the general picture
+I have of mathematics is kind of this lofty willow tree. And I think of it as a willow tree, because even if it's very tall, it has this beautiful aspect
+that it often has boughs that are near the ground and children like us
+mathematicians can run around and jump for the limbs and try
+to grab at the low branches. And I think of like the trunk
+is coming up from the axioms and the branches are like our deductions and we get to the theorems,
+which are these leaves. And I think we really want to know what mathematics looks like, what's the geometry of this tree? What are the statistical
+properties of typical proofs, and how do the proofs that
+humans discover and catalog, how do they differ from
+all the possible proofs? So I think that's an area of exploration that is natural in sort of the new realm. And I want to pursue this
+metaphor of the willow tree just a little bit farther before going back to three
+dimensional topology. I'd like you to imagine
+walking up to the trunk of the willow tree and
+standing underneath it and looking up at the sky. And depending on exactly
+the details of the tree, how leafy it is, you may
+or may not be able to see flex of blue sky, you know? So do you see sky or not? And, well, in my metaphor, I'll say no one knows
+whether you see any sky. And the metaphor is that the
+blue sky, if you see any, those are statements that the proofs the branches and the leaves
+don't kind of get to. So they're like holes in mathematics. Are there holes in mathematics, or let's just think of arithmetic. Are there statements where
+there's a standard model and we know what we mean? Are there statements in
+arithmetic which are true, they don't have any counter examples, but they also just don't
+happen to have any proofs? Well, we of course know there
+are some statements like that because of girdle incompleteness
+and self-reference. But what about the most
+ordinary statements like the Goldbach conjecture
+that every even integer is the sum of two, every even integer four greater
+is the sum of two primes, that looks like it could be a statement that's true purely by accident, because once you've passed
+the first billion integers and haven't found a counter example, the chance of finding a
+counter example after that isn't, by some way of
+reasoning, extremely rare, because you have this
+logarithmic density of primes, and there's so many possible pairs that could add up to your even integer. I mean, these randomness arguments have to be taken with a grain of salt. But it suggests that once
+you've passed a billion, you're not at much risk anymore. But on the other hand, that's not a proof. It just means the risk was low and you were lucked
+out in the low numbers. Maybe there's no proof
+of things like that. So I think thinking about the
+geometry and structure of math sort of opens up new lines of inquiry, not necessarily productive ones. (laughs) Okay, so now to the millennial problems. As Dan mentioned in his introduction, 25 years ago, seven
+problems were set forward by the Clay Foundation,
+and five of them, I'd say, are core mathematical topics: complex analysis, algebraic
+geometry, topology, PDE. Two of the problems are kind of outliers. They're more meta-mathematical. They're like, how much can mathematics tell us about other things? One of the problems, which
+I think Arthur labored over, getting the statement just right, really is a surrogate for asking, "Can mathematics describe physics?" So this is the mask gap
+problem in Yang-Mills, but just in general, can you make field theory rigorously constructive and take continuum limits? And the other problem is
+the P versus NP problem, which is really about can
+mathematics develop a full theory of algorithms, or will it always be kind of this relative
+thing that we do today? Well, in contrast to the other
+lofty problems on this list, I'd say the Poincaré conjecture
+is strikingly down to earth. It's like the simplest thing
+you could ask in topology. Well, hence why the
+topologist felt so insulted when the PDE guys solved it. So it's totally basic. So let me just orient you a little bit to close three manifolds, because you can't really
+enjoy this conjecture until you've thought of a few examples. So the first one you might
+think of is the 3-sphere. We've already met that, the one point compactification of R3. Another very cheap and
+easy thing you can do is you can take the Cartesian
+product of three circles. This is like the
+generalization of the torus. That's another handy manifold. Or you could take a
+circle across any surface to bump up the dimension. Another example, we met RP2, 2-sphere module on typical
+points, there's also RP3, which is an oriented 3-manifold, which is the 3-sphere
+module on typical points. Now, all these examples
+I've mentioned to now are kind of arcane from the point of view of modern 3-manifold topology. Modern 3-manifold topology is really based primarily on insights of
+Bill Thurston, I'd say. And it's that the hyperbolic
+case is the generic case. So I took this tessellation
+of hyperbolic 3-space from the Clay Foundation website. So let me just say what
+hyperbolic space is. Euclid had this parallel postulate thing, and of course, it's not necessarily, it's not implied by their axioms. And you have models of geometry that disobey the parallel postulate. And the most symmetrical examples which exist in the same topological space, so the plane, 3-space, 4-space. The most symmetrical examples
+which have multiple parallels through a given point, those
+are the hyperbolic spaces up to scale in every dimension. And if you've admired Escher drawings, he's using a particular model
+for the hyperbolic plane called the Poincaré disk model. And I have those slides, and I'll talk about
+sectional curvatures later. So I just wanted to introduce the concept, reminding that geometry has a lot of different notions of curvature. Sectional curvatures are, like in every two dimensional direction, sort of what's happening. In a two dimensional direction, are the geodesics converging or expanding? Are they expanding faster than
+a Euclidean space or slower? And those two cases are negative
+versus positive curvature. So constant curvature is, constant negative curvature is the hallmark of hyperbolic space. And here, I've drawn, like
+in the two dimensional case, in this Poincare model what
+the geodesics look like. The model is a disk, but the straight lines
+in it are arcs of circles which meet the boundary of
+the disk perpendicularly, and the little arc that's
+disjoint from the other two, that's an example of a
+parallel to either of them, but you can rock that arc
+back and forth slightly. So you can see there are
+infinitely many possible parallels. Here's an Escher picture. So I mentioned that
+the high genus surfaces were an example of negative curvature, or I should have mentioned it. It turns out that if you take
+a two dimensional tessellation of the hyperbolic plane and
+it has a regular tessellation and it has a symmetry group, by a standard theorem and number theories, theorem of cell merge, actually, there's subgroups of finite
+index which are torsion-free. And if you divide out the hyperbolic plane by such a torsion-free
+group of symmetries, you'll get necessarily a closed surface. So the higher genus
+surfaces all arise this way. They all come with hyperbolic geometry. So the sphere has a spherical geometry, the torus has a flat geometry, and the higher genus surfaces have negatively curved geometry. It's actually possible to
+visualize a hyperbolic manifold, at least get pretty close
+by doing a similar kind of Escher thing that
+that little spiky thing that looks like something you
+might encounter in the ocean off Australia wouldn't want to touch, what that's a picture
+of is a dodecahedron, which has been expanded
+in the hyperbolic model until it's dihedral angles. As you expand it, they
+become tighter, sharper. And in Euclidean space, the dihedral angle's about 108
+degrees for a dodecahedron. And as you expand it, there'll be a point where they're all
+90-degrees and stop there. And then you can build a reflection group. And then any finite index
+subgroup without torsion, we'll give you a hyperbolic manifold. So that's like the easiest
+hyperbolic manifold to make. And it's probably related to this picture from the Clay website. So. It's remarkable that often in mathematics, it's better to solve what
+seems like a harder problem. You want to put the problem
+in the right context. And although it's technically possible to prove a Poincare conjecture
+by itself by PDE methods, it's very unnatural. When you start thinking about the PDEs and what you can prove, it turns out that there's amazing insight of Thurston, his conjecture about
+geometrization takes hold. So Thurston conjectured
+that every three manifold can be broken into
+pieces, which geometrized. And I have a list of these pieces on the next slide, I
+think, or slide or two. Turns out that there are eight types now. It's not just curvature
+positive, zero negative, but there are additional
+types of mixed curvature. But these types all have
+beautiful local models. They all have finite
+volume homogeneous spaces. And so there are eight of
+these in dimension four. And Thurston's conjecture, called the Geometrization Conjecture, is that every closed three manifold can be cut up into geometric pieces. So the way this works is first, you have to get the prime pieces that are not connected
+sums of different types. And this is done by what's
+called surgery on two spheres. So you have to allow, when
+you find a two sphere, the ability to cut the
+manifold along the 2-sphere and then repair the damage
+by putting in two disks. So that's the first reduction. And then there's a reduction using tori, which corresponds to
+something called the JSJ, Jaco, Shalen, and Johannson decomposition in three manifolds that
+was previously known. So you have to cut along tori, and then you find these geometric pieces. But Thurston's approach was
+by two dimensional analysis. He used complex analysis,
+complex dynamics, (indistinct) theory. He was really bootstrapping his way up from a comprehensive knowledge
+of the two dimensional world. And he needed kind of a toe
+hold to start this climb. So he couldn't get to
+the Poincare conjecture. He needed an incompressible surface. So he was able to prove geometrization. And depending on your perspective, like half the cases or 90% of the cases, many, many cases, he
+proves geometrization, but he can't do certain
+cases because he can't begin. So the conjecture, the full
+geometrization conjecture was finally proved by Grigrori Perelman following this Hamilton's equation, which I'll describe
+briefly in just a moment. And I think the insult
+that Calegari mentioned consisted of Hamilton
+and Perelman discarding like 90% of the topologist efforts. Like it wasn't that they
+conserved all of Thurston's amazing constructions and ideas. They kept a little bit of
+3-manifold topology in there, but most of it, they just brushed aside. Okay, so be it. But I think it is interesting comment that it's often better to work on the more general conjecture. So at the end, the three
+dimensional story kind of repeats, the two-dimensional story
+repeats itself in 3D. We have these extra six
+pieces, which I enumerate here. In addition to spherical
+Euclidean and hyperbolic, we have pieces which are described by different homogeneous spaces, nil, PSL (2), Solv, and products. But we don't have to get
+into them in too much detail. So finally, Hamilton's equation. Oh, maybe just one point. So Hamilton, I want to
+say that even though topology was used in
+higher dimensions, in PDEs, in three dimensions, in a sense,
+even the topology arguments and high dimensions also
+had a physical underpinning, which is it was morse theory, that's what Smale used. And morse theory is
+nothing more than how honey would like flow on the manifold
+if you covered it in honey. It's just like just
+picture how the topology is sort of shaped out by watching something flow down the manifold. And Hamilton's equation, which is the time
+derivative of the metric, is proportional to what's
+called the Ricci curvature. And I'll talk about that in just a second. But this equation can be
+given a direct physical interpretation in terms
+of shaking the manifold. It turns out that every Romanian manifold has what's called a unique torsion-free Levi-Civita to connection. So it makes sense to
+take an element of length and displace it in any direction, either perpendicular or parallel. And what the Ricci tensor tells you is what happens at a second order to a bit of displaced element of length when you displace it randomly. If you just trace through the definitions, if you integrate over the unit sphere, you find that's what it is,
+it's a random displacement. So if you think that you
+just shake your manifold, and by shaking it, all
+the elements of length, they're moved in random directions and they pick up the
+metric where they move, where they're moved to randomly,
+then that's Ricci flow. And it's also been described
+as melting the manifold. I mean, this Hamilton equation
+is basically the familiar linear heat equation in disguise with an extra non-linear term. So it's both a shaking
+equation and heat equation, and actually, it's a little
+bit loose to call it parabolic 'cause it has an infinite
+dimensional gauge symmetry. Turns out that everything is conserved under re-parameterization
+by diffeomorphisms. And this was a little bit of
+a headache for the pioneers, but DeTurck observed how
+to remove the symmetry and then just make it
+the most standard type of parabolic equation. So I've mentioned Riemannian geometry. Just for those of you
+who are not specialists, Riemannian geometry just means that at every point in the manifold, you have its linearization,
+its tangent space. And Riemannian metric is nothing more than a non-singular inner product on that. So that's what GIJ is, and it's just used to measure length. The length squared of a
+vector is just the contraction of the metric with the
+indices of the vector. And though the metric
+depends on coordinates, there are invariant
+objects that can be deduced from combinate products of the entries in the metric and its derivatives. First, the Christoffel symbols and then using their derivatives, you can construct what's
+called the Riemann tensor. And the Riemann tensor
+is a four index tensor, which locally tells you
+everything about the metric, the geometry of the manifold. So it's sort of the full story. And the Ricci tensor, which I mentioned, which was the right hand
+side of Hamilton's equation, just go back to it, the right
+hand side of the equation, the Ricci tensor is simply
+a trace you can track in one of the upper with one of the lower indices of the Riemann tensor. So Hamilton's very naive. Richard Hamilton is a very modest guy, and he pretended never to
+have any deep insights. And he'd love to say things like, "Well, I wrote down the equation 'cause both sides had two indices. What else would you write down?" (laughs) So that was his explanation. The indices matched. And when you expand in
+the harmonic coordinates, you see something of this form that the equation does become the familiar heat equation with full Laplacian being the Riemannian Laplacian, plus a higher order nonlinear correction. And this analogy to the
+heat flow is very powerful because we all know that
+if you have a conductor, like a piece of metal, and you start with some
+initial heat distribution, which is uneven, different
+temperatures at different points, and you just leave it sit for a while, it'll all even out, right? And that's the idea of Ricci flow is you start with this
+tensor, the metric tensor, and you let it flow for a while. Actually, in three
+dimensions, it hardly matters whether you picture the full metric tensor or just the Ricci tensor,
+'cause they turn out, one determines the other. In higher dimensions, the Ricci tensor is loss of information but in three dimensions. It contains all the information. So it's very natural to think that what this heat equation is doing, I mean, the way Danny Calegari
+explained the insult to me is he said the analysts say, "Forget about all this Thurston stuff. Just take your manifold and
+revolve it slowly over a candle until it falls into its
+geometric pieces." (chuckles) That's the proof. So in 2D, this works perfectly. If you take any metric on a surface and you evolve it according
+to Hamilton's equation, which is well-defined in two dimensions, you just go to one of the three
+geometries and you're done. In 3D's, because there
+are eight possibilities, it's a bit more complicated. But what happens is really magical. What happens is that when
+you follow the equation in finite time, excuse me, in finite time, two spheres
+make pinch off to points. So this topological idea
+that you first break it into the prime pieces, you don't have to think
+of that as a PDE person. It just happens, you just watch it. And then the next thing
+is over a long time, the tori don't actually fully pinch, but they get smaller and smaller. So like the JSJD composition,
+again, it's just there. You don't have to insert it. And it's, I guess, that's
+very believable now after 20 more years that Ricci flow, Ricci flow is complicated by
+the existence of singularities. But it's believed and very much supported by recent work of Bamler and
+others, Bamler and others, that you can define Ricci
+flow through singularities, and then it becomes an
+extremely canonical object. And this guess that you can define a very general Ricci flow
+I think is is now true, or maybe not proves, but
+more and more evidence. The original proof of Perelman and proof of subsequent mathematicians that I'm going to touch on later
+are fantastically complicated because the general picture
+is not fully established. So there are many, many technical details. But as we learn more,
+the schema of the proof is becoming simpler and simpler. So Hamilton discovered the
+parabolic maximum principle Harnack inequalities, but he had trouble dealing with mixed curvatures. His strongest result, some of his strongest results were in the positive curvature case where he proved a special case of the Poincare conjecture
+when all the sectional curvatures were positive to begin with. But that's not a fully
+topological statement. Final note is this idea of
+Ricci flow emerged in parallel simultaneously in the physics community through the idea of renormalizing
+a metric on a manifold. To adjust the scale and think
+what renormalization means in terms of GIJ, turns out
+you get, as a first term, you get Hamilton's equation with some higher order corrections. I think it's possible that
+if Ricci flow is actually, if the metric is renormalized properly, there are often choices in physics of how you do renormalization that you'll get exactly
+Hamilton's equation. That's a question. So Perelman introduced many,
+many brilliant innovations, and I'm just going to
+touch on three of them. One is Ricci flow with surgery. So this looks like kind
+of an awkward thing. You don't actually try to
+go through this singularity. You wait till you're sort of
+near where the singularity is trying to form and
+you interrupt the flow, you do some combinatorial operation under a lot of control and
+then you start the flow again. The second one is the
+notion of parabolic volume, which I just want to hold out as an example of a brilliant definition that carries a lot of
+load once it's discovered. And the other is most differential jammers would turn up their nose
+at these Alexandrov spaces. This is like almost heading
+toward point set topology. These are just path metric spaces with certain combinatorial
+curvature properties. So less than the Riemannian world. But it turns out that
+when you take limits, when you take rescaled
+limits of singularities as they're developing, it's
+very hard to figure out whether these are smooth manifolds. But it's easy to see that
+they're Alexandrov spaces. So Perelman had previously
+worked in this kind of little bit off the mainstream category of geometry and really served him well when it came to analyzing Ricci flow. Now, I want to kind of go back in my mind now 42 years, I think. I was in Hamilton's office when he was just bursting with excitement because he had just
+discovered the calculation I'm going to show you on the next slide. And the calculation shows that two spheres will
+shrink in finite time. As I mentioned, tori will
+shrink but more slowly. It'll take infinite time, and higher genus surfaces
+will tend to expand. So this thing about the connected sum in the JSJD composition
+is totally natural. So here's what Hamilton showed me. So you just start with
+the Ricci flow equation, and you ask, well, if you
+have a time derivative of element of length,
+then you can figure out what the time derivative
+is of an element of area. And then integrate it over the surface to get the time derivative
+of the area of a surface. So I just do the calculation here. The convention is the one two directions are tangent to the surface, and three is normal to the surface. So the Ricci, Ricci 1-1 is the sum of the sectional
+curvatures in the manifold in the 1-2 and 2-3 directions. That's just what Ricci
+1-1 is by definition. and similar for Ricci 2-2. So when you just collect the
+terms, you get this integral that integrate twice
+the sectional curvature in the direction of the embedded surface, and the Ricci curvature
+in the normal direction. So now we're going to look at something. So right now, we're just thinking about what's the time derivative of the area of a fixed surface in the manifold. But now suppose the surface
+is not just a random surface, but I've kind of made it
+geometrically beautiful by taking the minimal
+surface in its class, like the minimal two sphere
+or the minimal torus, which we know exists. Then the beautiful
+observation of Hamilton's is you can compare the
+first variation of the area of the surface under
+evolution of the metric to the second variation of the surface when displaced normally
+without changing the metric. And you get an inequality,
+and I've written it out here. So you start with the
+second variation formula where phi is a real valued function that just tells you in constant metric what happens when you use that function to push the surface normally off itself. And if you push a constant amount, then the grand phi
+squared term disappears, and you're just left with this Ricci and the kappa are principal
+curvatures of the surface, principal curvatures
+illustrated in this slide. If you have a like a saddle, you have these two principal curvatures, which is kappa one and kappa two. And the formula I'm about
+to use, the Gauss formula, is that the curvature of the surface is the sum of the abstract
+curvature of its tangent plane, plus this thing coming from
+the second fundamental form, which is kappa one times kappa two. And the conclusion from the calculation, which I'll now go back
+to, is that surfaces of positive oiler
+characteristic shrink fast, surfaces of zero oiler
+characteristics slowly, and negative oiler
+characteristic will expand. So the way this calculation works is under the stability assumption, which means that the second
+variation is positive, we get from Cauchy-Schwarz
+that the Ricci term is bounded by the determinant
+of the second fundamental form integrated over the surface. And then when you combine the two lines, star and double star, you get
+that the second derivative of the area of the
+surface is just a multiple of its oiler characteristic. So it's a negative multiple. So surfaces with positive
+oiler characteristic shrink, zero oiler characteristic are stable, and negative oil characteristic expand. So it's a very simple calculation
+but amazingly profound. So what does this mean in
+terms of the big picture? So here's like my schematic
+of a general 3-manifold. It has things I kind of drew as necks. Those are two spheres I want
+to pinch off in finite time. And then you have these
+genus one surfaces, tori, and they gradually shrink. So in a finite amount of time, some 2-spheres or some
+3-spheres will pop off. That's this flow with surgery. So you don't actually do
+the flow to the bitter end of a singularity formation, but you wait until you understand a lot about the geometry of the neck. Then you call time out
+and you do a surgery and you re-glue the caps
+with a lot of geometric hair and then you restart the flow. And then the other necks, which
+are tori in cross-section, they become cusps after a long time. And those are the hyperbolic pieces. And if there were any of
+the other six geometries besides spherical and hyperbolic, those are seen by collapsing of fibers in a cipher-fibered structure. That's called the collapsing case. So I said there were three things. I talked about Alexandrov spaces and surgery, flow with surgery. The third item on my list
+was a miraculous definition. And I think that good definitions, not just like place notation for numbers, but I think good definitions
+like are the whole story almost in mathematics. If you erased everything
+else except the definitions, you'd have this ghostly outline and you could figure it out. I think that this definition that I handed to Hamilton and Yao might have been enough,
+I don't know. (chuckles) Probably not. There are a lot of
+things that Perelman did. But so what Perelman did is he actually, I'm just going to focus
+on something he calls reduced volume or parabolic volume. But in his papers, 2002 and 2003, he actually introduces
+three different quantities, two of which are entropy of one kind, and one is sort of a
+dimensional volume, so-called. And what they are is they're
+critical coercive monotones. So monotone means it's
+something when you integrate over the manifold, it goes
+steadily up or steadily down. Critical means it's scale and variant. So when you do parabolic
+scaling, meaning you scale, space is the square root of time, that quantity is unchanged. So it's kind of a critical
+quantity under scaling. And coercive is maybe
+the hardest part of all. This one quantity is supposed to prevent any entry in the curvature
+tensor from blowing up. So it's coercive, it controls everything, which is what PDE people like, they like to control. Control, control, control. So critical allows you to zoom in and understand singularities, coercive is the control, and
+then the monotone nature, well, it tells you tons of things. It's useful improving these no
+local collapse (indistinct). But for instance, it
+rules out a possibility, which was present until Perelman's work. The Ricci flow would just
+take you in a circle. But with this monotone,
+it can't happen, you know? So it's a very wonderful thing. So just very quickly, what this
+scheme of the definition is, it's based on like this heat ball construction or heat kernel. You have to define a very clever notion in this sort of space-time
+of evolving 3-manifolds, a very clever notion of length, which is something like
+the length of a minimum. It's actually sort of
+like a length squared. You integrate the, or an energy, you take a arc from a given
+point in your space time to an earlier point in space time. And you look at its spatial
+derivative, norm-squared, but you measure it in
+the time in the metric at which time it occurs. And then crazily, there's
+an additional correction, which is that scale or curvature thing, which probably took Perelman months to figure out why it's there, 'cause it's not a monotone without that. But you define this notion of length, and then the volume is kind
+of this Gaussian thing, 'cause remember, L is like
+length squared really. So the integral volume,
+really it's a surrogate for the actual volume of a ball of radius, square root of tau, back in time tau from the point you're standing. So it's somehow telling you about how the volumes
+of these heat balls go. And vary, goes under the
+evolution of the flow. And powerful theme in Perelman's work is that if you control volume,
+you control everything. That's sort of the theme. So the broad outline of the
+Hamilton-Thurston program is simply melt or shake the manifold until it either dissolves
+into geometric pieces or collapse into Alexandrov spaces, which you can also
+understand that process. Over the last 22 or 3 years, in the hands of other practitioners, Kleiner, Lott, Bamler, and many others, the proof has matured
+to constantly get closer to this conceptual outline. And as the proof has matured, it's been possible to
+derive many new facts. And there have been other accomplishments, like classification of
+singularities by Brendle, which turned out to be Bryant solutions and very close, as I
+said, to a canonical flow. But one of the concrete theorems that's resulted in the last
+20 years since Perelman proved the conjecture in 2003 is what some people call the
+generalized Smale conjecture. I've written it here as the
+generalized Hatcher theorem. So Smale, in the 1950s as a young fellow, proved that the diffeomorphism
+of the two sphere, deformation retractive
+rotations of the two sphere. And then amazingly, Hatcher
+proved this for the 3-sphere. And it's really beautiful, it's an amazing, amazing argument. And then a few people like
+proved slight variations, like I think it was
+proved to be true for RP3. The same thing, that
+the asymmetries of RP3 were deformation retracted
+with the diffeomorphism. But now it's true for all
+homogeneous 3-manifolds. It's always true if you
+have a homogeneous geometry and you take the isometry within that, that's a deformation
+retractable diffeomorphisms. And I put the names in blue of topologist that prove
+various cases of this. So there's a whole army
+of people over 20 years, but they didn't get all the cases. And finally, using the heat equation, Kleiner and Bamler have
+gotten all the cases of this deformation-retraction. And the proof is simple
+enough to sketch for you in terms of Ricci flow. At least let's do it in the case of either positive or negative, plus one or minus one curvature. So spherical or hyperbolic. And the idea is that, let's
+consider this little vibration. If you have the space of diffeomorphism, it moves metrics around. And in particular, if it acts
+on a metric of curvature, then it pulls back a metric
+of constant curvature. And whether it pulls back
+exactly the same metric or not, that's a question of whether the diffeomorphism was an isometry. So the fiber of that little
+vibration are the isometry. Now, morally, if you had Ricci
+flow through singularities and you could just let it
+hum, what that would do is it would give you this R. It would give you a deformation-retraction from all metrics to the
+symmetrical metrics, 'cause that's what Ricci
+flow morally is doing. It's making everything more
+averaged and more symmetrical. But it's very elementary and well-known that the space of all
+metrics is contractable. It's just sections in a vector bundle, not non-zero sections. So this space over on the right, I guess it's your right,
+is contractable morally. Ricci flow says the base of
+the vibration is contractable that says the inclusion of
+the fiber into the total space is a homotopy equivalence. So of course their paper
+is like 150 pages long, their last paper, and
+proceeded by many papers, getting around 100 pages each. So there are obviously
+details I'm omitting, and the important detail
+is that they don't really have Ricci flow through singularities yet, but my prediction is 10
+years from now, they will. And then the proof will
+really be that simple. So Ben Chow and Richard Bamler have been kind enough to introduce me. I think because they know I did
+some work in four manifolds. So they kind of confide to
+me their hopes and dreams, and hope and dream is
+that Ricci flow works in four manifolds and give some kind of geometrization there. But we don't know the answer. And this is a very bold thing, because in four dimensions,
+the Ricci tensor no longer controls the full tensor. But still, you got this equation: GIJ is proportional to
+Ricci, so why not try it? And one beautiful target for their program is what's called the 11/8 conjecture. So this is something
+many people in this room have puzzled over. If you look at Spin 4-manifolds, the most basic example
+is the ****** surface. It has Betti number 22 and
+signature plus or minus 16. So this ratio of betti
+number to signatures is 11/8, and we know that ratio can't be one, 'cause it's a theorem of Donaldson that you can't have Spin
+manifolds with definite metrics. But how close can you get that to one? That's been a question. And all of our experience suggested 11/8 is the right answer. And Furuta proved using
+work of Cliff Taubes, basically a 10/8 conjecture
+around 2000, 2001, and I don't have it on this slide, but Harvard's own Mike
+Hopkins and collaborators, Shi, Shen, and Xu, close enough, (laughs) improved this estimate,
+but there's still a gap. So what I say on the
+next slide isn't true. I said for 24 years, we've been stuck, but Mike and his friends have helped, but we still aren't at the 11/8. But there's this intriguing idea that you could do Ricci flow
+and break it into pieces. You're hoping, the hope for Ricci flow in four dimensions is it'll land on Einstein metrics, metrics where the Ricci
+tensor is proportional to the curvature or to the metric. So if the Ricci tensor is
+proportional to metric, at least in the closed case, you have this Hitchen-Thorpe inequalities, which are similar looking. It's not 11/8, but it's 12/8. But this is the closed case, and the limiting pieces
+would've boundaries. So it's a big conceptual,
+very bold grand thought to evolve Ricci flow on a Spin 4-manifold and watch it shatter into
+Einstein in collapsed pieces, and then use some topological knowledge to piece the 11/8 conjecture
+together from Hitchen-Thorpe. So maybe, good luck. I hope they can do that. I'm a spectator. Now, just to kind of return
+to my starting point, what is mathematics, I would say that the best
+proofs are not judged entirely by the mountain they climb, but by what comes next, what they inspire, the ideas that come further. What we've already seen with Ricci flow is it's climbed these
+very substantial peaks, the geometrization conjecture,
+generalized Hatcher theorem. So it's kind of a gold
+standard, and it's not content. The practitioners are not content with mastering the
+three-dimensional world. They want to take it to four
+dimensions and perhaps beyond. In fact, this idea of taking things beyond is actually how we know, I think, that math proofs are correct. Like when Wiles proved
+from us last theorem with big help from Taylor,
+we didn't know it was true because someone checked
+every line of the proof. But 100 number theorists
+and graduate students immediately realized this was
+a super powerful technique, and they all wanted to
+get their own information about Diophantine equations
+by similar methods. So they worked over the methods brutally. I think that's how we learn things. And I think it's the same thing happened with Perelman's work is that
+once Perelman did his work, while it is true that there
+were many detailed expositions which filled in the details, but I think those people
+could have been fooled. I think the people who
+could not have been fooled or the 100 graduate students who wanted to make their own mark in the subject using the same methods. So while a computer is satisfied
+with one Lean4 certificate for a formalized proof, that isn't the way mathematics develops. Mathematics is kind of a web of interconnected thoughts and insights, many of which may be shaky or even wrong or wrong for a while. But the whole structure is held together over thousands of years. And we rarely make mistakes
+that last very long. So I think of mathematics
+is people practice it, has the aspect of this
+vast error-correcting code. We don't always do everything right, but in bulk, from a
+distance, it's all right. And this reminds me actually
+of my first climbing rope. It was a gold line. Modern ropes are current mantle. They're made from some very strong fibers protected from abrasion
+by an outer sheath. So there's a kernel in the sheath. The old ropes were
+simply twisted and spun. Small groups of fibers twisted around than more fibers twist. So it's a very complicated braid. But the result of this braided structure was that if you look at any strand, it repeatedly comes to the surface. And you'll notice that after like climbing for six
+months with your rope, that has this very pleasant feel to it, this very pleasant texture,
+this kind of golden fuzz. Of course the meaning of that golden fuzz is each strand has been broken. So there's no strand in your rope that's longer than six
+inches or something, but still, it's perfectly reliable, and I did trust it with my life
+and I'm still here. (laughs) So thank you, guys.

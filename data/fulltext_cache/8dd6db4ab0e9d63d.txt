@@ -1,0 +1,30 @@
+Surely people have thought about this but I couldn’t find anything on a short search.
+The question: let n be a random integer, say in [N,2N].  It factors as the product of p_i^a_i.  So you can think of the proportion of n that is “made of” the prime p_i to be (a_i log p_i / log n).  OK, now this gives you a probability distribution.  What’s its entropy?
+You can make this a little simpler by restricting to squarefree integers.  (Not sure whether this should change the answer.)  The sizes of the prime factors of a random squarefree integer are supposed to match the cycle lengths of a random large permutation (say on N letters), so now we can ask that question: break a random permutation up into cycles, which gives another probability distribution; namely, that which assigns each cycle the probability cycle length / N.  (This is called the
+Poisson-Dirichlet process
+with parameters (0,1).  Here’s
+a Terry T. post about it
+, and why it governs prime factorizations of random integers.)    What’s the entropy of this one?
+Well, we can at least guess the average.  Let X_i be the number of i-cycles in a random permutation on N letters.  Then the X_i are roughly independent Poisson variables of mean 1/i.  So there are X_i i-cycles, each appearing with probability i/n, and thus each contributing (-i/N) log (i/N) or (i/N)(log N – log i) to the entropy of the distribution.  Now all we have to do is sum over i!  You are summing
+(i/N) X_i log N – (i/N) X_i log i
+over all i.  The first sum is easy; the sum of iX_i has to be N, so this is just log N.
+What about the subtrahend? This is
+. Since X_i has expected value 1/i, the expected value of this part should be
+I didn’t tell you how long the sum was!  But i certainly can’t be greater than N so let’s stop the sum there.  Then the sum of log_i, by Stirling’s formula, is very close to N log N – N.  So the second part of the sum is about log N – 1.  Almost exact cancellation!  Our estimate for the mean entropy is
+log N – (log N – 1)  = 1.
+Is that true?  Is it also true for integers?  (I did actually run some computations on this and the mean looked less than one, but numbers with only five or six digits are just lousy with primes and near-primes, which could well mess this up.)   Does the entropy actually converge to a distribution or does it just have a mean?  What about the exponential of the entropy, the so-called perplexity?  Does
+it
+have a mean?  I ask because I tend to think of the perplexity of a probability distribution as roughly “the actual number of possible outcomes if you count them with information in mind.”  So you could think of the distribution of perplexity, if there is one, as the information theorist’s version of the Erdos-Kac theorem.  “You thought the number of prime factors grew like log log n, Pal and Mark, but come on, some of those primes are so small they barely matter — actually the expected number of prime factors is constant!”
+I’m sure this is all well-understood by someone, but as I’ve mentioned before I think a blog is a good place to model the casual way mathematicians think about things in real life, but not always in public.
+Share this:
+Email a link to a friend (Opens in new window)
+Email
+Share on Facebook (Opens in new window)
+Facebook
+Share on Reddit (Opens in new window)
+Reddit
+Share on X (Opens in new window)
+X
+Like
+Loading...
+Related

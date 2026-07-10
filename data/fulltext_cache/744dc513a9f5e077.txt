@@ -1,0 +1,1465 @@
+
+
+Third SAIR competition: inverse Galois challenge | What's new
+
+What's new
+
+Updates on my research and expository papers, discussion of open problems, and other maths-related topics.  By Terence Tao
+
+Home
+
+About
+
+Career advice
+
+On writing
+
+Books
+
+Mastodon+
+
+Applets
+
+Subscribe to feed
+
+Third SAIR competition: inverse Galois challenge
+
+16 June, 2026 in 
+advertising
+, 
+math.GR
+, 
+math.NT
+ | Tags: 
+Andrew Sutherland
+, 
+competition
+, 
+David Roe
+, 
+Galois theory
+, 
+Jen Paulhus
+, 
+John Jones
+, 
+SAIR
+ | by 
+Terence Tao
+
+ I am happy to announce the 
+third SAIR challenge
+, which is focused on obtaining numerical data for the infamous 
+inverse Galois problem
+. This is a collaborative project with the 
+L-functions and modular forms database
+ (LMFDB), and is organized by 
+John Jones
+, 
+Jen Paulhus
+, 
+David Roe
+, 
+Andrew Sutherland
+, and myself. The challenge is somewhat similar to my own 
+Equational Theories Project
+, in that one is trying to complete a large mathematical data set in a verified fashion, except that the target data set had an existing mathematical interest. Also, the verification will be done by 
+MAGMA
+ (as well as 
+PARI/GP
+) rather than Lean.
+
+Let me first quickly review the inverse Galois problem. Suppose one has an irreducible polynomial 
+ of one variable of some degree 
+ and integer coefficients; take for instance 
+. Then 
+ will have 
+ distinct roots 
+; in this case the roots happen to be 
+
+ The roots generate a splitting field 
+ over the rational numbers 
+. Any automorphism of this splitting field must permute the roots 
+, and thus generates a subgroup of the permutation group 
+ (defined up to relabeling of the roots), which we call the 
+Galois group
+ of 
+. This is some subgroup of 
+ that acts transitively on the 
+ roots (because each root generates the field). Typically, it is all of 
+; but occasionally it is smaller. For example, the particular cubic polynomial 
+ above has the special property that each root 
+ individually generates the entire field 
+, thanks to the identities
+
+ Because of this, the Galois group of 
+ is the cyclic group 
+ (or equivalently, the alternating group 
+), rather than the full symmetric group 
+. (This is in contrast to, say, 
+, whose roots 
+, 
+, 
+ cannot be expressed as rational polynomials of each other, and whose Galois group is all of 
+.) In fact, in the cubic case, it turns out that the Galois group is 
+ when the 
+discriminant
+ is a perfect square, and 
+ otherwise.
+
+More generally, we have
+
+Problem 1 (Inverse Galois Problem)
+  Let 
+ be a transitive permutation group on 
+ letters. Can 
+ be realized as the Galois group of some degree 
+ irreducible polynomial 
+ with integer coefficients (after identifying the 
+ roots of 
+ suitably with the 
+ letters)? 
+
+The answer to this problem is known to be positive for 
+, with the single possible exception of the sporadic 
+Mathieu group
+
+: 
+there are 
+ transitive permutation groups
+ on 
+ letters (cf. 
+OEIS A002106
+), and for 
+ of them, a polynomial has been located with that Galois group; see 
+this database
+ of Klüners and Malle. The problem of locating a polynomial with Galois group 
+ is a notorious open problem, though this is likely to be quite a difficult problem, and 
+not
+ the objective of the SAIR challenge.
+
+Instead, we will focus on “breadth” rather than “depth”, in order to leverage the power of crowdsourcing and modern AI technologies. It turns out that 
+there are 
+ distinct transitive permutation groups on 
+ letters
+, which are conventionally labeled from 
+ (the cyclic group 
+) to 
+ (the permutation group 
+). The first stage of the challenge will be:
+
+Problem 2 (First stage of SAIR challenge)
+  For as many of the groups 
+, 
+, locate an integer polynomial with that Galois group (up to isomorphism). (Also of interest is to specify the number of real roots, and to keep the discriminant low; more on this later.) 
+
+The verification side of this problem is essentially solved: the MAGMA computer algebra system can take any candidate polynomial and locate its Galois group within seconds. The MAGMA team has kindly granted SAIR a limited license to 
+provide an API
+ for contestants to calculate a certain number of Galois groups per day without needing to purchase their own license, though of course they are free to use their other computational tools to also perform these calculations outside of the competition.
+
+The LMFDB already has polynomials for 286 of the 25000 groups, so there is plenty of remaining polynomials to claim in the challenge.
+
+For applications, it is of interest to track some other statistics of a polynomial besides its Galois group. One of these is the number 
+ of real roots, which is a number between 
+ and 
+ of the same parity as 
+ (and which has to be achievable as the number of fixed points of one of the permutations in the Galois group, namely the one corresponding to complex conjugation); in particular, this number must be even in the degree 
+ case. Combining the label 
+ of the Galois group with the number of roots 
+ turns out to generate 
+
+ pairs in degree 
+, and the challenge is actually to attach polynomials to as many of these pairs as possible. (The LMFDB has already done so for just 
+ of these.)
+
+Of course, there are infinitely many polynomials of degree 
+, and any Galois group that is representable by one polynomial, will be representable by infinitely many others (e.g., one could simply translate the polynomial by an arbitrary integer shift). To avoid creating an unusable database filled with uninteresting polynomials, we will prioritize polynomials whose (absolute) discriminant is as small as possible. (There are some technical details as to how this discriminant is defined and computed; see 
+this page
+ for details). The way we have set things up, each 
+ pair will come with a leaderboard for the polynomials with the smallest discriminants that have been located so far by contestants, removing duplicates arising from trivial operations such as translating the polynomial. Contestant team will be awarded a score between 
+ and 
+ for each submitted polynomial based on how small their discriminant is compared to the best known discriminant, and how many other teams were also able to find a polynomial with that 
+ pair. Thus, pairs that are extremely easy to generate (such as those associated to the full permutation group 
+) will be worth only a negligible score (as every contestant will be able to submit a polynomial for that pair), while pairs which are difficult to locate a polynomial for will be worth more points.
+
+For this competition, the unrestricted use of any sort of computational tool, including AI, to locate the polynomials, are expressly permitted; this first stage of the competition is a “black box” challenge where we are not directly interested in obtaining insights as to 
+how
+ the polynomials are located, but the sole objective is to resolve as much of the inverse Galois challenge as possible. As such, the notorious uninterpretability of modern AI is not a concern for this stage. However, we will encourage contestants to share techniques with each other in order to cover more ground, through 
+the Zulip channel for this challenge
+.
+
+This first stage of the competition will close on August 15. After this, we will launch a second stage (with details to be determined) to focus on some set of candidate Galois groups that could not be resolved by the first stage. Here we envisage a more collaborative, conceptual, and human-driven effort in which the role of AI tools may be more secondary, and with more of a focus on creating mathematically interesting results rather than simply trying to saturate a given benchmark. Stay tuned for more details!
+
+Share this:
+
+Print (Opens in new window)
+
+Print
+
+Email a link to a friend (Opens in new window)
+
+Email
+
+More
+
+Share on X (Opens in new window)
+
+X
+
+Share on Facebook (Opens in new window)
+
+Facebook
+
+Share on Reddit (Opens in new window)
+
+Reddit
+
+Share on Pinterest (Opens in new window)
+
+Pinterest
+
+Like
+
+Loading...
+
+Recent Comments
+
+Terence Tao
+ on 
+Long gaps in sieved sets
+Anonymous on 
+Long gaps in sieved sets
+Will Sawin
+ on 
+A digestion of unit distance…
+Terence Tao
+ on 
+275A, Notes 5: Variants of the…
+Anonymous on 
+275A, Notes 5: Variants of the…
+Cosmin Pohoata
+ on 
+A digestion of unit distance…
+Will Sawin
+ on 
+A digestion of unit distance…
+Will Sawin
+ on 
+A digestion of unit distance…
+Anonymous on 
+Modular Arithmetic Challenge
+Anonymous on 
+275A, Notes 5: Variants of the…
+Ben Johnsrude
+ on 
+A digestion of unit distance…
+Terence Tao
+ on 
+Almost all Collatz orbits atta…
+Anonymous on 
+275A, Notes 0: Foundations of…
+Pantelis Rodis on 
+A digestion of unit distance…
+Anonymous on 
+Analysis II
+
+Top Posts
+A digestion of unit distance constructions
+Career advice
+Books
+Does one have to be a genius to do maths?
+On writing
+Work hard
+A mathematical formalisation of dimensional analysis
+About
+275A, Notes 5: Variants of the central limit theorem
+There’s more to mathematics than rigour and proofs
+Archives
+
+July 2026
+ (1)
+
+June 2026
+ (3)
+
+May 2026
+ (1)
+
+March 2026
+ (4)
+
+February 2026
+ (3)
+
+January 2026
+ (4)
+
+December 2025
+ (5)
+
+November 2025
+ (5)
+
+September 2025
+ (1)
+
+August 2025
+ (3)
+
+July 2025
+ (1)
+
+June 2025
+ (2)
+
+May 2025
+ (5)
+
+April 2025
+ (2)
+
+March 2025
+ (1)
+
+February 2025
+ (3)
+
+January 2025
+ (1)
+
+December 2024
+ (3)
+
+November 2024
+ (4)
+
+October 2024
+ (1)
+
+September 2024
+ (4)
+
+August 2024
+ (3)
+
+July 2024
+ (3)
+
+June 2024
+ (1)
+
+May 2024
+ (1)
+
+April 2024
+ (5)
+
+March 2024
+ (1)
+
+December 2023
+ (2)
+
+November 2023
+ (2)
+
+October 2023
+ (1)
+
+September 2023
+ (3)
+
+August 2023
+ (3)
+
+June 2023
+ (8)
+
+May 2023
+ (1)
+
+April 2023
+ (1)
+
+March 2023
+ (2)
+
+February 2023
+ (1)
+
+January 2023
+ (2)
+
+December 2022
+ (3)
+
+November 2022
+ (3)
+
+October 2022
+ (3)
+
+September 2022
+ (1)
+
+July 2022
+ (3)
+
+June 2022
+ (1)
+
+May 2022
+ (2)
+
+April 2022
+ (2)
+
+March 2022
+ (5)
+
+February 2022
+ (3)
+
+January 2022
+ (1)
+
+December 2021
+ (2)
+
+November 2021
+ (2)
+
+October 2021
+ (1)
+
+September 2021
+ (2)
+
+August 2021
+ (1)
+
+July 2021
+ (3)
+
+June 2021
+ (1)
+
+May 2021
+ (2)
+
+February 2021
+ (6)
+
+January 2021
+ (2)
+
+December 2020
+ (4)
+
+November 2020
+ (2)
+
+October 2020
+ (4)
+
+September 2020
+ (5)
+
+August 2020
+ (2)
+
+July 2020
+ (2)
+
+June 2020
+ (1)
+
+May 2020
+ (2)
+
+April 2020
+ (3)
+
+March 2020
+ (9)
+
+February 2020
+ (1)
+
+January 2020
+ (3)
+
+December 2019
+ (4)
+
+November 2019
+ (2)
+
+September 2019
+ (2)
+
+August 2019
+ (3)
+
+July 2019
+ (2)
+
+June 2019
+ (4)
+
+May 2019
+ (6)
+
+April 2019
+ (4)
+
+March 2019
+ (2)
+
+February 2019
+ (5)
+
+January 2019
+ (1)
+
+December 2018
+ (6)
+
+November 2018
+ (2)
+
+October 2018
+ (2)
+
+September 2018
+ (5)
+
+August 2018
+ (3)
+
+July 2018
+ (3)
+
+June 2018
+ (1)
+
+May 2018
+ (4)
+
+April 2018
+ (4)
+
+March 2018
+ (5)
+
+February 2018
+ (4)
+
+January 2018
+ (5)
+
+December 2017
+ (5)
+
+November 2017
+ (3)
+
+October 2017
+ (4)
+
+September 2017
+ (4)
+
+August 2017
+ (5)
+
+July 2017
+ (5)
+
+June 2017
+ (1)
+
+May 2017
+ (3)
+
+April 2017
+ (2)
+
+March 2017
+ (3)
+
+February 2017
+ (1)
+
+January 2017
+ (2)
+
+December 2016
+ (2)
+
+November 2016
+ (2)
+
+October 2016
+ (5)
+
+September 2016
+ (4)
+
+August 2016
+ (4)
+
+July 2016
+ (1)
+
+June 2016
+ (3)
+
+May 2016
+ (5)
+
+April 2016
+ (2)
+
+March 2016
+ (6)
+
+February 2016
+ (2)
+
+January 2016
+ (1)
+
+December 2015
+ (4)
+
+November 2015
+ (6)
+
+October 2015
+ (5)
+
+September 2015
+ (5)
+
+August 2015
+ (4)
+
+July 2015
+ (7)
+
+June 2015
+ (1)
+
+May 2015
+ (5)
+
+April 2015
+ (4)
+
+March 2015
+ (3)
+
+February 2015
+ (4)
+
+January 2015
+ (4)
+
+December 2014
+ (6)
+
+November 2014
+ (5)
+
+October 2014
+ (4)
+
+September 2014
+ (3)
+
+August 2014
+ (4)
+
+July 2014
+ (5)
+
+June 2014
+ (5)
+
+May 2014
+ (5)
+
+April 2014
+ (2)
+
+March 2014
+ (4)
+
+February 2014
+ (5)
+
+January 2014
+ (4)
+
+December 2013
+ (4)
+
+November 2013
+ (5)
+
+October 2013
+ (4)
+
+September 2013
+ (5)
+
+August 2013
+ (1)
+
+July 2013
+ (7)
+
+June 2013
+ (12)
+
+May 2013
+ (4)
+
+April 2013
+ (2)
+
+March 2013
+ (2)
+
+February 2013
+ (6)
+
+January 2013
+ (1)
+
+December 2012
+ (4)
+
+November 2012
+ (7)
+
+October 2012
+ (6)
+
+September 2012
+ (4)
+
+August 2012
+ (3)
+
+July 2012
+ (4)
+
+June 2012
+ (3)
+
+May 2012
+ (3)
+
+April 2012
+ (4)
+
+March 2012
+ (5)
+
+February 2012
+ (5)
+
+January 2012
+ (4)
+
+December 2011
+ (8)
+
+November 2011
+ (8)
+
+October 2011
+ (7)
+
+September 2011
+ (6)
+
+August 2011
+ (8)
+
+July 2011
+ (9)
+
+June 2011
+ (8)
+
+May 2011
+ (11)
+
+April 2011
+ (3)
+
+March 2011
+ (10)
+
+February 2011
+ (3)
+
+January 2011
+ (5)
+
+December 2010
+ (5)
+
+November 2010
+ (6)
+
+October 2010
+ (9)
+
+September 2010
+ (9)
+
+August 2010
+ (3)
+
+July 2010
+ (4)
+
+June 2010
+ (8)
+
+May 2010
+ (8)
+
+April 2010
+ (8)
+
+March 2010
+ (8)
+
+February 2010
+ (10)
+
+January 2010
+ (12)
+
+December 2009
+ (11)
+
+November 2009
+ (8)
+
+October 2009
+ (15)
+
+September 2009
+ (6)
+
+August 2009
+ (13)
+
+July 2009
+ (10)
+
+June 2009
+ (11)
+
+May 2009
+ (9)
+
+April 2009
+ (11)
+
+March 2009
+ (14)
+
+February 2009
+ (13)
+
+January 2009
+ (18)
+
+December 2008
+ (8)
+
+November 2008
+ (9)
+
+October 2008
+ (10)
+
+September 2008
+ (5)
+
+August 2008
+ (6)
+
+July 2008
+ (7)
+
+June 2008
+ (8)
+
+May 2008
+ (11)
+
+April 2008
+ (12)
+
+March 2008
+ (12)
+
+February 2008
+ (13)
+
+January 2008
+ (17)
+
+December 2007
+ (10)
+
+November 2007
+ (9)
+
+October 2007
+ (9)
+
+September 2007
+ (7)
+
+August 2007
+ (9)
+
+July 2007
+ (9)
+
+June 2007
+ (6)
+
+May 2007
+ (10)
+
+April 2007
+ (11)
+
+March 2007
+ (9)
+
+February 2007
+ (4)
+
+Categories
+
+expository
+ (321)
+
+tricks
+ (13)
+
+guest blog
+ (10)
+
+Mathematics
+ (917)
+
+math.AC
+ (9)
+
+math.AG
+ (42)
+
+math.AP
+ (115)
+
+math.AT
+ (17)
+
+math.CA
+ (196)
+
+math.CO
+ (206)
+
+math.CT
+ (9)
+
+math.CV
+ (39)
+
+math.DG
+ (37)
+
+math.DS
+ (90)
+
+math.FA
+ (24)
+
+math.GM
+ (16)
+
+math.GN
+ (21)
+
+math.GR
+ (90)
+
+math.GT
+ (17)
+
+math.HO
+ (14)
+
+math.IT
+ (13)
+
+math.LO
+ (54)
+
+math.MG
+ (48)
+
+math.MP
+ (31)
+
+math.NA
+ (26)
+
+math.NT
+ (211)
+
+math.OA
+ (22)
+
+math.PR
+ (110)
+
+math.QA
+ (6)
+
+math.RA
+ (49)
+
+math.RT
+ (21)
+
+math.SG
+ (4)
+
+math.SP
+ (48)
+
+math.ST
+ (11)
+
+non-technical
+ (208)
+
+admin
+ (48)
+
+advertising
+ (77)
+
+diversions
+ (7)
+
+media
+ (14)
+
+journals
+ (3)
+
+obituary
+ (15)
+
+opinion
+ (37)
+
+paper
+ (272)
+
+book
+ (23)
+
+Companion
+ (13)
+
+update
+ (26)
+
+question
+ (128)
+
+polymath
+ (87)
+
+talk
+ (69)
+
+DLS
+ (20)
+
+teaching
+ (190)
+
+245A – Real analysis
+ (11)
+
+245B – Real analysis
+ (22)
+
+245C – Real analysis
+ (6)
+
+246A – complex analysis
+ (11)
+
+246B – complex analysis
+ (5)
+
+246C – complex analysis
+ (5)
+
+247B – Classical Fourier Analysis
+ (5)
+
+254A – analytic prime number theory
+ (19)
+
+254A – ergodic theory
+ (18)
+
+254A – Hilbert's fifth problem
+ (12)
+
+254A – Incompressible fluid equations
+ (5)
+
+254A – random matrices
+ (14)
+
+254B – expansion in groups
+ (8)
+
+254B – Higher order Fourier analysis
+ (9)
+
+255B – incompressible Euler equations
+ (2)
+
+275A – probability theory
+ (6)
+
+285G – poincare conjecture
+ (20)
+
+Logic reading seminar
+ (8)
+
+The sciences
+ (1)
+
+travel
+ (26)
+
+additive combinatorics
+
+approximate groups
+
+arithmetic progressions
+
+Artificial Intelligence
+
+Ben Green
+
+Cauchy-Schwarz
+
+Cayley graphs
+
+central limit theorem
+
+Chowla conjecture
+
+compressed sensing
+
+correspondence principle
+
+cosmic distance ladder
+
+distributions
+
+divisor function
+
+eigenvalues
+
+Elias Stein
+
+Emmanuel Breuillard
+
+entropy
+
+equidistribution
+
+Erdos
+
+ergodic theory
+
+Euler equations
+
+exponential sums
+
+finite fields
+
+Fourier transform
+
+Freiman's theorem
+
+Gowers uniformity norm
+
+Gowers uniformity norms
+
+graph theory
+
+Gromov's theorem
+
+GUE
+
+Hilbert's fifth problem
+
+ICM
+
+incompressible Euler equations
+
+inverse conjecture
+
+Joni Teravainen
+
+Kaisa Matomaki
+
+Kakeya conjecture
+
+Lie algebras
+
+Lie groups
+
+Liouville function
+
+Littlewood-Offord problem
+
+Maksym Radziwill
+
+Mobius function
+
+Navier-Stokes equations
+
+nilpotent groups
+
+nilsequences
+
+nonstandard analysis
+
+Paul Erdos
+
+politics
+
+polymath1
+
+polymath8
+
+Polymath15
+
+polynomial method
+
+polynomials
+
+prime gaps
+
+prime numbers
+
+prime number theorem
+
+random matrices
+
+randomness
+
+Ratner's theorem
+
+regularity lemma
+
+Ricci flow
+
+Riemann zeta function
+
+Schrodinger equation
+
+Shannon entropy
+
+sieve theory
+
+structure
+
+Szemeredi's theorem
+
+Tamar Ziegler
+
+ultrafilters
+
+universality
+
+Van Vu
+
+wave maps
+
+Yitang Zhang
+
+The Polymath Blog
+Polymath News and AI
+Polymath projects 2021
+A sort of Polymath on a famous MathOverflow problem
+Ten Years of Polymath
+Updates and Pictures
+Polymath proposal: finding simpler unit distance graphs of chromatic number 5
+A new polymath proposal (related to the Riemann Hypothesis) over Tao’s blog
+Spontaneous Polymath 14 – A success!
+Polymath 13 – a success!
+Non-transitive Dice over Gowers’s Blog
+
+6 comments
+
+Comments feed for this article
+
+17 June, 2026 at 6:50 am
+
+Anonymous
+
+The statement claiming that the splitting field of a polynomial of degree n is of degree n over the rationals is inaccurate, for example x⁴+2 is of degree 8
+
+[Corrected, thanks – T.]
+
+Reply
+
+19 June, 2026 at 1:23 pm
+
+The inverse Galois challenge | Persiflage
+
+[…] learnt a few days ago about the following AI challenge: find polynomials with Galois group (G) for each of the transitive subgroups of (S_{24}), with […]
+
+Reply
+
+19 June, 2026 at 1:45 pm
+
+galoisrepresentations
+
+This is just a mild grumble that it would be much more natural to ask for pairs \((G,c)\) where \(G\) is a conjugacy class of transitive subgroup of \(S_{24}\) and where \(c\) is a conjugacy class of involutions. Currently one is forgetting \(c\) and just remembering \(r\), the number of fixed points of \(c\)  in the tautological action. Choosing \(c\) is much more natural and it isn’t determined by \(r\); a simple example is \(G=S_4\) which acts transitively on \(24=|G|\) points, but \(G\) has two non-trivial conjugacy classes of order \(2\) elements, both of which have no fixed points. Now maybe conjugacy classes are somewhat painful to coherently and consistently name, but still…
+
+Reply
+
+20 June, 2026 at 10:29 am
+
+Terence Tao
+
+A fair point.  Our organizing committee had some debate as to how exactly to formulate the challenge, but in general we erred on the side of having a challenge that was easy to state, even to participants with only an undergraduate exposure to algebra and number theory, in order to maximize the participant pool for the first stage.  (Also it is easier to generate some eye-candy visualizations with this two-dimensional completion grid, such as the coverage graphic at 
+https://competition.sair.foundation/competitions/igp24/discoveries
+ .) I would imagine though that if the competition produced enough polynomial construction methods to cover almost all of the 
+ signatures, then it they should also be adaptable to cover almost all of of the conjugacy classses as well, so I think the degree 24 (t,r) challenge serves as a reasonable proxy for the more implicit goal of developing efficient construction strategies for the inverse Galois problem.
+
+In any event, we have the flexibility to add these sorts of finer details to later stages of the competition, or to propose a completely separate competition to build some other mathematical data set of interest.  If there is a data set that you think would be interesting to acquire, and for which one could plausibly get a large portion of it filled out through a competition of this type, drop me a line and we might be able to work it into a later competition.
+
+p.s. in your blog post you wondered as to why we had such a complex scoring function.  It is designed to try to reveal precisely the question you discuss in the blog post, namely which types of signatures are hard to solve for, and to incentivize contestants to work to locate such hard signatures rather than only pick up low-hanging fruit (the point value of which will rapidly dilute as more contestants figure out how to acquire them).  I agree that in general the solvable cases should be easier than the non-solvable ones, but there may be some surprises even amongst the solvable class, which we hope this stage of the competition will uncover through a sort of ‘invisible hand’.
+
+Reply
+
+24 June, 2026 at 8:06 am
+
+Anonymous
+
+You say it has been hard to find an irred poly with Galois Group M_23.  Is it possible that there isn’t one (which would also be hard to prove)? 
+
+Reply
+
+2 July, 2026 at 3:39 pm
+
+CKS
+
+Your cubic example belongs to a well known family of Shanks’s simplest cyclic cubic 
+ for 
+ except you flip with 
+. It is better to view the invariance 
+ as a fractional linear transforms 
+ which is the Galois generator of order 3 in 
+. One can verify the invariance by checking 
+
+There is a similar construction for the simplest quadratic,cubic, quartic and sextic because the only finite subgroup of 
+ has order 1,2,3,4,6.
+
+Reply
+
+Leave a comment 
+Cancel reply
+
+Δ
+
+For commenters
+
+To enter in LaTeX in comments, use $latex 
+<Your LaTeX code>
+$ (without the < and > signs, of course; in fact, these signs should be avoided as they can cause formatting errors). Also, backslashes \ need to be doubled as \\.  See the 
+about page
+ for details and for other commenting policy.
+
+«
+ On the proposed rule changes to the administration of federal grants
+
+A digestion of unit distance constructions 
+»
+
+Blog at WordPress.com.
+Ben Eastaugh and Chris Sternal-Johnson. 
+
+Subscribe to feed.
+
+Comment						
+
+Reblog
+
+Subscribe
+
+Subscribed
+
+				What's new			
+
+Join 12,135 other subscribers
+
+												Sign me up											
+
+											Already have a WordPress.com account? 
+Log in now.
+
+Privacy						
+
+				What's new			
+
+Subscribe
+
+Subscribed
+
+Sign up
+
+Log in
+
+Copy shortlink
+
+										Report this content									
+
+										View post in Reader									
+
+Manage subscriptions
+
+Collapse this bar
+
+%d
+

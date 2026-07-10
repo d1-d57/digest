@@ -1,0 +1,456 @@
+Snapsho t s o f m o d e r n m athematics                                 № 8/2026
+from Ob e r wo l f a c h
+
+
+
+
+                         T he Kakeya conjecture
+
+
+                                  Jonathan Hickman 1
+
+
+
+
+       The geometry of lines is a fundamental part of math-
+       ematics and the way we interact with the physical
+       world. Core concepts such as distance and angle, and
+       the accompanying theory of trigonometry, have been
+       studied since antiquity and taught to countless genera-
+       tions of students. However, there are simple questions
+       about lines which have stumped some of the greatest
+       minds in mathematics over the last fifty years. One
+       notable example is the Kakeya conjecture, which asks
+       how lines which point in different directions can be
+       packed together in a small space.
+
+1 K a keya’s question
+
+A Kakeya set is a shape that can fit a straight line segment of length 1 in every
+possible direction. In Figure 1, we illustrate three simple examples: a disc, an
+equilateral triangle, and a deltoid (a curved triangular shape). The equilateral
+triangle is the most informative. Imagine fixing one end of a needle of length 1
+at the top corner of the triangle. You can then rotate the needle inside the
+triangle along an angle of 60° pointing upward. By symmetry, you also get
+another 60° pointing downward. Altogether, that gives 120° of directions from
+
+1 Supported by New Investigator Award UKRI097. The author thanks Lillian Pierce for
+
+helpful comments and feedback on an earlier draft.
+
+
+                                           1
+               1                                 1                             1
+
+
+
+
+                                                     √
+       (a) Area: π/4.                 ( b ) Area: 1/ 3.               ( c ) Area: π/8.
+
+                      F i g u r e 1 : Three examples of Kakeya sets.
+
+
+this one corner. Repeating the same idea at the other two corners covers all the
+possible directions (a full 360°).
+   If we compare the areas of the three Kakeya sets in Figure 1, we see that
+they get successively smaller. In fact, the deltoid has half the area of the disc.
+This means that, within the deltoid, we have managed to pack the line segments
+much more tightly.
+   In the early 20th century, the Japanese mathematician Sōichi Kakeya (1886–
+1947) was interested in these shapes and understanding different ways to pack
+lines into small spaces. From his work, a natural question arose: what is the
+smallest possible area of a Kakeya set?
+
+
+2 Besicovitch’s sur pr ising answer
+
+Around the same time, Abram Besicovitch, an influential mathematician working
+in the field of analysis, was independently thinking about similar questions.
+He discovered new and surprising methods to fit line segments into shapes,
+and created Kakeya sets with much, much smaller area than any example seen
+before. In fact, Besicovitch was able to show that
+                   there exist Kakeya sets of arbitrarily small area!
+   That is, if you want a Kakeya set with area less than 1/100, then Besicovitch’s
+method can construct one for you. The same is true if you want a Kakeya
+set of area less than 1/1000000000000: no matter how small a number you
+choose, Besicovitch’s method can construct a Kakeya set with area smaller than
+that number!
+   How is this possible? How can we pack so many line segments into such a
+tiny space? 2 To understand this, we go back to the example of the equilateral
+
+2 Here we sketch a simplification of Besicovitch’s argument. A detailed history of the
+
+problem, together with the precise description of the method, can be found in [1, Chapter 7].
+
+
+                                             2
+            △1                    △2
+
+
+
+
+      (a) Cut △ into subtriangles △1 and △2 .       ( b ) Horizontally shift △1 and △2 .
+
+                         F ig u r e 2 : The cut-and-shift procedure.
+
+
+ triangle, which we denote by △. In Figure 2, we carry out the following
+ “cut-and-shift” procedure to arrive at a new shape:
+
+(a)     Cut △ into two “subtriangles” △1 and △2 along the vertical line through
+        the top corner.
+(b)     Shift △1 and △2 horizontally in opposite directions so that they overlap.
+
+ The key observation is that, as we cut-and-shift, we do not lose any of the line
+ segments swept out from the top corner. Furthermore, because of the overlap
+ between the shifted subtriangles, the new shape has smaller area than △. The
+ procedure therefore results in a shape with smaller area than the equilateral
+ triangle △, but which still contains line segments in 120◦ of directions. This on
+ its own is not very impressive. However, if we apply the procedure over and
+ over many times, then we can amplify its effect and obtain a Kakeya set with a
+ small area as desired.
+     Rather than cutting △ into just two subtriangles, in Figure 3 we cut it into
+ many subtriangles. As illustrated, we then shift the subtriangles horizontally,
+ first to form pairs, and then to form pairs of pairs, and then pairs of pairs
+ of pairs, and so on. By doing so, we create a huge amount of overlap, which
+ means that the final shape K has much, much smaller area than the original
+ triangle. By choosing the number of subtriangles to be very large, and carefully
+ controlling the shifts, we can ensure that the area of K is as small as we wish.
+ As before, K contains (shifted versions of) all the line segments spanned by the
+ top corner of △, corresponding to lines in 120◦ of directions. We can then take
+ three rotated copies of K to form a true Kakeya set containing line segments in
+ all directions, see Figure 3. 3
+
+ 3 Taking three copies of K will increase the area by a factor of 3, but we can compensate
+
+ for this by ensuring that the area of K is three times smaller than our target value.
+
+
+                                                3
+(a) Cut △ into many subtriangles.       ( b ) Horizontally shift to form pairs.
+
+
+
+
+    (c) Form pairs of pairs. . .               (d ) The final shape K.
+
+
+
+
+      (e) Take three rotated copies of K to form a true Kakeya set.
+
+    F i g u r e 3 : Construction of a Kakeya set with very small area.
+
+
+
+
+                                    4
+   The above procedure describes a method of constructing a Kakeya set with
+area smaller than any prescribed target value. In fact, using the same ideas,
+Besicovitch was able to go one step further and showed that Kakeya sets of zero
+area exist!
+
+
+3 W hy are Kakeya sets impor tant?
+
+Besicovitch’s construction is undoubtedly striking and beautiful. However,
+around the time of its discovery, it is perhaps fair to say that the existence of
+Kakeya sets of zero area was something of a curiosity. Besicovitch applied his
+construction to solve a problem about integrals, but beyond this, it did not
+appear to have much use.
+   Mathematical ideas have a wonderful habit of reappearing in new and seem-
+ingly unrelated contexts. What was once thought a curiosity can later emerge
+as a profoundly important idea. Kakeya sets are a striking example of this.
+Fifty years after Besicovitch’s work, startling discoveries led mathematicians to
+realise their true significance, particularly in Fourier analysis.
+   Fourier analysis is an important branch of mathematics which, at first sight,
+has little to do with the kind of geometric problems we discussed. It instead
+deals with the Fourier transform. This is a mathematical process which takes
+an input function (which, for instance, can be interpreted as a signal, such as a
+sound recording) and expresses it in terms of basic sine and cosine waves, each
+with a fixed fundamental frequency. In this way, the Fourier transform is the
+mathematical equivalent of sheet music. The same way sheet music describes
+the individual notes which make up a chord, the Fourier transform describes
+the frequencies of the individual waves which make up a function.
+   Fourier analysis is essential to vast swathes of mathematics, physics, and
+engineering. Many physical processes are much easier to understand when
+described in terms of fundamental frequencies using the Fourier transform.
+The same is true for pure mathematics: many famous problems in number
+theory, including the ternary Goldbach problem [3], have been solved using the
+Fourier transform.
+   Here, we are interested in Fourier analysis in two dimensions. The funda-
+mental building blocks are plane waves, which can be thought of as idealised
+wave patterns extending across a flat surface. Each plane wave has a fixed
+amplitude, frequency, and direction. Now imagine the function, to which we
+want to apply the Fourier transform, describes the surface of a choppy sea. For
+instance, we could imagine a harbour where the waves bounce off the shore and
+end up travelling in lots of different directions. The Fourier transform allows
+us to understand the choppy water in terms of underlying plane waves, each
+with a fixed amplitude, frequency and direction. This decomposition reveals
+
+
+                                       5
+  (a) Before filtering, the function is           ( b ) Filtering causes the blue rectangles
+      nicely spread out over the blue rect-           to double and the output function
+      angles.                                         has an enormous peak.
+
+                          F i g u r e 4 : Fefferman’s example.
+
+
+
+how seemingly complicated behaviour emerges from the superposition of very
+simple waves.
+   In the early 1970s, Charles Fefferman studied a concept in Fourier analysis,
+called (low pass) filter. A filter removes the high-frequency parts of a function,
+leaving behind the smoother, low-frequency components. Filters play an im-
+portant role in signal processing. As a simple example, imagine a poor-quality
+sound recording with lots of clicks, cracks and glitches. Since this unwanted
+noise is typically made up of high frequencies, applying a filter removes it and
+improves the quality.
+   Fefferman was interested in how filters behave in two dimensions, a problem
+that was not well understood at the time. We would expect the filtered function
+(with all the noise removed) to be smoother and better behaved than the
+original input. This was known to be true in one dimension. Surprisingly,
+Fefferman showed that this was not always the case in two dimensions! There
+were functions which, before applying the filter, were nicely spread out in space;
+however, after filtering, they focused into an enormous peak [2].
+   To see this, Fefferman constructed a function which lives on rectangles placed
+outside a Kakeya set. These rectangles are all spaced apart, so the function
+is nicely spread out. When the filter is applied, he showed it has the effect of
+doubling each of the rectangles. The geometry of the Kakeya set forces the
+doubled rectangles to overlap, creating an enormous peak (see Figure 4).
+
+
+                                              6
+   Fefferman’s work revealed that the geometry of Kakeya sets plays a funda-
+mental role in Fourier analysis in two and higher dimensions. Since Fourier
+analysis is so central to the study of many physical processes, it soon became
+clear that Kakeya sets are deeply linked to the study of important equations
+of nature. These include the wave equation, which models water, sound, and
+seismic waves, as well as Schrödinger’s famous equation from quantum mechan-
+ics [6, 8]. Kakeya sets, which were once a curiosity, suddenly became one of
+the most important objects in pure mathematics! For further details of the
+connection between Fourier analysis and Kakeya sets, we refer the reader to [9].
+
+
+4 T h e Kakeya conjecture
+
+After it became clear that Kakeya sets are fundamental to many different
+mathematical problems, researchers aimed to develop a deeper understanding of
+their geometry. In addition to the planar Kakeya sets that we have discussed so
+far, mathematicians became increasingly interested in their solid counterparts
+in 3-dimensional space. The definition of a Kakeya set makes perfect sense for
+solid shapes, but the situation becomes more complicated in three dimensions
+because there are far more possible directions to consider.
+   As discussed earlier, Besicovitch showed that there exist Kakeya sets in
+the plane with zero area. Using Besicovitch’s ideas, it is not difficult to show
+that Kakeya sets also exist in 3-dimensional space with zero volume. Despite
+this, Kakeya sets should still be, in some sense, reasonably large and fill out
+space. The precise formulation of this statement is known as the 3–dimensional
+Kakeya conjecture.
+   To understand the Kakeya conjecture, we return to the 2-dimensional plane.
+We take a step back and think a little bit about what we mean by area.
+   In Figure 5, we illustrate a simple way to approximate the area of a shape S.
+For a small number δ > 0, we place S on a grid of squares of side length δ. We
+then count the number of squares which intersect S and denote this number
+by N (S, δ). For example, in the case shown in Figure 5, we have N (S, δ) = 44.
+We then have the simple approximation
+
+                  Area(S) ≈       N (S, δ)        ×         δ2
+                                                           |{z}          .
+                                  | {z }
+                              Number of squares       Area of a square
+
+
+This approximation becomes more and more accurate as δ gets smaller and
+smaller, which corresponds to taking a finer and finer grid of squares. We express
+this succinctly by saying that Area(S) is given by the limit of N (S, δ) × δ 2 as δ
+tends to 0. In symbols, this is written as
+
+                   N (S, δ) × δ 2 → Area(S)           as      δ → 0.
+
+
+                                         7
+                     1 2 3                      4 5 6
+                        7 8 9 10 11 12 13 14 15 16
+                             17 18 19 20 21 22
+                             23 24 25 26 27 28
+                       29 30 31 32 33 34 35 36 37 38
+                    39 40 41                   42 43 44
+
+                                             δ
+ Figu r e 5 : For the above choice of δ > 0, we approximate the area of the blue
+             shape S by Area(S) ≈ N (δ, S) × δ 2 = 44 × δ 2 .
+
+
+ Besicovitch’s construction shows that there exists a Kakeya set K satisfying
+
+                             N (K, δ) × δ 2 → 0       as δ → 0.
+
+ This is precisely what it means for a set K to have zero area.
+   We can get more information about the size of a shape S by studying the
+ approximate areas N (S, δ) × δ 2 for different values of δ. To illustrate this:
+(1) Single point: Suppose S is just a single point. Then S intersects only one
+    square, so N (S, δ) = 1. The approximate area is therefore
+
+                                       N (S, δ) × δ 2 = δ 2 .
+
+    As δ gets smaller, δ 2 gets smaller at a fast rate. We can think of the
+    approximate area as shrinking to zero very quickly.
+(2) Line or curve: Suppose S is a line or a curve of length 1. Each square
+    can cover only a segment of S of length roughly δ, 4 so in total we need
+    roughly 1/δ squares to cover S. In other words,
+
+                                         N (S, δ) ≈ 1/δ.
+
+     Therefore, the approximate area is
+
+                                        N (S, δ) × δ 2 ≈ δ.
+
+     This still shrinks to zero as δ gets smaller, but at a slower rate than in
+     Example (1).
+
+ 4 If the curve bends a lot in the square, then the square will cover more of the length of the
+
+ curve. However, the exact length is not important for us: we just need to know it is roughly δ.
+
+
+                                                 8
+   Both the point in Example (1) and the line or curve in Example (2) have
+zero area. However, the rate at which the approximate area N (S, δ) × δ 2 shrinks
+to zero distinguishes their size. In this way, the rate indicates the dimension of
+the underlying shape. For the 0-dimensional point in Example (1), the rate is
+very fast. For the 1-dimensional line or curve in Example (2), the rate is much
+slower. Pushing this a little further, it is possible for a shape S in the plane to
+be 2-dimensional and have zero area. This means that the rate at which
+
+                                      N (K, δ) × δ 2
+
+shrinks to 0 is very, very slow.
+   For planar shapes, the Kakeya conjecture asserts that
+       a Kakeya set K in the plane always has dimension 2.
+In other words, the approximate area N (K, δ) × δ 2 can only shrink to zero at
+a very slow rate. In this sense, although Kakeya sets can have zero area, they
+must still be reasonably large and fill out space.
+   The same idea can be applied to solid Kakeya sets in 3-dimensional space.
+For this, we consider the approximate volume N (S, δ) × δ 3 of a solid shape S.
+This is computed by drawing a grid of δ × δ × δ cubes and counting the
+number N (S, δ) of cubes which intersect S. In three dimensions, the Kakeya
+conjecture asserts that
+       a Kakeya set K in 3-dimensional space always has dimension 3.
+Analogously to the planar case, this means that the approximate volume of K
+can only shrink to zero at a very slow rate.
+   It turns out that the Kakeya conjecture in the plane is not too difficult.
+Multiple proofs were found in the 1970s, each showing that any planar Kakeya
+set has dimension 2. 5 However, the problem in 3-dimensional space is much,
+much harder, as the additional directions make the situation considerably
+more complicated.
+   Understanding whether the Kakeya conjecture holds in three dimensions is
+one of the most important problems in modern mathematics. If it were false,
+then that would mean that there exist extremely small Kakeya sets that could
+be used to construct functions which behave extremely badly under filtering.
+These functions would be far worse behaved than those featured in Fefferman’s
+original argument. Consequently, they would also disprove a large number of
+important conjectures in Fourier analysis and related areas. For this reason,
+there are many questions we cannot hope to answer without first determining
+whether or not the Kakeya conjecture is true.
+
+5   See, for instance, [8] and [5].
+
+
+                                            9
+5 Spectacular progress
+
+Over the last 50 years, many mathematicians have worked on the Kakeya
+conjecture in three and higher dimensions. Through their work, deep connections
+were discovered between the problem and questions in arithmetic, algebra, and
+other areas of mathematics [4, 8]. However, a solution always appeared far out
+of reach. The Kakeya conjecture achieved a certain notoriety, and within the
+field, became a byword for a difficult, nearly impossible challenge.
+    This remained the state of affairs until February 2025, when Hong Wang
+and Joshua Zahl announced a spectacular full solution of the 3-dimensional
+problem [7]. Their monumental proof is hundreds of pages long and is spread over
+multiple papers. It combines a rich array of ideas, and relies on contributions
+from many different mathematicians over the last 30 years. However, their
+proof also incorporates a wealth of new and deep insights and marks a major
+leap in our understanding. The work of Wang and Zahl is certainly a great and
+historic achievement in modern mathematics.
+    Mathematicians are now working hard to fully digest the innovations intro-
+duced by Wang and Zahl. It is likely that their work will lead to breakthroughs
+on a wide range of important problems in the geometry of lines, Fourier analysis,
+and beyond. The next chapter of this story will be an exciting one!
+
+
+
+
+                                       10
+I m a g e credits
+
+ All images were created by the author.
+
+
+R e f e rences
+
+[1] K. J. Falconer, The geometry of fractal sets, Cambridge Tracts in Mathe-
+    matics, vol. 85, Cambridge University Press, 1986.
+
+[2] C. Fefferman, The multiplier problem for the ball, Annals of Mathematics
+    Annals of Mathematics. Second Series 94 (1971), 330–336.
+[3] H. Helfgott, The ternary Goldbach problem, Snapshots of modern math-
+    ematics from Oberwolfach, no. 03 (2014), https://doi.org/10.14760/
+    SNAP-2014-003-EN.
+
+[4] N. Katz and T. Tao, Recent progress on the Kakeya conjecture, Proceedings
+    of the 6th International Conference on Harmonic Analysis and Partial
+    Differential Equations (El Escorial, 2000), 2002, pp. 161–179.
+[5] P. Mattila, Fourier analysis and Hausdorff dimension, Cambridge Studies
+    in Advanced Mathematics, vol. 150, Cambridge University Press, 2015.
+[6] T. Tao, From rotating needles to stability of waves: emerging connections
+    between combinatorics, analysis, and PDE, Notices of the American Mathe-
+    matical Society 48 (2001), no. 3, 294–303.
+[7] H. Wang and J. Zahl, Volume estimates for unions of convex sets, and the
+    Kakeya set conjecture in three dimensions, Preprint: arXiv:2502.17655.
+[8] T. Wolff, Recent work connected with the Kakeya problem, Prospects in
+    mathematics (Princeton, NJ, 1996), American Mathematical Society, 1999,
+    pp. 129–162.
+[9] J. Zahl, Rotating needles, vibrating strings, and fourier summation, Snap-
+    shots of modern mathematics from Oberwolfach, no. 06 (2020), https:
+    //doi.org/10.14760/SNAP-2020-006-EN.
+
+
+
+
+                                     11
+Jona t h a n H i ck m a n i s a Reader of pure   Connect i o n s t o o t h e r f i e l d s
+math e m a t i c s a t t h e University of       Physics
+Edinbu r g h .
+                                                 License
+Math e m a t i c a l s u b j e c ts              Creative C o m m o n s B Y- S A 4 . 0
+Analy s i s
+                                                 DOI
+                                                 10.1476 0 / S N A P - 2 0 2 6 - 0 0 8 - E N
+
+
+
+
+Snapshots of modern mathematics from Oberwolfach provide exciting insights into
+current mathematical research. They are written by participants in the scientific
+program of the Mathematisches Forschungsinstitut Oberwolfach (MFO). The
+snapshot project is designed to promote the understanding and appreciation of
+modern mathematics and mathematical research in the interested public worldwide.
+All snapshots are published in cooperation with the IMAGINARY platform and
+can be found on www.imaginary.org/snapshots and on www.mfo.de/snapshots.
+
+ISSN 2626 -1995
+
+
+Junio r E d i t o r                              Mathema t i s c h e s Fo r s c h u n g s i n s t i t u t
+Bar ka t B h ayo                                 Oberwol f a c h g G m b H
+junio r - ed i t o r s @ m f o. de               Schwarz wa l d s t r. 9 – 11
+                                                 77709 O b e r wo l f a c h
+Senio r E d i t o r                              Ger many
+Anja R a n d e cke r
+senio r - ed i t o r @ m f o. d e                Director
+                                                 Gerhard H u i s ke n
+

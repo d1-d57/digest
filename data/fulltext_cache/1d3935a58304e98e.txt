@@ -1,0 +1,1502 @@
+AMS :: Notices of the American Mathematical Society
+
+AMS Website Down
+
+Notice: All AMS websites will be down for maintenance on Saturday, July 11 from 8 am until 1 pm. 
+
+PDFLINK
+
+New Developments in Global Positioning
+Mireille Boutin
+Gregor Kemper
+
+Introduction
+
+This is a story about how mathematics can make a difference in a real-world problem. This article highlights how methods from algebra and algebraic geometry can provide new clarity to an old problem considered by many to be already solved. The problem at hand is called the 
+global positioning problem
+, and lies at the heart of most of today’s electronic navigation systems. The authors of this article have backgrounds in applied mathematics, invariant theory, and commutative algebra. A somewhat circuitous route brought us to the global positioning problem, and it came as a surprise when we discovered that quite a bit about this problem was not properly understood. In particular, the fundamental question of when the problem has a unique solution and when it does not was still unanswered. We also discovered that our backgrounds put us in a position to make a contribution, and we learned some nice classical geometry along the way.
+
+This article introduces the global positioning problem in detail in Section 
+1
+, including the mathematical equations that describe it, that is to say the equations that need to be solved in order to determine one’s position. We work in 
+$\mathbb{R}^3$
+ for simplicity, but our results hold in 
+$\mathbb{R}^n$
+ for any 
+$n\geq 2$
+.
+ A bit of history and references to current solution methods are given in Section 
+2
+.
+
+The original equations describing the problem are quadratic in the unknowns. As we show in Section 
+3
+, they can be interpreted as a particular instance of a sphere intersection problem, where the spheres are defined using the Minkowski distance. We show how any such sphere intersection problem can be written out as a simple matrix equation involving a single unknown vector; the entries of the unknown vector consist of the quantities to solve, along with their squared norm, computed using the same bilinear form used to define the sphere. As explained in Section 
+4
+, in many cases, there is a unique solution for the unknown vector, and it can be found using well-known linear algebra techniques. Section 
+3
+ describes a solution method for exact data and Section 
+7
+ briefly explains how to modify this method slightly so to be able to apply it to the case of noisy data.
+
+It may seem puzzling that the formulation of this as a sphere intersection problem, along with its corresponding matrix form, remained unknown until recently—especially given the long history of the global positioning problem and the many numerical solution methods already implemented in practical systems. Understandably, the work of performing algebraic manipulations to rewrite the equations defining a problem into better ones can be bypassed by a practitioner who is well-versed in using numerical solvers. In fact, the practitioner focused on using an iterative solution method, starting from an initial guess, might not care too much whether the problem has a unique solution or not. Yet the clarity that is gained from a simpler formulation along with a precise geometric description of the cases where the solution is not unique can provide important numerical insights. Simple numerical experiments performed in the last section of the paper, which show conditioning issues in the vicinity of the situations for which the problem solution is not unique, illustrate this.
+
+1
+.
+
+The Global Positioning Problem
+
+We start with a brief introduction to global positioning systems, emphasizing broad principles and omitting many technical details. Global positioning systems consist of electromagnetic wave emitters located at known positions. These are equipped with precisely synchronized clocks and constantly broadcast their position along with a time stamp. A user of the positioning system utilizes the information received to try to determine their location. Another application is to synchronize the user’s clock. The most commonly known global positioning system is GPS, which is based on a constellation of satellites orbiting the earth. (At the time of writing, there are 31 operational GPS satellites.) A GPS-enabled device, such as a smartphone, has a line of sight to a certain number of satellites, and from these satellites it receives radio signals. From the measured time of arrival of a signal and the time of emission that is coded in the signal, the device could then, assuming perfect accuracy, calculate its distance from the satellite. So for each satellite in view, the device could determine a sphere around the satellite position on which the device is located, and determining its position would become a simple exercise of intersecting spheres. Figure 
+1
+ shows this in 2D, where the spheres become circles drawn in blue.
+
+Figure 1
+.
+The satellites send out signals. Assuming perfect accuracy, a GPS-enabled device could work out its position from the signals’ time of arrival.
+
+Why have we just used the conditional tense? Because of the assumption of perfect accuracy. The main reason why this assumption does not hold is the inaccuracy of time measurements. One half of this problem has been solved by equipping the GPS satellites with atomic clocks, which provide sufficient accuracy. But user devices still carry the much less accurate quartz-based timekeeping mechanisms, indicated in Figure 
+1
+ by a pocket watch for lack of a better pictogram. Unfortunately, an error of as little as three microseconds can lead to a position error greater than one kilometer. In fact, the main difficulty in global positioning comes from the fact that the error of the device clock—also called the 
+bias
+—is not known. Therefore the way to solve the problem is to treat this bias as an unknown, along with the 
+$x$
+-
+, 
+$y$
+-
+, and 
+$z$
+-
+coordinates of the device. With this, we are ready to formulate the problem at hand.
+
+Global positioning problem
+. 
+Given the arrival times, according to the clock on the user’s device, of the signals broadcast from the emitters (e.g., satellites) in view, and given the times and places of emission, according to the (synchronized) emitters’ clocks, determine the location of the user and the bias of the user’s clock.
+
+This problem appears harder than just intersecting spheres, and indeed it is.
+
+In practice, it is impossible for the user to receive the signals from all emitters at the same time. But it comes close to it. For example, the signal of GPS satellites contains the record of their position every millisecond. While one can interpolate to obtain any intermediate position, this is often unnecessary since the location of the GPS-device can be considered as constant, assuming that the device does not travel ultra-fast (slower than the escape velocity from earth will do). Furthermore, the device clock bias can also be regarded as a constant during this millisecond.
+
+Choosing the unit of time such that the signal propagation speed becomes 
+$1$
+,
+ we can now write down the 
+global positioning equations
+. They are
+
+1
+
+$$\begin{equation} \lVert \mathbf{s}_i - \mathbf{x}\rVert = t_i - b \qquad (i = 1 ,\ldots ,m), \cssId{eqGPS}{\tag{1}} \end{equation}$$
+
+where 
+$\lVert \cdot \rVert$
+ denotes the Euclidean norm and the variables have the following meaning:
+
+•
+
+$\mathbf{s}_i \in \mathbb{R}^3$
+ is the (known) position of the 
+$i$
+th
+ emitter in view;
+
+•
+
+$\mathbf{x} \in \mathbb{R}^3$
+ is the (unknown) position of the user;
+
+•
+
+$t_i \in \mathbb{R}$
+ is the (known) “apparent flight time,” defined as the difference between the arrival time, according to the clock on the user’s device, of the signal from the 
+$i$
+th
+ emitter, and the emission time, according to the (synchronized) emitters’ clocks;
+
+•
+
+$b \in \mathbb{R}$
+ is the (unknown) bias of the user’s clock;
+
+•
+
+$m \in \mathbb{N}$
+ is the number of emitters in view.
+
+Let us mention, as an aside, that the equations 
+1
+ also govern another class of real-world problems: A source at an unknown position emits a signal (electromagnetic, acoustic or other) at an unknown time. There are several sensors at known positions with synchronized clocks, which pick up the signal. The goal is to determine the time and place of emission from the measured arrival times of the signal. The situation is shown in Figure 
+2
+.
+
+Figure 2
+.
+A signal is emitted at an unknown position and unknown time. It is received by several sensors. The goal is to determine the time and place of emission.
+
+A lot of real-world applications where such a situation arises come to mind: seismic events, implosions of deep-sea submersibles, distress signals, gunshot detection, and many more. However, our main point is that the equations 
+1
+ model this situation if 
+$\mathbf{x}$
+ and the 
+$\mathbf{s}_i$
+ are interpreted as the source position and sensor positions, respectively, and 
+$b$
+ and 
+$t_i$
+ are interpreted as the time of emission and times of arrival, respectively. So anything that can be said about the equations 
+1
+ and their solution applies equally to the global positioning problem and to the above problem.
+
+2
+.
+
+History and State of the Art
+
+The mathematical study of the global positioning problem dates back several decades with the development of the early ground-based navigation systems. The first operational system based on time delays between radio signals appears to be Gee, the system used by the Royal Air Force during World War II. The first global navigation satellite system (GNSS), Transit, was deployed a couple of decades later by the US military. There was early interest in the problem of quantifying the error of such systems, whose solutions were obtained numerically. See for example the early work of 
+Mar64
+ and 
+Lee75
+. The first algebraic (noniterative) solution came much later, with the work of Bancroft 
+Ban85
+, which to this day continues to be widely cited as a reference.
+
+Nowadays, the mathematical theory of global positioning is taught at several universities around the world. A well-known textbook is that of Strang and Borre 
+SB97
+, which is accompanied by a suite of MATLAB code 
+Bor03
+. There are also entire journals dedicated to the topic, for instance 
+GPS Solutions
+ and the 
+Journal of Global Positioning Systems
+. State-of-the-art code for GPS is widely available to the public, e.g. 
+HS10
+. The latter reference describes a commonly used method for solving the global positioning equations on p. 125–126. The method consists in linearizing the equations by Taylor expansion, neglecting the second-order terms and above. This yields an iterative procedure to progressively refine an initial guess for the user position. In order to handle the noise in the data, methods such as weighted mean squares or Kalman filters are used to obtain a solution estimate at every step of the iteration. The possibility of having multiple solutions, and its effect on the accuracy of the numerical estimate, is generally sidestepped.
+
+3
+.
+
+Solution with Exact Data
+
+In Sections 
+3
+–
+6
+, we assume that the measured data (i.e., the 
+$\mathbf{s}_i$
+ and 
+$t_i$
+)
+ are exact. The first step toward solving the global positioning equations 
+1
+ is squaring both sides, which yields
+
+2
+
+$$\begin{equation} \lVert \mathbf{s}_i - \mathbf{x}\rVert ^2 - (t_i - b)^2 = 0 \qquad (i = 1 ,\ldots ,m). \cssId{eqGPSsquared}{\tag{2}} \end{equation}$$
+
+In addition, we obtain the inequalities
+
+3
+
+$$\begin{equation} t_i \ge b, \qquad (i = 1 ,\ldots ,m), \cssId{eqGPSineq}{\tag{3}} \end{equation}$$
+
+so 
+2
+ and 
+3
+ together are equivalent to 
+1
+. Now after a good look at 
+2
+ we see that the equations actually mean that the point 
+$\widehat{\mathbf{x}} \coloneq \left(\begin{smallmatrix} b \\ \mathbf{x}\end{smallmatrix}\right) \in \mathbb{R}^4$
+ lies in the sphere with radius 
+$0$
+ and center point 
+$\widehat{\mathbf{s}}_i \coloneq \left(\begin{smallmatrix} t_i \\ \mathbf{s}_i\end{smallmatrix}\right)$
+,
+ except that the distance used for defining the sphere comes from Minkowski spacetime, where the squared difference of the times is subtracted from the squared spacial distance. So after all 
+2
+ says that we need to intersect spheres (or, more precisely 
+quasi-spheres
+ since we are not working with Euclidean distance), partially contradicting our previous statement. What comes to our help at this point is the generality and abstraction that has become second nature to mathematicians: if we can intersect spheres in 
+$\mathbb{R}^2$
+ and 
+$\mathbb{R}^3$
+,
+ why not do it in 
+$\mathbb{R}^n$
+,
+ and while we are at it, why not allow more general notions of distance? To summarize, we have seen that, disregarding the inequalities in 
+3
+ for a moment, the global positioning problem is a special case of the following problem.
+
+Sphere intersection problem
+. 
+Let 
+$\langle \cdot ,\cdot \rangle _Q$
+ be a nondegenerate symmetric bilinear form on 
+$\mathbb{R}^n$
+ given by a symmetric matrix 
+$Q \in \mathbb{R}^{n \times n}$
+.
+ Given points 
+$\widehat{\mathbf{s}}_1 ,\ldots ,\widehat{\mathbf{s}}_m \in \mathbb{R}^n$
+ and numbers 
+$d_1 ,\ldots ,d_m \in \mathbb{R}$
+,
+ solve the system
+
+4
+
+$$\begin{equation} \langle \widehat{\mathbf{x}} - \widehat{\mathbf{s}}_i,\widehat{\mathbf{x}} - \widehat{\mathbf{s}}_i\rangle _Q = d_i \qquad (i = 1 ,\ldots ,m) \cssId{eqSpheres}{\tag{4}} \end{equation}$$
+
+for the unknown vector 
+$\widehat{\mathbf{x}} \in \mathbb{R}^n$
+.
+
+The solution is pretty straightforward. With
+
+$$\begin{equation*} A \coloneq \left( \begin{array}{c|c} 2 \widehat{\mathbf{s}}_i^T Q & -1 \\\vdots & \vdots \\2 \widehat{\mathbf{s}}_m^T Q & -1 \end{array} \right) \in \mathbb{R}^{m \times (n+1)}, \end{equation*}$$
+
+the system 
+4
+ can be written as the matrix equation
+
+$$\begin{equation*} A \cdot \begin{pmatrix} \widehat{\mathbf{x}} \\ \langle \widehat{\mathbf{x}},\widehat{\mathbf{x}}\rangle _Q \end{pmatrix} = \begin{pmatrix} \langle \widehat{\mathbf{s}}_1,\widehat{\mathbf{s}}_1\rangle _Q - d_1 \\ \vdots \\ \langle \widehat{\mathbf{s}}_m,\widehat{\mathbf{s}}_m\rangle _Q - d_m \end{pmatrix}. \end{equation*}$$
+
+Introducing a further scalar unknown 
+$\lambda$
+,
+ we see that this is equivalent to the equations
+
+5
+
+$$\begin{equation} A \cdot \begin{pmatrix} \widehat{\mathbf{x}} \\ \lambda \end{pmatrix} = \begin{pmatrix} \langle \widehat{\mathbf{s}}_1,\widehat{\mathbf{s}}_1\rangle _Q - d_1 \\ \vdots \\ \langle \widehat{\mathbf{s}}_m,\widehat{\mathbf{s}}_m\rangle _Q - d_m \end{pmatrix} \cssId{eqLinear}{\tag{5}} \end{equation}$$
+
+and
+
+6
+
+$$\begin{equation} \langle \widehat{\mathbf{x}},\widehat{\mathbf{x}}\rangle _Q - \lambda = 0. \cssId{eqQuadratic}{\tag{6}} \end{equation}$$
+
+Now 
+5
+ can be solved by a linear solver, expressing the general solution (if the system is solvable) with 
+$k \coloneq n + 1 - \operatorname {rank}(A)$
+ free parameters. Substituting this into 
+6
+ yields a polynomial equation of degree at most 
+$2$
+ in the free parameters, whose solution set is in “most” cases a quadric in 
+$\mathbb{R}^k$
+.
+ But it can also be an affine hyperplane (in the case that the polynomial equation turns out to have degree 
+$1$
+),
+ all of 
+$\mathbb{R}^k$
+ (if the equation is zero), or 
+$\varnothing$
+ (the special case of an empty quadric). This provides a general solution method for the sphere intersection problem, and as a special case for the global positioning problem.
+
+The rank of 
+$A$
+,
+ which determines the number 
+$k$
+,
+ has a nice geometric interpretation: because of
+
+$$\begin{equation*} A = \left( \begin{array}{c|c} \widehat{\mathbf{s}}_1^T & 1 \\\vdots & \vdots \\\widehat{\mathbf{s}}_m^T & 1 \end{array} \right) \cdot \left( \begin{array}{c|c} 2 Q & 0 \\\hline 0 & -1 \end{array} \right), \end{equation*}$$
+
+the dimension of the affine subspace of 
+$\mathbb{R}^n$
+ spanned by the points 
+$\widehat{\mathbf{s}}_i$
+ has dimension equal to 
+$\operatorname {rank}(A) - 1$
+.
+
+From now on, we assume 
+$\operatorname {rank}(A) \ge n$
+,
+ so the number 
+$k$
+ of free parameters for the solution of 
+5
+ is at most one. Our assumption means that the affine subspace of 
+$\mathbb{R}^n$
+ spanned by the points 
+$\widehat{\mathbf{s}}_i$
+ has dimension at least 
+$n - 1$
+.
+
+If 
+$\operatorname {rank}(A) = n+1$
+ (the maximal possible), then 
+5
+ alone, if solvable, determines a unique solution, and all that is left to do is check if this solution satisfies 
+6
+.
+
+If 
+$\operatorname {rank}(A) = n$
+,
+ the solution set of 
+5
+, if solvable, is an affine line 
+$L \subset \mathbb{R}^{n+1}$
+,
+ which can be parametrized by choosing a suitable coordinate of 
+$\left(\begin{smallmatrix} \widehat{\mathbf{x}} \\ \lambda \end{smallmatrix}\right)$
+ as free parameter. There is actually a formula for this, whose verification is left as a linear algebra exercise to the reader. For example, if the matrix 
+$A_{n+1}$
+,
+ obtained by deleting the last column of 
+$A$
+,
+ has rank 
+$n$
+,
+ then form the Moore–Penrose inverse 
+$A_{n+1}^+ \in \mathbb{R}^{n \times m}$
+,
+ or any other left inverse. Get 
+$\mathbf{u}_{n+1},\mathbf{v}_{n+1} \in \mathbb{R}^n$
+ by multiplying 
+$A_{n+1}^+$
+ with the last column of 
+$A$
+ and with the right-hand side of 
+5
+, respectively. Then
+
+7
+
+$$\begin{equation} L = \left\{\left. \begin{pmatrix} \mathbf{v}_{n+1} - \lambda \mathbf{u}_{n+1} \\ \lambda \end{pmatrix} \right| \lambda \in \mathbb{R}\right\}, \cssId{eqL}{\tag{7}} \end{equation}$$
+
+so the solution set of 
+5
+ is parametrized by the last coordinate of 
+$\left(\begin{smallmatrix} \widehat{\mathbf{x}} \\ \lambda \end{smallmatrix}\right)$
+.
+ The equation 
+6
+ then becomes an equation for the unknown 
+$\lambda$
+.
+ This works for other (suitable) coordinates of 
+$\left(\begin{smallmatrix} \widehat{\mathbf{x}} \\ \lambda \end{smallmatrix}\right)$
+ as free parameters as well.
+
+Let us return to the special case of the global positioning problem, where 
+$n = 4$
+,
+
+$Q = \operatorname {diag}(-1,1,1,1)$
+,
+
+$d_i = 0$
+,
+
+$\widehat{\mathbf{s}}_i \coloneq \left(\begin{smallmatrix} t_i \\ \mathbf{s}_i\end{smallmatrix}\right)$
+,
+ and 
+$\widehat{\mathbf{x}} \coloneq \left(\begin{smallmatrix} b \\ \mathbf{x}\end{smallmatrix}\right)$
+,
+ so
+
+8
+
+$$\begin{equation} A = \begin{pmatrix} -2 t_1 & 2 \mathbf{s}_1^T & -1 \\ \vdots & \vdots & \vdots \\ -2 t_m & 2 \mathbf{s}_m^T & -1 \end{pmatrix} \in \mathbb{R}^{m \times 5}. \cssId{eqA}{\tag{8}} \end{equation}$$
+
+We continue to assume 
+$\operatorname {rank}(A) \ge n = 4$
+.
+ In this case, the sphere intersection problem has at most two solutions (see, for example, 
+BK24
+, 
+Theorem 1.3(c)
+).
+
+In 1985, Stephen Bancroft 
+Ban85
+ gave the first algebraic solution of the problem. In the light of the above, his solution can be interpreted as choosing 
+$\lambda$
+ as a free parameter, as we did above. (There is a wrinkle: even if 
+$\operatorname {rank}(A) = 5$
+,
+ Bancroft uses the formula 
+7
+ and then considers the corresponding equation of degree 
+$\le 2$
+ for 
+$\lambda$
+,
+ throwing away part of the information from 
+5
+).
+
+Since the satellite positions 
+$\mathbf{s}_i$
+ are known very accurately but the apparent flight times 
+$t_i$
+ are more error-prone due to atmospheric disturbances, inverting 
+$A_1$
+,
+ obtained by deleting the first column of 
+$A$
+,
+ should be more robust than inverting 
+$A_5$
+,
+ as Bancroft does. This is why in 
+BK24
+ we chose the first coordinate of 
+$\left(\begin{smallmatrix} \widehat{\mathbf{x}} \\ \lambda \end{smallmatrix}\right)$
+,
+ which is the unknown bias 
+$b$
+,
+ instead of 
+$\lambda$
+,
+ as free parameter. So we are assuming that 
+$A_1$
+ has rank 
+$4$
+,
+ which means that the satellite positions are not coplanar. Again we leave it to the reader to verify the formulas in the resulting procedure.
+
+Procedure 1
+
+(
+Solution of the global positioning problem, assuming exact data
+)
+.
+
+Input
+
+Points 
+$\mathbf{s}_1 ,\ldots ,\mathbf{s}_m \in \mathbb{R}^3$
+,
+ assumed not coplanar, and 
+$t_1 ,\ldots ,t_m \in \mathbb{R}$
+.
+
+Output
+
+The set 
+$S$
+ of solutions 
+$\left(\begin{smallmatrix} b \\ \mathbf{x}\end{smallmatrix}\right)$
+ of 
+1
+.
+
+1.
+
+Compute the matrix 
+$A$
+ according to 
+8
+,
+
+2.
+
+If the linear system
+9
+$$\begin{equation} A \cdot \begin{pmatrix} b \\ \mathbf{x} \\ \lambda \end{pmatrix} = \begin{pmatrix} \lVert \mathbf{s}_1\rVert ^2 - t_1^2 \\ \vdots \\ \lVert \mathbf{s}_m\rVert ^2 - t_m^2 \end{pmatrix} \eqcolon \mathbf{w} \cssId{eqLin}{\tag{9}} \end{equation}$$
+has no solution, return 
+$S = \varnothing$
+;
+ if it has precisely one solution, check if 
+$\lVert \mathbf{x}\rVert ^2 - b^2 = \lambda$
+ and 
+$b \le \min \{t_1 ,\ldots ,t_m\}$
+.
+ If both are true, return 
+$S = \{\left(\begin{smallmatrix} b \\ \mathbf{x}\end{smallmatrix}\right)\}$
+,
+ and otherwise return 
+$S = \varnothing$
+.
+
+3.
+
+This step is reached only if 
+$\operatorname {rank}(A) = 4$
+.
+ With 
+$A_1^+ \in \mathbb{R}^{4 \times m}$
+ the Moore–Penrose inverse of the matrix obtained by deleting the first column of 
+$A$
+,
+ compute 
+$\mathbf{u},\mathbf{v} \in \mathbb{R}^3$
+ and 
+$\alpha ,\beta \in \mathbb{R}$
+ by
+$$\begin{equation*} \begin{pmatrix} \mathbf{u} \\ 2 \alpha \end{pmatrix} \coloneq A_1^+ \begin{pmatrix} 2 t_1 \\ \vdots \\ 2 t_m \end{pmatrix} {\text{ and }} \begin{pmatrix} \mathbf{v} \\ \beta \end{pmatrix} \coloneq A_1^+ \mathbf{w}. \end{equation*}$$
+
+4.
+
+Return the set 
+$S$
+ of all 
+$\left(\begin{smallmatrix} b \\ b \mathbf{u} + \mathbf{v}\end{smallmatrix}\right)$
+ such that
+10
+$$\begin{equation} \bigl (\lVert \mathbf{u}\rVert ^2-1\bigr ) b^2 + 2 \bigl (\mathbf{u}^T\mathbf{v} - \alpha \bigr ) b + \lVert \mathbf{v}\rVert ^2 - \beta = 0 \cssId{eqQuad}{\tag{10}} \end{equation}$$
+and, taking the inequalities 
+3
+ into account,
+11
+$$\begin{equation} b \le \min \{t_1 ,\ldots ,t_m\}. \cssId{eqIneq}{\tag{11}} \end{equation}$$
+
+4
+.
+
+Unique Solutions and Quadrics
+
+In the previous section, we have seen that the matrix 
+$A$
+,
+ defined in 
+8
+, plays a crucial role in solving the global positioning problem. In particular, the most straightforward way to have a unique solution is if 
+$A$
+ has rank 
+$5$
+.
+ On the other hand, we are assuming that the satellite positions 
+$\mathbf{s}_i$
+ are not coplanar, which means that the matrix obtained by deleting the first column of 
+$A$
+ has rank 
+$4$
+.
+ So 
+$A$
+ has rank 
+$4$
+ or 
+$5$
+.
+ Let us now assume that the rank is 
+$4$
+.
+ Then there exists a vector 
+$\mathbf{u} \in \mathbb{R}^3$
+ and an 
+$\alpha \in \mathbb{R}$
+ such that
+
+$$\begin{equation*} \begin{pmatrix} -2 t_1 & 2 \mathbf{s}_1^T & -1 \\ \vdots & \vdots & \vdots \\ -2 t_m & 2 \mathbf{s}_m^T & -1 \end{pmatrix} \cdot \begin{pmatrix} 1 \\ \mathbf{u} \\ 2 \alpha \end{pmatrix} = \begin{pmatrix} 0 \\ \vdots \\ 0 \end{pmatrix}, \end{equation*}$$
+
+where we have written 
+$A$
+ out again to make the reading easier. Let us also assume that the global positioning problem 
+1
+ has a solution, so 
+$t_i = \lVert \mathbf{s}_i - \mathbf{x}\rVert + b$
+ with 
+$\left(\begin{smallmatrix} b \\ \mathbf{x}\end{smallmatrix}\right)$
+ a solution. Then the above matrix equation can be written as
+
+12
+
+$$\begin{equation} \lVert \mathbf{s}_i - \mathbf{x}\rVert = \langle \mathbf{u},\mathbf{s}_i\rangle - (\alpha + b) \quad (i = 1 ,\ldots ,m), \cssId{eqSiX}{\tag{12}} \end{equation}$$
+
+and squaring both sides shows that the satellite positions 
+$\mathbf{s}_i$
+ all lie on a quadric 
+$Q \subseteq \mathbb{R}^3$
+.
+ What sort of a quadric is 
+$Q$
+?
+ If 
+$\mathbf{u} = \mathbf{0}$
+,
+ then 
+$Q$
+ is a sphere with 
+$\mathbf{x}$
+,
+ the user position, at the center. On the other hand, if 
+$\mathbf{u} \ne \mathbf{0}$
+ we can write 
+$\mathbf{u} = e \cdot \widetilde{\mathbf{u}}$
+ with 
+$e \coloneq \lVert \mathbf{u}\rVert$
+.
+ Now 
+12
+ tells us that the distance of 
+$\mathbf{s}_i$
+ to 
+$\mathbf{x}$
+ is 
+$e$
+ times the number 
+$\langle \widetilde{\mathbf{u}},\mathbf{s}_i\rangle - \frac{\alpha + b}{e}$
+,
+ which is the distance of 
+$\mathbf{s}_i$
+ to the affine plane 
+$H$
+ consisting of all points 
+$\mathbf{p} \in \mathbb{R}^3$
+ with 
+$\langle \widetilde{\mathbf{u}},\mathbf{p}\rangle - \frac{\alpha + b}{e} = 0$
+.
+ This statement will be recognized by readers who are familiar with the focus-directrix property (two years ago, the authors of this article did not belong to that group). Let us introduce this concept here: a set of points in 
+$\mathbb{R}^3$
+ is said to satisfy the focus-directrix property (or, for short, to have a focus) if it is given as
+
+13
+
+$$\begin{equation} \bigl \{\mathbf{p} \in \mathbb{R}^3\bigr |\lVert \mathbf{p} - \mathbf{f}\rVert = e \cdot \operatorname {dist}(H,\mathbf{p})\bigr \}, \cssId{eqFocusDirectrix}{\tag{13}} \end{equation}$$
+
+where 
+$\mathbf{f} \in \mathbb{R}^3$
+ is a point (the 
+focus
+), 
+$H \subset \mathbb{R}^3$
+ is an affine plane (the 
+directrix
+), and 
+$e \ge 0$
+ is a number (the 
+eccentricity
+). For technical reasons we also demand that the set contain points that are not collinear. Extending the concept, we also regard the sphere with any positive radius around 
+$\mathbf{f}$
+ as satisfying the focus-directrix property with 
+$e = 0$
+,
+ thinking of a directrix at infinity. By squaring the equation in 
+13
+ we see that any point set with a focus is a quadric.
+
+We summarize our findings as follows: if the matrix 
+$A$
+ has rank 
+$4$
+ (the less fortunate case), then all satellite positions 
+$\mathbf{s}_i$
+ lie on a quadric 
+$Q$
+ which has the user position 
+$\mathbf{x}$
+ as focus. In fact, the equation 
+12
+ tells us a bit more: 
+$\langle \mathbf{u},\mathbf{s}_i\rangle - (\alpha + b)$
+ is nonnegative, so all 
+$\mathbf{s}_i$
+ lie on the same side of 
+$H$
+.
+ As we will see, this means that they lie on the same “sheet” of 
+$Q$
+,
+ which is only relevant if 
+$Q$
+ has more than one sheet. And with this addition, it turns out that 
+$Q$
+ is uniquely determined by 
+$\mathbf{x}$
+ and the 
+$\mathbf{s}_i$
+,
+ and that the converse is also true: if the 
+$\mathbf{s}_i$
+ lie on the same sheet of a quadric with focus 
+$\mathbf{x}$
+,
+ then 
+$\operatorname {rank}(A) = 4$
+.
+
+So what do quadrics with a focus look like? They are not hard to classify, and if we had enough space, we could present the derivation here. Instead, we direct the reader to 
+BK24
+ and present the result here. In fact, there are four types of quadrics with a focus. It turns out that some of them have two sheets (separated by the directrix), and some have two foci, either of which can be chosen to define the quadric according to 
+13
+. The types are:
+
+1.
+
+The 
+prolate spheroid
+ or the 
+sphere
+, given (with respect to suitable coordinates) by the equation 
+$\frac{x^2}{a^2} + \frac{y^2}{a^2} + \frac{z^2}{b^2} = 1$
+ with 
+$0 < a \le b$
+.
+ The eccentricity is 
+$e = \sqrt {1 - \frac{a^2}{b^2}}$
+,
+ so 
+$0 \le e < 1$
+.
+ The prolate spheroid 
+(
+$e > 0$
+)
+ has two foci and the sphere 
+(
+$e = 0$
+)
+ has one, and both have only one sheet.
+
+2.
+
+The 
+hyperboloid of revolution of two sheets
+, given by the equation 
+$\frac{x^2}{a^2} + \frac{y^2}{a^2} - \frac{z^2}{b^2} = -1$
+ with 
+$a$
+ and 
+$b$
+ positive. The eccentricity is 
+$e = \sqrt {1 + \frac{a^2}{b^2}} > 1$
+.
+ There are two foci and two sheets.
+
+3.
+
+The 
+paraboloid of revolution
+ given by the equation 
+$\frac{x^2}{a^2} + \frac{y^2}{a^2} - z = 0$
+ with 
+$a > 0$
+.
+ The eccentricity is 
+$e = 1$
+,
+ and there is only one focus and one sheet.
+
+4.
+
+The 
+cone of revolution
+, given by the equation 
+$\frac{x^2}{a^2} + \frac{y^2}{a^2} - z^2 = 0$
+ with 
+$a > 0$
+.
+ The eccentricity is 
+$e = \sqrt {1 + a^2} > 1$
+.
+ There is one focus and two sheets meeting at the focus.
+
+The four types are shown in Figure 
+3
+.
+
+Figure 3
+.
+
+Quadrics with a focus: spheroid, hyperboloid of two sheets, paraboloid, cone.
+
+Readers may have noticed that all quadrics with a focus are also quadrics of revolution; but there are quadrics of revolution that do not have a focus, such as the hyperboloid of revolution of one sheet. The classification works in any dimension 
+$\ge 2$
+ and always yields four types. In dimension two, they are called ellipse, hyperbola, parabola, and pair of lines. Figure 
+4
+ shows a hyperbola and an ellipse with their foci and directrices.
+
+Figure 4
+.
+Hyperbolae and ellipses have two foci 
+$\mathbf{f}$
+ and 
+$\mathbf{f}'$
+ with corresponding directices 
+$H$
+ and 
+$H'$
+.
+
+What is the significance of the four types of quadrics in our context? Taking a look back at our solution procedure for the global positioning problem, we realize that in Step 
+4.
+ of Procedure 
+1
+, which is performed only if 
+$A$
+ has rank 
+$4$
+,
+ four things can happen: the coefficient before 
+$b^2$
+ in Equation 
+10
+ can vanish, the discriminant in 
+10
+ can be 
+$0$
+,
+ Equation 
+10
+ can have two solutions but one is discarded using the inequality 
+11
+, or both solutions satisfy 
+11
+, so the final solution set 
+$S$
+ has two elements. The numerical coincidence of 
+four
+ types of quadrics and 
+four
+ possibilities in our procedure is likely to already give away the gist of the following result.
+
+Theorem 2
+
+(
+BK24
+)
+.
+
+Let 
+$\mathbf{s}_1 ,\ldots ,\mathbf{s}_m \in \mathbb{R}^3$
+ be noncoplanar points and let 
+$t_1 ,\ldots ,t_m \in \mathbb{R}$
+ be scalars such that the global positioning equations 
+1
+ have a solution 
+$\left(\begin{smallmatrix} b_0 \\ \mathbf{x}_0\end{smallmatrix}\right)$
+.
+ Assume that the matrix 
+$A$
+ given by 
+8
+ has rank 
+$4$
+,
+ so there exists a unique quadric 
+$Q$
+ with focus 
+$\mathbf{x}_0$
+ such that the 
+$\mathbf{s}_i$
+ lie on the same sheet of 
+$Q$
+.
+
+(a)
+
+The coefficient of 
+$b^2$
+ in Equation 
+10
+ vanishes if and only if 
+$Q$
+ is a paraboloid of revolution.
+
+(b)
+
+The polynomial in Equation 
+10
+ is quadratic but has discriminant 
+$0$
+ if and only if 
+$Q$
+ is a cone of revolution.
+
+(c)
+
+Equation 
+10
+ has two solutions 
+$b_0,b_1$
+,
+ but 
+$b_1$
+ does not satisfy 
+11
+ if and only if 
+$Q$
+ is a spheroid or a sphere. In this case 
+$\mathbf{x}_1 \coloneq b_1 \mathbf{u} + \mathbf{v}$
+ is the other focus of 
+$Q$
+.
+
+(d)
+
+Equation 
+10
+ has two solutions 
+$b_0,b_1$
+ and both satisfy 
+11
+ if and only if 
+$Q$
+ is a hyperboloid of revolution of two sheets. In this case 
+$\mathbf{x}_1 \coloneq b_1 \mathbf{u} + \mathbf{v}$
+ is the other focus of 
+$Q$
+.
+
+Only in case 
+(d)
+ do the global positioning equations 
+1
+ have two solutions. Otherwise the solution is unique.
+
+Even though Theorem 
+2
+ references Procedure 
+1
+, it is really about the uniqueness and solution behavior of the global positioning problem as such. It also carries over to any dimension 
+$n \ge 2$
+.
+
+Another use of the geometric understanding provided by the result is to construct counterexamples. In particular, 
+BK24
+ presents counterexamples to conjectures in 
+Hou22
+AC91
+.
+
+5
+.
+
+Five is Enough
+
+It has been a long-held belief within the global positioning community that with five or more satellites in view, the global positioning problem would most likely have a unique solution. This is plausible since the system 
+1
+, having four unknowns, is overdetermined for 
+$m \ge 5$
+.
+ Despite a thorough search of the literature, we found, to our surprise, that no one had given a proof that this is actually true. So we tried ourselves and came up with the following result, which closes the gap in the literature.
+
+Theorem 3
+
+(
+BK24
+)
+.
+
+Let 
+$\mathbf{s}_1 ,\ldots ,\mathbf{s}_m \in \mathbb{R}^3$
+ be pairwise distinct noncoplanar points with 
+$m \ge 5$
+.
+ Then for almost every 
+$\mathbf{x} \in \mathbb{R}^3$
+ the global positioning problem has a unique solution. More precisely, there exists a nonzero polynomial 
+$f \in \mathbb{R}[x_1,x_2,x_3]$
+ such that if 
+$f(\mathbf{x}) \ne 0$
+,
+ then the matrix 
+$A$
+ from 
+8
+, formed with 
+$t_i \coloneq \lVert \mathbf{s}_i - \mathbf{x}\rVert + b$
+,
+
+$b \in \mathbb{R}$
+ arbitrary, has rank 
+$5$
+.
+ So 
+2
+ and hence also 
+1
+ have 
+$\left(\begin{smallmatrix} b \\ \mathbf{x}\end{smallmatrix}\right)$
+ as unique solution.
+
+The theorem carries over to any dimension 
+$n \ge 2$
+ with 
+$5$
+ replaced by 
+$n + 2$
+.
+ It is false in dimension 
+$1$
+.
+
+Among the results mentioned in this article, Theorem 
+3
+ is the most difficult one. The proof uses methods and results from commutative algebra (such as the equality of Krull dimension and transcendence degree for affine algebras), but at its heart it requires a result from algebraic geometry. This is the result, well-known among algebraic geometers, that for a morphism 
+$f\colon X \to Y$
+ between irreducible varieties, every nonempty fiber 
+$f^{-1}(\{y\})$
+ has dimension at least 
+$\dim (X) - \dim (Y)$
+.
+ This can be found, in slightly different settings, in 
+Har77
+, 
+Chapter II, Exercise 3.22(b)
+ or 
+Kem11
+, 
+Corollary 10.6
+.
+
+6
+.
+
+Eight is Even Better
+
+It would be even better to have a unique solution for every 
+$\mathbf{x}$
+,
+ without exceptions, than just for almost every 
+$\mathbf{x}$
+,
+ as in Theorem 
+3
+. This is achieved by the following result.
+
+Theorem 4
+
+(
+BK24
+)
+.
+
+Assume 
+$m \ge 8$
+.
+ Then for almost all 
+$\mathbf{s}_1 ,\ldots ,\mathbf{s}_m \in \mathbb{R}^3$
+ we have that the global positioning problem has a unique solution for every 
+$\mathbf{x} \in \mathbb{R}^3$
+.
+ More precisely, there exists a nonzero polynomial 
+$f$
+ in 
+$3 m$
+ variables such that if 
+$f(\mathbf{a}_1 ,\ldots ,\mathbf{a}_m) \ne 0$
+ and if 
+$\mathbf{x} \in \mathbb{R}^3$
+ and 
+$b \in \mathbb{R}$
+ are arbitrary, then the matrix 
+$A$
+ from 
+8
+, formed with 
+$t_i \coloneq \lVert \mathbf{s}_i - \mathbf{x}\rVert + b$
+,
+ has rank 
+$5$
+.
+ So 
+2
+ and hence also 
+1
+ have 
+$\left(\begin{smallmatrix} b \\ \mathbf{x}\end{smallmatrix}\right)$
+ as unique solution.
+
+As far as we know, this is the first result about uniqueness for 
+all
+ user positions. Before our results, experts in global positioning were not aware that the number eight plays a special role. Like Theorem 
+3
+, the above result also carries over to any dimension 
+$n \ge 2$
+,
+ with the condition 
+“
+$m \ge 8$
+”
+ replaced by 
+“
+$m \ge 2 n + 2$
+.”
+ There is another parallel: even though the proof of Theorem 
+4
+ is different from (and, actually, easier than) the proof of Theorem 
+3
+, both proofs crucially use the above-mentioned fact from algebraic geometry.
+
+7
+.
+
+Why Uniqueness Matters
+
+In many real-life scenarios, one has access to a good initial estimate for the user position, and thus a gradient descent procedure can be followed to seek a true solution nearby. So the GPS practitioner might wonder, what is the point of studying uniqueness? Our results provide a threefold answer to that question. First, equation 
+9
+ implies that, when the solution is unique, it can be obtained by finding a vector that spans the kernel of the matrix
+
+$$\begin{equation*} \left( \begin{array}{c|c} & t_1^2 - \lVert \mathbf{s}_1\rVert ^2 \\A & \vdots \\& t_m^2 - \lVert \mathbf{s}_m\rVert ^2 \end{array}\right) \in \mathbb{R}^{m \times 6}. \end{equation*}$$
+
+When the data is noisy, an approximate solution can be obtained via the total least squares procedure, in which one normalizes the singular vector corresponding to the smallest singular value of the matrix 
+GVL80
+. Theorem 
+3
+ further implies that this procedure should work for a randomly chosen satellite configuration if 
+$m \ge 5$
+.
+ Figure 
+5
+, which plots the distribution of the error in the bias estimate for randomly chosen configurations of 5, 6, and 7 satellites (with independent Gaussian noise with 
+$\sigma =10^{-6}$
+ added to the measured times 
+$t_i$
+),
+ confirms this. The error obtained with 5 satellites is no more than 2% in most cases, and drops by several orders of magnitude when a 
+$6^{th}$
+ satellite is added.
+
+Figure 5
+.
+Mean and std of the bias estimate error for 1000 random satellite configurations 
+$m$
+ satellites, 
+$m=5,6,7$
+,
+ with true 
+$b=1$
+ and independent Gaussian noise with 
+$\sigma =10^{-6}$
+ added to the 
+$t_i$
+’s.
+
+Second, our theory highlights that there are arrangements of satellites for which the kernel of the matrix is two-dimensional (Theorem 
+2
+ part 
+(d)
+.) In the vicinity of these, it is hard to distinguish which of the singular vectors correspond to the zero singular value, as one of the nonzero singular values is small. As shown in Figure 
+6
+, even in the absence of noise, the computer’s floating-point arithmetic yields larger and larger errors in the bias estimate, as the configuration of satellites gets closer and closer to a bad one.
+
+Figure 6
+.
+Error of the bias estimate for a noiseless measurement of the 
+$t_i$
+’s
+ with a configuration of 5 satellites with 
+$b=1$
+ near one with 2 solutions. The error is solely due to floating-point arithmetic.
+
+Adding noise to the data further adds variability in the error, and the extent of this variability increases as one approaches the bad configuration. This third point is seen clearly in Figure 
+7
+, which shows that the standard deviation of the error grows at an increasing rate as one gets closer to a bad configuration.
+
+Figure 7
+.
+Std of the bias estimate error for 500 noisy observations of the 
+$t_i$
+’s
+
+(
+$\sigma =10^{-8}$
+)
+ with a configuration of 5 satellites with 
+$b=1$
+ near one with two solutions.
+
+References
+[
+AC91
+]
+ Jonathan S. Abel and James W. Chaffee, 
+Existence and uniqueness of GPS solutions
+, IEEE Transactions on Aerospace and Electronic Systems 
+27
+ (1991), 952–956., 
+
+Show raw
+AMSref
+
+\bib{Abel:Chaffee:1991}{article}{
+  author={Abel, Jonathan~S.},
+  author={Chaffee, James~W.},
+  title={Existence and uniqueness of {GPS} solutions},
+  date={1991},
+  journal={IEEE Transactions on Aerospace and Electronic Systems},
+  volume={27},
+  pages={952\ndash 956},
+}
+
+[
+Ban85
+]
+ Stephen Bancroft, 
+An algebraic solution of the GPS equations
+, IEEE Transactions on Aerospace and Electronic Systems 
+7
+ (1985), 56–59., 
+
+Show raw
+AMSref
+
+\bib{Bancroft:1985}{article}{
+  author={Bancroft, Stephen},
+  title={An algebraic solution of the {GPS} equations},
+  date={1985},
+  journal={IEEE Transactions on Aerospace and Electronic Systems},
+  volume={7},
+  pages={56\ndash 59},
+}
+
+[
+BK24
+]
+ Mireille Boutin and Gregor Kemper, 
+Global positioning: the uniqueness question and a new solution method
+, Adv. in Appl. Math. 
+160
+ (2024), Paper No. 102741, 38, DOI 
+10.1016/j.aam.2024.102741
+. MR
+4776325
+, 
+
+Show raw
+AMSref
+
+\bib{Boutin:Kemper:2024}{article}{
+  author={Boutin, Mireille},
+  author={Kemper, Gregor},
+  title={Global positioning: the uniqueness question and a new solution method},
+  journal={Adv. in Appl. Math.},
+  volume={160},
+  date={2024},
+  pages={Paper No. 102741, 38},
+  issn={0196-8858},
+  review={\MR {4776325}},
+  doi={10.1016/j.aam.2024.102741},
+}
+
+[
+Bor03
+]
+ Kai Borre, 
+The GPS Easy Suite–Matlab code for the GPS newcomer
+, GPS Solutions 
+7
+ (2003), 47–51., 
+
+Show raw
+AMSref
+
+\bib{borre2003gps}{article}{
+  author={Borre, Kai},
+  title={The {GPS} {E}asy {S}uite--{M}atlab code for the {GPS} newcomer},
+  date={2003},
+  journal={GPS Solutions},
+  volume={7},
+  pages={47\ndash 51},
+}
+
+[
+GVL80
+]
+ Gene H. Golub and Charles F. Van Loan, 
+An analysis of the total least squares problem
+, SIAM J. Numer. Anal. 
+17
+ (1980), no. 6, 883–893, DOI 
+10.1137/0717073
+. MR
+595451
+, 
+
+Show raw
+AMSref
+
+\bib{golub1980analysis}{article}{
+  author={Golub, Gene H.},
+  author={Van Loan, Charles F.},
+  title={An analysis of the total least squares problem},
+  journal={SIAM J. Numer. Anal.},
+  volume={17},
+  date={1980},
+  number={6},
+  pages={883--893},
+  issn={0036-1429},
+  review={\MR {595451}},
+  doi={10.1137/0717073},
+}
+
+[
+Har77
+]
+ Robin Hartshorne, 
+Algebraic geometry
+, Graduate Texts in Mathematics, No. 52, Springer-Verlag, New York-Heidelberg, 1977. MR
+463157
+, 
+
+Show raw
+AMSref
+
+\bib{hart}{book}{
+  author={Hartshorne, Robin},
+  title={Algebraic geometry},
+  series={Graduate Texts in Mathematics, No. 52},
+  publisher={Springer-Verlag, New York-Heidelberg},
+  date={1977},
+  pages={xvi+496},
+  isbn={0-387-90244-9},
+  review={\MR {463157}},
+}
+
+[
+Hou22
+]
+ M. Hou, 
+Uniqueness and hyperconic geometry of positioning with biased distance measurements
+, GPS Solutions 
+26
+ (2022)., 
+
+Show raw
+AMSref
+
+\bib{Hou:2022}{article}{
+  author={Hou, M.},
+  title={Uniqueness and hyperconic geometry of positioning with biased distance measurements},
+  date={2022},
+  journal={GPS Solutions},
+  volume={26},
+}
+
+[
+HS10
+]
+ Dagoberto José Salazar Hernández and Jaume Sanz Subirana, 
+Precise GPS-based position, velocity and acceleration determination: Algorithms and tools
+, Universitat Politecnica de Catalunya (UPC), Spain (2010)., 
+
+Show raw
+AMSref
+
+\bib{hernandez2010precise}{article}{
+  author={Hern{\'a}ndez, Dagoberto Jos{\'e}~Salazar},
+  author={Subirana, Jaume~Sanz},
+  title={Precise {GPS}-based position, velocity and acceleration determination: Algorithms and tools},
+  date={2010},
+  journal={Universitat Politecnica de Catalunya (UPC), Spain},
+}
+
+[
+Kem11
+]
+ Gregor Kemper, 
+A course in commutative algebra
+, Graduate Texts in Mathematics, vol. 256, Springer, Heidelberg, 2011, DOI 
+10.1007/978-3-642-03545-6
+. MR
+2766370
+, 
+
+Show raw
+AMSref
+
+\bib{Kemper.Comalg}{book}{
+  author={Kemper, Gregor},
+  title={A course in commutative algebra},
+  series={Graduate Texts in Mathematics},
+  volume={256},
+  publisher={Springer, Heidelberg},
+  date={2011},
+  pages={xii+246},
+  isbn={978-3-642-03544-9},
+  review={\MR {2766370}},
+  doi={10.1007/978-3-642-03545-6},
+}
+
+[
+Lee75
+]
+ Harry B. Lee, 
+A novel procedure for assessing the accuracy of hyperbolic multilateration systems
+, IEEE Trans. Aerospace Electron. Systems 
+AES-1
+ (1975), 2–15, DOI 
+10.1109/TAES.1975.308023
+. MR
+359281
+, 
+
+Show raw
+AMSref
+
+\bib{lee1975novel}{article}{
+  author={Lee, Harry B.},
+  title={A novel procedure for assessing the accuracy of hyperbolic multilateration systems},
+  journal={IEEE Trans. Aerospace Electron. Systems},
+  volume={AES-1},
+  date={1975},
+  pages={2--15},
+  issn={0018-9251},
+  review={\MR {359281}},
+  doi={10.1109/TAES.1975.308023},
+}
+
+[
+Mar64
+]
+ Nathan Marchand, 
+Error distributions of best estimate of position from multiple time difference hyperbolic networks
+, IEEE Transactions on Aerospace and Navigational Electronics 
+2
+ (1964), 96–100., 
+
+Show raw
+AMSref
+
+\bib{marchand1964error}{article}{
+  author={Marchand, Nathan},
+  title={Error distributions of best estimate of position from multiple time difference hyperbolic networks},
+  date={1964},
+  journal={IEEE Transactions on Aerospace and Navigational Electronics},
+  number={2},
+  pages={96\ndash 100},
+}
+
+[
+SB97
+]
+ Gilbert Strang and Kai Borre, 
+Linear algebra, geodesy, and GPS
+, SIAM, 1997., 
+
+Show raw
+AMSref
+
+\bib{strang1997linear}{book}{
+  author={Strang, Gilbert},
+  author={Borre, Kai},
+  title={Linear algebra, geodesy, and {GPS}},
+  publisher={SIAM},
+  date={1997},
+}
+
+Mireille Boutin is a professor of mathematics at the Eindhoven Institute of Technology and Purdue University. Her email address is 
+[email protected]
+.
+
+Gregor Kemper is a professor of mathematics at the Technical University of Munich. His email address is 
+[email protected]
+.
+
+Article DOI: 
+10.1090/noti3209
+Credits
+
+All figures are courtesy of Mireille Boutin and Gregor Kemper.
+
+Photo of Mireille Boutin is courtesy of Vincent van den Hoogen.
+
+Photo of Gregor Kemper is courtesy of Andreas Heddergott/TUM.

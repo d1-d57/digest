@@ -1,0 +1,486 @@
+Snapsho t s o f m o d e r n m athematics                                     № 7/2026
+from Ob e r wo l f a c h
+
+
+
+
+               Simulating Alzheimer’s disease
+                  with a brainsphere model
+
+
+                        Angela Kunoth 1 • Anna We l l e r 2
+                                Tolunay Yilmaz
+
+
+
+       Nowadays, there are different medical imaging tech-
+       niques to collect data about the progression of Alzhei-
+       mer’s disease in a patient’s brain. These data describe
+       different phenomena which are still not understood
+       from a biological point of view. How can these data
+       sets be combined in a mathematical model to simulate
+       the evolution of such a neurodegenerative disease in a
+       computer? In this snapshot, we present one possible
+       approach to address this task with the help of graph
+       theory and partial differential equations.
+
+1 I n t roduction
+
+Alzheimer’s disease is a slowly progressing neurodegenerative disease causing
+the brain to shrink and brain cells to die. Much progress has been made in
+
+ 1 The presented model was developed in joint work with Prof. Dr. Alexander Drzezga
+
+and Prof. Dr. Yaping Shao as part of the project “Neurodegeneration Forecasting – A
+Computational Brainsphere Model for the Simulation of Alzheimer’s Disease”, supported by
+the Excellence Initiative of the University of Cologne, Germany, 2017–2019.
+ 2 Supported by the Excellence Initiative of the University of Cologne and by HESCOR
+
+(Human and Earth System Coupled Research) at the University of Cologne, part of the
+“Profile Building 2022” initiative by North Rhine-Westphalia’s Ministry for Culture and
+Science, Germany.
+
+
+                                           1
+investigating the course and certain biomarkers of the disease. The perhaps
+largest attention is currently focused on two proteins that behave conspicuously
+in the brain of an Alzheimer’s patient: On the one hand, beta-amyloid peptides
+aggregate in the surrounding area of the neuronal network in the brain as
+plaques [8]. On the other hand, there are abnormally folded tau proteins which
+accumulate in the neurons (nerve cells) in the form of tangles and are believed
+to affect their functioning and, finally, to cause their death [9].
+    In the past, it was only possible to examine the brains of dead Alzheimer’s
+patients. The development of modern medical imaging techniques made it
+possible to visualize protein plaques in the brains of living patients as well
+(in-vivo data). PET scanners measure accumulations of tau and beta-amyloid,
+and functional MRI as well as DTI scanners provide indications of the structure
+and functioning of a human brain. Central goal of subsequent studies is the
+behavior of tau and beta-amyloid as well as the connectivity patterns in the
+brain.
+    A relatively new model for tau propagation is the transneuronal spread
+hypothesis. Transneuronal means that tangles travel from neuron to neuron,
+inducing tangles in neighboring neurons in a prion-like fashion. The word prion
+is a combination of “protein” and “infection”, indicating that misfolded proteins
+can infect others. According to this hypothesis, the connectivity of neurons is a
+driver for tau pathology, that is, highly interconnected neurons are more likely
+to get infected [7].
+    On the other hand, it is also believed that aggregated tau proteins affect
+the functioning of neurons and their connections to other neurons in the brain.
+Additionally, the presence of beta-amyloid plaques in the surrounding of a
+neuron could influence its tendency to aggregate tau.
+    Having discussed only a fraction of the possible interactions and factors of
+the disease process, we already realize that it quickly becomes complicated
+to adequately describe such a complex interplay. The crucial challenge is to
+analyze and combine the in-vivo data within a mathematical framework. We
+propose a computational brainsphere model for the simulation of Alzheimer’s
+disease which consists of three interacting parts:
+1. A brain network model to represent the human brain as a dynamical network,
+   or, in mathematical terms, as a “graph”, and to investigate the effects of
+   tau pathology on the connectivity patterns;
+2. A tau distribution model to simulate the spreading of tau proteins across
+   the brain network;
+3. A beta-amyloid model to model the dispersion of beta-amyloid in the envi-
+   ronment of the brain network.
+In the following, we give a brief introduction to the brain network and the tau
+distribution model. These have, as described above, a reciprocal dependency,
+
+
+                                       2
+meaning that the network structure influences the propagation of tau and the
+presence of tau influences the structure of the network.
+
+
+2 G raph theor y
+
+One major tool in the analysis of networks is a mathematical branch called
+graph theory. It provides a formalization of a network as well as characteristics
+and algorithms to investigate its structure.
+   A graph G consists of vertices v1 , . . . , vn and edges e1 , . . . , en . Each edge
+connects two vertices, which are then called neighbors. An edge is incident
+to a vertex v if the edge is attached to v. A first example of a graph is given
+in Figure 1. Here, G has five vertices v1 , . . . , v5 and six edges e1 , . . . , e6 . The
+neighbors of the vertex v1 are v2 , v3 , and v4 , and the edge e1 is incident to v1
+and v2 .
+   Besides the number of vertices n and the number of edges m, an important
+characteristic of a graph is the degree. The degree dv of a vertex v is defined
+as the number of neighbors of a vertex, which is the same as the number of
+incident edges. In Figure 1, the degree of v1 is dv1 = 3.
+
+                                             v3
+                                                             e4
+                             e5               e2
+
+                                                        v1               v2
+                                                                  e1
+              v5
+                                                   e3
+                           e6
+                                        v4
+
+Figure 1 : Example of a graph G with vertices v1 , v2 , v3 , v4 , v5 and edges
+            e1 , e2 , e3 , e4 , e5 , e6 .
+
+
+   Another example: Imagine the vertices of a graph to be houses on an island.
+Several houses are connected by streets, hence, the streets are the edges of our
+graph. Along the streets, houses can exchange things with each other, such
+as agricultural products, information, etc. As shown in Figure 2, we might
+identify groups of houses on the island that are more densely connected to each
+other than to other houses; we could speak of villages. In graph-theoretical
+terms, such densely interconnected sets of vertices are called communities. To
+
+
+                                                        3
+investigate whether a graph is organized in community structures, we can use,
+for example, the “Louvain community detection algorithm”.
+
+
+                                           
+                                          
+                            
+                             
+                                           
+                                              
+         F i g u r e 2 : Houses as an example of communities in a graph.
+
+
+
+
+3 Brain networ k model
+
+The first idea for our model is to represent the human brain as a graph with
+neurons as vertices and synapses as edges. Unfortunately, the resolution of
+common MRI scanners is not high enough to render the extremely small neurons.
+Instead, a common approach is to consider groups of neurons that are close
+to each other as brain regions. For the brain as a three-dimensional object,
+a definition of these brain regions may be achieved by a partitioning into
+neighboring regions that have approximately the same size and shape. In our
+model, this resulted in the parcellation displayed in Figure 3a with 571 regions
+having an approximate volume of 2 ml [11]. Each of these regions now serves as
+a vertex in our graph, where we position the vertex in the middle of the brain
+region, see Figure 3b.
+    The resulting groups of neurons can be structurally or functionally connected.
+A structural connection is a physical connection through fibres in the brain. A
+functional connection is more likely to refer to the collaboration of different
+regions. If two areas in the brain are often active at the same time, for instance,
+to perform a task, they are said to be functionally connected. Whether one
+considers structural or functional connections depends on the context and the
+way connectivity is defined. In both cases, the brain regions form the vertex
+set of our graph. The edges connecting the vertices are either the structural or
+functional connections (see Figure 3c for an example of a brain network with
+functional connections).
+    Modeling the brain as a graph enables us to apply new methods for analyzing
+its structure and organizing principles. A variety of algorithms from graph theory
+can now be applied to identify regions with particularly strong connections,
+to determine shortest paths, or to find communities. Several authors have
+
+
+                                        4
+                     ( a ) Brain atlas with 571 brain regions.
+
+
+
+
+                        ( b ) Vertices of the brain network.
+
+
+
+
+                   (c) Vertices and edges of the brain network.
+
+             F i g u r e 3 : Construction of the brain network model.
+
+
+performed graph-theoretical analysis of the brain network. For example, it was
+found that healthy brain networks are generally organized respecting economic
+principles of minimizing wiring costs and maximizing global efficiency (see, for
+example, [6] and the references therein).
+   If every two houses on our imaginary island were to be connected by a
+street, this would cause massive construction costs. An economic trade-off
+would be a high connectivity in local communities (villages), where wiring
+costs are comparably low, combined with only a few expensive long-distance
+roads (expressways) to more remote communities. This connection pattern is
+characterized by high modularity (a measure to which extent a community is
+present) and is a particular kind of a small-world network architecture allowing
+highly efficient information transfer with low wiring costs [5].
+
+
+                                         5
+                                                                   ℓ
+                                                                       v2
+                    v1                                e
+
+                     x=0                                          x=ℓ
+
+
+                  F i g u r e 4 : Diffusion across a single isolated edge.
+
+
+   By contrast, in many neurological disorders, peculiarities in the brain network
+have been noticed, for example, weakened connectivity or modified organiza-
+tional structures. In [11], the community formation in brain networks of a group
+of healthy adults were compared to a group of Alzheimer’s patients. The results
+of this study suggest that the community structures in the Alzheimer’s group
+have a significantly lower modularity than the healthy control group. This
+decrease of modularity in Alzheimer’s patients compared with both young and
+senior controls indicates a loss of efficiency of information transfer across the
+whole brain.
+
+
+4 Spreading of tau proteins
+
+The second important part of the computational brainsphere model is the
+tau distribution model which aims to simulate the spreading of tau proteins
+across the brain network. To simulate such processes, we use partial differential
+equations (PDEs). A partial differential equation relates a function in several
+dimensions to its partial derivatives, and the aim is to find this function from
+this equation.
+   In our first mathematical model, the two dimensions of our function are time
+and space. We want to simulate how the concentration of tau at position x in
+the network changes over time t. Following the transneuronal spread hypothesis,
+we suppose that tau proteins can only spread along the edges of the brain
+network. Here, we will model this spreading as a diffusion process. 3
+   To explain this, consider first only a single isolated edge of the network, for
+example, the edge e = (v1 , v2 ) between vertex v1 and vertex v2 . Physically, we
+imagine the edge to be a thin tube with length ℓ, see Figure 4. Vertex v1 is
+at position x = 0 and v2 at position x = ℓ of the edge. The concentration of
+tau at any position x of the edge at time t is given by a function denoted by
+τ = τ (x, t) which describes the amount of tau per unit volume.
+
+3   Diffusion refers to the movement of particles from higher to lower concentrations.
+
+
+                                             6
+    Fick’s first law tells us that the concentration τ can be related to the flux F
+by the equation
+                                                ∂τ
+                                    F = −D ·       .                              (1)
+                                                ∂x
+By flux, we mean how much of a substance flows through a given area in a
+certain amount of time. D is the diffusion coefficient, which influences the
+                                           ∂τ
+strength of the flow. The expression ∂x       stands for the first partial derivative
+of τ with respect to x. It describes how the concentration changes with respect
+                                ∂τ
+to the space coordinate. If ∂x     is large, the concentration rises along the edge,
+causing a flux in the opposite direction.
+    Using this relation and respecting mass conservation (the principle that the
+total amount of substance remains constant), we can derive an equation that
+tells us how diffusion causes the concentration to change with respect to time.
+This equation is Fick’s second law and reads
+
+                                   ∂τ     ∂2τ
+                                      =D·     .                                     (2)
+                                   ∂t     ∂x2
+                                                                                     2
+Here ∂τ∂t denotes the first partial derivative of τ with respect to time and ∂x2
+                                                                                   ∂ τ
+
+denotes the second partial derivative with respect to x. Equation (2) is a partial
+differential equation as it involves derivatives of τ with respect to both time and
+space. Solving this PDEs tells us how the concentration of τ at any position x
+on an edge changes with respect to time t.
+    Now that we elaborated how we can describe the diffusion process on a
+single edge, we can attend to the generalization to the whole network. Consider
+Figure 5, where we illustrate as an example one vertex v with three incident
+edges e1 , e2 , and e3 . In general, a vertex v has dv incident edges e1 , . . . , edv ,
+as explained in section 2. For each of these edges, we now need a separate
+function to describe the concentration along the coordinates of the edge. We
+will, therefore, denote the function for edge ei by τi .
+    For ease of notation, we suppose that the vertex v lies at position x = 0 for
+every attached edge ei . This means that the concentration of tau at vertex v
+is given by τ (v) = τi (0). For this definition to make sense, we have to assume
+τ1 (0) = τ2 (0) = . . . = τd (0) (continuity condition).
+    On every edge attached to vertex v, the diffusion can be described by
+equation (2), but what happens at the vertex v itself? According to Fick’s first
+law (1), the rate at which tau leaves node v along an edge ei can be modelled as
+                                                ∂τi
+                               Fei (t) = −D ·          ,
+                                                ∂x x=0
+where we evaluate the derivative at the point x = 0 since we agreed that the
+vertex is at position x = 0 on every attached edge. Hence, the total flux out
+
+
+                                           7
+                                 e3
+
+                                              Fe1
+                            Fe3
+                                      v
+                                                                 e1
+                                      Fe2
+
+
+                          e2
+
+
+     F i g u r e 5 : Diffusion at a vertex v with three incident edges e1 , e2 , e3 .
+
+
+of vertex v along all incident edges e1 , . . . , edv is given by the sum of the flows
+over the single edges, that is,
+                                                                     
+                                              ∂τ1         ∂τdv
+                      Fv (t) = −D ·               + ··· +                       .
+                                              ∂x           ∂x
+                                                                          x=0
+
+   If we assume that no substance is produced or lost in the vertices, the
+total flux out of vertex v must be 0 as everything that flows in must flow out
+again. This is also known as conservation of currents and provides us with the
+Neumann-Kirchhoff vertex condition. It couples the diffusion equations on the
+different edges at the vertices [4]. Together, we arrive at a coupled system of
+partial differential equations that describes a diffusion process on a network.
+This system is given by
+
+        ∂τi       ∂ 2 τi
+             =D                                       for all edges ei = e1 , . . . , em ,
+         ∂t        ∂x2                        
+        τ (v) = τi (0)                                                                       (3)
+                                                      for all vertices v with incident
+                                              
+                            
+          ∂τ1           ∂τdv                               edges ei = e1 , . . . , edv .
+          ∂x + · · · + ∂x              =0
+                                 x=0
+
+
+5 Numer ical simulations
+
+The goal of a numerical simulation is to predict patterns of future tau accumu-
+lation, given an initial tau pattern that was actually measured in the brain of a
+patient. In other words, given the initial tau distribution at time t = 0, we want
+to solve system (3) to obtain the tau concentration τi (x, t) for a future time
+point t > 0 and at each position x. This can be achieved by certain numerical
+methods redesigned for graphs, see, for example, [1, 2, 10, 12].
+
+
+                                                  8
+Figure 6 : Observed tau changes across the brain network (top) and model
+           predictions from the reaction-diffusion equation for α = 0.001 (center)
+           and α = 0.005 (bottom). Graphical representation using nilearn in
+           python [10].
+
+
+   In fact, equation (3) is only a very simple attempt to describe the spread of
+tau proteins across the brain network. In a more realistic model, other processes
+such as chemical reactions with the network environment are important. This
+leads to reaction-diffusion equations
+            ∂τi     ∂ 2 τi
+                =D         + ατi        for all edges ei = e1 , . . . , em ,
+            ∂t      ∂x2
+where α is some given constant representing all chemical reactions that affect the
+spread of tau proteins along each neural connection. To solve these equations,
+we compute the predicted change in tau distribution from the initial condition
+in each brain region and compare the result to the actual change measured
+approximately one year after the initial scan.
+
+
+                                        9
+   Figure 6 compares the observed changes in tau distribution to two model
+predictions for α = 0.001 and α = 0.005, which were obtained using a “finite
+element discretization”; the exact discretization details and a description of the
+selected data can be found in [10, 12]. For each value of α, the simulation time t
+was chosen such that the overall amount of predicted tau change matched the
+change observed in the data. While a small reaction term (α = 0.001) required
+a long simulation time and still produced a tau pattern that differed markedly
+from the data, a larger reaction term (α = 0.005) reached the same overall
+change much faster and yielded a distribution closely resembling the observed
+tau patterns. These results suggest that the reaction term plays an important
+role in the prediction of tau patterns.
+
+
+I m age credits
+
+Figu r e 3 Own representation using data presented in [11] and the python
+      nilearn package.
+
+Figu r e 6 Simulation results from [10].
+
+
+R e ferences
+
+ [1] M. Ainsworth, A. Weller, A spectral Galerkin method for the solution
+     of reaction-diffusion equations on metric graphs , Oberwolfach Reports,
+     Workshop Report 36, 2021.
+
+ [2] M. Arioli, M. Benzi, A finite element method for quantum graphs, IMA
+     Journal of Numerical Analysis, Volume 38, Issue 3, 1119–1163, 2018.
+
+ [3] V. Blondel, J. Guillaume, R. Lambiotte, E. Lefebvre, Fast unfolding of
+     communities in large networks, Journal of Statistical Mechanics: Theory
+     and Experiment, Volume 2008, 2008.
+
+ [4] G. Berkolaiko, P. Kuchment, Introduction to Quantum Graphs, Volume
+     186 of Mathematical Surveys and Monographs, American Mathematical
+     Society, 2013.
+
+ [5] E. Bullmore, O. Sporns, Complex brain networks: graph theoretical analysis
+     of structural and functional systems, Nature Reviews Neuroscience 10, 186–
+     198, 2009.
+
+ [6] E. Bullmore, O. Sporns, The economy of brain network organization,
+     Nature Reviews Neuroscience 13, 336–349, 2012.
+
+
+                                       10
+ [7] T. Cope, T. Rittman, R. Borchert, P. Jones, D. Vatansever, K. Allinson,
+     L. Passamonti, P. Rodríguez, W. Bevan-Jones, J. O’Brien, et al., Tau bur-
+     den and the functional connectome in Alzheimer’s disease and Progressive
+     Supranuclear Palsy, Brain, 141(2), 550–567, 2017.
+
+ [8] D. Eisenberg, M. Jucker, The amyloid state of proteins in human diseases,
+     Cell 148, 1188–1203, 2012.
+ [9] M. Goedert, D.S. Eisenberg, R.A. Crowther, Propagation of Tau Aggregates
+     and Neurodegeneration, Annual Review of Neuroscience 40, 189–210, 2017.
+[10] A. Weller, Numerical Methods for Parabolic Partial Differential Equations
+     on Metric Graphs, PhD Thesis, Faculty for Mathematics and Natural
+     Sciences, University of Cologne, 2023.
+[11] A. Weller, G. Bischof, P. Schlueter, N. Richter, J. Dronse, O. Onur, B.
+     Neumaier, J. Kukolja, K. Langen, G. Fink, A. Kunoth, Y. Shao, T. van
+     Eimeren, A. Drzezga, Finding new communities: a principle of neural
+     network reorganization in Alzheimer’s disease, Brain Connectivity, 11(3),
+     225–238, 2021.
+[12] A. Weller, Numerical Methods for Metric Graphs: Eigenvalue Problems
+     and Parabolic Partial Differential Equations, Lecture Notes in Mathematics,
+     Springer, 2025.
+
+
+
+
+                                      11
+Ange l a Ku n o t h i s a p rofessor of            Mathem a t i c a l s u b j e c t s
+math e m a t i c s a t U n i versity of Cologne,   Numer ic s a n d S c i e n t i f i c C o m p u t i n g
+Ger m a ny.
+                                                   Connect i o n s t o o t h e r f i e l d s
+Anna We l l e r wa s a p ostdoc in                 Life Scie n c e
+math e m a t i c s a t U n i versity of Cologne,
+Ger m a ny.                                        License
+                                                   Creative C o m m o n s B Y- S A 4 . 0
+Tolun ay Yi l m a z i s a graduate student at
+Unive r s i t y o f V i e n n a , Austr ia.        DOI
+                                                   10.1476 0 / S N A P - 2 0 2 6 - 0 0 7 - E N
+
+
+
+
+Snapshots of modern mathematics from Oberwolfach provide exciting insights into
+current mathematical research. They are written by participants in the scientific
+program of the Mathematisches Forschungsinstitut Oberwolfach (MFO). The
+snapshot project is designed to promote the understanding and appreciation of
+modern mathematics and mathematical research in the interested public worldwide.
+All snapshots are published in cooperation with the IMAGINARY platform and
+can be found on www.imaginary.org/snapshots and on www.mfo.de/snapshots.
+
+ISSN 2626 -1995
+
+
+Junio r E d i t o r s                              Mathema t i s c h e s Fo r s c h u n g s i n s t i t u t
+Elisa b e t h a u s d e m S i epen                 Oberwol f a c h g G m b H
+and M a r t i n G ü n t h e r                      Schwarz wa l d s t r. 9 – 11
+junio r - ed i t o r s @ m f o. de                 77709 O b e r wo l f a c h
+                                                   Ger many
+Senio r E d i t o r
+Anja R a n d e cke r                               Director
+senio r - ed i t o r @ m f o. d e                  Gerhard H u i s ke n
+

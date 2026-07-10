@@ -1,0 +1,482 @@
+Snapsho t s o f m o d e r n m athematics                                     № 3/2026
+from Ob e r wo l f a c h
+
+
+
+
+             Alter nating sign matr ix bijections:
+              mar velous, myster ious, missing
+
+
+                                     Jessica Str iker 1
+
+
+
+
+       A bijection transforms one type of mathematical ob-
+       ject into another. Such transformations provide new
+       perspectives on these objects, revealing surprising
+       properties and uncovering new mysteries. We discuss
+       bijections from alternating sign matrices to other ob-
+       jects in mathematics and physics and recent progress
+       in the search for a missing bijection.
+
+1 B i j ections in real life and combinator ics
+
+Suppose I hand you a glass of water and some ice cubes and ask, “Are these the
+same thing?” You might say, “No, one is solid and the other is liquid.” Or you
+might say, “Yes, they are both composed of H2 O molecules.” Which reply is
+correct? The answer is: both are! Although ice and liquid water look different,
+they are composed of the same substance, and there is a way to transform one
+into the other and get back again. Ice transforms to liquid water by sitting at
+room temperature, and liquid water transforms back to ice by being put in the
+freezer. Mathematically speaking, this is a bijection: a reversible transformation
+from one set to another. In combinatorics, 2 we are concerned with bijections
+between finite sets. Such a bijection can only exist if the two sets have the
+
+1 Striker was partially supported by Simons Foundation gift MP-TSM-00002802 and National
+
+Science Foundation grant DMS-2247089.
+2 Combinatorics is often called the art and science of counting.
+
+
+
+
+                                             1
+                                     
+        0   0   0   1   0   0   0   0
+      0    0   0   0   0   1   0   0
+                                     
+      0    0   1   0   0   0   0   0
+                                     
+      1    0   0   0   0   0   0   0
+                                     
+      0    0   0   0   1   0   0   0
+                                     
+      0    0   0   0   0   0   0   1
+                                     
+      0    1   0   0   0   0   0   0
+        0   0   0   0   0   0   1   0
+
+      The permutation matrix                         The same permutation matrix as a
+     corresponding to 46315827.                      rook placement (where pawns were
+                                                           used instead of rooks).
+
+                                          Figure 1
+
+
+same number of elements. Many combinatorial bijections give us new insights
+on hidden features of the objects.
+   Let us look at an example. A permutation of n is a rearrangement of the
+numbers 1, 2, . . . , n. For example, the six permutations of 3 are 123, 132, 213,
+231, 312, and 321. There is a bijection between permutations of n and n-by-n
+square arrays of numbers (matrices) with one 1 in each row and column and all
+other entries equal to 0. Figure 1 (left) shows the matrix form of the permutation
+46315827. Notice how the 1 in the first row of the matrix is in column 4, the
+1 in the second row is in column 6, etc. Both the one-line notation 46315827
+and the matrix are useful ways of looking at the same permutation. The first
+one helps you know how many ways there are for a group of eight children
+to form a line. The second helps you model placing the maximum number of
+mutually antagonistic rooks on a chessboard so that none attack each other;
+see Figure 1 (right). 3
+
+
+2 Alter nating sign matr ices
+
+Now imagine we have black and white rooks on a chessboard and we want to
+place them so that no rook is attacking another rook of the same color. So if
+there were more than one rook in a row, the rooks would need to alternate in
+color. Suppose also that there is one more black than white rook in each row
+and in each column. This would be a weird way to play chess, but it makes a
+fun mathematical object called an alternating sign matrix!
+   An alternating sign matrix (ASM) is a square matrix whose entries are equal
+
+3 A rook attacks another rook if it is in the same row or the same column and there is no
+
+other chess piece in between.
+
+
+                                             2
+                               
+     0   0    1   0    0   0 0 0
+    0   0    0   1    0   0 0 0
+                               
+    1
+        0   −1   0   1    0 0 0
+                                
+    0   0    0   0    0   0 0 1
+                               
+    0
+        1    0   0   −1   0 1 0
+                                
+    0   0    0   0    1   0 0 0
+                               
+    0   0    1   0    0   0 0 0
+     0   0    0   0    0   1 0 0
+
+     An alternating sign matrix.                 The same alternating sign matrix as a
+                                                      two-color rook placement.
+
+                                      Figure 2
+
+
+to 0, 1, or −1 and such that the sum of the entries in each row and in each
+column equals 1. Also, the non-zero entries need to alternate in sign along each
+row and each column. You can see a bijection to the weird rook placements by
+saying that each 1 is a black rook, each −1 is a white rook, and each 0 is a spot
+with no chess piece. See Figure 2, where the 1’s in the matrix are represented by
+eight black pawns and two black rooks. Notice that the set of alternating sign
+matrices contains the set of permutation matrices, since a permutation matrix
+corresponds to a placement with only black rooks. With the above definition in
+mind, try to figure out which two of the following four matrices are an ASM!
+(The answer is at the end.)
+                                                                  
+          1 −1 1              0 1 0            0 0 1          0 0 1
+       −1 1 −1 1 −1 1 1 0 0 1 1 −1
+          1 −1 1              0 1 0            0 1 0          0 0 1
+Alternating sign matrices have a fascinating history (see [3] for more details).
+They were discovered in 1984 by mathematicians who were studying a general-
+ization of the determinant from linear algebra. They asked a very reasonable
+question: How many n-by-n alternating sign matrices are there? After doing
+some computations by hand and on the computer, they found that their data
+formed a pattern and conjectured (guessed) [8] that the number of n-by-n
+alternating sign matrices equals
+                                1! 4! 7! · · · (3n − 2)!
+                                                          ,
+                              n! (n + 1)! · · · (2n − 1)!
+where n! = n(n − 1) · · · 3 · 2 · 1. For example, there are 3!1! 4!
+                                                                 4! 7!
+                                                                    5! = 7 different
+3-by-3 ASMs. But it took 13 years to prove this counting formula! One of the
+proofs [7] relied on a beautiful bijection to square ice configurations, which we
+describe next.
+
+
+                                           3
+                   
+    0      1     0 0
+   1
+         −1     0 1
+                    
+   0      0     1 0
+    0      1     0 0
+
+
+         An ASM.              The corresponding square        Its six-vertex configuration.
+                                  ice configuration.
+
+                                         Figure 3
+
+
+3 Known alter nating sign matr ix bijections
+
+3.1 S q u a r e i c e
+
+Back to ice. Imagine we had a grid full of hydrogen and oxygen atoms, where
+the hydrogen atoms lie in between the oxygen atoms, and with hydrogen atoms
+on the left and right sides. We’d like to draw bonds between the atoms to
+make them all into water molecules. We don’t allow the atoms to move, so each
+oxygen needs to be connected to exactly two of the hydrogen atoms directly next
+to it. This forms a sheet of square ice; see Figure 3 (center). 4 You can get from
+a square ice configuration to an alternating sign matrix by the following recipe:
+each horizontal molecule corresponds to a 1, each vertical molecule to a −1, and
+all other molecules to a 0. To get from an ASM to a square ice configuration is
+slightly trickier, since there are multiple molecule configurations corresponding
+to a 0. But it turns out that if you draw the vertical and horizontal molecules
+first, at each other spot, there’s a right choice of the four possible right angle
+molecules so that no hydrogens end up alone (try this out using the example in
+Figure 3!).
+    Usually, physicists study a graph in bijection with a square ice grid, where
+you replace each O by a dot (“vertex”) and each H by an arrow (“directed edge”)
+pointing to its connected O. In addition, you have to add upward-pointing arrows
+on the top and downward-pointing arrows on the bottom; see Figure 3 (right).
+This is called the six-vertex model, because there are exactly six possibilities
+for how the graph looks at a vertex in this situation; see Figure 4 (top and
+center). This beautiful bijection proved useful for enumerating ASMs [7], since
+it provided access to tools from physics.
+
+4 The reader well-versed in chemistry might note that frozen water molecules form a 120◦
+
+angle rather than 90◦ or 180◦ . So these square ice configurations are not an accurate model
+of frozen ice. But, configurations such as these were found in graphene, so this is a physics
+model that shows up in the real world. [1]
+
+
+                                             4
+                                                                     H
+              H O             H              O H         H   H O H   O
+                   H          O H            H         H O
+                                                                     H
+
+
+
+
+Figure 4 : Top: The six vertex configurations of the six-vertex model. Center:
+              The bijection with square ice molecules. Bottom: The corresponding
+              bumpless pipe dream tiles.
+
+
+3.2 Bu m p l e s s p i p e d r e a m s
+
+We now transform a six-vertex configuration into another object that looks like
+a collection of pipes coming from a multi-level apartment building. The way to
+do this is to take each vertex configuration and replace it by the corresponding
+tile as shown in Figure 4 (bottom). These are called bumpless pipe dreams since
+a tile like this one
+
+
+
+
+where the two pipes are nearly bumping into each other is not allowed. In
+Figure 5 (left), you can see the bumpless pipe dream corresponding to the
+square ice configuration of Figure 3. Something new you can see from this
+perspective is that there’s a permutation associated to each ASM: Number the
+pipes from left to right across the bottom, then see where each pipe goes and
+number the boxes accordingly from top to bottom. For example, Figure 5 shows
+a bumpless pipe dream with pipe permutation 1432.
+   A bumpless pipe dream is reduced if it was made by a moderately good
+plumber who made sure that no pair of pipes crossed twice. Reduced bumpless
+pipe dreams will appear again at the end of this article as part of a partial
+solution to a missing bijection.
+
+3.3 Ho u r g l a s s p l a b i c gra p h s
+
+In recent work [4], alternating sign matrices showed up unexpectedly as certain
+graphs that are part of a larger set of objects called “hourglass plabic graphs”;
+see Figure 5 (right) for an example. Try to guess the rules of how to create this
+picture from our example ASM! Aside from creating pretty pictures, hourglass
+
+
+                                                   5
+                                 1
+
+
+                                 4
+
+
+                                 3
+
+
+                                 2
+
+               1   2     3   4
+
+   The reduced bumpless pipe dream            The corresponding hourglass plabic
+corresponding to the ASM from Figure 3.                    graph.
+
+                                     Figure 5
+
+
+plabic graphs help solve an algebraic problem of finding a “nice basis” for the
+space of “SL4 -invariant polynomials”.
+
+
+4 A missing al ter nating sign matr ix bijection
+
+4.1 T h e p r o bl e m
+
+One of the most mysterious aspects of alternating sign matrices is that there
+are other objects with the same counting formula for which no nice bijection is
+known. One such object is a special type of “plane partition”.
+    Imagine I gave you a bunch of blocks and told you to stack them in a corner of
+a box following certain rules: Rule 1 says that the blocks should be mirror-image
+symmetric to the left and right (like your face). Rule 2 says that if you pick up
+the box and rotate it around the corner (so that the floor becomes the left wall,
+the left wall becomes the right wall, and the right wall becomes the floor), the
+stack of blocks should look the same. Rule 3 says that the empty space in the
+box should be of the same shape as the stack of blocks. Mathematically, this
+forms a totally symmetric self-complementary plane partition (TSSCPP); see
+Figure 6 (left). A natural question is: for a given box size, how many TSSCPPs
+are there? First, notice that Rule 2 implies that the lengths of the sides of
+the box should all be equal, meaning that the box has to be a cube. Rule 3
+tells us that the space in the box needs to be evenly divided into block spaces
+and spaces without blocks. So the volume of the box (in block units) needs to
+be even. Thus, the size of the box should be 2n × 2n × 2n for some natural
+number n.
+    An amazing fact is that there are exactly as many TSSCPPs in a 2n×2n×2n
+box as there are n-by-n ASMs (proved in [2]). But unlike the objects considered
+in the previous section, there is no nice bijection that takes an ASM as input
+and outputs a TSSCPP. Of course, you could construct an uninsightful bijection
+in which you put all the ASMs in a line on the left side of your paper and all
+
+
+                                          6
+                  ee
+            pgggoft
+                td
+                        th.it're.name.ee
+                                  diff                         th.it're.name.ee
+                Iiif
+            go.org
+
+                                     t.eii.it
+                                                         ee
+                                                   pgggoft
+                                                       td
+
+                                                                                diff
+            Ideations
+
+
+
+
+                                                       Iiif
+                                                   go.org
+
+
+
+
+                                                   Ideations
+                                                                                    t.eii.it
+
+
+
+     A TSSCPP in an 8 × 8 × 8 box.                              Its fundamental domain.
+
+                             54
+                                                Figure 6
+
+
+the TSSCPPs in a line on the right side and declare that you match them up
+according to their order on the paper. But I hope I have convinced you by the
+examples of all the nice bijections in the last section that this is not really what
+we want. In fact, mathematicians today are still searching for a nice bijection
+between these two sets. In the next section, we discuss some recent progress on
+                                                                       54
+this open problem.
+
+
+4.2 Pr o gr e s s
+
+We start by finding some natural bijections on TSSCPPs. Imagine you have a
+TSSCPP stack of blocks in front of you and you want to tell a friend how to
+make the same stack without showing them a picture. Since TSSCPPs have so
+much symmetry, you don’t actually need to tell them where each block goes
+in order for them to put all the blocks in the right spots. Rule 1 says that if
+you tell them where to put the blocks on the left side, they could put the right
+side blocks in the mirror-image spots. Rules 2 and 3 give more direction, so
+that you don’t even need to tell them the locations of all the blocks on the left
+side. It turns out that you only need to know how to stack the blocks in a pizza
+                                1
+slice-shaped area that is only 12  of the size to have all the information needed
+to construct the whole thing. This slice with the essential information is called
+the fundamental domain; see Figure 6 (right). Now, when we try to find a
+bijection, we often start with a subset of the whole set that we understand well.
+A few years ago in [9], we found a simple criterion on the fundamental domain
+that identifies which TSSCPPs correspond to permutations! (For example, our
+TSSCPP from Figure 6 corresponds to the permutation 3241.) This gives a
+partial bijection between ASMs and TSSCPPs, as a permutation is a special
+case of an ASM. But what about when the ASM has (−1)’s?
+    More recently, we figured out a way to extend this partial bijection to a larger
+
+
+                                                   7
+Figu r e 7 : An example of the map from [6] between certain TSSCPPs and ASMs.
+
+
+subset of ASMs, including some with (−1)’s [6]. We used a new breakthrough [5]
+in “Schubert calculus” which gave a bijection between reduced bumpless pipe
+dreams and other objects called “reduced pipe dreams”. 5 We showed how to
+map TSSCPPs to pipe dreams and then used the bijection from [5] to turn
+these pipe dreams into bumpless pipe dreams (and thus ASMs) whenever the
+pipe dreams are reduced. See Figure 7 for an example. This produced a much
+larger partial bijection between ASMs and TSSCPPs.
+
+4.3 O u t l o o k
+
+Will we ever find a nice bijection between all ASMs and TSSCPPs? Mathemati-
+cians have been looking for 30 years. Some say if we haven’t found it by now, it
+may not exist. Others say perhaps there’s another way to look at the problem
+
+
+
+
+Figu r e 8 : An hourglass plabic graph (in green) drawn on the fundamental
+             domain of our TSSCPP.
+
+5 Despite their similar sounding names, these are distinct sets of objects, and the bijection
+
+between them is actually rather involved.
+
+
+                                             8
+that will make things clearer. Time will tell, but we do have a new perspective
+that might help. Remember how ASMs popped up unexpectedly as hourglass
+plabic graphs? TSSCPPs showed up there, too (see Figure 8)! Discovering both
+ASMs and TSSCPPs as instances of hourglass plabic graphs does not guarantee
+a bijection will be found. But it’s another connection that might possibly be
+used in the future to unlock the mystery of why they have the same counting
+formula.
+
+
+
+
+                                      9
+R e ferences
+
+[1] G. Algara-Siller, O. Lehtinen, F. C. Wang, R. R. Nair, U. Kaiser, H. A. Wu,
+    A. K. Geim, and I. V. Grigorieva, Square ice in graphene nanocapillaries,
+    Nature 519 (2015), no. 7544, 443–445.
+[2] G. Andrews, Plane partitions V: The TSSCPP conjecture, Journal of Com-
+    binatorial Theory, Series A 66 (1994), no. 1, 28–39.
+
+[3] D. Bressoud and J. Propp, How the alternating sign matrix conjecture was
+    solved, Notices of the American Mathematical Society 46 (1999), no. 6,
+    637–646.
+[4] C. Gaetz, O. Pechenik, S. Pfannerer, J. Striker, and J. Swanson, Rotation-
+    invariant web bases from hourglass plabic graphs, Inventiones mathematicae
+    (2025), 1–102.
+[5] Y. Gao and D. Huang, The canonical bijection between pipe dreams and
+    bumpless pipe dreams, International Mathematics Research Notices (2023),
+    no. 21, 18629–18663.
+
+[6] D. Huang and J. Striker, A pipe dream perspective on totally symmetric self-
+    complementary plane partitions, Forum of Mathematics. Sigma 12 (2024),
+    Paper No. e17, 19.
+[7] G. Kuperberg, Another proof of the alternating-sign matrix conjecture,
+    International Mathematics Research Notices 3 (1996), 139–150.
+
+[8] W. H. Mills, D. P. Robbins, and H. Rumsey, Alternating sign matrices and
+    descending plane partitions, Journal of Combinatorial Theory, Series A 34
+    (1983), no. 3, 340–359.
+[9] J. Striker, Permutation totally symmetric self-complementary plane parti-
+    tions, Annals of Combinatorics 22 (2018), no. 3, 641–671.
+
+  (Answer to the question from section 2: The middle two matrices are ASMs.)
+
+
+
+
+                                      10
+Jessica S t r i ke r i s a p r o f essor of     Connection s t o o t he r f i e l d s
+mathem a t i c s a t N o r t h D akota State    Chemistr y a n d E a r t h S c i e n c e, P hy s i c s
+Universi t y.
+                                                License
+Mathem a t i c a l s u b j e c t s              Creative Co m m o n s B Y- SA 4 . 0
+Algebra a n d N u m b e r T h eor y, Discrete
+Mathem a t i c s a n d Fo u n d ations          DOI
+                                                10.14760/S N A P - 2 0 2 6 - 0 0 3 - E N
+
+
+
+
+Snapshots of modern mathematics from Oberwolfach provide exciting insights into
+current mathematical research. They are written by participants in the scientific
+program of the Mathematisches Forschungsinstitut Oberwolfach (MFO). The
+snapshot project is designed to promote the understanding and appreciation of
+modern mathematics and mathematical research in the interested public worldwide.
+All snapshots are published in cooperation with the IMAGINARY platform and
+can be found on www.imaginary.org/snapshots and on www.mfo.de/snapshots.
+
+ISSN 2626 -1995
+
+
+Junior E d i t o r                              Mathematis c h e s Fo r s c h u n g s i n s t i t u t
+Elisabet h a u s d e m S i e p en               Oberwolfac h g G m b H
+junior- e d i t o r s @ m f o. d e              Schwarzwa l d s t r. 9 – 11
+                                                77709 Obe r wo l f a c h
+Senior E d i t o r                              Ger many
+Anja Ra n d e cke r
+senior- e d i t o r @ m f o. d e                Director
+                                                Gerhard Hu i s ke n
+

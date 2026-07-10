@@ -1,0 +1,522 @@
+
+
+Information, Insight, and the Problem With Parameters – Feature Column
+
+Skip to content
+
+Information, Insight, and the Problem With Parameters
+
+In:
+
+2026
+, 
+Anil Venkatesh
+, 
+Probability and Statistics
+
+Tagged:
+
+data visualization
+, 
+kernel density estimation
+, 
+statistics
+
+Could we possibly gain more insight by trading away even more information?
+
+Information, Insight, and the Problem With
+Parameters
+
+Anil Venkatesh
+
+Adelphi University
+
+Introduction
+
+I have two data sets for us to consider. Both consist of observations
+of a single variable. 
+Data Set 1
+ holds the daily number of positive
+COVID-19 tests in Kings County, NY, since March 2020. 
+Data Set 2
+ holds
+the LYVE1 level of 535 patients—this is the urinalysis concentration of
+a certain protein that may relate to the metastasis of pancreatic
+cancer.
+
+Line plots of Data Sets 1 and 2.
+
+One of these plots is a lot more informative than the other. When we
+plot observations from left to right, there’s an implied hypothesis that
+the order of the observations has an association with the observations
+themselves. This is clearly true in the case of positive COVID-19 tests
+over time, but it’s clearly false in the case of LYVE1 levels
+vs. patient ID. Even if we can identify a trend in the second plot, it
+can’t possibly carry any insight.
+
+While both data sets ostensibly only measure one variable, the
+COVID-19 data set has an implicit time-ordering that allows us to
+visualize it in two dimensions. With no second variable in the
+urinalysis data set, we’re stuck building a one-dimensional scatter plot
+(is that a mathematical koan?) We can certainly mark a number line at
+each value that’s contained in the data set, but let’s extend these
+marks into vertical lines for readability.
+
+Novelty plot (or one-dimensional scatterplot) of the
+urinalysis data set.
+
+While this visualization of LYVE1 levels no longer implies a spurious
+association with patient ID, it hasn’t greatly improved our insight
+about the data. As you look at this barcode-like plot, you can’t help
+but allow some of the lines to run together into blobs. Aggregating like
+this does lose some information, but it allows you to gain a little
+insight about the ranges of values of LYVE1 that are most commonly
+represented in the data set. In jargon: aggregating nearby observations
+gives an approximate measurement of the 
+density function
+ of the
+LYVE1 variable. Could we possibly gain more insight by trading away even
+more information?
+
+Histogram representations of LYVE1 (various bin
+widths).
+
+A 
+histogram
+ does exactly this: break up the axis into bins
+of equal width, then count the number of observations in each bin and
+plot these counts. The choice of bin width has a profound effect on the
+visualization and attendant insights (or lack thereof). While widening
+the bins can smooth out the random jiggles of the observations, when
+taken too far it inevitably smooths out the entire data set into a blob.
+As we saw before, narrowing the bins too aggressively results in a
+nearly useless barcode pattern. Is there such thing as a perfect bin
+width? Students of calculus will recall that any continuous function on
+a closed and bounded interval attains a maximum somewhere in that
+interval; here, we wish to know if the “insightfulness” of a histogram
+(holistically construed) can be maximized by some certain bin width
+between 0 and the range of the data. But is this “insightfulness” a
+continuous function of bin width? And if so, can we define it concretely
+enough to solve the optimization problem?
+
+Much research has been done on the optimal bin width question. As the
+default option in Microsoft Excel, Scott’s normal reference rule is
+surely the most ubiquitous approach. The rule prescribes a bin width
+proportional to $n^{1/3}$, where $n$ is the size of the data set, and
+actually gives an exact constant of proportionality as well. The
+”insightfulness” function in Scott’s rule is the 
+integrated mean
+square error
+ between the histogram and the true distribution of the
+data…or at least, a normal distribution that most closely matches the
+data. Other popular rules make similar assumptions about the properties
+of the data distribution, sometimes even recovering the $n^{1/3}$ rule but with a
+different constant of proportionality. In all these cases, the author
+proposed a working definition of insightfulness and then made enough
+assumptions about the data in order to reach a closed-form rule for bin
+width. Unfortunately, different assumptions arrive at different
+formulas! This means that we are still stuck making a choice.
+
+The Problem With
+Parameters
+
+A mathematical model that requires the user to choose a value (like
+bin width) is called a 
+parametric
+ model, i.e. involving one or
+more undetermined parameters. Every time we choose the value of a
+parameter, we influence the model and potentially change the nature of
+the insight that it provides. This means that every parametric model has
+the user’s thumb on the scale—a problem if we want to gain unbiased
+insight from data. The fewer parameter values we have to pick, the less
+our actions will bias the results, right? In what circumstances can we
+opt out of choosing a parameter value entirely?
+
+Before we go any further, I have some bad news about the parameter
+space of histograms. While we’ve been doing our best to pick a good bin
+width, there’s been another parameter lurking in the shadows. What about
+sliding all the bins left or right? This “bin offset” parameter can
+clearly affect the visualization as observations hop from one bin to
+another. One option is to place the bins arbitrarily and hope that the
+result is good enough, but let’s consider a way of entirely opting out
+of this parameter choice. With apologies to 
+Pólya
+, I humbly
+propose: 
+When you have two things to say, instead say infinitely
+many things and take the average.
+
+Histogram of LYVE1 together with its offset-averaged
+curve.
+
+By averaging histograms across all possible bin offsets, we
+successfully correct for much of the edge effects inherent to the
+histogram. If a cluster of observations happens to land right on the
+edge of a bin, this may substantially distort the histogram but it won’t
+upset the offset-averaged curve. While we built this curve by thinking
+about sliding the histogram bins around, it can be constructed
+equivalently by defining a triangular function of height 1 and base of 2
+bin widths, then centering a copy of this function at each data point
+and adding everything up (that’s a nice exercise to work out!)
+Formulated this way, we’ve actually described an example of 
+kernel
+density estimation
+ (KDE). A 
+kernel
+ is a family of
+functions that smoothly transitions from an infinitesimally narrow spike
+to a wide, flat form. Generally, we want the integral of the kernel to
+remain constant throughout this transition. This makes the kernel a
+model of diffusion of mass or heat from a point source to the
+surrounding environment.
+
+Five members of a triangle kernel family of mass
+1.
+
+In kernel density estimation, we center an identical kernel at each
+data point and then allow all the kernels to begin transitioning,
+intermingling with each other as they collectively disperse their mass.
+When configured well, KDE yields smooth, highly interpretable density
+curves. It is implemented by Python’s seaborn library as a standalone
+function and an optional argument when forming a histogram, and by a
+built-in function in R. As the underlying concept of heat diffusion
+works in any ambient dimension, KDE can also be used on multidimensional
+data and is particularly good for heatmap visualizations over two
+predictor variables.
+
+Kernel density estimates of LYVE1 (various diffusion
+times).
+
+Depending on how long we allow the diffusion process to run, a
+variety of KDE models can result (and they’re suspiciously reminiscent
+of the variety of histograms we saw before.) Clearly, it all comes down
+to when we choose to hit “pause.” If we stop too soon, the kernels will
+not have had enough time to intermingle and a sparse, jagged form will
+result. If we stop too late, the kernels will have distributed their
+mass into one big blob (or even worse, a big flat pancake). Just as with
+bin width optimization, there is a body of literature on the optimal
+dispersion time in KDE. However, another more serious problem
+arises: the optimal dispersion time depends on the local density of the
+data. In portions of the data set with many closely-packed data points,
+the kernels intermingle rapidly to form one dense clump; by comparison,
+the kernels of isolated data points take a lot longer to intermingle
+with the others. Generally speaking, dispersion time should be longer
+wherever the data set is sparse, and shorter wherever the data set is
+dense. But…I thought the whole point of KDE was to estimate the density
+of the data! If the optimal KDE algorithm requires prior knowledge of
+the density of the data, then what are we even doing here?
+
+Illustration of mixing time depending on local
+density.
+
+Each row of this heatmap is a stage of KDE, normalized by its maximum
+value. Reading from the bottom, we see how the white (high-density)
+kernels disperse and gradually merge with surrounding regions. Note that
+tight clusters of kernels merge together much faster than isolated
+kernels. This effect is particularly pronounced in data sets with many
+repeated values, a common feature of medical and sociological data
+because of the prevalence of ordinal, non-numeric attributes
+(e.g. Likert scale, Apgar score).
+
+In Search of
+Insight
+
+In principle, the optimal KDE model might need a distinct
+diffusion-rate parameter 
+for each data instance
+. What started
+as an effort to remove an unwanted parameter has now saddled us with
+more parameters than we know what to do with! This brings us all the way
+back to the humble histogram with its bin width parameter, together with
+a light touch of KDE to smooth out the offset bias. If there’s a moral
+here, it’s this: to gain insight, you must lose information.
+
+Share this:
+
+Share on Facebook (Opens in new window)
+
+Facebook
+
+Share on X (Opens in new window)
+
+X
+
+Like this:
+Like
+
+Loading…
+
+2026-01-01
+
+Previous Post: 
+Everything I Need to Know About Polygons I Learned from My Pre-Kindergartner
+Next Post: 
+Does Mathematics Progress?
+
+Leave a Reply 
+Cancel reply
+Your email address will not be published.
+
+Required fields are marked 
+*
+Comment 
+*
+
+HTML tags are not allowed.
+Name 
+*
+
+Email 
+*
+
+Save my name, email, and website in this browser for the next time I comment.
+
+85,090 Spambots Blocked by 
+Simple Comments
+
+Notify me of follow-up comments by email.
+
+Notify me of new posts by email.
+ Notify me of followup comments via e-mail. You can also 
+subscribe
+ without commenting.
+
+JavaScript must be turned on to leave a comment.
+
+Search
+Subscribe to Feature Column via Email
+
+Enter your email address to subscribe to Feature Column and receive notifications of new posts by email.
+
+							Email Address						
+
+							Subscribe						
+
+Recent Posts
+Another Look at Circles and Squares
+
+The Shapley Value, or How to Split a Bill in n! Easy Steps
+
+The Story Your Ballot Doesn’t Tell
+
+Weekly Maintenance Message
+
+Puzzling Like the Seventeenth Century
+
+Categories
+
+2020
+
+2021
+
+2022
+
+2023
+
+2024
+
+2025
+
+2026
+
+Adam A. Smith
+
+Adriana Salerno
+
+Algebra and Number Theory
+
+Allechar Serrano López
+
+Anil Venkatesh
+
+Anna Haensch
+
+Archive
+
+Audrey St. John
+
+Bevin Maultsby
+
+Bianca Thompson
+
+Bill Casselman
+
+Colm Mulcahy
+
+Courtney Gibbons
+
+David Austin
+
+Deepayan Sarkar
+
+Diana Davis
+
+Discrete Math and Combinatorics
+
+Étienne Ghys
+
+Geometry and Topology
+
+Guillermo Fereyra
+
+History of mathematics
+
+Holley Friedlander
+
+Jessica Sidman
+
+John Eggers
+
+Joseph Malkevitch
+
+Josh Leys
+
+Math and Arts/Humanities
+
+Math and Social Sciences
+
+Math and Technology
+
+Math and the Sciences
+
+Mathematics and Biology
+
+Moira Chas
+
+Noah Giansiracusa
+
+Patrick Ion
+
+Probability and Statistics
+
+Real and Complex Analysis
+
+Sara Chari
+
+Sara Stoudt
+
+Sarah Wolff
+
+Steven H. Weintraub
+
+Sunil Chebolu
+
+Tamsyn Morrill
+
+Teaching and Learning Mathematics
+
+Tony Phillips
+
+Uncategorized
+
+Ursula Whitcher
+
+Tags
+5G
+
+Alan Turing
+
+algebraic geometry
+
+ams
+
+astronauts
+
+Branko Grünbaum
+
+cantor set
+
+chess
+
+Claude Shannon
+
+computability
+
+cryptography
+
+Desargues
+
+economics
+
+elliptic curves
+
+epidemic
+
+Euclidean geometry
+
+feature column history
+
+games
+
+game theory
+
+generating functions
+
+genetics
+
+Geoffrey Colin Shephard
+
+herd immunity
+
+Higgs boson
+
+information theory
+
+lattices (groups)
+
+Lie groups
+
+Machine learning
+
+measles
+
+medieval
+
+partitions
+
+periods
+
+persi diaconis
+
+physics
+
+poetry
+
+polytopes and polyhedra
+
+primes
+
+probability
+
+SEIR model
+
+statistics
+
+string theory
+
+tic-tac-toe
+
+tilings
+
+video games
+
+voting
+
+Meta
+
+Log in
+
+Entries feed
+
+Comments feed
+
+WordPress.org
+
+					 Designed using 
+Hoot Business
+. Powered by 
+WordPress
+.				
+
+%d
+

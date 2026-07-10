@@ -1,0 +1,1438 @@
+
+
+Modular Arithmetic Challenge | What's new
+
+What's new
+
+Updates on my research and expository papers, discussion of open problems, and other maths-related topics.  By Terence Tao
+
+Home
+
+About
+
+Career advice
+
+On writing
+
+Books
+
+Mastodon+
+
+Applets
+
+Subscribe to feed
+
+Modular Arithmetic Challenge
+
+8 June, 2026 in 
+math.NA
+ | Tags: 
+Alberto Alfarano
+, 
+Cathy Li
+, 
+Emily Wenger
+, 
+Francois Charton
+, 
+Kristin Lauter
+, 
+modular arithmetic
+, 
+SAIR
+, 
+Yongzheng Jia
+ | by 
+Terence Tao
+
+ A couple months ago, 
+Damek Davis
+ and I launched 
+the first mathematical challenge
+ at the 
+SAIR Foundation
+, aimed at “distilling” the ability to solve 22 million problems in universal algebra into a condensed form. Stage one of that challenge has now been completed, with several effective “cheat sheets” generated to guess the truth or falsity of these problems to reasonable accuracy; the leaderboard for that stage, with their winning cheatsheets 
+can be found here
+. Stage two of that challenge, in which the competitors now have access to Python code as well as modest LLMs, and now need to generate Lean proofs or disproofs rather than just true-false answers, is currently underway.
+
+With Alberto Alfarano, 
+François Charton
+, Yongzheng Jia, 
+Kristin Lauter
+, 
+Cathy Li
+, and 
+Emily Wenger
+, are launching a 
+second challenge at SAIR
+, this time focused on seeing how efficiently neural networks can execute simple modular arithmetic operations. For this challenge we are focusing on the simple operation of modular multiplication: taking a prime modulus 
+ (up to about a thousand digits long) and two integers 
+ and 
+ between 
+ and 
+, and computing the product 
+. This is of course a solved problem using traditional computation, being a single line of code in any modern programming language. But it has been a fascinating toy problem in which to explore the basic capabilities of neural networks.
+
+For instance, this problem has revealed the mysterious phenomenon of “
+grokking
+“. When one tries to train a neural network on this problem for small sizes of inputs 
+, then initially one runs into the familiar problem of 
+overfitting
+: the network learns to solve the problem for the training data too well, at the expense of performing well for held-out test data. However, if one continues training for sufficiently long periods of time, then the network can suddenly “grok” the problem and generalize surprisingly well to the test data. It appears that the neural network can suddenly “learn” powerful computational tricks, such as taking discrete logarithms, to find accurate and efficient ways to arrive at the correct answer.
+
+This challenge
+ is not about grokking, but instead about scaleability: we can create neural network models for modular multiplication that are extremely accurate for, say, 10-bit inputs, but they struggle at handling larger bit sizes. The competition is then simple: submit a neural network (with fixed weights) that can solve this task for larger input sizes with as high an accuracy as possible. Some pre-processing of the individual inputs 
+, 
+, 
+ is permitted (e.g., to convert these numbers into decimal or some other convenient representation), but other than that the main computation has to be neural in nature; one cannot simply run some Python code, for instance, to compute the multiplication. We are imposing limits on the size and allocated run time on the neural network, but otherwise we are deliberately being flexible in the architecture requirements, in order to encourage creative experimentation; in particular, we permit networks whose weights were arrived at by other means than the usual machine learning training process.
+
+This is a relatively simple challenge to state, but we genuinely do not know what to expect from the competitor entries – is there a clever way to encode modular arithmetic for even quite large numbers into a medium size neural network, or is it going to be an exceptionally difficult task? Hopefully we will find out in a few months!  Discussion of the ongoing challenge will take place on 
+this Zulip
+.
+
+Share this:
+
+Print (Opens in new window)
+
+Print
+
+Email a link to a friend (Opens in new window)
+
+Email
+
+More
+
+Share on X (Opens in new window)
+
+X
+
+Share on Facebook (Opens in new window)
+
+Facebook
+
+Share on Reddit (Opens in new window)
+
+Reddit
+
+Share on Pinterest (Opens in new window)
+
+Pinterest
+
+Like
+
+Loading...
+
+Recent Comments
+
+Terence Tao
+ on 
+Long gaps in sieved sets
+Anonymous on 
+Long gaps in sieved sets
+Will Sawin
+ on 
+A digestion of unit distance…
+Terence Tao
+ on 
+275A, Notes 5: Variants of the…
+Anonymous on 
+275A, Notes 5: Variants of the…
+Cosmin Pohoata
+ on 
+A digestion of unit distance…
+Will Sawin
+ on 
+A digestion of unit distance…
+Will Sawin
+ on 
+A digestion of unit distance…
+Anonymous on 
+Modular Arithmetic Challenge
+Anonymous on 
+275A, Notes 5: Variants of the…
+Ben Johnsrude
+ on 
+A digestion of unit distance…
+Terence Tao
+ on 
+Almost all Collatz orbits atta…
+Anonymous on 
+275A, Notes 0: Foundations of…
+Pantelis Rodis on 
+A digestion of unit distance…
+Anonymous on 
+Analysis II
+
+Top Posts
+A digestion of unit distance constructions
+Career advice
+Books
+Does one have to be a genius to do maths?
+On writing
+Work hard
+A mathematical formalisation of dimensional analysis
+About
+275A, Notes 5: Variants of the central limit theorem
+There’s more to mathematics than rigour and proofs
+Archives
+
+July 2026
+ (1)
+
+June 2026
+ (3)
+
+May 2026
+ (1)
+
+March 2026
+ (4)
+
+February 2026
+ (3)
+
+January 2026
+ (4)
+
+December 2025
+ (5)
+
+November 2025
+ (5)
+
+September 2025
+ (1)
+
+August 2025
+ (3)
+
+July 2025
+ (1)
+
+June 2025
+ (2)
+
+May 2025
+ (5)
+
+April 2025
+ (2)
+
+March 2025
+ (1)
+
+February 2025
+ (3)
+
+January 2025
+ (1)
+
+December 2024
+ (3)
+
+November 2024
+ (4)
+
+October 2024
+ (1)
+
+September 2024
+ (4)
+
+August 2024
+ (3)
+
+July 2024
+ (3)
+
+June 2024
+ (1)
+
+May 2024
+ (1)
+
+April 2024
+ (5)
+
+March 2024
+ (1)
+
+December 2023
+ (2)
+
+November 2023
+ (2)
+
+October 2023
+ (1)
+
+September 2023
+ (3)
+
+August 2023
+ (3)
+
+June 2023
+ (8)
+
+May 2023
+ (1)
+
+April 2023
+ (1)
+
+March 2023
+ (2)
+
+February 2023
+ (1)
+
+January 2023
+ (2)
+
+December 2022
+ (3)
+
+November 2022
+ (3)
+
+October 2022
+ (3)
+
+September 2022
+ (1)
+
+July 2022
+ (3)
+
+June 2022
+ (1)
+
+May 2022
+ (2)
+
+April 2022
+ (2)
+
+March 2022
+ (5)
+
+February 2022
+ (3)
+
+January 2022
+ (1)
+
+December 2021
+ (2)
+
+November 2021
+ (2)
+
+October 2021
+ (1)
+
+September 2021
+ (2)
+
+August 2021
+ (1)
+
+July 2021
+ (3)
+
+June 2021
+ (1)
+
+May 2021
+ (2)
+
+February 2021
+ (6)
+
+January 2021
+ (2)
+
+December 2020
+ (4)
+
+November 2020
+ (2)
+
+October 2020
+ (4)
+
+September 2020
+ (5)
+
+August 2020
+ (2)
+
+July 2020
+ (2)
+
+June 2020
+ (1)
+
+May 2020
+ (2)
+
+April 2020
+ (3)
+
+March 2020
+ (9)
+
+February 2020
+ (1)
+
+January 2020
+ (3)
+
+December 2019
+ (4)
+
+November 2019
+ (2)
+
+September 2019
+ (2)
+
+August 2019
+ (3)
+
+July 2019
+ (2)
+
+June 2019
+ (4)
+
+May 2019
+ (6)
+
+April 2019
+ (4)
+
+March 2019
+ (2)
+
+February 2019
+ (5)
+
+January 2019
+ (1)
+
+December 2018
+ (6)
+
+November 2018
+ (2)
+
+October 2018
+ (2)
+
+September 2018
+ (5)
+
+August 2018
+ (3)
+
+July 2018
+ (3)
+
+June 2018
+ (1)
+
+May 2018
+ (4)
+
+April 2018
+ (4)
+
+March 2018
+ (5)
+
+February 2018
+ (4)
+
+January 2018
+ (5)
+
+December 2017
+ (5)
+
+November 2017
+ (3)
+
+October 2017
+ (4)
+
+September 2017
+ (4)
+
+August 2017
+ (5)
+
+July 2017
+ (5)
+
+June 2017
+ (1)
+
+May 2017
+ (3)
+
+April 2017
+ (2)
+
+March 2017
+ (3)
+
+February 2017
+ (1)
+
+January 2017
+ (2)
+
+December 2016
+ (2)
+
+November 2016
+ (2)
+
+October 2016
+ (5)
+
+September 2016
+ (4)
+
+August 2016
+ (4)
+
+July 2016
+ (1)
+
+June 2016
+ (3)
+
+May 2016
+ (5)
+
+April 2016
+ (2)
+
+March 2016
+ (6)
+
+February 2016
+ (2)
+
+January 2016
+ (1)
+
+December 2015
+ (4)
+
+November 2015
+ (6)
+
+October 2015
+ (5)
+
+September 2015
+ (5)
+
+August 2015
+ (4)
+
+July 2015
+ (7)
+
+June 2015
+ (1)
+
+May 2015
+ (5)
+
+April 2015
+ (4)
+
+March 2015
+ (3)
+
+February 2015
+ (4)
+
+January 2015
+ (4)
+
+December 2014
+ (6)
+
+November 2014
+ (5)
+
+October 2014
+ (4)
+
+September 2014
+ (3)
+
+August 2014
+ (4)
+
+July 2014
+ (5)
+
+June 2014
+ (5)
+
+May 2014
+ (5)
+
+April 2014
+ (2)
+
+March 2014
+ (4)
+
+February 2014
+ (5)
+
+January 2014
+ (4)
+
+December 2013
+ (4)
+
+November 2013
+ (5)
+
+October 2013
+ (4)
+
+September 2013
+ (5)
+
+August 2013
+ (1)
+
+July 2013
+ (7)
+
+June 2013
+ (12)
+
+May 2013
+ (4)
+
+April 2013
+ (2)
+
+March 2013
+ (2)
+
+February 2013
+ (6)
+
+January 2013
+ (1)
+
+December 2012
+ (4)
+
+November 2012
+ (7)
+
+October 2012
+ (6)
+
+September 2012
+ (4)
+
+August 2012
+ (3)
+
+July 2012
+ (4)
+
+June 2012
+ (3)
+
+May 2012
+ (3)
+
+April 2012
+ (4)
+
+March 2012
+ (5)
+
+February 2012
+ (5)
+
+January 2012
+ (4)
+
+December 2011
+ (8)
+
+November 2011
+ (8)
+
+October 2011
+ (7)
+
+September 2011
+ (6)
+
+August 2011
+ (8)
+
+July 2011
+ (9)
+
+June 2011
+ (8)
+
+May 2011
+ (11)
+
+April 2011
+ (3)
+
+March 2011
+ (10)
+
+February 2011
+ (3)
+
+January 2011
+ (5)
+
+December 2010
+ (5)
+
+November 2010
+ (6)
+
+October 2010
+ (9)
+
+September 2010
+ (9)
+
+August 2010
+ (3)
+
+July 2010
+ (4)
+
+June 2010
+ (8)
+
+May 2010
+ (8)
+
+April 2010
+ (8)
+
+March 2010
+ (8)
+
+February 2010
+ (10)
+
+January 2010
+ (12)
+
+December 2009
+ (11)
+
+November 2009
+ (8)
+
+October 2009
+ (15)
+
+September 2009
+ (6)
+
+August 2009
+ (13)
+
+July 2009
+ (10)
+
+June 2009
+ (11)
+
+May 2009
+ (9)
+
+April 2009
+ (11)
+
+March 2009
+ (14)
+
+February 2009
+ (13)
+
+January 2009
+ (18)
+
+December 2008
+ (8)
+
+November 2008
+ (9)
+
+October 2008
+ (10)
+
+September 2008
+ (5)
+
+August 2008
+ (6)
+
+July 2008
+ (7)
+
+June 2008
+ (8)
+
+May 2008
+ (11)
+
+April 2008
+ (12)
+
+March 2008
+ (12)
+
+February 2008
+ (13)
+
+January 2008
+ (17)
+
+December 2007
+ (10)
+
+November 2007
+ (9)
+
+October 2007
+ (9)
+
+September 2007
+ (7)
+
+August 2007
+ (9)
+
+July 2007
+ (9)
+
+June 2007
+ (6)
+
+May 2007
+ (10)
+
+April 2007
+ (11)
+
+March 2007
+ (9)
+
+February 2007
+ (4)
+
+Categories
+
+expository
+ (321)
+
+tricks
+ (13)
+
+guest blog
+ (10)
+
+Mathematics
+ (917)
+
+math.AC
+ (9)
+
+math.AG
+ (42)
+
+math.AP
+ (115)
+
+math.AT
+ (17)
+
+math.CA
+ (196)
+
+math.CO
+ (206)
+
+math.CT
+ (9)
+
+math.CV
+ (39)
+
+math.DG
+ (37)
+
+math.DS
+ (90)
+
+math.FA
+ (24)
+
+math.GM
+ (16)
+
+math.GN
+ (21)
+
+math.GR
+ (90)
+
+math.GT
+ (17)
+
+math.HO
+ (14)
+
+math.IT
+ (13)
+
+math.LO
+ (54)
+
+math.MG
+ (48)
+
+math.MP
+ (31)
+
+math.NA
+ (26)
+
+math.NT
+ (211)
+
+math.OA
+ (22)
+
+math.PR
+ (110)
+
+math.QA
+ (6)
+
+math.RA
+ (49)
+
+math.RT
+ (21)
+
+math.SG
+ (4)
+
+math.SP
+ (48)
+
+math.ST
+ (11)
+
+non-technical
+ (208)
+
+admin
+ (48)
+
+advertising
+ (77)
+
+diversions
+ (7)
+
+media
+ (14)
+
+journals
+ (3)
+
+obituary
+ (15)
+
+opinion
+ (37)
+
+paper
+ (272)
+
+book
+ (23)
+
+Companion
+ (13)
+
+update
+ (26)
+
+question
+ (128)
+
+polymath
+ (87)
+
+talk
+ (69)
+
+DLS
+ (20)
+
+teaching
+ (190)
+
+245A – Real analysis
+ (11)
+
+245B – Real analysis
+ (22)
+
+245C – Real analysis
+ (6)
+
+246A – complex analysis
+ (11)
+
+246B – complex analysis
+ (5)
+
+246C – complex analysis
+ (5)
+
+247B – Classical Fourier Analysis
+ (5)
+
+254A – analytic prime number theory
+ (19)
+
+254A – ergodic theory
+ (18)
+
+254A – Hilbert's fifth problem
+ (12)
+
+254A – Incompressible fluid equations
+ (5)
+
+254A – random matrices
+ (14)
+
+254B – expansion in groups
+ (8)
+
+254B – Higher order Fourier analysis
+ (9)
+
+255B – incompressible Euler equations
+ (2)
+
+275A – probability theory
+ (6)
+
+285G – poincare conjecture
+ (20)
+
+Logic reading seminar
+ (8)
+
+The sciences
+ (1)
+
+travel
+ (26)
+
+additive combinatorics
+
+approximate groups
+
+arithmetic progressions
+
+Artificial Intelligence
+
+Ben Green
+
+Cauchy-Schwarz
+
+Cayley graphs
+
+central limit theorem
+
+Chowla conjecture
+
+compressed sensing
+
+correspondence principle
+
+cosmic distance ladder
+
+distributions
+
+divisor function
+
+eigenvalues
+
+Elias Stein
+
+Emmanuel Breuillard
+
+entropy
+
+equidistribution
+
+Erdos
+
+ergodic theory
+
+Euler equations
+
+exponential sums
+
+finite fields
+
+Fourier transform
+
+Freiman's theorem
+
+Gowers uniformity norm
+
+Gowers uniformity norms
+
+graph theory
+
+Gromov's theorem
+
+GUE
+
+Hilbert's fifth problem
+
+ICM
+
+incompressible Euler equations
+
+inverse conjecture
+
+Joni Teravainen
+
+Kaisa Matomaki
+
+Kakeya conjecture
+
+Lie algebras
+
+Lie groups
+
+Liouville function
+
+Littlewood-Offord problem
+
+Maksym Radziwill
+
+Mobius function
+
+Navier-Stokes equations
+
+nilpotent groups
+
+nilsequences
+
+nonstandard analysis
+
+Paul Erdos
+
+politics
+
+polymath1
+
+polymath8
+
+Polymath15
+
+polynomial method
+
+polynomials
+
+prime gaps
+
+prime numbers
+
+prime number theorem
+
+random matrices
+
+randomness
+
+Ratner's theorem
+
+regularity lemma
+
+Ricci flow
+
+Riemann zeta function
+
+Schrodinger equation
+
+Shannon entropy
+
+sieve theory
+
+structure
+
+Szemeredi's theorem
+
+Tamar Ziegler
+
+ultrafilters
+
+universality
+
+Van Vu
+
+wave maps
+
+Yitang Zhang
+
+The Polymath Blog
+Polymath News and AI
+Polymath projects 2021
+A sort of Polymath on a famous MathOverflow problem
+Ten Years of Polymath
+Updates and Pictures
+Polymath proposal: finding simpler unit distance graphs of chromatic number 5
+A new polymath proposal (related to the Riemann Hypothesis) over Tao’s blog
+Spontaneous Polymath 14 – A success!
+Polymath 13 – a success!
+Non-transitive Dice over Gowers’s Blog
+
+15 comments
+
+Comments feed for this article
+
+8 June, 2026 at 2:41 pm
+
+Boris Alexeev
+
+This challenge reminds me of 
+https://codegolf.stackexchange.com/questions/183036/can-a-neural-network-recognize-primes
+
+Reply
+
+9 June, 2026 at 1:41 am
+
+Anonymous
+
+I do think discrete logarithm has an easy algorithm.
+
+Reply
+
+9 June, 2026 at 6:55 am
+
+Terence Tao
+
+Yes, we did discuss this as a possible “exploit” to the challenge; but for larger moduli (e.g., 1000 bits), we expect the computation of the discrete logarithm to be prohibitively expensive for the time budget allocated for competition submissions (which is to solve 1100 modular multiplication problems – each with a different modulus – in 5 minutes).
+
+Reply
+
+9 June, 2026 at 4:16 pm
+
+Anonymous
+
+here too smooth moduli failures may illuminate prime moduli failure
+
+Reply
+
+9 June, 2026 at 4:46 am
+
+Jon Awbrey
+
+There are alternative models of neural networks which do not depend on threshold neurons and endlessly fiddling with weights.
+
+Reply
+
+9 June, 2026 at 6:59 am
+
+Terence Tao
+
+We decided to be permissive as to what counts as a “neural network” to encourage creative solutions to the challenge.  It is theoretically possible that one might be able to hand-code an efficient arithmetic circuit into such a network that basically performs a traditional computation, in which case we have to carefully adjudicate whether such a submission would be in both the letter and the spirit of the competition, but we decided not to prohibit such edge cases, at least initially, as such an encoding might be independently interesting.
+
+Reply
+
+9 June, 2026 at 7:42 am
+
+Christopher
+
+From the website “For a neural network, it is an open problem.”
+
+It seems like a stretch to consider this an open problem? The rules are subject to interpretation of course, but “On the Turing Completeness of Modern Neural Network Architectures” 
+https://arxiv.org/abs/1901.03429
+ would seem to prove it is possible, even if they didn’t apply it to this specific problem.
+
+So although it is an interesting “engineering” project I don’t think I’d consider the problem open.
+
+Or if that paper and previous papers doesn’t close the open problem, it would be useful for the website to explain why!
+
+Reply
+
+9 June, 2026 at 10:43 am
+
+Terence Tao
+
+Fair enough; we should insert the word “efficiently” at the end of the basic question.  We’ll get that changed.
+
+Reply
+
+14 June, 2026 at 4:06 am
+
+Anonymous
+
+Dr Tao, in your 
+paper
+ you used the concentration of measure result for the uniform random variable 
+, whereas we need the concentration of measure for the random variables 
+ for each 
+. The independence condition for primes 
+ now seems to be nontrivial for each individual 
+. Can you explain this in slightly more detail?
+
+Reply
+
+16 June, 2026 at 8:29 am
+
+Terence Tao
+
+It is true that the random variables 
+ are no longer uniformly distributed, and so concentration of measure theorems cannot directly be applied to that variable.  However, because of (3.14), we can still transfer concentration results from the uniform variable to the non-uniform variable, at the cost of a significantly worse bound: see Lemma 3.3.
+
+Reply
+
+9 June, 2026 at 4:14 pm
+
+Anonymous
+
+what would be better is discrete log modulus is smooth. We low there is an east algorithm. But may be nn does find something else which solves for smooth moduli in a different way in a probabilistic sense (say 2/3 success)which might illuminate the difficult prime moduli case through the 1/3 failures because 2/3 success is no fluke.
+
+Reply
+
+16 June, 2026 at 8:13 am
+
+Anonymous
+
+On the challenge website it says you get $a, b$ and $p$ as input and then need to output $a*b \mod p$ as a list of base-$b$ digits. This seems very weird since $b$ can be 100s of (base-10) digits long according to the website. What kind of insanely long alphabet am I supposed to use to represent these base $b$ digits? Also it breaks the nice symmetry between $a$ and $b$. What is the reason for this strange requirement? 
+
+Reply
+
+16 June, 2026 at 10:49 am
+
+Anonymous
+
+Okay, reading further along the website I figured out that the $b$ in base-$b$ is supposed to be a different $b$, to be chosen by the contestant, than the $b$ given as input. That makes things a bit easier. But my initial confusion was real. Perhaps it is possible to change this and use two different letters?
+
+[We have updated the website to disambiguate these quantities. -T.]
+
+Reply
+
+19 June, 2026 at 7:55 am
+
+Anonymous
+
+Thanks! Also I didn’t intend to write this anonymous, but I somehow misunderstood the comment system
+
+Reply
+
+7 July, 2026 at 8:23 am
+
+Anonymous
+
+For a beautiful communication of the grokking going on with Modular arithmetic, see the Welch Labs youtube video
+
+Reply
+
+Leave a comment 
+Cancel reply
+
+Δ
+
+For commenters
+
+To enter in LaTeX in comments, use $latex 
+<Your LaTeX code>
+$ (without the < and > signs, of course; in fact, these signs should be avoided as they can cause formatting errors). Also, backslashes \ need to be doubled as \\.  See the 
+about page
+ for details and for other commenting policy.
+
+«
+ Primitive sets and von Mangoldt chains: Erdős Problem #1196 and beyond
+
+On the proposed rule changes to the administration of federal grants 
+»
+
+Blog at WordPress.com.
+Ben Eastaugh and Chris Sternal-Johnson. 
+
+Subscribe to feed.
+
+Comment						
+
+Reblog
+
+Subscribe
+
+Subscribed
+
+				What's new			
+
+Join 12,135 other subscribers
+
+												Sign me up											
+
+											Already have a WordPress.com account? 
+Log in now.
+
+Privacy						
+
+				What's new			
+
+Subscribe
+
+Subscribed
+
+Sign up
+
+Log in
+
+Copy shortlink
+
+										Report this content									
+
+										View post in Reader									
+
+Manage subscriptions
+
+Collapse this bar
+
+%d
+

@@ -1,0 +1,247 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN" "http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg-flat.dtd" >
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+
+<title>Beyond the Geometry of Music | The n-Category Caf&#xE9;</title>
+
+<meta name="ICBM" content="30.2893, -97.7367" />
+<meta name="DC.title" content="The n-Category Caf&#xE9;" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<style type="text/css" media="all" title="The n-Category Caf&#xE9; Stylesheet">@import url("/category/styles-site.css");</style>
+<link rel="stylesheet" href="/category/print.css" type="text/css" media="print" />
+
+<link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="/category/atom10.xml" />
+<link rel="alternate" type="application/atom+xml" title="Atom 1.0 Comments Feed" href="/category/comments.atom" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="/category/rsd.xml" />
+<link rel="shortcut icon" type="image/x-icon" href="/category/images/favicon.ico" />
+<link rel="icon" type="image/x-icon" href="/category/images/favicon2.ico" />
+<link rel="pgpkey" href="/category/urs.asc" title="Urs Schreiber's PGP Public Key" />
+<link rel="start" href="/category/" title="Home" />
+<link rel="search" href="/cgi-bin/MT-3.0/mt-search.cgi?IncludeBlogs=3&amp;Template=category" title="Search" />
+<link rel="contents" href="/category/archives.html" title="Comprehensive List of Blog Entries" />
+
+
+<link rel="bookmark" href="#content" title="Main Content" />
+<link rel="bookmark" href="#comments" title="Comments" />
+<link rel="bookmark" href="#search" title="Search Box" />
+<link rel="bookmark" href="#related" title="Related entries" />
+<link rel="bookmark" href="#AccessKeyList" title="AccessKeys" />
+<link rel="prev" href="/category/2025/11/the_inverse_cube_force_law.html" title="The Inverse Cube Force Law" />
+<link rel="next" href="/category/2025/11/the_bioctonionic_plane.html" title="Octonions and the Standard Model (Part 12)" />
+<link rel="up" href="/category/2025/11/" title="November, 2025" />
+
+<script type="text/javascript" src="/category/prototype.js"></script>
+<script type="text/javascript" src="/category/ie.js"></script>
+<script type="text/x-mathjax-config">
+  <!--//--><![CDATA[//><!--
+    MathJax.Hub.Config({
+      MathML: { useMathMLspacing: true },
+      "HTML-CSS": { scale: 90,
+                    noReflows: false,
+                    extensions: ["handle-floats.js"],
+                    linebreaks: { width: "container" }
+       }
+    });
+    MathJax.Hub.Queue( function () {
+       var fos = document.getElementsByTagName('foreignObject');
+       for (var i = 0; i < fos.length; i++) {
+         MathJax.Hub.Typeset(fos[i]);
+       }
+    });
+  //--><!]]>
+</script>
+<script type="text/javascript">
+  <!--//--><![CDATA[//><!--
+  window.addEventListener("DOMContentLoaded", function () {
+    var div = document.createElement('div');
+    var math = document.createElementNS('http://www.w3.org/1998/Math/MathML', 'math');
+    document.body.appendChild(div);
+    div.appendChild(math);
+  // Test for MathML support comparable to WebKit version https://trac.webkit.org/changeset/203640 or higher.
+    div.setAttribute('style', 'font-style: italic');
+    var mathml_unsupported = !(window.getComputedStyle(div.firstChild).getPropertyValue('font-style') === 'normal');
+    div.parentNode.removeChild(div);
+    if (mathml_unsupported) {
+      // MathML does not seem to be supported...
+      var s = document.createElement('script');
+      s.src = "/wiki/MathJax/MathJax.js?config=MML_HTMLorMML-full";
+      document.querySelector('head').appendChild(s);
+    } else {
+      document.head.insertAdjacentHTML("beforeend", '<style>svg[viewBox] {max-width: 100%}</style>');
+    }
+  });
+  //--><!]]>
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="https://golem.ph.utexas.edu/category/2025/11/beyond_the_geometry_of_music.html"
+    trackback:ping="https://golem.ph.utexas.edu/cgi-bin/MT-3.0/dxy-tb.fcgi/3622"
+    dc:title="Beyond the Geometry of Music"
+    dc:identifier="https://golem.ph.utexas.edu/category/2025/11/beyond_the_geometry_of_music.html"
+    dc:subject="Music Theory"
+    dc:description="Tymoczko gave a good talk on the math of music theory."
+    dc:creator="John Baez"
+    dc:date="2025-11-22T16:05:28+00:00" />
+</rdf:RDF>
+-->
+
+
+</head>
+
+<body>
+
+<div class="frame">
+
+<div id="banner">
+<h1><a href="/category/" accesskey="1" title="Jump to the blog main page">The n-Category Caf&#xE9;</a></h1>
+<div class="description">A group blog on math, physics and philosophy</div>
+</div>
+
+
+<h2 class="skip">Skip to the Main Content</h2>
+<div class="skip">
+<a href="#content" accesskey="2">Enough, already! Skip to the content.</a>
+</div>
+<p style="display:none;">
+<strong>Note:</strong>These pages make extensive use of the latest XHTML and CSS <a href="http://www.w3.org">Standards</a>. They ought to look great in any standards-compliant modern browser. Unfortunately, they will probably look horrible in older browsers, like Netscape 4.x and IE 4.x. Moreover, many posts use MathML, which is, currently <em>only</em> supported in Mozilla. My best suggestion (and you will <em>thank</em> me when surfing an ever-increasing number of sites on the web which have been crafted to use the new standards) is to upgrade to the latest version of your browser. If that's not possible, consider moving  to the Standards-compliant and open-source <a href="http://www.mozilla.org">Mozilla</a> browser.
+</p>
+
+
+<div class="blog">
+
+<div><div id='menu'>
+<a href='/category/2025/11/the_inverse_cube_force_law.html' accesskey='p'>&#xab; The Inverse Cube Force Law</a> |
+
+<a href='/category/'>Main</a>
+| <a href='/category/2025/11/the_bioctonionic_plane.html' accesskey='n'>Octonions and the Standard Model (Part 12) &#xbb;</a>
+
+</div>
+
+<h2 class='date'>November 22, 2025</h2>
+
+<div id='content' class='blogbody'>
+
+<h3 class='title'>Beyond the Geometry of Music</h3>
+
+<h4 class='posted'>Posted by John Baez</h4>
+
+<div><a href='http://golem.ph.utexas.edu/~distler/blog/mathml.html' onclick='window.open(this.href, &#x27;MathML&#x27;, &#x27;width=310,height=150,scrollbars=no,resizable=yes,status=no&#x27;); return false;' onkeypress='if(window.event.keyCode == 13){window.open(this.href, &#x27;MathML&#x27;, &#x27;width=310,height=150,scrollbars=no,resizable=yes,status=no&#x27;); return false;}'><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>Yesterday I had a great conversation with Dmitri Tymoczko about groupoids in music theory.  But at this Higgs Centre Colloquium, he preferred to downplay groupoids and talk in a way physicists would enjoy more.  Click <a href='https://media.ed.ac.uk/media/Beyond%20the%20Geometry%20of%20Music/1_fxe5vt57'>here</a> to watch his talk!</p>
+
+
+<div id='more'>
+<div><a href='http://golem.ph.utexas.edu/~distler/blog/mathml.html' onclick='window.open(this.href, &#x27;MathML&#x27;, &#x27;width=310,height=150,scrollbars=no,resizable=yes,status=no&#x27;); return false;' onkeypress='if(window.event.keyCode == 13){window.open(this.href, &#x27;MathML&#x27;, &#x27;width=310,height=150,scrollbars=no,resizable=yes,status=no&#x27;); return false;}'><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>What&#x2019;s great is that Tymoczkyo not faking it: he&#x2019;s really found deep ways in which symmetry shows up  pervasively in music.</p>
+
+<p>At first he tried to describe them geometrically using orbifolds, which are spaces in which some singular points have nontrivial symmetry groups, like the tip of a cone formed by modding out the plane by the action of the group <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x2124;</mi><mo stretchy='false'>/</mo><mi>n</mi></mrow><annotation encoding='application/x-tex'>\mathbb{Z}/n</annotation></semantics></math>.  But then he realized that the geometry was less important than the symmetry, which you can describe using groupoids.   That&#x2019;s why his talk is called &#x201c;Beyond the geometry of music&#x201d;. </p>
+
+<p>I&#x2019;m helping him with his work on groupoids, and I hope he explains his work to mathematicians someday without pulling his punches.  I didn&#x2019;t get to interview him yesterday, but I&#x2019;ll try to do that soon.</p>
+
+<p>For now you can read his books <em><a href='https://dmitri.mycpanel.princeton.edu/geometry-of-music.html'>A Geometry of Music</a></em> and <em><a href='https://dmitri.mycpanel.princeton.edu/tonality-an-owners-manual.html'>Harmony: an Owner&#x2019;s Manual</a></em> along with <a href='https://dmitri.mycpanel.princeton.edu/publications.html'>many papers</a>.  What I&#x2019;ve read so far is really exciting.</p>
+
+</div>
+
+
+<span class='posted'>Posted at November 22, 2025  4:05 PM UTC
+</span>
+</div>
+
+<p class='trackback-url'>TrackBack URL for this Entry:&#xa0;&#xa0; https://golem.ph.utexas.edu/cgi-bin/MT-3.0/dxy-tb.fcgi/3622</p>
+
+
+<h2 class='comments-head' id='related'>Some Related Entries</h2>
+
+<div id='pane'>
+
+<form method='get' action='/cgi-bin/MT-3.0/mt-search.cgi'>
+<fieldset class='search'>
+  <input type='hidden' name='IncludeBlogs' value='3' />
+  <input type='hidden' name='Template' value='category' />
+  <label for='search' accesskey='4'>Search for other entries:</label><br />
+  <input id='search' name='search' size='25' /><br />
+  <input type='submit' value='Search' />
+</fieldset>
+</form>
+
+
+
+</div>
+
+<ul class='blogbody related'>
+
+   <li><a href='/category/2024/02/the_atom_of_kirnberger.html'>The Atom of Kirnberger</a> &#x2014;
+<i>Feb 04, 2024</i></li>
+   <li><a href='/category/2010/06/workshop_on_music_patterns_and.html'>Workshop on Music, Patterns and Mathematics</a> &#x2014;
+<i>Jun 18, 2010</i></li>
+   <li><a href='/category/2010/02/a_look_at_the_mathematical_ori.html'>A Look at the Mathematical Origins of Western Musical Scales</a> &#x2014;
+<i>Feb 26, 2010</i></li>
+   <li><a href='/category/2010/01/this_weeks_finds_in_mathematic_52.html'>This Week&#x2019;s Finds in Mathematical Physics (Week 291)</a> &#x2014;
+<i>Jan 23, 2010</i></li>
+   <li><a href='/category/2009/09/this_weeks_finds_in_mathematic_40.html'>This Week&#x2019;s Finds in Mathematical Physics (Week 279)</a> &#x2014;
+<i>Sep 06, 2009</i></li>
+   <li><a href='/category/2009/07/thomas_nolls_talks_at_chicago.html'>Thomas Noll&#x2019;s Talks at Chicago on Mathematical Music Theory</a> &#x2014;
+<i>Jul 23, 2009</i></li>
+   <li><a href='/category/2009/06/treq_lila.html'>Treq Lila</a> &#x2014;
+<i>Jun 02, 2009</i></li>
+
+</ul>
+</div>
+
+<h2 class="comments-head" id="comments">1 Comment &amp; 0 Trackbacks</h2>
+
+<div class="blogbody">
+
+<div class="comments-body" id="c069123">
+<h3 class="title">Re: Beyond the Geometry of Music</h3>
+
+<div><div><a href="http://golem.ph.utexas.edu/~distler/blog/mathml.html"><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>&#8220;The Owl of Minerva only flies at dusk&#8221;, likely leading to a sleepless night spent with a talking bird.</p>
+</div>
+<div class="comments-post">Posted by:
+Kevin MacDonald on November 24, 2025  8:38 PM | <a href="/category/2025/11/beyond_the_geometry_of_music.html#c069123" title="URL for comment by Kevin MacDonald [November 24, 2025  8:38 PM]">Permalink</a>
+
+| <a href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3624;parent_id=69123" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}" title="Respond to comment by Kevin MacDonald [November 24, 2025  8:38 PM]">Reply to this</a>
+</div>
+</div>
+
+
+
+
+</div>
+<p class="newpost"><a class="comments-post" href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3624" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}">Post a New Comment</a></p>
+
+</div>
+
+<div id="footer">   
+<h2>Access Keys:</h2>
+
+<dl id="AccessKeyList">
+<dt>0</dt><dd><a href="/category/accessibility.html" accesskey="0">Accessibility Statement</a></dd>
+<dt>1</dt><dd>Main Page</dd>
+<dt>2</dt><dd>Skip to Content</dd>
+<dt>3</dt><dd>List of Posts</dd>
+<dt>4</dt><dd>Search</dd>
+<dt>p</dt><dd>Previous (individual/monthly archive page)</dd>
+<dt>n</dt><dd>Next (individual/monthly archive page)</dd>
+</dl>
+<a href="/category/archives.html" accesskey="3"></a>
+</div>
+
+
+</div>
+
+</body>
+</html>

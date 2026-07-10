@@ -1,0 +1,287 @@
+
+
+log|x| + C revisited | The n-Category Café
+
+The n-Category Café
+
+A group blog on math, physics and philosophy
+
+Skip to the Main Content
+
+Enough, already! Skip to the content.
+
+Note:These pages make extensive use of the latest XHTML and CSS Standards. They ought to look great in any standards-compliant modern browser. Unfortunately, they will probably look horrible in older browsers, like Netscape 4.x and IE 4.x. Moreover, many posts use MathML, which is, currently only supported in Mozilla. My best suggestion (and you will thank me when surfing an ever-increasing number of sites on the web which have been crafted to use the new standards) is to upgrade to the latest version of your browser. If that's not possible, consider moving to the Standards-compliant and open-source Mozilla browser.
+
+« Octonions and the Standard Model (Part 12) |
+
+Main
+| Octonions and the Standard Model (Part 13) »
+
+December 3, 2025
+
+log|x| + C revisited
+
+Posted by Mike Shulman
+
+A while ago on this blog, Tom posted a question about teaching calculus: what do you tell students the value of ∫1xdx\displaystyle\int \frac{1}{x}\,dx is? The standard answer is ln|x|+C\ln{|x|}+C, with CC an “arbitrary constant”. But that’s wrong if ∫\displaystyle\int means (as we also usually tell students it does) the “most general antiderivative”, since
+
+F(x)={ln|x|+C − ifx<0 ln|x|+C + ifx>0
+F(x) = \begin{cases}
+ \ln{|x|} + C^- &\text{if}\;x\lt 0\\
+ \ln{|x|} + C^+ &\text{if}\;x\gt 0
+\end{cases}
+
+is a more general antiderivative, for two arbitrary constants C −C^- and C +C^+. (I’m writing ln\ln for the natural logarithm function that Tom wrote as log\log, for reasons that will become clear later.)
+
+In the ensuing discussion it was mentioned that other standard indefinite integrals like ∫1x 2dx=−1x+C\displaystyle\int \frac{1}{x^2}\,dx = -\frac{1}{x} + C are just as wrong. This happens whenever the domain of the integrand is disconnected: the “arbitrary constant” CC is really only locally constant. Moreover, Mark Meckes pointed out that believing in such formulas can lead to mistaken calculations such as
+
+∫ −1 11x 2dx=−1x] −1 1=−2
+\int_{-1}^1 \frac{1}{x^2}\,dx = \left.-\frac{1}{x}\right]_{-1}^1 = -2
+
+which is “clearly nonsense” since the integrand is everywhere positive.
+
+In this post I want to argue that there’s actually a very natural perspective from which ∫1x 2dx=−1x+C\displaystyle\int \frac{1}{x^2}\,dx = -\frac{1}{x} + C is correct, while ∫1xdx=ln|x|+C\displaystyle\int \frac{1}{x}\,dx = \ln{|x|}+C is wrong for a different reason.
+
+The perspective in question is complex analysis. Most of the functions encountered in elementary calculus are actually complex-analytic — the only real counterexamples are explicit “piecewise” functions and things like |x|{|x|}, which are mainly introduced as counterexamples to illustrate the meaning of continuity and differentiability. Therefore, it’s not unreasonable to interpret the indefinite integral ∫f(x)dx\displaystyle\int f(x)\,dx as asking for the most general complex-analytic antiderivative of ff. And the complex domain of 1z\frac{1}{z} and 1z 2\frac{1}{z^2} is ℂ∖{0}\mathbb{C}\setminus \{0\}, which is connected!
+
+Thus, for instance, since ddz[−1z]=1z 2\frac{d}{d z}\left[-\frac{1}{z}\right] = \frac1{z^2}, it really is true that the most general (complex-analytic) antiderivative of 1z 2\frac{1}{z^2} is −1z+C-\frac{1}{z}+C for a single arbitrary constant CC, so we can write ∫1z 2dz=−1z+C\displaystyle\int \frac{1}{z^2}\,dz = -\frac{1}{z} + C. Note that any such antiderivative has the same domain ℂ∖{0}\mathbb{C}\setminus \{0\} as the original function.
+
+In addition, the dodgy calculation 
+
+∫ −1 11z 2dz=−1z] −1 1=−2
+\int_{-1}^1 \frac{1}{z^2}\,dz = \left.-\frac{1}{z}\right]_{-1}^1 = -2
+
+is actually correct if we interpret ∫ −1 1\int_{-1}^1 to mean the integral along some (in fact, any) curve in ℂ\mathbb{C} from −1-1 to 11 that doesn’t pass through the singularity z=0z=0. Of course, this doesn’t offend against signs because any such path must pass through non-real numbers, whose squares can contribute negative real numbers to the integral.
+
+The case of ∫1zdz\displaystyle\int \frac{1}{z}\,dz is a bit trickier, because the complex logarithm is multi-valued. However, if we’re willing to work with multi-valued functions (which precisely means functions whose domain is a Riemann surface covering some domain in ℂ\mathbb{C}), we have such a multi-valued function that I’ll denote log\log (in contrast to the usual real-number function ln\ln) defined on a connected domain, and there we have ddz[log(z)]=1z\frac{d}{d z}\left[ \log(z) \right] = \frac{1}{z}. Thus, the most general (complex-analytic) antiderivative of 1z\frac{1}{z} is log(z)+C\log(z)+C where CC is a single arbitrary constant, so we can write ∫1zdz=log(z)+C\displaystyle\int \frac{1}{z}\,dz = \log(z) + C.
+
+What happened to ln|x|\ln{|x|}? Well, as it happens, if xx is a negative real number and LogLog denotes the principal branch of the complex logarithm, then Log(x)=ln|x|+iπLog(x) = \ln{|x|} + i\pi, hence ln|x|=Log(x)−iπ\ln{|x|} = Log(x) - i\pi. Therefore, the antiderivative ln|x|\ln{|x|} for negative real xx is of the form Log(x)+C\Log(x)+C, where Log\Log is a branch of the complex logarithm and CC is a constant (namely, −iπ-i\pi).
+
+Of course it is also true that for positive real xx, the antiderivative ln|x|=ln(x)\ln{|x|} = \ln(x) is of the form Log(x)+C\Log(x)+C for some constant CC, but in this case the constant is 00. And changing the branch of the logarithm changes the constant by 2iπ2i\pi, so it can never make the constants 00 and −iπ-i\pi coincide. Thus, unlike −1x+C-\frac{1}{x} +C, the real-number function ln|x|+C\ln{|x|} + C in the “usual answer” is not the restriction to ℝ∖{0}\mathbb{R}\setminus \{0\} of any complex-analytic antiderivative of 1x\frac{1}{x} on a connected domain. This is what I mean by saying that ∫1xdx=ln|x|+C\displaystyle\int \frac{1}{x}\,dx = \ln{|x|}+C is now wrong for a different reason. And we can see that the analogous dodgy calculation 
+
+∫ −1 11xdx=ln|x|] −1 1=0
+\int_{-1}^1 \frac{1}{x}\,dx = \ln{|x|}\Big]_{-1}^1 = 0
+
+is also still wrong. If γ\gamma is a path from −1-1 to 11 in ℂ∖{0}\mathbb{C}\setminus \{0\}, the value of ∫ γ1xdx\int_{\gamma} \frac{1}{x}\,dx depends on γ\gamma, but it never equals 00: it’s always an odd integer multiple of iπi\pi, depending on how many times γ\gamma winds around the origin.
+
+I’m surprised that no one in the previous discussion, including me, brought this up. Of course we probably don’t want to teach our elementary calculus students complex analysis (although I’m experimenting with introducing some complex numbers in second-semester calculus). But this perspective makes me less unhappy about writing ∫1x 2dx=−1x+C\displaystyle\int \frac{1}{x^2}\,dx = -\frac{1}{x} + C and ∫1xdx=log(x)+C\displaystyle\int \frac{1}{x}\,dx = \log(x) + C (no absolute value!).
+
+Posted at December 3, 2025 2:23 AM UTC
+
+TrackBack URL for this Entry:   https://golem.ph.utexas.edu/cgi-bin/MT-3.0/dxy-tb.fcgi/3624
+
+Some Related Entries
+
+ Search for other entries:
+
+ A Characterization of Standard Borel Spaces —
+Feb 04, 2025
+
+ A Curious Integral —
+Jan 04, 2023
+
+ Topos Theory and Measurability —
+Jul 28, 2021
+
+ The Uniform Measure —
+Nov 24, 2020
+
+ The Categorical Origins of Lebesgue Integration, Revisited —
+Nov 11, 2020
+
+ Riccati Equations and the Projective Line —
+Sep 07, 2020
+
+ What is the Laplace Transform? —
+Jul 17, 2019
+
+ On the Magnitude Function of Domains in Euclidean Space, IV: Questions and Examples from a Geometric Analyst’s Perspective (b) —
+Jan 27, 2019
+
+13 Comments & 0 Trackbacks
+
+Re: log|x| + C revisited
+
+An excellent point, Mike! At the time of that previous discussion I probably hadn’t given a thought to complex analysis since passing my PhD qualifying exams more than a decade earlier, so that’s the excuse I’ll claim for not having thought of this perspective. (Having now taught complex analysis a couple times, I like to think I’d be more likely to now.)
+
+Posted by:
+Mark Meckes on December 5, 2025 1:33 PM | Permalink
+
+| Reply to this
+
+Re: log|x| + C revisited
+
+I vaguely remember my reference tables having a separate line for ∫axdx\int \frac a x dx. If you want to write this as ln(|x| a)+C\ln (\left|x\right|^a)+C those bars have to be placed exactly where they are to avoid using complex numbers.
+
+Here, it seems what we really want to avoid is complex numbers in the result, i.e. I want a real-valued antiderivative for this real-valued function. We can get that by writing
+
+Re∫1xdx=∫Re1xdx=Relogx+C.Re \int \frac 1 x dx = \int Re \frac 1 x dx = Re \, \log x + C . 
+This will seem overcomplicated to students; I claim it’s complexified.
+
+Posted by:
+unekdoud on December 6, 2025 8:16 AM | Permalink
+
+| Reply to this
+
+Re: log|x| + C revisited
+
+Very nice. 
+
+One thing I find interesting about this is the way in which the complex numbers become an arena in which what is formally true becomes actually true. I’m mostly thinking here about ∫(1/x 2)dx\int (1/x^2) d x: symbol-pushing gives −1/x+C-1/x + C as the answer, which is false/problematic for the reals but true in ℂ\mathbb{C}.
+
+There are other, quite different, contexts in which ℂ\mathbb{C} plays a similar role. Blass and Lawvere’s “seven trees in one” phenomenon is one. For those who haven’t heard this wonderful story, it goes like this.
+
+Let TT be the set (or type) of binary trees — I mean, trees with binary branching. Any such tree either is the trivial tree or consists of two trees joined together at the root, which suggests
+
+T≅1+T 2.
+T \cong 1 + T^2.
+
+Solving this quadratic equation gives T≅e ±πi/3T \cong e^{\pm \pi i/3} (!!!). So TT is a 6th root of 11. This tells us that T 6≅1T^6 \cong 1, which is to say, there is exactly one 6-tuple of trees. Clearly this is false. But if we multiply each side by TT then we get T 7≅TT^7 \cong T, which isn’t clearly false. And in fact, there’s a sense in which it’s true: there really is an explicit isomorphism between trees and 7-tuples of trees. 
+
+It takes a little work to make this statement precise, but it’s true for 7 in a sense that it’s not true for 5 or 6 or 8. For example, for any object TT of a rig category satisfying T≅1⊕T ⊗2T \cong 1 \oplus T^{\otimes 2}, it’s true that T ⊗7≅TT^{\otimes 7} \cong T. 
+
+Marcelo Fiore and I wrote a paper where we examined this phenomenon: when is there a match-up between (i) apparently nonsensical formal arguments of the seven-trees-in-one type using complex numbers, and (ii) what happens in abstract rig categories. It turns out that seven trees in one is just a single example of a general theory.
+
+Posted by:
+Tom Leinster on December 11, 2025 3:37 PM | Permalink
+
+| Reply to this
+
+Re: log|x| + C revisited
+
+Come to think of it, I guess complex analysis is often sold as a subject in which your dreams come true: every differentiable function has a power series expansion that converges to it (at least locally), etc. And this is used as a contrast with real analysis. So this is another analytic sense in which naive/formal reasoning actually works in ℂ\mathbb{C}.
+
+Posted by:
+Tom Leinster on December 12, 2025 12:17 PM | Permalink
+
+| Reply to this
+
+Re: log|x| + C revisited
+
+Indeed! I would probably also point to analytic continuation as a way to make some kind of sense of “formal” calculations like
+
+1+2+4+8+16+⋯=11−2=−1. 1 + 2 + 4 + 8 + 16 + \cdots = \frac{1}{1-2} = -1. 
+
+Posted by:
+Mike Shulman on December 12, 2025 3:20 PM | Permalink
+
+| Reply to this
+
+Re: log|x| + C revisited
+
+I find this post (and its “parent” from 2012) quite funny as all of this is common knowledge to everyone who has ever implemented (or maintained) a computer algebra system that does definite integration. Granted, that’s a rather small crowd. People like Robert Corless, David Jeffrey and James H. Davenport (amongst others) have published various papers about this phenomenon.
+
+I don’t know if the people working on proof systems have also discovered this yet. I’m guessing no, as they tend to not compute anything, only verify, so basically can avoid the problem by never asking silly questions.
+
+Fun history tidbit: Cauchy covered a similar phenomenon of ‘piecewise constants’ his 1821 “Cours d’analyse de l’École Royale Polytechnique” (in the context of solutions to ODEs) but removed it from subsequent versions of his course.
+
+Posted by:
+Jacques Carette on December 13, 2025 2:56 PM | Permalink
+
+| Reply to this
+
+Re: log|x| + C revisited
+
+ I find this post (and its “parent” from 2012) quite funny as all of this is common knowledge to…
+
+Let me quote from that parent post:
+
+ It’s wrong for reasons that won’t surprise many readers, and although I’ll explain those reasons, I don’t think that’s such an interesting point in itself.
+
+What I’m more interested in hearing about is the pedagogy. 
+
+Indeed, it’s common knowledge among many mathematicians (not only to implementers of computer algebra systems) that the statement “∫1xdx=log|x|+C\int \frac{1}{x} d x = \log\left|x\right| + C” needs careful interpretation. But as I wrote in the passage just quoted, the primary point was not that old news, but the pedagogical question:
+
+ If you think it’s bad to teach students things that are flat-out incorrect, what do you do instead? I’m not talking about advanced students here: these are 17- and 18-year-olds, many of whom won’t take any further math courses. What do you tell them about ∫1xdx\int\frac{1}{x} d x? 
+
+In my opinion, this remains a serious pedagogical question.
+
+Posted by:
+Tom Leinster on December 13, 2025 3:21 PM | Permalink
+
+| Reply to this
+
+Re: log|x| + C revisited
+
+ Indeed, it’s common knowledge among many mathematicians (not only to implementers of computer algebra systems) that the statement “∫1xdx=log|x|+C\int \frac{1}{x}dx=log|x|+C” needs careful interpretation.
+
+Agreed; CAS implementers have no monopoly here.
+
+However, apparently the fact that log(x)+Clog(x)+C becomes the indisputably correct answer when working with complex numbers isn’t sufficiently common knowledge for anyone to have pointed it out on the previous post.
+
+Posted by:
+Mike Shulman on December 13, 2025 6:31 PM | Permalink
+
+| Reply to this
+
+Re: log|x| + C revisited
+
+Right; I probably never knew this complex analysis fact myself, and if I did, I’d long forgotten it.
+
+Posted by:
+Tom Leinster on December 13, 2025 9:03 PM | Permalink
+
+| Reply to this
+
+Re: log|x| + C revisited
+
+The functions in your average calculus class are valued in the real numbers, not the complex numbers, so that those integrals of functions over the complex numbers are kind of irrelevant in that context. 
+
+In general, mathematicians need to be more specific about the sets or types that they are working with. An indefinite integral like ∫1x 2dx\int \frac{1}{x^2} dx does not inherently have any meaning until the domain and codomain of the function x↦1x 2x \mapsto \frac{1}{x^2} is specified, and then the correct simplification of the indefinite integral is going to be different depending on said domain and codomain, whether it be the reals, complex numbers, quaternions, p-adics, et cetera. 
+
+Posted by:
+Madeleine Birchfield on December 13, 2025 5:31 PM | Permalink
+
+| Reply to this
+
+Re: log|x| + C revisited
+
+ The functions in your average calculus class are valued in the real numbers, not the complex numbers, so that those integrals of functions over the complex numbers are kind of irrelevant in that context.
+
+I presume you mean “take values from the real numbers”. (-: Both are true, but it’s the domain that’s really relevant for this question.
+
+I did say
+
+ Of course we probably don’t want to teach our elementary calculus students complex analysis
+
+My point is rather that as a mathematical matter, for what we think of inside our heads as mathematicians, the complex perspective is an alternative to the “locally constant function” one, and may make us less concerned that telling students something simple and convenient like ∫1xdx=log(x)+C\int \frac{1}{x} dx = log(x)+C is “false”.
+
+Posted by:
+Mike Shulman on December 13, 2025 6:36 PM | Permalink
+
+| Reply to this
+
+Re: log|x| + C revisited
+
+ My point is rather that as a mathematical matter, for what we think of inside our heads as mathematicians, the complex perspective is an alternative to the “locally constant function” one, and may make us less concerned that telling students something simple and convenient like ∫1xdx=log(x)+C\int \frac{1}{x} dx = \log(x) + C is “false”.
+
+There is also the examples of using the positive or the negative reals as the domain of x↦1xx \mapsto \frac{1}{x}. For the positive reals ∫1xdx=ln(x)+C\int \frac{1}{x} dx = \ln(x) + C is true, while for the negative reals ∫1xdx=ln(x)+C\int \frac{1}{x} dx = \ln(x) + C is false and the right hand side of the equation should be ln(−x)+C\ln(-x) + C instead. And if you say that the domain of the function is the reals apart from zero (−∞,0)∪(0,∞)(-\infty, 0) \cup (0, \infty) then well of course it is false. 
+
+So I would argue that saying that “∫1xdx=log(x)+C\int \frac{1}{x} dx = \log(x) + C is false” is the wrong way to go about things unless you have already established the domain of the function you are taking the indefinite integral of. As is, the equation isn’t true or false, it is underdetermined. The integral has a type variable that needs to be filled in before it can be evaluated. 
+
+Posted by:
+Madeleine Birchfield on December 13, 2025 7:15 PM | Permalink
+
+| Reply to this
+
+Re: log|x| + C revisited
+
+That’s all technically true, but it’s also not something we necessarily want to get into with calculus students.
+
+Posted by:
+Mike Shulman on December 13, 2025 7:34 PM | Permalink
+
+| Reply to this
+
+Post a New Comment
+
+Access Keys:
+
+0Accessibility Statement
+1Main Page
+2Skip to Content
+3List of Posts
+4Search
+pPrevious (individual/monthly archive page)
+nNext (individual/monthly archive page)
+

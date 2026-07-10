@@ -1,0 +1,27 @@
+I made a game.  It’s like Sudoku but dyadic.  It’s called Dyadiku.
+Try it
+!
+I’m very interested to see whether people find it playable and fun — in particular, does it admit a boringly mechanical solving mechanism or does it hold its interest the way Sudoku does?  (*I* haven’t found a boringly mechanical way to solve these, but I’m not particularly skilled at Sudoku.)
+Quick description: the goal is to fill in an 8×8 grid with the numbers 1 through 8 (if you’re brave, you can try 16×16, but it’s pretty hard) such that each number appears once in each row and once in each column — so far this sounds just like Sudoku, I know, but there are more constraints.  You can break the 8×8 grid into 8 pieces in two more ways: 2×4 rectangles and 4×2 rectangles.  Call these the vertical blocks and the horizontal blocks.  Then a valid Dyadiku has each number appearing once in each row, once in each column, once in each horizontal block, and once in each vertical block.  A lot to keep track of!
+When I say “I made a game” what I mean is that I had the mathematical idea for this game.  The actual coding (and the information that Netlify would be a convenient free place to host it) was done by Claude Opus 4.5 — or rather was the endpoint of an iterative process of me going back and forth with Claude until I had things the way I liked them.  This was my first attempt to vibecode something that other people might actually use.  It was reasonably painless and took just a couple of afternoons.
+Since I don’t play Sudoku, why did I make a Sudoku variant?  Because the funny dyadic conditions in this game arose in
+a paper
+a bunch of us just posted. I’m pretty excited about this result, which came out of the recently concluded
+ICERM semester on computation in combinatorics
+.  It’s my favorite example yet of evolutionary programming (in this case, Google DeepMind’s new system,
+AlphaEvolve
+) generating examples of real mathematical interest.  I’ll blog more about the actual paper soon, probably tomorrow. For now,
+try the game
+!
+Share this:
+Email a link to a friend (Opens in new window)
+Email
+Share on Facebook (Opens in new window)
+Facebook
+Share on Reddit (Opens in new window)
+Reddit
+Share on X (Opens in new window)
+X
+Like
+Loading...
+Related

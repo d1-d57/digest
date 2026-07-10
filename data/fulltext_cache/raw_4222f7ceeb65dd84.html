@@ -1,0 +1,276 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN" "http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg-flat.dtd" >
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+
+<title>Second Quantization and the Kepler Problem | The n-Category Caf&#xE9;</title>
+
+<meta name="ICBM" content="30.2893, -97.7367" />
+<meta name="DC.title" content="The n-Category Caf&#xE9;" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<style type="text/css" media="all" title="The n-Category Caf&#xE9; Stylesheet">@import url("/category/styles-site.css");</style>
+<link rel="stylesheet" href="/category/print.css" type="text/css" media="print" />
+
+<link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="/category/atom10.xml" />
+<link rel="alternate" type="application/atom+xml" title="Atom 1.0 Comments Feed" href="/category/comments.atom" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="/category/rsd.xml" />
+<link rel="shortcut icon" type="image/x-icon" href="/category/images/favicon.ico" />
+<link rel="icon" type="image/x-icon" href="/category/images/favicon2.ico" />
+<link rel="pgpkey" href="/category/urs.asc" title="Urs Schreiber's PGP Public Key" />
+<link rel="start" href="/category/" title="Home" />
+<link rel="search" href="/cgi-bin/MT-3.0/mt-search.cgi?IncludeBlogs=3&amp;Template=category" title="Search" />
+<link rel="contents" href="/category/archives.html" title="Comprehensive List of Blog Entries" />
+
+
+<link rel="bookmark" href="#content" title="Main Content" />
+<link rel="bookmark" href="#comments" title="Comments" />
+<link rel="bookmark" href="#search" title="Search Box" />
+<link rel="bookmark" href="#related" title="Related entries" />
+<link rel="bookmark" href="#AccessKeyList" title="AccessKeys" />
+<link rel="prev" href="/category/2025/11/dynamics_in_jordan_algebras.html" title="Dynamics in Jordan Algebras" />
+<link rel="next" href="/category/2025/11/the_inverse_cube_force_law.html" title="The Inverse Cube Force Law" />
+<link rel="up" href="/category/2025/11/" title="November, 2025" />
+
+<script type="text/javascript" src="/category/prototype.js"></script>
+<script type="text/javascript" src="/category/ie.js"></script>
+<script type="text/x-mathjax-config">
+  <!--//--><![CDATA[//><!--
+    MathJax.Hub.Config({
+      MathML: { useMathMLspacing: true },
+      "HTML-CSS": { scale: 90,
+                    noReflows: false,
+                    extensions: ["handle-floats.js"],
+                    linebreaks: { width: "container" }
+       }
+    });
+    MathJax.Hub.Queue( function () {
+       var fos = document.getElementsByTagName('foreignObject');
+       for (var i = 0; i < fos.length; i++) {
+         MathJax.Hub.Typeset(fos[i]);
+       }
+    });
+  //--><!]]>
+</script>
+<script type="text/javascript">
+  <!--//--><![CDATA[//><!--
+  window.addEventListener("DOMContentLoaded", function () {
+    var div = document.createElement('div');
+    var math = document.createElementNS('http://www.w3.org/1998/Math/MathML', 'math');
+    document.body.appendChild(div);
+    div.appendChild(math);
+  // Test for MathML support comparable to WebKit version https://trac.webkit.org/changeset/203640 or higher.
+    div.setAttribute('style', 'font-style: italic');
+    var mathml_unsupported = !(window.getComputedStyle(div.firstChild).getPropertyValue('font-style') === 'normal');
+    div.parentNode.removeChild(div);
+    if (mathml_unsupported) {
+      // MathML does not seem to be supported...
+      var s = document.createElement('script');
+      s.src = "/wiki/MathJax/MathJax.js?config=MML_HTMLorMML-full";
+      document.querySelector('head').appendChild(s);
+    } else {
+      document.head.insertAdjacentHTML("beforeend", '<style>svg[viewBox] {max-width: 100%}</style>');
+    }
+  });
+  //--><!]]>
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="https://golem.ph.utexas.edu/category/2025/11/second_quantization_and_the_ke.html"
+    trackback:ping="https://golem.ph.utexas.edu/cgi-bin/MT-3.0/dxy-tb.fcgi/3620"
+    dc:title="Second Quantization and the Kepler Problem"
+    dc:identifier="https://golem.ph.utexas.edu/category/2025/11/second_quantization_and_the_ke.html"
+    dc:subject="Physics"
+    dc:description="Exploiting the secret 4-dimensional symmetry of the Kepler problem to think about the periodic table of elements in a new way."
+    dc:creator="John Baez"
+    dc:date="2025-11-03T08:51:55+00:00" />
+</rdf:RDF>
+-->
+
+
+</head>
+
+<body>
+
+<div class="frame">
+
+<div id="banner">
+<h1><a href="/category/" accesskey="1" title="Jump to the blog main page">The n-Category Caf&#xE9;</a></h1>
+<div class="description">A group blog on math, physics and philosophy</div>
+</div>
+
+
+<h2 class="skip">Skip to the Main Content</h2>
+<div class="skip">
+<a href="#content" accesskey="2">Enough, already! Skip to the content.</a>
+</div>
+<p style="display:none;">
+<strong>Note:</strong>These pages make extensive use of the latest XHTML and CSS <a href="http://www.w3.org">Standards</a>. They ought to look great in any standards-compliant modern browser. Unfortunately, they will probably look horrible in older browsers, like Netscape 4.x and IE 4.x. Moreover, many posts use MathML, which is, currently <em>only</em> supported in Mozilla. My best suggestion (and you will <em>thank</em> me when surfing an ever-increasing number of sites on the web which have been crafted to use the new standards) is to upgrade to the latest version of your browser. If that's not possible, consider moving  to the Standards-compliant and open-source <a href="http://www.mozilla.org">Mozilla</a> browser.
+</p>
+
+
+<div class="blog">
+
+<div><div id='menu'>
+<a href='/category/2025/11/dynamics_in_jordan_algebras.html' accesskey='p'>&#xab; Dynamics in Jordan Algebras</a> |
+
+<a href='/category/'>Main</a>
+| <a href='/category/2025/11/the_inverse_cube_force_law.html' accesskey='n'>The Inverse Cube Force Law &#xbb;</a>
+
+</div>
+
+<h2 class='date'>November  3, 2025</h2>
+
+<div id='content' class='blogbody'>
+
+<h3 class='title'>Second Quantization and the Kepler Problem</h3>
+
+<h4 class='posted'>Posted by John Baez</h4>
+
+<div><a href='http://golem.ph.utexas.edu/~distler/blog/mathml.html' onclick='window.open(this.href, &#x27;MathML&#x27;, &#x27;width=310,height=150,scrollbars=no,resizable=yes,status=no&#x27;); return false;' onkeypress='if(window.event.keyCode == 13){window.open(this.href, &#x27;MathML&#x27;, &#x27;width=310,height=150,scrollbars=no,resizable=yes,status=no&#x27;); return false;}'><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>The poet Blake wrote that you can see a world in a grain of sand.   But even better, you can see a universe in an atom!  </p>
+
+<p>Bound states of hydrogen atom correspond to states of a massless quantum particle moving at the speed of light around the Einstein universe &#x2014; a closed, static universe where space is a 3-sphere.  We need to use a spin-&#xbd; particle to account for the spin of the electron.  The states of the massless spin-&#xbd; particle where it forms a standing wave then correspond to the orbitals of the hydrogen atom.   This explains the secret 4-dimensional rotation symmetry of the hydrogen atom.</p>
+
+<p>In fact, you can develop this idea to the point of getting the periodic table of elements from a quantum field theory on the Einstein universe!   I worked that out here:</p>
+
+<ul>
+<li><a href='https://arxiv.org/abs/2507.11428'>Second quantization for the Kepler problem</a>.</li>
+</ul>
+
+<p>but you can see a more gentle explanation in the following series of blog articles.  </p>
+
+
+<div id='more'>
+<div><a href='http://golem.ph.utexas.edu/~distler/blog/mathml.html' onclick='window.open(this.href, &#x27;MathML&#x27;, &#x27;width=310,height=150,scrollbars=no,resizable=yes,status=no&#x27;); return false;' onkeypress='if(window.event.keyCode == 13){window.open(this.href, &#x27;MathML&#x27;, &#x27;width=310,height=150,scrollbars=no,resizable=yes,status=no&#x27;); return false;}'><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<ul>
+<li><p><a href='https://johncarlosbaez.wordpress.com/2018/01/07/the-kepler-problem-and-the-600-cell/'>Part 1</a>: a quick overview of Kepler&#x2019;s work on atoms and the solar system, and more modern developments.</p></li>
+<li><p><a href='https://johncarlosbaez.wordpress.com/2025/07/14/the-kepler-problem-part-2/'>Part 2</a>: why the eccentricity vector is conserved for a particle in an inverse square force, and what it means.</p></li>
+<li><p><a href='https://johncarlosbaez.wordpress.com/2025/07/17/the-kepler-problem-part-3/'>Part 3</a>: why the momentum of a particle in an inverse square force moves around in a circle.</p></li>
+<li><p><a href='https://johncarlosbaez.wordpress.com/2025/07/20/the-kepler-problem-part-4/'>Part 4</a>: why the 4d rotation group <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mtext>SO</mtext><mo stretchy='false'>(</mo><mn>4</mn><mo stretchy='false'>)</mo></mrow><annotation encoding='application/x-tex'>\text{SO}(4)</annotation></semantics></math> acts on bound states of a particle in an attractive inverse square force. </p></li>
+<li><p><a href='https://johncarlosbaez.wordpress.com/2025/07/23/the-kepler-problem-part-5/'>Part 5</a>: quantizing the bound states of a particle in an attractive inverse square force, and getting the Hilbert space <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msup><mi>L</mi> <mn>2</mn></msup><mo stretchy='false'>(</mo><msup><mi>S</mi> <mn>3</mn></msup><mo stretchy='false'>)</mo></mrow><annotation encoding='application/x-tex'>L^2(S^3)</annotation></semantics></math> for bound states of a hydrogen atom, neglecting the electron&#x2019;s spin.</p></li>
+<li><p><a href='https://johncarlosbaez.wordpress.com/2025/07/26/the-kepler-problem-part-6/'>Part 6</a>: how the Duflo isomorphism explains quantum corrections to the hydrogen atom Hamiltonian.</p></li>
+<li><p><a href='https://johncarlosbaez.wordpress.com/2025/07/29/the-kepler-problem-part-7/'>Part 7</a>: why the Hilbert space of bound states for a hydrogen atom including the electron&#x2019;s spin is <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msup><mi>L</mi> <mn>2</mn></msup><mo stretchy='false'>(</mo><msup><mi>S</mi> <mn>3</mn></msup><mo stretchy='false'>)</mo><mo>&#x2297;</mo><msup><mi>&#x2102;</mi> <mn>2</mn></msup><mo>.</mo></mrow><annotation encoding='application/x-tex'>L^2(S^3) \otimes \mathbb{C}^2.</annotation></semantics></math></p></li>
+<li><p><a href='https://johncarlosbaez.wordpress.com/2025/08/01/the-kepler-problem-part-8/'>Part 8</a>: why <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msup><mi>L</mi> <mn>2</mn></msup><mo stretchy='false'>(</mo><msup><mi>S</mi> <mn>3</mn></msup><mo stretchy='false'>)</mo><mo>&#x2297;</mo><msup><mi>&#x2102;</mi> <mn>2</mn></msup></mrow><annotation encoding='application/x-tex'>L^2(S^3) \otimes \mathbb{C}^2</annotation></semantics></math> is also the Hilbert space for a massless spin-1/2 particle in the Einstein universe.</p></li>
+<li><p><a href='https://johncarlosbaez.wordpress.com/2025/08/04/the-kepler-problem-part-9/'>Part 9</a>: a quaternionic description of the hydrogen atom&#x2019;s bound states (a digression not needed for later parts).</p></li>
+<li><p><a href='https://johncarlosbaez.wordpress.com/2025/08/07/the-kepler-problem-part-10/'>Part 10</a>: changing the complex structure on <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msup><mi>L</mi> <mn>2</mn></msup><mo stretchy='false'>(</mo><msup><mi>S</mi> <mn>3</mn></msup><mo stretchy='false'>)</mo><mo>&#x2297;</mo><msup><mi>&#x2102;</mi> <mn>2</mn></msup></mrow><annotation encoding='application/x-tex'>L^2(S^3) \otimes \mathbb{C}^2</annotation></semantics></math> to eliminate negative-energy states of the massless spin-1/2 particle, as often done.</p></li>
+<li><p><a href='https://johncarlosbaez.wordpress.com/2025/08/10/the-kepler-problem-part-11/'>Part 11</a>: second quantizing the massless spin-1/2 particle and getting a quantum field theory on the Einstein universe, or alternatively a theory of collections of electrons orbiting a nucleus.</p></li>
+<li><p><a href='https://johncarlosbaez.wordpress.com/2025/10/14/the-kepler-problem-part-12/'>Part 12</a>: obtaining the periodic table of elements from a quantum field theory on the Einstein universe.</p></li>
+</ul>
+
+<p>I explain how the Hamiltonian of this quantum field theory has to be tweaked a bit to give the &#x2018;Madelung rules&#x2019; for the order in which electrons get added as we go along the periodic table:</p>
+
+<p><a href='http://math.ucr.edu/home/baez/chemical/madelung_rules.png'>
+<img src='http://math.ucr.edu/home/baez/chemical/madelung_rules.png' width='500' alt='' /></a></p>
+
+<p><a href='http://math.ucr.edu/home/baez/chemical/periodic_table_madelung_rules.png'>
+<img width='500' src='http://math.ucr.edu/home/baez/chemical/periodic_table_madelung_rules.png' alt='' />
+</a></p>
+
+</div>
+
+
+<span class='posted'>Posted at November  3, 2025  8:51 AM UTC
+</span>
+</div>
+
+<p class='trackback-url'>TrackBack URL for this Entry:&#xa0;&#xa0; https://golem.ph.utexas.edu/cgi-bin/MT-3.0/dxy-tb.fcgi/3620</p>
+
+
+<h2 class='comments-head' id='related'>Some Related Entries</h2>
+
+<div id='pane'>
+
+<form method='get' action='/cgi-bin/MT-3.0/mt-search.cgi'>
+<fieldset class='search'>
+  <input type='hidden' name='IncludeBlogs' value='3' />
+  <input type='hidden' name='Template' value='category' />
+  <label for='search' accesskey='4'>Search for other entries:</label><br />
+  <input id='search' name='search' size='25' /><br />
+  <input type='submit' value='Search' />
+</fieldset>
+</form>
+
+
+
+</div>
+
+<ul class='blogbody related'>
+
+   <li><a href='/category/2023/06/grothendieckgaloisbrauer_theor.html'>Grothendieck&#x2013;Galois&#x2013;Brauer Theory (Part 1)</a> &#x2014;
+<i>Jun 26, 2023</i></li>
+   <li><a href='/category/2023/03/special_relativity_and_the_mer.html'>Special Relativity and the Mercator Projection</a> &#x2014;
+<i>Mar 03, 2023</i></li>
+   <li><a href='/category/2021/03/theoretical_physics_in_the_21s.html'>Theoretical Physics in the 21st Century</a> &#x2014;
+<i>Mar 01, 2021</i></li>
+   <li><a href='/category/2019/10/foundations_of_math_and_physic.html'>Foundations of Math and Physics One Century After Hilbert</a> &#x2014;
+<i>Oct 10, 2019</i></li>
+   <li><a href='/category/2014/05/spans_and_the_categorified_hei_1.html'>Spans and the Categorified Heisenberg Algebra (Part 2)</a> &#x2014;
+<i>May 25, 2014</i></li>
+   <li><a href='/category/2012/09/introducing_the_gr_qft_seminar.html'>Introducing the GR &amp; QFT seminar</a> &#x2014;
+<i>Sep 13, 2012</i></li>
+   <li><a href='/category/2010/03/an_invitation_to_higher_gauge.html'>An Invitation to Higher Gauge Theory</a> &#x2014;
+<i>Mar 01, 2010</i></li>
+   <li><a href='/category/2010/01/this_weeks_finds_in_mathematic_49.html'>This Week&#x2019;s Finds in Mathematical Physics (Week 288)</a> &#x2014;
+<i>Jan 01, 2010</i></li>
+
+</ul>
+</div>
+
+<h2 class="comments-head" id="comments">1 Comment &amp; 0 Trackbacks</h2>
+
+<div class="blogbody">
+
+<div class="comments-body" id="c069117">
+<h3 class="title">Re: Second Quantization and the Kepler Problem</h3>
+
+<div><div><a href="http://golem.ph.utexas.edu/~distler/blog/mathml.html"><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>The correspondence is Fock&#8217;s stereographic projection from momentum space. The functor <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>F</mi><mo>:</mo><msub><mi>&#x3c8;</mi> <mi>nlm</mi></msub><mo>&#x21a6;</mo><msubsup><mi>Y</mi> <mi>l</mi> <mi>m</mi></msubsup><mo>&#x2297;</mo><msub><mi>R</mi> <mi>n</mi></msub></mrow><annotation encoding='application/x-tex'>F: \psi_{nlm} \mapsto Y_l^m \otimes R_n</annotation></semantics></math> preserves <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>SO</mi><mo stretchy='false'>(</mo><mn>4</mn><mo stretchy='false'>)</mo></mrow><annotation encoding='application/x-tex'>SO(4)</annotation></semantics></math> because the hydrogen Hamiltonian commutes with the
+  Runge-Lenz vector. Eigenvalue map: <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msub><mi>E</mi> <mi>n</mi></msub><mo>=</mo><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mn>1</mn><mo stretchy='false'>/</mo><mo stretchy='false'>(</mo><mn>2</mn><msup><mi>n</mi> <mn>2</mn></msup><mo stretchy='false'>)</mo><mo>&#x2194;</mo><mi>&#x3bb;</mi><mo>=</mo><msup><mi>n</mi> <mn>2</mn></msup><mo>&#x2212;</mo><mn>1</mn></mrow><annotation encoding='application/x-tex'>E_n = -1/(2n^2) \leftrightarrow \lambda = n^2-1</annotation></semantics></math> on <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msup><mi>S</mi> <mn>3</mn></msup></mrow><annotation encoding='application/x-tex'>S^3</annotation></semantics></math>.</p>
+</div>
+<div class="comments-post">Posted by:
+Rick on November 22, 2025  6:38 AM | <a href="/category/2025/11/second_quantization_and_the_ke.html#c069117" title="URL for comment by Rick [November 22, 2025  6:38 AM]">Permalink</a>
+
+| <a href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3622;parent_id=69117" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}" title="Respond to comment by Rick [November 22, 2025  6:38 AM]">Reply to this</a>
+</div>
+</div>
+
+
+
+
+</div>
+<p class="newpost"><a class="comments-post" href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3622" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}">Post a New Comment</a></p>
+
+</div>
+
+<div id="footer">   
+<h2>Access Keys:</h2>
+
+<dl id="AccessKeyList">
+<dt>0</dt><dd><a href="/category/accessibility.html" accesskey="0">Accessibility Statement</a></dd>
+<dt>1</dt><dd>Main Page</dd>
+<dt>2</dt><dd>Skip to Content</dd>
+<dt>3</dt><dd>List of Posts</dd>
+<dt>4</dt><dd>Search</dd>
+<dt>p</dt><dd>Previous (individual/monthly archive page)</dd>
+<dt>n</dt><dd>Next (individual/monthly archive page)</dd>
+</dl>
+<a href="/category/archives.html" accesskey="3"></a>
+</div>
+
+
+</div>
+
+</body>
+</html>

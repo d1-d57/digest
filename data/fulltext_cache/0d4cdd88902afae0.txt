@@ -1,0 +1,616 @@
+- Good afternoon, I'm Dan Freid and it's a pleasure to welcome you to this final seventh
+lecture in this series on the Millennium Prize problems. This is a series of lectures that we've had throughout the
+year that's jointly sponsored by the Department of
+Mathematics here at Harvard. The Harvard CMSA, Center
+of Mathematical Sciences and Applications, and also the
+Clay Mathematics Institute. So without further ado,
+today we're very happy to have Peter Sarnak from the
+Institute for Advanced Study who will tell us about
+the Riemann Hypothesis. (audience applauding) - Thank you. And thank you
+for the invitation to do this. When you invited me, I'm
+sure you weren't expecting me to announce a proof of the
+Riemann Hypothesis today. (audience laughing) Had I had one, I would've
+even announced it here, but I can tell you that since agreeing to give this talk, and
+especially in the last few weeks, I've got an uptick of the
+number of proofs in my mailbox. (audience laughing) I normally get, I used to
+get one every few weeks and I would actually look at them and maybe even respond. But since AI came along, that
+number's gone rather large. And in the last few weeks,
+it's gone even larger with requests for me to
+announce other people's proofs at this occasion. I have not verified any proof. I have not seen anything
+that looks like a proof, but that's 'cause I haven't looked at many of these things that have arrived. So I want to explain to you
+why this is a good problem. It's a problem that goes
+by the name of hypothesis. I'm going to start with that. I'm not going to go into the math details as much as tell you why
+Riemann conjectured it, what applications they might be, why what I think is a good problem and what I think is the real problem here. So let me get moving. I can use this thing,
+I can point if I want, but I'd like to move around a bit. Okay, so the statement
+can be made very quickly. It's the following statement. You take the sum of n to the minus s, which before Riemann had
+been mainly considered by people like Euler as a
+function of the real variable s when s is bigger than one. And that's a product of the
+prime numbers of one minus p to the minus s to the minus one. You can expand that out collect and that captures with it the
+unique factorization theorem, which is equivalent to that identity. So we have two representations
+for this function when s is bigger than one and firstly Riemann
+allows s to be complex. In fact, a lot of the
+theory of entire functions was developed after this
+work in order to try and understand this problem further. So Riemann, he has one paper on this. I'm going to talk about it quite a bit. He extends this function to a homomorphic function
+in the whole plane as a function of a complex variable. It's got a simple pole at one and he derives an amazing relation called the functional
+equation that if you append to z of s, maybe I should point. So if you append to z of
+s, the gamma function, the gamma function is
+something we know very well. Riemann understood it very well. I'll show you where it
+enters into something he was doing in a minute. Apply to the minus s over two. If you multiply this
+factor, the new function, in his paper, he actually multiplies by s times one minus s in order to get rid of the pole even, so that to
+say the function's entire. Anyway, we'll allow the pole, then this function has a symmetry that the value at s is the same as the value at one minus s. And then in this paper,
+he makes not a conjecture. And I want to highlight
+this, a hypothesis, and I want to make, that's very important in the way he's thinking,
+he makes a hypothesis. We call it the Riemann Hypothesis,
+that all the zeroes row of this function of the completed function lie on the line of symmetry. So they're into many zeroes. He knows that; it's not
+obvious, maybe not obvious, but he certainly knows that. And that's it. Any problem that can be stated
+that quickly has one good, I'm going to tick off all the
+great things about this problem. Easy to state if you know
+what a complex function is, elegant in its answer all the
+zeros on the line of half. But why is it interesting? Okay. So Riemann doesn't make a hypothesis. He does make a hypothesis. He never made a conjecture. He does not make a
+hypothesis without evidence. Nobody knew but Riemann checked
+the first few zeros himself, a highly non-trivial thing
+to do with a pen and pencil. A pencil and paper, not a pen and pencil. But many people looked at what Riemann was writing in his math class, but it took the genius of
+Siegel many years later to understand what Riemann was doing, when in some computations
+we had actually computed the first few zeros. And I want to show you that he
+computed the first few zeros in order to make his hypothesis. He wasn't going to make this hypothesis just without any evidence whatsoever. So how did he do this? How do you compute this
+in with a pencil and paper and say that the real part is
+exactly a half of the zero. So the first few zeros that he computed or the first one's about
+14, the next one is 21, 25 and point something. They are on the line here. They're symmetric because of
+the fact that the function at s and at s bar is the same. And then these are the first few zeros. And how can he be sure that,
+if he's computing here, how can he be sure that the
+real part's exactly one half? So for this purpose, he needs
+to have an approximation of the Riemann zeta function
+in the critical strip. So I didn't explain to you yet, I'll say a few words about it later, of how he analytically continued this. But the natural thing is
+this function is very easy to describe as a rapidly
+convergent series. But there's a fact of
+gamma s over two there. And if you know Sterling's formula, if the first zero is at height 14, gamma of s on the half line will be e to the minus 14 times two pi, which is a **** small number if you're computing with your pencil. So you have now killed
+that number by everything you're computing is zero
+to many decimal places. And so he had to overcome that and he did. The remarkable thing he did was that he obtained an expression for
+the logarithmic derivative or for zeta the logarithmic derivative in the critical strip, which was so good that it's still the best we know today. It's the golden standard. Riemann developed a method which now is called the Riemann-Siegel formula 'cause Siegel understood
+what Riemann was doing and wrote it up and it's the best. The question is how
+many steps can I compute the Riemann zeta function at height T? The height, at height T he knew, and I'm not going to give any proofs here. There are about log T zeros and the number of zeroes is
+going to be the complexity, which is going to allow us
+to see why this conjecture at least when generalized, is
+one of the great conjectures. So his idea is I'll
+integrate f primed over f around a little contour
+containing the first zero, which he goes up the line
+guessing where it might be, does this integral, the answer he gets is going to be an integer. He calculates it accurately enough. The integer's one, the
+integer's one, the zero has to have real part equal to a half because otherwise there'd be two or more. So that's why every zero
+that's ever been computed of the Riemann zeta function is simple or we wouldn't know it's
+on the line of half. So when we say we verified, we were lucky that it was simple, he
+was lucky it was simple and many zeros have been computed and I'll discuss that in a second. But this was his idea and his method gives that
+to get the zero at height T, you need about square root
+t steps of computation. That's the gold standard. Actually that was improved
+by Odlyzko and Schönhage and further by Hiyari just for Zeta, you can improve it down
+to T to the one third. And using that, I think the biggest zeroes that have ever been computed
+or at 10 to the 36th, you don't go all the way up there. You'd go straight to there
+nearby and find you do something. You can actually say
+exactly which zero it is. And that was done by Boban Hiyari and that's as far as you can go. And as I say, the only reason that we know that the zeros are on the line
+is because they're simple. Because if they weren't
+simple, we would not be able to tell whether it was a double zero or almost a double zero
+with a finite calculation. Alright now that's what Riemann did and he called it a hypothesis. So why did he call it hypothesis? Because he was trying to do something else and this was a working hypothesis for him to achieve the goal of what he was trying to do in this paper, in
+this very short paper, he was trying to prove
+the Prime Number Theorem. That was the big unsolved
+problem about prime numbers at the time, Gauss who held the chair before him, there was Gauss directly and then Riemann was the first to really formalize this properly. And Riemann discovered that
+if you use complex analysis and some contour integrals orders and understand the zeros of the function, you could write the following function, which was already in the literature well documented by (indistinct) which is a sum, it's best
+to count prime powers, not just prime. So p to the k less than or equal to x, therefore the Prime Number Theorem, that's not a relevant issue
+but this is an identity. There's some p to the k
+less than or equal to x of log px is greater than or equal to one. A real number is x minus
+the sum of all the zeros, not just the ones of my function c or his function c but of Zeta. That's a conditionally convergence series. The man gave us convergence,
+Riemann sums, Fourier series. He knew what he was talking about, that sum's conditionally convergent and the right hand side
+is an exact formula for the number of primes up to x. And then he wanted to prove
+the Prime Number Theorem, which is just the asymptotic
+that psi of x is asymptotic to x, meaning that divided
+by x goes to one when x goes to infinity and he sees the x over there. So it was very convenient if
+all the real parts were less than one and where are they? Well it's on the line of half
+according to his first three. So he made the hypothesis and he says he will return to this. Yeah, he died very young as we all know, but I don't think he returned to it. But he outlined how to tackle the problem. Hypothesis allowed him to,
+working hypothesis allowed him to make the conclusion that he
+thought was more interesting. I dunno that he revisited it. But his ideas, and I'm going
+to give you many examples like this, led to an
+unconditional proof of what the consequence was. And that's the Prime Number Theorem. And that's the famous theorem of Hadamard and de la Vallée Poussin,
+1896 some years later. And they showed just enough to prove the Prime Number
+Theorem that the real part of any zero is strictly less than one. I'm not going into any world
+records or anything like that. That's equivalent to the
+Prime Number Theorem. And that was a highly non-trivial step and that is what I
+would call a workaround. There's a hypothesis, a
+working hypothesis, it leads to what you want but you get
+your conclusion anyway. So that's the example. So
+it's got a great problem. It's firstly elegant, easy
+to state, it's falsifiable. But why all the fuss? I mean who cares about, alright, we've got the
+Prime Number Theorem. Why do I care there's
+zeros on the line, a half? Actually, so let me make clear here. If you prove the Riemann Hypothesis, it would be monumental mathematically. The Clay Institute I believe
+would pay the money out if it's correct. I don't have any doubts about that. I'm sure personally that it would involve new ideas about integers and structures, some products and things like that. I'm going to discuss that in detail. But I would be extremely
+disappointed if all you did was prove the Riemann Hypothesis
+for the Riemann zeta function and no other zeta function, because there aren't any
+interesting applications of the Riemann hypothesis or sort of knockout
+applications that I know. So it's in the context of more general conjectures all identical that the problem becomes really powerful. But that doesn't mean you
+shouldn't not just work on the Riemann Hypothesis 'cause I'm sure if you prove
+the Riemann Hypothesis, somebody would say I'll prove
+the others the next day. But you can never know. Somebody might find some
+very special feature. I don't know, I'm just randomly saying what is the best consequence I know of the Riemann Hypothesis itself. Well it's going to be about primes. Later, I'm going to show you
+Riemann Hypothesis implies things in many, many different fields. That's why it's interesting. But one consequence is we like to know, well this is all just
+about the Archimedean location of primes. So Selberg showed in '43 that if you assume the Riemann Hypothesis, there's always a prime in x,
+in an interval x is large, x plus log x squared,
+which is a short interval. That would be way too
+much to prove, very hard. But for almost all x that's true. And that's at the scale
+that's already very small because it's a log to a power. That's a consequence of Riemann, which to me is probably
+the most interesting. If you want to see the consequences of Riemann being a little bored,
+look at Titchmarsh's book, an amazing book called "The
+Riemann Zeta Function." Everything just about the
+Riemann zeta function. Now other function in the world. And then he has this
+section on the consequences of Riemann Hypothesis. And you say, ah, is this
+a problem we're working on or highlighting? Well it's a great problem
+because I'm sure that it's part of the general picture
+and that's my argument. Alright, sorry. Now if you disprove
+the Riemann Hypothesis, so you find a zero for the line, and this was asked to me by Nick Truten. Would this be a terrible thing? So you go, we've gone certain height and there's a zero off the line. There are a few things
+that are interesting here. Firstly, the Clay may not pay you. (audience laughing) Did you know that? I've
+read the fine print. Not 'cause I had a counter
+example, but they're crazy. They say they don't have to pay you if you disprove a conjecture. I'll pay you, I'll crowdsource for you if you find a zero off the line. (participant faintly speaking) - That's why I said crowdsource. (audience laughing) So if you find a zero,
+curiously, you would be able to solve problems that are unsolved by finding a zero off the line 'cause there's some
+Landau-Siegel repulsion property that the minute you have
+a zero off the line, of any L function, it
+prevents other zeros behaving in certain ways and you might
+even just take that one zero and actually solve a problem. And it might even indicate to you what that problem might be as we go along. So you might solve a problem but that if you found a zero
+off the line, the real truth is it would be a disaster. And the reason it would
+be a disaster is not because one zero off the
+line will upset any of us, but how can we believe there's
+just one zero off the line? Then we have to believe that it's false and then it's false more generally. And then I'm going to
+try to convince you that if it's true, it's one of the great truths of numbers in the mathematics. So it would burst our bubble. I'm sure anybody who wants to
+do that would be very happy to see that bubble burst. But anyway, a lot of us would
+be very upset if it's false. But you could ask, well
+what about this evidence I was just showing? The 10 to the, what was it, 36, that's quite high up; as I said, no one's checking the zeros, it's probably 10 to the 12 that we know the first so many. Turing also was trying to get his machine immediately
+to find a zero off the line. And this is what people
+want to convince you, the power of other technology. Is that convincing? Well you got to be cautious because the most important
+thing is the complexity that I'm going to return to
+all the time or the conductor. It's the number of zeros. And if you had height 10 to
+the 26 or we had height T, the number of zeros is only log T. And so they haven't really
+started to get very close because you've taken the number of zeros, there's only log of 10 to the
+26, there's quite a few zeros. But if there's a feature
+where they're going to go very close and
+maybe move off the line, you have to go much higher. So you should take such
+things with caution and everybody's computed
+this always says that, but I think it's falsifiable and you've got a lot of
+cases where it passed. So it's very good in that way. Alright, so I'm now going to introduce what's called the Generalized
+Riemann Hypothesis. And this is where it takes shape after Riemann through other L functions and where it becomes a very, very powerful working hypothesis leading to solutions or problems through workarounds. And if true, many
+conjectures would be solved. There are many theorems, let's say assume Riemann Hypothesis. No there are not many
+theorems which say assume Riemann Hypothesis then. There are many theorems would say assume the Generalized Riemann Hypothesis then. Okay, so I'm not going to give you the most general definition, but at least let me give you the one that can give you the flavor
+of what I'm talking about. So the Riemann zeta function
+has got many generalizations. I'll talk about Dedekind Zeta functions. At the very end, I'll talk
+about L functions that we know. So this is very important. We know the soil in which
+we grow these functions, they all come from automorphic forms. The reason for me automorphic forms are so interesting is they're the
+only source of L functions. So we know where to grow these objects and it's in that context that we believe all these
+conjectures are true. And so I won't talk much
+about automorphic forms except at the end, but let's take Dedekind data function. So we take a finite
+extension of the rationals and we can do the same thing. The class number may not be one, but there's unique
+factorization into prime ideals. And the identity that
+Euler wrote down is true the same way, this is due to Dedekind. The sum of the norms of the ideals to the minus s is a product
+of one minus norm of the ideal of the p the minus s to minus one. And then this function also
+has an analytic continuation function equation, that is not easy. Dedekind was not able to prove this. It took the genius of Hecke to do that, because I'll say that the
+additive structure combined with the units of the number
+field were too complicated for the early workers. But Hecke explained this and the function has the same feature. This is very important.
+There's something new. If the degree of the extension
+is in, there will be, I'll just assume all the embeddings of the number field are real. Then it's this famous pi to
+the minus s of the two gamma s of two that you saw that Riemann put. And then there's the discriminant. And this is all about
+ramification conductor. That's what the Riemann
+Hypothesis controls. It controls ramification
+in a very deep way. That's where the power
+of its applications come. So the discriminant is
+the places the primes at which the number field is ramified. The ramification is built
+into the discriminant through an integer and that appears in the
+functional equation. So the functional equation
+now has this conductor or complexity and the most important thing is that the number of
+zeros that are locally. So if you go high up, you'll have more and more zeros, but look low down. The number of zeros that a
+Dedekind zeta function will have will be log D over two pi, logarithm. I urge you to note logarithm
+that's going to allow me to transcend complexity classes. Log of the conductor
+is the number of zeros and the number of zeros
+if you are polynomial, would be related to the degree, clearly the complexity. So the log of the conductor
+is like the degree. Alright, so we have the
+same and what's GRH? Well a great conjecture. There are conjectures, we say if, but, this and some conditions no change. All the zeros on the line and
+half, no change whatsoever. GRH says all the zeros of
+all these old functions on the line and half, period. Okay, so that's the
+conjecture which is called GRH and that's a conjecture that we all, or me anyway, thinks of
+as the Riemann Hypothesis. Now of course these have also been checked but only in very low degree 'cause these things I
+said we can grow them all but they're hard to grow. But there's an amazing database that you can go play with yourself. It's this L function and
+modular forms database and Drew is one of the key players there, and it contains a wealth of
+information about the zoo and from the zoo, each element in the zoo gives you a zeta function. And each zeta function
+has a Riemann Hypothesis. And each of those I think
+has been checked more or less for its first few zeros. And the species is quite complicated and so you might think,
+well those guys are probably not going to satisfy it. I'll return to that. The GRH is that they
+all satisfy it, period. I'm not going to try sell the subject. I've had somebody once
+come up to me and Say, "Well you haven't proved
+the Riemann Hypothesis. What have you done?" (audience laughing) Well I've got a job okay? Just as in the case of
+Riemann, there's a workaround, he has a hypothesis. Let's start out that the
+Riemann Hypothesis in general is still a hypothesis. I've never heard it called the conjecture. It's a hypothesis, a working hypothesis. If it's proved of course then, we don't have to conjecture it, but it implies amazing things. And what's remarkable is
+in many, many problems you can still prove those
+things unconditionally. And that's why the
+subject is very vibrant. And there's a whole theory of the analog of maybe the Prime Number Theorem, which is the non vanishing
+theorem of L functions, that's very general. There are substitutes for
+the Riemann Hypothesis, which say well maybe, so here's how you diagnose whether
+this might be useful. If I have a problem and I want to see, could I say I assume the
+re-generalized Riemann Hypothesis, I get my conclusion I'm very
+happy, can I get rid of it? Well the first question you
+ask is if there's one zero, will one zero of the line kill you? If then, then you can trouble. But if one zero won't kill
+you, then probably not so many zeroes won't kill you either. And then there are
+density theorems would say that there aren't many zeroes off the line and then things become unconditional. They're off the shelf
+theorems of that type and the subjects thrive. There's estimates, uniform estimates that come from having
+the zeros of the line. If you're an analyst,
+you take a log of zeta and you apply the three line theorem and you use that log is
+analytical all the way up to the later half, you get where everybody's getting powers, you're getting now log to a power and so that's much stronger bound. So you get uniform bounds in parameters and you know exactly how things
+behave if you assume GRH. And sometimes in many
+interesting problems, you don't need to get the full
+optimal bounds, you just need to get underneath certain bounds. And that's called sub convexity. So I'm not going to give you a
+lecture about what we can do, but I'm just saying the
+subject is absolutely thriving in general and that's what
+the theory of L functions is trying to do. And if this great truth
+were on top of it known, it would've the impact that you could take many, many theorems and
+say I don't need to work. You know a lot of the times
+we are like tightrope walking over a bridge in order to
+use this estimate there and that there and then
+get onto the other side and then you'll just have this
+highway you just drive over. And many theorems in
+books would not be needed though the techniques are
+often more interesting. Alright, so I'm going to
+give you some examples of the application of GRH
+where it's working hypothesis and where the things were proved anyway, just like a hypothesis should be. So the prime number film is
+the first example that I gave as the main example. But here's another example. Prime are P. Can you tell whether a large number, and I'll give you by the
+complexity of the numbers, the number of digits can I tell whether it's a prime number or not? Do I have an algorithm that will in finite times tell me whether I'm prime or not. And that was first proved
+under the Riemann Hypothesis by Gary Miller in '75. He used GRH in a serious way. It used the conductor feature
+that I'm telling you about, that if two L functions look
+the same up to logarithm, then they are the same forever. This is this conductor control. Exactly in that way, it
+was quite unexpected, but very welcome that this
+was proved unconditionally by Agarwal, Kayal, and Saxena in 2002 by using some of the same ideas but then not working with
+the L functions themselves but another setting. So often the substitute might be directly an off the shelf application. Often it's the same idea
+or variant idea that's used and sometimes it's quite different. So I'll jump now to something very recent to something called the
+André-Oort conjecture, which was proved by Edixhoven,
+Klingler and Yafaev. Assuming GRH in 2014 is the general paper. What is this conjecture? It's about special points
+on sub special varieties called Shimura varieties. And the points are special
+points, they're called CM points. And they claim the
+conjecture is if they aren't, if say you have a sub
+variety which doesn't contain the Shimura sub varieties,
+so they're not special then they only finitely many
+of these points that lie there. So it's a finite atmosphere
+and it was proved under GRH. But recently it's been proved
+completely unconditionally by Pila-Shankar-Tsimerman with the appendix by
+Esnault and Groechenig. It's a tremendous achievement. But I'll tell you one thing that the, when you prove such deep
+theorems that something's finite that's kind of complicated like that, it's often ineffective. That is the only finitely many points on the sub variety is part of the theorem. They prove it but they can't tell you that they've got all the points. And if you knew the Riemann Hypothesis, you could make their proof effective. And if you found a zero off
+the line, this is the kind of thing where it might be
+making such a claim ineffective. So as far as I'm concerned,
+Andre ought to solve except for the effectivity issue, which would be given the information we
+know become effective. It's right now ineffective. There's a lovely conjecture but Odlyzko and Poonen has
+recently been solved using GRH. This is a case where we don't
+know how to remove it yet. I'm sure this will be removed, but right now it's conditional under GRH. That is if you take a polynomial
+with zero one coefficients, is it with probability
+one as D goes to infinity. So there are many theorems
+where you let the As go through integers up to T and then
+that's a very easy theorem. And if you fix the A in
+finite, big finite sets, that's also been proved. There are many variants. But if you take zero
+one, it's very tricky. And right now that's a
+conjecture of Poonen and Odlyzko, which was proved recently
+by Varju and Breuillard and the proof is using
+Riemann at some point where something is
+proved to be an expander, and they need some operation and some product needs to
+be shown to be an expander. Perhaps my favorite one. So I've shown you something in complexity. By the way, there's also
+another one in complexity. Can you recognize whether or
+not is the recognition problem of a knot being knotted or unknotted in NP and the first proof by
+Kuperberg of this assumed GRH and then (faintly speaking) gave a unconditional proof. So these things get out to things where at some point you're
+using integers in a deep way or something like that, usually primes. And I want to show you
+a case where of course the generalized Riemann Hypothesis
+probably has a lot to do with number theory and this is the one that I like best, in fact. So since the invention of what's called the Hardy-Littlewood Circle Method, this problem has always
+been the bottleneck. I want to count the number
+of solutions to a sum of three cubes equals
+a sum of three cubes. There are many solutions, but I want to give an upper bound which
+is sharp for other purposes. I'm not going to justify one.
+This is kind of a central issue. The one that's very quickly
+raised in the subject. Hua, an expert on the Hardy
+Littlewood Circle Method in the 1940s gave a bound. So the trivial bound, obviously
+if the x is like most T's, T to the six, but he
+gave a bound much better, which is T to the seven over two. And the conjectures is T to the three. Give a little epsilon. It cannot be better than T to the three because I can have x1,
+x2, x3 equals y1, y2, y3. And so I've got TQ solutions. And Hooley proved an amazing theorem that you do get T to
+the three plus epsilon. If you assume the generalized
+Riemann Hypothesis for has L functions of three folds that come from an analytic
+tool that he invented. So there's a whole Diophantine analysis and at some point, one
+over these s of L functions enters into his analysis, one over L. He's not looking for primes
+and he needs to control that. And if you can control that, and he says if you assume
+the Riemann Hypothesis. So this is the kind of thing that I don't think anybody
+has any hope at this moment to replace and do this unconditionally. So the last two I'm giving are ones where we haven't worked around them yet. And the last one and there,
+okay, I have a number of papers which are still
+conditional under GRH. I was at the seminar of Katie Wu today. She was explaining the theorem. She assumed GRH, she's going to remove it. So there, it's a working hypothesis okay. Another reason this conjecture, and I am raising this 'cause I want to explain why
+the conjectures are great if it impacts other fields and if it's somehow we can
+learn something from this. So there are other analogs of this. This is the famous function
+field in which we understand a lot of things and that's we
+replace the rational numbers by rational functions over a finite field and we replace the
+integers by polynomials. And then you have the
+same yoga you have factor, you can factorize polynomials into primes and you can form a zeta function. It's standard here not to use
+a variable complex variable S, but the parameter T, because all the functions are
+now polynomials or rationals. So you don't want to write down something analytic function in P to the minus S. It's very confusing. So you make this change a variable and then you get that the zeta function of the projective space, which
+is just FQT, can be computed and it's got a poll at one and this completed zeta function. There's no numerator,
+there are no zeros there. So if this were the Riemann
+Hypothesis in the function field, it would be a bit boring. It is boring. But Emil Artin in an insightful
+game changing paper, said, well let's look at a finite extension or what is the curve over a finite field? And then you do get a numerator
+that's not so hard to prove. He proved it, it's a
+polynomial of degree 2g where g is the genus
+of the function field. And you could ask, well is the Riemann Hypothesis true for this? And he did. There's a functional equation which takes t to one over qt. And so in this variable
+T the zeros are all going to be in a circle if the Riemann Hypothesis
+true at the fixed circle of that transformation,
+which is one over root Q. And there's a fantastic generalization of this conjecture due to
+Andre Weil where instead of having curves of a finite field, you have smooth projective
+varieties of a finite field. And he understood how
+to formulate the analog of the Riemann Hypothesis
+called the Weil conjectures. And Weil himself proved
+this Riemann Hypothesis that Emil Artin imposed. During the Second World
+War, he gave two proofs. One is a absolutely brilliant
+proof using surfaces using curved cross itself. It's the one that many of us
+still hope might be relevant in the real thing, but I'm not
+going into attempt too much. And Grothendieck developed a
+cohomology theory which was vital and the lean was
+able to prove the analog of the Riemann Hypothesis in the setting. And let me assure you, that's got millions and millions of applications. I'm not going to even
+start to try to list. That's used in exponential sums and used in many, many,
+many things in engineering. But the crucial development here that opened the door here was that you can linearize a
+problem, that is that the zeros of the zeta functions
+in the function field can be realized in terms
+of the Frobenius morphism which is a map x goes to x
+2Q acting on this cohomology. So that's where it's linearized. And so we have a linear
+interpretation of the zeros or a spectral interpretation of the zeros. But I think it's very
+important to understand that this linearization doesn't
+put the zeros on the line or on the circle in this case. It's not like, oh this is some magic and there's something that
+there's some self joint Hilbert-Pólya problem this I'll return to. There's no magic like that.
+This is a very big extra step. They gave two proofs. There's a proof using
+combinatorics, a polynomial method of Stefano for all four curves. But once you get to higher
+dimensions, the only proof that's known is to not
+look at one guy at a time. And this is extremely important. We dunno how to prove
+the Riemann Hypothesis for one variety at a time. We have to deform them in a family. In math we always know you take
+one guy, I dunno what to do, but if I can move it and in this argument there's something that glues the different things. It's called monogamy.
+That's what Dalene used. And by deforming he was able
+to learn the Riemann Hypothesis for all varieties for the
+only once and all at once. The glue you get from one to all. (participant faintly speaking) - The deformation is a new data function. And the big one is also you
+use growth and index machinery. It's a fantastic, it's one
+of the great, as I said, one of the great
+achievements of 20th century and all that's for this analog problem. It's a, maybe I shouldn't say it in this, but baby analog problem, okay? So I hope that in explaining GRH, that that's a great problem. For me, it qualifies in
+every sense of the word. It's elegant, falsifiable, each case is elegant, falsifiable. If it's true, I didn't give
+you that many examples, but it's extremely powerful
+truth about the world. So that's a great problem. Tells you something that's
+well below the surface that we don't know why it's true, but if it's true, it's
+very powerful that we know. And of course a great problem also inspires generalizations
+in related fields. So in that sense, GRH and I
+call RH, GRH, indistinguishable, is a problem that should be on the list and on anybody's list
+and Clay's list as well. If somebody disproves
+the Riemann Hypothesis, you pay them. (audience laughing) That I don't like. It's the only thing I don't like. The beauty also of this is
+that the Riemann Hypothesis, I mean it's replaced the
+Fermat's Last Theorem. Fermat's Last Theorem was what
+you know, you come into math, you want to try your
+hand at it immediately. You can now do it with a
+Riemann Hypothesis 'cause, and people are simply, for myself, so where there's not so
+much info in it for them, but it's so easy to state. And I want to now comment. So the rest of this lecture
+will be some commentary of where we at and probing it. So we have substitutes, but I'm
+not going to talk about that. So I gave a lecture seven
+years ago, which was the 150th year I think since Riemann's paper. And they had a big conference in Bristol, where I compared different
+approaches and different ideas and I won't go through them except to review some salient points. And let me just start with
+the most basic salient points. So the Riemann zeta
+function relates with sum and the product and we dunno
+how to mix these two structures in a way that's decisive. The analytic continuation is
+gotten by harmonic analysis. Whatever you do, it's always
+the same harmonic analysis. We put the integers inside the real line, they fit very beautifully. And R mod Z is a circle with its measure and it's a discreet subgroup. It preserves the motions,
+the quotient compact and we do harmonic analysis on the circle and there's something
+called the Poisson sum, which is equivalent to
+Riemann zeta function functional equation, purely additive. That's the one side. And then the other side is multiplicative. And the multiplicative side
+is of course the interplay between them is what makes the
+problem interesting and deep. But on the other side is
+we think multiplicatively. So we need to combine the two if you want to somehow understand this problem better. And so 99.9 attempt at the
+Riemann Hypothesis by the public, let's say, can be shown to be wrong because they only use
+the functional equation and not the Euler product. And this is highlighted and I want to highlight this in spades because it's something quite interesting. If you took a binary
+quadratic form, definite, Q x, y with integer coefficients and you summed it Q x,y of integers is not zero to the minus s. So that's going to start to look
+like a Dedekind zeta function of a imaginary quadratic field. And suppose that the class number of that imaginary quadratic
+field is bigger than one and not one, then this series
+that you wrote down there will not have an Euler product. If I add all of those together, which have the same discriminant,
+the inequivalent classes, I will get an Euler product. So I've got a finite
+number of Rickles series that look like into the minus s. They each have a functional equation. Each one looks, so if
+all you're looking at is the functional equation, each one will look like it's
+got a functional equation with the right kind of behavior. But none of them satisfy
+the Riemann Hypothesis. They all have zeros in the
+real part of s bigger than one. If the class number's bigger than one, if the class number's one,
+there's only one guy there and then it's a Dedekind zeta function, it better satisfy the Riemann Hypothesis. So the issue of the Euler
+product is absolutely critical. So any proof that tries just to use the functional
+equation has no chance. Even Selberg in 1980, he
+became very famous 30 years before, 40 years before for proving that the Riemann zeta function
+has a positive proportion of its zeros on the line half. And then people were saying,
+okay, now we, you know, he's got this proportion, we
+are going to go the whole way maybe, I don't know, even
+a hundred percent wouldn't prove they're all on the line. It just is a percentage. But he realized and he wrote
+a very interesting paper or maybe he gave lectures on it, it's only the institute to
+archive all these lectures if it wasn't published, that each of these zeta
+functions which fail Riemann will still have a positive proportion of the zeros on the line. So those statistical
+theorems are not touching the Riemann hypothesis, they
+are absolutely not touching it. And so it must have been a
+bit painful for him to come and say, "All right, now
+let me show you actually I don't need the Euler product. I can still prove this." Actually a hundred percent of these zeros for good reasons are probably
+on the line and half. So mixing the additives and multiplicative structure
+remains a challenge. There are wonderful
+advances in some product and Kakaya and expansion. These are all about some product features that are the combinatorial nature. But this is a very structured
+problem where we don't know how to combine the two directly. All right, now I'm still
+talking about why the Riemann hypothesis is hard. I think it's fair to say, and I've looked at this that
+in the first 30 years before, even after the Prime Number Theorem, I don't think people really
+thought this was a hard problem. It's clear that Riemann himself said, I'm going to return to think if it's true. He checked the first theory,
+he did what he needed, he moved on. Other people started to think about it. And I think there were people
+giving their students thesis. I think Littlewood was given
+a thesis from somebody proof of Riemann Hypothesis. So I don't think people understood whether it was hard or not. And we don't, how do you
+know something's hard? I can't prove there's no easy proof. But I think it's fair to
+say that there's nothing that's not very well hidden. If there is an easy proof,
+it's very well hidden and there's no easy manipulation
+that's going to give it. So I think we should appreciate that. There are many equivalence
+of the Riemann Hypothesis, a dime a dozen. And people look into
+this one way or another. For me, they are curiosities mainly because any equivalence is interesting. But if you use the equivalence to say something I don't know,
+then it's very interesting. But none of these equivalences
+have led to anything that the standard theory doesn't give in terms of applications that I know of. So I don't find them very interesting. But let me give you one, because
+I was debating when I was preparing this how quickly
+I can explain the Riemann hypothesis to the man on the street. So I had to assume that the person knew what a complex analytic function is. Well now let me drop that. They need to know what a prime
+number is and that's all. So one of the standard equivalences
+is if you take lambda N to be minus one to the
+number of prime factors of N, total number of prime factors of N, so that's a plus minus one. And you ask is that coming
+down as you go over N randomly? So it's very easy to see that
+the sum N up to x of lambda. And if you average those
+numbers, those plus minus ones and divide by x that goes to zero, is completely equivalent to
+the prime number theorem. That's tautologically almost equivalent to prime number theorem. And the Riemann Hypothesis
+is a quantification of that, that that sum will cancel
+up to square root x if you always put your safety value of the epsilon there, Mr. Treferman. So (laughing) while
+elementary proofs of the first have been found and
+they're well documented, there's recently been a proof
+which I was always dreaming to see, an Ergodic theoretic proof found by Richter and McNamara in 2021. And so the Prime Number
+Theorem does seem something that you can prove elementarily, but those methods don't
+give you any quantification. On the other hand, if I were to explain, so now this is probably the easiest way to state the Riemann Hypothesis. Two, anybody can understand
+it now without knowing complex analysis. And it looks like it's probably true because these numbers
+are random you're saying, but showing something
+explicit is random is one of the hardest things in mathematics. If I said to you proof pi is normal, you'd look at me like I'm crazy, nobody's going to try proof pi is normal. That's just too hard for humans. So when you have something
+that's completely explicit, you want to show it's behaving
+like something random, it's a challenge. And that's one of the reasons
+this problem's really hard. Okay, so I mentioned the linearization that occurred beautifully
+in the function field case and I also even mentioned the
+Hilbert-Pólya, which you see. So I think Hilbert and
+Pólya according to Odlyzko, he got a letter from Polya
+which did verify this was true, that they were suggesting that maybe there's some
+interpretation of the zeroes where you have a self joint operator and that puts the zeroes on a line. I think that's crazy. I mean it's nice if you, but that's not the way it's proved in any situation where we know it. And that's just looking for something that I think is too much. On the other hand, I wouldn't
+dismiss the linearization 'cause there's a fantastic
+evidence that the zeros are behaving like Eigenvalues
+if anything was in the world. So there was this amazing
+encounter between Dyson and Montgomery in '73 at
+the institute, which led to the following statement,
+which has now been verified and understood numerically
+and phenomenologically and analogs all over the show. And that is that if
+you look at the spacing between the zeros of the
+Riemann zeta function, so I'm saying of course if
+there were linearization, a linear algebra, some
+linearization of the problem, obviously that is maybe a first step. And then maybe the second step is to try understand why the
+zeros aren't in a line. But there's something here that's saying that something itself, a joint somewhere, at least statistically,
+and that's the following. If I look at the zeros
+and we go compute them and let's go compute them
+near the 10th to the 20th and they're 70 million neighbors and remember the density,
+the complexity is log T. So if I want to make the
+spacing be roughly mean spacing one and look at these numbers and I look at say the
+consecutive spacings, the local spacing statistics,
+they follow the laws of random matrix theory, what's called the Gaussian
+Unitary Ensemble to the T. Let me show you a picture. It's a consecutive spacing of the zeroes. These are the zeroes
+that's computed by Odlyzko. And the curve here is
+what random matrix theory, what a random emission matrix would give. That curve is no elementary thing. That curve's a Pane Laveur what? Four. It's given, actually Wigner couldn't compute that curve. It took Gordon to prove,
+to actually calculate it and it satisfies a certain
+thread on determinant and then satisfies a non linear ODE. Anyway, we know what the
+curve is theoretically. And the random matrix
+predictions never fitted this well, anything the way this fits and the zeroes repel each other. That's what this to second order there and have this profile. So the zeroes want to
+behave like the Eigenvalues of random emission matrix and sort of, you can't ignore that, right? That's a statistical statement. It's giving me some hint
+about a linear interpretation. And it is what drives many people thinking about this problem. This phenomena has been checked also for families in the function field where we understand everything. Katz and I were able to explain where this random matrix
+theory comes from scaling limits of monodromy groups. So in the function field we
+understand this very well, but in the number field there's some hint that something like this might be true. I want to now talk about how my heart, so there are many, many
+approaches to Riemann. I've never seen one that
+put it in the ballpark. I'll return to that when I come to AI. But I wouldn't say from my experience that Riemann Hypothesis
+is in the ballpark. I don't want to limit
+what other people can do and what they know. But I've never seen something that this is in the
+ballpark at this point. There is an idea that is
+very dear to me, Paul Cohen I came from South Africa
+to study with Paul Cohen to study set theory. I'd studied forcing and I arrived and I said I'm all ready
+to study forcing with you. And he said, well he's
+not interested in that at that time; he's interested
+in the Riemann Hypothesis. I happen to know what it was. I said, okay, well I've come a long way, I just changed my interest. And then he said immediately
+you take the adeles, this, this, this, I don't
+know what he was talking about and take that here, single formula and just sort of throwing
+all sorts of things. He had this idea that Alain
+Connes picked up later in the nineties and has
+been writing a lot since and was formalized by Meyer. And it is a spectral
+interpretation of the zero. So let me make clear that this
+is a spectral interpretation. Is it useful? That's another math. But as I've been saying
+in the function field, you don't get them zeros on the line half. So this is a very nice idea
+and it mixes the additive and multiplicative structure. So even though so far
+this hasn't worked as far as I know it's compelling. So if you take the following space, it's called the adele space. So this is an infinite
+product, A infinity, A2, A3 where the A infinity is a real number. A2 is a two attic number, A three is a three attic number and so on. And AP is a periodic
+integer from some point on. And you put the topology on this product, what's called the
+restricted product topology. This forms a topological space and you do the same with
+the invertible elements where the elements are non-zero. And from some point on, there are units and you put the restricted
+product topology. These spaces are called
+valuation vectors by Tate. They give a new treatment of Hecke's work that I mentioned, it's highly nontrivial. Hecke and Tate
+conceptualize it beautifully and they involve Poisson
+formation on these adele groups to do the additive part. So you look at a of the
+Q, that's a compact space. Q is a discreet subgroup
+embedded diagonally in the adeles and the ideles of the quotient is not quite compact, but it's discreet subgroup
+there and well understood. And you either work additively
+or you work multiplicatively. When you work additively, you
+get the functional equation. When you work multiplicatively, you get the Euler product for beanie serum, very beautiful. And then you recover the analytic continuation functional equation. So what Cohen's idea is
+you take something strange, you take the adeles with its topology, which is very different to the idele topology
+and you divide by Q star. This is a very singular quotient and you look at the action of
+multiplication over addition, you take x goes to x times
+y, where y is and idele. And you look at this action and formally he kept on
+saying, well this trace, if you take the trace of this, you're going to get the explicit formula, what's called the vague explicit formula. And that's true, you
+can make sense of this. That's what Connes has done. That's what Meyer does completely. You have to make fancy
+topological vector spaces in order to have function spaces on which to do the, compute this trace. Nothing self adjoint here. The function spaces are
+topological vector spaces. I'm allergic to those. But they're used. And when you decompose this action, you get the explicit formula of Riemann or Renuard Riemann and Ray, and moreover than that, you get that the
+decomposition of this action. All the Eigenvalues are the
+zeros of all the functions. Nobody says that on the line of half. But that is a spectral interpretation and it's certainly interesting and Connes has written
+a lot about this since. Even recently, there's an
+archive paper where he updates and says what he's been thinking about. And the best part of it with
+the one that I was really taken by is he writes this amazing letter to Professor Bernhard Riemann
+explaining to him his ideas and I urge you to read it. It is just wonderfully written.
+I would never have that. But now that he's written that, I feel I also got to write him a letter. (audience laughing) We always love writing
+letters to Professor Riemann. Alright, I want to end by explaining what I think is a direction. So the question is how
+much have we probed this Riemann Hypothesis? We've looked at zeros high up for zeta, we've looked at zeros of species low down. Where should we look to really test this? And the real test is in
+the end limit in my view where we haven't rarely tested it. Some people have a little bit, but not in the sense
+that I'm about to say. So we let the degree
+of the number field go or here's the first time. I'm also going to allow L functions of automorphic forms which live on big and bigger groups. And let me remind you that
+the complexity is always log of the conductor and
+the Riemann Hypothesis, the way it's used in
+many of the applications that are stunning that I gave you, is that ramification is
+controlled very heavily if you know the zeros on the line of half. So much so that if you have a sequence of algebraic number fields of discriminant, the NK is the discriminant,
+you get better lower bounds for the discriminant in
+terms of the degree extension than you would get from
+the geometry of numbers. In fact, these bounds are
+so strong that they seem to violate the Riemann
+Hypothesis in some cases. And every time everybody makes
+a violation, they go back and check and see, well of
+course they made a mistake. Riemann was not false. But there are these amazing towers of very few unramified extensions called Golod-Shafarevich Towers and they come very close to violating the inequalities that the Riemann Hypothesis implies. And so this is a very good test. I saw some interview with Sier, and he was saying that,
+yeah, he tested a few and it violated Riemann. He realized, well I'm not
+going to question Riemann was his life, but maybe you should, this is a limit that I don't think we've
+tested numerically at all. Elk is as examples, they've
+both no counter example, but I want to tell you where they may be, but I don't believe it will be. So the name there was
+ramification is controlled and I want to take the end limit and ramification is controlled by Riemann, very much controlled by that. Now there are automorphic forms that are transcendental in nature, but they are just as kosher as any other of our species as far as I'm concerned. Some other people might
+say they're not kosher, but I'm going to say they're kosher and they're called mass forms. These are everywhere
+unramified, automorphic forms. So the L functions are
+everywhere unramified. So you might say, oh my god,
+that's already a contradiction because there should certainly,
+you can't have something that's nowhere ramified,
+these guys are everywhere unramified, their existence
+is already very subtle. They only exist, they're the
+building blocks, they exist. We can show they exist in low dimensions. In high dimensions, we have never really probed this. This is what I'm really wanting to probe. And they all connected
+with the Archimedian place. So everything that's
+in this function field where we understand things, the function field has
+no Archimedian place. That's why it's algebra. It's the Archimedian place that
+causes all our difficulties. And here the mere
+existence of these forms, which are everywhere unramified. So of course if you're
+going to use Riemann, I keep on saying there's one definition of the complexity of an L function. It's the number of zeroes locally, that's 'cause that's like the
+degree of the entire function. So how many zeroes does it have locally? And if you have the zeta
+converter function well and it's fixed, it's all
+coming from the conductor as I was explaining. Here, there's no conductor,
+it's everywhere unramified. So it must come from the
+Archimedian place and it does. And those Archimedian
+place, it's the Eigenvalues of differential operators. Elliptic operators is really
+transcendental on this beautiful locally symmetric
+space of N by N matrices divided by SL and Z, divided
+by the maximal compact. Those are these everywhere
+unramified objects and they have L functions and those L functions are
+supposed to satisfy Riemann. And those have never been tested. That's what I really
+would love to see tested and I'm sort of been thinking about it now for quite a while. It implies that these
+things are very rare. These are objects with low energy. It also means Riemann will imply that the levy concentration, if
+you go to high dimensions functions that got some smoothness, concentrate around the
+mean very, very sharply. And the Riemann here would
+say that sharpness is so high that you're not going to see
+many things with low complexity if Riemann's true, if there were too many of these mass forms,
+Riemann can't be true. For me, GRH, I was careful in
+doing Dedekind zeta functions. And then you're going to have
+somebody to ask me the moment about motivic L-functions. These transcendental
+things are not motivic, but they're there. They are in our zoo. They are no different to anything else we know
+about any of the others. So to me, GRH must be true
+for them as well if it's true and if it were not true for them by sum, so this is a probing that
+I really eager to see. And if it were not true for those and true for Dedekind zeta functions or what are called motivic L-functions, then it would explain maybe
+why the problem's so hard. Because the automorphic forms, these are the automorphic forms that come. You can't ignore them in the
+number field if you write the trace formula, these
+guys are sitting there, these are the building blocks. So I would love to probe
+this in a serious way. And there's an elephant in
+the room in all this. It's AI. What's AI going to do for us? Well, it's certainly
+causing me to get a lot of solutions to the problem. (audience laughing) But it would be nice if
+AI would actually probe some of these limits for which we may have less
+confidence over the proof. Anyway, I hope to convince you
+it's an interesting problem when you add G to RH. Thank you. (audience applauding)

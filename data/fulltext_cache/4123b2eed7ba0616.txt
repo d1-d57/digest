@@ -1,0 +1,447 @@
+- Good afternoon. I'm Dan Freed. It's a pleasure to welcome everybody, both here and online, to the second of the seven
+Millennium Prize lectures. This is a series of lectures that's being put on this academic year by the Department of Mathematics here at the Harvard Center of Mathematical Sciences and Applications, and also the Clay Mathematics Institute. So I'm not going to give
+a long introduction. You can read more in this
+pamphlet that's available. So today, we're very happy to have Sourav Chatterjee from Stanford talking about Yang-Mill's
+existence and mass gap. - Thank you, Dan. Yep. Okay, so I thank the
+organizers for inviting me. It's a great honor. I'm going to talk about
+what this problem is, and one hour is actually
+not enough to explain that, but I'll try my best, okay? And of course, I'll leave
+out a lot of things, but I'll try my best to tell you what is the mathematical
+formulation of this problem and what is the physics behind
+it, both of those things. Okay. So I'll start from very basics. So what is Lagrangian mechanics? You look at the trajectory
+of a physical system, and an action is assigned to a trajectory. So, for example, if you
+have a single particle of mass M moving in a
+potential V through time, okay? So the trajectory is a map from R to R3, and the action is formally
+defined as integral. So you take the kinetic energy
+minus the potential energy, not plus, where the kinetic energy minus the potential energy, and you integrate it over all time, okay? That is formally the
+action of this trajectory. And what Lagrangian mechanics tells you is that for any classical system, the classical trajectory of the system should be a critical point
+of this action, okay? Something that minimizes the action, but more generally, something that's a critical
+point of this action. So if you do a variational
+derivative, you get zero. So you just shift the action
+a little bit, you get zero. And for this system, the critical equation is M times the second
+time derivative of gamma equals minus the gradient of V at gamma T. So this is the usual equation of motion from Newtonian mechanics, okay? So you covered the equation by looking at the critical
+points of the action, okay? So now, in the path integral formulation of quantum mechanics, we shift from deterministic
+to random trajectories. And instead of trying to
+calculate the exact value of some supposedly one, some real-valued function
+of the trajectory, okay? Where the trajectory is at
+some given point of time, or some other function of
+the trajectory instead of, so in the classical case, you
+actually had the trajectory in your hands in case there's
+a unique critical point, and you can talk about the exact value of the function of the trajectory. Here, we look at the expected value. So there is, you know, it's not deterministic. You try to compute the
+expected value of the function. So heuristically, the
+path integral formulation says that this expected value, and, again, I'm brushing a
+lot of things under the rug. This is what's called the
+vacuum expectation value, and there's a lot of things going on, but let me just make it simple. The expectation value of this
+function of the trajectory is this ratio where the numerator is, you take the function F of gamma, you take E to the I over H, where I is square root of minus 1, and H is Planck's constant,
+S(gamma), D(gamma). And the denominator is the same, except that you don't have the F. And this D(gamma) means that you integrate over all possible trajectories. So that's the path integral. We integrate over all
+possible trajectories, and this is often not
+mathematically well-defined, okay? So this is the hard part, to how to make sense of this. And there are various things
+that are difficult here. One is this integration of
+the space of all trajectories. The second is that it's not
+even a probability measure. So you have this oscillatory thing, E to the I over h-bar S(gamma). Okay. So this is what you have
+to make sense of, right? So now, how do you go
+from quantum to classical? Let's quickly see the intuition. So when you apply the
+path integral formulation, the classical word, this h-bar is tiny. It's a tiny, tiny number, which means that this E
+to the I over H S(gamma) will have huge fluctuations, even if you move slightly away from the critical point, okay? And this fluctuations are
+supposed to cancel out. And so again, the primary
+contribution of the path integral will come, to both in
+numerator and denominator, will come from small neighborhoods
+of the critical point. So in particular, if, let's say, if there's a
+unique critical point gamma hat, then you may expect that if h-bar is tiny, the expected value of F(gamma) would be close to F of gamma hat. And in many cases, you
+can actually justify this in many situations. Okay, so that's the correspondence, and that's why we don't
+see quantum effects in our classical world, because you're in setting
+where h-bar is tiny. And so you are basically, instead of look, you don't really see
+the random fluctuations. You always see the
+deterministic, you know, the critical point of
+the trajectory, okay? Okay, so the next thing, so we'll remember this, and we'll come back to it in a minute. Let's talk about Maxwell's
+equations in the vacuum. So an electromagnetic field consists of an electric field
+E and a magnetic field B. And what this means is that
+at each point of time, T, and at each point of space, X, we have a vector, three vector, E(t,x), and a three vector, B (t,x). So there's an electric
+field, a magnetic field, and there's real objects. All of us has have done
+experiments in school where we trace the magnetic fields, okay? Of a magnet, and maybe not
+electric fields so much. But what, oh, sorry, what Maxwell's equations
+tell us that in the vacuum, if you don't have matter, this E and B should obey
+these equations, okay? So the divergence of E
+and the divergence of B should both be zero,
+where the divergence means that divergence in the space coordinate, and the curl of E and the curl of B should be related to the
+time derivatives of B and E via these equations, where
+C is the speed of time. Uh, speed of light, okay? So these are four equations
+that are obeyed by, should be obeyed by, and
+that was experimentally seen. And as you can see, many people contributed
+to these equations, and they're collectively called Maxwell's equations for
+the electromagnetic field. So now, so just to simplify, things will work in units
+where the Planck's constant and speed of light are both equal to one. So you can show that units
+can be fixed to ensure that. Now, the question is, can we
+obtain Maxwell's equations as the equation for the
+critical point of an action? So just as Newton's equations
+were obtained in that manner, can we obtain also Maxwell's equations as a critical point for
+some action on some, space of trajectories
+for some system, okay? So the answer is yes, but the procedure is a bit complicated. So let me tell you what this is. So first, we introduce an
+abstract on physical object called a gauge field, which is is a map from R4 to iR to the 4. I mean, physics would say just R4 to R4, but for certain reasons, I'll keep the iR. It's because of the convention of what we call the Lie algebra. So sometimes, it differs. Okay, I'll come to that. So at each point in space time, you have a full couple
+of imaginary numbers. And let us write this
+as the first coordinate. Let us write as minus I-phi. And the second coordinate
+is I times bold A, where phi is a now a real-valued map, and bold A is a R3-valued map. And then this gauge field gives rise to an
+electromagnetic field pair, E and B, through these equations. So there is this gauge field, which is an abstract object. It's not a real object that
+you can measure in experiments, and gives rise to this pair, electric and magnetic fields, which you can actually
+observe in experiments. The reason why A is unphysical is because the correspondence between A and the pair E,B is not one-to-one. And that's sort of a deep thing. It's this whole gauge symmetry thing and we'll not have time
+to cover it in the talk, but it's not a one-to-one correspondence. So there are many different gauge fields which correspond to a
+single E,B pair, okay? Right? So you have this correspondence. And we define the action
+for the gauge field. Instead of the pair E,B, we define the action of the gauge field. So henceforth, we'll
+index the element of R4 as X0, X1, X2, X3, where X0
+will denote the time coordinate. And we define the action
+of the gauge field A, where A0, A1, A2, A3 are
+the four coordinates of A, as this minus 1 over 2G 0-squared, where G0 is subparameter. It's known as the coupling constant, times the integral over R4 of the sum overall I J distinct, and eta-I, eta-J, so that's the main, of course, key signature. Eta-0 is 1, eta-1, eta-2,
+and eta-3 are minus one of dell-I AJ(x) minus
+dell-J AI(x) whole squared, and then dx, okay? So, okay, so if A is a smooth field, this is some number you can define. Hopefully, it'll be finite,
+but we don't really, we are not really concerned about whether this is finite or not. We'll be interested in the
+critical points of this. So whether a small shift, a compactly supported shift doesn't result in an
+increase or decrease, okay? So it turns out that you can prove that A is a critical point of S, if and only if the pair E,B obtained from A solves
+Maxwell's equations, okay? So that's, you know, in that sense, this is
+the correct formulation of this Maxwell theory in terms of Lagrangian mechanics, okay? So this was discovered by
+Hermann Weyl in the 1920s, and there were contributions
+from Minkowski and Hilbert and other people also. So, okay, so that's how you
+get the Lagrangian mechanics for Maxwell's equation. Now, this still doesn't seem very natural. So Maxwell's equation seem
+kind of quite arbitrary. You know, where are they coming from? Okay, this gives you a
+Lagrangian formulation of that, but it's still not something that, you know, where is this coming from? So this action defined by Weyl allowed quantization of
+the electromagnetic field, and this was very valuable. It eventually led to the development of quantum electrodynamics in the 1940s by to Tomonaga, Schwinger,
+Feynman, and Dyson, which was a great achievement
+of quantum field theory. In the 1950s, Yang and Mills, this was where Yang-Mills
+theory comes from. They realized that this theory
+generalizes very elegantly to allow quantization of two of the three remaining fundamental forces of nature, the strong force and the weak force. So there are these four
+fundamental forces: electromagnetic force, the strong force, the weak force, and gravity. So you can actually put the
+strong force and the weak force under the same umbrella by a very elegant
+generalization of this theory for the electromagnetic
+field that I just wrote down. So how do you go about doing that? So the first key realization
+was that this gauge field that I wrote down, which is
+a map from R4 to iR to the 4 can actually be seen as
+a u(1)-valued 1-form. So where this u(1) is the Lie algebra of the group u(1), which is
+just the imaginary axis, okay? So the physics would
+say it's the real line, but in math, we say, it can say it's imaginary access. And so, in differential geometry notation, you write A as summation A J D X J. And so if you're not familiar with, or not comfortable
+differential geometry notation, you can ignore this. But if you are, it's a
+u(1)-valued 1-form on R4, okay? So now, what they realized, the second realization was that this term dell-I AJ minus dell-J AI that is appearing in Weyl's action is simply the curvature form. So FIJ, it's u(1)-value 2-form, and this is a curvature form
+of the connection E, okay? So this, again, comes from
+differential geometry. When you have this Lie
+algebra-valued 1-form, you take its curvature form,
+and this Lie algebra is U(1). You exactly get FIJ is dell-I
+AJ minus dell-J AI, okay? So the final realization was that the theories for the weak
+force and the strong force can be obtained simply by replacing u(1) by su(2) and su(3) respectively. So su(2) corresponds to the weak force and su(3) corresponds to the strong force, and just keep everything else the same. And the formula for F will change. The curvature form will change
+if we do this replacement. I'll show it in the next slide. But that's that. So this gives you the, you know. I don't know why that is. If you replace this u(1) by su(2), you'll get the weak force and by su(3) you get the strong force. So here is a Yang-Mills action. Let this gothic g be
+any matrix Lie algebra. and consider a theory
+where the gauge field is a g-valued 1-form on R4. And then the curvature form is this FIJ, where FIJ is now generally given by dell-I AJ minus dell-J AI
+plus the commutator of AI, AJ. So when you had A1, the
+commutator just vanished. So we didn't have a commutator. In generally, we'll have
+the commutator, okay? So okay, so let's see. These AIs are matrixes. So AI of X is a matrix
+attached to the point X, okay? So these are matrices. So for example, for su(2) theory, these are two by two matrixes. And each FIJ is also a matrix, okay? So FIJ(x) is a matrix at the point X. And the Yang-Mills action has exactly the same form as before. It's minus 1 over 2G0-squared, integral over R4 eta-I,
+summation eta-I, eta-J, trace of FIJ(x)-squared DX, okay? So it's exactly the same thing. You just generalize it
+to these other groups, and you get this Yang-Mills action. Okay, so the Yang-Mill's
+existence problem very roughly, and I'll come to a more precise version, of this question, is to do this. So, remember, we are taking
+the Planck's constant to be 1 give a meaning to
+expectation values like this. So when you take all Lie algebra-valued, give the Lie algebra, you
+take all the algebra-valued 1-forms on R4, whatever that means, okay? You're not specifying the
+smoothness or anything, and then you integrate over the space of Lie algebra followed 1-forms, integral of some function, whatever function you're interested in, function of this 1-form, E to the power I, S(A), where S is a Yang-Mills action, integrate that, and then you also divide by E to the I S(A) DA, okay? So this is the vacuum, what is called the vacuum
+expectation value heuristically. And the question is to give
+a meaning to this thing, and to do some calculations, and physics can do some
+perturbative calculations and whatever you define, you should be able to
+get those calculations out of your theory, okay? And as I said, I'll now discuss a more precise version of the question. So this is a very rough
+version of the question. Everything clear so far? Okay. Okay, so let's see how we can make this a little bit more precise. There is a lot of thought
+that has gone behind this. This has a long history, and many people have thought about this, and so the rough version that I showed you is not the most that we have gone so far. So I'll tell you what
+are the developments. So suppose, now coming back to an abstract quantum mechanical system, so suppose you have a trajectory of a physical system taking
+value in some space omega. So you have a trajectory gaba, which is a map from R into omega, and you have a time
+trajectory of the system. And suppose you have the action
+of such a trajectory, okay? So it often turns out,
+heuristically at least, that if we, one, the expected
+value of some function of gamma at some specific instant of time, then you can often write
+it just as an integral of F with respect to some
+probability measure mu on omega. So it's not clear why this is the case, and I don't have time to explain this, but you can often do this thing, that if you're just
+looking at the function of the value of the trajectory
+at a given instant of time, and this is a timing variant process, so it doesn't depend on what T it is. For any T, you'll get the same answer, and the answer would be
+the integral of Fd (mu) for some probability measure
+mu on this base omega. So that kind of thing can,
+you can figure out, okay? So if this is the case, then
+we take H to the L2 of this mu to be the Hilbert space
+for our quantum system. So whenever you have
+a probability measure, or any measure for that
+matter, on some space, you take the L2 space of that, and that's a Hilbert space under
+the natural linear product. And that is the Hilbert space. So if you have some familiarity
+with quantum mechanics or even if not, you may have heard this in quantum mechanics,
+the state of a system is an element of a Hilbert space, okay? So this will be our Hilbert space, okay? So how do we actually make
+sense of path integrals? That's what I'm trying to get
+at in the next few slides. So you have this Hilbert space. And elements of H represent
+the possible states of the system at a given instant of time. Okay, so suppose we have
+such a state space, L2(mu), then again, one can do another computation using path integrals. Suppose you take two functions,
+F and G, in this L2 of mu, and take two time points, t1 and t2. And let's say we compute
+the expected value of this two-point function. So you evaluate F at gamma(t1), where gamma(t1) is the
+value of the trajectory, the location of the trajectory at time t1. And you evaluate G at location of the trajectory at time T2, and you take the product of
+F gamma(t1) bar, G gamma(t2), and take the expected value
+via the path integral. So you just write down the path integral, write down this thing. And again, it turns out that
+this quantity often doesn't, just depends on the
+difference T2 minus T2. And moreover, there is
+actually a unitary operator from H into H so that this expectation can be written as the
+inner product of U(t)G,F. So again, from the path integral, you can often come to this formulation. So there is this, you know, I'm just trying to give you a sense of how this path integrals
+can be evaluated. And it's also usually true that this U(t) is a group of unitary
+operators in the sense that U(s) plus t is U(s) times U(t) for any S and T in the real line, okay? So from this path integral
+formulation, you can extract, and it's actually a
+one-to-one correspondence. You can extract this group
+of unitary operators, which act on this Hilbert space, okay? So that's the other version of, you know, so the path integral is one version, and then there is other
+version of quantum mechanics where you have the system. It states are represented by
+elements of the Hilbert space, and how the states evolve with time are described by the unitary operators. So I'm just telling you that
+given this path integral, you can recover the unitary
+operator from that, okay? And it also turns out conversely that if one can construct this group of unitary operators
+on this Hilbert space, then one can give a meaning
+to the expectation values defined using path integrals. So that's the other direction. So you can start from any
+direction and go to the other one. So this path integral
+expectations that I wrote down, if you know the Hilbert space, if you know the measure mu,
+the probability measure mu, and then you have L2 of mu and then you have this whole group of unitary operators U(t)
+acting on this L2(mu), if you know all of these, then
+you can rigorously write down what the path integral is, okay? So the path integral looks very scary, but this is much more, as mathematicians, we will be much more
+comfortable with this group of unitary operators
+acting on a Hilbert space. So it's equivalent. You can construct these things
+to get at the path integrals. Okay? So the constructive
+field theory is a branch of mathematics developed
+in the 1960s and '70s, starting with Wightman and Symanzik, Nelson, Glimm, Arthur here, and then continued by
+Osterwalder and Schrader and many other contributors after that, that attempts to rigorously
+construct this Hilbert space and this group of unitary operators for various quantum field
+theories, including young males. So the constructive field theory, the goal is to construct
+the quantum system in the sense that you want to
+construct this Hilbert space and the group of unitary operators. So actually, again, I'm
+brushing things on the carpet, It's not just U(t), so
+that you have actually a representation of the
+Poincare group and so on to be compatible with general relativity. But this is the starting
+point that you construct, the Hilbert space and a
+group of unitary operators that represent the quantum system. So to solve the Yang-Mills problem, you have to construct,
+essentially, this Hilbert space, an appropriate Hilbert space, and an appropriate group
+of unitary operators, okay? Which correspond to the path integrals that I displayed earlier. Okay, and then how do you know that you have constructed a good theory? So there are these widely
+accepted set of rules, known as the Wightman axioms,
+that describes the properties that the system should
+have to be compatible with physical reality, compatible
+with special relativity. So there are some properties
+that it should have. Okay, so let me now come to the main technical tool that we have
+in constructive field theory that was developed primarily
+by Glimm and Jaffy. So let me just give you a very brief overview of how this goes. So suppose we have a group
+of unitary operators, U(t), on a Hilbert space H, okay? And suppose that the group
+is strongly continuous, meaning that for any x, the map T going to U(t)x is continuous. So it's a map from the real
+line into the Hilbert space. And I'm saying for any x,
+this map is continuous, okay? And the topology of the Hilbert space is the usual norm topology
+on the Hilbert space. And under in this setting, there is a theorem from
+functional analysis known as Stone's theorem, which says that there is
+a self-adjoint operator H linear operator, from D
+into the Hilbert space, where D is dense subspace
+of the Hilbert space. So this is what's called a
+density-defined operator. And I'm not going to the
+definition of self-adjoint. It's a little complicated. There's a self-adjoint
+operator such that U(t) is E to the minus itH, okay? So this H is called the
+Hamiltonian for the system, so that you can, there is this one operator
+that you can extract, which describes U(t) for all T. And whenever you have
+a strongly continuous group of unitary operators,
+you can find such an H. And conversely, given such an H, you can get a strongly continuous group of unitary operators. And there's the one-to-one correspondence. So constructing the
+group of unitary operator is same as constructing this
+self-adjoint operator H, okay? So the problem of constructing U(t) is equivalent to constructing
+this Hamiltonian operator H. So how do you construct this Hamiltonian? So this is where we go back
+to the path integral setting. So I'll, so let me explain that. So the key idea in constructive
+field theory is as follows. So recall that we aim to define
+H, which then generates U(t) as E to the minus itH by Stone's theorem. And also recall that H is L2(mu) for some probability measure
+mu on the state space. Now, suppose we have a
+stationary Markov process, Xt, with state space omega and
+stationary distribution mu. So I'm going to probability language, and I'm just assuming that
+you have some familiarity with Markov processes
+and Markov chains, okay? So suppose you have a stationary Markov, stationary, actually, reversible. I forgot to mention that,
+it's very important. Stationary reversible Markov process with state space omega and
+stationary distribution mu, then this process defines
+this Markov semi-group of symmetric linear operators, P(t), as these conditional expectations. P(t) F(x) is expectation of F(Xt) given X0 equals little x, okay? And this is a semi-group. This is defined only for T non-negative, and the semi group, because
+P(s+t) is P(s) times P(t) for s and t non-negative,
+not for all s and t, are just s and t non-negative. That's why it's a semi-group. And by this, another theorem
+from functional analysis, if the semi-group is strongly continuous in the same sense as before, then there's a self-adjoint operator H, so that P(t) is E to the minus tH. Instead of E to the minus itH, you get E to the minus tH, okay? So the key idea underlying
+this whole program, and it's not presented as such, but I'll tell you a little bit
+about what's the difference, construct this Markov
+process such that this H is the same as the H that we
+want for our quantum system. So to build the quantum system, we just need this self-adjoint operator H. Somehow, we have to construct this. So the idea in constructive field theory is that instead of trying to
+construct this path integral and this quantum system directly, what you do is you
+construct a Markov process, which heuristically would
+have the same generator in the same Hamilton, same H as the quantum system
+that you want to construct. And then there is a nice way of describing what this Markov process is. So I'm not going into that, so I'll not say that in the slides, but I can tell you here, which is that, so you remember that E to
+the I times the action? So how this Markov process is constructed is you replace this
+action by Euclidean axiom by doing weak rotation. So there is a prescription for changing from the action of the quantum
+system to a Euclidean axiom. And then instead of E to the I(s), you take E to the minus
+S, the Euclidean axiom. So that gives you a probability measure. So now, the path integral has no I, okay? The E the minus S, it's
+a non-negative thing, and that you can sometimes make sense of as a probability measure
+on path space, okay? So for example, if you
+take Brownian motion, one way to heuristically
+describe Brownian motion is that it's, you know,
+it's a probably measure. It's a random path with
+this E to the minus integral F-prime x-squared. Sorry, this integral And so D, F, okay? So you look at all possible paths and then you have Lebesgue
+measure, let's say, on the space of paths. And then you put a
+weight in front of that. It's E to the minus
+integral F prime X-squared. And if you do that, then heuristically, you get Brownian motion. You can make sense of that. Why is this Brownian motion? So there is a general prescription for how you construct this Markov process that gives you the same H, okay? Starting from the path integral. And this is what's called
+Euclidean field theory. So this is how probability theory enters and you know my field
+is probability theory, and that's why many people in probability are interested in this because
+there is this connection. Okay, so this is formalized
+in terms of what are called this Osterwalder-Schrader axioms. So for quantum field theory, the state space omega is usually a space of distributions on
+some vector space, okay? So for example, for Yang-Mills theories, omega should be some space of Lie algebra valued distributional 1-forms. We don't expect the
+g-valued 1-forms that arise in Yang-Mills theories to
+be smooth 1-forms, okay? And not even a non-smooth, but functional 1-forms,
+they will be distributional. So instead of A being defined pointwise, we can only talk about average values of A over regions of non-zero volume. So thus, we need to construct
+a suitable Markov process on such a space of distributions, okay? And the Osterwalder-Schrader
+axioms give a set of conditions under which one can construct a corresponding quantum
+system starting with from. So what I don't mention here is that they have a different thing, which is called reflection positivity. And again, I don't have
+time to explain that. So reflection positivity is a different condition which is
+sufficient for recovering the quantum system from, so they construct this X(t) process, but you don't need to prove that it's a stationary
+reversible Markov process. In Markovian, it is
+usually difficult to prove. You just have to verify
+this one condition called reflection positivity. And that will give you all
+the ingredients that you need to reconstruct the Hamilton,
+the H, and the Hilbert space. But the connection is from this. So it will be the fields
+that you construct are basically always Markovian, stationary reversible
+Markovian fields and, yeah, but you don't have to prove that. Okay, so that's the
+Yang-Mill's existence question in a more mathematically
+precise way, okay? Again, I cannot give you all the details, but instead of just saying that, "Okay, you makes sense
+of these path integrals," which seems kind of impossible, here is all the thought
+that has gone into it. How do you make sense
+of these path integrals? And so what you do is, the constructive field theory prescription is that you construct these
+Euclidean Yang-Mill's theories, which are probabilistic,
+stochastic objects, and then you show that they
+satisfy certain properties, if you can construct them, and I'll tell you what's the situation. If you can construct
+them, and then you show that they satisfy this
+Osterwalder-Schrader axioms, and that will allow you to reconstruct the quantum theory from that, okay? So that's the picture. Now, there is this other
+part of the Clay problem, which is the mass gap. What is that about? So quantum system, you know, if you have H and a self-adjoint
+Hamiltonian H, okay? It's said to have a mass gap, if there's a gap between the lowest and second lowest elements in the spectrum of the Hamiltonian. And the second part of the
+Clay problem is to show, once you have constructed the theories to show that they have a mass gap. Certain theories. Not all theories will have a mass gap. So for example, su(3)
+theory in four dimensions, that's the theory of the strong force, is supposed to have a mass gap, okay? If you can construct the
+theory for the group SU(3) or the Lie algebra SU(3)
+equivalently in four dimensions, and then you have constructed means that you have gotten your
+hands on the Hamiltonian and you have gotten your
+hands in the Hilbert space. And then you show that this Hamiltonian has a gap in the spectrum. So the reason for this nomenclature is that mass gap corresponds to particles in the theory having non-zero mass, and they don't have time to explain that. But just as a remark, for example, if you consider u(1) theory in
+4D as your best u(3) theory, this is a theory of photons, okay? The particles in electromagnetism, if you don't have matter, the particles that
+arise from just the free electromagnetic theory are photons, and photons don't have mass. So you don't expect this
+theory to have a mass gap, and this doesn't have a mass gap. So on the probability side, if you consider this Markov
+process that we talked about, this is what you need to show, that this Markov process
+has a spectral gap, okay? But you can say it in
+a different way also. So spectral gap means that X(t) and X(s) become exponentially, uncorrelated exponentially fast as the gap of T minus S increases. So this field that you have
+constructed over space time should have exponential
+degree of correlations. That's what you really have to show, okay? Okay, so what is the state of affairs in constructive field theory? So this theory was successfully used to construct number of
+quantum field theories, such as free scalar
+fields in all dimensions, phi-four theory, and 2D and 3D. These were big achievements
+in constructive field theory. Yang-Mill's theories have been constructed in dimension two, okay? And a lot of different people
+have contributed to that. And Abelian Yang-Mill's theories have been constructed in 2D,
+3D, and 4D, pure Abelian. With the Higgs field,
+it becomes difficult. So I'm not going into the
+Higgs field at all here. However, what we don't have is that this is the main thrust
+of the Clay problem. We don't have any
+non-Abelian Yang-Mills theory in dimensions three and higher. So dimension four is
+the most important case. But even in dimension three,
+we don't have a construction of a non-Abelian Yang-Mills theory, or in fact, we don't have any interacting quantum field theory in
+four dimensions, okay? So as you may know, just a few years ago, there was this big result
+that phi-four theory in four dimensions is trivial. So interacting means that the field, very briefly, the field
+that you construct, the probabilistic object
+that you construct is not a Gaussian field. It's a non-Gaussian field. So that corresponds to an
+interacting quantum field theory. So the question you may ask, why do we need a rigorous theory? So for that, you have to understand what theoretical physicist
+do for Yang-Mills theories in the absence of a rigorous foundation. So what they do is they do
+a perturbative calculation. So they take this
+parameter G0 that I showed and do a kind of Taylor
+expansion around G0 equals to 0. And it's a very complicated
+expansion, okay? You have to do perturbative
+renormalization. So there's a lot going on there. And this has been hugely successful in the several Nobel prizes for this. And there is also some degree
+of rigorous justification for this perturbative calculations. For example, in this
+work of Kevin Costello. However, there are some
+fundamental problems. For example, this mass gap. And also, there is this
+problem of quark confinement. These are believed to be beyond the reach of perturbation theory. So particularly for quark confinement, you really need a
+non-perturbative construction. So the perturbative calculations, which is the most that
+the physicist can do with the physics approaches don't suffice. So this is important. Okay, so let me speak briefly about lattice gauge theories, what it is. So I'm nearing the end of the talk. So Euclidean Yang-Mills theories
+are the Markov processes that we need to construct
+for applying this machinery of constructive field theory to construct quantum Yang-Mills theories
+and solve this Clay problem. And even this Markov process
+probabilistic objects, stochastic objects, we don't
+know how to construct this in 4D or 3D, okay? So forget about the quantum theories, even the stochastic theories, we don't know how to construct. Lattice gauge theories are
+discrete approximations of Euclidean Yang-Mills theories. And these are mathematically
+well-defined, okay? There is no problem with the definition. These were defined in the '70s by Wilson. So just before going into
+what we want to prove about lattice gauge theories,
+there is a huge success story in lattice gauge theories'
+numerical calculations. So you see the lattice
+gauge theories approximate this Euclid Yang-Mills theory. And I told you, the
+Euclidean Yang-Mills theory has this Hamiltonian H,
+which is the same as the H that you want for your quantum theory. So if you just are
+interested in understanding the spectrum of this Hamiltonian, it suffice us to study the Euclidean Yang-Mills theory, right? So you don't even have to
+go to the quantum theory. And the Euclidean Yang-Mills theory, you don't know how to
+define that rigorously, but lattice gauge
+theories are well-defined. So you can use lattice gauge theories to do approximate calculations, okay? Numerical calculations. And there is huge
+enterprise that does that. This has been active, I
+think, since the mid-2000s, consisting of numerous collaborations. And there's this huge U.S. lattice quantum chromodynamics
+consortium in the U.S., and then there are
+organizations in UK and Europe, and they have produced, and these are very intense computations. You need supercomputers for
+running these simulations. And they've produced
+numbers for hadron masses and other quantities that
+match experimental results up to a few percentages or
+even less than a percent. So it's been experimental results. So there is no doubt that the
+theories are working, okay? And this is the only way that people know how to verify these things,
+for example, for mass gap. The perturbative calculations
+don't give you this. Okay, so with lattice gauge theories, there is this long series of
+papers by Balaban in the 1980s who attempted to construct 3D and 4D Euclidean Yang-Mills theories as continuum limits of
+lattice gauge theories. So that's sort of the most
+natural thing you can do, because lattice gauge
+theories are a well-accepted discrete version of Euclidean
+Yang-Mills theories, and they yield very good results
+that match with experiment. So the natural way to approach, construct this Euclidean
+Yang-Mills theories is as continuum limits
+of gauge theories, right? So as far as I know, this
+effort has remained unfinished. So Balaban proved that a crucial property known as ultraviolet stability holds, but the construction was not completed. And so to solve the Clay problem, there are two things that you can try. One is either you have to understand Balaban's work and complete it, okay? So that's a very formidable task, okay? And believe me, I've tried. So, okay. Or come up with a completely
+different approach. And I don't know if that will be easier or more difficult than
+the first one, okay? So there are these two
+paths that you can try, and it's just saying ARA
+complement, but that's okay. So okay, so just to say, if you're thinking why not just
+take lattice gauge theories and construct a continuum limit, okay? People have tried. And there is a large number of papers that you can try to read. And actually, I was just
+having this conversation. So there is an exposition
+of Balaban techniques by Jonathan Dimock that you can look at. Maybe that'll be more accessible. Okay, so just to wrap up,
+just some recent progress that has happened in the last 10 years, the probability community. So Balaban did these in the '80s and there was some work in the early '90s, but then things kind of quietened down until the mid-2000 where the
+probability community started thinking about this problem and also other problems
+from quantum field theory. So two main strands have emerged in this recent investigations. One is gauge-string duality
+in lattice gauge theories. I'll briefly tell you what that is. And the other is stochastic quantization of Yang-Mills theories. So these are both just
+in the beginning stages. There aren't huge results either of these, but there has been some progress. So let's now briefly discuss
+these, and then I'll do it. So gauge-string duality is the idea that certain calculations
+in Yang-Mills theory, so suppose you don't want to
+really construct theories, but you just want to do some calculations, some expectation values
+of some observables. There's the idea that certain calculations in Yang-Mills theories, these are theories of
+quantum fields and particles, can be transferred to
+calculations in string theories, which are theories of gravity. And this began with the work
+of Maldacena in the 1990s. And it's a huge area
+in theoretical physics for the last 30 years. And it's not very well-understood, like why this connection is there and where does it come from. And it has remained
+largely out of the reach of rigorous mathematics. So I have a paper published in 2019, which shows that the calculations in certain lattice gauge
+theories can be transferred to certain lattice string theories in what's called the
+large-N 't Hooft limit. So it gives some rigorous results at least that you can do this transfer. And this has recently been rejuvenated by Scott Sheffield here
+and his collaborators who have done quite deep investigations and extensions of these things and from a different perspective. And so this seems like
+a promising direction. Now, this rigorous gauge-string duality, how can you take this forward? The recent results are
+all for lattice models, and proving it to the continuum
+remains an open problem. And one of the roadblocks to proving, doing some kind of
+continuum theory is that the duality results that we have so far are only in the strong coupling regime, which is when this parameter
+G0 that he wrote down is large. But one has to move to G0 small, which is called weak coupling regime, before hoping to pass the continuum limit. The other thing, which would be very nice to be able to do something about this, is that the gauge-string duality has been so successful
+in theoretical physics is because string theories
+allow calculations that Yang-Mills theories do not. So once you pass over to the string side, you have access to a lot of tools. The lattice string theories that we have so far have
+not been so greatly helpful. So it'll be nice to be able to get, extract more juice out of the lattice string theories that we have, okay? Okay, so that's one thing. And finally, there is this
+stochastic quantization. So again, very quickly, let me give you an
+overview of what this is. So first, recall that
+Euclidean Yang-Mills theories are the random fields
+needed for constructing quantum Yang-Mills
+theories using the tools from constructive field theory. Now, in the early 1980s, Parisi and Wu came up with this idea of constructing Euclidean Yang-Mill's theories and other Euclidean field theories. So this is the idea. Their idea was to
+construct a Markov process whose stationary
+distribution would be the law of this whole Euclidean Yang-Mills theory. So note this subtle point. The Euclidean Yang-Mills theory is itself supposed to be a Markov process, okay? Spread out over all time. Parisi and Wu proposes to
+construct Markov process, which, at each instant of time,
+is an entire Markov process representing the Euclidean
+Yang-Mills theory. So they want to construct a Markov process of Markov of processes, okay? So you have this whole field, and this whole field is evolving. So this field is a Markov process, and this whole thing is evolving, okay? And once you construct that, stationary distribution will give you, so it seems like it makes the problem more complicated, okay? But although the new
+problem looks more difficult than the original, it
+seems to be more amenable to certain modern methods. So the Parisi-WU prescription
+for the Markov process required for Euclidean Yang-Mills theory is a singular stochastic
+partial differential question, which is called SPDE, known as the stochastic
+Yang-Mills heat flow. And there has been, as
+many of you may know, there has been great progress in singular SPDEs in the last decade, originating in the works of Martin Hairer. So we now have the tools to
+construct some of these SPDEs. So what has been done is construction of short-term solutions to 2D and 3D stochastic Yang-Mills heat flows by these long list of authors. And also, there are new proofs of some difficult old results, such as the construction
+of phi-four theory and three dimensions using these tools. So yeah, so that's what has been going on. Now, what remains to be
+done is that these SPDEs that have been constructed, they need to have global
+in-time solutions. So that is one of the main problems that you have only
+local in-time solutions, short-time solutions. You need global in-time
+solutions because remember, there's invariant measure. Stationary distribution
+is the Yang-Mills theory that you're trying to construct. So to prove that there
+is an invariant measure, you have to be able to prove that there is a global in-time solution. And the other problem is
+that the methods as of now do not seem to apply to
+four dimensional theories. So they go only up to three dimensions for certain deep reasons. And so it's not clear how one can approach to solve the 4D problems,
+which is the important case. Okay, so here is a conclusion. So I hope I gave some idea
+about what the problem is and what needs to be done. As I said, extremely hard problem does not seem to be
+completely out of reach. It seems like one can make progress. There is a chance it may be solved in the next 10 to 15 years. It seems like that's my forecast, okay? But I don't know. One thing is, okay, these are some slides, but I'm actually writing a book. So it's 400 pages right now and maybe going to be around 500 pages. So it's basically what I
+talked about in the slide and expanding, okay? So I'll have that. But yeah, I will try to finish it. I'm not sure when I'll finish it. Okay. Okay, so thank you.

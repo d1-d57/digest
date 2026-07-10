@@ -1,0 +1,1388 @@
+
+
+The integrated explicit analytic number theory network | What's new
+
+What's new
+
+Updates on my research and expository papers, discussion of open problems, and other maths-related topics.  By Terence Tao
+
+Home
+
+About
+
+Career advice
+
+On writing
+
+Books
+
+Mastodon+
+
+Applets
+
+Subscribe to feed
+
+The integrated explicit analytic number theory network
+
+15 January, 2026 in 
+advertising
+, 
+math.NT
+ | Tags: 
+analytic number theory
+, 
+Lean4
+, 
+prime number theorem
+ | by 
+Terence Tao
+
+ Like many other areas of modern analysis, analytic number theory often relies on the convenient device of asymptotic notation to express its results. It is common to use notation such as 
+ or 
+, for instance, to indicate a bound of the form 
+ for some unspecified constant 
+. Such implied constants 
+ vary from line to line, and in most papers, one does not bother to compute them explicitly. This makes the papers easier both to write and to read (for instance, one can use asymptotic notation to conceal a large number of lower order terms from view), and also means that minor numerical errors (for instance, forgetting a factor of two in an inequality) typically has no major impact on the final results. However, the price one pays for this is that many results in analytic number theory are only true in asymptotic sense; a typical example is 
+Vinogradov’s theorem
+ that every sufficiently large odd integer can be expressed as the sum of three primes. In the first few proofs of this theorem, the threshold for “sufficiently large” was not made explicit.
+
+There is however a small portion of the analytic number theory devoted to 
+explicit
+ analytic number theory estimates, in which all constants are made completely explicit (and many lower order terms are retained). For instance, whereas the prime number theorem asserts that the prime counting function 
+ is asymptotic to the logarithmic integral 
+, in 
+this recent paper of Fiori, Kadiri, and Swidinsky
+ the explicit estimate 
+
+ is proven for all 
+.
+
+Such explicit results follow broadly similar strategies of proof to their non-explicit counterparts, but require a significant amount of careful book-keeping and numerical optimization; furthermore, any given explicit analytic number theory paper is likely to rely on the numerical results obtained in previous explicit analytic number theory papers. While the authors make their best efforts to avoid errors and build in some redundancy into their work, there have unfortunately been a few cases in which an explicit result stated in the published literature contained numerical errors that placed the numerical constants in several downstream applications of these papers into doubt.
+
+Because of this propensity for error, updating any given explicit analytic number theory result to take into account computational improvements in other explicit results (such as zero-free regions for the Riemann zeta function) is not done lightly; such updates occur on the timescale of decades, and only by a small number of specialists in such careful computations. This leads to authors needing such explicit results to often be forced to rely on papers that are a decade or more out of date, with constants that they know in principle can be improved by inserting more recent explicit inputs, but do not have the domain expertise to confidently update all the numerical coefficients.
+
+To me, this situation sounds like an appropriate application of modern AI and formalization tools – not to replace the most enjoyable aspects of human mathematical research, but rather to allow extremely tedious and time-consuming, but still necessary, mathematical tasks to be offloaded to semi-automated or fully automated tools.
+
+Because of this, I (acting in my capacity as Director of Special Projects at IPAM) have just launched the 
+integrated explicit analytic number theory network
+, a project partially hosted within the existing “
+Prime Number Theorem And More
+” (PNT+) formalization project. This project will consist of two components. The first is a crowdsourced formalization project to formalize a number of inter-related explicit analytic number theory results in Lean, such as the explicit prime number theorem of Fiori, Kadiri, and Swidinsky mentioned above; already some smaller results have been largely formalized, and we are making good progress (especially with the aid of modern AI-powered autoformalization tools) on several of the larger papers. The second, which will be run at IPAM with the financial and technical support of 
+Math Inc.
+, will be to extract from this network of formalized results an interactive “spreadsheet” of a large number of types of such estimates, with the ability to add or remove estimates from the network and have the numerical impact of these changes automatically propagate to other estimates in the network, similar to how changing one cell in a spreadsheet will automatically update other cells that depend on it. For instance, one could increase or decrease the numerical threshold to which the Riemann hypothesis is verified, and see the impact of this change on the explicit error terms in the prime number theorem; or one could “roll back” all the literature to a given date, and see what the best estimates on various analytic number theory expressions could still be derived from the literature available at that date. Initially, this spreadsheet will be drawn from direct adaptations of the various arguments from papers formalized within the network, but in a more ambitious second stage of the project we plan to use AI tools to modify these arguments to find more efficient relationships between the various numerical parameters than were provided in the source literature.
+
+These more ambitious outcomes will likely take several months before a working proof of concept can be demonstrated; but in the near term I will be grateful for any contributions to the formalization side of the project, which is being coordinated on the 
+PNT+ Zulip channel
+ and on the 
+github repository
+. We are using a github issues based system to coordinate the project, similar to how it was done for the Equational Theories Project. Any volunteer can select one of the outstanding formalization tasks on the 
+Github issues page
+ and “claim” it as a task to work on, eventually submitting a pull request (PR) to the repository when proposing a solution (or to “disclaim” the task if for whatever reason you are unable to complete it). As with other large formalization projects, an informal “blueprint” is 
+currently under construction
+ that breaks up the proofs of the main results of several explicit analytic number theory papers into bite-sized lemmas and sublemmas, most of which can be formalized independently without requiring broader knowledge of the arguments from the paper that the lemma was taken from. (A graphical display of the current formalization status of this blueprint can be found 
+here
+. At the current time of writing, many portions of the blueprint are disconnected from each other, but as the formalization progresses, more linkages should be created.)
+
+One minor innovation implemented in this project is to label each task by a “size” (ranging from XS (extra small) to XL (extra large)) that is a subjective assessment of the task difficulty, with the tasks near the XS side of the spectrum particularly suitable for beginners to Lean.
+
+We are permitting AI use in completing the proof formalization tasks, though we require the AI use to be disclosed, and that the code is edited by humans to remove excessive bloat. (We expect some of the AI-generated code to be rather inelegant; but 
+no
+ proof of these explicit analytic number theory estimates, whether human-generated or AI-generated, is likely to be all that pretty or worth reading for its own sake, so the downsides of using AI-generated proofs here are lower than in other use cases.) We of course require all submissions to typecheck correctly in Lean through Github’s Continuous Integration (CI) system, so that any incorrect AI-generated code will be rejected. We are also cautiously experimenting with ways in which AI can also automatically or semi-automatically generate the formalized 
+statements
+ of lemmas and theorems, though here one has to be significantly more alert to the dangers of misformalizing an informally stated result, as this type of error cannot be automatically detected by a proof assistant.
+
+We also welcome suggestions for additional papers or results in explicit analytic number theory to add to the network, and will have some blueprinting tasks in addition to the formalization tasks to convert such papers into a blueprinted sequence of small lemmas suitable for individual formalization.
+
+Update: a personal log documenting the project may be found 
+here
+.
+
+Share this:
+
+Print (Opens in new window)
+
+Print
+
+Email a link to a friend (Opens in new window)
+
+Email
+
+More
+
+Share on X (Opens in new window)
+
+X
+
+Share on Facebook (Opens in new window)
+
+Facebook
+
+Share on Reddit (Opens in new window)
+
+Reddit
+
+Share on Pinterest (Opens in new window)
+
+Pinterest
+
+Like
+
+Loading...
+
+Recent Comments
+
+Anonymous on 
+Books
+Terence Tao
+ on 
+Long gaps in sieved sets
+Anonymous on 
+Long gaps in sieved sets
+Will Sawin
+ on 
+A digestion of unit distance…
+Terence Tao
+ on 
+275A, Notes 5: Variants of the…
+Anonymous on 
+275A, Notes 5: Variants of the…
+Cosmin Pohoata
+ on 
+A digestion of unit distance…
+Will Sawin
+ on 
+A digestion of unit distance…
+Will Sawin
+ on 
+A digestion of unit distance…
+Anonymous on 
+Modular Arithmetic Challenge
+Anonymous on 
+275A, Notes 5: Variants of the…
+Ben Johnsrude
+ on 
+A digestion of unit distance…
+Terence Tao
+ on 
+Almost all Collatz orbits atta…
+Anonymous on 
+275A, Notes 0: Foundations of…
+Pantelis Rodis on 
+A digestion of unit distance…
+
+Top Posts
+A digestion of unit distance constructions
+Career advice
+Books
+Does one have to be a genius to do maths?
+On writing
+About
+Work hard
+Long gaps in sieved sets
+Analysis I
+A mathematical formalisation of dimensional analysis
+Archives
+
+July 2026
+ (1)
+
+June 2026
+ (3)
+
+May 2026
+ (1)
+
+March 2026
+ (4)
+
+February 2026
+ (3)
+
+January 2026
+ (4)
+
+December 2025
+ (5)
+
+November 2025
+ (5)
+
+September 2025
+ (1)
+
+August 2025
+ (3)
+
+July 2025
+ (1)
+
+June 2025
+ (2)
+
+May 2025
+ (5)
+
+April 2025
+ (2)
+
+March 2025
+ (1)
+
+February 2025
+ (3)
+
+January 2025
+ (1)
+
+December 2024
+ (3)
+
+November 2024
+ (4)
+
+October 2024
+ (1)
+
+September 2024
+ (4)
+
+August 2024
+ (3)
+
+July 2024
+ (3)
+
+June 2024
+ (1)
+
+May 2024
+ (1)
+
+April 2024
+ (5)
+
+March 2024
+ (1)
+
+December 2023
+ (2)
+
+November 2023
+ (2)
+
+October 2023
+ (1)
+
+September 2023
+ (3)
+
+August 2023
+ (3)
+
+June 2023
+ (8)
+
+May 2023
+ (1)
+
+April 2023
+ (1)
+
+March 2023
+ (2)
+
+February 2023
+ (1)
+
+January 2023
+ (2)
+
+December 2022
+ (3)
+
+November 2022
+ (3)
+
+October 2022
+ (3)
+
+September 2022
+ (1)
+
+July 2022
+ (3)
+
+June 2022
+ (1)
+
+May 2022
+ (2)
+
+April 2022
+ (2)
+
+March 2022
+ (5)
+
+February 2022
+ (3)
+
+January 2022
+ (1)
+
+December 2021
+ (2)
+
+November 2021
+ (2)
+
+October 2021
+ (1)
+
+September 2021
+ (2)
+
+August 2021
+ (1)
+
+July 2021
+ (3)
+
+June 2021
+ (1)
+
+May 2021
+ (2)
+
+February 2021
+ (6)
+
+January 2021
+ (2)
+
+December 2020
+ (4)
+
+November 2020
+ (2)
+
+October 2020
+ (4)
+
+September 2020
+ (5)
+
+August 2020
+ (2)
+
+July 2020
+ (2)
+
+June 2020
+ (1)
+
+May 2020
+ (2)
+
+April 2020
+ (3)
+
+March 2020
+ (9)
+
+February 2020
+ (1)
+
+January 2020
+ (3)
+
+December 2019
+ (4)
+
+November 2019
+ (2)
+
+September 2019
+ (2)
+
+August 2019
+ (3)
+
+July 2019
+ (2)
+
+June 2019
+ (4)
+
+May 2019
+ (6)
+
+April 2019
+ (4)
+
+March 2019
+ (2)
+
+February 2019
+ (5)
+
+January 2019
+ (1)
+
+December 2018
+ (6)
+
+November 2018
+ (2)
+
+October 2018
+ (2)
+
+September 2018
+ (5)
+
+August 2018
+ (3)
+
+July 2018
+ (3)
+
+June 2018
+ (1)
+
+May 2018
+ (4)
+
+April 2018
+ (4)
+
+March 2018
+ (5)
+
+February 2018
+ (4)
+
+January 2018
+ (5)
+
+December 2017
+ (5)
+
+November 2017
+ (3)
+
+October 2017
+ (4)
+
+September 2017
+ (4)
+
+August 2017
+ (5)
+
+July 2017
+ (5)
+
+June 2017
+ (1)
+
+May 2017
+ (3)
+
+April 2017
+ (2)
+
+March 2017
+ (3)
+
+February 2017
+ (1)
+
+January 2017
+ (2)
+
+December 2016
+ (2)
+
+November 2016
+ (2)
+
+October 2016
+ (5)
+
+September 2016
+ (4)
+
+August 2016
+ (4)
+
+July 2016
+ (1)
+
+June 2016
+ (3)
+
+May 2016
+ (5)
+
+April 2016
+ (2)
+
+March 2016
+ (6)
+
+February 2016
+ (2)
+
+January 2016
+ (1)
+
+December 2015
+ (4)
+
+November 2015
+ (6)
+
+October 2015
+ (5)
+
+September 2015
+ (5)
+
+August 2015
+ (4)
+
+July 2015
+ (7)
+
+June 2015
+ (1)
+
+May 2015
+ (5)
+
+April 2015
+ (4)
+
+March 2015
+ (3)
+
+February 2015
+ (4)
+
+January 2015
+ (4)
+
+December 2014
+ (6)
+
+November 2014
+ (5)
+
+October 2014
+ (4)
+
+September 2014
+ (3)
+
+August 2014
+ (4)
+
+July 2014
+ (5)
+
+June 2014
+ (5)
+
+May 2014
+ (5)
+
+April 2014
+ (2)
+
+March 2014
+ (4)
+
+February 2014
+ (5)
+
+January 2014
+ (4)
+
+December 2013
+ (4)
+
+November 2013
+ (5)
+
+October 2013
+ (4)
+
+September 2013
+ (5)
+
+August 2013
+ (1)
+
+July 2013
+ (7)
+
+June 2013
+ (12)
+
+May 2013
+ (4)
+
+April 2013
+ (2)
+
+March 2013
+ (2)
+
+February 2013
+ (6)
+
+January 2013
+ (1)
+
+December 2012
+ (4)
+
+November 2012
+ (7)
+
+October 2012
+ (6)
+
+September 2012
+ (4)
+
+August 2012
+ (3)
+
+July 2012
+ (4)
+
+June 2012
+ (3)
+
+May 2012
+ (3)
+
+April 2012
+ (4)
+
+March 2012
+ (5)
+
+February 2012
+ (5)
+
+January 2012
+ (4)
+
+December 2011
+ (8)
+
+November 2011
+ (8)
+
+October 2011
+ (7)
+
+September 2011
+ (6)
+
+August 2011
+ (8)
+
+July 2011
+ (9)
+
+June 2011
+ (8)
+
+May 2011
+ (11)
+
+April 2011
+ (3)
+
+March 2011
+ (10)
+
+February 2011
+ (3)
+
+January 2011
+ (5)
+
+December 2010
+ (5)
+
+November 2010
+ (6)
+
+October 2010
+ (9)
+
+September 2010
+ (9)
+
+August 2010
+ (3)
+
+July 2010
+ (4)
+
+June 2010
+ (8)
+
+May 2010
+ (8)
+
+April 2010
+ (8)
+
+March 2010
+ (8)
+
+February 2010
+ (10)
+
+January 2010
+ (12)
+
+December 2009
+ (11)
+
+November 2009
+ (8)
+
+October 2009
+ (15)
+
+September 2009
+ (6)
+
+August 2009
+ (13)
+
+July 2009
+ (10)
+
+June 2009
+ (11)
+
+May 2009
+ (9)
+
+April 2009
+ (11)
+
+March 2009
+ (14)
+
+February 2009
+ (13)
+
+January 2009
+ (18)
+
+December 2008
+ (8)
+
+November 2008
+ (9)
+
+October 2008
+ (10)
+
+September 2008
+ (5)
+
+August 2008
+ (6)
+
+July 2008
+ (7)
+
+June 2008
+ (8)
+
+May 2008
+ (11)
+
+April 2008
+ (12)
+
+March 2008
+ (12)
+
+February 2008
+ (13)
+
+January 2008
+ (17)
+
+December 2007
+ (10)
+
+November 2007
+ (9)
+
+October 2007
+ (9)
+
+September 2007
+ (7)
+
+August 2007
+ (9)
+
+July 2007
+ (9)
+
+June 2007
+ (6)
+
+May 2007
+ (10)
+
+April 2007
+ (11)
+
+March 2007
+ (9)
+
+February 2007
+ (4)
+
+Categories
+
+expository
+ (321)
+
+tricks
+ (13)
+
+guest blog
+ (10)
+
+Mathematics
+ (917)
+
+math.AC
+ (9)
+
+math.AG
+ (42)
+
+math.AP
+ (115)
+
+math.AT
+ (17)
+
+math.CA
+ (196)
+
+math.CO
+ (206)
+
+math.CT
+ (9)
+
+math.CV
+ (39)
+
+math.DG
+ (37)
+
+math.DS
+ (90)
+
+math.FA
+ (24)
+
+math.GM
+ (16)
+
+math.GN
+ (21)
+
+math.GR
+ (90)
+
+math.GT
+ (17)
+
+math.HO
+ (14)
+
+math.IT
+ (13)
+
+math.LO
+ (54)
+
+math.MG
+ (48)
+
+math.MP
+ (31)
+
+math.NA
+ (26)
+
+math.NT
+ (211)
+
+math.OA
+ (22)
+
+math.PR
+ (110)
+
+math.QA
+ (6)
+
+math.RA
+ (49)
+
+math.RT
+ (21)
+
+math.SG
+ (4)
+
+math.SP
+ (48)
+
+math.ST
+ (11)
+
+non-technical
+ (208)
+
+admin
+ (48)
+
+advertising
+ (77)
+
+diversions
+ (7)
+
+media
+ (14)
+
+journals
+ (3)
+
+obituary
+ (15)
+
+opinion
+ (37)
+
+paper
+ (272)
+
+book
+ (23)
+
+Companion
+ (13)
+
+update
+ (26)
+
+question
+ (128)
+
+polymath
+ (87)
+
+talk
+ (69)
+
+DLS
+ (20)
+
+teaching
+ (190)
+
+245A – Real analysis
+ (11)
+
+245B – Real analysis
+ (22)
+
+245C – Real analysis
+ (6)
+
+246A – complex analysis
+ (11)
+
+246B – complex analysis
+ (5)
+
+246C – complex analysis
+ (5)
+
+247B – Classical Fourier Analysis
+ (5)
+
+254A – analytic prime number theory
+ (19)
+
+254A – ergodic theory
+ (18)
+
+254A – Hilbert's fifth problem
+ (12)
+
+254A – Incompressible fluid equations
+ (5)
+
+254A – random matrices
+ (14)
+
+254B – expansion in groups
+ (8)
+
+254B – Higher order Fourier analysis
+ (9)
+
+255B – incompressible Euler equations
+ (2)
+
+275A – probability theory
+ (6)
+
+285G – poincare conjecture
+ (20)
+
+Logic reading seminar
+ (8)
+
+The sciences
+ (1)
+
+travel
+ (26)
+
+additive combinatorics
+
+approximate groups
+
+arithmetic progressions
+
+Artificial Intelligence
+
+Ben Green
+
+Cauchy-Schwarz
+
+Cayley graphs
+
+central limit theorem
+
+Chowla conjecture
+
+compressed sensing
+
+correspondence principle
+
+cosmic distance ladder
+
+distributions
+
+divisor function
+
+eigenvalues
+
+Elias Stein
+
+Emmanuel Breuillard
+
+entropy
+
+equidistribution
+
+Erdos
+
+ergodic theory
+
+Euler equations
+
+exponential sums
+
+finite fields
+
+Fourier transform
+
+Freiman's theorem
+
+Gowers uniformity norm
+
+Gowers uniformity norms
+
+graph theory
+
+Gromov's theorem
+
+GUE
+
+Hilbert's fifth problem
+
+ICM
+
+incompressible Euler equations
+
+inverse conjecture
+
+Joni Teravainen
+
+Kaisa Matomaki
+
+Kakeya conjecture
+
+Lie algebras
+
+Lie groups
+
+Liouville function
+
+Littlewood-Offord problem
+
+Maksym Radziwill
+
+Mobius function
+
+Navier-Stokes equations
+
+nilpotent groups
+
+nilsequences
+
+nonstandard analysis
+
+Paul Erdos
+
+politics
+
+polymath1
+
+polymath8
+
+Polymath15
+
+polynomial method
+
+polynomials
+
+prime gaps
+
+prime numbers
+
+prime number theorem
+
+random matrices
+
+randomness
+
+Ratner's theorem
+
+regularity lemma
+
+Ricci flow
+
+Riemann zeta function
+
+Schrodinger equation
+
+Shannon entropy
+
+sieve theory
+
+structure
+
+Szemeredi's theorem
+
+Tamar Ziegler
+
+ultrafilters
+
+universality
+
+Van Vu
+
+wave maps
+
+Yitang Zhang
+
+The Polymath Blog
+Polymath News and AI
+Polymath projects 2021
+A sort of Polymath on a famous MathOverflow problem
+Ten Years of Polymath
+Updates and Pictures
+Polymath proposal: finding simpler unit distance graphs of chromatic number 5
+A new polymath proposal (related to the Riemann Hypothesis) over Tao’s blog
+Spontaneous Polymath 14 – A success!
+Polymath 13 – a success!
+Non-transitive Dice over Gowers’s Blog
+
+8 comments
+
+Comments feed for this article
+
+16 January, 2026 at 2:10 am
+
+Anonymous
+
+Terence Tao is a gift to humanity.
+
+Reply
+
+16 January, 2026 at 6:45 am
+
+Anonymous
+
+There’s the initiative of Olivier Ramaré and colleagues which seems relevant: 
+https://ramare-olivier.github.io/TME-EMT/accueil.html
+
+Reply
+
+16 January, 2026 at 8:24 am
+
+Terence Tao
+
+Yes, when we have optimized our workflows a bit more we certainly plan to input the results from the TME-EMT network into our own network (initially as “sorries” with no proofs provided, but eventually with their proofs formalized also).  Right now we are focusing a relatively small number of papers to see if we can actually accomplish an end-to-end explicit prime number theorem with all the prerequisite results from previous papers also formalized, but once we have that infrastructure set up it should be relatively straightforward to add these results.
+
+Reply
+
+17 January, 2026 at 8:28 am
+
+André Pierro de Camargo
+
+Allow me to add that we are currently transfering Oliver’s project to a new site (see url below) to make updating and further mantainance easier. We shall create a wikipedia link to it when it is ready (there are still some typeseting and typos introduced during the transfer to be fixed). 
+
+The new webpage is: 
+https://tme-emt-wiki-gitlab-io-9d3436.gitlab.io/
+
+Reply
+
+30 April, 2026 at 1:37 pm
+
+Anonymous
+
+Just an update: the new site is:
+
+TME-EMT-Wiki 01 documentation
+
+Reply
+
+20 January, 2026 at 6:50 am
+
+secretlyobject05ab30fe9f
+
+This project effectively moves the field from a ‘static archive’ model to a ‘continuous integration’ model.
+
+By formalizing these explicit bounds, you are essentially treating a theorem not as a fixed artifact (a PDF), but as a function: $Theorem(Input_Bounds) to Output_Bounds$.
+
+The ‘spreadsheet’ then acts as the runtime environment. The beauty of this approach is that it resolves the latency between a foundational improvement (e.g., a better zero-free region) and its downstream consequences. Instead of waiting decades for a new survey paper to ‘clear the cache,’ the network can just ‘recompile’ the dependent constants.
+
+It suggests that eventually, the network itself becomes the canonical, dynamically maintained representation of the state of the art, with traditional papers serving as human-readable snapshots of particular states in the graph.
+
+Reply
+
+23 January, 2026 at 4:11 pm
+
+Anonymous
+
+A major concern is this direction is how to handle the rounding errors introduced during the process. Say an explicit estimate E was obtained in a paper “A” by means of constants E_1, E_2, … E_k published elsewhere.  When E_1, E_2 … E_k are updated, the new “E” shall be computed in finite precision and the rounding errors introduced in the computation of E must be taking into account. 
+
+This analysis is usually done by the researcher which is involved in the updating process, and it is not trivial how to automatize this part.  In fact, it seems that the unique automatic tool that ensures reliable bounds for the computed “E”  is  Interval arithmetic. However, in some cases, it leads to non-realistic (although correct) bounds. 
+
+Reply
+
+23 January, 2026 at 10:05 pm
+
+Terence Tao
+
+If the analysis is formalized in Lean, it will have had to deal with these roundoff errors; floating point arithmetic is certainly not recognized as a valid substitute for exact arithmetic in Lean!  Therefore in the updating process, one may initially use floating point arithmetic to obtain an initial guess for what values the updated downstream constants should be, but then one has to actually formalize this within Lean, and some small adjustments to the constants may then be needed if the roundoffs do not work in one’s favor.  Based on some early AI experiments with my UCLA group we believe that current AI models are (barely) able to perform this type of adjustment, at least for relatively simple functional relationships between constants – and if the constants are not adjusted so drastically that the global shape of the argument has to change as a consequence – but we need to work to see whether it can be scaled up to the complex arguments that will appear in this network.
+
+However, there will inevitably be some very large computations in this network that will not be feasible to formalize in Lean – numerical verification of the Riemann Hypothesis up to a very large height 
+ being the prime example.  This will probably have to be represented within Lean as an axiom, and in many cases the only known verification of such axioms will be through nonrigorous arithmetic, such as floating point arithmetic.  However, my hope is that it will be relatively easy (particularly with AI tools) to tune down this height parameters 
+ and recalculate all of the downstream constants in a short amount of time (and in a Lean-verified fashion), so that one can see just how much numerical verification is actually needed to establish any given result, and in particular whether one can retreat to a numerical RH result which is weaker, but more rigorously verified (e.g., by an interval arithmetic calculation in a conventional software language such as Python).
+
+Reply
+
+Leave a comment 
+Cancel reply
+
+Δ
+
+For commenters
+
+To enter in LaTeX in comments, use $latex 
+<Your LaTeX code>
+$ (without the < and > signs, of course; in fact, these signs should be avoided as they can cause formatting errors). Also, backslashes \ need to be doubled as \\.  See the 
+about page
+ for details and for other commenting policy.
+
+«
+ Polynomial towers and inverse Gowers theory for bounded-exponent groups
+
+Rogers’ theorem on sieving 
+»
+
+Blog at WordPress.com.
+Ben Eastaugh and Chris Sternal-Johnson. 
+
+Subscribe to feed.
+
+Comment						
+
+Reblog
+
+Subscribe
+
+Subscribed
+
+				What's new			
+
+Join 12,140 other subscribers
+
+												Sign me up											
+
+											Already have a WordPress.com account? 
+Log in now.
+
+Privacy						
+
+				What's new			
+
+Subscribe
+
+Subscribed
+
+Sign up
+
+Log in
+
+Copy shortlink
+
+										Report this content									
+
+										View post in Reader									
+
+Manage subscriptions
+
+Collapse this bar
+
+%d
+

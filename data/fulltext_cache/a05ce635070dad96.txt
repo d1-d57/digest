@@ -1,0 +1,83 @@
+
+
+Sigmas and Student
+
+Posted on 
+21 January 2026
+ by 
+John
+
+I saw something yesterday saying that the Japanese bond market had experienced a six standard deviation move. This brought to mind a post I’d written eight years ago.
+
+All probability statements depend on a model. And if you’re probability model says an event had a probability six standard deviations from the mean, it’s more likely that your model is wrong than that you’ve actually seen something that rare. I expand on this idea 
+here
+.
+
+How likely is it that a sample from a random variable will be six standard deviations from its mean? If you have in mind a normal (Gaussian) distribution, as most people do, then the probability is on the order of 1 chance in 10,000,000. Six sigma events are not common for any distribution, but they’re not unheard of for distributions with heavy tails.
+
+Let 
+X
+ be a random variable with a Student 
+t
+ distribution and ν degrees of freedom. When ν is small, i.e. no more than 2, the tails of 
+X
+ are so fat that the standard deviation doesn’t exist. As ν → ∞ the Student 
+t
+ distribution approaches the normal distribution. So in some sense this distribution interpolates between fat tails and thin tails.
+
+What is the probability that 
+X
+ takes on a value more than six standard deviations from its mean at 0, i.e. what does the function
+
+f
+(ν) = Prob(
+X
+ > 6σ)
+
+look like as a function of ν where σ² = ν/(ν − 2) is the variance of 
+X
+?
+
+As you’d expect, the limit of 
+f
+(ν) as ν → ∞ is the probability of a six-sigma event for a normal distribution, around 10
+−7
+ as mentioned above. Here’s a plot of 
+f
+(ν) for ν > 3. Notice that the vertical axis is on a log scale, i.e. the probability decreases exponentially.
+
+What you might not expect is that 
+f
+(ν) isn’t monotone. It rises to a maximum value before it decays exponentially. In hindsight this makes sense. As ν → 2
++
+ the variance becomes infinite, and the probability of being infinitely far from the mean is 0. Here’s a plot of 
+f
+(ν) between 2 and 3.
+
+So six sigma probabilities for a Student 
+t
+ distribution rise from 0 up to a maximum of around 10
+−3
+ then decrease exponentially, then asymptotically approach a value around 10
+−7
+.
+
+Related posts
+
+Converting between nines and sigmas
+
+When ν = 30 isn’t normal enough
+
+Fat tails and the 
+t
+-test
+
+Beer, wine, and statistics
+
+Categories : 
+Statistics
+Tags : 
+Probability and Statistics
+Bookmark the 
+permalink
+

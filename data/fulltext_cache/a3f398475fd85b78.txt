@@ -1,0 +1,157 @@
+The Great Icosahedron
+I never knew what was so great about the ‘great icosahedron’.  Now I do.
+Take a regular icosahedron whose vertices have coordinates in the field ℚ[√5], which consists of numbers a + b√5 with a and b rational.
+Apply the nontrivial element of the Galois group of this field: that is, simply replace √5 by -√5 in all your formulas.   You get the
+great icosahedron
+:
+What do I mean by this, exactly?  For example, take the regular icosahedron whose 12 vertices are
+(±1,±Φ,0),     (0,±1,±Φ),      (±Φ,0,±1)
+where Φ = (1 + √5)/2 is the golden ratio.   Form a bunch of
+• points (all the vertices of the icosahedron),
+• lines (containing all the edges of the icosahedron), and
+• planes (containing all the faces of the icosahedron)
+Now replace √5 by -√5 in all your formulas.   You get the equations for a new bunch of points, lines and planes.  And:
+• the points are the vertices a great icosahedron;
+• the lines contain all the edges of this great icosahedron;
+• the planes contain all the faces of this great icosahedron.
+So, replacing √5 by -√5 makes the icosahedron great!
+On Mastodon,
+J. M.
+animated this using an interpolation process called ‘
+tweening
+’:
+If you apply the Galois transformation again you get back the icosahedron.  If you apply it yet again you make the icosahedron great again.
+I thank
+and
+andeux
+for their help on this.
+This fact is asserted without proof in the section on regular star-polytopes near the end of this book:
+•  John Horton Conway, Heidi Burgiel and Chaim Goodman-Strauss,
+The Symmetries of Things
+, A K Peters, Natick, Massachusetts, 2008.
+Let me sketch an uninspired, purely computational proof.  Take each of these twelve icosahedron vertices:
+(±1,±Φ,0),     (0,±1,±Φ),      (±Φ,0,±1)
+and find its five nearest neighbors.  Then apply the Galois transformation, which amounts to replacing Φ with -1/Φ.  You get twelve new points
+(±1,±1/Φ,0),     (0,±1,±1/Φ),      (±1/Φ,0,±1)
+which turn out to be vertices of a new, smaller icosahedron!
+Then, for each vertex of the original icosahedron, see where it goes under this transformation, and see where its nearest neighbors go.  You’ll see they become
+second
+nearest neighbors.
+Thus the edges of the original icosahedron, which connect nearest neighbor vertices, go to edges connecting
+second
+nearest neighbors of a new smaller icosahedron.
+What about the faces?  The faces of the original icosahedron are equilateral triangles whose corners are triples of icosahedron vertices that are all nearest neighbors of each other.  So, they get sent to triangles whose corners are triples of vertices that are all
+second
+nearest neighbors.
+And these facts characterize the great icosahedron: it has the vertices of a regular icosahedron, edges connecting all pairs of
+second
+nearest neighbor vertices:
+and faces formed by all triples of second nearest neighbor vertices.  You can’t see any of these triangular faces in its entirety in this picture—but if you look hard you can see most of
+one
+.
+These are all the possible squared distances between vertices in the original icosahedron and the new great icosahedron:
+Original icosahedron
+Great icosahedron
+0
+0
+4
+4
+4 + 4Φ ≈ 10.47
+4 − 4/Φ ≈ 1.53
+8 + 4Φ ≈ 14.47
+8 − 4/Φ ≈ 5.53
+To get the new squared distances from the old ones we simply replace Φ by -1/Φ, as we must, since Galois transformations preserve the field operations and squared distances are computed using field operations.
+The nearest neighbors had distance squared 4, and these must be mapped to new points that still have distance squared 4—but now these are
+second
+nearest neighbors.
+Of course it would be nice to have a deeper, more general understanding of what the Galois transformation sending
+to
+does to the geometry of shapes made from regular pentagons.   Soon I’ll dig a bit deeper into this!
+Related
+This entry was posted  on Wednesday, May 27th, 2026 at 8:00 am and is filed under
+mathematics
+.					You can follow any responses to this entry through the
+RSS 2.0
+feed.
+											You can
+leave a response
+, or
+trackback
+from your own site.
+Post navigation
+« Previous Post
+Next Post »
+6 Responses to
+The Great Icosahedron
+Gernot Münster
+says:
+27 May, 2026 at 12:24 pm
+Great! Thanks.
+Another relation between the icosahedron and Galois theory is in the famous paper “Vorlesungen über das Ikosaeder und die Auflösung der Gleichungen vom fünften Grade” by Klein, Felix, 1884.
+Reply
+John Baez
+says:
+27 May, 2026 at 12:52 pm
+Yes!  That paper led to many ideas, and I toucheded on some of them here:
+•
+From the icosahedron to E
+8
+,
+London Math. Soc. Newsletter
+476
+(2018), 18-23.
+Reply
+jgmoxness
+says:
+28 May, 2026 at 2:23 pm
+Glad to see this comment’s addition to the your post.
+The Galois transformation replacing Φ with -1/Φ is precisely the mapLR function my
+arXiv paper 2311.01486 (math.GR & hep-th) paper (with ancillary code)
+or website post
+The Isomorphism of H4 and E8
+).
+It transforms a (Left 4D)
+(the 120 vertex 600-cell) into a second scaled (palindromically reversed Right 4D)
+copy. Those L+R (now 8D) are palindromically reveresed and combined into 240 vertices by
+that give you back
+upon rotation (folding/unfolding) by U
+-1
+.
+This is (IMHO) a simpler and better explanation than the one described by Dechant in your referenced post’s citation or that used in Koca’s work prior to Dechant. The follow on arXiv paper
+The Isomorphism of 3-Qubit Hadamards and E8
+takes the analysis of my folding matrix U a bit further.
+So the Galois transformation is a beautiful thing in the
+decomposition of
+maximal subgroups
+.
+Reply
+jgmoxness
+says:
+28 May, 2026 at 2:33 pm
+I sure wish I could edit my typos… after submitting ;-(
+John Baez
+says:
+29 May, 2026 at 11:26 am
+I’m happy to fix typos.  Did I succeed?
+I have more coming soon about this Galois transformation business.  I proved a theorem about it.
+Boris Borcic
+says:
+29 May, 2026 at 7:36 am
+On a more elementary level, the switch like defies to doctor the definition of convexity so as to frame with simplicity something optically salient: we go here from a regular icosahedron that’s the convex hull of a great dodecahedron, to a great icosahedron that has a small stellated dodecahedron for not-quite-convex hull.
+My naive eye finds something special perhaps worthy of attention, to the commonality between how the icosahedron wraps the great dodecahedron, and otoh how the small stellated dodecahedron wraps the great icosahedron.
+Reply
+You can use Markdown or HTML in your comments.  You can also use LaTeX, like this: $latex E = m c^2 $. The word 'latex' comes right after the first dollar sign, with a space after it.
+Cancel reply
+Your email address will not be published.
+Required fields are marked
+*
+Comment
+*
+Name
+*
+Email
+*
+Website
+Notify me of new comments via email.
+Notify me of new posts via email.
+Δ

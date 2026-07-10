@@ -1,0 +1,93 @@
+Last month I shared a puzzle about
+bacteria replicating on a grid. We start
+with just one cell at the origin and at
+any point if the spots one above and one
+to the right of that bacterium are
+empty, then it's allowed to replicate
+populating both of those spots leaving
+the previous spot it was on unoccupied.
+The puzzle is to find the minimum number
+of moves required [music] to clear all
+16 lattice points inside this box here.
+A natural place you might start is with
+a smaller box. For example, at the
+smallest case clearing that one first
+lattice point obviously just takes one
+move. If you move up to a 2 by 2 box
+with four lattice points, after a bit of
+playing around you'll find that it takes
+eight moves to clear that box. So you
+might be thinking, you know, what's this
+pattern? Could it be something related
+to powers of two? But as soon as you
+jump up to a 3 by 3 box with nine
+lattice points, it becomes clear this is
+[music] going to take an astronomical
+number of moves to clear it out. Just to
+make space for the cell at 2 0 to
+replicate once, we need all these other
+cells to replicate first. In fact, it
+starts to seem unlikely that it's even
+possible to clear this box of nine
+lattice points, let alone one with 16
+lattice [music] points. Often in problem
+solving, if you're trying to reason
+about a situation that can unfold in
+some huge or infinite number of ways,
+it's often helpful to find some quantity
+that always must remain the same no
+matter what choices are made. In this
+case, if you think about how each
+replication [music] moves you from one
+of these diagonal lines to its neighbor
+on the right, then because each
+replication turns one [music] cell into
+two, you might think to count the total
+number of cells with a weight where each
+line has half the weight of the
+preceding one. So for example, the point
+at the origin has a weight of one, all
+of the points on this line have a weight
+of 1/2. So after the first replication,
+the total weighted sum of the cells
+stays fixed at one. And more generally,
+with the weights as we have them labeled
+here, any move [music] that you make
+doesn't change the total weight. So no
+matter what you do, the weighted sum of
+all the bacteria on the grid has to stay
+fixed at where it started, namely one.
+So in order to clear a box, you need the
+sum of all of the weights outside of
+that box to be at least one. Without
+this, even given infinite time, the
+bacteria could never possibly escape.
+So, a natural next step is to add
+together all of the weights on this
+infinite grid. Now, you might know that
+1 + 1/2 + 1/4 and so on converges to 2.
+>> [music]
+>> This gives us the sum of the first row
+of lattice points. Repeating this for
+each of the rows above and adding up the
+results, you get a very similar sum that
+converges to 4, meaning the total weight
+on the entire grid is only four. But,
+the sum of the weights inside that box
+with 16 lattice points adds up to be a
+little above 3.5. So, the sum of the
+weights outside that box is notably less
+than one, meaning there is simply no way
+to cram all of the descendants of that
+first bacterium outside of that box. So,
+the puzzle is a little bit cruel. The
+answer is that it's impossible, and this
+is the proof. In fact, there's no way
+for the bacteria to even escape this
+smaller 3x3 box of nine lattice points,
+since their weights add up to 3.0625.
+And you can even make the argument that
+this shape with eight lattice points
+could only be cleared just barely if you
+had infinite [music] time, since the sum
+of its weights is exactly three.

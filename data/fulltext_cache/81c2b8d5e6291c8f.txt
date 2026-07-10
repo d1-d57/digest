@@ -1,0 +1,556 @@
+AMS :: Notices of the American Mathematical Society
+AMS Website Down
+Notice: All AMS websites will be down for maintenance on Saturday, July 11 from 8 am until 1 pm.
+PDFLINK
+Conversation
+Guidelines for Writing and Reviewing Mathematical Software
+Jeroen Hanselman
+1
+.
+Why Proper Coding is Important for Mathematics
+The advent of computers has allowed mathematicians to do increasingly more difficult computations that used to be practically impossible. We now have databases of mathematical objects, measuring multiple terabytes in size, as well as huge computer algebra packages, proof assistants, and numerous other computational tools that aid us in doing mathematics.
+Despite the usefulness of computation in mathematics, it is not always used in a scientifically responsible way. Mathematicians have spent decades refining the way one should write down mathematics. Everything must be proven and written down clearly so that others can understand the logic that was used and agree that the results were correct. Peer reviewers will try their best to see if the arguments and results look plausible and correct. When a paper relies on a computational part, however, the included code does not always get treated with the same care. On the one hand, reviewers might not always know how to properly review source code and, on the other hand, authors might not always know how to write good code. Because of this, the code might be badly structured, difficult to install and run, and sometimes even impossible to find. As a consequence, there are published papers floating around that contain proofs relying on code that no one can run. This essentially means that these results come without a proof. This is not a problem that only occurs in mathematics, however. The replication crisis is a problem affecting many areas of science, as discussed, for example, in
+Bak16
+. In computer science, people have started to do reviews for research artifacts that accompany a publication. It is discussed in articles such as
+LHH
+$^{+}$
+24
+and
+Eit22
+, and put into practice at a conference like CHES,
+https://ches.iacr.org/2024/artifacts.php
+, where authors could have their code tested on Availability, (Re)usability and Reproducibility.
+As the mathematical objects we are dealing with become more complex, we increasingly rely on computational software, and this trend will most likely continue. It is therefore crucial that we start thinking of guidelines and general practices that improve the reproducibility of our code. Otherwise, we might run into serious problems in the future.
+Although we might prefer to have higher-quality code and a better peer-reviewing process for software, there are some good reasons why it has not happened yet. When doing research, software is mostly used as a tool. Although we are trained to transform the ideas we scribbled down somewhere into a rigorously written proof, we are not always taught to turn the code we wrote for ourselves into software that can be used and reused by the wider scientific community. A peer reviewer also does not always examine the code accompanying a paper. This could be due to a lack of time, lack of familiarity with the software used, or a variety of other reasons. The code may also be in bad shape, making it a hassle for a reviewer to review.
+Furthermore, when applying for jobs, hiring committees do not always value the code in your repository as much as the number of publications you have. As this problem was recognized across many disciplines, it led to the creation of journals like JOSS (
+Journal of Open Source Software
+)
+https://joss.theoj.org/
+, which enables researchers to publish their software as a separate citable publication.
+Finally, writing good, reproducible software is hard and time-consuming. It is not just about writing legible code. One needs to think about long-term storage solutions, installation instructions for different operating systems, examples, etc. The process is a lot more involved than just writing down a proof.
+In summary, one sees that writing good reproducible software is an important task, but we, as a community, still need to work to integrate it into the scientific publication process. There are various initiatives concerned with this topic. For example, the European Open Science Cloud (
+https://eosc.eu/
+) has a Task Force on “Infrastructure for Quality Research Software”; the United States Research Software Engineer Association (
+https://us-rse.org/
+) has a working group focused on Code Review; the Helmholtz Centre (
+https://helmholtz.software/
+) promotes reuse and citation of research software; the EU’s TIER2 project aims to improve reproducibility in science (
+https://tier2-project.eu
+) and
+https://fairsharing.org
+is a resource on data and metadata standards. The German government also recognized the need to adapt to the increasing reliance on computation and established the NFDI (
+https://www.nfdi.de
+), an organization aimed at improving research data infrastructure across all sciences. I am part of the MaRDI project (Mathematical Research Data Initiative,
+https://www.mardi4nfdi.de
+), which is a subbranch of the NFDI specialized in mathematics. To read more about MaRDI’s goals, one can read the MaRDI white paper
+Con23
+. As part of this project, I have been writing code reviews to try and figure out the best way to improve the quality of software written in mathematics.
+The following guidelines are based on my experiences with reviewing code, and discussions with various authors and reviewers about best practices. I would like to thank John Cremona, Claus Fieker, Christiane Görgen, Lars Kastner, Jennifer Paulhus, and Drew Sutherland for their helpful feedback. I am writing down what I have learned in the hopes of improving the community standards for handling code in mathematics. At this point, I have written approximately 100 software reviews for various conferences, most notably, for ANTS XVI (Algorithmic Number Theory Symposium,
+https://antsmath.org/
+) and LuCaNT (LMFDB, Computation, and Number Theory,
+https://lucant.org/
+). The introduction of a software reviewing process was done as an experiment, but reactions have been positive. The inclusion of a software reviewing process seems to have led to a significant increase in the amount of source code available compared to previous iterations of the ANTS conference. Authors were also happy about receiving feedback on the code that they wrote. A software reviewing process will most likely also be included in the next iterations of ANTS and LuCaNT.
+2
+.
+Some Statistics About the Impact of Software Reviewing
+To give an impression of the impact of software reviewing, I have compiled some statistics based on the reviews my MaRDI colleagues and I conducted for the ANTS and LuCaNT conferences. Note that the conferences explicitly announced that software peer-reviewing would be part of the process, and authors were given the opportunity to submit their code if they had not done so initially.
+Henceforth, we will distinguish between papers and pieces of software. We will clarify the reason for this now. To begin with, it is possible for a single paper to come with multiple pieces of software. One example of this is when a paper is accompanied by different implementations of the same algorithms, written in different programming languages. Secondly, it was not always possible to get access to the code despite the paper clearly requiring an implementation to illustrate or prove the results discussed within. Either no link was given or the link that was given was broken. If the paper was more theoretical and the algorithms described did not really need an implementation to show their usefulness, I did not count the paper as being accompanied by a piece of software.
+The papers were reviewed based on a certain list of criteria we will discuss in more detail in the rest of the article. For our statistical analysis we group these criteria together in the following categories:
+•
+Lic
+: The software came with a license.
+•
+Rdme
+: The repository had a Readme or a landing page explaining the contents.
+•
+Repo
+: The code was hosted on a repository for long-term storage.
+•
+Inst(E)
+: The code was easy to install (within 15 minutes).
+•
+Inst(H)
+: It was possible to install the code after putting in more effort.
+•
+Specs
+: The specifications necessary for allowing reproducibility were included in either the paper or the repository. (Specifications included: the version of software used, the CPU type, and the required amount of memory to run the code.) Including specifications was deemed essential for reproducibility when the algorithms were benchmarked and compared with other algorithms.
+•
+Rdble
+: The code in the software had proper indentation, well-chosen variable names, sufficient annotation, etc.
+•
+Ran
+: The code ran without any issues. (Regardless of whether the output actually matched with the claims made in the paper.)
+•
+Correct
+: The reviewer judged the results or data that were part of the publication were judged to be “verifiable” or “likely correct.”
+•
+Ran and Correct
+: If the code was judged to be
+Correct
+it did not necessarily mean that the code ran flawlessly. Sometimes it was still possible to verify the results in a different way. (When it was possible to circumvent a bug, for example, or if there was separate code that verified the results produced by the code that gave errors.) On the flip side, just because the code ran, it does not necessarily mean that the output was correct. This is why we have a separate category for code that ran and also produced the correct results.
+Two rounds of reviewing were performed. In the first round, the pieces of software that came with papers that were submitted to the conferences were reviewed thoroughly. Of the 75 pieces of software mentioned in the submitted papers, 67 pieces of software had code available for review, and the reviewers were able to install 41 pieces of software. Only 30 pieces of software had no problems at all. These numbers were actually not that bad. If I were to increase the sample size and do software reviews for similar papers released 1–2 years ago, the numbers would most likely look much worse. Additionally, the problems that occur when trying to run the code can generally be fixed by an author within a reasonably short time. This also highlights the advantages of a software review process. It incentivizes authors to put more effort into their code, and it points out flaws in the authors’ code that can be fixed before publication.
+The second round of reviewing was done to study the effects the reviewing process had on the published articles. All accepted papers were reviewed a second time to see whether the authors took the criticism they got to heart and whether it was still possible to install and run the code. Of the 39 pieces of software mentioned in the accepted papers, 36 pieces had code available for review, and the reviewers were able to install 35 pieces of software. The results of this analysis can be found in Table
+1
+and Table
+2
+.
+Upon comparing the numbers, we find that the statistics of the accepted papers are significantly better than the submitted ones. For 30 out of the 75 submitted pieces of software (40%), we were able to get the software to run and to verify the results, whereas this was true for 27 out of the 39 pieces of software (69.2%) that were accepted for publication.
+A possible reason for the improvement could be that having well-written software correlates with having a better-written paper. Accepted papers tend to have higher-quality code, which leaves a better impression on peer reviewers and editors. Another reason is that many authors took the feedback they received to heart and made improvements to their code and their repositories. This ranged from small things, like adding a short Readme, to bug-fixing and the addition of significant documentation and/or examples. I saw positive changes for 19 out of the 35 pieces of software that were accepted. Overall, I believe the software reviewing process had a positive impact on the reproducibility of the code.
+Table 1
+.
+Comparing reproducibility statistics of submitted papers and published papers. Percentages are taken with respect to the total number of pieces of software for which code was available.
+Total
+Lic
+Rdme
+Repo
+Inst(E)
+Inst(H)
+Specs
+Rdble
+Pieces of Software (Subm)
+67
+29
+48
+64
+52
+59
+34
+49
+Percentage
+100%
+43.3%
+71.6%
+95.5%
+77.6%
+88%
+50.7%
+73.1%
+Pieces of Software (Publ)
+36
+23
+33
+35
+31
+35
+24
+32
+Percentage
+100%
+63.8%
+91.7%
+97.2%
+86.1%
+97.2%
+61.5%
+82%
+Table 2
+.
+Comparing reproducibility statistics of submitted papers and published papers. Percentages are taken with respect to the total number of pieces of software that the reviewer was able to install.
+Total
+Ran
+Correct
+Ran and Correct
+Pieces of Software (Subm)
+59
+41
+35
+30
+Percentage
+100%
+69.5%
+59.3%
+50.8%
+Pieces of Software (Publ)
+35
+32
+29
+27
+Percentage
+100%
+91.4%
+82.8%
+77.1%
+3
+.
+Peer Reviewing Mathematics and Research Software
+We will now discuss which goals a software peer-reviewing process should aim to achieve. To start, we examine some aspects of traditional peer reviews.
+Greiffenhagen
+Gre24
+has written an article discussing the process and the role of peer reviewing in mathematics. We will shortly summarize some of his findings:
+1.
+Checking a mathematical proof for correctness is difficult and the peer-reviewing process cannot ensure that what is written down is 100% correct. What it can do is increase confidence in the correctness of the result.
+2.
+Peer reviewing a mathematical paper is generally more difficult and time-intensive than it is in other disciplines. As a result, the average number of reviewers that can look at a single paper is lower compared to those disciplines.
+3.
+The primary responsibility for ensuring that the stated results are correct lies with the author, but the reviewers share partial responsibility.
+4.
+Reviewers generally do not read an article in detail. They skim the article to get a rough understanding of it and to see whether they believe that the approach used could work, and then zoom in on the key arguments or parts that they do not understand to verify their correctness.
+5.
+Real mistakes are rarely found. It happens more often that reviewers ask for clarification for parts they do not understand.
+6.
+It is a widely held belief that it is impossible to find all mistakes, but, if there are any, the community will eventually find them.
+Most of these points (with the possible exception of (2)) will likely also apply to any kind of software peer-reviewing process. It is impossible to ensure that the code will be completely bug-free (1), the authors of the code should bear the brunt of the responsibility to ensure that the code they published is correct (3), reviewers cannot be expected to check every line of code (4), it will be challenging for anyone to find mistakes in the code (5), and ideally most bugs will be discovered over time as others reuse the code, reimplement the algorithms, and so on (6).
+In light of this, the key goals of any peer-reviewing process should be the following:
+A)
+The reviewing process should increase confidence that the results are correct.
+B)
+The reviewing process should try to ensure that other mathematicians can follow the reasoning and reproduce the results by following the same steps as the authors.
+We point out a few differences between reviewing code and reviewing a mathematical paper.
+First of all, the purpose of the code accompanying a paper may not necessarily be to prove a theorem. It is certainly common to outsource a part of a proof to a script written using a computer. But there are more types of data and code that can come with a paper. A good way to think about it is to compare it to an experimental science. People do experiments to get data. These experiments and data are used as part of the publication in different ways. The goal could be:
+•
+To construct some sort of database for future use. (For example, the periodic table and all of the properties of the elements.)
+•
+To illustrate a part of the theory.
+•
+To formulate or support new theories by using the data gathered from the experiments.
+•
+To explain the setup of a new kind of experiment.
+•
+To explain how a certain kind of experiment can be improved to give faster/better results.
+In computational mathematics we do very similar things. Only in our case, the experiments we conduct are performed using the algorithms that we write and use to study mathematics. To mirror the above list:
+•
+We use algorithms to tabulate properties of mathematical objects. (See e.g. the atlas of finite groups
+WCN85
+, the LMFDB
+LMF24
+or
+https://mathbases.org/
+.)
+•
+We write code snippets to compute examples that are too difficult to compute by hand.
+•
+We perform computations to study conjectures and formulate new hypotheses.
+•
+We develop algorithms to compute things we were not able to compute before.
+•
+We write algorithms that improve on previous algorithms, making them more efficient.
+Consequently, to achieve goals A) and B), the peer-reviewing process will need to differ slightly from the classical approach. To help a reviewer accomplish A) authors could, for example, add test files to the code that will help a reviewer check that there are no bugs in the code. Alternatively, the authors could add separate files that verify properties of the computed data. To help achieve B), authors must provide adequate installation instructions, hardware specifications, and documentation, ensuring that other mathematicians can reproduce their computations.
+Secondly, not all mathematicians will be able to understand the code. Even if they are familiar with programming, they might not understand the specific programming languages used. Understanding a big repository filled with C code is far more difficult than executing a Sage script in a Jupyter Notebook, for example. This makes it difficult to find good reviewers. When looking for a reviewer of a traditional math paper, an editor tries to find an expert who understands the topic. If it is also required that this expert understands the code and software used, the pool of potential reviewers will be extremely small.
+A solution might be that an editor splits the peer-review process into two tasks:
+•
+Reviewing the mathematical content of the paper:
+This should be done by an expert in the particular topic discussed by the paper.
+•
+Reviewing the software that accompanied the paper:
+This should be done by someone who is familiar with programming. This person should also be familiar with the field of research but does not need to be an expert on the specific topic discussed in the paper.
+The reviewer and the code reviewer could potentially be the same person, and, if not, they could communicate if need be. This split will make it easier for editors to find reviewers, as they do not necessarily need someone who is an expert in two things at the same time. As a consequence, the code reviewer does not need to check the correctness of the mathematics in the code. Their main focus should be on the reproducibility. The average user should be able to find the software, install it, run it, and check that the results are as the authors claim they are. A high level of reproducibility will ensure that other mathematicians will be able to use the code, check whether it is correct or not, and figure out potential mistakes that were made. This approach has another advantage: it will reduce the time required to do a code review, making it easier to find willing reviewers.
+We propose four categories that should be part of a software review:
+1.
+Role of the code in the paper
+2.
+Reproducibility (Installation and rerunning the code)
+3.
+Reliability and Correctness
+4.
+Readability
+We will discuss these categories in more detail in the following sections, which will deal with mathematical software from the point of view of an author and from the point of view of a reviewer.
+4
+.
+Guidelines for Writing Code
+The focus of an author seeking to make his research reproducible or a reviewer tasked with reviewing the code heavily depends on the role the code plays in the paper. We will briefly discuss some common scenarios before outlining the guidelines:
+The paper explains a new algorithm capable of computing things we were not able to compute before.
+The main goal of the paper is to explain why this new algorithm works. The key part is to demonstrate its correctness. The theory behind the algorithm will primarily be explained in the paper, but examples and proper commentary in the repository will be useful for understanding the algorithm and verifying its correctness. Listing run times and system specifications will be less relevant.
+The paper presents an algorithm that is claimed to be better than existing algorithms.
+Here, providing hardware specifications and run times becomes crucial. If you claim your algorithm performs better than existing ones, you will need to provide benchmarking tools to support those claims.
+The paper discusses a database of mathematical objects.
+It is difficult to provide proper documentation for a database of mathematical objects. Ideally, it should be possible to find out which people used which algorithms to produce each individual object in the database. One would also like to know whether the data was computed rigorously or heuristically, and whether it was conditional on any conjectures or independent of them, as well as if the results have been double-checked using sanity checks or other reliability tests. Other things to consider are: How easy is it for users to access the database? Is there a user-friendly interface? Are there instructions for how to query the database? Is it possible for users to verify the data in the database themselves using some algorithms?
+The code is used to compute examples included in the paper.
+If the examples are not particularly hard to compute, just having a separate, clearly named file for each example that runs the needed code will suffice. If computing the examples will take a long time, it will be helpful to provide an estimate of the expected duration.
+The code is used to do computations as part of a proof.
+If the code is used as part of a proof, it will be crucial to cross-reference between the code and the paper, as well as vice versa. Furthermore, the code should be properly commented, allowing readers of the proof to understand the software component. The code is an actual part of the proof and should be treated as such.
+Now here are some general guidelines that may be helpful to keep in mind when writing research software.
+4.1
+.
+Metadata and the role of the code in the paper
+Describe the purpose of the code
+Write a few sentences in the paper describing what kind of code accompanies the paper, what it was used for, and where it can be found. It is often difficult to find this information, as it is usually scattered throughout the paper or missing altogether. Most people declare what the intent of their paper is in the abstract or the introduction, but it is helpful to do something similar for the accompanying code.
+Refer to sections of the paper in your code
+Conversely, it can be helpful to reference your paper in your code. This way, if someone does not understand what is happening, they can easily find the relevant sections in the paper.
+4.2
+.
+Reproducibility
+Make sure your code has a license
+The software you write should come with a license. Without a license, no one is allowed to reuse your code. If you have co-authors, they could even sue you if you reuse your own code, as they have partial ownership. For more information about what kind of license to use, check out:
+https://choosealicense.com/
+. For academia, it is best to pick an open-source license. Common ones are the GPL license, the MIT license, and the BSD licenses. One difference is that if someone wants to reuse code published under a GPL license, the new work also needs to be open source and be published under the same license. It can be used for commercial purposes, but everyone who receives a copy of the product must have access to the source code. The MIT and BSD licenses (which are relatively similar) do not enforce that derivative works are published under the same license. The main condition is that the new work contains proper attribution to the original author. The software may then also be turned into commercial closed-source software. If your code depends on software written by someone else, ensure the license you choose is compatible with theirs.
+Long-term repository
+Ensure the code is hosted on a platform where it can remain for multiple years. A bad place to host would be on your own website. When people change jobs or leave academia, these websites may disappear. Even if you move the code elsewhere, papers that cite the code will still reference the old location, making it difficult to find the code. It is recommended to host your code on a public platform like GitHub, GitLab, or Zenodo. GitHub has a lot of features and is the most popular platform. One possible negative of GitHub is that it is a subsidiary of Microsoft. However unlikely, they might choose to monetize GitHub or make other unwanted changes at some point. Zenodo is hosted by the CERN data center and geared toward science. Every upload also has a DOI (a persistent identifier), which makes them more easily citable.
+Ensure your code has a Readme file
+The goal of the Readme file should be to be the visiting card of your repository. It should give a quick impression of what the purpose of the repository is. It is also a good place to provide an overview of the files contained in the repository and their purpose. The Readme could also include installation instructions, basic documentation, and some small examples. Finally, it can be used to reference the accompanying paper and cite works that your software depends on.
+Provide clear installation instructions
+Users need to be able to run your code to verify your results, gain a deeper understanding of your work, or reuse it and improve upon it. Many repositories currently do not include any instructions at all or only very vague ones. The average user will have difficulties figuring out what they need to do, so make the instructions as explicit as possible. A good test is to let a colleague or a friend try to install the software and see if they manage. Sometimes the issue lies with the installation instructions someone else wrote for a package you depend on. In that case, you could try to contact the original authors of that code and ask them to improve their instructions or provide better instructions on your own page.
+Think about what you could do to make the installation as easy as possible
+Complicated installations are sometimes unavoidable, but there are steps that can be taken to make the process easier for users. It may be possible to write an installation script that automatizes a couple of steps. Try to minimize the need to manually change files as much as possible. Sometimes installation instructions require users to install a package from a different author and manually modify certain lines in that package. This is a bad practice that can cause a lot of issues. Will the library still work with your changes? What if the package gets updated?
+Provide documentation for the code
+Every function you write should include an explanation of the input and output, as well as a description of its purpose. Make sure to also include examples of how to use your code. Ideally, your code should include enough explanatory text to help users understand what it does. A Jupyter Notebook would also work well for something like this.
+Mention the specifications of the systems used
+Be sure to list key hardware specifications (CPU, RAM), the OS used, and the exact versions of the programming languages and packages involved. For large or difficult computations, it is useful to record the amount of data produced and the time it took for the computations to finish.
+Citation
+Make sure to give credit to the work you are building on. Cite the software and the packages you are using in your repository and in the accompanying paper.
+4.3
+.
+Correctness and reliability
+Tests
+It is good practice to write test code to boost confidence in your algorithms. The test code does not necessarily need to test your examples. Its goal could be to test certain functions or submodules of the entire package, perform sanity checks, verify the code is working in certain edge cases, or test randomly generated examples.
+Running the code on a real example could take a long time, but well-chosen tests can make a convincing case that the code works in principle despite taking less time to run. When writing test code, aim to cover as much code as possible. There also exist tools measuring code coverage that can help with this.
+Test code can also help prevent bugs from sneaking in. If changing the code causes tests to fail, you know that something went wrong. Tools for continuous integration can help you run tests automatically every time you change something in the code.
+Verification files
+If you want to prove to someone that your computations are correct, you might not want to redo the computation, as it could take a lot of time. However, verifying that something is correct can sometimes be done in a different and potentially quicker way. Computing the inverse of a matrix
+$A$
+,
+for example, is different from multiplying
+$A$
+with the matrix you computed and checking if the result is the identity matrix. These verification tests also increase confidence that your algorithm is correct.
+Multiple implementations
+To check whether the data you computed is correct, it can be helpful to implement your code in multiple software systems. In some cases, different systems actually produce different results (due to bugs in the software systems). Testing in different systems increases the chances of your results being correct.
+4.4
+.
+Readability
+Use clear naming conventions
+Thinking a bit longer about proper names for files, functions, and variables will do wonders for making code more comprehensible for other people (and even for yourself). No one likes to see names like
+helperfunctions3
+or
+mmhm
+.
+•
+Make your naming conventions meaningful so people who have read the paper can immediately understand what each term represents.
+•
+Stick to common mathematical notation such as
+$f$
+for function,
+$v$
+for vector, etc.
+•
+Use as few abbreviations as possible. Longer names might help with legibility even if it takes a bit longer to type.
+•
+Remain consistent with your naming scheme.
+Ensure your repository is clearly structured and that files are easy to find
+This is especially important if the repository is big. If there are hundreds of files, you don’t want people to spend hours trying to figure out what each one does and where to find what they need.
+5
+.
+Guidelines for Reviewing Code
+The first thing to do is to read the introduction to get a rough impression of what the article is about. After this, skim through the rest of the article and take a look at the files provided. This should give you sufficient information to determine all the necessary details for the first part of the review.
+5.1
+.
+Metadata
+The review should contain the following information about the paper and its accompanying code:
+•
+The title of the paper.
+•
+The authors’ names (if given).
+•
+The date on which the review was written.
+•
+An overview of the files accompanying the paper, such as: code, notebooks, computed data, example files, documentation, Docker files/virtual machines, and test files.
+•
+The version of the code that was reviewed. (If version information is not available, the download date of the code can be listed.)
+•
+The link that was used to download the code.
+•
+A short description of the relationship between the code and the paper. What does the code add to the paper? How important is it for the results?
+After the first phase of the software review, you should have a good idea of what to expect to find in the code. The next step will be to take a look at the repository and its structure.
+5.2
+.
+Reproducibility
+A quick scan of the repository can already reveal a lot:
+•
+Does the repository have a license?
+•
+Where is the code hosted? The author’s own personal website, for example, is a bad idea, as it is not guaranteed to be there for a long time. A platform like Zenodo would be ideal, but a GitHub repository is still fine.
+•
+Is the code publicly available?
+•
+Is the code open source?
+•
+Does the repository have a DOI that links to it?
+•
+Does the repository have a Readme?
+•
+What is the quality of this Readme?
+Now, the reviewer should attempt to install the code and run some of the examples or test code included. Write down all the steps you have taken when trying to install the code in the review. If the installation fails, the author will be able to use this information to help identify what caused the error.
+•
+How difficult was it to install the software? Is it doable for the average user?
+•
+Can the installation instructions be improved?
+•
+Check what information the authors gave about the setup they used. This includes CPU, RAM, what operating system was used, what software was used, and version information. It can also include benchmarking information and running times used by the authors.
+•
+See if the authors properly cited all the software they used in their program.
+To help the authors process the feedback they get from the review, be sure to list:
+•
+Which operating system the reviewer used for the review.
+•
+Which programming languages or standard software packages were used for the review. (Including version information.)
+Once the software is installed and runs successfully on some basic examples, the reviewer should attempt to reproduce the results described in the paper.
+5.3
+.
+Reliability and correctness
+There are various ways to increase confidence in the correctness of the results stated in the paper. The main way for the reviewer to test this is to try to run the code itself and see if the results match the authors’ claims. However, this might not always be feasible. For instance, if the computations the authors did took months, it is unrealistic to expect the reviewer to rerun them. Nevertheless, there are some solutions that can increase confidence that running the code on these big examples will also produce the correct results.
+•
+The repository could include smaller examples and show the code works correctly there.
+•
+The repository could contain test files that show that parts of the code are working correctly.
+•
+Sometimes verifying that the results are correct is easier and less time-intensive than doing the computations. The repository could include files that verify the correctness of, or perform some sanity checks on, the computed results.
+In any case, if an error arises or the results are different from what was expected, the reviewer should describe exactly what they did and what went wrong. Sometimes it is easy to identify the issue, and the reviewer could attempt a quick fix, but it is not the reviewer’s task to debug the authors’ code.
+5.4
+.
+Readability
+The final thing a reviewer should check is whether basic good coding practices are being respected.
+•
+Do functions have a description of what they do? Are the input and the output clearly described?
+•
+Is the code properly annotated?
+•
+Does the indentation look okay?
+•
+Are files, functions, and variables given distinctive and descriptive names?
+•
+Is the repository structured sensibly?
+A software review that takes the four categories discussed above into account should provide a comprehensive overview of the quality of the code without being too time-consuming for the reviewer.
+An example of the reviewing template I have used for reviewing code can be found on
+https://github.com/JHanselman/code-review-template
+.
+6
+.
+Future Outlook
+I personally consider it important for us as a mathematical community to start implementing some form of quality control for research software and research data in mathematics. There will probably not be a solution that fits everyone. What might be important for a computer algebraist might not be as important to an applied mathematician. These guidelines are a step toward getting people to think and discuss what kind of solutions would work best.
+A discussion is what we need. I hope anyone who thinks this is important will talk to their colleagues; talk to their students; talk to editors of journals, organizers of conferences, and whoever can make a change in how we deal with research data and research software. If we want to improve the situation, achieve higher-quality reusable code and data, and gain recognition for our coding efforts, the change must come from within our community. We need to decide that we want this, and we need to actively start working toward it.
+References
+[
+Bak16
+]
+Monya Baker,
+1,500 scientists lift the lid on reproducibility
+, Nature
+533
+(2016), 452 –454.,
+Show raw
+AMSref
+\bib{baker}{article}{
+author={Baker, Monya},
+title={1,500 scientists lift the lid on reproducibility},
+date={2016},
+journal={Nature},
+volume={533},
+pages={452 \ndash 454},
+url={https://doi.org/10.1038/533452a},
+}
+[
+Con23
+]
+The MaRDI Consortium,
+Research data management planning in mathematics
+, 2023.,
+Show raw
+AMSref
+\bib{whitepaper}{misc}{
+author={Consortium, The~MaRDI},
+title={Research data management planning in mathematics},
+how={\url {https://zenodo.org/records/10018246}},
+date={2023},
+}
+[
+Eit22
+]
+Frachtenberg Eitan,
+Research artifacts and citations in computer systems papers
+, PeerJ Computer Science 8:e887 (2022).,
+Show raw
+AMSref
+\bib{artifacts}{article}{
+author={Eitan, Frachtenberg},
+title={Research artifacts and citations in computer systems papers},
+date={2022},
+journal={PeerJ Computer Science 8:e887},
+}
+[
+Gre24
+]
+Christian Greiffenhagen,
+Checking correctness in mathematical peer review
+, Social Studies of Science
+54
+(2024), no. 2, 184–209. PMID: 37776165.,
+Show raw
+AMSref
+\bib{greiff}{article}{
+author={Greiffenhagen, Christian},
+title={Checking correctness in mathematical peer review},
+date={2024},
+journal={Social Studies of Science},
+volume={54},
+number={2},
+pages={184\ndash 209},
+url={https://doi.org/10.1177/03063127231200274},
+note={PMID: 37776165},
+}
+[
+LHH
+$^{+}$
+24
+]
+Mugeng Liu, Xiaolong Huang, Wei He, Yibing Xie, Jie M. Zhang, Xiang Jing, Zhenpeng Chen, and Yun Ma,
+Research artifacts in software engineering publications: Status and trends
+, Journal of Systems and Software
+213
+(2024), 112032.,
+Show raw
+AMSref
+\bib{Liu}{article}{
+author={Liu, Mugeng},
+author={Huang, Xiaolong},
+author={He, Wei},
+author={Xie, Yibing},
+author={Zhang, Jie~M.},
+author={Jing, Xiang},
+author={Chen, Zhenpeng},
+author={Ma, Yun},
+title={Research artifacts in software engineering publications: Status and trends},
+date={2024},
+issn={0164-1212},
+journal={Journal of Systems and Software},
+volume={213},
+pages={112032},
+url={https://www.sciencedirect.com/science/article/pii/S016412122400075X},
+}
+[
+LMF24
+]
+The LMFDB Collaboration,
+The L-functions and modular forms database
+, 2024. [Online; accessed 29 August 2024].,
+Show raw
+AMSref
+\bib{lmfdb}{misc}{
+author={{LMFDB Collaboration}, The},
+title={The {L}-functions and modular forms database},
+how={\url {https://www.lmfdb.org}},
+date={2024},
+note={[Online; accessed 29 August 2024]},
+}
+[
+WCN85
+]
+Robert Arnott Wilson, John H. Conway, and Simon P. Norton,
+Atlas of finite groups
+, 1985,
+https://api.semanticscholar.org/CorpusID:117473588
+.,
+Show raw
+AMSref
+\bib{MR0827219}{inproceedings}{
+author={Wilson, Robert~Arnott},
+author={Conway, John~H.},
+author={Norton, Simon~P.},
+title={Atlas of finite groups},
+date={1985},
+url={https://api.semanticscholar.org/CorpusID:117473588},
+}
+Jeroen Hanselman is a postdoc in computational arithmetic geometry at the RPTU Kaiserslautern-Landau working for the Mathematical Research Data Initiative. His email address is
+[email protected]
+.
+Article DOI:
+10.1090/noti3210
+Credits
+Photo of Jeroen Hanselman is courtesy of Jeroen Hanselman.

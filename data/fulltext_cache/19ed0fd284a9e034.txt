@@ -1,0 +1,180 @@
+Computer Scientists Figure Out How To Prove Lies | Quanta Magazine
+Quanta Homepage
+About Quanta
+Search
+Newsletter
+Get the latest news delivered to your inbox.
+Recent newsletters
+Follow Quanta
+Facebook
+Youtube
+Instagram
+RSS
+An editorially independent publication supported by the Simons Foundation.
+Type search term(s)
+and press enter
+Home
+Computer Scientists Figure Out How To Prove Lies
+Comment
+Save Article
+Read Later
+Share
+Facebook
+Copied!
+Copy link
+Email
+Pocket
+Reddit
+Ycombinator
+Comment
+Comments
+Save Article
+Read Later
+Read Later
+cryptography
+Computer Scientists Figure Out How To Prove Lies
+By
+Erica Klarreich
+July 9, 2025
+An attack on a fundamental proof technique reveals a glaring security issue for blockchains and other digital encryption schemes.
+Comment
+Save Article
+Read Later
+Wei-An Jin/
+Quanta Magazine
+Introduction
+Randomness is a source of power. From the coin toss that decides which team gets the ball to the random keys that secure online interactions, randomness lets us make choices that are fair and impossible to predict.
+But in many computing applications, suitable randomness can be hard to generate. So instead, programmers often rely on things called hash functions, which swirl data around and extract some small portion in a way that looks random. For decades, many computer scientists have presumed that for practical purposes, the outputs of good hash functions are generally indistinguishable from genuine randomness — an assumption they call the random oracle model.
+“It’s hard to find today a cryptographic application… whose security analysis does not use this methodology,” said
+Ran Canetti
+of Boston University.
+Now, a
+new paper
+has shaken that bedrock assumption. It demonstrates a method for tricking a commercially available proof system into certifying false statements, even though the system is demonstrably secure if you accept the random oracle model. Proof systems related to this one are essential for the blockchains that record cryptocurrency transactions, where they are used to certify computations performed by outside servers.
+There’s “a lot of money relying on this stuff,” said
+Eylon Yogev
+of Bar-Ilan University in Israel. For blockchain proof protocols, “there’s a huge motivation for attackers to break the security of the system.”
+In the new paper — by
+Dmitry Khovratovich
+of the Ethereum Foundation,
+Ron Rothblum
+of the zero-knowledge proof technology company Succinct and the Technion in Haifa, Israel, and Lev Soukhanov of the blockchain-focused start-up [[alloc] init] — the researchers are able to prove lies no matter which hash function is used to generate the “randomness” the proof system relies upon.
+When Yogev heard about the team’s result, he said, “I had the feeling that someone is pulling the carpet from under my feet.” He and others have been working to patch up these vulnerabilities. But “it’s far from being a solved issue,” he said.
+More broadly, the new result is forcing a reckoning about the random oracle model. “This is a time to rethink,” Canetti said.
+A Mathematical Blender
+A host of different computing applications — from cryptocurrencies to cloud computing — involve convincing a bunch of strangers on the internet that you’ve performed a computation correctly. The new paper shows how to hijack a fundamental technique that enables people to certify such computations. The technique, called the Fiat-Shamir transformation, is useful not just in blockchains and cloud computing but also in many other cryptographic applications, such as the key exchanges that safeguard web transactions and encrypt text messages. It’s so ubiquitous that it has become a verb, as in “Let’s Fiat-Shamir this.”
+The Fiat-Shamir transformation is used in settings where you can verify a computation by inspecting it in random spots. For instance, if a professor has assigned 100 problems for homework but doesn’t want to grade a student’s entire assignment, she can randomly choose 10 problems to grade. In the language of computer scientists, she is making 10 “random challenges” to the student’s homework. If the answers to those 10 problems are correct, the professor can feel confident that most of the other answers are correct too. (There are ways to modify this setup if she wants to be convinced that the student got every single problem right, not just most of them.)
+This particular scenario would probably play out on the professor’s desk. But since the Fiat-Shamir transformation is about convincing a bunch of distant strangers, let’s instead imagine that the student wants to prove the correctness of his homework not just to the professor, but to an entire auditorium full of people.
+Imagine that the student starts by “turning in” his assignment by locking each of his answers in a separate box. Next, the professor picks 10 numbers out of a hat to determine her 10 random challenges. The student unlocks those 10 boxes, and the professor grades the contents. Since the student locked up his answers before knowing what the random challenges would be, the professor can feel confident that the problems she is grading are representative of his homework as a whole.
+But people in the audience might question whether they’ve witnessed a legitimate process. For all they know, the student may have bribed the professor to put only certain numbers into the hat, instead of all the numbers from 1 to 100. Or maybe the professor failed to notice trapdoors in the locked boxes, and the student had an accomplice behind the scenes who was hastily solving problems and slipping the solutions into the right boxes before they got opened.
+You might suppose that to be truly convinced, each audience member would have to carry out their own interaction with the student. But computer scientists have figured out how the student can satisfy the audience members’ concerns using hash functions.
+A hash function is like a mathematical blender — it swirls a bunch of data around according to some chosen set of operations, then outputs a small portion of the resulting smoothie. For cryptographic purposes, a hash function has two attractive properties. First, it outputs random-seeming gibberish with no apparent correlation to the input that produced it. And second, a hash function is easy to perform, but hard to reverse. If someone shows you an output, it’s virtually impossible to find an input that would have produced it.
+In the homework example, the student can reassure the audience that the boxes don’t have trapdoors by “locking” the boxes with a hash function instead of a physical key. To do so, the student hashes each of his 100 answers and posts the result of each hash on the lid of the appropriate box. Computer scientists call these posts the student’s “commitment.” Now if an accomplice tries to change the contents of the box after the fact, the altered contents will not agree with the commitment — something audience members can easily check for themselves.
+In 1986,
+Amos Fiat
+and
+Adi Shamir
+proposed a way to use hash functions to address the audience’s other concern: that the student might have bribed the professor to pick certain boxes. In the
+Fiat-Shamir protocol
+, instead of picking numbers out of a hat, the professor uses the hash function to generate the random challenges. She starts by throwing the student’s commitment back into the blender to get new gibberish. Then she uses some previously agreed-upon formula to convert that gibberish into a number from 1 to 100. This number dictates which box she opens first. She then repeats the process: She throws both the commitment and the answer from that first box into the blender to choose the second box to open, and so on.
+This approach accomplishes something remarkable: It eliminates the need for the back-and-forth between the student and the professor (or any audience member). The student can use the hash function to generate the random challenges himself. Anyone in the audience can satisfy themselves that the student did this correctly.
+By turning interactive proofs into noninteractive ones, the Fiat-Shamir transformation enabled computers to generate proofs that anyone could inspect at any time, without needing to interact with the prover. Soon, it was being used everywhere. But was it secure, or could an attacker somehow use it to convince people of a false statement?
+Proving Lies
+In 1996, David Pointcheval and Jacques Stern proved that Fiat-Shamir is
+secure in the random oracle model
+— that is, if you assume that the hash function is an idealized source of pure randomness. But real hash functions are not truly random. Researchers worried that a clever attacker might be able to break Fiat-Shamir by exploiting the details of what a particular hash function was doing.
+When Eylon Yogev heard about the new paper, he said, “I had the feeling that someone is pulling the carpet from under my feet.”
+Courtesy of Eylon Yogev
+In the early 2000s, computer scientists showed how to do just that, contriving interactive
+proof
+protocols
+that were specifically designed to fail when they underwent Fiat-Shamir. But “nobody in their right mind would design a protocol this way,” Canetti said. Many programmers assumed that no real-world protocol could be susceptible to such an attack, and they continued to integrate the Fiat-Shamir transformation into the foundations of how people exchange information over the internet. It was “a leap of faith,” Canetti said.
+Some computer scientists had serious reservations about this leap of faith. Ron Rothblum, for one, had long been trying to attack some real-world protocol. Then one day last October, he received a surprising email from a blockchain organization called the Ethereum Foundation, which hosts a widely used cryptocurrency called ether.
+The blockchains that underlie cryptocurrencies have an unfortunate but inescapable feature: They run incredibly slowly. To handle heavy traffic from financial transactions, a blockchain must offload most computations to outside computers. It can’t assume that those computers are trustworthy, so it requires them to provide Fiat-Shamir proofs that their computations are valid. If someone could use Fiat-Shamir to “prove” a false statement such as “Person A sent Person B a million dollars,” the whole system would come crashing down.
+Since so much rides on these proofs, the Ethereum Foundation decided to test their security by offering a bounty to anyone who could attack Fiat-Shamir for any proof protocol of their choice, using a popular hash function called Poseidon. Before announcing the bounty, the foundation invited Rothblum to review a draft of its announcement.
+Rothblum’s reaction was that the foundation had phrased things too loosely. After all, cryptographers have known for decades about contrived proof protocols that are vulnerable to attack, no matter which hash function you use. When he shared his thoughts with Ethereum’s cryptographers, he was startled to learn that they were unfamiliar with this work. Rothblum began collaborating with Khovratovich and Soukhanov (who worked at Ethereum at the time) to explore more deeply.
+Soukhanov had the idea to target a Fiat-Shamir proof system based on something called the
+GKR protocol
+, co-developed by Rothblum’s brother Guy Rothblum — the “R” in “GKR.” This is a protocol for proving that a computer program produces a certain output when given a secret input that only the prover knows. For example, if you had a homework grading program, a student could use this protocol to prove the statement “I have a set of homework answers that, when I input them into the grading program, make the program produce the output ‘correct.’” As long as the grading program is one that you approve of, you can then feel confident that the student did the homework correctly.
+To verify such a claim, the GKR protocol (as it’s used today) starts by hashing the program itself to form the commitment. That way, the person making the claim can’t surreptitiously switch to a different program later on. Next, the protocol does further hashes to come up with random challenges — steps in the program’s execution that the protocol inspects.
+But as the researchers showed, this protocol has an Achilles’ heel.
+They were able to come up with a malicious program that, if presented with its own hash as the secret input, could compute the random challenges and then arrange its internal workings so the spots being challenged would pass inspection. The verifier would see no reason to doubt that the program really did output what the prover claimed, even though it did not.
+What’s more, the researchers showed how to embed this malicious program in any task. For example, if you want to falsely prove that you possess correct answers to a homework assignment, you can replace the homework-grading program with a new one that contains the malicious program. The new program is still a valid grading program — it produces exactly the same grades as the original grading program. But you can nevertheless feed this program a set of incorrect homework answers and then use the GKR protocol to convince people that the program outputted “correct” when it really outputted “incorrect.”
+“It’s a fantastic result,” said
+Justin Thaler
+of Georgetown University and the venture capital firm Andreessen Horowitz. “There’s definitely broad agreement about that.”
+A Leaking Boat
+A company called Polyhedra offers a version of the proof system that the researchers attacked under the name
+Expander
+. When the researchers were getting ready to post their paper online in late January, they notified Polyhedra. The researchers had suggested a modification to Fiat-Shamir to mitigate the attack in their paper, and Polyhedra quickly used it to put out a patch.
+A month later, Yogev and
+Gal Arnon
+, a researcher at the Simons Institute for the Theory of Computing, came up with another way to modify Fiat-Shamir to
+defend against the new attack
+. Both of these modifications used the fact that the malicious program must contain the code for the hash function so it can compute the challenges. The modified versions of Fiat-Shamir require that the program being checked be less complex than the hash, so that they cannot include the malicious program. “That’s allowed us to break the cycle,” Yogev said.
+But not all applications may be amenable to such a requirement. What’s more, even if some applications switch to a modified version of Fiat-Shamir, “the fact that the current attack doesn’t work doesn’t mean that there isn’t another attack,” Rothblum said. This “leaves us very unhappy as cryptographers.”
+In the near term, Thaler is more worried about potential bugs in Fiat-Shamir implementations than about the new attack. Programs containing the malicious one are unlikely to be chosen for real-world applications, he said, since other programs would likely be more efficient.
+Nevertheless, he said, if researchers don’t achieve some sort of clarity about how dangerous the new attack is, “I won’t sleep well at night.”
+Other researchers are even more concerned. It’s common, Canetti noted, for programmers to modify computer code to make it work on different operating systems. Complex code can be difficult to audit, so an attacker might be able to slip in the malicious code undetected. “I think it’s probably a pretty serious attack,” he said.
+Yogev agrees. “Once you’ve found a hole, then you know the boat is leaking and it’s going to sink soon,” he said. “I don’t think their attack was very limited — I believe it could be easily used to actually steal money.”
+Even if that outcome doesn’t come to pass, the attack has shaken cryptographers’ confidence in the Fiat-Shamir protocol, and the random oracle model more generally. “Maybe it’s time to rethink and revise many other things we think we’ve proven,” Canetti said. When you take a leap of faith, you never know where you’re going to land.
+Editor’s note:
+Gal Arnon’s research is supported by the Simons Foundation.
+The Quanta Newsletter
+Get highlights of the most important news delivered to your email inbox
+Recent newsletters
+Also in
+Computer Science
+Researchers Reveal the Power of ‘Quantum Proofs’
+computational complexity
+Researchers Reveal the Power of ‘Quantum Proofs’
+By
+Ben Brubaker
+July 6, 2026
+Comment
+Save Article
+Read Later
+Key Chemistry Question Answered, No Quantum Computer Required
+chemistry
+Key Chemistry Question Answered, No Quantum Computer Required
+By
+Kevin Hartnett
+May 29, 2026
+Comment
+Save Article
+Read Later
+How Unknowable Math Can Help Hide Secrets
+cryptography
+How Unknowable Math Can Help Hide Secrets
+By
+Ben Brubaker
+May 11, 2026
+Comment
+Save Article
+Read Later
+Comment on this article
+Quanta Magazine moderates comments to facilitate an informed, substantive, civil conversation. Abusive, profane, self-promotional, misleading, incoherent or off-topic comments will be rejected. Moderators are staffed during regular business hours (New York time) and can only accept comments written in English.
+Show comments
+Next article
+New Sphere-Packing Record Stems From an Unexpected Source
+Close
+Log in to Quanta
+Use your social network
+Facebook
+Connect with Facebook
+Connect with Google
+or
+Don't have an account yet?
+Sign up
+Close
+Forgot your password?
+We’ll email you instructions to reset your password
+Close
+Change your password
+Enter your new password
+Close
+Sign Up
+Creating an account means you accept Quanta Magazine's
+Terms & Conditions
+and
+Privacy Policy

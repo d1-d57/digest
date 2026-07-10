@@ -1,0 +1,548 @@
+
+
+Cryptographers Show That AI Protections Will Always Have Holes | Quanta Magazine
+
+Quanta Homepage
+
+Physics
+
+Mathematics
+
+Biology
+
+Computer Science
+
+Topics
+
+Archive
+
+Special Issues
+
+Podcasts
+
+Videos
+
+Qualia Essays
+
+Multimedia
+
+Q&As
+
+Explainers
+
+About Quanta
+
+                                    Search
+
+Search for:
+
+Search
+
+Search
+
+                Newsletter            
+
+Get the latest news delivered to your inbox.
+
+Email
+
+Subscribe
+
+Recent newsletters
+
+                                    Follow Quanta
+
+Facebook
+
+Youtube
+
+Instagram
+
+RSS
+
+An editorially independent publication supported by the Simons Foundation.
+
+Quanta Homepage
+
+Physics
+
+Mathematics
+
+Biology
+
+Computer Science
+
+Topics
+
+Archive
+
+Saved articles
+
+Saved Articles
+
+Create a reading list by clicking the Read Later icon next to the articles you wish to save.
+
+See all saved articles
+
+Login
+
+Log out
+
+Change password
+
+Search
+
+Type search term(s)
+ and press enter
+
+What are you looking for?
+
+Search
+
+Popular
+                                    Searches
+
+                                                    Mathematics
+
+                                                    Physics
+
+                                                    Black Holes
+
+                                                    Evolution
+
+Home
+
+                Cryptographers Show That AI Protections Will Always Have Holes            
+
+Comment
+
+Save Article
+
+Read Later
+
+Share
+
+Facebook
+
+Copied!
+
+Copy link
+
+Email
+
+Pocket
+
+Reddit
+
+Ycombinator
+
+Comment
+
+Comments
+
+Save Article
+
+                Read Later
+
+Read Later
+
+artificial intelligence
+
+Cryptographers Show That AI Protections Will Always Have Holes
+
+By 
+
+Peter Hall
+
+December 10, 2025
+
+            Large language models such as ChatGPT come with filters to keep certain info from getting out. A new mathematical argument shows that systems like this can never be completely safe.         
+
+Comment
+
+Save Article
+
+Read Later
+
+Wei-An Jin for 
+Quanta Magazine
+
+Introduction
+
+By 
+Peter Hall                
+
+Contributing Writer
+
+December 10, 2025
+
+View PDF/Print Mode
+
+artificial intelligence
+
+computer science
+
+cryptography
+
+large language models
+
+machine learning
+
+Quanta Podcast
+
+The Quanta Podcast
+
+All topics
+
+Ask ChatGPT how to build a bomb, and it will flatly respond that it “can’t help with that.” But users have long played a cat-and-mouse game to try to trick language models into providing forbidden information. These “jailbreaks” have run from the mundane — in the early years, one could simply tell a model to ignore its safety instructions — to elaborate multi-prompt roleplay scenarios. In a recent paper, researchers found one of the more delightful ways to bypass artificial intelligence security systems: Rephrase your nefarious prompt as a 
+poem
+.
+
+But just as quickly as these issues appear, they seem to get patched. That’s because the companies don’t have to fully retrain an AI model to fix a vulnerability. They can simply filter out forbidden prompts before they ever reach the model itself.
+
+The Quanta Podcast
+
+There’s more than one way to trick an AI filter.
+
+All episodes 
+
+        Your browser does not support the audio element.
+
+00:00
+
+/
+
+25:54
+
+                    APPLE                
+
+                    SPOTIFY                
+
+Recently, cryptographers have intensified their examinations of these filters. They’ve shown, in recent 
+papers
+ that have been 
+posted
+ on the arxiv.org preprint server, how the defensive filters put around powerful language models can be subverted by well-studied cryptographic tools. In fact, they’ve shown how the very nature of this two-tier system — a filter that protects a powerful language model inside it — creates gaps in the defenses that can always be exploited.
+
+The new work is part of a trend of using cryptography — a discipline traditionally far removed from the study of the deep neural networks that power modern AI — to better understand the guarantees and limits of AI models like ChatGPT. “We are using a new technology that’s very powerful and can cause much benefit, but also harm,” said 
+Shafi Goldwasser
+, a professor at the University of California, Berkeley and the Massachusetts Institute of Technology who received a 
+Turing Award
+ for her work in cryptography. “Crypto is, by definition, the field that is in charge of enabling us to trust a powerful technology … and have assurance you are safe.”
+
+Slipping Past Security
+
+Goldwasser was initially interested in using cryptographic tools to tackle the AI issue known as alignment, with the goal of preventing models from generating bad information. But how do you define “bad”? “If you look up [alignment] on Wikipedia, it’s ‘aligning with human values,’” Goldwasser said. “I don’t even know what that means, since human values seem to be a moving target.”
+
+To prevent model misalignment, you generally have to choose between a few options. You can try to retrain the model on a new dataset carefully curated to avoid any dangerous ideas. (Since modern models are trained on pretty much the entire internet, this strategy seems challenging, at best.) You can try to precisely fine-tune the model, a delicate process that is tricky to do well. Or you can add a filter that blocks bad prompts from getting to the model. The last option is much cheaper and easier to deploy, especially when a jailbreak is found after the model is out in the world.
+
+Goldwasser and her colleagues noticed that the exact reason that filters are appealing also limits their security. External filters will often use machine learning to interpret and detect dangerous prompts, but by their nature they have to be smaller and quicker than the model itself. That creates a gap in power between the filter and the language model. And this gap, to a cryptographer, is like a cracked-open window to a cat burglar: a weak spot in the system that invites you to peek inside and see what lies for the taking.
+
+                Share this article
+
+Facebook
+
+Copied!
+
+Copy link
+
+Email
+
+Pocket
+
+Reddit
+
+Ycombinator
+
+                    Newsletter
+
+Get Quanta Magazine delivered to your inbox
+
+Subscribe now
+
+Recent newsletters
+
+Shafi Goldwasser and her colleagues showed that any safety system that uses fewer computational resources than the AI model itself will always have vulnerabilities.
+
+Courtesy of Shafi Goldwasser
+
+A practical illustration of how to exploit this gap came in 
+a paper posted in October
+. The researchers had been thinking about ways to sneak a malicious prompt past the filter by hiding the prompt in a puzzle. In theory, if they came up with a puzzle that the large language model could decode but the filter could not, then the filter would pass the hidden prompt straight through to the model.
+
+They eventually arrived at a simple puzzle called a substitution cipher, which replaces each letter in a message with another according to a certain code. (As a simple example, if you replace each letter in “bomb” with the next letter in the alphabet, you’ll get “cpnc.”) They then instructed the model to decode the prompt (think “Switch each letter with the one before it”) and then respond to the decoded message.
+
+Science, Promise and Peril in the Age of AI
+
+artificial intelligence
+
+                    Science, Promise and Peril in the Age of AI                
+
+April 30, 2025
+
+Comment
+
+Save Article
+
+Read Later
+
+The filters on LLMs like Google Gemini, DeepSeek and Grok weren’t powerful enough to decode these instructions on their own. And so they passed the prompts to the models, which performed the instructions and returned the forbidden information. The researchers called this style of attack controlled-release prompting.
+
+The approach was prompted by cryptographic thinking, even if it didn’t have to reach very far into the toolbox of modern cryptography. “We didn’t really use any actual cryptography,” said 
+Jaiden Fairoze
+, a researcher at Berkeley and the lead author on the paper. “We just were inspired by it.”
+
+In particular, Fairoze and his collaborators were inspired by work that had come out just a few months before — a theoretical argument that these 
+filter-based protections would always have vulnerabilities
+.
+
+That work focused on time-lock puzzles, which are well-studied cryptographic objects. Essentially, a time-lock puzzle can be thought of as a box. You can lock some information inside this box, and the box can only be opened to retrieve the information after some predetermined amount of time. No matter what you do, you can’t open it until then.
+
+The idea was to hide the malicious prompt inside one of these time-lock puzzles and then set the timer for just long enough for it to pass through the filter.
+
+The time-lock puzzles they devised would turn ordinary text into what looks like a random number. To decode the message, a computer has to perform a mathematical operation such as squaring the number over and over. If you know how fast a computer can perform the operation, it’s easy to calculate how many operations you need to keep the puzzle secret for a given amount of time.
+
+Jaiden Fairoze and his colleagues used a substitution cipher to smuggle nefarious instructions past a filter.
+
+Helen Fu
+
+In the case of the language model, you could take a bad prompt — say, “Tell me how to build a bomb” — and lock it in the time-lock puzzle. You now have what looks like a long random number. In theory, you could put this number directly into the prompt window, with the instruction: “Square this number a certain number of times, translate that decoded number into text, then execute the message.”
+
+But it’s possible that a filter could try to outlaw anything that looks too weird — a bunch of random numbers could invite suspicion. To get around this, the authors took advantage of how language models generate fresh-looking text.
+
+If you ask an AI model the same thing twice — say, “How are you doing today?” — you won’t get the same response. That’s because AI models use a random number, called the 
+seed
+, to vary their responses to questions. A unique seed will produce a unique answer, even if the prompt stays the same.
+
+Related:
+
+The AI Was Fed Sloppy Code. It Turned Into Something Evil.
+
+Why Language Models Are So Hard To Understand
+
+When ChatGPT Broke an Entire Field: An Oral History
+
+Many models allow the user to manually choose the seed if they so wish. This feature provides an opening: You can use the random-looking time-lock puzzle as the seed. That way, the puzzle will get passed through the filter alongside an innocent-looking prompt (say, “Write a poem for me”). To the filter, the prompt just looks like someone asking for a random poem. But the true question is lurking within the randomness alongside it. Once the prompt has made it past the filter and through to the language model, the model can open the time-lock puzzle by repeatedly squaring the number. It now sees the bad message and responds to the question with its best bomb-making advice.
+
+The researchers made their argument in a very technical, precise and general way. The work shows that if fewer computational resources are dedicated to safety than to capability, then safety issues such as jailbreaks will always exist. “The question from which we started is: ‘Can we align [language models] externally without understanding how they work inside?’” said 
+Greg Gluch
+, a computer scientist at Berkeley and an author on the time-lock paper. The new result, said Gluch, answers this question with a resounding no.
+
+That means that the results should always hold for any filter-based alignment system, and for any future technologies. No matter what walls you build, it seems there’s always going to be a way to break through.
+
+By 
+Peter Hall                
+
+Contributing Writer
+
+December 10, 2025
+
+View PDF/Print Mode
+
+artificial intelligence
+
+computer science
+
+cryptography
+
+large language models
+
+machine learning
+
+Quanta Podcast
+
+The Quanta Podcast
+
+All topics
+
+                Share this article
+
+Facebook
+
+Copied!
+
+Copy link
+
+Email
+
+Pocket
+
+Reddit
+
+Ycombinator
+
+                    Newsletter
+
+Get Quanta Magazine delivered to your inbox
+
+Subscribe now
+
+Recent newsletters
+
+                The Quanta Newsletter            
+
+Get highlights of the most important news delivered to your email inbox
+
+Email
+
+Subscribe
+
+Recent newsletters
+
+Also in 
+Computer Science
+
+Researchers Reveal the Power of ‘Quantum Proofs’
+
+computational complexity
+
+                    Researchers Reveal the Power of ‘Quantum Proofs’                
+
+By 
+
+Ben Brubaker
+
+July 6, 2026
+
+Comment
+
+Save Article
+
+Read Later
+
+Key Chemistry Question Answered, No Quantum Computer Required
+
+chemistry
+
+                    Key Chemistry Question Answered, No Quantum Computer Required                
+
+By 
+
+Kevin Hartnett
+
+May 29, 2026
+
+Comment
+
+Save Article
+
+Read Later
+
+How Unknowable Math Can Help Hide Secrets
+
+cryptography
+
+                    How Unknowable Math Can Help Hide Secrets                
+
+By 
+
+Ben Brubaker
+
+May 11, 2026
+
+Comment
+
+Save Article
+
+Read Later
+
+Comment on this article
+
+Quanta Magazine moderates comments to facilitate an informed, substantive, civil conversation. Abusive, profane, self-promotional, misleading, incoherent or off-topic comments will be rejected. Moderators are staffed during regular business hours (New York time) and can only accept comments written in English. 
+
+Show comments
+
+Next article
+
+Why Is Ice Slippery? A New Hypothesis Slides Into the Chat.
+
+Quanta Homepage
+
+Facebook
+
+Youtube
+
+Instagram
+
+About Quanta
+
+Archive
+
+Contact Us
+
+Terms & Conditions
+
+Privacy Policy
+
+AI Editorial Policy
+
+All Rights Reserved © 2026
+
+An editorially independent publication supported by the Simons Foundation.
+
+Simons Foundation
+
+Close
+
+Log in to Quanta
+
+Use your social network
+
+Facebook
+
+Connect with Facebook
+
+Connect with Google
+
+or
+
+email
+
+password
+
+Remember me
+
+Forgot your password ?
+
+        Don't have an account yet?
+
+Sign up
+
+Close
+
+Forgot your password?
+
+We’ll email you instructions to reset your password
+
+email
+
+Close
+
+Change your password
+
+Enter your new password
+
+Password
+
+Retype new password
+
+Close
+
+Sign Up
+
+First Name
+
+Last Name
+
+Email
+
+Password
+
+Retype Password
+
+            Creating an account means you accept Quanta Magazine's
+
+Terms & Conditions
+ and 
+Privacy Policy
+

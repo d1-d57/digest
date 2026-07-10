@@ -1,0 +1,137 @@
+
+
+Categorifying Riemann's Functional Equation | The n-Category Café
+
+The n-Category Café
+
+A group blog on math, physics and philosophy
+
+Skip to the Main Content
+
+Enough, already! Skip to the content.
+
+Note:These pages make extensive use of the latest XHTML and CSS Standards. They ought to look great in any standards-compliant modern browser. Unfortunately, they will probably look horrible in older browsers, like Netscape 4.x and IE 4.x. Moreover, many posts use MathML, which is, currently only supported in Mozilla. My best suggestion (and you will thank me when surfing an ever-increasing number of sites on the web which have been crafted to use the new standards) is to upgrade to the latest version of your browser. If that's not possible, consider moving to the Standards-compliant and open-source Mozilla browser.
+
+« Coxeter and Dynkin Diagrams |
+
+Main
+| The Univalence Principle »
+
+January 26, 2026
+
+Categorifying Riemann’s Functional Equation
+
+Posted by John Baez
+
+David Jaz Myers just sent me some neat comments on this paper of mine:
+
+Dirichlet species and the arithmetic zeta function,
+
+and he okayed me posting them here. He’s taking the idea of categorifying the Riemann zeta function, explained in my paper, and going further, imagining what it might mean to categorify Riemann’s functional equation
+
+ξ(s)=ξ(1−s) \xi(s) = \xi(1-s) 
+
+where ξ\xi is the ‘completed’ Riemann zeta function, which has an extra factor taking into account the ‘real prime’:
+
+ξ(s)=π −s/2Γ(s/2)∏ pprime11−p −s \xi(s) = \pi^{-s/2}\Gamma(s/2) \prod_{p \; prime} \frac{1}{1 - p^{-s}} 
+
+My paper categorified the Euler product formula that writes the Riemann zeta function as a product over the usual primes:
+
+ζ(s)=∏ pprime11−p −s \zeta(s) = \prod_{p \; prime} \frac{1}{1 - p^{-s}} 
+
+I had nothing to say about the real prime.
+
+But it’s the functional equation that sets the stage for focusing on zeroes of the Riemann zeta function with Re(s)=1/2\text{Re}(s) = 1/2… and then the Riemann Hypothesis! So it’s worth thinking about.
+
+David wrote:
+
+Hi John,
+
+Hope you’re doing well!
+
+I was just thinking about your (and James Dolan’s) definition of the zeta functors associated to a finite type scheme (from here), and I had a small thought which I figured you might find interesting. 
+
+I was thinking about the functional equation of the completed zeta functions; how might we complete the zeta functors in such a way that they satisfy a similar functional equation? I don’t know, but I do have an idea for what the transformation s↦1−ss \mapsto 1 -s might mean in this context. I claim that it is given by the reduced suspension. Let me explain.
+
+First, I’ll want to see the formal power n −sn^{-s} as the power 
+
+(1n) s,\left(\frac{1}{n}\right)^s, 
+
+which I can then categorify by finding a group GG with cardinality nn and considering BG SB G^S. In the case of the Riemann zeta species, nn is the cardinality of a finite semisimple ring (a product of finite fields, the groupoid of which has cardinality 11 for each nn), and we can simply deloop the additive group of this ring. This gives us a Dirichlet functor ζ\zeta
+
+S↦∑ k finite semisimpleBk SS \mapsto \sum_{k \; \text{ finite semisimple}} B k^S
+
+which categorifies the Riemann zeta function when SS is a finite set. 
+
+Taking this point of view on the zeta functor, we can ask the question: what is the transformation s↦1−ss \mapsto 1-s? Here’s where we can look at the reduced suspension ΣS +\Sigma S_+. The universal property of the reduced suspension says that maps ΣS +→Y\Sigma S_+ \to Y correspond to points of the homotopy type
+
+(x:Y)×(y:Y)×(S +→x=y)(x : Y) \times (y : Y) \times (S_+ \to x = y)
+
+(or, more classically, maps from the terminal morphism S +→1S_+ \to 1 to Path(Y)→Y×Y\mathsf{Path}(Y) \to Y \times Y). Since homotopy cardinality is multiplicative for fibrations, that type has cardinality 
+
+y⋅y⋅(1y) s+1=(1y) s−1y \cdot y \cdot \left(\frac{1}{y}\right)^{s + 1} = \left(\frac{1}{y}\right)^{s -1} 
+
+(when SS is a finite set of cardinality ss). 
+
+Taking Y=BkY = B k for kk finite semisimple of cardinality nn, we see that ΣS +→Bk\Sigma S_+ \to B k has cardinality n s−1=n −(1−s)n^{s -1} = n^{-(1 -s)}. Therefore, I think the transformation s↦1−ss \mapsto 1 - s in the functional equation may be categorified by S↦ΣS +S \mapsto \Sigma S_+. If this makes sense, it suggests that completing the zeta functors is a form of stabilization. 
+
+Cheers,
+
+David
+
+And then:
+
+As for another eyebrow wiggle about the cardinality of ΣS +\Sigma S_+ when SS is a finite set: we have that ΩΣS +=⟨S⟩\Omega \Sigma S_+ = \langle S \rangle, the free group on SS generators. This is of course infinite, but it it is the group completion of the free monoid List(S)\mathsf{List}(S) on SS generators. Since 
+
+List(S)=1+S+S 2+S 3+⋯,\mathsf{List}(S) = 1 + S + S^2 + S^3 + \cdots,
+
+it has cardinality 11−s\frac{1}{1 - s}. 
+
+Maybe it’s better to use the “free delooping” (aka weighted colimit of 1⇉11 \rightrightarrows 1 by S⇉1S \rightrightarrows 1) instead of the reduced suspension. This doesn’t change the above argument because we’re mapping into a groupoid, but now it is true that the Euler characteristic / cardinality of that category is 1−s1 - s.
+
+Posted at January 26, 2026 12:19 AM UTC
+
+TrackBack URL for this Entry:   https://golem.ph.utexas.edu/cgi-bin/MT-3.0/dxy-tb.fcgi/3628
+
+Some Related Entries
+
+ Search for other entries:
+
+ Profinite Group Actions —
+Jul 08, 2023
+
+ Hardy, Ramanujan and Taxi No. 1729 —
+Feb 28, 2022
+
+ Firoozbakht’s Conjecture —
+Oct 30, 2021
+
+ Sphere Spectrum Analogue of PGL(2,Z) —
+Aug 31, 2020
+
+ The Riemann Hypothesis (Part 3) —
+Sep 11, 2019
+
+ The Riemann Hypothesis (Part 2) —
+Sep 10, 2019
+
+ The Riemann Hypothesis (Part 1) —
+Sep 07, 2019
+
+ The Riemann Hypothesis Says 5040 is the Last —
+Jul 06, 2019
+
+0 Comments & 0 Trackbacks
+
+Post a New Comment
+
+Access Keys:
+
+0Accessibility Statement
+1Main Page
+2Skip to Content
+3List of Posts
+4Search
+pPrevious (individual/monthly archive page)
+nNext (individual/monthly archive page)
+

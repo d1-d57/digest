@@ -1,0 +1,940 @@
+AMS :: Notices of the American Mathematical Society
+AMS Website Down
+Notice: All AMS websites will be down for maintenance on Saturday, July 11 from 8 am until 1 pm.
+PDFLINK
+Making Mathematical Online Resources FAIR: At the Example of Small Phylogenetic Trees
+Tabea Bacher
+Marina Garrote-López
+Christiane Görgen
+Marius J. Neubert
+1
+.
+Introduction
+In the past two decades, digital technology has transformed mathematical research, creating a vast ecosystem of preprint servers, collaborative platforms for writing text and code, and specialized online libraries. Many of today’s valuable digital resources were born in the early 2000s, built with technologies and standards that are now dated. This creates a significant challenge: how do we preserve these resources, ensure their long-term value, and make them fully usable for a new generation of researchers?
+Digital preservation today is guided by the FAIR Principles
+WDA
+16
+$^{+}$
+, which advocate for
+Findability, Accessibility, Interoperability
+, and
+Reusability
+of digital research results across the sciences; see Section
+2.2
+for more details. These principles do not insist on the use of the newest and shiniest web tool for presentation, replacing old standards by ever newer ones—much more sensibly, they guide our decisions on selecting methodologies that preserve the long-term value and usability of digitized results.
+This paper presents a generalizable approach detailing how to preserve older digital libraries for the future. Rather than introducing new mathematical results, it serves as a methodological report and case study drawing on expertise from academic research-data managers and mathematicians. We use the
+Small Phylogenetic Trees
+library as a prototypical, valuable mathematical resource, offering practical guidance for others seeking to revitalize and sustain similar projects.
+The mathematical library
+Small Phylogenetic Trees
+CGS05
+CHP
+05
+$^{+}$
+, first compiled in the early 2000s, is a significant digital resource in the field of
+algebraic phylogenetics
+. It catalogs tables of algebraic invariants of evolutionary models on phylogenetic trees up to five species. These invariants provide insight into the algebro-geometric structure of these statistical models and may be used for phylogenetic inference. We give a brief introduction to their mathematical description in Section
+2.1
+. Small Phylogenetic Trees supplements the invariants with code, raw computational output files, and a documentation of the terminology used; see Figure
+1
+. Twenty years later, it remains an actively used online resource for researchers in algebraic phylogenetics, but no longer fully meets contemporary digital standards.
+The origins of many mathematical digital resources, including Small Phylogenetic Trees, lie in the technological environment of the early 2000s, when the digital landscape for mathematics was expanding rapidly with the public internet. The now-famous
+On-Line Encyclopedia of Integer Sequences
+(OEIS), available at
+oeis.org
+, had been online for about a decade after two decades as a book, while the equally famous
+-
+$L$
+functions and modular forms database
+(LMFDB) at
+lmfdb.org
+, also based on earlier books, was still just a vague idea. The arXiv preprint server was yet to reach half a million articles (cf.
+arxiv.org/stats/main
+), and prominent mathematicians such as Gowers and Tao had just started their blogs,
+gowers.wordpress.com
+and
+terrytao.wordpress.com
+. The version-control system
+git
+had only been recently launched. In this environment, the goal of Small Phylogenetic Trees to “make available in a unified [digital] format” the known computational results in algebraic phylogenetics was modern and visionary.
+Today, the situation has changed significantly. Digital Object Identifiers (DOIs), introduced at the turn of the century, have become standard for citing publications, in many aspects taking over the role of ISBNs for identifying books.
+Git
+repository services like GitHub and institutional
+gitlab
+are now indispensable for collaborative coding. Web technologies now allow dynamic presentation of a lot of data on a single page.Powerful open-source software for symbolic computation rivals commercial alternatives. Knowledge graphs can link mathematical results directly to their formalizations and related papers, and mathematical notation may be displayed and annotated using, for example, LaTeX and MathML.
+Figure 1
+.
+Screenshots of Small Phylogenetic Trees, January 2025. The first (a) shows the landing page, the second (b) an overview of all trees considered, and the third (c; after having navigated through two more subpages) data on the three-leaf phylogenetic tree with Jukes-Cantor model.
+By today’s standards, the Small Phylogenetic Trees library appears dated. Is it FAIR? Are its results verifiable? We will analyze these questions in Section
+3.1
+. Our approach is threefold:
+(1)
+We launch a new, straightforward presentation of the original website content; built as a collaborative project and available at
+algebraicphylogenetics.org
+Col25
+.
+(2)
+We select a single software environment capable of computationally verifying every result on the website, and we use it to develop a comprehensive package for algebraic phylogenetics,
+AlgebraicPhylogenetics
+GLNGB24
+.
+(3)
+We compile this text as the third component: tracing our methodology, decision-making processes, and implementation details. This crucial aspect of the project was not documented in the original book chapter on Small Phylogenetic Trees, but we consider it vital to enable the community to follow by example.
+Our primary objectives are: firstly, to enhance the library’s adherence to the FAIR Principles and, secondly, to ensure the long-term reproducibility of its mathematical results. Thus in Section
+3.2
+we document the details of our strategic approach, and in Section
+3.3
+we describe the outcomes achieved. Finally, in Section
+4
+we derive guidelines to support the sustainable modernization of other, similar digital mathematical resources.
+2
+.
+Background
+Although theoretical proofs will always be at the core of mathematics, modern research increasingly relies on computers to perform complex calculations and to analyze large sets of information. Online mathematical libraries such as the OEIS, LMFDB and Small Phylogenetic Trees have become the modern successors to look-up tables and classifications in book form. They are easier to update than their traditionally printed counterparts, they consolidate information in one place rather than spread out over a series of articles, and they serve as active tools where researchers can test conjectures against a wide range of cases, compute examples, and access hard-to-find results, thus saving significant time, effort, and energy.
+2.1
+.
+Algebraic phylogenetic models
+Small Phylogenetic Trees self-describes as “mainly a repository of algebraic information of different evolutionary models based on trees with a small number of leaves.” Specifically, it focuses on nucleotide substitution models describing the evolution of DNA sequences, composed of the nucleotides
+A
+,
+C
+,
+G
+, and
+T
+, on phylogenetic trees of five or fewer species, or taxa. Figure
+1
+b shows a screenshot of such trees. These models assume that DNA sequences evolve according to a Markov process on a given phylogenetic tree
+.
+$T$
+A random variable representing a nucleotide is associated with each node of the tree, and the process is governed by two key parameter sets: (1) a probability distribution at the root of
+,
+$T$
+and (2) a
+$4\times 4$
+transition matrix associated with each edge. This setup defines a polynomial map
+$\phi _T$
+that sends the collection of free parameters, namely the root distribution and the transition matrices, to the joint probability distribution
+$p = (p_{\mathtt{ AA\ldots A}}, p_{\mathtt{AA\ldots C}}, \ldots , p_{\mathtt{TT\ldots T}})$
+of observing specific nucleotides at the leaves of
+.
+$T$
+We refer to
+Sul18
+for a more comprehensive introduction.
+These models can be viewed as algebraic statistical models, since the set of all possible distributions
+$p\in \operatorname {Im}\phi _T$
+that can arise from a phylogenetic tree
+$T$
+lies within an algebraic variety
+,
+$V_T$
+the Zariski closure of the image of
+.
+$\phi _T$
+This variety is defined by a set of polynomials that vanish for any valid distribution generated by the model; they belong to the ideal
+,
+$I(V_T)$
+and are known as
+phylogenetic invariants
+.
+While the theoretical properties of phylogenetic-tree models have been extensively studied
+SS05
+AR08
+, computing phylogenetic, as well as
+algebraic invariants
+such as the dimension or degree of
+$V_T$
+or its singular locus, is a significant challenge. These computations often rely on having a Gröbner basis for
+$I(V_T)$
+at hand, notoriously computationally intensive even for trees with relatively few taxa. This computational bottleneck is precisely the problem that the catalog of Small Phylogenetic Trees addresses: the user does not have to perform extensive computations or browse papers, but may simply look up algebraic invariants already computed and made available by trustworthy peers.
+The library focuses on a particular class of nucleotide substitution models known as
+group-based
+models, such as the
+Cavender-Farris-Neyman
+,
+Jukes Cantor
+, and
+Kimura
+models. These allow for a Fourier transformation to simplify the parametrization of
+.
+$V_T$
+After this linear change of coordinates, the models correspond to toric varieties, making their phylogenetic invariants significantly easier to describe and compute
+HP89
+SS05
+. The website catalogs a range of these algebraic invariants (see Figure
+1
+c); for each model and tree, it contains data like the dimension (D) and degree (d) of
+$V_T$
+and its singular locus (sD and sd, respectively) or the dimension of the linear space containing the probability distributions (np).  Alongside the algebraic invariants, the website lists the parametrization
+$\phi _T$
+in both standard and Fourier coordinates, and the defining phylogenetic invariants. For instance, we see that the maximum likelihood degree, a measure of parameter estimation complexity, for a 3-leaf tree under the Jukes-Cantor model is a manageable 23 while the corresponding value for the 5-star tree remains unknown Without diving into computational details, a researcher can learn from Small Phylogenetic Trees that the corresponding toric variety for the 5-star tree has dimension 6 and degree 115, lies in a 27-dimensional linear space and is defined by 175 polynomial equations of degree 4 and 5.
+2.2
+.
+FAIR, reproducible, and open mathematics
+The FAIR Principles are well established and widely accepted for assessing the sustainability of digital research artifacts such as papers, code, data, or software. They comprise fifteen criteria
+WDA
+16
+$^{+}$
+,
+Box 2
+that help both human and machines determine
+–
+whether a resource and its description is
+findable
+online, and persistently so,
+–
+who is allowed to access the resource, and technically how the resource and its description can be
+accessed
+,
+–
+whether the resource is
+interoperable
+with its environment,
+–
+whether, as well as under which licensing, it may be
+reused
+.
+FAIRness shall not be confused with reproducibility: while the former may be read as
+available and usable
+, we read the latter as
+verifiable
+. Thus, FAIR mathematics is not necessarily good or understandable mathematics. But a FAIR research output is a necessary first step toward assessing its reproducibility. Likewise, the accessibility
+A
+in FAIR should not be confused with
+open access
+. Although there is a strong open-access culture in mathematics (with preprints freely available under CC-BY licensing on
+arxiv.org
+), FAIR accessibility is fulfilled if data and metadata are machine readable, for instance via an API. The data itself does not need to be open, as long as its metadata is available.
+Whilst the FAIR Principles are the key guiding principles for data management across the sciences, they are currently not widely known or consciously applied within the mathematics community. There are of course flagship projects of mathematical databases like the OEIS and LMFDB whose online presentation lives up to the same high standards the community applies to their theoretical findings—but we were unable to find general advice on how to make Small Phylogenetic Trees as FAIR (or reproducible) as these big players.
+The National Research Data Initiative
+nfdi.de
+in Germany is likely the largest national effort to promote FAIR research data, with its mathematics-specific consortium MaRDI, cf.
+mardi4nfdi.de
+, providing insight on how to apply the FAIR Principles specifically to mathematical artifacts. The NFDI is part of international initiatives such as the European Open Science Cloud and the Research Data Alliance. Current guidelines from general scientific funding bodies primarily focus on the FAIRness of typical research data types like datasets, publications, and software, offering little to no guidance specifically tailored to online mathematical libraries like Small Phylogenetic Trees. The MaRDI white paper
+Con23
+and the analysis
+CFM
+24
+$^{+}$
+by MaRDI authors are, as far as we are aware, the only current resources providing some guidance and initial assessment of the FAIRness of some mathematical resources; but no suggestions on how to FAIR online mathematical libraries either. This paper aims to close that gap.
+3
+.
+FAIRifying Small Trees
+3.1
+.
+Analyzing the website
+Careful thought and effort has gone into Small Phylogenetic Trees. Before assessing its current state of FAIRness and reproducibility, we provide an overview of the library’s design and content.
+The website is structured like a traditional catalog, reflecting early 2000s web practice. Its landing page sports a table of contents: mathematical background, notation and tree-labeling conventions, errata of the print version, and a comprehensive table of small trees considered. It links to news items dated from 2005 up to 2007, suggesting active maintenance in that period. The table of trees then enables a user to dive deeper: navigating through a subpage with all nucleotide substitution models considered for a given tree, to a subpage with algebraic invariants and code for each particular choice of tree and model.
+While the library’s structure is timeless in its logic, its full potential is hindered by this nested design. Together with the use of unintuitive subpage identifiers (such as numbers rather than descriptive names) navigation is difficult for new users and broken author links evoke an outdated first impression.
+Now what can we say about these data?
+Findability
+Small Phylogenetic Trees is hosted by the main maintainer’s academic institution and can be found through a general search engine, even if the direct link in the original paper
+CGS05
+is broken due to a change in affiliation and the database title does not match precisely. Researchers may use both the (hardly memorable) URL to refer to Small Phylogenetic Trees or cite the corresponding book chapter.
+Accessibility
+The website uses the
+http
+standard protocol. There is no mechanism in place to download data or code other than manually navigating through subpages, using copy and paste. Outdated file formats, such as
+gif
+, do not allow users to access the input of computations, such as the tree
+,
+$T$
+in an automatized way.
+Interoperability
+The code is supplied in two programming languages which are standard in the field, commercial
+Maple
+and open-source
+Singular
+, enabling the user to make a choice compatible with their own preference and budget. Interoperability is hindered by the absence of input/output specifications, detailed software requirements, and versioning, and by poor documentation. How variable names in the code relate to the underlying theoretical concepts is in places hard to trace.
+Reusability
+Each subpage of the resource includes a timestamp (typically 2006) and an author (typically key maintainer Luis David Garcia Puente), providing some versioning and accountability.
+There is no license attached to the data or code, making it legally not usable. However, all contributing authors are linked to their personal homepages, cf.  Figure
+1
+a, and may be contacted for reuse.
+We may assume that the lack of licensing is due to a typical pitfall for newcomers in research-data management, namely assuming no license would imply free usage. This is not the case but understandable given mathematics’ culture of openly sharing results.
+The interoperability in FAIR is also interlinked with how reproducible the data turn out to be.
+Reproducibility
+Standard algebraic-phylogenetics definitions, illustrations, and naming conventions help a user familiar with the field to trace a mathematical argument. However, important data such as the polynomial parametrization
+$\phi _T$
+of
+$V_T$
+and its phylogenetic invariants are hard-coded. That is, the provenance of key mathematical results is undocumented. This absence of methodological and computational transparency hinders direct verification.
+Especially for newcomers, considerable effort is needed to make results on Small Phylogenetic Trees interoperable with and verifyable on their own systems. So at present, Small Phylogenetic Trees fulfills some of the FAIR Principles and is partly reproducible with sufficient domain knowledge and coding skills. But does this mean it is not trustworthy? No. The resource’s credibility is established by its attention to authorship, the standing of authors in the community, underlying papers which have passed peer review, and a broad and educated user base in the community. What we can do to improve the current state of the library is to make every aspect—from display and data retrieval to reuse and reproducibility—significantly more straightforward.
+3.2
+.
+Making a plan
+Figure 2
+.
+This is a data layout plan, showing which mathematical and computational objects appear on Small Phylogenetic Trees, detailing their interdependencies and provenance. We use it to decide how to build the software package and which information to display on the website. CAS is an abbreviation for computer algebra system.
+We decide to address concerns raised in our analysis above carefully and separately by splitting the computation of algebraic invariants from their display: by supplementing a new website with a new software package. This enables us to both modernize the presentation and, independently, to provide proof in a single software package that stores all necessary information (definitions, functions, inputs, and outputs) in one place. The software we decide on is the computer-algebra system
+OSCAR
+DEF
+25
+$^{+}$
+, based on
+Julia
+. It can save mathematical objects together with their context: e.g., for phylogenetic invariant, a specification of the ring in which the polynomials live. The software is further able to call both symbolic and numerical methods, so there is no need to switch systems when trying out different approaches to compute algebraic invariants.
+Usability, both technically as well as visually, is our foremost concern; and our website-and-software approach allows us to differentiate between levels of user need and skill. The website itself shall be easy to navigate for the interested pure mathematician or newcomer with no coding skills. For those in need of code and detail, each result displayed shall be linked back to a paragraph in the software package’s documentation as well as to the respective lines of underlying code and a serialization file; ideally supplemented also with citations of theory. All technical detail is thus made available for researchers to embed computational results directly into their own work. This interconnectedness of data (invariants, formulae, formalizations, code, and publications) enables both human users and machines to grasp mathematical results and generate knowledge.
+For efficient teamwork, to clarify priorities, and to make sure we address both FAIRness and reproducibility, we draft three plans: one data layout plan and one research-data management plan both for the software and the website. The first, displayed in Figure
+2
+, illustrates what data and data relations we find in the Small Phylogenetic Trees library, and how these build on each other when tracing (reproducing) results. The latter plans, in Figure
+3
+, build on this. They formulate a data-handling strategy for the software and the website, clarifying how to treat all occurring files and data formats during and after the project, ensuring they are handled FAIR.
+Figure 3
+.
+Focusing on the mathematics first and on their display second, we make two research data management plans: one for the software project and one for the corresponding website.
+Software research data management plan:
+We reuse data in the form of articles and code, of type
+.pdf
+and
+.txt
+. We generate new
+Julia
+code, to be integrated into the research-software project
+OSCAR
+, for findability and interoperability, as well as for high-quality maintenance and easy access. We serialize our computational output in
+JSON
+-based
+.mrdi
+files
+DVJL24
+, and verify it by comparison to existing results via a
+Perl
+script. We produce
+.tex
+and
+.pdf
+for an article presenting the software package. Newly generated data does not exceed 1GB in size.We use the automated
+Julia
+feature for code documentation, following
+OSCAR
+’s established style guide.
+AlgebraicPhylogenetics
+is framed inside the new
+OSCAR
+module in
+AlgebraicStatistics
+, developed in parallel and in collaboration with Antony Della Vecchia, Tobias Boege and Ben Hollering. For version control,
+AlgebraicPhylogenetics
+and all supplementary files will be on Ben Hollering’s GitHub instance (
+github.com/bkholler/OSCAR.jl
+) with new versions merged into the
+OSCAR
+system’s GitHub (
+github.com/oscar-system/Oscar.jl
+). BH’s repository can be edited by all authors of this project. Local copies of all branches provide backup during the project runtime. The accompanying article will be collaboratively written using the platform
+overleaf.com
+.Our software will be pulled into
+OSCAR
+, increasing longevity and functionality as compared to a standalone algebraic-phylogenetics project; available under the GNU Public License, Version 3.0+.During project runtime, MN sets up a first version of the code and implements serialization, TB is responsible for testing, CG for documentation, and MGL oversees the project, manages communication with
+AlgebraicStatistics.jl
+, and takes the lead in code development. After the project is completed, the
+OSCAR
+group continues maintenance, and MGL will keep the main responsibility for further development. We apply for funding for MN’s position for six months. For open-source software and in-kind human resources, no additional funds are needed.
+Website research data management plan:
+We reuse files building the website
+fanography.info
+, of type
+.py
+,
+.html
+,
+.css
+,
+.md
+, and
+.txt
+. Since they are not supplied with a license, we ask the author (Pieter Belmans) for approval. We generate new data of the same type, supplemented with illustrations in
+.png
+and
+.tex
+, embeddable using
+tikzjax
+, and formulae in
+MathJax
+for automated findability and interoperability. We newly generate
+.yaml
+files from
+AlgebraicPhylogenetics
+, and use
+Flask
+in
+Python
+, to display these data. All files use the same naming convention,
+<datatype>_<numerical_tree_id>-<alphabetic_model_id>.<filetype>
+, for interoperability and reusability. New data will not exceed 1GB. The website is collaboratively developed on CG’s GitHub (
+github.com/chgoergen/algebraicphylogeneticsorg
+) for versioning and storage, local copies serve as backup. The code is supplied with commentation. All authors of this article have access to the repository. Slack and email are used for communication. For each release, we fork the project to
+gitlab.mis.mpg.de/goergen/algebraicphylogeneticsorg
+for website hosting for as long as one of the authors is affiliated to the institute. Both repositories are freely available under the MIT license. The domain
+algebraicphylogenetics.org
+is secured for ten years.During active development, CG and MGL jointly take the lead, coordinating contributors and content, MN provides the
+.mrdi
+-interface between website and software, and TB supervizes design as well as licensing. After the first release, CG maintains the website and ensures compliance with FAIR Principles; MGL coordinates community development for both software and website. We allocate funds to hire a student assistant to build the first prototype. Hosting and domain acquisition is an in-kind contribution.
+We start with the
+data layout plan
+in Figure
+2
+to better understand the structure of Small Phylogenetic Trees. For each phylogenetic tree and each phylogenetic model listed at the very top of the chart, we can compute a number of algebraic invariants, abbreviated and listed at the very bottom. The workflow from input to output requires a human to infer modeling assumptions from a picture, and write those into some computer algebra system used to compute phylogenetic invariants as well as the rest of the algebraic invariants. The overview of all the steps involved in this process enables us to identify which ones need to be formalized in a comprehensive software package: we mark these “missing” in the plan.
+The chart serves as a basis for making the following decisions for improvements:
+–
+to display input (model and tree) and output (algebraic invariants) on the new website in one single big table,
+–
+to display in-between computations, such as
+$\phi _T$
+or the phylogenetic invariants, on an individual subpage for each tree/model combination, linked to directly from within the respective cell of the main table
+–
+for the software package to
+$\circ$
+decide and implement the input structure
+$\circ$
+write functions for every computation of relevance,
+$\circ$
+store the output in an interoperable format.
+Having, thanks to the data layout plan, understood which data need be reproducible, we then address our goal of developing future-compatible, FAIR online mathematics. This is based on two pillars. First, we make
+machine readable
+every file and every piece of mathematics we handle: to be actionable for semantic web technologies and thus ready for coming research-data infrastructure tailored to mathematics.⁠
+Footnote
+1
+And second, we make
+human readable
+every such piece of data via extensive documentation: thus preserving its value in case technology ceases to exist.
+1
+Compare for instance the services developed by MaRDI.
+✖
+Now to achieve that goal, we plan which data types we generate and how these are treated along their life cycle. For instance, we prefer open-source data types like
+.tex
+for the report and
+.mrdi
+for computational results, and we prefer data files which are understandable and readable by humans, like
+.yaml
+for the data displayed on the website. The
+.yaml
+files are, at least regarding their mathematical content, duplicates of the
+.mrdi
+files. We need both because the latter are not yet printable. Both are (reproducibly) generated automatically from our code. Moreover, we choose
+git
+technology for versioning and collaborative coding; in particular, GitHub for active code development, and an academic
+gitlab
+instance for long-term website hosting.
+The
+research data management plans
+documenting these decisions are displayed in Figure
+3
+. They are set up after a phase of exploration and before we take up any of the actual work, and they follow an established structure: employed, e.g., by the data-management community and funding bodies,⁠
+Footnote
+2
+to address management as well as practical responsibilities. Rather than being a mere bureaucratic addition to the core mathematical work, they make it easy for us to focus because all possible distractions are clarified in advance: in particular, the order in which to perform tasks, whom to attribute which role to, how to keep track of progress—and, most importantly, how to handle and preserve results long term.
+2
+new.nsf.gov/funding/data-management-plan
+✖
+3.3
+.
+Analyzing our achievements
+At the time of writing, an experimental version of our software is available
+GLNGB24
+and so is version 0.1 of
+algebraicphylogenetics.org
+.
+Figure 4
+.
+These are screenshots of
+algebraicphylogenetics.org
+under development in January 2025: on the left is the landing page, on the right data on the three-leaf phylogenetic tree with Jukes-Cantor model.
+In Figure
+4
+, we present two screenshot of our new website. The landing page consists on a large table indexed by tree and nucleotide-substitution model, containing the algebraic invariants. This allows researchers in phylogenetics to quickly access knowledge. At the top left of the page, there are two links directing users to subpages on notation and terms of use, respectively. Two additional links in the top right lead to Small Phylogenetic Trees and to
+AlgebraicPhylogenetics
+. From the main table, users can directly navigate to the subpage of interest to find additional algebraic information about specific trees and models, and to integrate relevant computations and formulae into their own work.
+We made improvements in the handling of mathematical data as well as in their metadata description. These are, in particular, of the following kind.
+Findability
+The new domain and name, the
+Algebraic Phylogenetics Database
+at
+algebraicphylogenetics.org
+, refer directly to the mathematical field, and we state the respective MSC identifiers 62R01, 65H10, 92D15, 68W30, and 14Q30 for findability. The homepage has its own citation guideline
+Col25
+which is distinct from text reports (like this one) and from the software citation
+GLNGB24
+for added precision and appropriate credit. For long-term preservation and citability, each past and current version of the website is stored at
+zenodo.org
+. as a snapshot of our GitHub repository. These means increase findability both for the human user and for automated online search engines.
+Additionally, we link all authors to their orcids and personal webpages, and we set up a maintainers email address. This enables users to directly and correctly identify lasting contact points. Relevant publications in algebraic phylogenetics are linked via DOIs for persistence. Moreover,
+AlgebraicPhylogenetics
+benefits from
+OSCAR
+’s SWHID
+DEF
+25
+$^{+}$
+softwareheritage.org
+for long-term traceability.
+Accessibility
+Metadata for each combination of phylogenetic tree and model are gathered in files which are both machine- and human-readable for immediate accessibility and long-term understandability. In particular, this information is stored in
+.yaml
+files which are hosted on GitHub and accessible via GitHub’s REST API. Formulae inside these files are typeset in LaTeX as is custom in mathematics, machine-readably rendered on the website using
+MathJax
+, and trees coded in
+tikz
+and displayed using
+tikzjax
+. Each mathematical object is additionally available in open-source
+.mrdi
+files based on
+JSON
+which can be loaded in
+Julia
+, thus containing valuable mathematical metadata again in machine-readable and human-readable format. License statements on the GitHub projects underlying the website as well as the software give access to any interested user.
+Interoperability
+Regarding interoperability for the human, we reiterate standard notation, document our computational workflow and provide usage examples for the software package to facilitate integration into external projects.
+Maximum machine interoperability is achieved by choosing the open-source computer algebra system
+OSCAR
+which integrates
+ANTIC
+,
+GAP
+,
+polymake
+, and
+Singular
+; all of these widely used in computer algebra. Here, the
+Julia
+basis has the potential to facilitate the combination of both numeric and algebraic calculations in algebraic phylogenetics. The
+.mrdi
+format can provide both an interface between website and software as well as serialization: allowing to meaningfully save and load computations, much preferably to copying and pasting LaTeX without context.
+Reusability
+Extensive documentation both on the website itself and externally in
+OSCAR
+make it easy for the newcomer to dive into details. Permissive open licenses are chosen and clearly stated for displayed results, computer-algebra software, and the website build.
+Every result is further linked to a copyable LaTeX display of formulae and to GitHub or
+OSCAR
+code performing relevant computations, making results traceable and boosting reproducibility and trustworthiness, as is good scientific practice.
+In this way we have created an online resource that is as FAIR as our technical expertise, time constraints, and currently existing mathematics research-data infrastructure have enabled us to build.
+Regarding the reproducibility of results in the library, we have made the following improvements.
+Reproducibility
+Coding in open-source software enables the users to check every function and data type we defined. The software
+AlgebraicPhylogenetics
+captures all computations in one place, as opposed to missing intermediate steps or results spread out over many different files. We provide extensive code documentation in
+OSCAR
+’s style guide, using the
+Julia
+documentation feature, and we link all data displayed back to the code. Data files are easily identifiable thanks to the new file-naming conventions. Any outsider can now simply redo computations and verify the data comparing input to output. Serialization provides extra reproducibility by seamlessly fitting into existing
+OSCAR
+environments. Versioning of our software enables practitioners to check compatibility. Our software passes the newly-formulated guidelines for writing and reviewing software in computer algebra
+Han25
+.
+Both
+Julia
+and
+OSCAR
+are existing academic projects with big communities. This enables us to draw on developers’ expertise, acquire new users, greatly improving chances of long-term maintenance as opposed to a standalone project, and crucially increase the chance that our work will continue to be FAIR and reproducible for the future.
+We anticipate that the database will continue to grow with current interest in the phylogenetics community. In future versions, we plan to incorporate algebraic data related to phylogenetic networks, as well as additional nucleotide substitution models, such as algebraic time-reversible models. This opens the door to external contributions both through direct involvement in development and by sharing emerging interests, improvements, or updates that should be reflected in the database and accompanying software.
+4
+.
+Learnings and Guidelines
+4.1
+.
+Lessons learned
+Being a rather large team with heterogeneous expertise in computer algebra and managing three projects simultaneously, our learning curve was quite steep.
+The primary tool for collaborative and version-controlled coding is
+git
+, so we needed to become familiar with sensible workflows. Due to initial indecision about whether or not to join the
+OSCAR
+system, we confusingly established different repositories with the same scope existing in parallel. If we had devised a plan ahead of coding, we would have been able to make informed decisions on what platform to use in which manner exactly, e.g., for website hosting.
+It came as a great opportunity that we were able to join the
+AlgebraicStatistics
+module in
+OSCAR
+. As a consequence, we had a say in overarching design decisions, from the
+OSCAR
+codebase to the serialization system using the
+.mrdi
+file format. Additionally, we benefited from the existing technical and support structures. However, with all projects in active development, we had to adapt our internal progress to external progress.
+We initially did not rely on a dedicated project-management tool (as we should have) but started multiple communication channels, effectively hindering efficient collaboration. Typical hurdles such as fixed-term contracts and incompatible time zones were the straw that broke the camel’s back, leading to a project runtime of nearly one and a half years, rather than the optimistically anticipated couple of months. In particular, MN continued to work for free for months after his student assistance officially ended (preparing himself exceptionally well for a career in academia).
+4.2
+.
+How to
+It is easy to criticize other projects, difficult to do better. But fellow mathematicians appreciate the effort! We thus wish for the development of
+algebraicphylogenetics.org
+to serve as a prototype for similar projects, leading to increasingly sustainable, usable, and trustworthy online mathematics. We recommend the following.
+Draw in all expertise available
+Discussions with data stewards, information specialists, computer scientists, computer algebraists, mathematicians who are in our community or own similar projects in other fields have helped us shape an idea of what is possible and what is needed to make algebraic-phylogenetics data both FAIR and reproducible.
+Consult research-data management experts
+In particular, we based our work on advice from research-data initiatives like
+FAIRsFAIR.org
+and MaRDI as well as implementation discussions following the original publication of FAIR Principles.
+Focus on usability
+All great work is for naught if it is not used. So we first compared notes with researchers who use Small Phylogenetic Trees actively, identifying pros and cons of the setup. We wondered who does not use the library, but would use it if we could make the content more understandable. As a result, we put the look-up table centrally on the new website’s landing page to enable everyone to get a grasp of the content, with details for experts found further down the website tree.
+Investigate community needs
+The data layout plan and reviewing active research on algebraic phylogenetics enabled us to trace the workflow of researchers using Small Phylogenetic Trees. In order to help with the main hurdle, integrating results into their daily work, we put a priority on linking computational content and theory more directly.
+Identify gaps
+The key points which make Small Phylogenetic Trees appear outdated are the early 2000s time stamps and partially broken list of maintainers. We want the Algebraic Phylogenetics Database to be up to date with current research, and visibly so, so we established contribution guidelines, versioning, and merged old data with new. To stop each researcher writing their own code to fill gaps between presented results and question of interest, we set up the collaborative software project.
+Include documentation
+By making all code readable for humans, providing versioning of all digital resources, having permanent digital identifiers and interlinking as many objects as possible (models, papers, code etc.), we soften the impact of a number of dangers: that the software system we used may break, that the programming languages we use may die, that modern web technology evolves faster than we do; in short, that our currently very modern presentation will become one day as outdated as databases printed in books are today.
+Make it sustainable
+The job-interview question: where will our database be ten years from now? The math will still be true. To keep it FAIR and reproducible, we make it human as well as machine readable. We found an academic institution to host the website for the foreseeable future, and we established a community of maintainers with shared contact info, assigning one person the main responsibility. By choosing well-known
+git
+technology for external contributions, we enable the algebraic-phylogenetics community to actively sustain our project.
+Link it to larger infrastructure
+The FAIR Principles require metadata to be persistent, even if the data themselves are no longer available. To achieve this, we plan to put relevant metadata of the classification on Wikidata to supplement our Zenodo snapshots. This way, both data and metadata can be automatically harvested by online search engines and integrated into broader knowledge graphs for mathematics and neighboring disciplines. With the MaRDI Portal⁠
+Footnote
+3
+growing and interlinking formalized mathematics with paper theorems, the time for this type of integration is now.
+3
+portal.mardi4nfdi.de
+✖
+Acknowledgment
+This project is a community effort.
+We are hugely indebted to the authors of the original Small Phylogenetic Trees for enabling us to continue their legacy: Marta Casanellas, Serkan Hoşten, Luis David Garcia Puente, Jacob Porter, Lior Pachter, Stacey Stokes, Bernd Sturmfels, and Seth Sullivant. In particular, we are very grateful to Luis David Garcia Puente, the principal maintainer, who provided us with valuable input in initial discussions, generous access to the original website files and data, and many thoughtful comments on this manuscript—and endured the pain we inflicted when criticizing his creation.
+The software supplementing the database,
+AlgebraicPhylogenetics.jl
+and
+AlgebraicStatistics.jl
+, would not have been possible without the ongoing practical support and sharing of expertise of the
+OSCAR
+group: especially, Antony Della Vecchia, Lars Kastner, Michael Joswig, and Andrei Comǎneci. We also wish to thank Tobias Boege and Ben Hollering for technical help and fruitful discussions about the implementation of mathematical concepts within our software project.
+The Max Planck Institute for Mathematics in the Sciences supported MGL and MN in the early stages of this project and continues to support TB. We are immensely grateful for their acquisition of the domain and for hosting the
+gitlab
+fork of the GitHub project underlying
+algebraicphylogenetics.org
+.
+TB, CG and MN were supported by the mathematical research-data initiative MaRDI, funded by the Deutsche Forschungsgemeinschaft (DFG), project number 460135501, NFDI 29/1 “MaRDI – Mathematische Forschungsdateninitiative.” MGL was partially funded by the Institute for Computational and Experimental Mathematics (ICERM), under NSF Grant No. DMS-1929284, while in residence at the Fall 2024 Semester Program on Theory, Methods, and Applications of Quantitative Phylogenomics.
+Pieter Belmans’
+fanography.info
+served as a conceptual blueprint and inspiration for our project; we wish to thank him for making time to consult with us and for providing many helpful pointers before we embarked on this journey.
+References
+[
+AR08
+]
+Elizabeth S. Allman and John A. Rhodes,
+Phylogenetic ideals and varieties for the general Markov model
+, Adv. in Appl. Math.
+40
+(2008), no. 2, 127–148, DOI
+10.1016/j.aam.2006.10.002
+. MR
+2388607
+,
+AMSref
+\bib{AllmanRhodes2008}{article}{
+author={Allman, Elizabeth S.},
+author={Rhodes, John A.},
+title={Phylogenetic ideals and varieties for the general Markov model},
+journal={Adv. in Appl. Math.},
+volume={40},
+date={2008},
+number={2},
+pages={127--148},
+issn={0196-8858},
+review={\MR {2388607}},
+doi={10.1016/j.aam.2006.10.002},
+}
+[
+CGS05
+]
+Marta Casanellas, Luis David Garcia, and Seth Sullivant,
+Catalog of small trees
+, Algebraic statistics for computational biology, Cambridge Univ. Press, New York, 2005, pp. 291–304, DOI
+10.1017/CBO9780511610684.019
+. MR
+2205880
+,
+AMSref
+\bib{zbMATH06811710}{article}{
+author={Casanellas, Marta},
+author={Garcia, Luis David},
+author={Sullivant, Seth},
+title={Catalog of small trees},
+conference={ title={Algebraic statistics for computational biology}, },
+book={ publisher={Cambridge Univ. Press, New York}, },
+isbn={978-0-521-85700-0},
+isbn={0-521-85700-7},
+date={2005},
+pages={291--304},
+review={\MR {2205880}},
+doi={10.1017/CBO9780511610684.019},
+}
+[
+CHP
+05
+]
+$^{+}$
+Marta Casanellas, Serkan Hoşten, Luis David Garcia Puente, Lior Pachter, Jacob Porter, Stacey Stokes, Bernd Sturmfels, and Seth Sullivant,
+Small Phylogenetic Trees
+, 2005.
+https://www.coloradocollege.edu/aapps/ldg/small-trees/small-trees_0.html
+, functional as of January 2025; fallback available at
+http://web.archive.org/web/20240418180119/https://www.coloradocollege.edu/aapps/ldg/small-trees/small-trees_0.html
+.,
+AMSref
+\bib{SmallPhylogeneticTrees}{misc}{
+author={Casanellas, Marta},
+author={Ho\c {s}ten, Serkan},
+author={Puente, Luis David~Garcia},
+author={Pachter, Lior},
+author={Porter, Jacob},
+author={Stokes, Stacey},
+author={Sturmfels, Bernd},
+author={Sullivant, Seth},
+title={{S}mall {P}hylogenetic {T}rees},
+date={2005},
+note={\url {https://www.coloradocollege.edu/aapps/ldg/small-trees/small-trees_0.html}, functional as of January 2025; fallback available at \url {http://web.archive.org/web/20240418180119/https://www.coloradocollege.edu/aapps/ldg/small-trees/small-trees_0.html}},
+}
+[
+Col25
+]
+The Algebraic-Phylogenetics Collaboration,
+A database of small tress and networks in algebraic phylogenetics,
+version 0.1
+, 2025.
+https://www.algebraicphylogenetics.org
+.,
+AMSref
+\bib{AlgebraicPhylogenetics}{misc}{
+author={Collaboration, The Algebraic-Phylogenetics},
+title={A database of small tress and networks in algebraic phylogenetics, \emph {version 0.1}},
+date={2025},
+note={\url {https://www.algebraicphylogenetics.org}},
+}
+[
+CFM
+24
+]
+$^{+}$
+Tim Conrad, Eloi Ferrer, Daniel Mietchen, Larissa Pusch, Johannes Stegmuller, and Moritz Schubotz,
+Making mathematical research data FAIR: Pathways to improved data sharing
+(
+en
+)
+, Scientific Data
+11
+(2024).,
+AMSref
+\bib{Conrad.etal.2024}{article}{
+author={Conrad, Tim},
+author={Ferrer, Eloi},
+author={Mietchen, Daniel},
+author={Pusch, Larissa},
+author={Stegmuller, Johannes},
+author={Schubotz, Moritz},
+title={Making mathematical research data {FAIR}: Pathways to improved data sharing},
+language={en},
+date={2024},
+journal={Scientific Data},
+volume={11},
+}
+[
+Con23
+]
+The MaRDI Consortium,
+Research data management planning in mathematics
+, Zenodo, 2023.
+https://doi.org/10.5281/zenodo.10018246
+.,
+AMSref
+\bib{MaRDI.2023}{misc}{
+author={Consortium, The~MaRDI},
+title={Research data management planning in mathematics},
+publisher={Zenodo},
+date={2023},
+note={\url {https://doi.org/10.5281/zenodo.10018246}},
+}
+[
+DEF
+25
+]
+$^{+}$
+Wolfram Decker, Christian Eder, Claus Fieker, Max Horn, and Michael Joswig (eds.),
+The Computer Algebra System OSCAR: Algorithms and Examples
+, 1st ed., Algorithms and Computation in Mathematics, vol. 32, Springer, 2025. SWHID:
+https://archive.softwareheritage.org/swh:1:dir:d90094a2ea2ed21cf70f4c24a5183b2fd3a666bb;origin=https://github.com/oscar-system/Oscar.jl;visit=swh:1:snp:c499a4a9ffccb4332dd620eb8aeac54496bdc232;anchor=swh:1:rev:ad5533f17ed2bff0dec01ef0bbf6e4954c07e137
+,
+https://link.springer.com/book/9783031621260
+.,
+AMSref
+\bib{OSCAR}{book}{
+editor={Decker, Wolfram},
+editor={Eder, Christian},
+editor={Fieker, Claus},
+editor={Horn, Max},
+editor={Joswig, Michael},
+title={The {C}omputer {A}lgebra {S}ystem {OSCAR}: {A}lgorithms and {E}xamples},
+edition={1},
+series={Algorithms and {C}omputation in {M}athematics},
+publisher={Springer},
+date={2025},
+volume={32},
+url={https://link.springer.com/book/9783031621260},
+note={SWHID: \href {https://archive.softwareheritage.org/swh:1:dir:d90094a2ea2ed21cf70f4c24a5183b2fd3a666bb;origin=https://github.com/oscar-system/Oscar.jl;visit=swh:1:snp:c499a4a9ffccb4332dd620eb8aeac54496bdc232;anchor=swh:1:rev:ad5533f17ed2bff0dec01ef0bbf6e4954c07e137}{\texttt {https://archive{\forcelinebreak }.softwareheritage.org/swh:1:dir:d90094a2e{\forcelinebreak }a2ed21cf70f4c24a5183b2fd3a666bb;origin={\forcelinebreak }https://github.com/oscar-system/Oscar.jl;{\forcelinebreak }visit=swh:1:snp:c499a4a9ffccb4332dd620eb8{\forcelinebreak }aeac54496bdc232;anchor=swh:1:rev:ad5533f1{\forcelinebreak }7ed2bff0dec01ef0bbf6e4954c07e137}}},
+}
+[
+DVJL24
+]
+Antony Della Vecchia, Michael Joswig, and Benjamin Lorenz,
+A FAIR file format for mathematical software
+, Mathematical software—ICMS 2024, Lecture Notes in Comput. Sci., vol. 14749, Springer, Cham, 2024, pp. 234–244, DOI
+10.1007/978-3-031-64529-7_25
+. MR
+4786726
+,
+AMSref
+\bib{MR4786726}{article}{
+author={Della Vecchia, Antony},
+author={Joswig, Michael},
+author={Lorenz, Benjamin},
+title={A FAIR file format for mathematical software},
+conference={ title={Mathematical software---ICMS 2024}, },
+book={ series={Lecture Notes in Comput. Sci.}, volume={14749}, publisher={Springer, Cham}, },
+isbn={978-3-031-64528-0},
+isbn={978-3-031-64529-7},
+date={2024},
+pages={234--244},
+review={\MR {4786726}},
+doi={10.1007/978-3-031-64529-7\_25},
+}
+[
+GLNGB24
+]
+Marina Garrote-Lopéz, Marius Neubert, Christiane Görgen, and Tabea Bacher,
+AlgebraicPhylogenetics
+, 2024. Beta version available at
+https://docs.oscar-system.org/dev/Experimental/AlgebraicStatistics/phylogenetics
+.,
+AMSref
+\bib{AlgebraicPhylogeneticsJL}{misc}{
+author={Garrote-Lop{\'e}z, Marina},
+author={Neubert, Marius},
+author={G{\"o}rgen, Christiane},
+author={Bacher, Tabea},
+title={{\emph {\texttt {{A}lgebraic{P}hylogenetics}}}},
+date={2024},
+note={Beta version available at \url {https://docs.oscar-system.org/dev/Experimental/AlgebraicStatistics/phylogenetics}},
+}
+[
+Han25
+]
+Jeroen Hanselman,
+Guidelines for writing and reviewing mathematical software
+, Notices Amer. Math. Soc.
+72
+(2025), no. 7, 766–773. MR
+4939087
+,
+AMSref
+\bib{Hanselman.2025}{article}{
+author={Hanselman, Jeroen},
+title={Guidelines for writing and reviewing mathematical software},
+journal={Notices Amer. Math. Soc.},
+volume={72},
+date={2025},
+number={7},
+pages={766--773},
+issn={0002-9920},
+review={\MR {4939087}},
+}
+[
+HP89
+]
+Michael D. Hendy and David Penny,
+A framework for the quantitative study of evolutionary trees
+, Systematic Zoology
+38
+(1989), 297.,
+AMSref
+\bib{HendyPenny1989}{article}{
+author={Hendy, Michael~D.},
+author={Penny, David},
+title={A framework for the quantitative study of evolutionary trees},
+date={1989},
+issn={00397989},
+journal={Systematic Zoology},
+volume={38},
+pages={297},
+}
+[
+SS05
+]
+Bernd Sturmfels and Seth Sullivant,
+Toric ideals of phylogenetic invariants
+, Journal of Computational Biology
+12
+(2005), 457–481.,
+AMSref
+\bib{Sturmfels2005}{article}{
+author={Sturmfels, Bernd},
+author={Sullivant, Seth},
+title={Toric ideals of phylogenetic invariants},
+date={2005},
+issn={1066-5277},
+journal={Journal of Computational Biology},
+volume={12},
+pages={457\ndash 481},
+}
+[
+Sul18
+]
+Seth Sullivant,
+Algebraic statistics
+, Graduate Studies in Mathematics, vol. 194, American Mathematical Society, Providence, RI, 2018, DOI
+10.1090/gsm/194
+. MR
+3838364
+,
+AMSref
+\bib{sullivant2018algebraic}{book}{
+author={Sullivant, Seth},
+title={Algebraic statistics},
+series={Graduate Studies in Mathematics},
+volume={194},
+publisher={American Mathematical Society, Providence, RI},
+date={2018},
+pages={xiii+490},
+isbn={978-1-4704-3517-2},
+review={\MR {3838364}},
+doi={10.1090/gsm/194},
+}
+[
+WDA
+16
+]
+$^{+}$
+Mark D. Wilkinson, Michel Dumontier, IJsbrand Jan Aalbersberg, Gabrielle Appleton, Myles Axton, Arie Baak, et al.,
+The FAIR Guiding Principles for scientific data management and stewardship
+, Scientific data
+3
+(2016).,
+AMSref
+\bib{Wilkinson.etal.2016}{article}{
+author={Wilkinson, Mark~D.},
+author={Dumontier, Michel},
+author={Aalbersberg, IJsbrand~Jan},
+author={Appleton, Gabrielle},
+author={Axton, Myles},
+author={Baak, Arie},
+author={others},
+title={The {FAIR} {G}uiding {P}rinciples for scientific data management and stewardship},
+date={2016},
+journal={Scientific data},
+volume={3},
+}
+Tabea Bacher is a research-data specialist at the Max Planck Institute for Mathematics in the Sciences. Her email address is
+[email protected]
+.
+Marina Garrote-López is a postdoctoral researcher at the Universitat Pompeu Fabra. Her email address is
+[email protected]
+.
+Christiane Görgen is a mathematical data steward at Leipzig University. Their email address is
+[email protected]
+.
+Marius J. Neubert is a PhD student at Leipzig University. His email address is
+[email protected]
+.
+Article DOI:
+10.1090/noti3332
+Credits
+All figures are created by authors, or they are screenshots of websites properly cited.
+Photo of Tabea Bacher is courtesy of Thomas Endler.
+Photo of Marina Garrote-López is courtesy of Marina Garrote-López.
+Photo of Christiane Görgen is courtesy of Thomas Endler.
+Photo of Marius J. Neubert is courtesy of Thomas Endler.

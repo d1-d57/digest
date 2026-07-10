@@ -1,0 +1,181 @@
+
+
+Notices of the American Mathematical Society
+
+Welcome to the 
+Notices of the American Mathematical Society
+.
+With 
+support from AMS membership
+, we are pleased to share the journal with the global mathematical community.
+
+PDFLINK
+
+Short Stories
+
+The Fundamental Theorem of Finite Games
+Joel David Hamkins
+
+The fundamental theorem of finite games asserts of every finite two-player game of perfect information that one of the players has a winning strategy or both players have drawing strategies. The theorem is also known as Zermelo’s theorem in light of Zermelo’s seminal 1913 work 
+Zer13
+, the first on combinatorial game theory—Zermelo had invented the subject by focusing on the game of chess. (See also 
+Lar10
+.)
+
+I shall give five different proofs of this beautiful, foundational result. The proof ideas naturally overlap and refine each other to some extent, while also extending variously via transfinite methods to infinite games to establish clopen and open determinacy.
+
+The 
+game tree
+ of a game has nodes for every game position reachable in finite play. Starting at the root, players in effect successively choose child nodes, and a 
+play
+ of the game is thus a branch through the game tree, each designated as a win for one player or the other or as a draw. In the game here, Blue moves first, then Orange, alternating, with the winner indicated at terminal nodes. A 
+finite
+ game is one with a finite game tree. A 
+strategy
+ is a function on the game tree specifying moves for a particular player on all their turns; it is a 
+winning
+ strategy if the player inevitably wins by playing in accordance with it. A 
+drawing
+ strategy is one leading to a draw or better.
+
+I shall prove the fundamental theorem first for games without draws, and then afterward explain how this special case implies the general version.
+
+For a first proof, we aim to 
+win by not losing
+. In any finite game without draws, consider the nodes that are winning for our opponent, nodes from which he has a winning strategy in the game proceeding from that position. If this includes the root node, then he has a winning strategy in the main game. Otherwise, I claim, we can win by not losing, that is, by avoiding his winning nodes. Our opponent can never move from a nonwinning node to a winning node; and meanwhile we can remain on his nonwinning nodes, since if all our moves from a node become winning for the opponent, then the current node must already have been winning for him by amalgamating those strategies. By thus avoiding our opponent’s winning nodes—that is, by not losing—at game’s end it must be we who have won the play. In summary, if our opponent has no winning strategy, then we do.
+
+A second proof proceeds by 
+induction
+ on the size of the game tree. Consider a nontrivial finite game tree 
+$T$
+ with no draws. For each opening move 
+$p$
+,
+ the game tree 
+$T_p$
+ below 
+$p$
+ is strictly smaller, and so by induction one of the players has a winning strategy. If the first player wins some such 
+$T_p$
+,
+ then he wins 
+$T$
+ by making that move 
+$p$
+ and then adopting the winning 
+$T_p$
+ strategy. Otherwise, the second player wins every 
+$T_p$
+,
+ and by amalgamating those strategies into one, she has a winning strategy in the original game. So again, one of the players has a winning strategy.
+
+The 
+back-propagation
+ proof shows not just that there is a winning strategy but also tells us how to find it. Namely, in any finite game without draws we simply color the nodes of the game tree according to the back-propagation recursion: (i) terminal nodes are already colored with the winner; (ii) if a player can move from a node to their own color, then we color that node also for them; (iii) if all moves from a node lead to the opponent’s color, then the node is colored for the opponent. Proceeding up the tree, every node is thus eventually colored for one player or the other. We can now easily read the winning strategy off the tree: 
+stay on your color
+. If it is your turn and you currently stand on a node with your color, then the recursion ensures that you have a move to stay on your color; but if you currently stand on your opponent’s color, then alas all your moves will lead to his color. Whoever has their color on the starting node, therefore, can implement this winning strategy.
+
+The 
+De Morgan’s law
+ proof uses the logical duality of universal and existential quantifiers. Consider a finite game without draws. By adding dummy moves, if necessary, we may assume all plays have the same length. Player 2 has a winning strategy if every move of player 1 has a reply by player 2, such that every further move of player 1 has a reply, and so on, such that the resulting play is won by player 2. In symbols:
+
+$$\forall x_1\exists y_1\cdots \forall x_n\exists y_n\bigl ({\text{player 2 has won }} \langle x_1y_1\cdots x_ny_n\rangle \bigr ).$$
+
+Player 2 therefore lacks a winning strategy when
+
+$$\neg \forall x_1\exists y_1\cdots \forall x_n\exists y_n\bigl ({\text{player 2 has won }}\langle x_1y_1\cdots x_ny_n\rangle \bigr ),$$
+
+which by De Morgan’s law is equivalent to
+
+$$\exists x_1\forall y_1\cdots \exists x_n \forall y_n\bigl ({\text{player 1 has won }}\langle x_1y_1\cdots x_ny_n\rangle \bigr ).$$
+
+But this is precisely what it means for player 1 to have a winning strategy. In short, if player 
+$2$
+ does not have a winning strategy, then player 
+$1$
+ does. In my view, this proof shows how the fundamental theorem of finite games amounts to De Morgan’s law of logic.
+
+Finally, we prove the theorem with the method of 
+game values
+, which generalize the 
+mate-in-two
+ genre of chess puzzle to arbitrary finite games. Namely, in any finite game without draws, we define the game values for a player by recursion: (i) terminal nodes won for that player get value 0; (ii) if the player can move to value 
+$n$
+,
+ minimal, then the node gets value 
+$n+1$
+;
+ (iii) if all opponent moves from a node have value, then it gets the supremum of those values. When the recursion is completed, some nodes may remain unvalued, which is fine. The player can win from any valued node with the 
+value-reducing
+ strategy, playing on their turn always to reduce the value by one; the opponent can maintain but never increase the value. With optimal play, this strategy therefore wins in exactly 
+$n$
+ moves from a position with value 
+$n$
+.
+ Conversely, the opponent can win from any unvalued position by adopting the 
+value-avoiding
+ strategy to remain on unvalued nodes.
+
+Thus we have proved the fundamental theorem for finite games without draws. To handle games with draws, we introduce an auxiliary game, played the same as the original game, except that now draws count as a win by default for the second player. Since this auxiliary game has no draws, one of the players will have a winning strategy. For the first player, winning is the same in both games, but for the second player, winning the auxiliary game means winning or drawing the original game. So in the original game, either the first player has a winning strategy or the second player has a drawing strategy. By introducing a second auxiliary game, where draws now win by default for the first player, we conclude similarly that either the second player has a winning strategy in the original game or the first player has a drawing strategy. In summary, either one of the players has a winning strategy or both players have drawing strategies. Thus we have proved the fully general version of the fundamental theorem of finite games. (Exercise: adapt the five proof methods for direct proofs of the fundamental theorem for games with draws.)
+
+The proof methods generalize to certain infinite games, which I should like to explain. A 
+finite-play
+ game is one with no infinite play—the game tree may be infinite, but it is well founded, having no infinite descending sequence. These are also known as the 
+clopen
+ games, since the winning and drawing conditions form clopen sets in the product space of all move sequences. Let us generalize several of the proof methods to prove clopen determinacy, showing that in every two-player finite-play game of perfect information, one of the players has a winning strategy or both have drawing strategies.
+
+The win-by-not-losing proof, for example, works for clopen determinacy basically right off the shelf, showing that if our opponent does not have a winning strategy from the root node, then we can win by not losing, that is, by avoiding those nodes from which the opponent does have a winning strategy. In the context of infinite games, however, this proof (and the others) uses the axiom of choice in the amalgamation process, since we need to choose strategies that work from the respective child nodes. The proof by induction also works fine for clopen determinacy, except that one will now be using transfinite induction on the ordinal rank of the game tree. Every well-founded tree has an ordinal rank, after all, and the trees below a child node have strictly lower ordinal rank. The back-propagation proof succeeds in coloring every node of a well-founded game tree—this is transfinite recursion on a well-founded relation—and furthermore the stay-on-your-color strategy is winning for finite-play games. Game values also can be defined for finite-play games, but these will now be ordinals, possibly transfinite. Transfinite ordinal game values do not measure the length of optimal play, however, but rather something more subtle and abstract. From a position with value 
+$\omega$
+,
+ for example, the losing player can move to positions with finite value 
+$n$
+ as large as desired, from which they will lose in 
+$n$
+ moves by the winner (whereas in a finite-play game there are no plays at all of length 
+$\omega$
+).
+ Finally, to my knowledge the De Morgan proof has no simple direct generalization to infinite games.
+
+Generalizing beyond the finite-play games, an 
+open
+ game specifies the winning terminal nodes of only one player, the open player, while the closed player wins otherwise, including all infinite play (the winning condition for the open player is thus an open set in the product space of move sequences). An open game is one in which the open player wins, if at all, at a definitive finite stage of play. The well-known angel and devil game, for example, is open for the devil, since whenever he wins, he does so by trapping the angel at a finite stage of play. Several of the finite game methods generalize to prove the open determinacy theorem 
+GS53
+, asserting that in any open game one of the players has a winning strategy. First, if the open player has no winning strategy, then the closed player can win by not losing, that is, by avoiding the nodes from which the open player has a winning strategy, just as in finite games; but notice that this does not work for the open player, since she definitely does not win by not losing if the play proceeds infinitely. Next, although the game tree of an open game may be ill-founded, nevertheless the winning nodes of the open player are correctly identified by the back-propagation recursion. But in an open game, the stay-on-your color strategy is no longer sufficient to ensure a win, since the open player could stay on her color all the way to infinity without ever actually making the crucial winning play—the open player can thus lose by procrastination. Nevertheless, the game-value recursion will assign an ordinal game value to all those same nodes, again possibly with transfinite ordinal values, and the open player can win from any valued position with the ordinal value-reducing strategy—she should play to reduce value; the closed player can win from any unvalued position by avoiding value. Thus we establish open determinacy.
+
+References
+[
+GS53
+]
+D. Gale and F. M. Stewart, 
+Infinite games with perfect information
+, Ann. Math. Studies 
+28
+ (1953), 245–266. MR
+54922
+[
+Lar10
+]
+Paul B. Larson, 
+Zermelo 1913
+, Ernst Zermelo, Collected Works, 2010, pp. 260–273. MR
+2640544
+[
+Zer13
+]
+Ernst Zermelo, 
+On an application of set theory to the theory of the game of chess
+, Ernst Zermelo, Collected Works (2010), 1913, pp. 266–273. See [Lar10] for historical context and criticism. MR
+2640544
+
+Joel David Hamkins is the O’Hara Professor of Logic at the University of Notre Dame. His email address is 
+[email protected]
+. Joel writes about infinite games at 
+https://www.infinitelymore.xyz/
+.
+
+Article DOI: 
+10.1090/noti3203
+Credits
+
+All figures and author photo are courtesy of Joel David Hamkins.
+

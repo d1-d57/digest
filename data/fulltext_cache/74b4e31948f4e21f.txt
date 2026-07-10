@@ -1,0 +1,1297 @@
+On extremal problems of Delsarte type
+for positive definite functions on LCA groups
+To the memory of Bent Fuglede whose ideas have a lasting influence on us.
+
+E. E. Berdyshevaa, M. D. Ramabulanaa , Sz. Gy. Révészb,∗
+a Department of Mathematics and Applied Mathematics, University of Cape Town, Private Bag X1, 7701,
+
+Rondebosch, Cape Town, 7700, South Africa
+
+arXiv:2412.00482v1 [math.CA] 30 Nov 2024
+
+b HUN-REN Alfréd Rényi Institute of Mathematics, Reáltanoda utca 13-15, Budapest, 1053, Hungary
+
+Abstract
+A unifying framework for some extremal problems on locally compact Abelian groups is considered,
+special cases of which include the Delsarte and Turán extremal problems. A slight variation of
+the extremal problem is introduced and the different formulations are studied for equivalence.
+Extending previous work, a general result on existence of extremal functions for the new variant
+is proved under a certain general topological condition.
+Keywords: Locally compact Abelian groups, positive definite functions, extremal problems,
+Delsarte problem, Turán problem
+2020 MSC: 43A35
+
+1. Introduction
+Let G be a Hausdorff locally compact Abelian (LCA) group with identity 0 and a fixed Haar
+measure λG . A function f : G → R is positive definite if the inequality
+n
+n
+X
+X
+
+ci cj f (gi − gj ) ≥ 0
+
+i=1 j=1
+
+holds for all choices of n ∈ N, ci ∈ C, and gi ∈ G. Denote by P1 (G) the collection of continuous
+positive definite real-valued functions f : G → R such that f (0) = 1. For a function f : G → R,
+denote by f+ , respectively, f− the positive part and the negative part of f , given by
+f+ (g) := max {f (g), 0} and f− (g) := max {−f (g), 0} for all g ∈ G.
+Denote by supp f its support, defined as supp f := {g ∈ G : f (g) 6= 0}. In [2], the following
+general setup for some extremal problems on a LCA group G is introduced. Let Ω+ and Ω− be
+subsets of G1 . Consider the collection
+n
+o
+∗
+FG
+(Ω+ , Ω− ) := f ∈ P1 (G) ∩ L1 (G) : supp f+ ⊂ Ω+ , supp f− ⊂ Ω− ,
+(1)
+and the extremal problem of determining the following extremal value2 :
+Z
+∗
+CG
+(Ω+ , Ω− ) :=
+sup
+f dλG .
+∗ (Ω ,Ω )
+f ∈FG
++
+−
+
+(2)
+
+G
+
+∗ Corresponding author
+
+Email addresses: elena.berdysheva@uct.ac.za (E. E. Berdysheva), rmbmit001@myuct.ac.za
+(M. D. Ramabulana), revesz.szilard@renyi.hu (Sz. Gy. Révész)
+1 Note that in [2], Ω and Ω
++
+− are assumed to be open, a restriction we do not apply.
+2 We adopt the convention that the extremal value is 0 if F ∗ (Ω , Ω ) is empty. The same will apply to (6).
++
+−
+G
+
+Preprint submitted to Elsevier
+
+December 3, 2024
+
+To motivate this general set-up, it is noted in [2] that when Ω− = G, writing Ω+ = Ω, the
+extremal problem (2) specialises to the so-called Delsarte extremal problem, which concerns the
+extremal value:
+Z
+∗
+DG
+(Ω) :=
+sup
+f dλG .
+(3)
+∗ (Ω,G)
+f ∈FG
+
+G
+
+When Ω+ = Ω− = Ω, it specialises to the so-called Turán extremal problem3 , which concerns the
+extremal value:
+Z
+∗
+TG (Ω) :=
+sup
+f dλG .
+(4)
+f ∈FG (Ω,Ω)
+
+G
+
+The idea of studying this type of extremal problems in the general setting of LCA groups goes
+back to [13]. However, we note that the extremal problem of maximising the L2 -norm was already
+considered in the group setting in [7]. Subsequently, extremal problems of this type on LCA groups
+have been studied in [16, 2, 10, 15]. Whereas [13, 16, 2] derive estimates for the extremal values and
+relate them to packing in LCA groups, the theme in [10, 15] is to study the existence of an extremal
+function. In [10], the existence of an extremal function is proved for a collection of band-limited
+functions, i.e., functions whose Fourier transforms vanish outside some prescribed subset. In [15],
+existence is proved without the restriction that the functions in the collection are band-limited,
+generalising [5, Proposition A.1] to arbitrary LCA groups.
+Although the result of [15] is quite general, the existence of an extremal function for the Turán
+and Delsarte extremal problems was known before [15] for specific groups G and specific subsets
+Ω+ . For instance, for the Turán problem in Rd it was known that if Ω+ is a closed convex subset
+of Rd that tiles Rd by translations or when Ω+ is a closed ball in Rd , then an extremal function
+exists (see [1, 12, 11]). On the other hand, if Ω+ is, for instance, an open convex set in Rd , an
+extremal function does not exist.
+If one reformulates the extremal problem in (2), modifying the support condition and imposing
+a topological condition on the sets Ω+ and Ω− , and keeping all else the same, then we get a related
+extremal problem. To be more precise, and delve more into the subject of this paper, let Ω+ and
+Ω− be subsets of G. Let us fix the following notation: for a real-valued function f : G → R and
+a, b ∈ R, where R denotes the extended real numbers, write f −1 (a, b) for the preimage f −1 ((a, b))
+of (a, b) under f . Consider the collection
+o
+n
+(5)
+FG (Ω+ , Ω− ) := f ∈ P1 (G) ∩ L1 (G) : f −1 (0, ∞) ⊂ Ω+ , f −1 (−∞, 0) ⊂ Ω− ,
+
+and the extremal value:
+
+CG (Ω+ , Ω− ) :=
+
+sup
+f ∈FG (Ω+ ,Ω− )
+
+Z
+
+f dλG .
+
+(6)
+
+G
+
+∗
+Note the resemblance between the function classes FG
+(Ω+ , Ω− ) and FG (Ω+ , Ω− ). Yet, the
+two function classes differ in that the conditions supp f+ ⊂ Ω+ and supp f− ⊂ Ω− are required
+∗
+for FG
+(Ω+ , Ω− ), whereas the weaker conditions that f −1 (0, ∞) ⊂ Ω+ and f −1 (−∞, 0) ⊂ Ω− are
+required for FG (Ω+ , Ω− ). One of the aims of this paper is to study the extent to which these
+two formulations of the extremal problems are equivalent. However, our main goal is to show
+general existence results for these slightly reformulated versions of our general extremal problems,
+see Theorem 17. Actually, we show existence under a mild topological condition on the boundary
+∂Ω± of Ω± . To state the condition, recall that the exterior ext Ω of a subset Ω in a topological
+space X is the set X \ Ω where Ω stands for the closure of the set Ω.
+
+Definition 1. Let Ω be a subset of a topological space X. We call Ω a boundary-coherent set if
+∂Ω ⊂ ext Ω.
+3 Actually, the problem was introduced well before Turán by Siegel [18] and, in a different setting, it goes back
+to Carathéodory [4] and Fejér [9]. For the history of the problem and its somewhat inadequate name, see [16].
+
+2
+
+The definition above is equivalent to saying that ∂Ω ⊂ ∂(ext Ω). This property means that
+boundary points of Ω can be approximated arbitrarily closely from the exterior of Ω. Equivalently,
+we could have said that the complement of int Ω is fat where int Ω stands for the interior of the set
+Ω.
+We show the existence of an extremal function for the extremal problem (6) under the condition
+that Ω± are boundary-coherent.
+Having introduced the extremal problem (6), we have the corresponding Delsarte and Turán
+problems:
+Z
+Z
+DG (Ω) :=
+sup
+f dλG ,
+TG (Ω) :=
+sup
+f dλG .
+(7)
+f ∈FG (Ω,G)
+
+f ∈FG (Ω,Ω)
+
+G
+
+G
+
+2. Notation and Preliminaries
+Let C(G) be the space of continuous functions on G to the complex numbers and put on it the
+b of G consists of continuous
+topology of uniform convergence on compact sets. The dual group G
+homomorphisms of G to the multiplicative group T = {z ∈ C : |z| = 1}. With respect to pointwise
+b is a LCA group.
+operations and the subspace topology that it inherits as a subset of C(G), G
+For a measure space X with a measure µ, Lp (X) denotes the usual Banach space of p-integrable
+complex-valued functions on X for 1 ≤ p < ∞, and the space of essentially bounded functions on
+X for p = ∞. The Fourier transform of f ∈ L1 (G) is defined by the formula:
+Z
+f χdλG for all χ ∈ b
+fb(χ) :=
+G.
+G
+
+It is well-known that the Fourier transformR of an integrable continuous positive definite function
+is non-negative. Moreover, since 0 ≤ fb(0) = G f dλG , it follows that the integral of an integrable
+continuous positive definite function is non-negative. Related to the notion of a positive definite
+function is that of an integrally positive definite function. Firstly, recall that the convolution f ∗ g
+of functions f, g : G → C is defined as
+Z
+f (y)g(x − y)dλG (y) for all x ∈ G,
+f ∗ g(x) :=
+G
+
+whenever the integral exists. Write f ∗ (g) := f (−g). A function f ∈ L∞ (G) is integrally positive
+definite if the inequality
+Z Z
+Z
+f (y − x)h(x)h(y)dλG (x)dλG (y) ≥ 0
+(h∗ ∗ h)f dλG =
+G
+
+G
+
+G
+
+holds for all continuous compactly supported complex valued functions h on G. According to [17,
+Theorem 1.7.3] an integrally positive definite function agrees locally almost everywhere with a
+continuous positive definite function. When G is σ-compact, i.e., if G can be written as a countable union of compact subsets, then locally almost everywhere is the same as almost everywhere.
+Therefore, on a σ-compact group an integrally positive definite function agrees almost everywhere
+with a continuous positive definite function.
+For brevity, we write K ⋐ G to mean that K is a compact subset of G.
+3. Extremal Problems and σ-compact Groups
+In this section, we show that the computation of the extremal values studied in this paper may
+be reduced to σ-compact LCA groups. We record some preliminary lemmas.
+Lemma 2. Let G be a LCA group,
+S and let (Kn )n∈N be a sequence of σ-compact subsets of G. The
+group H generated by the union n∈N Kn is σ-compact. Furthermore, if at least one of the Kn ’s
+has non-empty interior, then H is open.
+
+3
+
+The above statement is standard, see [15, Lemma 5] and e.g. [6, Proposition 1.2.1(c)].
+If H is a subgroup of a LCA group G and ϕ : H → R is a function, its trivial extension is the
+function ϕ
+e : G → R, given by
+(
+ϕ(g) if g ∈ H,
+ϕ(g) :=
+e
+0
+if g ∈ G\H.
+
+Lemma 3. Let H be an open subgroup of a LCA group G, and let Ω+ and Ω− be subsets of G.
+If a function ϕ : H → R is in FH (Ω+ ∩ H, Ω− ∩ H), then its trivial extension ϕ
+e : G → R is in
+FG (Ω+ , Ω− ).
+
+For a proof of Lemma 3, we refer the reader to a proof of an analogous statement [15, Lemma 1].
+We shall also make use of the following lemma.
+Lemma 4. Let H be an open subgroup of a LCA group G, and let Ω+ and Ω− be subsets of G
+with Ω+ ⊂ H. If a function ϕ : G → R is in FG (Ω+ , Ω− ), then its restriction ϕ|H : H → R to the
+subgroup H is in FH (Ω+ , Ω− ∩ H).
+Proof. Suppose that ϕ : G → R is a continuous positive definite function with ϕ−1 (0, ∞) ⊂ Ω+
+and ϕ−1 (−∞, 0) ⊂ Ω− , and satisfying ϕ(0) = 1. Then its restriction ϕ|H : H → R to H is a
+−1
+continuous positive definite function with ϕ|H
+(0, ∞) ⊂ Ω+ and ϕ|−1
+H (−∞, 0) ⊂ Ω− ∩ H , and
+−1
+satisfies ϕ|H (0) = 1.
+
+Lemma 5. A Haar measurable subset Ω of a LCA group G is σ-finite if and only if it is contained
+in an open σ-compact subgroup.
+Proof. It is obvious that if Ω is Haar measurable and is contained in an open σ-compact subgroup,
+then it is σ-finite. So, it remains to show that if Ω is σ-finite, then it is contained in an open
+σ-compact subgroup. To that end, let us write Ω as a union
+Ω=
+
+∞
+[
+
+An ,
+
+n=1
+
+where An has finite Haar measure for all n ∈ N. By outer regularity of the Haar measure on G,
+for all n ∈ N, there is an open set Un in G containing An with λG (Un ) < ∞. We claim that for
+each n ∈ N, Un lies in an open σ-compact subgroup Hn . To see this, let K be any σ-compact
+open subgroup of G and note that G is a disjoint union of cosets g + K of K with g running
+through the set of coset representatives of K. For each n ∈ N, observe that since the cosets
+of K are disjoint and cover G, the collection of subsets (g + K) ∩ Un of Un as g runs through
+the set of coset representatives of K are disjoint and their union is Un . Now, being open sets,
+either (g + K) ∩ Un = ∅ or λG ((g + K) ∩ Un ) > 0. However, λG ((g + K) ∩ Un ) > 0, and hence
+(g + K) ∩ Un 6= ∅, for at most countably many cosets g + K of K, otherwise a contradiction of
+the finitude of the Haar measure of Un would arise. By Lemma 2, Un is contained in the open
+σ-compact subgroup generated by the union of K and the countably many σ-compact cosets of K
+that meet Un nontrivially. Denote this subgroup by Hn . We obtain a sequence (Hn )n∈N of open
+σ-compact subgroups of G having An ⊂ Un ⊂ Hn for all n ∈ N, to which
+S∞ we apply Lemma 2 once
+again to obtain an open σ-compact subgroup H of G generated by n=1 Hn . Clearly, H contains
+Ω, so the lemma is proved.
+Theorem 6. Let G be a LCA group, and Ω+ and Ω− be symmetric subsets of G with Ω+ a σ-finite
+neighbourhood of 0. Then there is an open σ-compact subgroup H of G containing Ω+ such that
+CG (Ω+ , Ω− ) = CH (Ω+ , Ω− ∩ H).
+Proof. On account of Lemma 5, let H be an open σ-compact subgroup of G containing Ω+ . Equip
+H with Haar measure λH := λG |H , the restriction of λG to H.
+Let (fn )n∈N in FG (Ω+ , Ω− ) be a CG (Ω+ , Ω− )-extremal sequence chosen in such a way that
+Z
+1
+fn dλG ≥ CG (Ω+ , Ω− ) − for all n ∈ N.
+n
+G
+4
+
+Let fn |H : H → R denote the restriction of fn to H. By Lemma 4, fn |H is in FG (Ω+ , Ω− ∩ H) for
+all n ∈ N. For all n ∈ N, we have
+Z
+Z
+Z
+fn dλG .
+(8)
+fn dλG +
+fn dλG =
+G
+
+G\H
+
+H
+
+Since fn−1 (0, ∞) is contained in H, we have that fn (g) ≤ 0 for all g ∈ G\H. Therefore,
+Z
+fn dλG ≤ 0.
+
+(9)
+
+G\H
+
+From (8) and (9), it follows that
+Z
+H
+
+fn |H dλH =
+
+Z
+
+fn dλG ≥
+
+Z
+
+fn dλG .
+
+(10)
+
+G
+
+H
+
+Now, by the definition of CH (Ω+ , Ω− ∩ H) and inequality (10), we have
+Z
+Z
+1
+fn dλG ≥ CG (Ω+ , Ω− ) − .
+fn |H dλH ≥
+CH (Ω+ , Ω− ∩ H) ≥
+n
+G
+H
+Thus CH (Ω+ , Ω− ∩ H) ≥ CG (Ω+ , Ω− ). For the other inequality, let (hn )n∈N in FH (Ω+ , Ω− ∩ H)
+be a CH (Ω+ , Ω− ∩ H)-extremal sequence such that
+Z
+1
+hn dλH ≥ CH (Ω+ , Ω− ∩ H) − for all n ∈ N.
+n
+H
+fn )n∈N of trivial extensions is in FG (Ω+ , Ω− ∩ H) ⊂ FG (Ω+ , Ω− ),
+By Lemma 3, the sequence (h
+f
+and since hn vanishes outside of H, we have that for all n ∈ N,
+Z
+Z
+1
+fn dλG =
+hn dλH ≥ CH (Ω+ , Ω− ∩ H) − .
+h
+CG (Ω+ , Ω− ) ≥
+n
+H
+G
+Thus, CG (Ω+ , Ω− ) ≥ CH (Ω+ , Ω− ∩ H), and hence
+
+CG (Ω+ , Ω− ) = CH (Ω+ , Ω− ∩ H),
+as required.
+As a corollary of Theorem 6, we obtain that the Delsarte and Turán problems on any LCA
+group may be reduced to some open σ-compact subgroup.
+Corollary 7 (Delsarte problem). Let G be a LCA group and Ω ⊂ G a σ-finite symmetric neighbourhood of 0. Then there is an open σ-compact subgroup H of G containing Ω such that
+DG (Ω) = DH (Ω).
+Corollary 8 (Turán problem). Let G be a LCA group and Ω ⊂ G a σ-finite symmetric neighbourhood of 0. Then there is an open σ-compact subgroup H of G containing Ω such that
+TG (Ω) = TH (Ω).
+In Theorem 6 it is not assumed that Ω− is σ-finite. So, Ω− may not lie in an open σ-compact
+subgroup of G. This is the reason for taking the intersection Ω− ∩ H in Theorem 6. However, if
+both Ω+ and Ω− are σ-finite, then so is their union Ω+ ∪ Ω− . Hence the latter is contained in an
+open σ-compact subgroup by Lemma 5. In this case, it is easy to modify the proof of Theorem 6,
+by taking H to contain not just Ω+ but the union Ω+ ∪ Ω− to obtain the following theorem.
+
+5
+
+Theorem 9. Let G be a LCA group, and Ω+ and Ω− be σ-finite symmetric subsets of G with Ω+
+a neighbourhood of 0. Then there is an open σ-compact subgroup H of G containing Ω+ and Ω−
+such that
+CG (Ω+ , Ω− ) = CH (Ω+ , Ω− ).
+The next theorem shows that for the sake of computing the extremal values, we may as well
+only consider σ-compact groups, without any assuming that Ω+ and Ω− are σ-compact. This is
+made possible by the fact that the support of a Haar integrable function can not be too large, in
+the sense expressed by the following lemma.
+Lemma 10 ([6, Corollary 1.3.6]). Let G be a LCA group. For any f ∈ L1 (G) the support of f is
+contained in an open σ-compact subgroup.
+Theorem 11. Let G be a LCA group, and Ω+ and Ω− be symmetric subsets of G with Ω+ a
+neighbourhood of 0. Then there is an open σ-compact subgroup H of G such that
+CG (Ω+ , Ω− ) = CH (Ω+ ∩ H, Ω− ∩ H).
+Proof. Using Lemma 3, the inequality CH (Ω+ ∩ H, Ω− ∩ H) ≤ CG (Ω+ , Ω− ) is immediate. So, it
+remains to show the reverse inequality. Let (fn )n∈N in FG (Ω+ , Ω− ) be a CG (Ω+ , Ω− )-extremal
+sequence chosen in such a way that
+Z
+1
+fn dλG ≥ CG (Ω+ , Ω− ) − for all n ∈ N.
+n
+G
+By Lemma 10, for each n ∈ N, there is an open σ-compact subgroup Hn of G such that supp fn ⊂
+Hn . Let H be the subgroup of G generated by the union of all the Hn ’s as n runs through N. By
+Lemma 2, H is an open σ-compact subgroup of G. Equip H with Haar measure λH := λG |H .
+Observe that for all n ∈ N, fn (g) = 0 for all g ∈ G\H. Let fn |H : H → R be the restriction of
+fn to the subgroup H. By Lemma 4 fn |H ∈ FH (Ω+ ∩ H, Ω− ∩ H). We have
+Z
+Z
+1
+CH (Ω+ ∩ H, Ω− ∩ H) ≥
+fn |H dλH =
+fn dλG ≥ CG (Ω+ , Ω− ) − .
+n
+H
+G
+Taking limits furnishes CH (Ω+ ∩ H, Ω− ∩ H) = CG (Ω+ , Ω− ).
+
+4. Existence of Extremal Functions
+In this section, we show the existence of an extremal function for the extremal problem (6) for
+boundary-coherent sets. We first obtain existence in the context of σ-compact groups and later
+extend it to the general case. We start with a few lemmas.
+Lemma 12 (Approximation of Unity, [13, Lemma 2]). Let C be an arbitrary compact subset of a
+LCA group G and η > 0 be an arbitrary real number. Then there exists a continuous compactly
+supported positive definite function k : G → R such that k(0) = 1, 0 ≤ k ≤ 1, and k|C > 1 − η.
+Lemma 13 (Mazur’s lemma, [3, Corollary 3.8, Exercise 3.4]). Let E be a Banach space and let
+(xn )n∈N be a sequence in E converging to x ∈ E weakly. Then there exists a sequence (yn )n∈N in
+E such that
+!
+∞
+[
+{xi } for all n ∈ N
+yn ∈ conv
+i=n
+
+and (yn )n∈N converges strongly to x in E, where for a subset A ⊂ E, conv(A) refers to the convex
+hull of A, and strong convergence refers to convergence with respect to the norm topology on E.
+
+Theorem 14. Let G be a σ-compact LCA group, and Ω+ and Ω− be boundary-coherent symmetric subsets of G with Ω+ a neighbourhood of 0 having finite
+R Haar measure. Then there exists a
+CG (Ω+ , Ω− )-extremal function f ∈ FG (Ω+ , Ω− ) satisfying G f dλG = CG (Ω+ , Ω− ).
+6
+
+Proof. We start with using only the standard assumptions and will invoke boundary-coherence
+only at the end. In fact, we believe that this condition might be unnecessary, but we were not able
+to construct a proof without it.
+Note that for all f ∈ FG (Ω+ , Ω− ), |f (g)| ≤ 1 for all g ∈ G. Furthermore, since f is an
+R integrable
+f dλG ≤
+continuous
+positive
+definite
+function,
+the
+non-negativity
+of
+its
+integral
+implies
+that
+G −
+R
+1 (G) ≤ 2λG (Ω), which in turn implies that kf kL2 (G) ≤ 2λG (Ω)
+f
+dλ
+≤
+λ
+(Ω).
+Hence
+kf
+k
++
+G
+G
+L
+G
+for all f ∈ FG (Ω+ , Ω− ). In other words, FG (Ω+ , Ω− ) is a bounded subset of L2 (G), and as
+such it belongs to the strong closure B 2λG (Ω) (0) of the ball B2λG (Ω) (0) of radius 2λG (Ω) in L2 (G)
+centred at 0. Being a closed and bounded subset of L2 (G), B 2λG (Ω) (0) is weakly sequentially
+compact according to [3, Theorem
+R 3.18]. Now let (fn )n∈N be a CG (Ω+ , Ω− )-extremal sequence
+in FG (Ω+ , Ω− ), that is, limn→∞ G fn dλG = CG (Ω+ , Ω− ). By the weak sequential compactness
+of B 2λG (Ω) (0), there is a subsequence of (fn )n∈N that converges weakly in L2 (G) to some f ∈
+B 2λG (Ω) (0). By replacing (fn )n∈N with this subsequence, assume that (fn )n∈N converges weakly
+in L2 (G) to f . Since FG (Ω+ , Ω− ) is a convex subset of L2 (G), Lemma
+13 implies that there
+S
+is a sequence (hn )n∈N in FG (Ω+ , Ω− ) chosen such that hn ∈ conv( ∞
+i=n fi ) for all n ∈ N, and
+converging to f strongly in L2 (G). We claim that the latter sequence is CG (Ω+ , Ω− )-extremal.
+First note that by the extremality of (fn )n∈N , we have that for any ε > 0 there exists N ∈ N such
+that for all n > N it holds that
+Z
+fn dλG − CG (Ω+ , Ω− ) < ε.
+G
+
+P∞
+
+P∞
+Now, write hn = i=n cni fi where cni ≥ 0, i=n cni = 1, and cni = 0 for all but finitely many i ≥ n.
+Then for any n ≥ N , we have
+Z
+Z
+∞
+∞
+X
+X
+cni ε = ε.
+cni
+fi dλG − CG (Ω+ , Ω− ) <
+hn dλG − CG (Ω+ , Ω− ) ≤
+G
+
+i=n
+
+G
+
+i=n
+
+Therefore (hn )n∈N is CG (Ω+ , Ω− )-extremal. So, replacing, if necessary, the sequence (fn )n∈N by
+this new sequence, assume that (fn )n∈N converges to f strongly in L2 (G).
+By passing to a pointwise almost everywhere convergent subsequence, assume that (fn )n∈N
+converges to f pointwise almost everywhere. The fact that for all n ∈ N, |fn (g)| ≤ 1 for all g ∈ G
+and (fn )n∈N converges almost everywhere to f implies that f is bounded in L∞ (G) by 1. Since
+(fn )n∈N converges weakly in L2 (G) to f , we have
+Z
+Z
+(h∗ ∗ h)f dλG = lim
+(h∗ ∗ h)fn dλG ≥ 0,
+n→∞
+
+G
+
+G
+
+for all compactly supported continuous complex-valued functions h. This shows that f is integrally
+positive definite. The function f being integrally positive definite and G being σ-compact implies
+that f agrees almost everywhere with a continuous positive definite function. Thus, by correcting
+f on a set of Haar measure zero, thus not changing the value of its integral, assume that f is a
+continuous positive definite function.
+Let S+ := f −1 (0, ∞) and S− := f −1 (−∞, 0). If fn (x) → f (x) > 0, then x ∈ Ω+ , and similarly
+for negative values. Therefore, by the almost everywhere convergence, we have that S+ \ Ω+ and
+S− \ Ω− are sets of measure zero.
+Next we show that f ∈ L1 (G). Since f −1 (0, ∞) = S+ and S+ \ Ω+ is of measure zero, we have,
+Z
+Z
+Z
+f+ dλG ≤ λG (Ω+ ) < ∞.
+(11)
+f+ dλG =
+f+ dλG =
+G
+
+Ω+
+
+S+
+
+On the other hand, by Fatou’s lemma,
+Z
+Z
+f− dλG ≤ lim inf (fn )− dλG
+n→∞
+G
+ZG
+≤ lim inf (fn )+ dλG
+n→∞
+
+G
+
+≤ λG (Ω+ ) < ∞,
+7
+
+(12)
+
+where the second inequality of (12) is obtained using that fn being positive definite and integrable
+implies that
+Z
+Z
+Z
+0≤
+
+(fn )+ dλG −
+
+fn dλG =
+
+(fn )− dλG .
+
+G
+
+G
+
+G
+
+Together, (11) and (12) imply that
+Z
+Z
+Z
+|f |dλG =
+f+ dλG +
+f− dλG < ∞.
+G
+
+G
+
+(13)
+
+G
+
+Hence f ∈ L1 (G).
+Note that the sequence ((fn )+ )n∈N of the positive parts of the fn ’s converges pointwise almost
+everywhere to f+ , and that (fn )+ ≤ 1Ω+ . Therefore, by Lebesgue’s Dominated Convergence
+theorem and λG (Ω+ ) < ∞, we have
+Z
+Z
+(fn )+ dλG .
+(14)
+f+ dλG = lim
+n→∞
+
+G
+
+G
+
+Recall that from (12) we have the inequality
+Z
+Z
+f− λG dλG ≤ lim inf (fn )− dλG .
+n→∞
+
+G
+
+(15)
+
+G
+
+Now, subtracting (15) from (14) we have
+Z
+Z
+Z
+f dλG ≥ lim
+(fn )+ dλG − lim inf (fn )− dλG
+n→∞ G
+n→∞
+G
+G
+Z
+= lim sup
+((fn )+ − (fn )− ) dλG
+n→∞
+Z G
+fn dλG = CG (Ω+ , Ω− ).
+= lim
+n→∞
+
+G
+
+Only now we employ boundary-coherence to show that f −1 (0, ∞) ⊂ Ω+ and also f −1 (−∞, 0) ⊂
+Ω− . First, if U is a non-empty open subset of ext Ω+ , then almost everywhere on U we have fn → f ,
+while fn ≤ 0, hence also f ≤ 0. Consider an arbitrary x 6∈ Ω+ . By continuity of f , fixing any ε > 0
+we can find a sufficiently small open neighbourhood V of x such that f (y) ≥ f (x) − ε for y ∈ V .
+Whether x ∈ ext Ω+ or is only in ∂Ω+ , by boundary-coherence there are points z ∈ V ∩ ext Ω+ , so
+in particular there is a small neighbourhood U ⊂ V of z fully in ext Ω+ . By the above we know
+that f ≤ 0 almost everywhere on U . So, picking a point w ∈ U satisfying f (w) ≤ 0, we also have
+w ∈ V , and hence 0 ≥ f (w) ≥ f (x) − ε. It follows that f (x) ≤ ε, and as this holds for all ε > 0,
+we find f (x) ≤ 0. So, if x 6∈ Ω+ , then x 6∈ S+ either. Therefore, S+ ⊂ Ω+ . Note that we could
+deduce this only by an application of the extra topological condition of boundary-coherence. The
+same argument gives also S− ⊂ Ω− .
+R
+To show that f ∈ F (Ω+ , Ω− ), it remains to show that f (0) = 1. The fact that G f dλG ≥
+CG (Ω+ , Ω− ) > 0, implies that f is not identically zero, and in particular, by positive definiteness,
+implies that f (0) 6= 0. Suppose for a contradiction that we have f (0) 6= 1. Recall that kf kL∞ (G) ≤
+1. So, 0 < f (0) < 1. Then the function h = f /f (0) is in FG (Ω+ , Ω− ) and has integral greater
+than CG (Ω+ , Ω− ), contradicting the extremality of CG (Ω+ , Ω− ). It follows that f (0) = 1 and hence
+f ∈ FG (Ω+ , Ω− ). This also shows that f is extremal.
+Proposition 15. For the extremal sequence (fn )n∈N in Theorem 14 that converges to f strongly
+in L2 (G) and pointwise almost everywhere, we have, in addition that fn → f in L1 (G).
+R
+Proof. Take any η > 0. As f ∈ L1 (G), there is a compact set K ⋐ G with G\K |f |dλG < η.
+Also, as Ω+ and hence S+ as well as S+ ∪ Ω+ have finite measure, by inner regularity of the Haar
+measure there exists a compact set K ′ such that λG ((S+ ∪ Ω+ ) \ K ′ ) < η. We may assume that
+K ⊃ K ′ and hence K satisfies both requirements. By Lemma 12, we can find a function k, which
+is continuous, positive definite, compactly supported, 0 ≤ k ≤ 1, and k|K > 1 − η.
+8
+
+We have
+Z
+
+Z
+|f |(1 − k)dλG
+|f |(1 − k)dλG +
+G\K
+K
+Z
+≤ ηkf kL1 (G) +
+|f |dλG
+
+|f |(1 − k)dλG ≤
+
+G
+
+Z
+
+G\K
+
+≤ η(kf kL1 (G) + 1) ≤ η(2λG (Ω+ ) + 1).
+
+R
+Next, Rwe refer to the L2 convergence fn → f . As k ∈ L2 (G), we have G |f − fn |kdλG → 0,
+and thus G |f − fn |kdλG < η for n large enough. R
+Let us assume without loss of generality that G fn dλG R≥ CG (Ω+ , Ω− ) − n1 for all n ∈ N.
+Taking into account fn k ∈ FG (Ω+ , Ω− )4 , we necessarily have G fn kdλG ≤ CG (Ω+ , Ω− ). Thus we
+can write
+Z
+Z
+Z
+CG (Ω+ , Ω− ) ≥
+fn kdλG =
+fn dλG −
+fn (1 − k)dλG
+G
+G
+G
+Z
+Z
+1
+≥ CG (Ω+ , Ω− ) − − (fn )+ (1 − k)dλG + (fn )− (1 − k)dλG ,
+n
+G
+G
+therefore
+
+Z
+
+(fn )− (1 − k)dλG ≤
+
+Z
+
+(fn )+ (1 − k)dλG +
+
+G
+
+G
+
+1
+.
+n
+
+We get
+Z
+Z
+Z
+Z
+1
+(1 − k)|fn |dλG = (1 − k)(fn )+ dλG + (1 − k)(fn )− dλG ≤ 2 (fn )+ (1 − k)dλG + . (16)
+n
+G
+G
+G
+G
+Using the facts that 0 ≤ 1 − k < η on K, 0 ≤ k ≤ 1 on G, (fn )+ ≤ 1 on G, and (fn )+ vanishes
+outside Ω+ , we estimate
+Z
+Z
+Z
+(fn )+ (1 − k)dλG
+(fn )+ (1 − k)dλG +
+(fn )+ (1 − k)dλG =
+G\K
+K
+G
+Z
+Z
+(fn )+ (1 − k)dλG
+(fn )+ dλG +
+<η
+Ω+ \K
+K
+Z
+(fn )+ dλG + λG (Ω+ \ K)
+≤η
+Ω+
+
+≤ ηλG (Ω+ ) + η = η(λG (Ω+ ) + 1).
+
+With this estimate at hand, (16) gives
+Z
+1
+(1 − k)|fn |dλG ≤ 2η(λG (Ω+ ) + 1) + ≤ 2η(λG (Ω+ ) + 2)
+n
+G
+for sufficiently large n. Finally,
+Z
+Z
+Z
+|f − fn |kdλG + (1 − k)|f − fn |dλG
+|f − fn |dλG =
+G
+Z
+ZG
+ZG
+|fn |(1 − k)dλG
+|f |(1 − k)dλG +
+|f − fn |kdλG +
+≤
+G
+
+G
+
+G
+
+≤ η + η(2λG (Ω+ ) + 1) + 2η(λG (Ω+ ) + 2)
+
+for n large enough, and hence fn → f in L1 (G).
+4 We use here the fact that the product of two positive definite functions is positive definite.
+
+9
+
+Next, we show the existence of an extremal function for general LCA groups. The key is to
+reduce the problem to the case of σ-compact groups, where an extremal function is known to exist,
+and then extending the solution to the general case. As such, we first show in the following lemma
+that boundary-coherence is hereditary with respect to open subgroups.
+Lemma 16. Let H be an open subgroup of an LCA group G and Ω a subset of G. If Ω is
+H
+boundary-coherent in G then Ω ∩ H is boundary-coherent in H, i.e., ∂H (Ω ∩ H) ⊂ extH (Ω ∩ H) .
+Proof. Let us first notice that extH (Ω ∩ H) = extG (Ω) ∩ H. Indeed, the exterior of a set is the
+interior of its complement. Now the statement follows from an easy observation that for a set
+A ⊂ G we have intH (A ∩ H) = intG (A) ∩ H on account of H being open.
+H
+
+Furthermore, since H is an open subgroup it is closed in G, and hence extH (Ω ∩ H)
+G
+
+extG (Ω) ∩ H . Moreover, the fact that H is open implies that extG (Ω) ∩ H
+Indeed, the containment extG (Ω) ∩ H
+
+G
+
+G
+
+=
+
+G
+
+= extG (Ω) ∩ H.
+
+G
+
+⊂ extG (Ω) ∩ H follows from the fact that extG (Ω) ∩ H
+
+G
+
+is contained in extG (Ω) ∩ H, and the latter set is closed in G. For the reverse containment, let
+G
+
+x ∈ extG (Ω) ∩ H. Take an arbitrary neighbourhood V of x in G. Since H is open, V ∩ H is also
+G
+
+a neighbourhood of x in G. Since x ∈ extG (Ω) , we have that V ∩ H ∩ extG (Ω) 6= ∅. This implies
+G
+
+that x ∈ extG (Ω) ∩ H .
+Now, using the fact that ∂G (H) = ∅, we conclude
+∂H (Ω ∩ H) = Ω ∩ H
+
+H
+
+H
+
+∩ H \ (Ω ∩ H)
+
+G
+
+G
+
+= Ω ∩ H ∩ H \ (Ω ∩ H)
+= ∂G (Ω ∩ H) ∩ H
+⊂ (∂G (Ω) ∪ ∂G (H)) ∩ H
+= ∂G (Ω) ∩ H
+G
+
+⊂ extG (Ω) ∩ H
+H
+
+= extH (Ω ∩ H) .
+
+Theorem 17. Let G be a LCA group, and Ω+ and Ω− be boundary-coherent symmetric subsets
+of G with Ω+ a neighbourhood of 0 having finite
+R Haar measure. Then there exists a CG (Ω+ , Ω− )extremal function f ∈ FG (Ω+ , Ω− ) satisfying G f dλG = CG (Ω+ , Ω− ).
+
+Proof. On account of Theorem 6, let H ⊃ Ω+ be an open σ-compact subgroup of G such that
+CG (Ω+ , Ω− ) = CH (Ω+ , Ω− ∩ H). By Lemma 16, Ω+ = Ω+ ∩ H and Ω− ∩ H are boundary-coherent.
+Therefore, by Theorem 14, there exists a CH (Ω+ , Ω− ∩ H)-extremal function f ∈ FH (Ω+ , Ω− ∩ H)
+such that
+Z
+f dλH = CH (Ω+ , Ω− ∩ H).
+(17)
+H
+
+Let fe : G → R be the trivial extension of f . Then fe is in FG (Ω+ , Ω− ). We claim that fe is a
+CG (Ω+ , Ω− )-extremal function. Indeed,
+Z
+Z
+f dλH = CH (Ω+ , Ω− ∩ H) = CG (Ω+ , Ω− ).
+fedλG =
+G
+
+H
+
+Proposition 18. Let f be a CG (Ω+ , Ω− )-extremal function. Then there exists a sequence (fn )n∈N
+in FG (Ω+ , Ω− ) such that each fn has compact support and (fn )n∈N converges to f in L1 (G) and
+uniformly on compact sets.
+
+10
+
+Proof. Since f ∈ L1 (G) andR therefore supp f is σ-compact (see Lemma 10), we can find
+S a sequence
+of sets (Kn )n∈N such that G\Kn |f |dλG < n1 , Kn ⋐ G, Kn ⊂ Kn+1 , and supp f ⊂ n∈N Kn . By
+Lemma 12 there exist continuous, compactly supported, positive definite functions kn such that
+kn (0) = 1, 0 ≤ kn ≤ 1, kn |Kn > 1 − n1 .
+Put fn := f kn , n ∈ N. Clearly, fn ∈ FG (Ω+ , Ω− ) and compactly supported.
+To establish convergence in L1 (G), we estimate
+Z
+Z
+Z
+Z
+|f |dλG
+|fn |dλG +
+|fn − f |dλG +
+|fn − f |dλG ≤
+G\Kn
+G\Kn
+G
+K
+Z
+Z
+Z n
+|f |dλG
+|f |kn dλG +
+|f |(1 − kn )dλG +
+=
+G\Kn
+G\Kn
+Kn
+Z
+Z
+1
+≤
+|f |dλG
+|f |dλG + 2
+n Kn
+G\Kn
+1
+≤ (kf kL1 (G) + 2).
+n
+Now let C be any compact set in G. Then there exists N ∈ N such that C ∩ supp f ⊂ Kn for
+all n ≥ N . We have
+kfn − f kL∞ (C) = kf (1 − kn )kL∞ (C) = kf (1 − kn )kL∞ (C∩supp f ) ≤ kf (1 − kn )kL∞ (Kn ) ≤
+
+1
+,
+n
+
+which implies uniform convergence on C.
+Corollary 19 (Turán problem). Let G be a LCA group and Ω ⊂ G a boundary-coherent symmetric
+neighbourhood of 0 having finite Haar measure. Then there exists an extremal function for the Turán
+constant TG (Ω).
+Corollary 20 (Delsarte problem). Let G be a LCA group and Ω ⊂ G a boundary-coherent symmetric neighbourhood of 0 having finite Haar measure. Then there exists an extremal function for
+the Delsarte constant DG (Ω).
+Example 21. Consider the Turán problem for Ω = (−2, −1) ∪ (−1, 1) ∪ (1, 2). Observe that Ω is
+not boundary-coherent. By [13, Theorem 7], the extremal constant is TR (Ω) = 1, which is attained
+by the function f = 1[− 1 , 1 ] ∗ 1[− 1 , 1 ] appearing on the left of Figure 1. On the right of Figure 1 is
+2 2
+2 2
+
+the integrally positive definite function which is equal to g = 12 1[−1,1] ∗ 1[−1,1] everywhere but the
+points x = ±1 where it vanishes, showing that allowing integrally positive definite (discontinuous)
+functions in our class can drastically increase the value of the extremal constant. Moreover, the
+function f belongs to FR (Ω, Ω), showing that an extremal function can exist even when Ω = Ω+ is
+not boundary-coherent.
+y
+
+y
+
+1
+
+1
+
+x
+−2 −1
+
+1
+
+x
+−2 −1
+
+2
+
+1
+
+2
+
+Figure 1: Extremal functions for our class and if we allow functions which may be only integrally positive definite.
+
+11
+
+5. Equivalence of Extremal Problems
+Let Ω+ and Ω− be subsets of a LCA group G. In this section, we investigate conditions under
+which the extremal problem of calculating the extremal value CG (Ω+ , Ω− ) is equivalent to that
+∗
+of calculating the extremal value CG
+(Ω+ , Ω− ). This could either mean that the function classes
+∗
+FG (Ω+ , Ω− ) and FG (Ω+ , Ω− ) are equal, in which case the corresponding extremal values are equal,
+or it could mean that the extremal values are equal even though the corresponding function classes
+are not equal. For brevity, we drop the subscript G and simply write, for example, F (Ω+ , Ω− )
+instead of FG (Ω+ , Ω− ).
+Even though it is true that C(Ω+ , Ω− ) = C ∗ (Ω+ , Ω− ) for some classes of sets Ω+ , Ω− , this
+can not always be proved by showing that F (Ω+ , Ω− ) = F ∗ (Ω+ , Ω− ). This is because even
+though F ∗ (Ω+ , Ω− ) ⊂ F (Ω+ , Ω− ), it is not true, in general, that F (Ω+ , Ω− ) ⊂ F ∗ (Ω+ , Ω− ), as
+the following example shows.
+Example 22. Let G = R, Ω = Ω+ = Ω− = (−1, 1), so that we are in the situation of the
+Turán problem for an interval in R. The extremal function for TR (Ω) is the triangle function
+1 21 Ω ∗ 1 21 Ω ∈ FR (Ω+ , Ω− ). It is easy to see that TR (Ω) = TR∗ (Ω) = 1. However, the support of
+1 21 Ω ∗ 1 21 Ω is [−1, 1], so that 1 21 Ω ∗ 1 12 Ω ∈
+/ FR∗ (Ω+ , Ω− ).
+In the opposite direction we have the following example, although it is quite special.
+Example 23. For a prime p, consider the group Qp of p-adic rationals with the p-adic norm. Any
+ball of positive radius is both open and closed. So, if Ω+ and Ω− are balls of positive radii with Ω+
+centred at 0, then the extremal problems are equivalent in any sense.
+We make some simple observations. Firstly, the equality F (Ω+ , Ω− ) = F ∗ (Ω+ , Ω− ) is easily
+seen to be true, always. In particular, if Ω+ and Ω− are closed sets, then the extremal problems
+are equivalent in any sense. Another observation is that if f ∈ F (Ω+ , Ω− ), then taking into
+account the continuity of f we have f −1 (0, ∞) ⊂ int Ω+ ⊂ Ω+ , and hence supp f+ ⊂ int Ω+ .
+Similarly, f −1 (−∞, 0) ⊂ int Ω− ⊂ Ω− , and hence supp f− ⊂ int Ω− . Thus, we have the following
+containments:
+F ∗ (Ω+ , Ω− ) ⊆ F (Ω+ , Ω− ) = F (int Ω+ , int Ω− )
+⊆ F (int Ω+ , int Ω− )
+= F ∗ (int Ω+ , int Ω− )
+
+(18)
+
+⊆ F ∗ (Ω+ , Ω− ) = F (Ω+ , Ω− ),
+and the corresponding relations between the extremal values:
+C ∗ (Ω+ , Ω− ) ≤ C(Ω+ , Ω− ) = C(int Ω+ , int Ω− )
+≤ C(int Ω+ , int Ω− )
+= C ∗ (int Ω+ , int Ω− )
+
+(19)
+
+≤ C ∗ (Ω+ , Ω− ) = C(Ω+ , Ω− ).
+In some situations, the above containments and inequalities are equalities. This can easily be
+shown if Ω+ and Ω− are closed. The next proposition shows that equality holds when Ω+ and Ω−
+are boundary-coherent.
+Proposition 24. Let G be a LCA group and Ω+ , Ω− be boundary-coherent symmetric subsets of
+G with Ω+ a neighbourhood of 0. Then F ∗ (Ω+ , Ω− ) = F (Ω+ , Ω− ).
+Proof. Note that F (Ω+ , Ω− ) ⊂ F ∗ (Ω+ , Ω− ) is always true. So, it is enough to show that
+F ∗ (Ω+ , Ω− ) ⊆ F (Ω+ , Ω− ). Let f ∈ F ∗ (Ω+ , Ω− ). The aim is to show that f ∈ F (Ω+ , Ω− ).
+In other words, the aim is to show that f −1 (0, ∞) ⊂ Ω+ and f −1 (−∞, 0) ⊂ Ω− . Now, on account
+of Ω+ = Ω+ ∪ ∂Ω+ and Ω− = Ω− ∪ ∂Ω− , it suffices to show that f (x) ≤ 0 for all x ∈ ∂Ω+ and
+that f (x) ≥ 0 for all x ∈ ∂Ω− . To that end, let x ∈ ∂Ω+ . Pick ε > 0 arbitrarily, and use the
+12
+
+continuity of f to obtain an open neighbhourhood V of x such that f (y) ≥ f (x) − ε for all y ∈ V .
+Since x is in the boundary of ext Ω+ , there is an open set U contained in V that is fully contained
+in ext Ω+ . But y ∈ ext Ω+ implies that f (y) ≤ 0. Hence 0 ≥ f (y) ≥ f (x) − ε for all y ∈ U . Since
+ε is arbitrary, it follows that f (x) ≤ 0. Similarly, f (x) ≥ 0 for all x ∈ ∂Ω− .
+Remark 25. In the course of the proof of Theorem 14 we argued similarly to get that the limit
+function f is in F (Ω+ , Ω− ). There it is easy to see that f ∈ F ∗ (Ω+ , Ω− ). So, the above Proposition
+can replace the argument there, showing f ∈ F (Ω+ , Ω− ) under the condition of boundary-coherence.
+Corollary 26. Under the conditions of Proposition 24, the following equalities hold:
+F (Ω+ , Ω− ) = F (int Ω+ , int Ω− ) = F (int Ω+ , int Ω− ) = F ∗ (int Ω+ , int Ω− ) = F ∗ (Ω+ , Ω− ).
+We also have equality of the extremal constants.
+Corollary 27. Under the conditions of Proposition 24, the following equalities hold:
+C(Ω+ , Ω− ) = C(int Ω+ , int Ω− ) = C(int Ω+ , int Ω− ) = C ∗ (int Ω+ , int Ω− ) = C ∗ (Ω+ , Ω− ).
+Example 28. Consider the Turán problem for Ω = (−2, −1) ∪ (−1, 1) ∪ (1, 2). Observe that
+Ω is not boundary-coherent. By [13, Theorem 7], the extremal constant is TR (Ω) = 1, which is
+attained by the function f = 1[− 1 , 1 ] ∗ 1[− 1 , 1 ] appearing on the left of Figure 2. On the other hand,
+2 2
+
+2 2
+
+Ω = [−2, 2], and the value of the extremal constant is TR ([−2, 2]) = 2, which is attained by the
+function g = 12 1[−1,1] ∗ 1[−1,1] appearing on the right of Figure 2. In particular, TR (Ω) 6= TR (Ω).
+y
+
+y
+
+1
+
+1
+
+x
+−2 −1
+
+1
+
+x
+−2 −1
+
+2
+
+1
+
+2
+
+Figure 2: Extremal functions for Ω and for Ω.
+
+Notice that in Corollary 26 the set F ∗ (Ω+ , Ω− ) is missing. Indeed, Example 22 demonstrates
+that this should be the case and that we can not do better under these conditions. On the other
+hand, this does not exclude, as demonstrated by Example 22, the possibility that under the same
+conditions the term C ∗ (Ω+ , Ω− ) should feature in the equalities in Corollary 27. We consider this
+problem separately. Our point of departure is the following proposition.
+Proposition 29 (See [2, Proposition 3.1]). Let Ω+ , Ω− ⊂ Rd be 0-symmetric convex sets with Ω+
+a neighbourhood of 0. Then C ∗ (int Ω+ , int Ω− ) = C ∗ (Ω+ , Ω− ).
+This allows us to extend the equalities in Corollary 27 as follows.
+Corollary 30. If Ω+ , Ω− ⊂ Rd are 0-symmetric convex sets with Ω+ a neighbourhood of 0, then
+the following equalities hold:
+C ∗ (int Ω+ , int Ω− ) = C ∗ (Ω+ , Ω− ) = C(Ω+ , Ω− ) = C(int Ω+ , int Ω− ) = C(int Ω+ , int Ω− )
+= C ∗ (int Ω+ , int Ω− ) = C ∗ (Ω+ , Ω− ).
+Proof. Since convex sets are boundary-coherent, Corollary 27 applies to give
+C(Ω+ , Ω− ) = C(int Ω+ , int Ω− ) = C(int Ω+ , int Ω− ) = C ∗ (int Ω+ , int Ω− ) = C ∗ (Ω+ , Ω− ).
+13
+
+(20)
+
+By Proposition 29, we have
+C ∗ (Ω+ , Ω− ) = C ∗ (int Ω+ , int Ω− ) ≤ C ∗ (Ω+ , Ω− ) ≤ C(Ω+ , Ω− ) = C ∗ (Ω+ , Ω− ),
+
+(21)
+
+and the corollary is proved.
+At this point, a natural goal is to generalise Proposition 29, and, as a result, generalise Corollary 30. Firstly, we introduce the following function class:
+Fc∗ (Ω+ , Ω− ) := {f ∈ FG (Ω+ , Ω− ) : supp f ⋐ G}.
+Define the corresponding extremal value:
+Cc (Ω+ , Ω− ) :=
+
+sup
+f ∈Fc∗ (Ω+ ,Ω− )
+
+Z
+
+f dλG .
+
+G
+
+Following [2, Theorem 2.1], we have the following lemma.
+Lemma 31 (See [2, Theorem 2.1]). If Ω+ and Ω− are 0-symmetric subsets of a LCA group G with
+Ω+ a neighbourhood of 0, then Cc∗ (Ω+ , Ω− ) = C ∗ (Ω+ , Ω− ).
+Theorem 32. Let G be a LCA group which is also a topological vector space (TVS) over R. Let
+Ω+ and Ω− be bounded 0-symmetric sets in G such that rΩ+ ⊂ int Ω+ and rΩ− ⊂ int Ω− for all
+r ∈ [0, 1). Then C ∗ (int Ω+ , int Ω− ) = C ∗ (Ω+ , Ω− ).
+Proof. Clearly, C ∗ (int Ω+ , int Ω− ) ≤ C ∗ (Ω
+R + , Ω− ), so we only prove the reverse inequality. Let us
+take ε > 0 and f ∈ Fc∗ (Ω+ , Ω− ) with G f dλG ≥ Cc∗ (Ω+ , Ω− ) − ε = C ∗ (Ω+ , Ω− ) − ε. The last
+equality is by Lemma 31. Take any R > 1 and put r := 1/R < 1. Consider the function hR (g) :=
+f (Rg). Obviously, supp(hR )+ ⊂ rΩ+ ⊂ int Ω+ and supp(hR )− ⊂ rΩ− ⊂ int Ω− . Furthermore,
+hR is a compactly supported positive definite continuous function satisfying hR (0) = 1. Hence
+hR ∈ Fc∗ (int Ω+ , int Ω− ). Now, hR (g) = f (Rg) → f (g) as R → 1+. Let 0 < δ < 1 and consider
+the set
+K := {rg : 1 − δ ≤ r ≤ 1, g ∈ supp f } = [1 − δ, 1] · supp f.
+Observe that K, being a continuous image of the compact set [1 − δ, 1] × supp f ⊂ R × G under
+the multiplication map R × G ∋ (r, g) 7→ rg ∈ G is a compact subset of G, and hence has finite
+1
+Haar measure. For 1 < R < 1−δ
+, we have that supp hR ⊂ K, so that |hR | ≤ 1K ∈ L1 (G). Hence,
+by Lebesgue’s Dominated Convergence Theorem, we have
+Z
+Z
+lim
+f dλG .
+hR dλG =
+R→1+
+
+G
+
+G
+
+In other words, there exists R0 > 1 such that
+Z
+Z
+hR dλG −
+f dλG < ε, for all R ∈ (1, R0 ).
+G
+
+G
+
+Then, for all R ∈ (1, R0 ), keeping in mind that hR ∈ F ∗ (int Ω+ , int Ω− ), we have that
+Z
+Z
+∗
+C (int Ω+ , int Ω− ) ≥
+hR dλG >
+f dλG − ε ≥ C ∗ (Ω+ , Ω− ) − 2ε.
+G
+
+G
+
+Since ε > 0 was arbitrary, we have C ∗ (int Ω+ , int Ω− ) ≥ C ∗ (Ω+ , Ω− ) as desired.
+After proving Theorem 32, we noticed the paper [14] where the following theorem was proved.
+Theorem 33 (See [14, Theorem 1]). Let Ω ⊂ Rd be an open, bounded, strictly star-shaped 5 and
+symmetric set, and assume that ε > 0 and f is a continuous, positive definite function which
+vanishes outside Ω (i.e. supp f ⊂ Ω). Then there is a continuous positive definite function F , with
+supp F ⊂ Ω , such that kf − F k∞ < ε.
+5 The authors call an open set Ω strictly star-shaped if rΩ ⊂ Ω for all r ∈ [0, 1).
+
+14
+
+Figure 3: Two open, 0-symmetric, star-shaped sets. The left set satisfies the condition rX ⊂ intX, 0 ≤ r < 1; the
+right set does not satisfy this condition — it is even true that rX 6⊂ X.
+
+Theorem 33 and its proof are essentially the same as the argument used in Theorem 32, so we
+give credit to [14] while observing that our work naturally leads us to consider a result along these
+lines.
+Now we have the following general form of Corollary 30.
+Corollary 34. Let G be a LCA group which is also a TVS over R. Let Ω+ and Ω− be bounded
+0-symmetric sets of G such that rΩ+ ⊂ int Ω+ and rΩ− ⊂ int Ω− for all r ∈ [0, 1). Then the
+following equalities hold:
+C ∗ (int Ω+ , int Ω− ) = C ∗ (Ω+ , Ω− ) = C(Ω+ , Ω− ) = C(int Ω+ , int Ω− ) = C(int Ω+ , int Ω− )
+= C ∗ (int Ω+ , int Ω− ) = C ∗ (Ω+ , Ω− ).
+Acknowledgements
+E. E. Berdysheva would like to thank the Isaac Newton Institute for Mathematical Sciences,
+Cambridge, for support and hospitality during the programme “Discretization and recovery in highdimensional spaces” where part of the work on this paper was undertaken. This work was supported
+by EPSRC grant no EP/R014604/1. M. D. Ramabulana is grateful for the financial support from
+the Shuttleworth Postgraduate Scholarship of the University of Cape Town. Sz. Gy. Révész was
+supported in part by the Hungarian National Research, Development and Innovation Office, project
+#s K-147153 and K-146387.
+References
+[1] V. V. Arestov and E. E. Berdysheva, Turán’s problem for a class of polytopes, East J. Approx.
+8 (2002) 3, 381–388.
+[2] E. E. Berdysheva, Sz. Gy. Révész, Delsarte’s Extremal Problem and Packing on Locally Compact Abelian Groups, Annali della Scuola Normale di Pisa – Classe di Scienze (5) XXIV
+(2023), 1007–1052.
+[3] H. Brezis, “Functional Analysis, Sobolev Spaces, and Partial Differential Equations”, SpringerVerlag, New York (2010).
+[4] C. Carathéodory, Über den Variabilitätsbereich der Fourier’schen Konstanten von positiven
+harmonischen Funktionen, Rendiconti del Circolo Matematico di Palermo, 32 (1911), 193–
+217.
+[5] H. Cohn, D. De Laat, and A. Salmon, Three-point bounds for sphere packing, arXiv:2206.15373.
+[6] A. Deitmar, S. Echterhoff, “Principles of Harmonic Analysis”, Second Edition, Springer (2014).
+[7] Y. Domar, An extremal problem for positive definite functions, J. Math. Anal. Appl. 52 (1975),
+56–63.
+15
+
+[8] G. Folland, “A Course in Abstract Harmonic Analysis”, Second Edition, Taylor & Francis
+Group (2016).
+[9] L. Fejér, Über trigonometrische Polynome, J. Reine Angew. Math. 146 (1916), 53-82.
+[10] M. Gaál and Zs. Nagy-Csiha, On the Existence of an Extremal Function in the Delsarte
+Extremal Problem, Mediterr. J. Math, 17:190 (2020).
+[11] D. V. Gorbachev, An extremal problem for periodic functions with supports in the ball, Math.
+Notes (3) 69 (2001), 313–319.
+[12] M. N. Kolountzakis and Sz. Gy. Révész, On a problem of Turán about positive definite functions, Proc. Amer. Math. Soc. 131 (2003), 3423–3430.
+[13] M. N. Kolountzakis and Sz. Gy. Révész, Turán’s extremal problem for positive definite functions
+on groups, J. London Math. Soc. 74 (2006), 475–496.
+[14] P. G. Mavroudis, On the approximation of positive definite functions by like functions of
+smaller support, Bull. Math. Sci. 3 (2013), 287–298.
+[15] M. D. Ramabulana, On the existence of an extremal function for the Delsarte extremal problem,
+Analysis Mathematica, to appear. See also as arxiv: 2407.04410.
+[16] Sz. Gy. Révész, Turán’s extremal problem on locally compact Abelian groups, Anal. Math. 37
+(2011), 15–50.
+[17] Z. Sasvári, “Positive definite and definitizable functions”, Vol. 2, Akademie Verlag, Berlin
+(1994).
+[18] C. L. Siegel, Über Gitterpunkte in konvexen Körpern und ein damit zusammenhäng̈endes
+Extremalproblem, Acta Math. 65 (1935), 307–323.
+
+16
+
+

@@ -1,0 +1,455 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN" "http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg-flat.dtd" >
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+
+<title>A Typed Language for Agent Coordination | The n-Category Caf&#xE9;</title>
+
+<meta name="ICBM" content="30.2893, -97.7367" />
+<meta name="DC.title" content="The n-Category Caf&#xE9;" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<style type="text/css" media="all" title="The n-Category Caf&#xE9; Stylesheet">@import url("/category/styles-site.css");</style>
+<link rel="stylesheet" href="/category/print.css" type="text/css" media="print" />
+
+<link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="/category/atom10.xml" />
+<link rel="alternate" type="application/atom+xml" title="Atom 1.0 Comments Feed" href="/category/comments.atom" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="/category/rsd.xml" />
+<link rel="shortcut icon" type="image/x-icon" href="/category/images/favicon.ico" />
+<link rel="icon" type="image/x-icon" href="/category/images/favicon2.ico" />
+<link rel="pgpkey" href="/category/urs.asc" title="Urs Schreiber's PGP Public Key" />
+<link rel="start" href="/category/" title="Home" />
+<link rel="search" href="/cgi-bin/MT-3.0/mt-search.cgi?IncludeBlogs=3&amp;Template=category" title="Search" />
+<link rel="contents" href="/category/archives.html" title="Comprehensive List of Blog Entries" />
+
+
+<link rel="bookmark" href="#content" title="Main Content" />
+<link rel="bookmark" href="#comments" title="Comments" />
+<link rel="bookmark" href="#search" title="Search Box" />
+<link rel="bookmark" href="#related" title="Related entries" />
+<link rel="bookmark" href="#AccessKeyList" title="AccessKeys" />
+<link rel="prev" href="/category/2026/02/the_univalence_principle.html" title="The Univalence Principle" />
+<link rel="next" href="/category/2026/03/the_agent_that_doesnt_know_its.html" title="The Agent That Doesn't Know Itself" />
+<link rel="up" href="/category/2026/03/" title="March, 2026" />
+
+<script type="text/javascript" src="/category/prototype.js"></script>
+<script type="text/javascript" src="/category/ie.js"></script>
+<script type="text/x-mathjax-config">
+  <!--//--><![CDATA[//><!--
+    MathJax.Hub.Config({
+      MathML: { useMathMLspacing: true },
+      "HTML-CSS": { scale: 90,
+                    noReflows: false,
+                    extensions: ["handle-floats.js"],
+                    linebreaks: { width: "container" }
+       }
+    });
+    MathJax.Hub.Queue( function () {
+       var fos = document.getElementsByTagName('foreignObject');
+       for (var i = 0; i < fos.length; i++) {
+         MathJax.Hub.Typeset(fos[i]);
+       }
+    });
+  //--><!]]>
+</script>
+<script type="text/javascript">
+  <!--//--><![CDATA[//><!--
+  window.addEventListener("DOMContentLoaded", function () {
+    var div = document.createElement('div');
+    var math = document.createElementNS('http://www.w3.org/1998/Math/MathML', 'math');
+    document.body.appendChild(div);
+    div.appendChild(math);
+  // Test for MathML support comparable to WebKit version https://trac.webkit.org/changeset/203640 or higher.
+    div.setAttribute('style', 'font-style: italic');
+    var mathml_unsupported = !(window.getComputedStyle(div.firstChild).getPropertyValue('font-style') === 'normal');
+    div.parentNode.removeChild(div);
+    if (mathml_unsupported) {
+      // MathML does not seem to be supported...
+      var s = document.createElement('script');
+      s.src = "/wiki/MathJax/MathJax.js?config=MML_HTMLorMML-full";
+      document.querySelector('head').appendChild(s);
+    } else {
+      document.head.insertAdjacentHTML("beforeend", '<style>svg[viewBox] {max-width: 100%}</style>');
+    }
+  });
+  //--><!]]>
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="https://golem.ph.utexas.edu/category/2026/03/a_typed_language_for_agent_coordination.html"
+    trackback:ping="https://golem.ph.utexas.edu/cgi-bin/MT-3.0/dxy-tb.fcgi/3630"
+    dc:title="A Typed Language for Agent Coordination"
+    dc:identifier="https://golem.ph.utexas.edu/category/2026/03/a_typed_language_for_agent_coordination.html"
+    dc:subject="Computer Science"
+    dc:description="A category-theoretic approach to &quot;agent frameworks&quot;: that is, frameworks for coordinating &quot;agents&quot; that are large language models."
+    dc:creator="John Baez"
+    dc:date="2026-03-11T22:59:53+00:00" />
+</rdf:RDF>
+-->
+
+
+</head>
+
+<body>
+
+<div class="frame">
+
+<div id="banner">
+<h1><a href="/category/" accesskey="1" title="Jump to the blog main page">The n-Category Caf&#xE9;</a></h1>
+<div class="description">A group blog on math, physics and philosophy</div>
+</div>
+
+
+<h2 class="skip">Skip to the Main Content</h2>
+<div class="skip">
+<a href="#content" accesskey="2">Enough, already! Skip to the content.</a>
+</div>
+<p style="display:none;">
+<strong>Note:</strong>These pages make extensive use of the latest XHTML and CSS <a href="http://www.w3.org">Standards</a>. They ought to look great in any standards-compliant modern browser. Unfortunately, they will probably look horrible in older browsers, like Netscape 4.x and IE 4.x. Moreover, many posts use MathML, which is, currently <em>only</em> supported in Mozilla. My best suggestion (and you will <em>thank</em> me when surfing an ever-increasing number of sites on the web which have been crafted to use the new standards) is to upgrade to the latest version of your browser. If that's not possible, consider moving  to the Standards-compliant and open-source <a href="http://www.mozilla.org">Mozilla</a> browser.
+</p>
+
+
+<div class="blog">
+
+<div><div id='menu'>
+<a href='/category/2026/02/the_univalence_principle.html' accesskey='p'>&#xab; The Univalence Principle</a> |
+
+<a href='/category/'>Main</a>
+| <a href='/category/2026/03/the_agent_that_doesnt_know_its.html' accesskey='n'>The Agent That Doesn&#x2019;t Know Itself &#xbb;</a>
+
+</div>
+
+<h2 class='date'>March 11, 2026</h2>
+
+<div id='content' class='blogbody'>
+
+<h3 class='title'>A Typed Language for Agent Coordination</h3>
+
+<h4 class='posted'>Posted by John Baez</h4>
+
+<div><a href='http://golem.ph.utexas.edu/~distler/blog/mathml.html' onclick='window.open(this.href, &#x27;MathML&#x27;, &#x27;width=310,height=150,scrollbars=no,resizable=yes,status=no&#x27;); return false;' onkeypress='if(window.event.keyCode == 13){window.open(this.href, &#x27;MathML&#x27;, &#x27;width=310,height=150,scrollbars=no,resizable=yes,status=no&#x27;); return false;}'><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+<p><i>guest post by <b><a href='https://scholar.google.com/scholar?hl=en&amp;as_sdt=0%2C5&amp;q=william+waites&amp;btnG='>William Waites</a></b></i></p>
+
+<p>How category theory can be used to help coordinate collections of interacting large language models.</p>
+
+<div id='more'>
+<div><a href='http://golem.ph.utexas.edu/~distler/blog/mathml.html' onclick='window.open(this.href, &#x27;MathML&#x27;, &#x27;width=310,height=150,scrollbars=no,resizable=yes,status=no&#x27;); return false;' onkeypress='if(window.event.keyCode == 13){window.open(this.href, &#x27;MathML&#x27;, &#x27;width=310,height=150,scrollbars=no,resizable=yes,status=no&#x27;); return false;}'><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+<p><a href='https://blog.jonathanchun.com/2025/02/07/why-use-an-agentic-framework/#whats-an-agent'>Agent frameworks</a> are popular. (These are frameworks for coordinating large language model agents, not to be confused with agent-based modelling in the simulation sense.) There are dozens of them for wrapping large language models in something called an agent and assembling groups of agents into workflows. Much of the surrounding discussion is marketing, but the underlying intuition is old: your web browser identifies itself as a <em>user agent</em>. What is new is the capability that generative language models bring.</p>
+
+<p>The moment you have one agent, you can have more than one. That much is obvious. How to coordinate them is not. The existing frameworks (<a href='https://n8n.io/'>n8n</a>, <a href='https://www.langchain.com/langgraph'>LangGraph</a>, <a href='https://www.crewai.com/'>CrewAI</a>, and others) are engineering solutions, largely ad hoc. Some, like LangGraph, involve real thinking about state machines and concurrency. But none draws on what we know from mathematics and computer science about typed composition, protocol specification, or structural guarantees for concurrent systems.</p>
+
+<p>This matters because it is expensive. Multi-agent systems are complicated concurrent programs. Without structural guardrails, they fail in ways you discover only after spending the compute. A job can go off the rails, and the money you paid for it is wasted; the providers will happily take it regardless. At current subscription rates the cost is hidden, but a&#xa0;<a href='https://www.forbes.com/sites/annatong/2026/03/05/cursor-goes-to-war-for-ai-coding-dominance/'>recent Forbes investigation</a> found that a heavy user of Anthropic&#x2019;s $200/month Claude Code subscription can consume up to $5,000/month measured at retail <abbr title='Application Programming Interface'>API</abbr> rates. For third-party tools like Cursor, which pay close to those retail rates, these costs are real. Wasted tokens are wasted money.</p>
+
+<p>To address this, we built a language called <strong>plumbing</strong>. It describes how agents connect and communicate, in such a way that the resulting graph can be checked before execution: checked for well-formedness, and within limits for deadlocks and similar properties. It is a statically typed language, and these checks are done formally. There is a compiler and a runtime for this language, working code, not a paper architecture. In a few lines of plumbing, you can describe agent systems with feedback loops, runtime parameter modulation, and convergence protocols, and be sure they are well-formed before they run. This post explains how it works.</p>
+
+<p>The name has a history in computing. Engineers have always talked informally about plumbing to connect things together: bits of software, bits of network infrastructure. When I was a network engineer I sometimes described myself as a glorified plumber. The old Solaris <code>ifconfig</code> command took <code>plumb</code> as an argument, to wire a network interface into the stack. Plan 9 had a deeper version of the same idea. The cultural connection goes back decades.</p>
+
+<p>This is the first of two posts. This one introduces the plumbing calculus: what it is, how it works, and a few simple examples. Motifs for adversarial review, ensemble reasoning, and synthesis. The second post will tackle something harder.</p>
+
+<h3>The calculus</h3>
+
+<p>The plumbing language is built on a symmetric monoidal category, specifically a copy-discard category with some extra structure. The terminology may be unfamiliar, but the underlying concept is not. Engineers famously like Lego. Lego bricks have studs on top and holes with flanged tubes underneath. The studs of one brick fit into the tubes of another. But Lego has more than one connection type: there are also holes through the sides of Technic bricks, and axles that fit through them, and articulated ball joints for the fancier kits. Each connection type constrains what can attach to what. This is typing.</p>
+
+<p>In plumbing, the objects of the category are <strong>typed channels</strong>: streams that carry a potentially infinite sequence of values, each of a specific type (integer, string, a record type, or something more complex). We write <code>!A</code> to mean "a stream of <code>A</code>s", so <code>!string</code> is a stream of strings and <code>!int</code> is a stream of integers. The morphisms, which describe how you connect channels together, are <strong>processes</strong>. A process has typed inputs and typed outputs.</p>
+
+<p>There are four structural morphisms. <strong>Copy</strong> takes a stream and duplicates it: the same values appear on two output streams. <strong>Discard</strong> throws values away, perhaps the simplest thing you
+can do with a stream, and often needed. These two, together with the typed channels and the laws of the category, give us a copy-discard category.</p>
+
+<p>To this we add two more. <strong>Merge</strong> takes two streams of the same type and interleaves them onto a single output stream. This is needed because a language model&#x2019;s input is a single stream. There is nothing to be done about that. If you want to send two different things into it, you must send one and then the other. One might initially give merge the type <code>!A &#x2297; !B &#x2192; !(A + B)</code>, taking two streams of different types and producing their coproduct. This works, but it is unnecessarily asymmetrical.</p>
+
+<p>As <a href='https://categorytheory.zulipchat.com/#narrow/channel/229199-learning.3A-questions/topic/Non-deterministic.20Markov.20category.2C.20is.20it.20a.20thing.3F/near/577049376'>Tobias Fritz has observed</a>, it is cleaner to do the coproduct injection first, converting each stream to the coproduct type separately, and then merge streams that already have the same type. This gives:</p>
+
+<p><code>merge : !A &#x2297; !A &#x2192; !(A + A)</code></p>
+
+<p><strong>Barrier</strong> takes two streams, which may be of different types, and synchronises them. Values arrive unsynchronised; the barrier waits for one value from each stream and produces a pair.</p>
+
+<p><code>barrier : !A &#x2297; !B &#x2192; !(A, B)</code></p>
+
+<p>(A mathematician would write A <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mo>&#xd7;</mo></mrow><annotation encoding='application/x-tex'>\times</annotation></semantics></math> B for the product. We cannot easily do this in a computer language because there is no <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mo>&#xd7;</mo></mrow><annotation encoding='application/x-tex'>\times</annotation></semantics></math> symbol on most keyboards, so we use <code>(A, B)</code> for the product, following Haskell&#x2019;s convention.)</p>
+
+<p>This is a synchronisation primitive. It is important because it unlocks session types, which we will demonstrate in the second post.</p>
+
+<p>Two further morphisms are added to the category (they are not derivable from the structural ones, but are needed to build useful things): <strong>map</strong>, which applies a pure function to each value in a stream, and <strong>filter</strong>, which removes values that do not satisfy a predicate. Both are pure functions over streams. Both will be familiar from functional programming.</p>
+
+<p>Here is a graphical representation of the morphisms. We can glue them together freely, as long as the types and the directions of the arrows match up.</p>
+
+<p><img width='440' src='https://leithdocs.com/ldc/documents/outgoing/plumbing/morphisms.png' alt='Diagram showing all six morphisms as boxes with typed input and output wires. Top row: copy &#x394; (one input, two outputs of the same type), merge &#x2207; (two inputs of copyable type, one output of sum type), discard &#x25c7; (one input, no output). Bottom row: barrier &#x22c8; (two inputs, one paired output, synchronises two streams), map f (one input, one output, applies a function), filter p (one input, one output, removes values failing a predicate). Each morphism shows its type signature using the !A notation for copyable streams.' /></p>
+
+<p>There are two forms of composition. <strong>Sequential composition</strong> connects morphisms nose to tail, the output of one feeding the input of the next. <strong>Parallel composition</strong> places them side by side, denoted by &#x2297; (the tensor product, written directly in plumbing source code). So: four structural morphisms, two utilities, two compositional forms, all operating on typed channels.</p>
+
+<p>Because the channels are typed, the compiler can check statically, at compile time, that every composition is well-formed: that outputs match inputs at every boundary. This gives a guarantee that the assembled graph makes sense.</p>
+
+<p><img width='640' src='https://leithdocs.com/ldc/documents/outgoing/plumbing/composition.png' alt='Two diagrams side by side. Left: sequential composition, showing two morphisms connected end-to-end, the output wire of the first feeding into the input wire of the second, forming a pipeline. Right: parallel composition (tensor product), showing two morphisms stacked vertically with no connection between them, running simultaneously on independent streams. Both forms produce a composite morphism whose type is derived from the types of the components.' /></p>
+
+<p>A composition of morphisms is itself a morphism. This follows from the category laws (it has to, or it is not a category) but the practical consequence is worth stating explicitly. We can assemble a subgraph of agents and structural morphisms, and then forget the internal detail and use the entire thing as a single morphism in a larger graph. This gives modularity. We can study, test, and refine a building block in isolation, and once satisfied, use it as a component of something bigger.</p>
+
+<p>What we have described so far is the static form of the language: concise, point-free (composing operations without naming intermediate values), all about compositions. This is what you write. It is not what the runtime executes. A compiler takes this static form and produces the underlying wiring diagram, expanding the compositions into explicit connections between ports. The relationship is similar to point-free style in functional programming: the concise form is good for thinking and writing; the expanded form is good for execution.</p>
+
+<h3>Agents</h3>
+
+<p>An agent is a special kind of morphism. It takes typed input and produces typed output, like any other morphism, and we can enforce these types. This much is a well-known technique; <a href='https://ai.pydantic.dev/'>PydanticAI</a> and the <a href='https://ai-sdk.dev/'>Vercel AI <acronym title='Software Development Kit'>SDK</acronym></a> do it. Agents implement typing at the language model level by producing and consuming JSON, and we can check that the JSON has the right form. This is the basis of the type checking.</p>
+
+<p>Unlike the structural morphisms and utilities, an agent is stateful. It has a conversation history, a context window that fills up, parameters that change. You cannot sensibly model an agent as a pure function. You could model it using the state monad or lenses, and that would be formally correct, but it is the wrong level of abstraction for engineering. Instead, we allow ourselves to think of agents as opaque processes with a typed protocol for interacting with them. We mutate their state through that protocol, and we know how to do that purely from functional programming and category theory. The protocol is the right abstraction; the state management is an implementation detail behind it. How this works in practice, and what happens when it goes wrong, is the subject of the second post.</p>
+
+<p>In addition to their main input and output ports, agents in plumbing have <strong>control ports</strong> (control in and control out) for configuring the agent at runtime. For example, the <em>temperature</em> parameter governs how creative a language model is: how wide its sampling distribution when choosing output. At zero it is close to deterministic; at one it becomes much less predictable. A control message might say <em>set temperature to 0.3</em>; the response on the control out wire might be <em>acknowledged</em>. The control port carries a typed stream like anything else.</p>
+
+<p>Agents also have ports for <strong>operator-in-the-loop</strong> (often called human-in-the-loop, though there is no reason an operator must be human), <strong>tool calls</strong>, and <strong>telemetry</strong>. The telemetry port emits usage statistics and, if the underlying model supports it, thinking traces. We will not detail these here. Suffice it to say that an agent has several pairs of ports beyond what you might imagine as its regular chat input and output.</p>
+
+<p><img width='350' src='https://leithdocs.com/ldc/documents/outgoing/plumbing/agent.png' alt='Diagram of a generic agent morphism showing all port pairs. The agent is a central box. On the left: input (main data stream), ctrl_in (control commands), tool_in (tool call responses), oitl_in (operator-in-the-loop responses). On the right: output (main data stream), ctrl_out (control responses), tool_out (tool call requests), oitl_out (operator-in-the-loop requests), telemetry (usage and diagnostic data). Each port pair carries a typed stream. Most programs use only a few of these ports; unused ports are elided via the don&#x27;t-care-don&#x27;t-write convention.' /></p>
+
+<p>An agent has many ports, but most programs use only a few of them. We adopt a convention from the &#x3ba; calculus: don&#x2019;t care, don&#x2019;t write. Any output port that is not mentioned in the program is implicitly connected to discard. If a port&#x2019;s output cannot matter, there is no reason to write it down.</p>
+
+<h3>Example: adversarial document composition</h3>
+
+<p>Suppose the problem is to write a cover letter for a job application. You provide some background material (a CV, some notes, some publications) and a job advert. You want a network of agents to produce a good cover letter. A good cover letter has two constraints: it must be <em>accurate</em>, grounded in the source materials, not making things up; and it must be <em>compelling</em>, so that the reader wants to give you an interview.</p>
+
+<p>These two constraints are in tension, and they are best served by different agents with different roles. A <strong>composer</strong> drafts from the source materials. A <strong>checker</strong> verifies the draft against those materials for accuracy, producing a verdict: pass or fail, with commentary. A <strong>critic</strong>, who deliberately cannot see the source materials, evaluates whether the result is compelling on its own terms, producing a score.</p>
+
+<p>The feedback loops close the graph. If the checker rejects the draft, its commentary goes back to the composer. If the critic scores below threshold, its review goes back to the composer. Only when the critic is satisfied does the final draft emerge.</p>
+
+<p>Here is the plumbing code:</p>
+
+<pre><code>type Verdict = { verdict: bool, commentary: string, draft: string }
+type Review  = { score: int, review: string, draft: string }
+&#xa0;
+let composer : !string -&gt; !string = agent { ... }
+let checker  : !string -&gt; !Verdict = agent { ... }
+let critic   : !Verdict -&gt; !Review = agent { ... }
+&#xa0;
+let main : !string -&gt; !string = plumb(input, output) {
+  input   ; composer ; checker
+  checker ; filter(verdict = false)
+          ; map({verdict, commentary}) ; composer
+  checker ; filter(verdict = true) ; critic
+  critic  ; filter(score &lt; 85)
+          ; map({score, review}) ; composer
+  critic  ; filter(score &gt;= 85).draft ; output
+}
+</code></pre>
+
+<p>And here is a graphical representation of what&#x2019;s going on:</p>
+
+<p><img width='440' src='https://leithdocs.com/ldc/documents/outgoing/plumbing/ccc.png' alt='Vertical diagram of the adversarial document composition pipeline. Flow runs top to bottom. Input feeds into a composer agent. The composer&#x27;s output goes to a checker agent. The checker splits two ways via filter: if verdict is false, the verdict and commentary are mapped back to the composer as feedback (loop). If verdict is true, the draft goes to a critic agent. The critic also splits two ways: if score is below 85, the score and review are mapped back to the composer for revision (second loop). If score is 85 or above, the draft is extracted via map and sent to the output. Two feedback loops, two quality gates, one output.' /></p>
+
+<p>The agent configuration is elided. The <code>main</code> pipeline takes a string input and produces a string output. It is itself a morphism, and could be used as a component in something larger.</p>
+
+<p>Notice what the wiring enforces. The critic receives verdicts, not the original source materials. The information partition is a consequence of the types, not an instruction in a prompt. The feedback loops are explicit: a failed verdict routes back to the composer with commentary; a low score routes back with the review. All of this is checked at compile time.</p>
+
+<h3>Example: heated debate</h3>
+
+<p>The previous example shows sequential composition and feedback loops but not parallel composition. An ensemble of agents running simultaneously on the same input needs the tensor product.</p>
+
+<p>Ensembles are common. Claude Code spawns sub-agents in parallel to investigate or review, then gathers the results. This is a
+scatter-gather pattern familiar from high-performance computing.
+But this example, due to Vincent Danos, adds something less common:
+modulation of agent behaviour through the control port.</p>
+
+<p>The input is a proposition. Two agents debate it, one advocating
+and one sceptical, running in parallel via the tensor product.
+Their outputs are synchronised by a barrier into a pair and
+presented to a judge. The judge decides: has the debate converged?
+If so, a verdict goes to the output. If not, a new topic goes back
+to the debaters, and a temperature goes to their control inputs.</p>
+
+<p>The intuition is that the debaters should start creative (high
+temperature, wide sampling) and become progressively more focused
+as the rounds continue. The judge controls this. Each round, the
+judge decides both whether to continue and how volatile the next
+round should be. If the debate appears to be converging, the
+judge lowers the temperature, preventing the system from wandering
+off in new directions. Whether this actually causes convergence
+is a research question, not a proven result.</p>
+
+<pre><code>type Verdict = { resolved: bool, verdict: string,
+                 topic: string, heat: number }
+type Control = { set_temp: number }
+&#xa0;
+let advocate : (!string, !Control) -&gt; !string = agent { ... }
+let skeptic  : (!string, !Control) -&gt; !string = agent { ... }
+let judge    : !(string, string) -&gt; !Verdict  = agent { ... }
+&#xa0;
+let cool : !Verdict -&gt; !Control = map({set_temp: heat})
+&#xa0;
+let main : !string -&gt; !string = plumb(input, output) {
+  input ; (advocate &#x2297; skeptic) ; barrier ; judge
+  judge ; filter(resolved = false).topic ; (advocate &#x2297; skeptic)
+  judge ; filter(resolved = true).verdict ; output
+  judge ; cool ; (advocate@ctrl_in &#x2297; skeptic@ctrl_in)
+}
+</code></pre>
+
+<p>And here is the graphical representation:</p>
+
+<p><img width='640' src='https://leithdocs.com/ldc/documents/outgoing/plumbing/heat.png' alt='Diagram of the heated debate example. Two agent boxes (advocate and skeptic) are placed in parallel via tensor product, both receiving the same input proposition. Their outputs feed into a barrier which synchronises them into a pair. The pair goes to a judge agent. The judge has two outputs: a verdict (going to the main output) and a feedback loop. The feedback loop carries both a new topic (routed back to the debaters&#x27; inputs) and a temperature setting (routed to both debaters&#x27; control input ports via ctrl_in). The diagram shows parallel composition, barrier synchronisation, and a control feedback loop in one system.' /></p>
+
+<p>The <code>&#x2297;</code> operator is the tensor product: parallel composition. (The grammar also accepts <code>*</code> for editors that cannot input unicode.) The advocate and skeptic run simultaneously on the same input. The barrier synchronises their outputs into a pair for the judge. The last line is the control feedback: the judge&#x2019;s verdict is mapped to a temperature setting and sent to both agents&#x2019; control inputs. Notice that <code>advocate@ctrl_in</code> addresses a specific port on the agent, the control port rather than the main input.</p>
+
+<p>This is a small program. It is also a concurrent system with feedback loops, runtime parameter modulation, and a convergence protocol. Without types, getting the wiring right would be a matter of testing and hope. With types, it is checked before it runs.</p>
+
+<h3>What this shows</h3>
+
+<p>In a few lines of code, with a language that has categorical foundations, we can capture interesting agent systems and be sure they are well-formed before they run.</p>
+
+<p>The upshot: when we have guarantees about well-formedness, systems work more stably and more predictably. With static typing, entire classes of structural errors are impossible. You cannot wire an output of one type to an input of another. You cannot forget a connection. The job you pay for is more likely to actually work, and you get more useful work per dollar spent. Runtime budget controls can put a ceiling on cost, but they do not prevent the waste. Static typing prevents the waste. But there is a lot more to do. What we have so far is already useful as a language for constructing agent graphs with static type checking. But we have given short shrift to the complexity and internal state of the agent morphism, which is really all about memory architecture and context management. That is where the real power comes from. For that we need more than a copy-discard category with some extra structure. We need protocols&#x2014;and that is the subject of the <a href='https://leithdocs.com/ldc/documents/outgoing/plumbing/the-agent-that-doesnt-know-itself.md'>sequel</a>, soon to appear here.</p>
+
+<p>The plumbing compiler, runtime, and MCP server are available as binary downloads for macOS and Linux:</p>
+
+<p>&#x2022; <a href='https://leithdocs.com/ldc/documents/outgoing/plumbing/release.md'> Download plumbing version 0</a>.</p>
+
+<p>Here is the research paper describing the broader programme of work:</p>
+
+<p>&#x2022; William Waites, <a href='https://arxiv.org/abs/2602.13275'>Artificial organisations (arXiv:2602.13275)</a>.</p>
+</div>
+
+
+<span class='posted'>Posted at March 11, 2026 10:59 PM UTC
+</span>
+</div>
+
+<p class='trackback-url'>TrackBack URL for this Entry:&#xa0;&#xa0; https://golem.ph.utexas.edu/cgi-bin/MT-3.0/dxy-tb.fcgi/3630</p>
+
+
+<h2 class='comments-head' id='related'>Some Related Entries</h2>
+
+<div id='pane'>
+
+<form method='get' action='/cgi-bin/MT-3.0/mt-search.cgi'>
+<fieldset class='search'>
+  <input type='hidden' name='IncludeBlogs' value='3' />
+  <input type='hidden' name='Template' value='category' />
+  <label for='search' accesskey='4'>Search for other entries:</label><br />
+  <input id='search' name='search' size='25' /><br />
+  <input type='submit' value='Search' />
+</fieldset>
+</form>
+
+
+
+</div>
+
+<ul class='blogbody related'>
+
+   <li><a href='/category/2025/08/safeguarded_ai_meeting.html'>Safeguarded AI Meeting</a> &#x2014;
+<i>Aug 14, 2025</i></li>
+   <li><a href='/category/2023/07/agentbased_models_part_1.html'>Agent-Based Models (Part 1)</a> &#x2014;
+<i>Jul 06, 2023</i></li>
+   <li><a href='/category/2023/05/categories_for_epidemiology.html'>Categories for Epidemiology</a> &#x2014;
+<i>May 05, 2023</i></li>
+   <li><a href='/category/2022/01/learning_computer_science_with.html'>Learning Computer Science With Categories</a> &#x2014;
+<i>Jan 26, 2022</i></li>
+   <li><a href='/category/2021/09/cospans_and_computation_-_part_3.html'>Cospans and Computation - Part 3</a> &#x2014;
+<i>Sep 10, 2021</i></li>
+   <li><a href='/category/2021/08/cospans_and_computation_part_2.html'>Cospans and Computation - Part 2</a> &#x2014;
+<i>Aug 23, 2021</i></li>
+   <li><a href='/category/2021/08/cospans_and_computation_part_1.html'>Cospans and Computation - Part 1</a> &#x2014;
+<i>Aug 10, 2021</i></li>
+   <li><a href='/category/2021/03/native_type_theory_part_3_1.html'>Native Type Theory (Part 3)</a> &#x2014;
+<i>Mar 29, 2021</i></li>
+
+</ul>
+</div>
+
+<h2 class="comments-head" id="comments">3 Comments &amp; 1 Trackback</h2>
+
+<div class="blogbody">
+<div class="trackback" id="p47353">
+Read the post <a href="https://golem.ph.utexas.edu/category/2026/03/the_agent_that_doesnt_know_its.html">The Agent That Doesn't Know Itself</a><br />
+<b>Weblog:</b> The n-Category Caf&#xE9;<br />
+<b>Excerpt:</b> A large language model has very little self-awareness.  But it is easy to give it some rudimentary but useful forms of self-awareness using the "plumbing" language.<br />
+<b>Tracked:</b> March 20, 2026 10:52 PM</div>
+
+
+
+<div class="comments-body" id="c069180">
+<h3 class="title">Re: A Typed Language for Agent Coordination</h3>
+
+<div><div><a href="http://golem.ph.utexas.edu/~distler/blog/mathml.html"><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>The first diagram (just after &#8220;Here is a graphical representation of the morphisms&#8221;) isn&#8217;t showing up for me.</p>
+</div>
+<div class="comments-post">Posted by:
+Stuart on April 11, 2026 10:09 AM | <a href="/category/2026/03/a_typed_language_for_agent_coordination.html#c069180" title="URL for comment by Stuart [April 11, 2026 10:09 AM]">Permalink</a>
+
+| <a href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3632;parent_id=69180" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}" title="Respond to comment by Stuart [April 11, 2026 10:09 AM]">Reply to this</a>
+</div>
+</div>
+
+<div class="comments-nest-box">
+<div class="comments-body" id="c069181">
+<h3 class="title">Re: A Typed Language for Agent Coordination</h3>
+
+<div><div><a href="http://golem.ph.utexas.edu/~distler/blog/mathml.html"><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>It used to work, but it&#8217;s gone now:</p>
+
+<p><a href="https://leithdocs.com/ldc/documents/outgoing/plumbing/morphisms.png">https://leithdocs.com/ldc/documents/outgoing/plumbing/morphisms.png</a></p>
+
+<p>I&#8217;ve notified the boss.</p>
+</div>
+<div class="comments-post">Posted by:
+<a title="http://math.ucr.edu/home/baez/" href="http://math.ucr.edu/home/baez/" rel="nofollow">John Baez</a> on April 13, 2026 12:07 AM | <a href="/category/2026/03/a_typed_language_for_agent_coordination.html#c069181" title="URL for comment by John Baez [April 13, 2026 12:07 AM]">Permalink</a>
+
+| <a href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3632;parent_id=69181" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}" title="Respond to comment by John Baez [April 13, 2026 12:07 AM]">Reply to this</a>
+</div>
+</div>
+
+
+<div class="comments-body" id="c069182">
+<h3 class="title">Re: A Typed Language for Agent Coordination</h3>
+
+<div><div><a href="http://golem.ph.utexas.edu/~distler/blog/mathml.html"><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>Sorry, it looks like i messed up the permissions on that image when I changed it slightly (I added the <code>single</code> morphism which just emits a single message containing the unit of the underlying type &#8211; not mentioned in the article but needed for some things like initialising feedback loops to a defined state). It is fixed now.</p>
+</div>
+<div class="comments-post">Posted by:
+<a title="https://leithdocs.com/" href="https://leithdocs.com/" rel="nofollow">William Waites</a> on April 13, 2026  7:57 AM | <a href="/category/2026/03/a_typed_language_for_agent_coordination.html#c069182" title="URL for comment by William Waites [April 13, 2026  7:57 AM]">Permalink</a>
+
+| <a href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3632;parent_id=69182" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}" title="Respond to comment by William Waites [April 13, 2026  7:57 AM]">Reply to this</a>
+</div>
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+</div>
+<p class="newpost"><a class="comments-post" href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3632" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}">Post a New Comment</a></p>
+
+</div>
+
+<div id="footer">   
+<h2>Access Keys:</h2>
+
+<dl id="AccessKeyList">
+<dt>0</dt><dd><a href="/category/accessibility.html" accesskey="0">Accessibility Statement</a></dd>
+<dt>1</dt><dd>Main Page</dd>
+<dt>2</dt><dd>Skip to Content</dd>
+<dt>3</dt><dd>List of Posts</dd>
+<dt>4</dt><dd>Search</dd>
+<dt>p</dt><dd>Previous (individual/monthly archive page)</dd>
+<dt>n</dt><dd>Next (individual/monthly archive page)</dd>
+</dl>
+<a href="/category/archives.html" accesskey="3"></a>
+</div>
+
+
+</div>
+
+</body>
+</html>

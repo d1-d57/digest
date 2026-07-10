@@ -1,0 +1,301 @@
+
+
+Notices of the American Mathematical Society
+
+Welcome to the 
+Notices of the American Mathematical Society
+.
+With 
+support from AMS membership
+, we are pleased to share the journal with the global mathematical community.
+
+PDFLINK
+
+Short Stories
+
+The Inverse Cube Force Law
+John C. Baez
+
+Figure 1
+.
+A particle spiraling into the origin in an inverse cube force.
+
+Newton’s 
+Principia
+ is famous for its investigations of the inverse square force law for gravity. But in this book Newton also did something that remained little-known until fairly recently 
+1
+5
+. He figured out what kind of central force exerted upon a particle can rescale its angular velocity by a constant factor without affecting its radial motion. This turns out to be a force obeying an inverse 
+cube
+ law.
+
+Given a particle in Euclidean space, a 
+central force
+ is a force that points toward or away from the origin and depends only on the particle’s distance from the origin. If the particle’s position at time 
+$t$
+ is 
+$\mathbf{r}(t) \in \mathbb{R}^n$
+ and its mass is some number 
+,
+$m > 0$
+ we have
+
+$$\begin{equation*} m \, \ddot{\mathbf{r}}(t) = F(r(t)) \,\hat{\mathbf{r}}(t), \end{equation*}$$
+
+where 
+$\hat{\mathbf{r}}(t)$
+ is a unit vector pointing outward from the origin at the point 
+.
+$\mathbf{r}(t)$
+ A particle obeying this equation always moves in a plane through the origin, so we can use polar coordinates and write the particle’s position as 
+.
+$\bigl (r(t), \theta (t)\bigr )$
+ With some calculation one can show the particle’s distance from the origin, 
+,
+$r(t)$
+ obeys
+
+1
+
+$$\begin{equation} m \ddot{r}(t) = F(r(t)) + L^2/mr(t)^3 . \cssId{texmlid1}{\tag{1}} \end{equation}$$
+
+Here 
+,
+$L = mr(t)^2 \dot{\theta }(t)$
+ the particle’s 
+angular momentum
+, is constant in time. The second term in Equation 
+1
+ says that the particle’s distance from the origin changes as if there were an additional force pushing it outward. This is a “fictitious force,” an artifact of working in polar coordinates. It is called the 
+centrifugal force
+. And it obeys an inverse cube force law!
+
+This explains Newton’s observation. Let us see why. Suppose that we have two particles moving in two different central forces 
+$F_1$
+ and 
+,
+$F_2$
+ each obeying a version of Equation 
+1
+, with the same mass 
+$m$
+ and the same radial motion 
+,
+$r(t)$
+ but different angular momenta 
+$L_1$
+ and 
+.
+$L_2$
+ Then we must have
+
+$$\begin{equation*} F_1(r(t)) + L_1^2/mr(t)^3 = F_2(r(t)) + L_2^2/mr(t)^3 . \end{equation*}$$
+
+If the particle’s angular velocities are proportional then 
+$L_2 = kL_1$
+ for some constant 
+,
+$k$
+ so
+
+$$\begin{equation*} F_2(r_1(t)) - F_1(r(t)) = (k - 1)L_1/mr(t)^3 . \end{equation*}$$
+
+This says that 
+$F_2$
+ equals 
+$F_1$
+ plus an additional inverse cube force.
+
+A particle’s motion in an inverse cube force has curious features. First compare Newtonian gravity, which is an attractive inverse square force, say 
+$F(r) = -c/r^2$
+ with 
+.
+$c > 0$
+ In this case we have
+
+$$\begin{equation*} m \ddot{r}(t) = -c/r(t)^2 + L^2/mr(t)^3 . \end{equation*}$$
+
+Because 
+$1/r^3$
+ grows faster than 
+$1/r^2$
+ as 
+,
+$r \downarrow 0$
+ as long as the angular momentum 
+$L$
+ is nonzero the repulsion of the centrifugal force will beat the attraction of gravity for sufficiently small 
+,
+$r$
+ and the particle will not fall in to the origin. The same is true for any attractive force 
+$F(r) = -c/r^p$
+ with 
+.
+$p < 3$
+ But an attractive inverse cube force can overcome the centrifugal force and make a particle fall in to the origin.
+
+In fact there are three qualitatively different possibilities for the motion of a particle in an attractive inverse cube force 
+,
+$F(r) = -c/r^3$
+ depending on the value of 
+.
+$c$
+ With work 
+4
+ we can solve for 
+$1/r$
+ as a function of 
+$\theta$
+ (which is easier than solving for 
+).
+$r$
+ There are three cases depending on the value of
+
+$$\begin{equation*} \omega ^2 = 1 - cm/L^2 , \end{equation*}$$
+
+vaguely analogous to the elliptical, parabolic and hyperbolic orbits of a particle in an inverse square force law:
+
+$$\begin{equation*} \frac{1}{r(\theta )} = \begin{cases} \; A \cos (\omega \theta ) + B \sin (\omega \theta ) & \;{\text{if }}\;\;\; \omega ^2 > 0 \\ \; A + B \theta & \;{\text{if }}\;\;\; \omega = 0 \\ \; A e^{|\omega | \theta } + B e^{-|\omega | \theta } & \;{\text{if }}\;\;\; \omega ^2 < 0. \end{cases} \end{equation*}$$
+
+The third case occurs when the attractive inverse cube force is strong enough to overcome the centrifugal force: 
+.
+$c > L^2/m$
+ Then the particle can 
+spiral in to its doom
+, hitting the origin in a finite amount of time after infinitely many orbits. An example is shown in Figure 
+1
+.
+
+All three curves are called 
+Cotes spirals
+, after Roger Cotes’ work on the inverse cube force law, published posthumously in 1722. Cotes seems to have been the first to compute the derivative of the sine function. After Cotes’ death at the age of 33, Newton supposedly said “If he had lived we would have known something” 
+3
+.
+
+The subtlety of the inverse cube force law is greatly heightened when we study it using quantum rather than classical mechanics 
+2
+. Here if 
+$c$
+ is too large the theory is ill-defined, because there is no reasonable choice of self-adjoint Hamiltonian. If 
+$c$
+ is smaller the theory is well-behaved. But at a certain borderline point it exhibits a remarkable property: spontaneous breaking of scaling symmetry. I hope to discuss this in my next column.
+
+References
+[
+1
+]
+ S. Chandrasekhar, 
+Newton’s 
+Principia
+ for the common reader
+, The Clarendon Press, Oxford University Press, New York, 1995. MR
+1352683
+, 
+
+AMSref
+
+\bib{Chandrasekhar}{book}{
+ author={Chandrasekhar, S.},
+ title={Newton's {\it Principia} for the common reader},
+ publisher={The Clarendon Press, Oxford University Press, New York},
+ date={1995},
+ pages={xxiv+595},
+ isbn={0-19-851744-0},
+ isbn={0-19-852675-X},
+ review={\MR {1352683}},
+}
+
+[
+2
+]
+ D. M. Gitman, I. V. Tyutin, and B. L. Voronov, 
+Self-adjoint extensions and spectral analysis in the Calogero problem
+, J. Phys. A 
+43
+ (2010), no. 14, 145205, 34, DOI 
+10.1088/1751-8113/43/14/145205
+. MR
+2606436
+, 
+
+AMSref
+
+\bib{GTV}{article}{
+ author={Gitman, D. M.},
+ author={Tyutin, I. V.},
+ author={Voronov, B. L.},
+ title={Self-adjoint extensions and spectral analysis in the Calogero problem},
+ journal={J. Phys. A},
+ volume={43},
+ date={2010},
+ number={14},
+ pages={145205, 34},
+ issn={1751-8113},
+ review={\MR {2606436}},
+ doi={10.1088/1751-8113/43/14/145205},
+}
+
+[
+3
+]
+ Ronald Gowing, 
+Roger Cotes—natural philosopher
+, Cambridge University Press, Cambridge, 1983. MR
+779640
+, 
+
+AMSref
+
+\bib{Gowing}{book}{
+ author={Gowing, Ronald},
+ title={Roger Cotes---natural philosopher},
+ publisher={Cambridge University Press, Cambridge},
+ date={1983},
+ pages={x+210},
+ isbn={0-521-23741-6},
+ review={\MR {779640}},
+}
+
+[
+4
+]
+ Nathaniel Grossman, 
+The sheer joy of celestial mechanics
+, Birkhäuser Boston, Inc., Boston, MA, 1996, DOI 
+10.1007/978-1-4612-4090-7
+. MR
+1367087
+, 
+
+AMSref
+
+\bib{Grossman}{book}{
+ author={Grossman, Nathaniel},
+ title={The sheer joy of celestial mechanics},
+ publisher={Birkh\"{a}user Boston, Inc., Boston, MA},
+ date={1996},
+ pages={xviii+181},
+ isbn={0-8176-3832-6},
+ review={\MR {1367087}},
+ doi={10.1007/978-1-4612-4090-7},
+}
+
+[
+5
+]
+Newton’s theorem of revolving orbits, Wikipedia. Available at 
+https://en.wikipedia.org/wiki/Newton's_theorem_of_revolving_orbits
+.
+
+John C. Baez is the Maxwell Fellow at the University of Edinburgh. His email address is 
+[email protected]
+.
+
+Article DOI: 
+10.1090/noti3304
+Credits
+
+Figure 1 was created by the author.
+
+Photo of John C. Baez is courtesy of Lisa Raphals.
+

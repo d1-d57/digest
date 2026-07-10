@@ -1,0 +1,665 @@
+Snapsho t s o f m o d e r n m athematics                               № 3/2025
+from Ob e r wo l f a c h
+
+
+
+
+                         F ive ways to spell ADE
+
+
+                                       Dani Kaufman
+
+
+
+       The solutions to a surprising number of mathemati-
+       cal questions can be classified by the ADE Coxeter–
+       Dynkin diagrams. This snapshot will show you a
+       selection of these questions and how they correspond
+       to the ADE Coxeter–Dynkin diagrams.
+
+1 I n t roduction
+
+Sometimes, mathematicians find that several seemingly different problems can
+be tackled with the same basic calculations and considerations. Often this
+suggests a hidden connection between these problems, which may not be so
+clear from the onset. In this snapshot, I want to show you some of the many
+questions that can be answered using the ADE Coxeter–Dynkin diagrams.
+
+
+
+                 An :                        Dn :
+
+
+
+             E6 :                           E7 :
+
+
+                            E8 :
+                    F i g u r e 1 : The ADE Coxeter–Dynkin diagrams.
+
+
+
+
+                                            1
+    The ADE Coxeter–Dynkin diagrams are graphs, that is, mathematical objects
+consisting of points, called vertices, and edges connecting these vertices (see
+Figure 1). They were introduced independently by H. S. M. Coxeter (1907–2003)
+[1] and E. Dynkin (1924–2014) [3]. Both Coxeter and Dynkin were brilliant
+mathematicians, the former regarded as one of the greatest geometers of the 20th
+century, while the latter left a profound mark on both algebra and probability.
+Quite surprisingly, ADE Coxeter–Dynkin diagrams arose while Coxeter and
+Dynkin were working on two seemingly unrelated problems. This intriguing
+“coincidence” already hints to their profound importance.
+    Although there are infinitely many ADE Coxeter–Dynkin diagrams, they
+can be divided into three “families”. There are two infinite families of diagrams,
+the An , n ≥ 1 and Dn , n ≥ 4 diagrams, and one exceptional family with three
+diagrams, E6 , E7 , E8 . These three families are illustrated in Figure 1. The
+subscript indicates the total number of vertices in the graph. So, the An diagram
+is simply a chain of n vertices, and the Dn diagram is a chain with a fork at
+the end with n vertices in total.
+
+
+2 A war m-up example
+
+Let us illustrate the use of these diagrams with the following problem:
+Question 1 Which are the triples of positive integers (p, q, r), with p ≥ q ≥ r,
+that satisfy p1 + 1q + 1r > 1?
+
+   With a little bit of trial and error (try it yourself!), you can find that the
+solutions are
+                         
+                         (p, q, 1),
+                                                           p, q ∈ N;
+              (p, q, r) = (p, 2, 2),                        p ∈ N;
+                         
+                           (3, 3, 2), (4, 3, 2), (5, 3, 2).
+                         
+
+   Notice that these solutions have a familiar structure: two infinite families
+shown on the first two lines and then three special solutions that do not follow
+any of these patterns. The triples above can be related to ADE diagrams by
+the following procedure:
+1.   Start with a graph with one vertex and no edges.
+2.   Then, add three chains of vertices of lengths p, q, r from this vertex. The
+     length of the chain is counted including the starting vertex. This way, a
+     chain of length n adds n − 1 new vertices.
+   Following this procedure, you will get the An diagram for the triple (p, q, 1)
+with p + q = n + 1, the Dn diagram for the triple (n − 2, 2, 2) and the E6 , E7 , E8
+
+
+                                         2
+                                                  2
+                                                          3                                                                          4
+     (3, 3, 2) ↔ E6 :                                                          (4, 2, 1) ↔ A5 :
+                                  3                                                                              2
+
+       Fig u r e 2 : Two examples of the correspondence related to Question 1.
+
+
+diagrams for the triples (3, 3, 2), (4, 3, 2), (5, 3, 2). Try this yourself, or take a
+look at the examples in Figure 2.
+   Now for a more exciting example! It is related to graph labelling. What is
+that? If we take a graph and put a label, such as a distinct number or name,
+on every vertex, we call this naming scheme a graph labelling.
+Question 2 Which connected graphs have a labelling by positive integers such
+that twice the label at each vertex is equal to the sum of the labels at connected
+vertices?
+   The answer to this question is not given by the ADE Coxeter–Dynkin
+diagrams as shown above, but instead by a variation of them, the affine ADE
+Coxeter–Dynkin diagrams. These affine ADE Coxeter–Dynkin diagrams are
+shown, along with the labelling that solves Question 2, in Figure 3.
+
+                                      1
+                                                                                     1                                           1
+
+              A
+              fn :                                                        D
+                                                                          fn :
+                      1       1                   1           1                              2   2               2       2
+                                      1                                              1                                           1
+
+                                      2                                                                      2
+
+           E
+           f6 :                                                       E
+                                                                      f7 :
+                  1       2       3           2           1                      1       2       3       4           3       2           1
+                                                                      3
+
+                              E
+                              f8 :
+                                          2           4           6        5         4       3       2       1
+
+
+      Fig u r e 3 : The affine ADE diagrams. Each diagram has n + 1 vertices.
+
+   Now, let us pause and introduce another graph-related concept. The degree
+of a given vertex is the number of edges that connect to this vertex. Equipped
+with this knowledge, we can argue for the following correspondence between
+connected graphs and affine ADE Coxeter–Dynkin diagrams:
+
+1.    The graph has a cycle                                                                      ↔       A
+                                                                                                         fn
+2.    The graph has a vertex of degree 4 or more                                                 ↔       D4
+                                                                                                         f
+
+
+                                                                           3
+3.   The graph has two or more degree-3 vertices        ↔    D
+                                                             fn ,   n>4
+4.   The graph has exactly one degree-3 vertex          ↔    E
+                                                             fn
+
+In each of these cases, we can see that the considered graph contains the
+indicated affine ADE Coxeter–Dynkin diagram as a subgraph. But the affine
+diagrams already satisfy the labelling problem, in an essentially unique way,
+and it is not possible to add any more vertices to the graph. Thus, the graph
+we are considering must actually be an affine ADE Coxeter–Dynkin diagram.
+   The affine ADE Coxeter–Dynkin diagrams actually correspond to the regular
+ADE Coxeter–Dynkin diagrams in a simple way: just remove one of the vertices
+that has been labelled with “1” and you find the corresponding regular diagram.
+
+
+3 Kaleidoscopes
+
+The next example is related to a question about abstract symmetry. In order
+to make this question more concrete, we will phrase it using a popular toy – a
+kaleidoscope.
+    From a mathematical perspective, a kaleidoscope is simply an arrangement of
+mirrors in space. Every mirror is an infinite flat plane which reflects everything
+on one side of it to the other. A kaleidoscope creates a reflection pattern by the
+following procedure:
+
+1. Choose a mirror and call it M .
+2. Reflect all the other mirrors about the chosen mirror M .
+3. Add new mirrors where the reflections of M land, unless there is already a
+   mirror in that position.
+4. Repeat this procedure with a new mirror, until no more mirrors can be
+   added. Note that it is possible that this procedure will never stop.
+
+
+
+
+(a) Initial kaleidoscope with ( b ) Reflecting m2 over m1 ( c ) Reflecting m1 and m2
+     two mirrors: m1 , m2 .     creates a new mirror m̃2 .   over m̃2 completes the
+                                                             reflection pattern.
+
+         F i g u r e 4 : Generation of a reflection pattern from two mirrors.
+
+
+                                          4
+   This procedure simulates the way the mirrors reflect light. If we were to
+look into a real-world kaleidoscope, we would actually see the reflection pattern
+described above. The usual toy kaleidoscope is made with three mirrors arranged
+so that they form an equilateral triangular prism. This generates the well-known
+kaleidoscope reflection pattern (see Figure 5).
+
+
+
+
+ (a) An image from a toy kaleidoscope.                  ( b ) The reflection pattern overlaid.
+
+Figure 5 : A kaleidoscope reflection pattern. The initial three mirrors are shown
+                in white, and the new reflected mirrors in yellow.
+
+
+3.1 Fin i t e r e f l e c t i o n p a t t e r n s
+
+In this section, we explain the solution to the following question that fascinated
+Coxeter:
+Question 3 Which kaleidoscopes produce a reflection pattern with finitely many
+reflections?
+   To get us started, consider the situation with two parallel mirrors. This
+arrangement already produces infinitely many reflections. Just imagine yourself
+in a barber shop with two mirrors on opposite walls! Thus, if we want to have
+only finitely many reflections, all of our mirrors must intersect each other. In
+other words, no two mirrors are parallel.
+   Next, we consider arrangements with two intersecting mirrors. In order to
+get finitely many reflections, we find that the angle between the mirrors must
+be a rational   multiple of 180◦. In fact, two mirrors intersecting at the angle
+   q·180◦
+of p , with pq written in lowest terms, produces the same reflection pattern
+                                               ◦
+as two mirrors intersecting at an angle of 180p . Figure 4 is an example ◦of this –
+the final reflection pattern has all mirrors intersecting at angles of 180
+                                                                        5 .
+   Now we consider three mirrors. There are two cases to consider, either the
+third mirror intersects the line where the other two mirrors meet, or it does
+
+
+                                                    5
+not. By the previous argument, we can consider the situation where the three
+                                                      ◦
+                                                        180◦ 180◦
+mirrors intersect pairwise with angles ( 180       p , q , r ), with (p, q, r) all being
+integers bigger than 1.
+    If the third mirror does not intersect the line where the first two meet,
+then our three mirrors form a tube. By slicing this tube perpendicularly, we
+find a triangle in the plane with angles (180◦/p, 180◦/q, 180◦/r). By the usual
+angle sum formula for a triangle we have 180◦/p + 180◦/q + 180◦/r = 180◦ so
+1/p + 1/q + 1/r = 1. There are only three triples (p, q, r) which satisfy this,
+(3, 3, 3), (4, 4, 2), (6, 3, 2) 1 , and in each case the reflection pattern eventually
+produces two parallel mirrors and thus is not finite. The reflection pattern from
+Figure 5 corresponds to the (3, 3, 3) triple.
+    Now, let us consider the case where all three mirrors meet at a single point. If
+we were to draw a sphere around this point, we would find that the three mirrors
+cut out a triangle on the sphere. Since the sum of angles of a spherical triangle
+is strictly greater than that of a planar triangle, we see that 1/p + 1/q + 1/r > 1.
+By the solution to Question 1, we know that the only possible solutions are
+(p, q, r) = (n, 2, 2) or (3, 3, 2), (4, 3, 2), (5, 3, 2). We can now see that there will
+be finitely many reflections corresponding to a tiling of the sphere by triangles
+in each case. These cases correspond to the D and E families of diagrams.
+    The final step brings us back to the beginning of this section: The ADE
+classification is completed by noticing that the An diagrams correspond to two
+mirrors meeting at an angle of 180◦/n.
+
+
+3.2 H i g h e r d i m e n s i o n s
+
+Coxeter also considered arrangements of mirrors in higher dimensions, that is,
+higher than 3. In this case, a mirror denotes a (n − 1)-dimensional subspace,
+which reflects objects from its one side to the other. For the sake of simplicity,
+we restrict to the case where the mirrors all intersect one another at angles
+of 90◦ or 60◦.
+
+Question 4 Which kaleidoscopes, consisting of mirrors intersecting at angles
+of 90◦ or 60◦, generate a finite reflection pattern in any dimension?
+
+   To answer this question, we use a graph to encode the kaleidoscope. Place one
+vertex for each mirror and connect them with an edge if the mirrors intersect at
+an angle of 60◦ and no edge otherwise. Coxeter proved that such an arrangement
+produces a finite reflection pattern if and only if the associated graph is an
+ADE Coxeter–Dynkin diagram.
+
+1   These three triples correspond to the E
+                                          f6 , E
+                                               f7 , E
+                                                    f8 affine diagrams!
+
+
+                                               6
+   It is interesting that the same diagrams address two very similar problems
+in different ways. For example, in three dimensions, the arrangement with
+three mirrors intersecting at angles (60◦, 60◦, 90◦) corresponds through the first
+classification to the triple (3, 3, 2), which corresponds to E6 , but through the
+second classification to the A3 diagram.
+
+
+4 S i ngular ities
+
+Singularity theory is part of a very rich area of mathematics called algebraic
+geometry, and we will find yet another ADE classification within it.
+   We consider two-dimensional surfaces in three-dimensional space. Such a
+surface is called smooth at a point if it looks like a single sheet of paper around
+that point. If a point is not smooth, it is called singular.
+
+
+4.1 An i n t r o d u c t o r y ex a m p l e
+
+As an example, let us consider the function F (x, y, z) = x2 + y 2 − z 2 . We
+define the surface X as the set of all triples (x, y, z) that satisfy the equation
+F (x, y, z) = 0. In this case, X is a cone that has one singular point at the origin,
+see Figure 6a. We can study this singularity by constructing a resolution of it.
+Roughly speaking, a resolution is a smooth surface Y with a map r : Y → X
+which is one-to-one away from the singularity.
+   A possible resolution for our surface X is given by the hyperboloid Y shown
+in Figure 6b, defined by the equation x2 +y 2 −z 2 = 1, with the map r “squishing”
+the circle x2 + y 2 = 1, z = 0 to the origin, and being the identity map away
+from the origin.
+
+
+
+
+                (a) The surface X.                         ( b ) The surface Y .
+
+                           F i g u r e 6 : Blowing-up the singularity.
+
+
+
+
+                                               7
+4.2 B l ow i n g - u p
+
+The operation of taking a surface with a singularity and replacing the singular
+point with a circle while keeping the surface unchanged everywhere else is called
+blowing-up. The new circle which appears when a blow-up is performed is called
+a vanishing cycle.
+    A blow-up does not have to always produce a smooth surface! The new
+surface might have singularities itself, which in turn can be resolved by doing
+more blow-ups. We are interested in the singularities which can be resolved by
+a finite number of blow-ups, but to find an ADE classification, we must simplify
+our question a bit.
+
+
+Question 5 Let P (x, y) be some polynomial in x and y. What surfaces of the
+form P (x, y) − z 2 = 0 give rise to a singularity at the origin that can be resolved
+with a finite sequence of blow-ups?
+
+    These singularities are (again) parameterised by the ADE Coxeter–Dynkin
+diagrams! A proof of this is a bit too technical for us to give here, but we can
+at least show how the diagrams appear.
+    The sequence of blow-ups produces a diagram as follows: First, look at the
+collection of vanishing cycles in the resolution which are produced by each
+blow-up. Then, make a graph with one vertex for each vanishing cycle and
+connect these vertices with edges if the vanishing cycles intersect. This graph
+must be an ADE diagram. Our first example produces the A1 diagram, as there
+is only one vanishing cycle.
+    Table 1 shows a representative function for singular surfaces of each singularity
+type and its corresponding diagram. The D4 singularity, its resolution and the
+graph of its vanishing cycles is shown in Figure 7. These pictures were retrieved
+from https://singsurf.org/parade/ADE.php, a lovely website where you can
+view many singularities and their resolutions.
+
+                          ADE Type           Function
+                            An            xn+1 + y 2 − z 2
+                            Dn           xn−1 − xy 2 − z 2
+                            E6             x4 + y 3 − z 2
+                            E7            x3 − xy 3 − z 2
+                            E8             x5 + y 3 − z 2
+
+Tabl e 1 : Representative functions for singular surfaces of each singularity type.
+
+
+
+
+                                         8
+    (a) Surface defined by              ( b ) Resolution of (a)   ( c ) Vanishing cycles and
+       x3 − xy 2 − z 2 = 0.                 by four blow-ups.       their intersection graph.
+
+                       F i g u r e 7 : D4 singularity and its resolution.
+
+
+
+   Note that there are many different functions which can have effectively the
+same singularities, and therefore they will correspond to the same diagram.
+For example, the table lists x3 − xy 2 − z 2 as the function for the D4 diagram.
+Through a change of variables, it is possible to see that the function x3 + y 3 − z 2
+has the same D4 singularity.
+
+
+
+4.3 A s e c o n d c o r r e s p o n d e n c e ?
+
+We can find yet another ADE correspondence in the previous list of functions
+and their singularities. Let us ask the following question:
+
+Question 6 Which surfaces of the form xp + y q − z r = 0 have an ADE singu-
+larity at the origin?
+
+   Using Table 1 and the discussion about the D4 singularity in the previous
+section, we can see that the triples (p, q, r) that satisfy xp + y q − z r = 0 are
+exactly those that satisfy 1/p + 1/q + 1/r > 1. So, the ADE Coxeter–Dynkin
+diagrams also parameterise these surfaces!
+   Table 2 shows these functions, the ADE type of the triple (p, q, r), and the
+ADE type of the singularity. We can notice that the singularity type in the
+classification by resolving the singularity is different than the classification of
+the triple (p, q, r). Can you find a way of relating these two classifications? For
+example, how is the E6 diagram related to the D4 diagram? 2
+
+2   Hint: look back at Figure 3 and look at the subgraph where all labels are bigger than 1.
+
+
+                                                  9
+                    Triple type           Function          Singularity type
+                        An              xp + y q − z 1        Nonsingular
+                        Dn             xn−2 + y 2 − z 2          An−3
+                        E6              x3 + y 3 − z 2            D4
+                        E7              x4 + y 3 − z 2            E6
+                        E8              x5 + y 3 − z 2            E8
+
+       Ta bl e 2 : (p, q, r) triple types, their functions, and singularity types.
+
+
+5 Cluster algebras
+
+The last example of an ADE classification I will describe is the classification
+of finite cluster algebras. Cluster algebras were introduced by S. Fomin and
+A. Zelevinski (1953–2013) in [4] and have since found applications in many other
+areas of mathematics and physics.
+
+5.1 Q u i ve r s a n d mu t a t i o n s
+
+In order to tell you what a cluster algebra is, we need to know about quivers
+and their mutations. A quiver is simply a directed graph, that is, a graph
+where each edge is given a direction. We call directed edges “arrows” between
+the vertices and, for our convenience, we number the vertices of a quiver by
+1, 2, . . . , n. We use the notation (i → j) to represent an arrow between vertices i
+and j. Moreover, we will assume that the quivers have neither arrows from
+a vertex to itself nor “2-cycles”, that is, pairs of arrows from vertex a to vertex b
+and the other way around.
+    Given a quiver Q, we can mutate Q at vertex k to produce a new quiver,
+µk (Q) using the following procedure:
+
+1. For every pair of arrows (i → k), (k → j), add an arrow from vertex i to
+   vertex j. If this creates a 2-cycle between vertex i and vertex j, we remove
+   it.
+2. Reverse every arrow incident to k.
+
+     An example of a quiver mutation is shown in Figure 8.
+
+                        3                                                3
+
+              1                    2                             1                2
+
+                  (a) A quiver.                           ( b ) After mutation at vertex 1.
+
+                            F i g u r e 8 : A quiver and its mutation.
+
+
+                                                10
+   You can play with quivers and mutations using B. Keller’s java applet, located
+here: https://webusers.imj-prg.fr/~bernhard.keller/quivermutation/
+
+
+5.2 Se e d s a n d ex c h a n g e s
+
+To generate a cluster algebra, we start with an initial seed, which is a quiver
+with n vertices with the variables x1 , x2 , . . . , xn placed on its vertices. Next,
+we can pick a variable to exchange. The exchange makes a new seed by the
+following rule:
+                                                           !
+1. Replace xk with x′k = x1
+                                      Q            Q                  Q
+                           k
+                                            xi +         xj , where         xi is the product of
+                                      i→k          k→j                i→k
+     all xi such that there is an arrow from vertex i to vertex k.
+2.   Mutate the quiver at vertex k.
+
+   From this new seed, we can pick another variable to exchange and repeat
+the process. If we exchange at the same vertex two times in a row, we will get
+back the original seed. Notice that the same exchanges can lead to different
+outcomes, depending on the order they are applied. We call the variables that
+appear on each new seed the cluster variables, and the collection of cluster
+variables appearing on the same seed a cluster. A cluster algebra is generated
+from an initial seed by doing all the possible exchanges, writing down the new
+cluster variables and their clusters as we go.
+
+
+5.3 Ex a m p l e s
+
+An initial seed and a few exchanges are shown in Figure 9. Try doing a few
+more exchanges yourself! This seed will produce infinitely many new seeds and
+cluster variables.
+
+                                                                 (x2 )3 +x3 +x1 (x2 )2
+                                               x3                        x1 x3
+              x3
+
+                              (x2 )3 +x3                              (x2 )3 +x3
+     x1                 x2        x1                       x2              x             x2
+
+          (a) A seed.        ( b ) After exchanging at x1 . ( c ) After exchanging at x3 .
+
+                         F i g u r e 9 : A seed and two exchanges.
+
+
+
+
+                                               11
+                                              y+1
+                                                      
+                                               x ←y
+                                      µ1                  µ2
+
+                                                           y+1  y+1+x
+                                                                        
+                             x→y                            x →   xy
+                                                                    µ1
+                                                           x+1  y+1+x
+                                                                        
+                             y←x                            y ←   xy
+
+                                      µ1                  µ2
+                                              x+1
+                                                      
+                                               y →x
+
+
+                     F i g u r e 1 0 : The A2 cluster algebra computation.
+
+
+   The full calculation of another simple example is shown in Figure 10. The
+initial seed with variables x, y is shown on the left-hand side. After five exchanges,
+we find that, miraculously, we have returned to the original seed once again.
+Therefore, there are five different clusters and five different cluster variables,
+namely:
+                                  y+1 y+1+x x+1
+                            x, y,       ,          ,      .
+                                     x      xy         y
+
+5.4 F i n i t e C l u s t e r A l g e b ras
+
+The question we conclude with is:
+Question 7 Which cluster algebras have finitely many clusters and cluster
+variables?
+   The answer to this question is (of course) given by the ADE Coxeter–Dynkin
+diagrams. S. Fomin and A. Zelevinsky proved in [5] that a cluster algebra has
+finitely many clusters if and only if it has a seed whose underlying quiver is
+an directed version of an ADE diagram. The example shown in Figure 10 has
+finitely many clusters and corresponds to the A2 diagram, and we call this
+example the A2 cluster algebra.
+   As a hint of some of the phenomena that can happen in finite cluster algebras,
+consider the following seed:
+                                         x1
+
+
+            x8            x7             x6       x5           x4        x3   x2
+
+This seed is a directed version of the E8 diagram, so there will be finitely many
+cluster variables, and we call it the E8 cluster algebra. If you list them all (there
+
+
+                                                  12
+are 128 of them in 25080 clusters!), there will be one variable which has the
+highest exponents in the denominator. This variable is of the form
+                                               P
+                                                                 ,
+                                 x31 x22 x33 x44 x55 x66 x47 x28
+
+where P is a polynomial in x1 , . . . , x8 . Compare the exponents in this denomina-
+tor with the labelling in Figure 3. All other cluster variables will have exponents
+in the denominator strictly smaller; the same effect can be already noticed in
+the A2 cluster algebra. In a way, the existence of the labelling of the affine
+diagrams implies that there will be finitely many cluster variables.
+
+
+6 Q u estions, connections, and conclusions
+
+Once we see that these different questions all lead to the ADE Coxeter–Dynkin
+diagrams we should really ask ourselves and wonder:
+
+• Why do the ADE diagrams classify so many different things?
+• What exactly is the connection between the things they classify?
+• Is there some uniform way to describe all the structures captured by the
+  ADE diagrams?
+To me, it seems that these relationships and connections are actually the most
+interesting part of this discussion.
+   The curious reader should look at [7] to find some current work on the
+connection between cluster algebras and singularity theory; to McKay’s corre-
+spondence [6], a beautiful realisation of the connection between graph labelings
+and kaleidoscopes; or to Du Val’s paper [2] which outlines the relationship
+between the simple singularities and symmetry groups related to kaleidoscopes.
+   I often get a feeling that different ADE classifications are actually just
+glimpses of different sides of the same bigger “ADE” structure. The difficulty in
+identifying the nature of this structure lies in the fact that all of our classifications
+and connections are found in some case-by-case or seemingly coincidental way.
+Maybe someone will someday construct some mathematical object or theory
+which simultaneously implies all the ADE classifications at once. Until then,
+we will just have to accept that we simply live in a world full of happy ADE
+coincidences.
+
+
+
+
+                                               13
+I m age credits
+
+Figu r e 5 “Kaleidoscope” by Hide-sp, CC BY-SA 3.0, via Wikimedia Commons.
+
+Figu r e 7 Rich Morris, singsurf.org, CC BY-NC-SA 4.0,
+        available at http://singsurf.org/parade/ADE.php.
+
+
+R e ferences
+
+[1] H. S. M. Coxeter, The complete enumeration of finite groups of the form
+                 kij
+    Ri2 = Ri Rj       = 1., Journal of the London Mathematical Society 10
+    (1935), 21–25.
+[2] P. du Val, On isolated singularities of surfaces which do not affect the
+    conditions of adjunction. II., Proceedings of the Cambridge Philosophical
+    Society 30 (1934), 460–465.
+[3] E. Dynkin, Classification of the simple Lie groups, Matematicheskiı̆ Sbornik,
+    Novaya Seriya 18 (1946), 347–352.
+[4] S. Fomin and A. Zelevinsky, Cluster algebras. I: Foundations, Journal of
+    the American Mathematical Society 15 (2002), no. 2, 497–529.
+[5]         , Cluster algebras. II: Finite type classification, Inventiones Mathe-
+      maticae 154 (2003), no. 1, 63–121.
+[6] D. Ford and J. McKay, Representations and Coxeter graphs, The geometric
+    vein: The Coxeter Festschrift (1982), 549-554.
+
+[7] B. T. Jensen, A. D. King, and X. Su, A categorification of Grassmannian
+    cluster algebras, Proceedings of the London Mathematical Society (Third
+    Series) 113 (2016), no. 2, 185–212.
+
+
+
+
+                                        14
+Dani Ka u f m a n i s a r e s e arch group leader     Connection s t o o t he r f i e l d s
+at the M a x P l a n ck I n s t i t ute for           Reflections o n M a t he m a t i c s
+Mathem a t i c s i n t h e S c i e nces in Leipzig.
+                                                      License
+She wro t e t h i s s n a p s h o t while she was a   Creative Co m m o n s B Y- NC - S A 4 . 0
+postdoc t o ra l r e s e a r c h e r in pure
+mathem a t i c s a t t h e U n i versity of           DOI
+Copenh a g e n .                                      10.14760/S N A P - 2 0 2 5 - 0 0 3 - E N
+
+Mathem a t i c a l s u b j e c t s
+Algebra a n d N u m b e r T h eor y, Geometr y
+and Top o l o g y
+
+
+
+
+Snapshots of modern mathematics from Oberwolfach provide exciting insights into
+current mathematical research. They are written by participants in the scientific
+program of the Mathematisches Forschungsinstitut Oberwolfach (MFO). The
+snapshot project is designed to promote the understanding and appreciation of
+modern mathematics and mathematical research in the interested public worldwide.
+All snapshots are published in cooperation with the IMAGINARY platform and
+can be found on www.imaginary.org/snapshots and on www.mfo.de/snapshots.
+
+ISSN 2626 -1995
+
+
+Junior E d i t o r                                    Mathematis c h e s Fo r s c h u n g s i n s t i t u t
+Oliver N a g y                                        Oberwolfac h g G m b H
+junior- e d i t o r s @ m f o. d e                    Schwarzwa l d s t r. 9 – 11
+                                                      77709 Obe r wo l f a c h
+Senior E d i t o r                                    Ger many
+Anja Ra n d e cke r
+senior- e d i t o r @ m f o. d e                      Director
+                                                      Gerhard Hu i s ke n
+

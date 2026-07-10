@@ -1,0 +1,1833 @@
+[applause and cheering]
+[applause]
+Thank you very much. It is good to be
+here. I don't know if you people realize
+what a beautiful campus you have and how
+you basically just study in heaven.
+Today I want to talk with you about what
+I think is one of the most
+underappreciated formulas. Not because
+those who know it don't appreciate it,
+but because not enough people know about
+this and more importantly, not enough
+people understand where it comes from.
+And this should be one of the gems. This
+should be the e to the pi eye of the
+mathematical community. But I really
+want you to come away knowing not just
+what it is uh but why it's true and what
+it represents. Now before I dive
+straight into it, I think the scene is
+best set if we start with two different
+puzzles. Okay. The first puzzle is just
+going to give us a sense of the meaning
+of what we're about to do because it
+runs the risk of feeling pretty
+abstract. And then the second puzzle is
+going to be a kind of forewarning uh not
+to trust our intuitions. So, let's start
+with the first puzzle. This is our
+warm-up for today. We're going to start
+by imagining that there's a random
+number. I'm going to call it X. It's
+going to sit between negative 1,
+positive 1, chosen uniformly. X is going
+to have a friend. Another random number
+Y chosen between negative 1 and positive
+1 uniformly. And we're going to ask a
+question, a probability question about
+both of these, which is what's the
+probability that if you square X and
+then you add it to the square of Y, you
+end up with something which is less than
+or equal to one. So, let me throw this
+out to the audience. Does anyone want to
+raise their hand and uh throw out
+probability that you choose this random
+X, choose this random Y, you add their
+squares, it's going to be less than one.
+Let's see. So, I see a blue shirt up
+here. Yeah. Do you want to pass it out?
+>> Um, I mean x^2 + y^2 makes like a unit
+circle. So, my guess would be it be
+related to the area of a unit circle
+over the area of like a unit square.
+>> Amazing. So I asked this question and
+immediately in your mind there's an
+image that pops up. And the point I want
+to make is this is an analytical
+question. This is just a question about
+two numbers. If you're savvy with your
+probability, you could set up some
+integrals not thinking about geometry
+and answer the question, but that would
+feel a little bit like a crime. The
+question is kind of screaming out at you
+that it wants to be a picture. The
+natural way that this wants to be
+answered is to think of that pair of
+numbers x and y as a point in a
+two-dimensional space. And that way when
+you're thinking of a random choice for x
+independent from a random choice of y,
+you're choosing a random point inside.
+Well, in this case, it's a square that
+goes from x=1 to positive 1. Same with
+y. So it's a 2x2 square. Now the reason
+it's screaming out to be geometric is
+because this constraint of x^2 + y^2
+being less than equal to 1 is the
+meaning of being inside a circle, right?
+It's saying if x^2 + y^2 um is equal to
+1, that would actually land you on the
+boundary. This follows straight from the
+Pythagorean theorem. You can draw a nice
+little right triangle. X gives you one
+leg. Y gives you the other leg. And you
+end up answering in this case area of
+that circle divided by area of the
+square. All you need to know is the area
+of a circle. P R^ square. This is
+one of those formulas we learn in high
+school. So you can write down pi / 4.
+All well and good. And we could bump it
+up. I could say, what if instead of
+choosing two random numbers X and Y,
+they had a third friend Z. Same deal.
+Uniform between negative 1 and 1. You
+square it. You want to ask the
+probability that the sum of all those
+numbers is less than or equal to one. In
+your mind's eye, it's screaming to you,
+hey, I want to be a three-dimensional
+picture. Now, it doesn't have to be. You
+could answer it purely analytically, but
+it would somehow feel wrong not to turn
+this into a threedimensional picture
+because in this case, that constraint of
+x^2 + y^2 + z^2 being less than 1 means
+sitting inside of a unit sphere. And so
+in this case, to answer the probability
+question, you just need to know what's
+the volume of that unit sphere as it
+compares to the volume of this 2x2x2
+cube. This is another one of those
+formulas we might have learned in middle
+school or high school. Volume of a
+sphere ends up being 4/3 pi * its radius
+squared. Radius in this case is one. You
+work it all out and you get, I guess, a
+little above 50%.
+Now, there's no reason that we'd have to
+stop there, right? This is three
+numbers, but what if I asked about four
+numbers? Now, at this point, your mind's
+eye is going to start kind of squinking
+a little bit because it's like, I know
+what I want to be seeing right now. In
+the same way that the first problem
+screamed out that it wants you to be
+thinking about a circle, this one wants
+you to be thinking about whatever the
+four-dimensional equivalent of circles
+and spheres should be. But again, it's a
+perfectly reasonable question. It's a
+very empirical question. It's very real.
+And I don't have to stop there. We could
+say what if you had a hundred different
+numbers you add up all their squares and
+I want to know the probability that they
+add up to be something less than one. To
+ask that question is to kind of force
+yourself to want to know the volume of a
+100dimensional unit ball. Now that might
+seem kind of weird like if you just
+heard a mathematician off the street
+saying that they found some formula for
+the volumes of highdimensional balls.
+That risks sounding like something which
+is just nonsense, right? It's so
+divorced from reality because we're used
+to living in three dimensions. But the
+point I want to make is that higher
+dimensional geometry is real. Just
+because it's not describing a literal
+physical space doesn't mean that it
+doesn't have a kind of utility. Now it
+probably doesn't need to be emphasized
+nowadays because um machine learning is
+a wash in high dimensional geometry.
+Essentially anytime that you're
+representing something with a long list
+of numbers, you could choose to
+interpret that as a point in a
+highdimensional space. And one of the
+big lessons of geometry is that that's a
+fruitful choice to make. It helps your
+problem solving. It makes certain things
+that would have been really hard, like
+setting up a hundred different integrals
+for this probability question, turn into
+something easier. I don't think I need
+to emphasize this to you because these
+days we have things like large language
+models. And if you dig under the hood
+and you say, "What's really going on?"
+When you interact with, you know, chatbt
+or claude or Gemini or whichever one
+your favorite one is, the under the hood
+scheme basically looks like breaking up
+all of your text into little chunks. And
+each of those chunks gets turned into a
+long long list of numbers. And you don't
+have to think about that as a point in
+high dimensional space. You could just
+say, "Oh, it's this big big long list of
+numbers." But to try to understand what
+these models are doing, it ends up being
+really fruitful to think about those
+long lists of numbers that the words
+turn into as being points in a space.
+When people do research to interpret
+these things, all of their language is
+centered around talking about points in
+some kind of highdimensional space.
+That's all to say high dimensions are
+useful. But this is a little bit of a
+problem because higherdimensional
+geometry can get very counterintuitive.
+And the second puzzle here is just an
+absolute classic. This is one of those
+things where I think everybody sometime,
+you know, if they're entering a STEM
+field going into college, they should
+see this example at some point as a kind
+of like ASOPs fable of something you
+might want to avoid. So here's going to
+be the setup. We're again going to have
+a 2x2 square centered at the origin.
+Goes from x=1 to y= pos1. I'm going to
+put a circle at each one of its corners.
+So the corners are sitting at 1 one
+negative 1 one negative 1 negative 1 on
+and on. I'm going to put a unit circle
+on each one of those. And so by
+definition those corner circles have a
+radius of one. And the question I'm
+going to ask here is to say what if I
+was to give them another friend, a
+circle that sits on the inside that gets
+as big as it can to be tangent to all of
+them on the outside. What's the radius
+of that inner circle? Just a geometry
+question. Just a little puzzle. We're
+still in the warm-up phase. Again,
+anyone want to raise their hand and kind
+of toss out a proposed answer here? All
+right, we got a raised hand over here.
+>> You can take a look at the diagonal,
+calculate the length Pythagoras, and
+then subtract from that the R twice.
+>> Love it. So, we're going to look at the
+diagonal from the origin to the corner
+of that cube. And that looks like square
+root of well, in this case, the legs are
+1 and 1. So, square root of 1 2 + 1 2
+that distance is square of two. And
+then we're going to subtract off the
+radius of that outer circle. Right?
+Subtract off the one that was by
+definition radius 1. So the answer
+square of 2 minus one. You work it
+out. It's about 0.4. You look at the
+picture. You say, "I don't know. Seems
+reasonable. Why is this an interesting
+question?" I say, "Wait, wait, wait.
+You'll see. You'll see." So then you go
+to three dimensions, and we're going to
+do the same setup. We're going to have a
+unit ball on each one of the corners. So
+in this case, we're going to have not
+four, but eight different unit spheres.
+Each one of them has a radius one.
+They're sitting on all of the corners.
+And we're going to play the same game. I
+say, introduce a new sphere centered at
+the origin that is as big as it can be,
+meaning it gets as big as it needs to be
+to be tangent to those eight outer
+spheres. Same question. What is the
+radius of that inner sphere? In this
+case, anybody want to raise their hands,
+toss out a proposed answer to the radius
+of this one up close.
+>> Roo3 - 1.
+>> Roo3 minus one. Okay. So, so you
+you say root3 because you understand
+Pythagorean theorem in three dimensions.
+I might belabor the point here. Uh,
+forgive me if this is telling you
+something I already know. I really want
+to emphasize why the distance rule is
+what it is because the result I'm about
+to get to is so counterintuitive that
+when I've put it online before, there
+have been comments to the effect of
+maybe distance in higher dimensions just
+doesn't work the way that we think it
+does. Um, what I want to emphasize is
+everything's just stemming from the rule
+in two dimensions. So if you have a unit
+cube, you can play the same
+two-dimensional Pythagorean theorem game
+because having that diagonal of one
+square, that could be one leg of a new
+right triangle where another leg is this
+zaxis. And then from there you do the
+normal two-dimensional Pythagorean
+theorem. So we're not imbuing 3D space
+with a new rule. It's more like it's
+inheriting the rule from all its
+two-dimensional subspaces. You work it
+out, you end up with roo3. So in
+this case, that means the final answer
+roo3 minus 1. Again, you do the
+calculation. Looks to be about 0.7. You
+say, "Seems reasonable. Why is this
+interesting?" But let's just keep upping
+it up in four dimensions. I don't know
+how to [clears throat] draw a
+four-dimensional cube. This is my best
+attempt. It's something that would look
+like a cube, but it's got another cube
+as the top cap and some lines connecting
+the vertices. But we know how to
+calculate the distance. The exact same
+logic is going to let us go up one more
+where you would be drawing a
+two-dimensional right triangle where one
+leg is that root three. That's the
+diagonal of a unit cube. and then you
+just step up in some fourth direction.
+Now, this one's kind of cute because the
+distance to the corner is um square root
+of four, which means it's a whole
+number. It's two. And in this case,
+whatever that diagram should look like
+in four dimensions. It's got 16
+different corners, 16 different unit
+balls. One thing that's really nice
+about four dimensions is that a unit
+ball fits nice and snugly right in the
+middle of them. So, this gives you a
+little instinct for what sphere packing
+in four dimensions can look like. Now,
+where this gets more interesting is if
+we think in generality. If we say okay,
+not just for three or four dimensions,
+but for n dimensions, what would this
+look like? The distance to the corner of
+that cube, it's going to look like
+roo of n. We're always subtracting
+off the radius of that corner sphere,
+which is by definition 1. So, for
+example, up in 10 dimensions, it looks
+like 10 - 1, which is about 2.16.
+Now, if you just look at that and you
+kind of nod along with the formulas, you
+might say, okay, seems reasonable. I
+guess that's what things would be. But
+it gets really really weird when you try
+to interpret it geometrically and
+physically because here's what I'm going
+to do. I'm going to draw a new box
+outside of the entire diagram that we
+had. So before we introduce that center
+circle, I'm going to draw this 4x4x4
+bounding box outside of everything. And
+if in two dimensions I said, "Notice
+that inner circle is inside all of
+those." Or in three dimensions the inner
+sphere is inside of that whole bounding
+box, you'd say, "Yeah, obviously." Like
+it seems like by definition it must be
+inside of it. But the weird part is the
+distance from your origin to the edge of
+that bounding box because it's 4x4 ends
+up being two to get to that edge. So if
+we're saying up in 10 dimensions,
+whatever this diagram should look like
+with its 2 to the 10th different
+corners, whole bunch of little unit
+balls up there expanding some sort of
+inner sphere, that inner sphere is
+actually dramatically bigger than all
+your corner spheres. It's even bigger
+than that bounding box. It pokes outside
+the bounding box. Now, that's just
+bizarre. And it's so bizarre. Um there's
+this this common phrase that I've heard
+from other people who have described
+this problem where they say uh this
+suggests that higher dimensional spheres
+are very spiky. I don't know if anyone's
+heard this intuition would say you know
+high dimensional spheres are spiky. I
+hate this
+because like they're not they're they're
+very round. They're round because they
+are defined to be round. What is a
+sphere in a high number of dimensions?
+It's all of the points that are a given
+distance from the origin. So it is as
+round as round could be. Spheres are not
+the problem. This is counterintuitive,
+but spheres, they're fine. Do you know
+who's the problem? It's the cubes. Cubes
+are messed up in higher dimensions. At
+the very least, they defy our intuition.
+Cuz what's really going on with this
+example is we've got this very
+highdimensional cube where to get from
+the origin to the edge of it, that point
+that a highdimensional sphere on the
+inside could bounce outside of, let's
+say this is a 2x two box, it's just
+going to be a distance one to get to the
+edge of that 2x2 box. But to get to the
+corner, that's actually a lot longer
+because up in 10 dimensions, to get to
+that corner, you've got to walk in your
+first dimension, then your second
+dimension, then your third dimension,
+then your fourth dimension, then your
+sixth, on and on and on 10 times. Now,
+even if you're not taking perpendicular
+steps and you take the shortcut to just
+go straight across, you know, the
+shortcut can only get you so much. Um,
+so it gets you a square root speed up,
+but not not anything better than that.
+So the very loose schematic picture I
+have in my head for highdimensional
+cubes and take this with a grain of salt
+is it's something like this where your
+corners are just way way way farther
+away than the edge. Okay, again grain of
+salt because it's not like their their
+uh sides are curved but just cram this
+intuition into two dimensions that
+that's what we have to do. So for this
+example, if we're thinking what's going
+on when we put those unit spheres on the
+corners, those unit spheres are just way
+far away. They're just way off there.
+Um, so when we have that inside one
+that's growing as big as it needs to be
+to be tangent to all of those, it's got
+to get massive. Now, this picture is
+also still not quite right because I'm
+cramming it into two dimensions and I'm
+only showing four corners, but there's
+many, many, many corners. There's two to
+the end different corners. So, the like
+new loose schematic that you might have
+for this is something where rather than
+just those four corners, you have a
+whole bunch of corners. So, very vaguely
+speaking, like this is the picture to
+have in your mind for what's going on
+with that example. So that the inner
+sphere does bust out um but in some
+sense it's still contained by all of
+those corners. So this is all to say
+highdimensional geometry for all of its
+utility is unfortunately very
+counterintuitive. And I think maybe the
+better way of framing is that it it
+risks being counterintuitive because I
+think if you find the right ways to
+think about these shapes they actually
+can become your friends. And this is
+what brings us to the real me. The real
+reason we're all here. I don't want to
+talk about how it's real and useful. I
+don't even want to talk about how it's
+counterintuitive. I want to talk about
+something that's just completely
+beautiful about higher dimensional
+spheres specifically. And this is that
+formula that I referenced. What it's
+going to describe is the volume of a
+ball up in a higher number of
+dimensions. You can focus on a ball with
+radius one, but um just add an r to the
+end there if you want. So, we're going
+to build up to this. We're going to talk
+about where it comes from. I want it to
+feel like it's deep in your bones,
+something that you you really felt like
+you could have discovered it yourself.
+Um, and in order to get up there, I
+think it's worth just spending some time
+with the familiar friends that we have,
+which are the relevant formulas you
+might have come across already in
+school. And so there there's four main
+ones here. You've got the circumference
+of a circle. So this is kind of
+measuring the boundary in two
+dimensions. And this is 2 pi time the
+radius. This is basically the definition
+of pi. So after here, everything is a
+derivation, but this one you could call
+kind of a definition. Um, this is this
+is what the constant pi even means. Now
+below it I'm going to draw p r^ squ
+that's the measuring the interior of the
+square. So still in two dimensions
+interior our good old friend p r^
+squ up in three dimensions the boundary
+that surface area looks like 4 pi r^ 2
+very fun very suspicious because it's
+exactly four times the circle so that
+might be worth revisiting and then the
+interior uh the the volume of a sphere
+is 4/3 pi r cubed. So these are the ones
+we might have seen them inside a chart
+and our goal today is basically to fill
+out this chart. So the way I'm I'm
+orchestrating this, I'm going to label
+that bottom row BN, meaning a ball in N
+dimensions. So for example, a ball in
+two dimensions, that's a filledin
+circle. A ball in three dimensions,
+that's the thing we would usually call a
+ball, but we're going to use this as a
+very general term across all the
+dimensions. And then above that, I'm
+going to label things with uh this
+little dell symbol that you often use to
+mean partial. So this is just a bit of
+notation. In this case, it doesn't mean
+partial, it actually means the boundary.
+So the boundary of a ball in n
+dimensions. So the boundary of a ball in
+two dimensions, that's the circle. In
+three dimensions, it's the shell of the
+sphere. Now that notation that kind of
+looks like a little d kind of gives some
+calculus vibes, I actually think is
+helpful for an important rule about this
+chart. I want you to think a little bit
+because I know all of you have probably
+had some kind of exposure to calculus in
+your background. I want you to think
+about the relationship between the the
+bottom row and the top row. And again,
+I'm going to just throw this out. Anyone
+want to raise their hands and kind of
+say what is the relationship? So, right
+over here. Yeah.
+>> It's a derivative, right? How many of
+you like thought this was very fun the
+first time? I don't know, maybe this is
+the first time you've seen it. The first
+time I saw this, I remember thinking
+that's weird. Why is that true? I was
+but a little calculus student who maybe
+had didn't have a deep enough intuition
+for what the whole field was. But
+there's a very good reason this is true
+in terms of the the meaning of a
+derivative. So if you think of what
+would it mean to take the derivative of
+the area formula, you're kind of saying,
+well, suppose you were to increase that
+radius of a circle by a little amount,
+some little dr. How much has that area
+changed? What is the resulting change to
+that area that we might call da? And
+what this is saying is approximately
+it's about the circumference of that
+circle times that little dr. Now, this
+is wrong if you interpret dr and da as
+literal amounts, uh, some kind of actual
+tiny nudge like a physicist. But the
+idea is that it becomes less wrong if
+you let that VR get smaller and smaller.
+I'm a fan of the physicist perspective.
+I don't mean that in a derogatory way.
+Actually thinks the way we should all
+teach it. But uh the the the technical
+meaning of this would be this is not
+actually an equation. It's something
+that becomes less and less wrong as you
+let that little dr um approach something
+close to zero or approach zero rather.
+And then same intuition the other way
+around is basically saying you could
+think of the interior of the circle as
+kind of integrating together a whole
+bunch of boundaries. And when you
+integrate all of those uh boundaries
+that grow proportionally to r, taking
+that integral looks like turning the r
+into r squ and dividing by two. That
+division is going to be very important
+for us. So remember it. Same deal in
+three dimensions. Just to just to state
+it all, you've got a ball. If you were
+looking at its volume and you want to
+know what's the rate of change of its
+volume. A really nice way to think about
+that is that it is based on the surface
+area of that sphere. You're saying what
+is the tiny change in volume caused by a
+tiny change to the radius? Well, it's
+about the area of that shell times the
+thickness that you've given it. Now,
+that's wrong as stated with a literal
+number that you plug in for little dr,
+but it come becomes less wrong if you
+let dr shrink and shrink and shrink
+closer to zero. And then on the flip
+side too, you could think of it by
+integrating together a bunch of shells
+and integrating the r 2 turns into 1/3 r
+cubed. And that 1/3 is important. That
+idea that integration gives us that
+division is going to matter a lot. So we
+know how to go up and down in this
+diagram. That's the important part. If
+you know something on the bottom row,
+you can step up. Now our real question
+is how do we go left and right? Right?
+And before we go in the interesting
+direction to all the higher dimensions,
+let's give a little love to the first
+dimension because we do a lot of
+two-dimensional geometry. We do a lot of
+threedimensional geometry.
+One-dimensional geometry always kind of
+gets the short drift. And maybe it's
+because it's a little less fun. But take
+a moment and think, what should the
+volume of the interior of a
+one-dimensional ball be? Anyone want to
+want to hazard an answer? What should
+the the formula be for onedimensional
+ball? Yeah. Here.
+>> Would it just be a constant because it's
+kind of like a line? Well, it's going to
+>> it [clears throat] is a line, but it's
+not going to be constant because we want
+to think of uh with respect to a radius.
+So, as you increase that radius,
+>> 2 * r.
+>> Yeah, exactly. 2 * r. So, we say what is
+a ball in one dimension? Well, it's all
+the points with in a distance r from
+some center point that ends up looking
+like a line. And in the same way that in
+two dimensions, the way that we're
+measuring like volume is with area. In
+three dimensions, it's our normal
+meaning of volume. down here. What I
+mean by the volume of a one-dimensional
+ball using this word volume in a general
+sense across all the dimensions would
+just be the length. And the length is 2
+R. And what's fun here is if we just try
+to blindly follow the rule of taking a
+derivative to get up top, we end up with
+the idea that the volume of the boundary
+of a one-dimensional ball is two, which
+at first seems weird because what's the
+boundary of a one-dimensional ball? But
+you think about it, you say, well, it's
+just two different points. And what
+should zero dimensional volume be? I
+guess just counting those points seems
+as reasonable as anything, but it
+follows the pattern. So that gives us a
+little reassurance and that'll be a
+general theme as we move forward here.
+Something that seems a little suspicious
+at first, but that follows the pattern
+kind of gives us a comfortable feeling
+in our hearts. Now, of course, I know
+you want to see how we move to the
+right, how do we get into those higher
+dimensions? But to get a running start
+at it, I want to linger a little bit on
+where exactly those three-dimensional
+formulas are coming from. because the
+logic that gets us an understanding of,
+for example, the surface area of a
+sphere is going to actually carry us
+even farther if we think about it the
+right way. So, I alluded to the fact
+that a sphere is kind of suspicious
+because it's got this area that's
+exactly four times the area of a circle.
+That may make you wonder like where does
+it come from? Why do we get such a nice
+formula? And there's a really lovely way
+of thinking about this surface area that
+dates a long time back. It goes all the
+way back to Archimedes. And he had this
+very clever idea which was to say we can
+think about the area of the surface of a
+sphere by imagining taking all these
+little patches on it and projecting them
+out onto a cylinder that encloses that
+sphere. Now you might think this act of
+projecting and kind of warping it is
+going to be such a a violent affair that
+it changes the area. Of course it should
+change the area. But Archimedes very
+cleverly pointed out that if you think
+of one little rectangle of area on that
+sphere and you imagine what happens as
+you project it out onto that cylinder,
+there are two competing effects. It
+doesn't end up the same, but what
+happens is it gets stretched out in one
+direction, but then because it's kind of
+casting a shadow of something at an
+angle, it effectively gets squished down
+in another direction. And those two
+effects actually cancel each other out
+perfectly. And it's not too hard to
+reason about why either. So let's think
+about one of them. We're going to slice
+open the sphere. We're going to put some
+some names to things. Let's say the
+radius of the whole sphere is capital R.
+And then the distance between the Z-axis
+and our specific choice of a little
+rectangle. I'm going to call that little
+D.
+How much does it get stretched out, say
+on the bottom in terms of capital R and
+little D. And here you can draw two
+different similar triangles. We could
+think of the triangle that's isoclesles
+and has a tip on that Z-axis point and
+its base is the original base of that
+little rectangle. And then you say,
+think of a new triangle whose base is
+the projected version of that little
+rectangle that was on the sphere. And
+when you project it out, you're going to
+get a similar triangle. And because
+they're similar, the ratios of all of
+their sides should be the same. So in
+particular, we know the ratio of the
+long sides of those isles triangles is
+going to be capital R to D. So that
+should also be the ratio of that little
+side. Meaning that's the factor by which
+it gets stretched out in that direction
+when we project. Now what about the
+other way? This competing factor. What's
+going on there is you kind of think
+about casting a shadow. So the height of
+that rectangle looks like this diagonal
+line here and then it gets projected
+down onto something that is
+perpendicular to the direction of
+projection. So how much how much does
+that get scaled? What's that factor?
+Well, you can do a nice little um angle
+chasing argument to point out that this
+little blue right triangle that I've
+drawn showing us that projection factor
+is actually similar to this brown right
+triangle which again has the side
+lengths little d and then a hypotenuse
+r. So finding that it's just kind of
+chase some angles, see what has to be
+equal, and you end up deducing that
+these have to be the same. And what that
+ends up telling you is the factor by
+which it gets squished down in the other
+direction is that same r / d. So when
+you do this to all of your little
+rectangles, each one of them is getting
+stretched in one direction, squished in
+another. But the idea is that it's area
+preserving. And because it's area
+preserving, we just have to ask the area
+of the cylinder, which is a lot easier
+because with a cylinder, you can just
+unwrap it. You can basically imagine,
+you know, slicing it like a piece of
+paper, unwrapping it, and you get a
+rectangle where one edge of that
+rectangle came from the circumference of
+that sphere, which would be 2 pi r. And
+then the other edge just came from the
+height on that z-axis, the 2 * r. When
+you multiply those together, you get
+yourself that 4 pi r 2. So that's where
+that formula comes from, or at least one
+way of seeing where that formula comes
+from. And then, like I said, if you're
+at one row of this diagram, you can just
+take derivatives and integrals to get
+yourself up and down. So knowing the
+surface area is enough to give you the
+boundary on the inside. Now here's the
+key question. This is a very clever
+thing that Archimedes did. I don't know
+if Archimedes ever took a moment to
+think about four-dimensional balls or
+fivedimensional balls. But if he ever
+did, I have to imagine he might have
+wondered, is there some way I could
+generalize that really nice argument to
+talk about the boundary of a
+three-dimensional ball and how to
+measure it? How do I generalize that?
+And I want you to think about this for a
+moment because this is really the crux
+of everything we're going to talk about
+today is taking this clever Archimedian
+idea but somehow using it to let us take
+rightward steps in our diagram. And what
+I want to convince you of is that kind
+of the right way to think about what
+Archimedes was really doing is that he
+was making a night's move in this might
+sound a little bit weird. Let me
+explain. So, it's a nice move where you
+might think of it combined with that 2
+pi r factor because if we think of that
+unwrapped cylinder and we say where did
+those two side lengths come from? We
+were multiplying two amounts. Where did
+they come from? One of them at the top
+came from the boundary of a
+two-dimensional ball. That is a circle.
+That was your 2 pi r. And even though
+initially it might just look like, oh,
+that other side it was a line because it
+started off as a line. I want to try to
+convince you the right way to think
+about that other side is that it's a
+one-dimensional ball. It's the interior
+of a one-dimensional ball. And here's
+what I mean. So we're thinking about a
+threedimensional sphere, right? What is
+that? What does it mean to be on the
+boundary of a threedimensional sphere?
+Well, really in think in terms of
+coordinates, it means you take three
+numbers x, y, and z. And as long as the
+sum of the squares of those numbers is
+one, that's what it means to be on the
+boundary of a sphere. Now, I could say,
+suppose I ask you, hey, I would like you
+to give me a point on the boundary of a
+sphere. One way you could do that, it's
+kind of a weird way, but one way you
+could do it is to say, first I'm going
+to choose my z value, and as long as z^2
+is less than or equal to 1, I'm going to
+be safe. That's going to give me enough
+room to find an x^2 and a y^2. And then
+after choosing a value for z, uh, you
+have a circle worth of options for x^2
+and y^2. It's going to be everything um,
+such that the sum of those squares is 1
+minus whatever z^ squ was. Now, usually
+you couldn't use this kind of breakdown
+to make a nice uh surface area
+calculation because there's this
+dependence where the the size of that
+value Z is influencing the size of the
+circle of options that remains. So, you
+can't just take, you know, the the
+length of that line on the Z-axis and
+then multiply it by the size of that
+circle because that circle is changing
+size. And it's actually really not
+obvious, even if you're savvy with
+multivariable calculus and you want to
+set this all up in sign way. It's really
+not obvious how you can get those two
+numbers to relate to each other. But the
+core point of the Archimedian idea was
+to basically say you don't have to do
+that. Now before I draw that, actually I
+I want to take the same diagram. We're
+kind of moving the Z squ um and we're
+letting that influence X and Y, but I
+want to show the same animation in a way
+that's going to generalize to the
+four-dimensional case. So it's not going
+to rely on me drawing that
+threedimensional picture. Basically, as
+you move Z farther away from zero, it
+constricts that circle and you have this
+dependence between what Z you happened
+to choose and the circles worth of
+options left over. Okay, so what did our
+communities do? Basically, he said,
+well, it's actually going to be the same
+as if there was no dependence as if you
+took those circles worth of options and
+you just projected it out. So at all
+different values of Z, it happened to be
+a unit circle. Um that's what we mean by
+a cylinder. If you are comfortable with
+the language of set theory, you could
+say that cylinder is a cartisian product
+between the line segment and then the
+circle. And the really nice thing about
+taking a product like that where what's
+happening on one of those sets is just
+completely independent from the other
+one is if you want to calculate the area
+in this case, you can just multiply
+those two numbers because of that
+independence.
+So that's what I mean by taking a
+knight's move here is that if we're
+taking that that interior of a
+one-dimensional ball and each one is
+kind of getting turned into a circle
+projected out and because of this
+Archimedian idea, it's independent
+enough that we're safe to just multiply
+those numbers. Now what's this going to
+look like in four dimensions? Okay, so
+we're going to give some notation here.
+We could say the boundary of a
+threedimensional ball looks like the
+interior of a one-dimensional ball
+[snorts] times the boundary of a
+two-dimensional ball, just a circle.
+Okay, I take that. Here's what it looks
+like in four dimensions. We're going to
+say the boundary of a four-dimensional
+ball is going to look like multiplying
+the area of the interior of a
+two-dimensional ball by a circle again.
+And again, let's think in terms of the
+coordinates. Why does this make sense?
+What do we mean by the boundary of a
+four-dimensional ball? Well, we mean all
+the points XYZ W got four coordinates
+now where you add up their squares and
+you equal one. One way you could think
+to make a choice for such a point on
+that uh boundary is to say first I'm
+going to choose a z and a w and if
+they're going to give me a valid option
+all I need is that the sum of their
+squares is less than equal to one. If
+that's the case I'll be safe. I'll have
+some choice for my x and y. And then
+after that that leaves you with a
+circles worth of options. Some x^2 + y^2
+that would have to equal this thing that
+depends on z and w. And initially that
+would mean you can't just naively
+multiply these because of that
+dependence. So the equivalent of the
+animation we had earlier would be
+basically saying if the choice of Z and
+W was farther away from the origin that
+constricts the circles worth of options
+you have left over. And in general it's
+very non-trivial to use this kind of
+relationship to somehow say how am I
+going to figure out the the volume of
+the boundary of this four-dimensional
+ball using this breakdown. But the
+clever thing is that that same
+Archimedian idea where you take uh
+various points with a constant ZV
+valueue and you project them out onto a
+cylinder, the same logic ends up
+holding. But in this case, instead of a
+constant ZV value, you'd be choosing
+constant Z and W, but you still take
+that XY's worth of options and project
+them out onto something with radius one.
+You'll still have the same effect where
+that stretches things in one direction,
+but it squishes things in another. And
+the ratios work out that those perfectly
+cancel each other out. And in terms of
+what we have on screen here, what that
+basically means is we can pretend like
+there is no dependence on Z and W as far
+as a volume calculation is concerned. We
+can just take that interior of the
+circle and then multiply it by the
+boundary of the circle. And this is very
+bizarre for me to think about because
+the product of the interior of a circle
+and a circle like this is going to be a
+solid donut. So with whereas Archimedes
+was projecting onto a cylinder, somehow
+the four-dimensional version of
+Archimedes would be imagining projecting
+his hypersphere onto a donut that
+encloses the sphere. I can't visualize
+that either, but we can do the analysis
+to say this must be what's going on. So
+in our diagram, we're making another
+night's move, but this time we're
+shifting everything over. What is the
+volume of the boundary of a
+four-dimensional sphere? Well, we're
+going to take that p r^ 2. We
+multiply it by the 2 pi or 2 pi r
+rather. And there we go. Evidently, that
+volume looks like 2i^2 * r cubed.
+This is kind of fun because we picked up
+another factor of pi. Maybe you weren't
+expecting that. And again, once you have
+something in one column of this diagram,
+you just take derivatives and integrals
+to go up and down. So if we want to know
+the volume, or rather the
+four-dimensional equivalent of volume of
+a hypersphere, you just take an integral
+to go down. In this case, integrating r
+cubed looks like turning it into an r
+4th and then dividing by 4. So, as far
+as the constant is concerned, what we've
+done here is basically divided by four.
+Again, that division is going to be very
+important. And so, we end up with this
+conclusion where evidently the volume of
+a four-dimensional ball looks like 2 / 2
+* r 4. Now, that's very pretty. It's
+kind of a nice formula. And maybe you
+don't believe me, right? Maybe you
+think, I don't know, Grant, you're
+pulling the wool over my eyes in some
+way here. Like I don't know if that
+Archimedian trick really necessarily
+works. Maybe you're skeptical about the
+integration step. But I want to
+emphasize again this is not just we
+claim it and we hand it down from on
+high. This is an empirical question. If
+you want to test whether this is true,
+whether you've done your math right,
+this is wouldn't be a proof, but you
+could just go and run a simulation. You
+can ask that probability question we had
+at the start. Go type up some whatever
+your favorite programming language is.
+You have a choose four random numbers
+between negative 1 and one. you add up
+their squares and you just sample when
+do and don't the sum of those squares
+end up you know bigger or smaller than
+one and what you'll find is the
+numerical answer to that ends up lining
+up very very closely the bigger your
+simulation is with the the formula that
+I just gave you that nice beautiful pi^2
+/ two so that's fun and it's also
+generalizable we could just keep going
+we can make that same night's move if we
+want to go up to the fifth dimension and
+just to spell it all out what this is
+going to end up looking like I won't do
+this for every single one of them
+because boy are we stretching what we
+can even draw in pictures on the screen
+now. But we're going to say the boundary
+of a five-dimensional ball is in some
+sense uh thought of as a product between
+the interior of one and three
+dimensions, a solid three-dimensional
+ball and a circle. And what I actually
+mean by that is if you choose a point on
+that boundary, well, what we mean is
+choosing five numbers where the sum of
+the squares of those numbers is equal to
+one. And you could think of that as
+saying first I'm going to choose three
+of those numbers and I'm safe to do that
+as long as the sum of their squares is
+less than one meaning point inside a
+three-dimensional ball and I have a
+circle's worth of options left. And this
+is a a tongue-in-cheek equation. It's
+not the case that the boundary of the
+ball is literally like a product a
+cartisian product between your interior
+of a ball and a circle. But what I'm
+saying is there's a a volume preserving
+move that takes you from that boundary
+of a five-dimensional ball onto the
+thing that literally is that cartisian
+product. So we might as well think of it
+as being that as far as volume
+calculations are concerned, which is
+very fun. Now in terms of our diagram,
+all that means is to make this knight's
+move, you do the same thing. You
+multiply by 2 pi r. And sometimes people
+will ask like why are you staying
+constant at that 2 pi r? Everything else
+is moving over. Why does that one stay
+fixed? And the basic idea is that when
+you're making this Archimedian move
+where you want to um project out, it's
+important that you have two distinct
+actions that are canceling each other
+out. One that's stretching in one
+direction and the other one which is
+casting a shadow. So if you tried to
+break down your choice of a point on the
+boundary of some highdimensional sphere,
+not as a a bunch of things and then two
+more, but a bunch of things and you
+know, three more or four more, uh you
+wouldn't run into that same really nice
+cancellation. So every time you make
+this nice move in the diagram and then
+you integrate to go down it gives us one
+more column and again that integration
+as far as the constant is concerned up
+in five dimensions it just means
+dividing by five that r fourth turns
+into r 5th and you have that integration
+factor dividing by five and we can just
+keep this going on autopilot. Every time
+you make one of these moves um getting
+into that nice move looks like
+multiplying by 2 pi r. So you kind of
+have this 2 pi jump up and to the right
+and then an integration factor to get
+down and we just fill in the whole
+diagram. And in some sense we're done,
+right? In some sense this gives you the
+rule that you could use to decide on the
+volume of any dimensional sphere that
+you want. But of course we want a nice
+formula for this, right? We want to come
+away with formula. We want to analyze
+the formula. We want to think about what
+it means. So let's take a moment to see
+if we can write down what that should
+be.
+So the way I'm going to do this uh each
+one of these volumes in higher
+dimensions looks like some constant
+times r to that number of dimensions.
+Right? So for example in one dimension
+that constant is two. In two dimensions
+that constant is pi. In three dimensions
+4/3 pi on and on and on. What we really
+want to know is what is this constant?
+And the key rule that we have is a
+recursive one. It's saying if you want
+to know that constant in some dimension,
+look two dimensions earlier and it
+should be the same as taking that but
+multiplying by 2 pi and dividing by n.
+And that's the formulaic way of
+basically capturing this night's move
+and integrate idea. You take a night's
+move to get up and to the right that
+multiplies you by 2 pi and then you
+integrate to get down. That's going to
+divide you by n. So if you have this
+recurrence relation, it kind of tells
+you everything you need to know. For
+example, let's say uh couple months from
+now, you find yourself in one of your
+exams. For some unbeknownsted reason,
+your exam asks, "What is the volume of
+an eight-dimensional ball?" And you're
+like, "Grant told me this, but I
+forgot." Don't worry, it's okay if you
+forget, cuz all you need to know if you
+want to know the volume of an
+eight-dimensional ball is the volume of
+a sixdimensional ball. You take pi
+divided by half the dimensions and then
+multiply it by that. And you say, "Ah,
+crap. I also forget the volume of a
+sixdimensional ball. Not a worry. Not a
+worry at all. All you have to remember
+is the volume of a four-dimensional
+ball. You take pi divided by half the
+dimension. So in this case, half of six
+would be three. Pi divided by half the
+dimension. Multiply by that. And you're
+like, well, now this is embarrassing
+because I also forget the volume of a
+four-dimensional ball. But not a worry.
+You go down one more. You multiply by pi
+/ the dimension. Now, at this point,
+presumably you do know the volume of a
+two-dimensional ball, which is to say
+the area of a circle. But if you're a
+programmer at heart and you're looking
+at this,
+right, and you're thinking, I'm defining
+a recursive function. If you ever wrote
+a recursive function, your base case was
+at n equals 2. It would be very
+embarrassing to submit that poll
+request.
+So looking at this diagram, it kind of
+screams out to you, hang on a second,
+maybe we should actually be venturing
+farther back, even though I know the
+area of a circle. Like should I be going
+one further? Should I have a base case
+at zero? [laughter] And I mentioned one
+dimension was unloved, but like poor
+zero dimensions. We didn't even think
+about zero dimensional geometry and say,
+okay, what would this mean? Well, in
+terms of the formulas, we know what it
+wants us to be saying if we want this
+recurrence relation to be true. The
+volume of a uh a zero dimensional unit
+ball should be one. And we're like, hang
+on, where are we? Zero dimensions. Can't
+move left. Can't move up. Can't I can't
+move anywhere. Just a point. So, a unit
+ball is everything, I guess. And the
+volume of everything is one. Seems
+reasonable. What's the boundary of a
+unit ball? You're like, the boundary of
+everything, I guess, would be nothing.
+So, zero, which I guess makes sense. And
+I I actually once gave this talk at
+Stanford and you know how at the end of
+talks like people come up for Q&As's and
+there's always the annoying person who
+doesn't understand the Q part of Q&A and
+they're like I have a thing to say. So
+someone comes up he's like I have three
+points I want to say. It was okay though
+cuz this person was Donald Ko and he was
+like
+it was like in the zero dimensional case
+you can still write the program to
+verify the answer because you just
+choose zero numbers and ask the
+probability that the sum of their
+squares is less than one and it's
+probability one. I was like, "Ah,
+touché, Donald can. Thanks."
+So, point is, we've got this uh answer
+to our eight dimensional question, but
+it's not hard to see how it generalizes.
+We were playing this little hopscotching
+game going back, and you're basically
+multiplying pi in the numerator by half
+the dimensions number of times. And then
+that denominator, because we were always
+dividing by that half dimension, it's
+just a factorial. So, in this specific
+example, it's four factorial, but more
+generally, it's half the number of
+dimensions factorial. And so we can
+clean things up. We take that constant,
+like I was saying, it's multiplied by an
+R to the n. And I can tell you,
+wonderful, we can use this. It lets you
+kind of hopscotch two dimensions up if
+you think of it as a recurrence. But you
+can also just zero shot your way into
+whatever you want. If we're going to ask
+this for, say, 100 dimensions. And I
+say, what a beautiful formula. As
+promised, we have a beautiful formula.
+And you might say, well, hang on a
+second. You're not done. Because there's
+something kind of awkward about this
+formula, which is what's going on at all
+the odd numbers. because the denominator
+is asking us to take something like half
+factorial or three halves factorial or
+five halves factorial which feels kind
+of weird but we shouldn't have a rule
+that's different for the odd number
+dimensions because in terms of all the
+logic that we were applying with this
+night's move and integrate nothing about
+that logic was telling us hey only do
+this for an even number of dimensions.
+So we we kind of want in our souls for
+this to be something that applies to
+everything because the recurrence rule
+applies to everything, right? Like if
+you forgot the volume of a
+seven-dimensional ball and it's a
+crucial fact that comes up on your
+homework for some godforsaken reason,
+you could still find your way up to it,
+right? You play this game where you keep
+multiplying by uh pi / half the
+dimension. And actually in this case, I
+think it's kind of nicer to to put that
+two back up in the numerator. So if you
+wanted to think about what is it that
+takes us from say a one-dimensional ball
+up to a three-dimensional ball, you're
+multiplying that 2 pi and then you're
+dividing by three. And so like maybe
+next time you look at the volume of a
+sphere, you can think about it as
+saying, hm, actually it is a
+one-dimensional ball, but we did that
+nice move which was 2 pi and divided by
+3 and that's what gets you that that 4/3
+pi factor. But you could keep going from
+there to get up to five. You multiply by
+another 2 pi and divide by 5. Multiply
+by another 2 pi from there, divide by 7.
+And if you had been looking at those
+oddnumbered cases and thinking that the
+numbers were very ugly, like for
+example, we have this, you know, 945 in
+one of the denominators and initially
+you see that you're like, where did that
+number come from? Here it's actually
+nice to think about. It's like a
+factorial, but just where you do all the
+odd numbers. That's 9 * 7 * 5 * 3. And
+then the numerator always looks like a
+power of 2 * a power of pi. But if we
+wanted this to all be true for our
+general formula, right, we don't want to
+have one rule that we write for the even
+case, one rule that we write for the odd
+case, like I don't know, Thanksgiving
+with divorced parents or something where
+you have to make a choice. It's nice if
+our parents get back together, right?
+Like let's uh let let's think about what
+would be required for this to make
+sense. And in this case, the marriage
+counselor just suggests looking at the
+n=1 case and asking what has to be true
+there. So what this formula would say
+for n= 1 would be that the volume of a
+one-dimensional ball which again is just
+a line segment looks like pi half pi to
+the 1/2 and raising to the 1/2 is the
+same as taking a square root / 1/2
+factorial whatever the heck that should
+be times r. But we do a little
+arrangement and we say well this is kind
+of telling us what 1/2 factorial would
+have to be if you know mom and dad are
+getting back together. it would have to
+be square of pi / two. And once you
+have that, you actually have the rest of
+them because if you think about
+factorials again in a recursive way,
+what what should it mean? Like n
+factorial recursively is defined to be n
+* whatever n minus one factorial is. So
+what is three halves factorial? Well,
+it's going to be three halves times
+whatever 1/2 factorial is, which we're
+saying should be of pi / 2. What's
+5 half factorials? Well, five halves
+times three halves times whatever 1/2
+factorial should be. So basically, if we
+take this one suggestion from the
+mathematical universe that 1/2 factorial
+should be of pi / 2, our whole
+formula works out. And what's reassuring
+here, some of you might actually know
+that there is a way to generalize the
+factorial. Um, it doesn't just
+generalize to half integers. It's based
+on something called the gamma function.
+It generalizes it to real numbers, uh,
+to complex numbers. And if this was a
+much longer lecture, we could have a
+whole other discussion about the gamma
+function and how there's a completely
+parallel path that you could use to
+derive the volumes of higher dimensional
+spheres that comes from basically
+studying Gaussian distributions in high
+dimensions where if you want to
+integrate them and understand what it
+looks like to integrate a Gaussian
+function, there's a certain trick that
+you can apply and that trick will give
+you a formula for the higher dimensional
+spheres in terms of the gamma function.
+And what that ends up telling us is the
+the way that we want to extend our
+factorial definition, which is kind of
+like forcing this formula to be true, it
+actually does align with the way that it
+gets generalized even more broadly in a
+different corner of math.
+Now, in addition to just having a
+beautiful formula to gawk at
+symbolically, I want to take a moment to
+look at the actual numbers behind it and
+plug in some amounts and see if we can
+interpret what's going on because
+something very strange actually happens
+when you do that. So, let's think about
+this. I'm going to draw the volume of a
+unit ball in all of our dimensions. So,
+starting with zero dimensions, no longer
+does zero dimension get no love. We're
+going to give it the love it deserves.
+That constant is one. In one dimension,
+the constant the volume of a unit ball
+is two. In two dimensions, uh it's pi,
+just area of a of a unit circle. In
+three dimensions, it's 4/3 pi. And all
+these numbers are going up. You might be
+like, yeah, of course they're going up
+because each sphere in one dimension
+like contains the smaller one. So, it's
+getting bigger. uh they should be
+getting bigger. Up in four dimensions,
+it gets bigger still. We end up around
+4.93. Five dimensions is bigger still,
+but it's kind of slowing down, which
+might give us pause. Then it gets very
+worrying because at six dimensions it's
+smaller. Like that's weird. Seven is
+smaller, eight is smaller, 9 is smaller.
+Still, it starts decreasing very
+rapidly. We're like, hang on a second.
+Up in, for example, 10 dimensions,
+that's actually smaller than the
+two-dimensional ball. And that's that's
+a little strange to interpret to say the
+least. And so if you draw the curve for
+this where we're going to fill it in not
+just for integers but but for everything
+using the gamma function, here's what it
+looks like. And let's think about why,
+right? Like why does it turn around? Why
+does it turn around at five? That's kind
+of weird. What's special about five
+dimensions? Um and then what happens as
+we go out towards an even higher number
+of dimensions? And the nice thing about
+the fact that you and I have landed here
+not because I just gave you the formula
+and said trust me that it's true but
+because you see where it comes from is
+we can think about these questions in
+terms of where it came from. Ultimately
+it's it's rooted in this recurrence
+relation where understanding what
+happens in one dimension you look two
+dimensions earlier and then you do that
+nice move that takes you 2 pi and then
+you do an integration which gives you
+that division by n. So every time we're
+stepping two units to the right in this
+diagram, you're multiplying 2 pi / n,
+where n is kind of the x coordinate of
+where you land. So for example, jumping
+from 1 up to 3, that's 2 pi/3. 2 pi is
+bigger than three, so that's why you're
+growing. From 2 up to 4, you multiply by
+2 pi over 4. 2 pi is bigger than four,
+so you're still growing. 2 pi is bigger
+than five, not by as much, so you're not
+growing as much. From four to six, 2 pi
+is bigger than six, but now just barely.
+And then it's at that point that it
+turns around where as you go from five
+up to 7, you're taking 2 pi / 7, but now
+the denominator is starting to win out.
+And in fact, it starts to win out by
+more and more and more because as you
+get into a higher dimension, that
+integration factor is big playing a
+bigger and bigger role and it starts to
+dominate. So if you wanted to ask why
+was five the biggest basically because
+at that value of n where the numerator
+denominator are as close as they can be
+when it's equal to six that's straddling
+this number five and so that's the point
+at which the change on this graph um is
+going to be around zero. So if we keep
+going though, what what ends up being
+very surprising and I think this is one
+of those just genuinely baffling facts
+about higher higher dimensions is that
+your unit balls, they don't just get
+small, they get downright infantal. For
+example, let's take a 100dimensional
+ball using our formula. It looks like pi
+to the 50. Cool. That's big. Nice big
+number. But divided by 50 factorial,
+which is way bigger, right? because all
+of those factors of pi in the numerator
+on average are much much smaller than
+the terms that you're multiplying in the
+denominator. Almost all of them are much
+bigger than pi. Numerically this is
+around 2.37 * 10 -40th. So a ball in 100
+dimensions it's nothing. It's just
+absolutely nothing. And this again is an
+empirical fact. That question I asked at
+the very beginning I said imagine you
+choose a 100 different random numbers
+each between negative 1 and one. You
+square them. You want to know the
+probability that the sum of those
+squares is less than one. Now, on the
+one hand, you could say, well, it's it's
+very expected that this should be a
+small number, right? Because think about
+the coincidence that's required here.
+All 100 of your numbers have to happen
+to be so small that when you add up all
+those squares, you end up less than one.
+And I'd say, I agree, that's surprising.
+I would have thought that smallalness is
+taken into account by that 2 to the 100
+in the denominator. I would look at it
+and be like, well, there's the source of
+your smallness. The thing that's
+surprising here is that it's not just
+the denominator that makes it small, but
+the numerator is also working against
+you. That numerator is a puny number as
+well. This volume of higher dimensional
+spheres being very small and downright
+negligible. It actually comes up a lot.
+You know, people who study machine
+learning, they have to think about
+quirks in higher dimensions. This is one
+of them. Your balls are just puny.
+Cryptographers, same deal. Well, you
+don't clap. you can't clap for that.
+There's a time for clapping and that's
+not it.
+Um,
+uh, if you study cryptography, this fact
+comes up a lot as well. Quantum
+mechanics comes up as well. And I think
+it's worth just a little moment to
+divert all of your attention away from
+the concept of puny balls and instead on
+the question of like why where did that
+come from? And really what's happening
+here is the the integration factor,
+right? when when you're dividing by that
+n, for example, when you're thinking
+about the volume of a threedimensional
+ball, you're kind of adding together all
+of these shells, you're integrating
+together all these things that are
+proportional to r 2 and we're saying
+that that effectively gives you this 1/3
+factor. It's very similar actually if
+you have, let's say, like a square
+pyramid and you think of it as being
+built up from a whole bunch of squares
+whose side lengths are increasing
+linearly. You know how with a pyramid it
+looks like 1/3 time its base uh times
+the height. Basically the same thing is
+going on here where that that's where
+the 1/3 comes from. And in general when
+you're doing this in a higher number of
+dimensions that factor is getting bigger
+and bigger. And this actually relates to
+a distinct fact about higher dimensional
+spheres which is also relevant in all of
+these fields if you want to get a little
+bit of an intuition for how how
+distances behave. This has to do with
+not just what the volume of a sphere is
+but where that volume is. And it's
+basically almost all right next to the
+boundary. And it's not too hard to
+explain why. So let's say we're in two
+dimensions and I want to understand how
+much of the area of that circle, let's
+say it's a unit circle, is within a
+distance of like 0.01 of the boundary.
+It's kind of within 1% of the boundary.
+Well, you could calculate that is you
+could say, all right, the area of the
+entire circle is p r^ squ. And then
+if we chop out everything other than
+that boundary, that would be another
+circle, but whose radius was scaled down
+by 99%.
+And if you scale that down by 99%.
+The area gets scaled down by its square
+which is approximately 0.98 in this case
+0.9801.
+But the idea is that 2% of the of the
+area of that circle is close to the
+boundary. But circles are actually very
+unusual in this respect in the scope of
+all of the possible spheres across all
+the dimensions because let's think about
+what this would be in like some really
+big like 10,000 dimensions. Okay, so we
+know the volume. It's fun. We have a
+formula for it. It's not really the
+point here though. If you wanted to play
+the same game of saying how much of the
+volume is right next to the boundary,
+you could take the entire ball and then
+you say, let's scale it down by 99%. And
+then ask what's the volume of that that
+smaller one that initially you might
+think is only slightly smaller. But in
+this case, when you scale it down, it's
+not just getting scaled down in two
+directions. By definition of what we
+mean being in 10,000 dimensions, it's
+getting scaled down in 10,000 different
+directions. So the factor by which its
+volume decreases looks like 0.99 raised
+to the 10,000 that is effectively zero.
+It's 2 * 10 - 44. So this is saying
+essentially all of the volume is sitting
+right there on that boundary. And this
+is related to what we were just looking
+at where as you're going from the
+boundary to the interior, you're making
+this division that becomes more and more
+significant. Uh because if you think
+about it, what does it mean when we're
+talking about the surface area of a
+sphere of a unit sphere is 4 pi, a
+number that's uh you know around 12 and
+the interior of it is 4/3 pi. On the one
+hand, you're comparing different units.
+One is an area, one's a volume, but you
+could say you take that area and you
+multiply it just by a tiny little amount
+and it's giving you like a
+disproportionate amount of the entire
+sphere. So that's actually a nice
+intuition to have just if you are
+working with highdimensional data.
+Essentially everything if you're dealing
+with uh something inside a ball is just
+right next to the surface effectively
+right on the surface. While we're here
+there's there's another fact this is
+kind of tied to where let's say you want
+to know on that boundary where is most
+of that boundary volume for example most
+of the the surface area of a sphere. Now
+in a sphere it's nicely distributed
+across everything but if this picture
+was being drawn in many many many more
+dimensions what ends up happening is
+almost all the masses at the equator and
+the reason is tied to what we were just
+talking about where as you scale it a
+little bit because there's so many
+dimensions to scale in it basically
+disappears. So if you think of the
+circles that aren't the equator and I
+say circle the uh you know the the
+dminus 2dimensional boundaries that
+aren't the equator but are just a little
+bit up forward or just a little bit down
+from it. those ones end up becoming
+effectively nothing because that tiny
+bit of scaling that's required to get
+just a little up or just a little down
+essentially makes their volume
+disappear.
+Now the last thing I want to linger on
+is how like this idea that the size of
+your uh of your spheres in higher
+dimensions is shrinking feels a little
+bit like it feels like it's not even a
+sensible comparison because we're
+messing with different units, right?
+Like what does it mean to compare the
+volume of a one-dimensional ball to that
+of a two-dimensional ball to a
+threedimensional one? because one is a
+length, one is an area, one is a volume.
+Because in some some literal sense, like
+a threedimensional ball is not smaller
+or bigger than the four-dimensional
+ball. It's just incomparable. And so
+let's try to think about what this
+number actually means. How can we give
+kind of a unit-free interpretation of
+it? And in a literal sense, I guess what
+we're saying is we're really comparing
+it to the volume of a unit cube. You
+know that pi for the area of a unit
+circle. That's basically area of a
+circle as compared to the area of a of a
+square with side length one. And then
+three dimensions. What do we mean by
+that 4/3 pi? Well, we're comparing the
+volume of that sphere to the volume of a
+unit cube. And so in some sense, the
+fact that this is getting smaller is
+really just telling you that up in many
+dimensions, the the size of a cube
+compared to the size of a sphere ends up
+getting really really disproportionate.
+The cubes are huge and the spheres are
+small. And that I was thinking actually
+that reminds me of that earlier puzzle.
+And in fact, there's a different visual
+that you can think of for what this
+number is really telling you because
+let's pull up that second puzzle that we
+looked at where we had all these uh
+corner spheres. What if I wanted to ask
+how much of this diagram is represented
+in those corner spheres versus in that
+cube? And in this case, there's eight
+distinct corner spheres and each one of
+them has radius 1. And then the cube is
+a 2x2x2 cube. So you'd be taking 8 times
+the volume of a unit sphere and you're
+dividing it by 8. So that's just getting
+us back to where we are because that
+that factor of 8 cancels out. Whatever
+this picture looks like up in 100
+dimensions, you've got 2 to the 100
+corner spheres and then you've got this
+big old cube that's volume 2 to the 100.
+Those cancel out. And the fact that a
+100dimensional sphere is very small
+could be interpreted as saying whatever
+this diagram should be up in 100
+dimensions, those corner spheres are
+basically none of it. they're
+effectively none of the volume that
+you're looking at. And that kind of ties
+to the the visual I was giving earlier
+where the very loose huristic for this
+highdimensional cube is that it's super
+spiky. It's something where the distance
+to the edge is much much smaller than
+the distance to the corner. And so all
+those corner spheres are basically none
+of your diagram.
+And so with all that, I just want to end
+you with you on a very small note, which
+is that there's a lot of beautiful items
+that you can come across in math, but
+actually recognizing that beauty
+sometimes requires looking at something
+that was very familiar, whether that's
+the factorial or area of a circle and
+then putting it in the context of
+something more general. The beauty that
+underlies factorials and the beauty that
+underlies the volume formula for a
+sphere is actually only visible once
+you've stepped back to see things
+general enough. Otherwise, it would not
+at all be visible that a pi is secretly
+hiding inside your your factorial
+calculations or that there's some
+unifying formula sitting between your
+area of a circle and your volume of a
+sphere. So, that's all I have for you. I
+want to end it here. Thank you everyone
+for coming.
+[applause]
+Hi there, me again, but from the office
+this time. I wanted to chime in with a
+quick little end note partly to talk
+about that very first animation I showed
+at the beginning and explain what that
+actually is, how it relates to
+highdimensional spheres. But before
+then, given that you are demonstrabably
+the kind of person who watches a lecture
+about highdimensional spheres, I have a
+suspicion that you would be a good fit
+for the new experimental thing I'm doing
+this year, which is essentially a
+virtual career fair. So, take a moment
+to go to 3b1b.co/talent.
+And there what you'll find is a set of
+career opportunities from various
+different organizations who are
+interested in people like you, the kind
+of people who watch these videos and the
+curiosity that represents which tends to
+correlate with very technically talented
+people. So for every group that you find
+there, I've personally taken a chance to
+chat with the teams there and I can tell
+you the people that I've met there are
+just clearly very smart. They're very
+curious in the sense of truth seeeking.
+A lot of them are just high agency
+people. They clearly take charge of what
+they actually do. They don't just wait
+to follow instructions. And if that
+sounds like the kind of person who you
+want to work alongside, I would highly
+encourage you to at least check it out.
+Listen to some of the interviews I
+conducted with the people there. And if
+you're looking for a new career,
+hopefully this gives you a helpful new
+batch of considerations. Since the last
+video when I very first mentioned this,
+there have been actual hires made, which
+is pretty cool to me. So, who knows?
+Maybe if you go and explore the page,
+you'll be the next one. All right. So
+for that animation at the very very
+beginning I initially showed this circle
+that turns into the various lines of
+latitude on a sphere a sphere in three
+dimensions and our minds are very good
+at seeing that it's a three-dimensional
+sphere. After that I basically show the
+same thing same code but stepping it up
+in one dimension. So I represent all of
+the spheres of latitude on a
+four-dimensional sphere. So they're kind
+of a bunch of four tupils of numbers.
+But if you change the perspective on
+that before you project down into three
+dimensions, you get all of these
+different views of what those spheres of
+latitude end up looking like, which as
+you rotate that hypersphere ends up
+looking just very trippy. And you know,
+I don't think this is explanatory in the
+sense of you look at this and you see ah
+p^2 over 2, but it is very fun. So
+thought I'd share that with you. Also,
+if you want to see a fun application of
+this formula for highdimensional sphere
+volumes, you might enjoy a video I did
+with number file a couple years back
+that includes a puzzle that incorporates
+this into its answer.
+[music]
+>> [music]

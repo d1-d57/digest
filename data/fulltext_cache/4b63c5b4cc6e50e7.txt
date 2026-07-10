@@ -1,0 +1,3080 @@
+AMS :: Notices of the American Mathematical Society
+AMS Website Down
+Notice: All AMS websites will be down for maintenance on Saturday, July 11 from 8 am until 1 pm.
+PDFLINK
+The Geometry of Maximal Globally Hyperbolic Developments for
+$3D$
+Compressible Fluids Terminating in Shocks
+Leonardo Abbrescia
+Jared Speck
+Communicated by
+Notices
+Associate Editor Daniela De Silva
+1
+.
+The
+$3D$
+Compressible Euler Equations
+1.1
+.
+The equations and singularities
+In 1757, Euler formulated a set of equations, now known as the
+compressible Euler equations
+, that model the motion of a compressible fluid without viscosity (with viscosity
+$=$
+the compressible Navier–Stokes equations). These PDEs are evolutionary in that given suitably smooth initial conditions, say at
+,
+$t=0$
+one can solve the equations and uniquely determine a smooth solution, at least for short times, before any singularity forms. However, beyond short times, singularities can form. Especially for this reason, the equations remain a fascinating source of challenging mathematical problems connecting many branches of pure and applied mathematics, including PDE, analysis, geometry, and topology. There are also related fluid equations accounting for relativistic effects, the
+relativistic Euler equations
+, and they are a fundamental model in cosmology and astrophysics. While much has been rigorously understood about these fluids in the idealized setting of
+$1D$
+(one spatial dimension), much less is known about
+⁠
+$3D$
+Footnote
+1
+fluids, the main subject of this article.
+1
+Here, we focus on the physically relevant setting of
+,
+$3D$
+but much of what we will state holds in arbitrary dimensions.
+✖
+In Cartesian coordinates
+,
+$(x^0 \coloneq t,x^1,x^2,x^3)=(t,x) \in \mathbb{R} \times \mathbb{R}^3$
+the
+$3D$
+compressible Euler equations can be formulated as the following first-order PDE system in the fluid’s velocity
+,
+$v: \mathbb{R} \times \mathbb{R}^3 \rightarrow \mathbb{R}^3$
+the density
+,
+$\varrho : \mathbb{R} \times \mathbb{R}^3 \rightarrow [0,\infty )$
+and the entropy
+$s: \mathbb{R} \times \mathbb{R}^3 \rightarrow \mathbb{R}$
+as follows,⁠
+Footnote
+2
+where
+$\partial _{\alpha }$
+denotes a standard “Cartesian” partial derivative:
+2
+We use Einstein summation convention in that repeated adjacent indices are summed over their respective ranges, which is
+$\{1,2,3\}$
+for Latin “spatial” indices and
+$\{0,1,2,3\}$
+for Greek “spacetime” indices.
+✖
+1a
+1b
+1c
+$$\begin{align} \mathbf{B}\varrho & = -\varrho \partial _a v^a,  \cssId{texmlid1}{\tag{1a}}\\ \varrho \mathbf{B}v^i & = - \partial _i p, & & (i=1,2,3)  \cssId{texmlid24}{\tag{1b}}\\ \mathbf{B}s& = 0.  \cssId{texmlid2}{\tag{1c}} \end{align}$$
+Above,
+$p$
+denotes the pressure,
+2
+$$\begin{align} \mathbf{B}& \coloneq \partial _t + v^a \partial _a, \cssId{texmlid25}{\tag{2}} \end{align}$$
+is the
+material derivative vectorfield
+, and
+$\mathbf{X} f \coloneq \mathbf{X}^{\alpha } \partial _{\alpha }f$
+denotes the derivative of the scalar function
+$f$
+in the direction of the vectorfield
+.
+$\mathbf{X}$
+The entropy variable
+$s$
+accounts for thermodynamic effects.
+Euler’s original formulation of the equations was under-determined, but the theory of thermodynamics developed in the 1800s supplied the key missing ingredient: an
+equation of state
+, which postulates
+$p$
+as a function of
+$\varrho$
+and
+,
+$s$
+i.e.,
+.
+$p = p(\varrho ,s)$
+The
+speed of sound
+,
+,
+$c: = \sqrt {\frac{\partial p}{\partial \varrho }}$
+is a fundamental quantity. We assume
+$c> 0$
+(vanishing sound speed is very difficult).
+Incompressible fluids satisfy
+,
+$\partial _a v^a \equiv 0$
+where
+$\partial _a v^a$
+is the divergence of
+,
+$v$
+often denoted
+.
+$\nabla \cdot v$
+When
+,
+$\nabla \cdot v = 0$
+the infinitesimal volume of the fluid is preserved along its flow.⁠
+Footnote
+3
+While incompressible fluids are often used to model some phenomena, such as ocean waves, more realistic fluid models feature compression. Compressible fluids are those for which
+$\nabla \cdot v$
+is
+not
+everywhere vanishing. Equation
+1a
+shows that compression leads to variations in the density. Even starting from very smooth initial conditions, the compression can become infinite in finite time; we will discuss this in detail below. This singular behavior, which is present in many PDE systems, is known as the formation of a
+shock singularity
+,⁠
+Footnote
+4
+and for compressible fluids can be characterized as the blowup of the gradients
+$|\partial v|, |\partial \varrho | \uparrow \infty$
+while
+$v, \, \varrho , \, s$
+remain bounded. Describing how shock singularities develop in the evolution starting from smooth initial conditions is called the
+shock formation problem
+.
+3
+This standard fact is typically proved via the identity
+,
+$\mathscr{L}_v (\mathrm{d} x^1 \wedge \mathrm{d} x^2 \wedge \mathrm{d} x^3) = (\nabla \cdot v) (\mathrm{d} x^1 \wedge \mathrm{d} x^2 \wedge \mathrm{d} x^3)$
+where
+$\mathscr{L}_v$
+denotes Lie differentiation with respect to
+.
+$v$
+✖
+4
+Some authors describe this as wave breaking, pre-shocks, or gradient catastrophes.
+✖
+1.2
+.
+Sound waves, the acoustical metric, and characteristics
+The onset of a shock is tied to an infinitely dense accumulation of
+sound
+waves
+. Indeed, the mathematics of multi-
+$D$
+shocks has borne witness to dramatic advancements in the past two decades precisely because of robust and powerful geometric tools that were developed to study
+wave equations
+. The connection between
+1a
+–
+1c
+and wave equations is easiest to see when the fluid is irrotational (i.e.,
+)
+$\nabla \times v = 0$
+and isentropic (i.e.,
+$s \equiv$
+constant). One can then introduce a potential function
+$\Phi$
+in such a way that
+$v$
+and
+$\varrho$
+are completely determined⁠
+Footnote
+5
+by its spacetime gradient
+$\mathbf{\partial } \Phi = (\partial _t \Phi ,\nabla \Phi )$
+(the condition
+$s\equiv \mathrm{constant}$
+is preserved by equation
+1c
+). For irrotational and isentropic solutions, the system
+1a
+–
+1c
+can be shown to be equivalent to a single wave equation:
+5
+More precisely,
+$v^i = \partial _i \Phi$
+and
+,
+$\partial _t \Phi + \frac{1}{2}|\nabla \Phi |^2 = h(\varrho )$
+where
+.
+$h'(\varrho ) = \frac{1}{\varrho }c^2(\varrho )$
+✖
+3
+$$\begin{align} (\mathbf{g}^{-1})^{\alpha \beta }(\mathbf{\partial } \Phi ) \partial _{\alpha } \partial _{\beta } \Phi & = 0, \cssId{texmlid3}{\tag{3}} \end{align}$$
+where
+$\mathbf{g}$
+is the
+acoustical metric
+, a solution-dependent Lorentzian metric (a bilinear form of signature
+)
+$(-,+,+,+)$
+that can be computed given the equation of state.
+Equation
+3
+is a quasilinear⁠
+Footnote
+6
+PDE of wave type, i.e., sound waves are modeled by
+3
+. As we shall see, the acoustical metric is important even outside of the irrotational and isentropic class of solutions and generally takes the following form:
+6
+This means that the equation is linear in the second derivatives of
+,
+$\Phi$
+though nonlinear overall.
+✖
+4
+$$\begin{align} \mathbf{g} & \coloneq - \mathrm{d} t \otimes \mathrm{d}t + c^{-2} \sum _{a=1}^3(\mathrm{d}x^a - v^a \mathrm{d}t) \otimes (\mathrm{d}x^a - v^a \mathrm{d}t). \cssId{texmlid6}{\tag{4}} \end{align}$$
+The symbol of the PDE
+3
+is defined to be the polynomial
+.
+$(\mathbf{g}^{-1})^{\alpha \beta } \mupxi _\alpha \mupxi _\beta$
+At each point of spacetime, the
+characteristic subset
+of the cotangent space is a quadratic cone in the cotangent bundle, specifically the following set of covectors
+:
+$\mupxi$
+5
+$$\begin{align} \lbrace \mupxi \ | \ (\mathbf{g}^{-1})^{\alpha \beta }\mupxi _\alpha \mupxi _\beta = 0 \rbrace .  \cssId{texmlid4}{\tag{5}} \end{align}$$
+These sets are called
+sound cones
+in the cotangent space. They are cotangent space analogs of the
+light cones
+$\{t^2 = |x|^2\}$
+that famously play a role in the analysis of the linear wave equation
+.
+$-\partial _t^2 \varphi + \Delta \varphi = 0$
+The (nontrivial) solutions to
+5
+provide an infinitesimal approximation of the (co)directions in which sound waves propagate. A more accurate, physical space description of the propagation of sound waves is through the notion of a
+characteristic surface
+of spacetime, often called a
+null hypersurface
+in the context of Lorentzian geometry. In our ensuing discussion, we will refer not to a single characteristic surface, but rather a family of them that foliates spacetime. Such families are intimately connected to the shock formation problem since, as we shall see in Sect.
+2
+, the infinite “piling up” of characteristic surfaces is tied to the formation of a shock. A convenient way to describe families of characteristic surfaces is through an
+acoustic eikonal function
+,
+$u$
+defined to be a solution to the
+acoustic eikonal equation
+:
+6
+$$\begin{align} (\mathbf{g}^{-1})^{\alpha \beta } \partial _{\alpha } u \partial _{\beta } u & = 0, \cssId{texmlid5}{\tag{6}} \end{align}$$
+where
+$\mathbf{g}$
+is the acoustical metric. Note that
+$u$
+depends on the fluid because
+$\mathbf{g}$
+does. Equation
+6
+has played a fundamental role in mathematical general relativity, from the study of the stability of the Minkowski spacetime as a solution to Einstein’s equations to the formation of black holes.
+6
+also plays a fundamental role in the study of multi-
+$D$
+shocks. The batch of techniques tied to eikonal functions is known as
+nonlinear geometric optics
+.
+For solutions to
+6
+, the level sets of
+$u$
+are characteristic surfaces (= null hypersurfaces), that is, at each point of spacetime, their gradient 1-forms
+$\partial _\alpha u$
+are elements of the sets
+5
+. Note that
+6
+implies that the metric dual vectorfield to
+,
+$\partial _\alpha u$
+defined to be
+,
+$\widetilde{L}^{\alpha } \coloneq (\mathbf{g}^{-1})^{\alpha \beta } \partial _{\beta } u$
+is null:
+.
+$\mathbf{g}(\widetilde{L},\widetilde{L}) : = \mathbf{g}_{\alpha \beta } \widetilde{L}^{\alpha } \widetilde{L}^{\beta } = 0$
+Note that
+$\widetilde{L}$
+is
+-
+$\mathbf{g}$
+orthogonal to the level sets of
+$u$
+because it is
+-
+$\mathbf{g}$
+dual to the gradient of
+,
+$u$
+and the gradient of a function is conormal to its level-sets. On the other hand,
+6
+implies that
+$\widetilde{L} u = 0$
+and thus
+$\widetilde{L}$
+is
+tangent
+to the level sets of
+,
+$u$
+i.e., the normal to any level set of
+$u$
+is also tangent! This property, which is the defining feature of a null hypersurface, is possible only because of the Lorentzian signature of
+$\mathbf{g}$
+and has no analog in Riemannian geometry; see Fig.
+1
+. Null vectorfields represent approximate directions of propagation for sound waves and play a fundamental role in
+finite speed of propagation
+, described below, as well as the study of shocks.
+Figure 1
+.
+A fluid sound cone (a null hypersurface emanating from the tip), and the integral curve of
+$\mathbf{B}$
+emanating from the tip. Using
+4
+, one can compute that
+$\mathbf{g}(\mathbf{B},\mathbf{B})=-1$
+and hence
+$\mathbf{B}$
+is timelike. Hence, the integral curve of
+$\mathbf{B}$
+remains
+inside
+the sound cone.
+Also important for the ensuing discussion are
+-
+$\mathbf{g}$
+timelike vectors
+,
+$T$
+which satisfy
+,
+$\mathbf{g}(T,T) < 0$
+and
+-
+$\mathbf{g}$
+spacelike vectors
+,
+$S$
+which satisfy
+.
+$\mathbf{g}(S,S) > 0$
+Relatedly, a hypersurface
+$\Sigma \subset \mathbb{R}^{1+3}$
+is
+-
+$\mathbf{g}$
+null,
+-
+$\mathbf{g}$
+timelike, or
+-
+$\mathbf{g}$
+spacelike if its
+-
+$\mathbf{g}$
+normal is said to be null, spacelike, or timelike respectively (in particular, spacelike hypersurfaces have timelike normals). These notions depend on
+$\mathbf{g}$
+and thus on the fluid.
+A fundamental property of solutions to
+3
+(and more generally, solutions to
+1
+) is
+finite speed of propagation
+. In the context of Fig.
+2
+, this means that the behavior of a smooth solution in the spacetime region
+$\mathcal{M}$
+is uniquely determined
+only
+by the portion of the initial data lying in the hypersurface portion
+.
+$\Sigma _0$
+The statement holds as long as
+$\Sigma _0$
+and the top boundary
+$\Sigma _t$
+are spacelike and the lateral boundary
+$\mathcal{H}$
+is an “ingoing” hypersurface of spacelike or null character. The region
+$\mathcal{M}$
+is said to be a (future)
+domain of dependence
+for the initial conditions on
+.
+$\Sigma _0$
+Given
+,
+$\Sigma _0$
+the “largest possible” such
+$\Sigma _t$
+occurs when
+$\mathcal{H}$
+is
+-
+$\mathbf{g}$
+null. Null hypersurfaces therefore also serve as “boundaries of the propagation of information” for solutions. The proof of finite speed of propagation relies on energy identities, described below.
+Figure 2
+.
+A domain of dependence on which energy identities hold. Here,
+$\Sigma _0$
+and
+$\Sigma _t$
+are spacelike and their respective
+-
+$\mathbf{g}$
+normals
+$N_0$
+and
+$N_t$
+are “future-pointing” timelike vectors. The lateral boundary
+$\mathcal{H}$
+is depicted as null, and so its normal
+$\widetilde{L}$
+is tangent, similar to the sound cone in Fig.
+1
+.
+1.3
+.
+Maximal globally hyperbolic developments
+Due to finite speed of propagation for equations and
+1
+or
+3
+, singularity formation at one point does not prevent the solution from being continued “classically” to other regions. Here and throughout, classical solutions are defined to be smooth functions that solve the equation at every point at which they are defined. This naturally leads to the following question, of
+fundamental mathematical and physical significance
+:
+What is the
+largest
+spacetime region for which the PDE admits a
+classical
+solution that is uniquely determined by initial data?
+The answer to this question is extraordinarily subtle and depends on
+global
+information about the acoustical metric
+$\mathbf{g}$
+and thus global information about the solution. A natural candidate condition for hopefully guaranteeing uniqueness of classical solutions on a spacetime region
+$\mathcal{M} \subset \mathbb{R}^{1+3}$
+arose in the study of mathematical general relativity:
+global hyperbolicity
+.
+Definition 1.1
+(
+GHD
+)
+.
+A globally hyperbolic development (GHD)
+$(\mathcal{M}, \mathbf{g}(\mathbf{\partial } \Phi ))$
+of data
+$(\mathring{\Phi }_1,\mathring{\Phi }_2)$
+posed on a spacelike hypersurface
+$\Sigma$
+(e.g.
+)
+$\{t=0\}\times \mathbb{R}^3$
+consists of an open neighborhood
+$\mathcal{M}$
+of
+$\Sigma$
+and a smooth solution
+$\Phi : \mathcal{M} \to \mathbb{R}$
+to
+3
+. We require that
+$(\mathcal{M}, \mathbf{g}(\mathbf{\partial }\Phi ))$
+is a Lorentzian manifold with
+$\Sigma$
+as a
+Cauchy hypersurface of
+.
+$\mathcal{M}$
+Roughly, this means that any point
+$p \in \mathcal{M}$
+is in the domain of dependence of the data.⁠
+Footnote
+7
+The initial conditions
+,
+$(\Phi |_{\Sigma },N\Phi |_{\Sigma }) = (\mathring{\Phi }_1,\mathring{\Phi }_2)$
+where
+$N$
+is the normal to
+,
+$\Sigma$
+must hold.
+7
+More precisely,
+$\Sigma \subset \mathcal{M}$
+is a smooth Cauchy hypersurface if every smooth inextendible timelike curve
+$\mupgamma$
+in
+$\mathcal{M}$
+intersects
+$\Sigma$
+exactly once, where by definition, timelike curves have timelike tangent vectors at every point.
+Backlinks
+:
+Reference 1
+,
+Reference 2
+.
+✖
+Definition 1.2
+(
+MGHD
+)
+.
+A GHD
+$(\mathcal{M},\mathbf{g}(\mathbf{\partial }\Phi ))$
+is said to be a
+maximal globally hyperbolic development
+(MGHD) if it is inextendible as a GHD of the data on
+.
+$\Sigma$
+The crucial word in Def.
+1.2
+that answers the question posed above is the word
+inextendible
+, i.e., it is not possible to find a larger GHD containing the initial data surface
+.
+$\Sigma$
+The importance of MGHDs was first revealed in mathematical general relativity in the seminal work of Choquet-Bruhat–Geroch, who proved
+CBG69
+the existence of a
+unique
+MGHD for sufficiently regular initial data for Einstein’s equations, an evolution PDE system that in the vacuum case takes the form
+,
+$\mathbf{Ric}= 0$
+where
+$\mathbf{Ric}$
+is the Ricci curvature of the gravitational Lorentzian metric.
+It is now easy to see how, in the context of fluid mechanics, MGHDs and shock formation are studied in unison: points at which a shock has started to form, i.e., at which the fluid’s gradient has blown up, constitute
+boundary
+points of MGHDs, because solutions on
+$\mathcal{M}$
+are classical by definition. In other words, the boundary of the MGHD geometrically characterizes the points beyond which the classical solution cannot be continued uniquely.
+The first person to reveal the connection between the shock formation problem and the geometry of the MGHD and its boundary was Christodoulou in his groundbreaking monograph
+Chr07
+. He was concerned with
+irrotational and isentropic
+perturbations of the nonvacuum constant-state solutions⁠
+Footnote
+8
+to the
+$3D$
+relativistic Euler equations. In
+Chr07
+, Christodoulou developed a series of visionary ideas, a small subset of which are described here, which have sparked and sustained a mathematical revolution of the theory of multidimensional shocks. Fundamentally, he revealed the relationship between shocks and the MGHD and developed PDE methods to relate the two. The PDE techniques that he developed to study shocks have deep roots in his joint breakthrough with Klainerman on the global stability of Minkowski spacetime as a solution to Einstein’s equations
+CK93
+.
+8
+Nonvacuum constant solutions have a constant nonzero density and vanishing velocity.
+✖
+Although the notion of an MGHD proved definitive for the Einstein-vacuum equations (i.e., it exists and is unique for sufficiently smooth data), a theory in which the differential structure of the spacetime is an unknown itself, for quasilinear wave equations set on a
+fixed background
+, such as
+3
+,
+the uniqueness of MGHDs is not always true
+! The outstanding paper
+ERS19
+gave an example of a quasilinear wave equation
+$\mathbf{h}^{\alpha \beta }(\mathbf{\partial }\psi ) \partial _\alpha \partial _\beta \psi = 0$
+on
+$\mathbb{R}_t\times \mathbb{R}_x$
+and
+two
+MGHDs
+$(\mathcal{M}_1, \mathbf{h}(\mathbf{\partial }\psi _1))$
+and
+$(\mathcal{M}_2, \mathbf{h}(\mathbf{\partial }\psi _2))$
+of the same initial data on a spacelike hypersurface
+$\Sigma _0$
+for which there exist points
+$p \in \mathcal{M}_1 \cap \mathcal{M}_2$
+with
+;
+$\psi _1(p) \neq \psi _2(p)$
+see Fig.
+3
+.
+Figure 3
+.
+The nonunique MGHDs of
+ERS19
+for the same data on
+.
+$\Sigma _0$
+The MGHD
+$\mathcal{M}_1$
+is the region of Minkowski space
+$\mathbb{R}^{1+1}$
+between the dashed orange curves and
+$\Sigma _0$
+shaded by the (45-degree) gray lines. The MGHD
+$\mathcal{M}_2$
+is the region of Minkowski space
+$\mathbb{R}^{1+1}$
+between the dashed pink curves and
+$\Sigma _0$
+shaded by the green lines. To clarify, the solid gray and (135-degree) green lines are not meant to represent the true characteristics of the system, which are solution dependent and curved due to the quasilinear nature of the metric
+,
+$\mathbf{h}=\mathbf{h}(\mathbf{\partial }\psi )$
+and are only there to help the reader identify
+$\mathcal{M}_1$
+and
+.
+$\mathcal{M}_2$
+Both solutions are singular at the black dot, but
+$\mathbf{\partial }\psi _1$
+blows up precisely on the portion of the solid red line in
+$\mathcal{M}_1\cap \mathcal{M}_2$
+while
+$\psi _2$
+is smooth there. In contrast,
+$\mathbf{\partial }\psi _2$
+blows up on the portion of the solid blue line in
+$\mathcal{M}_1\cap \mathcal{M}_2$
+while
+$\psi _1$
+is smooth there, and both solutions have the same data:
+$\psi _1|_{\Sigma _0} = \psi _2|_{\Sigma _0}$
+and
+.
+$N\psi _1|_{\Sigma _0} = N \psi _2|_{\Sigma _0}$
+Conversely,
+ERS19
+also established a
+global
+geometric condition under which, if met by an MGHD, ensures it is
+the unique
+MGHD for the given data. This result is teleological because one must first construct the MGHD
+in its entirety
+and then prove that the geometric condition holds globally. The takeaway is that studying the geometry of the MGHD and its boundary is not just a mathematical curiosity tied to the methods introduced by Christodoulou. Rather, knowing the MGHD and the structure of its boundary are fundamental for deciding even the basic question of
+uniqueness
+of solutions whose classical evolution terminates in singularities.
+Presently,
+we do not have any examples
+, even in
+,
+$1D$
+of unique, entire MGHDs for compressible Euler solutions with shocks; the precise portion of the MGHD and its boundary that is accessible by Christodoulou’s methods was not made explicit in
+Chr07
+. Moreover, the implicit argument only held for solutions for which a portion of
+$\partial \mathcal{M}$
+satisfied a strict convexity condition; see Fig.
+4
+. To date, the
+only
+example of a unique MGHD with a shock forming on its boundary is
+ABSS25
+, which constructed it for a quasilinear wave equation in
+$1D$
+that emulates many of the difficulties of compressible Euler flow.
+Figure 4
+.
+A portion of the fluid MGHD given by the spacetime region between
+$\Sigma _0$
+and underneath
+$\underline{\mathcal{C}}\cup \partial _-\mathcal{B}\cup \mathcal{B}$
+is described in
+Chr07
+SV24
+. The point
+$b_*$
+lies in the constant-time hypersurface denoted by
+.
+$\Sigma _{T_{\mathrm{Shock}}}$
+$T_{\mathrm{Shock}}$
+is the first time for which a shock forms. The strict convexity present in
+Chr07
+SV24
+is manifested in the convexity of
+,
+$\partial _-\mathcal{B}$
+called the
+crease
+, which can be thought of as the “true initial singularity.” The gradient continues to blow up along the hypersurface-with-boundary
+,
+$\mathcal{B}$
+called the
+singular boundary
+. The fluid is smooth up to the
+Cauchy horizon
+$\underline{\mathcal{C}}$
+(except on
+)
+$\partial _-\mathcal{B}$
+in the sense that finite, one-sided limits from within the MGHD up to
+$\underline{\mathcal{C}}\backslash \partial _-\mathcal{B}$
+exist for the fluid variables and their derivatives. In total,
+$\underline{\mathcal{C}}\backslash \partial _-\mathcal{B}$
+is
+part of the MGHD of the data, but
+$\partial _-\mathcal{B}\cup \mathcal{B}$
+is not because the solution is singular there. The points between
+$\underline{\mathcal{C}}$
+and
+$\mathcal{B}$
+can never be part of the MGHD of the data. For if such a point
+$p$
+were in the MGHD, then any inextendible timelike curve in the MGHD starting from
+$p$
+would have to intersect the Cauchy data hypersurface
+;
+$\Sigma _0$
+see Footnote
+Footnote
+7
+. However, for such a
+,
+$p$
+there would always exists a timelike curve starting from it which intersects
+$\partial _-\mathcal{B}\cup \mathcal{B}$
+(before it reaches
+)
+$\Sigma _0$
+where the solution is singular, a contradiction.
+Our work
+AS22
+gave a full
+explicit
+and
+constructive
+description of a pre-compact portion of the MGHD up to the boundary component on which shock singularities form. Our results removed all three of the following assumptions from
+Chr07
+:
+I)
+irrotationality;
+II)
+isentropicity;
+III)
+strict convexity of
+.
+$\partial \mathcal{M}$
+We also mention the recent result of
+SV24
+, which, for isentropic shock-forming solutions to the
+-
+$2D$
+Euler equations⁠
+Footnote
+9
+that also satisfy the strict convexity requirement from
+Chr07
+, derived an explicit portion of
+$\mathcal{M}$
+up to its boundary. In addition to gradient blowup points,
+SV24
+also gave a description of another portion of
+$\partial \mathcal{M}$
+called the
+Cauchy horizon
+, denoted by
+$\underline{\mathcal{C}}$
+in Fig.
+4
+.
+$\underline{\mathcal{C}}$
+is a null hypersurface that emanates from the past boundary of
+,
+$\partial \mathcal{M}$
+denoted by
+$\partial _-\mathcal{B}$
+and referred to as the
+crease
+.
+$\partial _-\mathcal{B}$
+can be thought of as the “initial singularity.” We will elaborate on
+Chr07
+AS22
+SV24
+in Sect.
+3
+, though we already highlight that the portion of the MGHDs described in these works all
+locally
+satisfy the geometric condition identified by
+ERS19
+that would guarantee uniqueness if it can be verified globally:
+$\mathcal{M}$
+lies on one side of its boundary.⁠
+Footnote
+10
+9
+For
+$2D$
+isentropic Euler, the (specific) vorticity
+$\Omega ^i = \frac{1}{\varrho } (\nabla \times v)^i$
+is transported by the fluid:
+,
+$\mathbf{B}\Omega ^i = 0$
+while in
+,
+$3D$
+it is “stretched”:
+.
+$\mathbf{B}\Omega ^i = \Omega ^a \partial _a v^i$
+One of the reasons vorticity is much harder to handle in
+$3D$
+near a shock is that
+$|\partial v| = \infty$
+directly impacts the regularity (or lack thereof) of
+.
+$\Omega$
+✖
+10
+Note that the MGHDs
+$\mathcal{M}_1$
+and
+$\mathcal{M}_2$
+in Fig.
+3
+do not satisfy this.
+✖
+2
+.
+Shock Formation
+2.1
+.
+Model problems
+Shock formation is connected to Riccati’s ODE:
+7
+$$\begin{align} \dot{y} = - y^2, & & y(0) = y_0, \cssId{texmlid7}{\tag{7}} \end{align}$$
+which has the explicit solution
+$y = \frac{y_0}{1 + t y_0}$
+that develops a
+singularity
+at
+.
+$t = -\frac{1}{y_0}$
+The connection between shocks and
+7
+can be readily seen in Burgers’ equation⁠
+Footnote
+11
+, a toy model PDE on
+$\mathbb{R}_t\times \mathbb{R}_x$
+for
+:
+$\Psi (t,x)$
+11
+Burgers’ equation is usually defined to be
+$\partial _t \Psi + \Psi \partial _x\Psi = 0$
+instead of
+8
+. The difference is harmless for the purposes of this article, and we included the extra
+$1$
+factor only to tilt Fig.
+5
+for easier comparisons with the compressible Euler equations.
+✖
+8
+$$\begin{align} \partial _t \Psi + (1 + \Psi ) \partial _x \Psi & = 0, & \Psi (0,x) & = \mathring{\Psi }(x), \cssId{texmlid8}{\tag{8}} \end{align}$$
+where
+$\mathring{\Psi }(x)$
+is given initial data. Taking a
+$\partial _x$
+derivative of
+8
+, we deduce that
+9
+$$\begin{align} L\partial _x \Psi & = - (\partial _x \Psi )^2, \cssId{texmlid9}{\tag{9}} \end{align}$$
+where
+10
+$$\begin{align} L& \coloneq \partial _t + (1 + \Psi ) \partial _x \cssId{texmlid11}{\tag{10}} \end{align}$$
+is the (solution-dependent)
+characteristic vectorfield
+, whose integral curves are called
+characteristics
+.
+Equation
+9
+is of Riccati-type in
+$\partial _x \Psi$
+and admits many solutions that blow up along the integral curves of
+.
+$L$
+On the other hand,
+8
+is equivalent to
+,
+$L\Psi = 0$
+so
+$\Psi$
+is constant along the integral curves of
+$L$
+and never blows up; this is the crudest picture of the formation of a shock. Burgers’ equation also allows for an unusually easy illustration of finite speed of propagation, as each characteristic—as well as
+$\Psi$
+along it—is completely determined by the initial condition of
+$\Psi$
+at the point where the curve hits the
+$x$
+axis. Indeed, it is an easy ODE exercise to see that the integral curves of
+$L$
+can be parametrized by
+.
+$\mupgamma _x(t) \coloneq (t,t(1 + \mathring{\Psi }(x)) + x)$
+For
+,
+$\mathring{\Psi }(x) = -\arctan (x)$
+in Fig.
+5
+we have plotted the family of characteristics
+$\mathcal{M} \coloneq \bigcup _{x \in \mathbb{R}}\{\mupgamma _x(t),t \in [0,T_x]\}$
+where
+$T_x \coloneq - \frac{1}{\mathring{\Psi }'(x)}$
+is the time when
+$\partial _x \Psi$
+blows up along
+;
+$\mupgamma _x(t)$
+see the discussion immediately after
+7
+. We highlight four main points from Fig.
+5
+:
+I)
+Along the characteristics emanating from
+$x \ge 0$
+(
+),
+$x \le 0$
+$\partial _x \Psi$
+blows up on the red curve
+$\mathcal{B}_1$
+(blue curve
+),
+$\mathcal{B}_2$
+which are two branches of the curve
+$\mathcal{B}_1\cup \mathcal{B}_2$
+that we call the
+singular boundary
+, along which the density of characteristics has become infinite;
+II)
+There is a distinguished “first singularity”
+$\partial _-\mathcal{B}$
+from which
+$\mathcal{B}_1$
+and
+$\mathcal{B}_2$
+emanate. This is a
+$1D$
+analog of the crease
+$\partial _-\mathcal{B}$
+from Fig.
+4
+;
+III)
+the characteristics have infinite density at
+$\partial _-\mathcal{B}$
+and along
+;
+$\mathcal{B}_1\cup \mathcal{B}_2$
+IV)
+the characteristics cross in between the two branches of the singular curve.
+Figure 5
+.
+A singular curve
+$\mathcal{B}_1 \cup \mathcal{B}_2$
+for Burgers’ equation in Cartesian coordinates for data
+.
+$\mathring{\Psi }(x) = -\arctan (x)$
+The characteristics are the gray lines.
+2.1.1
+.
+Lack of uniqueness for Burgers
+Point
+IV)
+above can be tied to a
+lack
+of global uniqueness
+for smooth solutions to the Burgers’ equation whose classical evolution terminate in shocks. Specifically, let
+$\mathcal{M}_1, \mathcal{M}_2$
+denote the subregions of
+,
+$\mathcal{M}$
+where characteristics emanating from
+$x \le 0$
+and
+$x \ge 0$
+are limited to
+,
+$t \in [0,1]$
+respectively; see Figs.
+6
+–
+7
+.
+Figure 6
+.
+The spacetime region
+.
+$\mathcal{M}_1$
+The characteristics emanating from
+,
+$x < 0$
+which would terminate when the solution’s gradient blows up on
+,
+$\mathcal{B}_2$
+never reach it.
+Figure 7
+.
+The spacetime region
+.
+$\mathcal{M}_2$
+The characteristics emanating from
+,
+$x > 0$
+which would terminate when the solution’s gradient blows up on
+,
+$\mathcal{B}_1$
+never reach it.
+Observe that the value of the solution
+$\Psi (t,x)$
+at every point
+$(t,x) \in \mathcal{M}_1$
+or
+$(t,x) \in \mathcal{M}_2$
+is
+uniquely
+determined by the initial conditions, as
+$\Psi$
+is constant along the gray characteristics. In
+,
+$\mathcal{M}_1$
+$\Psi$
+develops a singularity when the characteristics emanating from
+$x \ge 0$
+become infinitely dense on
+,
+$\mathcal{B}_1$
+while the characteristics emanating from
+$x \le 0$
+never collapse along
+$\mathcal{B}_2$
+, dotted in blue in Fig.
+6
+, as they are only defined for
+.
+$t \in [0,1]$
+On the other hand, on
+,
+$\mathcal{M}_2$
+$\Psi$
+develops a singularity when the characteristics emanating from
+$x \le 0$
+become infinitely dense on
+,
+$\mathcal{B}_2$
+while the characteristics emanating from
+$x \ge 0$
+never collapse along
+$\mathcal{B}_1$
+, dotted in red in Fig.
+7
+, as they are only defined up to
+.
+$t \in [0,1]$
+Hence, the solutions uniquely determined by
+the same data
+on
+$\mathcal{M}_1$
+and
+$\mathcal{M}_2$
+disagree on
+.
+$\mathcal{M}_1\cap \mathcal{M}_2\cap \{t > 1\}$
+In total, this argument concretely illustrates the aforementioned phenomenon for Burgers’ equation solutions:
+lack of global uniqueness
+for smooth solutions whose classical evolution terminates in shocks. This phenomenon is stable under perturbations of the initial data and is not specific to Burgers’ equation; a similar lack of uniqueness holds for generic scalar conservation laws in
+$1D$
+with a single unknown.
+The results of this section show that for Burgers’ equation,
+a PDE for which there is no Lorentzian metric nor notion of global hyperbolicity
+, it is very easy to prove
+lack
+of global classical uniqueness for smooth solutions whose classical evolution terminates in shocks. On the other hand, we also stressed that for Einstein’s equations, a PDE for which the initial value problem has a Lorentzian metric and a corresponding notion of
+globally hyperbolic
+regions, the celebrated result of
+CBG69
+guarantees uniqueness of an MGHD. On a third hand, the specific wave equation and initial data featured in the MGHD nonuniqueness result of
+ERS19
+shows that having a Lorentzian metric associated to the characteristics of an equation
+is not alone sufficient to guarantee uniqueness of MGHDs for all initial data
+. All in all, it seems we are quite far from understanding, for general evolution PDEs, what the largest possible regions look like such that uniqueness of classical solutions holds in them. What about for the compressible Euler equations
+1
+? We have seen that the geometry of these equations is Lorentzian. While it is entirely possible that
+some
+initial data lead to nonunique MGHDS as in
+ERS19
+, we nonetheless conjecture that there exists an open set of smooth compressible Euler initial data that lead to
+unique
+MGHDs that form shocks on a portion of their boundaries.
+2.2
+.
+Nonlinear geometric optics for Burgers’ equation
+We now provide a second description of the Burgers’ equation blowup, one that is much closer in spirit to techniques that have proven successful in multiple space dimensions. We implement nonlinear geometric optics (NGO) via an eikonal function⁠
+Footnote
+12
+,
+$u$
+where
+$L$
+is as in
+10
+:
+12
+The minus sign in
+11
+is a convenient, though inessential, normalization.
+✖
+11
+$$\begin{align} Lu & = 0, & u(0,x) & = -x. \cssId{texmlid10}{\tag{11}} \end{align}$$
+We refer to
+$(t,u)$
+as “geometric coordinates” and denote the corresponding partial derivatives by
+.
+$\frac{\partial }{\partial t}, \frac{\partial }{\partial u}$
+Since
+$Lt = 1$
+and
+,
+$Lu = 0$
+we must have
+.
+$L= \frac{\partial }{\partial t}$
+Hence, in geometric coordinates, equation
+8
+becomes a
+linear PDE
+:
+12
+$$\begin{align} \frac{\partial }{\partial t} \Psi (t,u) & = 0, & \Psi (0,u) & = \Psi _0(u) \coloneq \mathring{\Psi }(-u). \cssId{texmlid26}{\tag{12}} \end{align}$$
+The solution is
+.
+$\Psi (t,u) = \Psi _0(u)$
+In particular, in geometric coordinates,
+smooth initial data gives rise to eternally smooth solutions.
+To see the singularity in the original
+$(t,x)$
+coordinates, we introduce the
+inverse foliation density
+:
+13
+$$\begin{align} \mupmu & \coloneq - \frac{1}{\partial _x u}. \cssId{texmlid12}{\tag{13}} \end{align}$$
+When
+,
+$\mupmu = 0$
+the density of the characteristics is
+infinite
+and a shock has formed. In particular,
+$\mupmu =0$
+along the singular curve
+$\mathcal{B}_1 \cup \mathcal{B}_2$
+in Fig.
+5
+. From
+13
+, and the chain rule, we have:
+14
+$$\begin{align} \partial _x & = - \frac{1}{\mupmu } \frac{\partial }{\partial u}. \cssId{texmlid13}{\tag{14}} \end{align}$$
+By differentiating
+11
+with
+$\partial _x$
+and using
+8
+and
+13
+–
+14
+, one can show that in geometric coordinates,
+$\mupmu$
+satisfies a transport equation:
+15
+$$\begin{align} \frac{\partial }{\partial t} \mupmu (t,u) & = - \frac{\partial }{\partial u} \Psi (t,u) = - \frac{d}{du} \Psi _0(u), & \mupmu (0,u) & = 1. \cssId{texmlid14}{\tag{15}} \end{align}$$
+The solution to
+15
+is
+,
+$\mupmu (t,u) = 1 - t\frac{d}{du}\Psi _0(u)$
+which clearly vanishes in finite time at values of
+$u$
+such that
+,
+$\frac{d}{du} \Psi _0(u) > 0$
+and then
+14
+implies that
+$\partial _x \Psi$
+must blow up “like
+”
+$1/ \mupmu$
+at such points. Note that the
+$\partial _x$
+derivative is transverse to the characteristics, while
+$L$
+is tangent. Thus, the derivatives of
+$\Psi$
+in directions transverse to the characteristics blow up, while equation
+8
+is equivalent to
+$L\Psi = 0$
+and thus
+$\Psi$
+remains smooth in directions tangent to the characteristics. We also highlight that
+14
+implies that the Jacobian determinant of the map
+$(t,u) \mapsto (t,x)$
+satisfies
+16
+$$\begin{align} \det \frac{\partial (t,x)}{\partial (t,u)} = -\mupmu ,  \cssId{texmlid19}{\tag{16}} \end{align}$$
+hence the change of variables fails to be a diffeomorphism when
+$\mupmu$
+vanishes.
+Describing the set of points for gradient blowup in
+$(t,x)$
+as the zero-level-set of
+,
+$\mupmu$
+whose dynamics are much easier to describe in geometric coordinates
+,
+$(t,u)$
+is one of the major new ideas developed by Christodoulou in
+Chr07
+.
+2.3
+.
+$1D$
+Riemann invariants
+In the foundational paper
+Rie60
+, Riemann studied
+$1D$
+solutions to
+1a
+–
+1c
+with
+,
+$s\equiv 0$
+where
+“
+”
+$1D$
+means that
+$v^2 = v^3 \equiv 0$
+and
+$\rho , v^1$
+are functions of
+.
+$(t,x^1) \in \mathbb{R} \times \mathbb{R}$
+He showed that for
+$C^1$
+solutions, the equations are equivalent to the following transport equation system:
+17
+$$\begin{align} L\mathcal{R}_{(+)} & = 0, & \underline{L} \mathcal{R}_{(-)} & = 0, \cssId{texmlid15}{\tag{17}} \end{align}$$
+where
+$\mathcal{R}_{(\pm )} \coloneq v^1 \pm F(\varrho )$
+are the
+Riemann invariants
+,
+$F$
+is an invertible function determined by the equation of state, and
+18
+$$\begin{align} L& \coloneq \partial _t + (v^1 + c) \partial _1, & \underline{L} & \coloneq \partial _t + (v^1 - c) \partial _1 \cssId{texmlid20}{\tag{18}} \end{align}$$
+are explicitly determined
+characteristic
+vectorfields.
+$L$
+and
+$\underline{L}$
+are intimately connected to the
+$1D$
+acoustical metric, i.e.,
+4
+with the
+$x^2$
+and
+$x^3$
+directions suppressed. One can compute that:
+19
+$$\begin{align} (\mathbf{g}^{-1})^{\alpha \beta } & = - \frac{1}{2} L^{\alpha } \underline{L}^{\beta } - \frac{1}{2} \underline{L}^{\alpha } L^{\beta }, && (\alpha , \beta = 0,1). \cssId{texmlid16}{\tag{19}} \end{align}$$
+17
+can be thought of as a system of Burgers’-like equations. Even though there are two directions of propagation, the methods of Sect.
+2.2
+can be used to prove shock formation for data that are dominated by one Riemann invariant, e.g., data for which the gradient of
+$\mathcal{R}_{(+)}$
+is large while that of
+$\mathcal{R}_{(-)}$
+is small; see Fig.
+10
+. In particular, one can carry out the analysis with the help of an
+-
+$L$
+adapted eikonal function, i.e., a solution to
+,
+$Lu = 0$
+which in view of
+19
+, is a solution to the (acoustic)
+eikonal equation
+6
+. Importantly, because
+$\mathcal{R}_{(-)}$
+propagates in a different direction than
+,
+$\mathcal{R}_{(+)}$
+one can show that for
+-
+$\mathcal{R}_{(+)}$
+dominated initial data,
+$\partial _1 \mathcal{R}_{(-)}$
+remains bounded at the points where
+$\partial _1 \mathcal{R}_{(+)}$
+blows up, i.e.,
+$\mathcal{R}_{(-)}$
+is more regular than
+.
+$\mathcal{R}_{(+)}$
+In Sect.
+3
+we will clarify why, for the compressible Euler equations, having two characteristic speeds
+$L$
+and
+,
+$\underline{L}$
+or equivalently, having an acoustical metric, has the potential to
+ensure classical uniqueness
+of the MGHD, even when its boundary includes gradient blowup points, as opposed to Burgers’ equation (see Figs.
+5
+–
+7
+).
+2.4
+.
+Multidimensional irrotational and isentropic shock formation
+The biggest difference in proving shock formation in multi-
+$D$
+compared to
+$1D$
+is that all known multi-
+$D$
+results (i.e., existence, uniqueness, and continuous dependence on initial conditions) without symmetry rely on
+energy estimates
+. This leads to analysis in
+-
+$L^2$
+type Sobolev spaces in which one must derive estimates not only for the solution’s
+$L^2$
+norm, but also for the
+-
+$L^2$
+norms of its derivatives up to a certain order. Contrastingly, there are approaches to problems in
+$1D$
+that do not rely on energy estimates. Numerous deep techniques built on Bounded Variation (BV) function spaces
+Daf10
+and/or appropriate generalizations of the method of characteristics and NGO introduced in Sects.
+2.1
+–
+2.2
+, are sufficient for many
+$1D$
+problems. Unfortunately, Rauch showed
+Rau86
+that, aside from equations with special algebraic structure (and the
+$3D$
+compressible Euler equations do not possess the special structure), multi-
+$D$
+quasilinear hyperbolic systems cannot be studied using BV function spaces. Since
+$L^2$
+estimates are therefore typically a necessity, if one wants to use NGO to study the flow, then one must prove that NGO is compatible with the needed
+$L^2$
+estimates. The fundamental reason is that the eikonal function
+$u$
+depends on the solution by virtue of equation
+6
+.
+Before discussing energies in more detail, we first highlight a special exception to the above discussion in which one can study multi-
+$D$
+shock formation without energy estimates. The exception is the case of a single first-order, quasilinear hyperbolic PDE, i.e., a PDE for a scalar function
+—as
+$\Psi (t,x)$
+opposed to a PDE with an array of unknowns—in
+$n$
+spatial dimensions (i.e.,
+)
+$(t,x) \in \mathbb{R} \times \mathbb{R}^n$
+of the form:
+20
+$$\begin{align} \partial _t \Psi + \sum _{i=1}^n A^i(\Psi ) \partial _i \Psi & = 0, \cssId{texmlid17}{\tag{20}} \end{align}$$
+where the
+$A^i$
+are given smooth functions of the unknown
+.
+$\Psi$
+In Majda’s influential book
+Maj84
+, he showed that for many scalar equations of the form
+20
+, large sets of initial data lead to finite-time shock formation. His proof relied on an analysis of the characteristics which, much as in Section
+2.1
+, are the integral curves of the vectorfield
+.
+$\partial _t + \sum _{i=1}^n A^i(\Psi ) \partial _i$
+More precisely, through a simple argument that avoids energy estimates, Majda showed that for large sets of initial data, the density of the characteristics becomes infinite in finite time, a direct analog of our proof in Section
+2.2
+that
+$\mupmu$
+vanishes in finite time. We again emphasize that it is only because of the simple structure of the scalar equation
+20
+that one can analyze shock formation without deriving energy estimates, and that for most multi-
+$D$
+systems, including the compressible Euler equations, energy estimates seem to be an essential ingredient for studying the formation of shocks (and even for showing that solutions exist at all). Since
+20
+only features a single characteristic speed, there is no notion of global hyperbolicity for regions where the solution is constructed. For this reason, with moderate additional effort, one could replicate the methods of Sect.
+2.1.1
+to prove that a large class of shock-forming data launch classical solutions to
+20
+which fail to be unique on spacetime regions that go beyond the initial singularity.
+Energies are analogs of the
+“
+-
+$L^2$
+type” quantity
+,
+$\int _{\mathbb{R}^3} \left\lbrace (\partial _t \Psi (t,x))^2 + |\nabla \Psi (t,x) |^2\, \right\rbrace \mathrm{d}^3 x$
+which, upon time-differentiating under the integral and integrating by parts, can be shown to be constant in time for solutions
+$\Psi$
+to the
+$3D$
+linear wave equation
+.
+$-\partial _t^2 \Psi + \Delta \Psi = 0$
+Energy identities in the spirit of this are also available for the compressible Euler equations, though the
+-
+$L^2$
+type quantities that one needs to control are not generally conserved (controlling them is called an “energy estimate”). Although such energy estimates are available for compressible Euler solutions and their higher derivatives, deriving them all the way up to a singularity can be
+very hard
+. Importantly, “energy identities” (i.e., integral identities that generalize conservation of the energy
+$\int _{\mathbb{R}^3} \left\lbrace (\partial _t \Psi (t,x))^2 + |\nabla \Psi (t,x) |^2\, \right\rbrace \mathrm{d}^3 x$
+for the linear wave equation) are based on the divergence theorem and can therefore be localized to domains of dependence, a manifestation of finite speed of propagation that is schematically depicted in Fig.
+2
+. Localization of the methods is essential for studying the properties of the MGHD up to its boundary.
+Alinhac was the first to prove multi-
+$D$
+shock formation
+Ali99
+, for an equation similar to
+3
+:
+21
+$$\begin{align} -(1-\partial _t \phi )\partial ^2_t \phi + \Delta \phi = 0.  \cssId{texmlid18}{\tag{21}} \end{align}$$
+He studied solutions with the help of an eikonal function
+$u$
+(solving
+6
+), with
+$(\mathbf{g}^{-1})^{\alpha \beta }(\mathbf{\partial } \phi ) \coloneq m^{\alpha \beta } + \mupdelta _0^\alpha \mupdelta _0^\beta \partial _t\phi$
+the (inverse) Lorentzian metric⁠
+Footnote
+13
+associated to
+21
+, as well as a related geometric coordinate system in the spirit of the one
+$(t,u)$
+from Sect.
+2.2
+.
+13
+Here,
+$m^{\alpha \beta } = \operatorname {diag}(-1,1,1,1)$
+is the inverse Minkowski metric and
+$\mupdelta$
+is the Kronecker delta.
+✖
+As in
+,
+$1D$
+the advantage of geometric coordinates is that the solution remains very smooth relative to them, i.e., the change of variables “un-collapses” the characteristics and hides the singularity, much like in the model problem of Sect.
+2.2
+. It turns out to be quite difficult to derive energy estimates in geometric coordinates due to “change of variables” terms that appear to “lose derivatives,” i.e., have insufficient regularity. The challenge is that
+6
+implies that the regularity of
+$u$
+is limited by the regularity of the principal coefficients
+$\mathbf{g}^{-1}(\mathbf{\partial } \phi )$
+in equation
+21
+, and the change of variables between geometric and standard coordinates already depends on one derivative of
+,
+$u$
+as we already saw in the
+$1D$
+formula
+16
+. Hence, naive attempts at estimates lead to a seemingly hopeless never-ending loop of logic suggesting that to bound
+$n$
+derivatives of the solution, one must also bound
+$n+1$
+derivatives. Nevertheless, Alinhac was able to overcome this difficulty by invoking a Nash–Moser iteration scheme adapted to the structure of the singularity. In total, he followed the solution up to the constant-time hypersurface of first blowup, but not further, though his proof worked only for “fully nondegenerate” solutions with a single blowup point at the time of first blowup. From the perspective of Fig.
+4
+, the only point of blowup identified by Alinhac
+Ali99
+is the “lowest point”
+$b_*$
+on the boundary of the MGHD for the quasilinear wave equation
+21
+, i.e., a multidimensional analog of the cusp in Fig.
+5
+.
+The next big breakthrough was Christodoulou’s aforementioned monograph
+Chr07
+, which concerned irrotational and isentropic perturbations of the nonvacuum constant-state solutions to the
+$3D$
+relativistic Euler equations. As in the nonrelativistic case, for such solutions, the PDEs are equivalent to a wave equation of type
+3
+. Like Alinhac, Christodoulou used an eikonal function and constructed from it a multidimensional analog of the
+$1D$
+characteristic vectorfield
+$L$
+featured in
+18
+as well as a corresponding geometric coordinate system⁠
+Footnote
+14
+.
+$(t,u,x^2,x^3)$
+Crucially, in multidimensions,
+$L$
+is no longer explicitly given, but rather is proportional to the gradient vectorfield⁠
+Footnote
+15
+$(\mathbf{g}^{-1})^{\alpha \beta } \partial _{\beta } u$
+featured in Sect.
+1.2
+, but now rescaled so that
+.
+$Lt = 1$
+This is not explicit because
+$u$
+must be solved from the eikonal equation
+6
+to define
+,
+$L$
+whereas the explicit
+$1D$
+formula
+18
+makes no reference to
+.
+$u$
+In particular,
+$L$
+depends on the acoustical metric (which in turn depends on the fluid) and
+.
+$u$
+Owing in part to his experience using eikonal functions in general relativity
+CK93
+, Christodoulou found a sharper, more geometric way to derive energy estimates up to the singularity without relying on Nash–Moser estimates. This allowed him to prove that the nonvacuum constant-state solutions are unstable to shock formation under small perturbations of the initial data, and, by adapting his estimates to the shape of the MGHD, he was able to understand a large portion of the MGHD, specifically points at which the solution’s gradient blows up. A compelling aspect of Christodoulou’s proof is that in his derivation of energy estimates, he controlled the mean curvature of the null hypersurfaces, a scalar function that satisfies
+Raychaudhuri’s equation
+, which is famous in general relativity
+Ray55
+, notably for the role it plays in proofs of the Hawking–Penrose singularity theorems. Raychaudhuri’s equation involves the Ricci curvature of the acoustical metric, and this aspect of his proof further brought into play techniques from Lorentzian geometry.
+14
+More precisely,
+AS22
+used the geometric coordinate system
+,
+$(t,u,x^2,x^3)$
+while
+Chr07
+replaced
+$x^2,x^3$
+with other coordinates that were adapted to topological spheres given by level sets of
+$u$
+intersected with level sets of
+.
+$t$
+The distinction is unimportant for the purposes of this article.
+✖
+15
+It is not difficult to check that, in
+$1D$
+and
+$1D$
+only,
+$L$
+is given by the vectorfield in
+18
+if and only if it satisfies
+,
+$L^\alpha = - \frac{(\mathbf{g}^{-1})^{\alpha \beta } \partial _{\beta } u}{\mathbf{B}u}$
+where
+$u$
+solves
+6
+with
+.
+$u|_{t=0} = -x$
+✖
+In the wake of Christodoulou’s breakthrough
+Chr07
+, many authors used his approach to study the formation of shocks for equations of type
+3
+, going beyond the specific equations and types of initial data treated in
+Chr07
+. There are by now far too many results for us to adequately describe here. To give one example, we highlight the paper
+MY17
+, in which the authors proved stable shock formation in the spirt of Christodoulou for a specific equation of type
+3
+in which the initial data satisfied a certain largeness-smallness hierarchy (roughly, the data’s derivatives are large in some null directions and small in other directions), previously coined
+short-pulse
+data by Christodoulou in his study of the formation of black holes for the Einstein-vacuum equations. Interestingly, the equation studied in
+MY17
+had been earlier shown by Klainerman to admit global solutions when the initial data are small, so as a corollary, the paper yields an example of a single equation for which two phenomena—small data global existence and large-data shock formation—can be understood in detail.
+2.5
+.
+Multi-
+$D$
+shock formation beyond irrotationality and isentropicity
+The multi-
+$D$
+shock formation results of Christodoulou were extended to allow for solutions with vorticity in
+$2D$
+LS18
+, and then later also with entropy in
+$3D$
+LS24
+. The proofs relied on a discovery
+Spe19
+(extending earlier work by Luk–Speck) that the compressible Euler equations
+1a
+–
+1c
+imply a geometric system of wave-transport-div-curl type, which can be schematically depicted as follows, where
+,
+$\Psi \in \lbrace \varrho , v^1,v^2,v^3,s\rbrace$
+$\mdlgwhtsquare _{\mathbf{g}} \Psi \coloneq \frac{1}{\sqrt {|\operatorname {det} \mathbf{g}|}} \partial _{\alpha } \left\lbrace \sqrt {|\operatorname {det} \mathbf{g}|} (\mathbf{g}^{-1})^{\alpha \beta } \partial _{\beta } \Psi \right\rbrace$
+is the covariant wave operator of the acoustical metric
+,
+$\mathbf{g}= \mathbf{g}(\Psi )$
+$\mathbf{\partial }$
+denotes spacetime gradient,
+$\nabla$
+denotes spatial gradient, and
+$\cdots$
+denotes error terms that end up having a negligible effect on the dynamics:
+22a
+22b
+22c
+$$\begin{align} \mdlgwhtsquare _{\mathbf{g}(\Psi )} \Psi & = \operatorname {curl}(\operatorname {curl}v) + \operatorname {div}\nabla s+ \cdots ,  \cssId{texmlid27}{\tag{22a}}\\ \mathbf{B}\operatorname {curl}v & = \mathbf{\partial } \Psi \cdot \operatorname {curl}v + \cdots ,  \cssId{texmlid28}{\tag{22b}}\\ \mathbf{B}\nabla s& = \mathbf{\partial } \Psi \cdot \nabla s+ \cdots .  \cssId{texmlid29}{\tag{22c}} \end{align}$$
+Equations
+22
+allow for a sharp implementation of nonlinear geometric optics and exhibit many remarkable properties
+Spe19
+. The system also provides a sharp formulation of the coupling between sound waves, vorticity (i.e.,
+),
+$\operatorname {curl}v$
+and entropy.
+It is much more difficult to derive energy estimates for the system
+22
+compared to the irrotational wave equation
+3
+, because difficult elliptic div-curl-type estimates (generalizations of the classical Hodge theory) are needed
+LS18
+LS24
+. It is even harder to localize the estimates to compact domains of dependence (see Fig.
+2
+) because any elliptic PDE theory on bounded domains must account for the boundary
+AS25
+. For the shock formation problem, the boundary is
+part of the unknown
+and not specified as part of the initial conditions. For these reasons,
+LS18
+LS24
+followed shock-forming solutions only up to the constant-time hypersurface of first gradient blowup, an easier context without boundary terms. The elliptic regularity theory for the vorticity and entropy on bounded compact domains of dependence was recently addressed in our work
+AS25
+, and a modified version the results of
+AS25
+tailored to shock formation was present in our work
+AS22
+, described in more detail in Sect.
+3
+.
+The reader might realize that the quadratic shock-driving-Riccati terms (recall
+9
+) are not present in
+22
+. This is because they are “hiding” in
+$\mdlgwhtsquare _{\mathbf{g}}\Psi$
+on the left-hand side of
+22
+and would be visible if
+$\mdlgwhtsquare _{\mathbf{g}}\Psi$
+was expanded relative to Cartesian coordinates. This structure was fundamental in
+LS18
+LS24
+AS22
+, where the lack of Riccati terms on the RHS allowed the authors to derive regular energy estimates in geometric coordinates (recall the shock singularity is recovered when changing from geometric to rectangular coordinates as in Sect.
+2.2
+). We also mention that there are
+more
+quadratic terms
+$Q_{\mathrm{null}}(\mathbf{\partial }\Psi )^2$
+hiding within
+$\cdots$
+in
+22
+. However,
+Spe19
+revealed a miraculous nonlinear cancellation of all the “Riccati structure,” leaving only quadratic terms which effectively behave linearly
+.⁠
+$|Q_{\mathrm{null}}(\mathbf{\partial }\Psi )^2| \le C |\mathbf{\partial }\Psi |$
+Footnote
+16
+Nonlinearities with this structure are called
+null forms
+and also played a fundamental role in
+LS18
+LS24
+AS22
+.
+16
+The constant
+$C$
+can be made small if the initial data is suitably chosen to be small. Hence, one can model the effect of null forms on the Riccati-type equation as the presence of a linear perturbation
+,
+$y' = -y^2 + \epsilon y$
+with
+$\epsilon$
+small; solutions blow up to the future for negative data of magnitude
+.
+$> \epsilon$
+✖
+An alternative method of proving multi-
+$D$
+shock formation, based on understanding perturbations of self-similar solutions, was given in
+BSV23
+. The authors constructed an open set of fully nondegenerate solutions to
+1
+, analogous to Alinhac’s
+Ali99
+for
+21
+, and proved shock formation up to the point
+$b_*$
+from Fig.
+4
+. In contrast, the blowup results of
+Chr07
+LS24
+applied beyond the fully nondegenerate regime.
+3
+.
+Latest Progress in MGHDs
+Our present-day state of knowledge of
+$3D$
+compressible Euler MGHDs with shocks can be summarized as follows. For open sets of solutions, the boundary of the MGHD in a future neighborhood of a generic gradient singularity locally consists of three parts (see Figs.
+8
+–
+9
+):
+•
+A codimension-2 submanifold known as the
+crease
+and denoted by
+‘
+’,
+$\partial _-\mathcal{B}$
+along which the fluid’s first-order Cartesian coordinate partial derivatives blow up. The crease can be shown to be spacelike with respect to the acoustical metric
+$\mathbf{g}$
+(all of its tangent vectors are
+-
+$\mathbf{g}$
+spacelike), and it plays the role of the “true initial singularity.”
+•
+A hypersurface
+$\mathcal{B}$
+that emanates from
+,
+$\partial _-\mathcal{B}$
+termed the
+singular boundary
+, along which
+$\mupmu = 0$
+and the fluid’s gradient continues to blow up.
+•
+A
+Cauchy horizon
+,
+$\underline{\mathcal{C}}$
+which is a hypersurface that is null with respect to
+$\mathbf{g}$
+(i.e., its normal has vanishing
+-
+$\mathbf{g}$
+length) and also emanates from the crease, but along which the solution extends smoothly (except at the crease).
+We clarify that
+$\mathcal{B}\cup \underline{\mathcal{C}}$
+makes up only a
+localized
+portion of the boundary of
+an
+MGHD for the compressible Euler equations, as MGHD uniqueness is not presently known. To date, it is the only subset of
+$\partial \mathcal{M}$
+that has been understood. The above picture holds near regions where the inverse foliation density satisfies the following “generic” bound⁠
+Footnote
+17
+relative to the geometric coordinates
+:
+$(t,u,x^2,x^3)$
+17
+There are alternative, more geometric ways to formulate
+23
+, but we have omitted them to keep the presentation short.
+✖
+23
+$$\begin{align} \frac{\partial ^2 \mupmu }{\partial u^2}\big |_{\partial _-\mathcal{B}} > 0, \cssId{texmlid21}{\tag{23}} \end{align}$$
+where the word “generic” stems from the fact that
+$\mupmu$
+is a nonnegative function that vanishes on the crease but is positive to its past. We call this property
+transversal convexity
+, i.e., convexity in a direction transverse to the characteristics; see Fig.
+8
+. Even in
+,
+$1D$
+an assumption in the spirit of
+23
+is needed to avoid the degenerate situation where a continuum of characteristics collapse into a single point, a situation that is dramatically different than the one depicted in Figs.
+5
+–
+6
+, where the characteristics graze
+.
+$\mathcal{B}$
+In this generic case, the rate of gradient blowup along
+$\partial _-\mathcal{B}$
+is that of
+,
+$x^{1/3}$
+while along
+$\mathcal{B}$
+it is like that of
+.
+$x^{1/2}$
+Figure 8
+.
+$\mathcal{B}$
+and
+$\underline{\mathcal{C}}$
+in geometric coordinates assuming only transversal convexity.
+Figure 9
+.
+$\mathcal{B}$
+and
+$\underline{\mathcal{C}}$
+in Cartesian coordinates assuming only transversal convexity.
+$\mathcal{P}_u$
+is a level set of
+,
+$u$
+i.e., a null hypersurface.
+Christodoulou’s aforementioned work
+Chr07
+provided the breakthrough that opened door for understanding the structures highlighted above. First, without any nondegeneracy assumptions, he followed open sets of solutions up to the time of first shock formation
+$T_{\mathrm{Shock}}$
+as in Fig.
+4
+, although in his approach,
+$b_*$
+did not have to be isolated within the constant-time hypersurface
+.
+$\Sigma _{T_{\mathrm{Shock}}}$
+Moreover, if a stronger convexity assumption than
+23
+held (e.g., if the full spatial Hessian of
+$\mupmu$
+with respect to
+$(u,x^2,x^3)$
+was positive definite), then by using tilted families of flat spacelike hypersurfaces to foliate spacetime, he derived a large, though implicit, portion of the solution region up to
+.
+$\mathcal{B}$
+In particular, when the crease is strictly convex, it can be touched from below by flat spacelike hypersurfaces and thus can be derived under his framework. However, strict convexity does not hold for all shock-forming solutions. For example, it does not hold for plane-symmetric solutions nor for their general perturbations.
+The first constructive proof of a localized portion of the MGHD up to the singular boundary for
+$3D$
+compressible Euler solutions was our work
+AS22
+. The two big advancements of
+AS22
+were that it allowed the solutions to have vorticity and dynamic entropy and that it did not assume strict convexity of the crease. To handle the lack of convexity, the proof relied on new, solution-dependent foliations of spacetime, precisely adapted to the shape of the boundary. We briefly summarize the results of
+AS22
+:
+Theorem 3.1
+.
+Fix any
+$1D$
+isentropic initial data such that the corresponding shock-forming solution satisfies
+23
+. Then for sufficiently small
+general
+$3D$
+perturbations
+of the
+$1D$
+initial data
+without
+any irrotationality, isentropicity, or strict convexity assumptions, there holds:
+•
+A sharp description of the formation and stability of a full connected component of
+$\partial _-\mathcal{B}$
+and
+,
+$\mathcal{B}$
+along which the fluid’s first-order Cartesian coordinate partial derivatives blow up. In particular, relative to the geometric coordinates
+,
+$(t,u,x^2,x^3)$
+the crease is characterized by
+$\partial _-\mathcal{B}= \{ \mupmu = 0\}\cap \{\frac{\partial }{\partial u} \mupmu = 0\}$
+and the singular boundary is characterized by
+.
+$\mathcal{B}= \{\mupmu = 0\} \cap \{\tfrac{\partial }{\partial u} \mupmu \le 0\}$
+•
+An intrinsic description of the geometry of the manifolds
+$\partial _-\mathcal{B}$
+and
+$\mathcal{B}$
+relative to
+.
+$\mathbf{g}$
+•
+An extrinsic description of
+$\partial _-\mathcal{B}$
+and
+,
+$\mathcal{B}$
+including sharp quantitative control of its embedding into Cartesian space
+.
+$\mathbb{R}^{1+3}$
+AS22
+shows that the boundary of the MGHD is extremely intricate. As is depicted in Fig.
+9
+, the characteristics pile up along all of
+$\mathcal{B}$
+with infinite density in the Cartesian differential structure. This implies that relative to the Cartesian coordinates
+,
+$(t,x^1,x^2,x^3)$
+the extrinsic geometry of
+$\mathcal{B}$
+is that of a
+-
+$\mathbf{g}$
+spacelike hypersurface, as past-directed
+-
+$\mathbf{g}$
+null geodesics emanating from
+$\mathcal{B}$
+do not remain in
+.
+$\mathcal{B}$
+Nevertheless, it was shown in
+AS22
+that
+$\mathcal{B}$
+is ruled by integral curves of
+$L$
+and that its intrinsic geometry is that of a null hypersurface; see Fig.
+9
+, where one such integral curve is displayed. We stress that the acoustical metric
+$\mathbf{g}$
+depends only on the
+undifferentiated
+fluid variables in Cartesian coordinates and can be shown to extend continuously up to
+,
+$\mathcal{B}$
+even though it is
+not
+$C^1$
+up to it. The lack differentiability of
+$\mathbf{g}$
+in Cartesian coordinates leads to a lack of uniqueness of the integral curves of
+,
+$L$
+which in turn leads to some fascinating geometric and analytic degeneracies along
+,
+$\mathcal{B}$
+derived in
+AS22
+. We also refer the reader to
+ABSS25
+, where these degeneracies are explicitly described in a dramatically simplified
+$1D$
+model.
+The remaining portion of the boundary of the MGHD in Figs.
+8
+–
+9
+is the Cauchy horizon
+,
+$\underline{\mathcal{C}}$
+which for some
+$2D$
+solutions exhibiting a strictly convex crease, was constructed in the recent work
+SV24
+.
+SV24
+works with the
+inverse
+map from Cartesian coordinates to geometric coordinates, which they call Arbitrary Lagrangian Eulerian coordinates. From the PDE point of view, the analysis is equivalent.
+Theorem 3.2
+.
+There exists an open set of initial data for the
+$2D$
+isentropic compressible Euler equations obeying a strict convexity condition and with gradients of size
+,
+$1/\varepsilon$
+such that when
+$\varepsilon$
+is small and positive, within a rectangular slab of spacetime sandwiched by
+-
+$\mathcal{O}(\varepsilon )$
+separated Cartesian-time hypersurfaces, there holds:
+•
+A sharp description of the formation, stability, and gradient blowup of the fluid on an
+-
+$\mathcal{O}(\varepsilon )$
+size strictly convex portion of
+$\partial _-\mathcal{B}$
+and
+.
+$\mathcal{B}$
+•
+A sharp description of an
+-
+$\mathcal{O}(\varepsilon )$
+size strictly convex portion of the Cauchy horizon
+,
+$\underline{\mathcal{C}}$
+where no fluid blowup occurs, except along
+.
+$\partial _-\mathcal{B}$
+For shock-forming compressible fluids, the Cauchy horizon plays a crucial role as the savior of classical determinism and uniqueness in that it blocks the “classical-uniqueness-destroying part” of the set
+$\lbrace \mupmu = 0 \rbrace$
+from forming. This is easy to see for the
+$1D$
+isentropic solutions described in Sect.
+2.3
+, which we depict in Fig.
+10
+. One can see that the Cauchy horizon
+,
+$\underline{\mathcal{C}}$
+which in that setting is an integral curve of
+$\underline{L}$
+emanating from the crease (the cusp in the figure), delineates the boundary of the region of global hyperbolicity and blocks the “fictitious portion of the singularity boundary,” denoted by a dotted curve, from forming. This is in stark contrast to the nonuniqueness we saw for Burgers’ equation in Fig.
+5
+, where there is no analogous notion of global hyperbolicity. There,
+$\mathcal{B}$
+has two branches separated by a cusp, and there is no geometric mechanism to prevent the characteristics from strictly crossing.
+Figure 10
+.
+Localized MGHD in Cartesian coordinates for
+-
+$\mathcal{R}_+$
+dominated
+$1D$
+isentropic compressible Euler.
+Note that the portion
+$\{\mupmu = 0\} \cap \{\frac{\partial }{\partial u} \mupmu > 0\}$
+is omitted in Thms.
+3.1
+–
+3.2
+. This is the multidimensional analog of the “fictitious portion of
+”
+$\mathcal{B}$
+in Fig.
+10
+, i.e., the dotted curve in the figure. This fictitious portion can be described from a geometric/causal perspective. By doing
+formal
+Taylor expansions in geometric coordinates starting from
+,
+$\partial _-\mathcal{B}$
+one finds that the fictitious portion—if it existed—would lie in the
+timelike
+future of the Cauchy horizon
+$\underline{\mathcal{C}}$
+and thus could not be part of the MGHD; see the dotted portion in Fig.
+8
+. Importantly, the change of variables map from geometric coordinates (where all of the analysis is done in
+AS22
+SV24
+) to Cartesian coordinates would have
+failed to be injective
+on the region in Fig.
+8
+that would have included the fictitious portion of the singular boundary, where the multivaluedness corresponds to lack of global uniqueness of shock-forming solutions that we saw for Burgers’ equation in Sect.
+2.1.1
+. The works
+AS22
+SV24
+show that the change of variables map is injective in the region between
+$\Sigma _0$
+and
+,
+$\mathcal{B}\cup \underline{\mathcal{C}}$
+and hence there is a GHD of the data there, without the problem of multivaluedness.
+4
+.
+Outlook
+The shock formation problem has seen tremendous progress since Riemann’s foundational gradient blowup result
+Rie60
+. However, there are many more problems than there are answers concerning MGHDs of data that lead to shocks. For what classes of data can one hope to construct (any portion of) the MGHD boundary? The best techniques have only been applicable to data with strict
+Chr07
+SV24
+or
+AS22
+transversal convexity. It is conceivable that the boundary of the MGHD might not even have the structure of a manifold for smooth initial data without transversal convexity. One could also have
+different
+singularities other than infinite gradients forming on the boundary of the MGHD. In the breakthrough work
+MRRS22
+, the authors constructed self-similar, spherically symmetric implosion-singularity forming solutions to the
+$3D$
+compressible Euler equations and Navier–Stokes equations arising from
+$C^{\infty }$
+initial data.⁠
+Footnote
+18
+For these solutions, the density itself blows up in finite time, in contrast to the gradient singularities described here. Unless someone constructs the entire MGHD and proves its
+uniqueness
+, it is possible that
+the same
+$C^\infty$
+data studied in
+Chr07
+SV24
+AS22
+MRRS22
+could develop
+different
+solutions, as in
+ERS19
+! In total, many foundational problems on MGHDs remain unsolved, and the set of such problems is growing.
+18
+Implosions had been discovered many decades before in pioneering work in the 1940s of Guderley, but the solutions were not
+$C^{\infty }$
+before the implosion.
+✖
+The boundary of the MGHD dictates when the classical evolution terminates. But, one can ask whether it is possible to reformulate the equations in a different way so that the flow can continue beyond singularities. For compressible fluids, the answer is affirmative: one can provide a “
+weak formulation
+” of the flow by replacing
+1
+with a related system of equations in
+integral form
+. For example,
+$\Psi _W$
+is a weak solution to Burgers’⁠
+Footnote
+19
+equation
+8
+on an open spacetime region
+$\Omega \subset \mathbb{R}^{1+1}$
+if
+19
+It is an easy exercise in integration by parts to check that if
+$\Psi _W$
+is smooth and satisfies
+24
+, then it also satisfies the “pointwise” PDE version of Burgers
+8
+. The analogous integral formulation for the compressible Euler equations
+1
+requires writing them in “divergence” form
+$\partial _t \vec{\Psi } + \partial _{x^j}\left(\vec{F}^j(\vec{\Psi })\right) = \vec{0}$
+(where
+$\vec{F}^j(\vec{\Psi })$
+is a vector-valued function for each
+$j = 1,2,3$
+that depends on a nonlinear combination of the solution variables
+),
+$\vec{\Psi } = (\varrho ,v^1,v^2,v^3,s)$
+and applying similar integration by parts arguments. The details are unimportant for the purpose of this article.
+✖
+24
+$$\begin{align} \int _\Omega (\Psi _W \partial _t \phi + \frac{1}{2} (1+\Psi _W)^2\partial _x \phi ) \, \mathrm{d}t \mathrm{d} x = 0 \cssId{texmlid22}{\tag{24}} \end{align}$$
+for all
+.
+$\phi \in C_c^\infty (\Omega )$
+Weak formulations are invariably defined so that smooth solutions to the original PDE system are also solutions to the weak formulation, though the converse is not generally true. The point of a weak formulation is that one can (sometimes) integrate singular functions. One can then try to solve the equations in integral form beyond the formation of the shock. There are many ways to do this, and one must impose “selection criteria” on the class of weak solutions to obtain a well-posed weak theory.
+A compelling⁠
+Footnote
+20
+class of weak solutions are those where one postulates that a new
+shock hypersurface
+$\mathcal{K}$
+emerges from
+,
+$\partial _-\mathcal{B}$
+across which a piecewise-smooth weak solution exhibits a jump discontinuity; see Fig.
+11
+. Having the solution be weak across
+$\mathcal{K}$
+forces a nonlinear coupling of the spacetime normal vectors along
+$\mathcal{K}$
+with the average state of the fluid along either side of it. That is, the “speed and direction of
+”
+$\mathcal{K}$
+are determined by the “jump” in the fluid across it. The precise nonlinear relationships between the two are called the
+Rankine–Hugoniot (RH) jump conditions
+. In total,
+$\mathcal{K}$
+is a
+new unknown
+that must be solved for in conjunction with the fluid using the RH jump conditions. The angle in which the shock hypersurface is forced to emanate by the RH jump conditions forces it to develop
+into the interior of the MGHD
+; see Fig.
+11
+. Due to the jump discontinuity, the weak solution in the future of
+$\mathcal{K}$
+disagrees
+with the classical solution on the MGHD. This is depicted by the shaded blue region in Fig.
+11
+. The solutions completely agree to the past of
+.
+$\mathcal{K}$
+20
+One can consider weak solutions with drastically different geometric configurations to those in Fig.
+11
+. The ones discussed here are the most heavily studied, in part due to having a well-developed uniqueness theory in
+$1D$
+Daf10
+.
+✖
+Figure 11
+.
+The solution to the SDP agrees with the classical solution below
+.
+$\underline{\mathcal{C}}\cup \mathcal{K}$
+The solution to the SDP is also defined between
+$\underline{\mathcal{C}}$
+and
+,
+$\mathcal{K}$
+and disagrees with the classical solution in the shaded blue region, where the domains overlap.
+$\mathcal{K}$
+is tangent to
+$\mathcal{B}$
+at
+.
+$\partial _- \mathcal{B}$
+Describing the transition from an initially smooth solution, to forming gradient blowup, to describing the development of
+$\mathcal{K}$
+and the jump across it, is called the
+shock development problem
+(SDP). The SDP for the multi-
+$D$
+compressible Euler equations remains open in full generality without symmetry.⁠
+Footnote
+21
+There has been remarkable progress by Christodoulou in his celebrated monograph
+Chr19
+, where he solved the “restricted” multi-
+$D$
+SDP locally in time. “Restricted” means that he ignored the effect of the entropy
+$s$
+on the dynamics. A detailed discussion of the SDP that does it justice is beyond the scope of this article. However, we stress that the correct notion of “initial data” for the SDP is the state of the fluid up to a compact portion of the boundary of the MGHD, and that
+knowing the full structure of the MGHD in this compact portion was a fundamental ingredient in Christodouou’s solution of the restricted SDP
+.
+21
+The SDP has been solved in
+$1D$
+and multi-
+$D$
+symmetric settings (where the symmetry effectively reduces the dynamics to a
+$1D$
+problem). The first to do this was Lebaud
+Leb94
+for isentropic simple (e.g., one of
+$\mathcal{R}_+$
+or
+$\mathcal{R}_-$
+is constant) shock-forming data to the Euler equations in
+.
+$1D$
+✖
+It is important to highlight that the classical solution up to the boundary of the MGHD as well as the solution to the SDP are
+both
+weak integral solutions. However, the additional
+postulate
+of the existence of a
+$\mathcal{K}$
+means that the two solutions make different predictions in the regions where they are defined. One way to attempt to justify choosing a given class of weak solutions is by making a viscous perturbation to the equations. For example, a certain choice of viscosity transforms
+1
+into the compressible Navier–Stokes (NS) equations⁠
+Footnote
+22
+:
+22
+More precisely,
+25
+are the
+isentropic
+NS equations. The full system with dynamic entropy is more complicated to write down. The details are unimportant for these notices.
+✖
+25
+$$\begin{align} \mathbf{B}\varrho = - \varrho \partial _a v^a, \qquad \varrho \mathbf{B}v^i = - c^2 \partial _i \varrho + \nu \Delta v^i \cssId{texmlid23}{\tag{25}} \end{align}$$
+for
+,
+$i = 1,2,3$
+where
+$\nu >0$
+denotes the viscosity and
+$\Delta v^i$
+is viewed as a “dissipative” correction to
+1b
+. Viscosity dissipation can regularize singularities, and the goal is to decide whether one can recover the Euler solution as a limit from the NS solution as
+,
+$\nu \downarrow 0$
+called the
+inviscid limit
+. The recent breakthrough of
+ACG25
+completely solves this problem⁠
+Footnote
+23
+in
+$1D$
+up to the first point of shock formation
+when the shock-forming inviscid solution enjoys transversal convexity. Outstanding open problems in
+any
+spatial dimension include deciding whether classical solutions on a unique MGHD or weak solutions to the SDP can be realized as inviscid limits.
+23
+The result of
+ACG25
+builds on a tremendously vast literature on inviscid limits in
+.
+$1D$
+There are far too many to properly address here; we direct the reader to the textbook
+Daf10
+and the thousands of references therein.
+✖
+Another class of weak solutions that has been extensively studied comprises piecewise-smooth solutions such that the RH jump conditions are already
+assumed
+to hold for the initial data across a compact hypersurface
+.
+$S \subset \{t=0\}$
+Finding a weak solution launched by this discontinuous data that tracks the propagation of a shock hypersurface
+$\mathcal{K}_{\mathrm{Front}}$
+emanating from
+,
+$S$
+across which the RH jump conditions continue to hold, is called the
+shock front problem
+(SFP). Majda’s celebrated work
+Maj83
+proved the existence of a unique weak solution to the SFP in multi-
+$D$
+for small times. This class of weak solutions has seen favorable results from the inviscid limit point of view. In multi-
+,
+$D$
+Guès-Métivier-Williams-Zumbrun
+GMWZ06
+constructed solutions to the compressible NS equations that converged to Majda’s shock front solution in
+$L^p$
+norms for all
+$2 \le p < \infty$
+as
+.
+$\nu \downarrow 0$
+Figure 12
+.
+A schematic timeline where inviscid limits have been known to “validate” the singular behavior of fluids. Here
+$T_{\mathrm{Shock}}$
+corresponds to the first Cartesian time where gradient blowup occurs, i.e., a shock has formed. Majda’s shock front problem starts at
+,
+$T_{\mathrm{Front}}$
+where an already developed shock was proven to be stable for small times up to
+,
+$T_{\mathrm{Front}}+\Delta$
+where
+$\Delta >0$
+depends on the data. In
+,
+$1D$
+the paper
+ACG25
+proves that shock formation is pointwise stable in the inviscid limit on
+.
+$[0,T_{\mathrm{Shock}}]$
+In multi-
+,
+$D$
+the work of
+GMWZ06
+proves that the propagation of shock fronts is stable in the inviscid limit on
+$[T_{\mathrm{Front}},T_{\mathrm{Front}}+\Delta ]$
+in
+$L^p$
+norms for
+.
+$p \in [2,\infty )$
+The papers
+ACG25
+GMWZ06
+provide justification for the compressible Euler equations as a physically compelling model for fluids during different phases of the evolution. That is,
+ACG25
+applies until the first time
+$T_{\mathrm{Shock}}$
+when gradient blowup occurs while the solution remains continuous, i.e., a shock forms.
+GMWZ06
+applies long after a shock has developed, say at
+,
+$T_{\mathrm{Front}}$
+and the solution is already discontinuous. The gap in Fig.
+12
+highlights the limiting threshold of our understanding of shocks in the inviscid limit, especially in multi-
+.
+$D$
+That is, the formation of
+$\partial _-\mathcal{B}$
+and the subsequent emergence of
+$\mathcal{B}\cup \underline{\mathcal{C}}$
+in the classical solution up to the boundary of the MGHD,
+as well as
+the emergence of the shock hypersurface
+$\mathcal{K}$
+from
+$\partial _-\mathcal{B}$
+in the SDP, all lie in the time interval
+.
+$[T_{\mathrm{Shock}},T_{\mathrm{Front}}]$
+The inviscid limit problem remains open in this very rich part of the evolution. Will the viscous solution converge to the classical solution on the MGHD, or the solution to the SDP, or neither? Does the answer change depending on the norms used in the convergence? How does the inviscid limit depend on the choice of a viscous model? Since the existence of a unique MGHD problem and SDP are unsolved in multi-
+,
+$D$
+the amount of work to be done is monumental. Fortunately, the field has never been better prepared to handle the difficulties.
+References
+[
+AS22
+]
+Leo Abbrescia and Jared Speck,
+The emergence of the singular boundary from the crease in
+$3D$
+compressible Euler flow
+(July 2022),
+arXiv:2207.07107
+.,
+AMSref
+\bib{lAjS2022}{article}{
+author={{Abbrescia}, Leo},
+author={{Speck}, Jared},
+title={{The emergence of the singular boundary from the crease in $3D$ compressible Euler flow}},
+date={2022-07},
+arxiv={2207.07107},
+}
+[
+ABSS25
+]
+Leonardo Abbrescia, Pieter Blue, Jan Sbierski, and Jared Speck,
+A quasilinear wave with a supersonic shock in a weak solution interrupting the classical development
+(2025),
+arXiv:2511.07594
+.,
+AMSref
+\bib{abbrescia2025quasilinear}{article}{
+author={Abbrescia, Leonardo},
+author={Blue, Pieter},
+author={Sbierski, Jan},
+author={Speck, Jared},
+title={A quasilinear wave with a supersonic shock in a weak solution interrupting the classical development},
+date={2025},
+arxiv={2511.07594},
+}
+[
+AS25
+]
+Leonardo Abbrescia and Jared Speck,
+Remarkable localized integral identities for
+3
+$D$
+compressible Euler flow and the double-null framework
+, Arch. Ration. Mech. Anal.
+249
+(2025), no. 1, Paper No. 10, 137, DOI
+10.1007/s00205-024-01997-7
+. MR
+4842913
+,
+AMSref
+\bib{lAjS2025}{article}{
+author={Abbrescia, Leonardo},
+author={Speck, Jared},
+title={Remarkable localized integral identities for 3$D$ compressible Euler flow and the double-null framework},
+journal={Arch. Ration. Mech. Anal.},
+volume={249},
+date={2025},
+number={1},
+pages={Paper No. 10, 137},
+issn={0003-9527},
+review={\MR {4842913}},
+doi={10.1007/s00205-024-01997-7},
+}
+[
+Ali99
+]
+Serge Alinhac,
+Blowup of small data solutions for a quasilinear wave equation in two space dimensions
+(
+English, with English and French summaries
+)
+, Ann. of Math. (2)
+149
+(1999), no. 1, 97–127, DOI
+10.2307/121020
+. MR
+1680539
+,
+AMSref
+\bib{sA1999a}{article}{
+author={Alinhac, Serge},
+title={Blowup of small data solutions for a quasilinear wave equation in two space dimensions},
+language={English, with English and French summaries},
+journal={Ann. of Math. (2)},
+volume={149},
+date={1999},
+number={1},
+pages={97--127},
+issn={0003-486X},
+review={\MR {1680539}},
+doi={10.2307/121020},
+}
+[
+ACG25
+]
+John Anderson, Sanchit Chaturvedi, and Cole Graham,
+Shock formation in 1D conservation laws II: Vanishing viscosity
+(2025),
+arXiv:2506.17156
+.,
+AMSref
+\bib{anderson2025shock}{article}{
+author={Anderson, John},
+author={Chaturvedi, Sanchit},
+author={Graham, Cole},
+title={Shock formation in 1{D} conservation laws {II}: {V}anishing viscosity},
+date={2025},
+arxiv={2506.17156},
+}
+[
+BSV23
+]
+Tristan Buckmaster, Steve Shkoller, and Vlad Vicol,
+Shock formation and vorticity creation for 3D Euler
+, Comm. Pure Appl. Math.
+76
+(2023), no. 9, 1965–2072, DOI
+10.1002/cpa.22067
+. MR
+4612575
+,
+AMSref
+\bib{tBsSvV2023b}{article}{
+author={Buckmaster, Tristan},
+author={Shkoller, Steve},
+author={Vicol, Vlad},
+title={Shock formation and vorticity creation for 3D Euler},
+journal={Comm. Pure Appl. Math.},
+volume={76},
+date={2023},
+number={9},
+pages={1965--2072},
+issn={0010-3640},
+review={\MR {4612575}},
+doi={10.1002/cpa.22067},
+}
+[
+CBG69
+]
+Yvonne Choquet-Bruhat and Robert Geroch,
+Global aspects of the Cauchy problem in general relativity
+, Comm. Math. Phys.
+14
+(1969), 329–335. MR
+250640
+,
+AMSref
+\bib{cBgR1969}{article}{
+author={Choquet-Bruhat, Yvonne},
+author={Geroch, Robert},
+title={Global aspects of the Cauchy problem in general relativity},
+journal={Comm. Math. Phys.},
+volume={14},
+date={1969},
+pages={329--335},
+issn={0010-3616},
+review={\MR {250640}},
+}
+[
+Chr07
+]
+Demetrios Christodoulou,
+The formation of shocks in 3-dimensional fluids
+, EMS Monographs in Mathematics, European Mathematical Society (EMS), Zürich, 2007, DOI
+10.4171/031
+. MR
+2284927
+,
+AMSref
+\bib{dC2007}{book}{
+author={Christodoulou, Demetrios},
+title={The formation of shocks in 3-dimensional fluids},
+series={EMS Monographs in Mathematics},
+publisher={European Mathematical Society (EMS), Z\"{u}rich},
+date={2007},
+pages={viii+992},
+isbn={978-3-03719-031-9},
+review={\MR {2284927}},
+doi={10.4171/031},
+}
+[
+Chr19
+]
+Demetrios Christodoulou,
+The shock development problem
+, EMS Monographs in Mathematics, European Mathematical Society (EMS), Zürich, 2019, DOI
+10.4171/192
+. MR
+3890062
+,
+AMSref
+\bib{dC2019}{book}{
+author={Christodoulou, Demetrios},
+title={The shock development problem},
+series={EMS Monographs in Mathematics},
+publisher={European Mathematical Society (EMS), Z\"{u}rich},
+date={2019},
+pages={ix+920},
+isbn={978-3-03719-192-7},
+review={\MR {3890062}},
+doi={10.4171/192},
+}
+[
+CK93
+]
+Demetrios Christodoulou and Sergiu Klainerman,
+The global nonlinear stability of the Minkowski space
+, Princeton Mathematical Series, vol. 41, Princeton University Press, Princeton, NJ, 1993. MR
+1316662
+,
+AMSref
+\bib{dCsK1993}{book}{
+author={Christodoulou, Demetrios},
+author={Klainerman, Sergiu},
+title={The global nonlinear stability of the Minkowski space},
+series={Princeton Mathematical Series},
+volume={41},
+publisher={Princeton University Press, Princeton, NJ},
+date={1993},
+pages={x+514},
+isbn={0-691-08777-6},
+review={\MR {1316662}},
+}
+[
+Daf10
+]
+Constantine M. Dafermos,
+Hyperbolic conservation laws in continuum physics
+, 3rd ed., Grundlehren der mathematischen Wissenschaften [Fundamental Principles of Mathematical Sciences], vol. 325, Springer-Verlag, Berlin, 2010, DOI
+10.1007/978-3-642-04048-1
+. MR
+2574377
+,
+AMSref
+\bib{cD2010}{book}{
+author={Dafermos, Constantine M.},
+title={Hyperbolic conservation laws in continuum physics},
+series={Grundlehren der mathematischen Wissenschaften [Fundamental Principles of Mathematical Sciences]},
+volume={325},
+edition={3},
+publisher={Springer-Verlag, Berlin},
+date={2010},
+pages={xxxvi+708},
+isbn={978-3-642-04047-4},
+review={\MR {2574377}},
+doi={10.1007/978-3-642-04048-1},
+}
+[
+ERS19
+]
+Felicity C. Eperon, Harvey S. Reall, and Jan J. Sbierski,
+Predictability of subluminal and superluminal wave equations
+, Comm. Math. Phys.
+368
+(2019), no. 2, 585–626, DOI
+10.1007/s00220-019-03428-1
+. MR
+3949719
+,
+AMSref
+\bib{fEhRjS2019}{article}{
+author={Eperon, Felicity C.},
+author={Reall, Harvey S.},
+author={Sbierski, Jan J.},
+title={Predictability of subluminal and superluminal wave equations},
+journal={Comm. Math. Phys.},
+volume={368},
+date={2019},
+number={2},
+pages={585--626},
+issn={0010-3616},
+review={\MR {3949719}},
+doi={10.1007/s00220-019-03428-1},
+}
+[
+GMWZ06
+]
+C. M. I. Olivier Guès, Guy Métivier, Mark Williams, and Kevin Zumbrun,
+Navier-Stokes regularization of multidimensional Euler shocks
+(
+English, with English and French summaries
+)
+, Ann. Sci. École Norm. Sup. (4)
+39
+(2006), no. 1, 75–175, DOI
+10.1016/j.ansens.2005.12.002
+. MR
+2224659
+,
+AMSref
+\bib{gues2006navier}{article}{
+author={Gu\`es, C. M. I. Olivier},
+author={M\'{e}tivier, Guy},
+author={Williams, Mark},
+author={Zumbrun, Kevin},
+title={Navier-Stokes regularization of multidimensional Euler shocks},
+language={English, with English and French summaries},
+journal={Ann. Sci. \'{E}cole Norm. Sup. (4)},
+volume={39},
+date={2006},
+number={1},
+pages={75--175},
+issn={0012-9593},
+review={\MR {2224659}},
+doi={10.1016/j.ansens.2005.12.002},
+}
+[
+Leb94
+]
+M.-P. Lebaud,
+Description de la formation d’un choc dans le
+-
+$p$
+système
+(
+French, with French summary
+)
+, J. Math. Pures Appl. (9)
+73
+(1994), no. 6, 523–565. MR
+1309163
+,
+AMSref
+\bib{lebaud1994description}{article}{
+author={Lebaud, M.-P.},
+title={Description de la formation d'un choc dans le $p$-syst\`eme},
+language={French, with French summary},
+journal={J. Math. Pures Appl. (9)},
+volume={73},
+date={1994},
+number={6},
+pages={523--565},
+issn={0021-7824},
+review={\MR {1309163}},
+}
+[
+LS18
+]
+Jonathan Luk and Jared Speck,
+Shock formation in solutions to the 2D compressible Euler equations in the presence of non-zero vorticity
+, Invent. Math.
+214
+(2018), no. 1, 1–169, DOI
+10.1007/s00222-018-0799-8
+. MR
+3858399
+,
+AMSref
+\bib{jLjS2018}{article}{
+author={Luk, Jonathan},
+author={Speck, Jared},
+title={Shock formation in solutions to the 2D compressible Euler equations in the presence of non-zero vorticity},
+journal={Invent. Math.},
+volume={214},
+date={2018},
+number={1},
+pages={1--169},
+issn={0020-9910},
+review={\MR {3858399}},
+doi={10.1007/s00222-018-0799-8},
+}
+[
+LS24
+]
+Jonathan Luk and Jared Speck,
+The stability of simple plane-symmetric shock formation for three-dimensional compressible Euler flow with vorticity and entropy
+, Anal. PDE
+17
+(2024), no. 3, 831–941, DOI
+10.2140/apde.2024.17.831
+. MR
+4736521
+,
+AMSref
+\bib{luk2024stability}{article}{
+author={Luk, Jonathan},
+author={Speck, Jared},
+title={The stability of simple plane-symmetric shock formation for three-dimensional compressible Euler flow with vorticity and entropy},
+journal={Anal. PDE},
+volume={17},
+date={2024},
+number={3},
+pages={831--941},
+issn={2157-5045},
+review={\MR {4736521}},
+doi={10.2140/apde.2024.17.831},
+}
+[
+Maj84
+]
+A. Majda,
+Compressible fluid flow and systems of conservation laws in several space variables
+, Applied Mathematical Sciences, vol. 53, Springer-Verlag, New York, 1984, DOI
+10.1007/978-1-4612-1116-7
+. MR
+748308
+,
+AMSref
+\bib{aM1984}{book}{
+author={Majda, A.},
+title={Compressible fluid flow and systems of conservation laws in several space variables},
+series={Applied Mathematical Sciences},
+volume={53},
+publisher={Springer-Verlag, New York},
+date={1984},
+pages={viii+159},
+isbn={0-387-96037-6},
+review={\MR {748308}},
+doi={10.1007/978-1-4612-1116-7},
+}
+[
+Maj83
+]
+Andrew Majda,
+The existence of multidimensional shock fronts
+, Mem. Amer. Math. Soc.
+43
+(1983), no. 281, v+93, DOI
+10.1090/memo/0281
+. MR
+699241
+,
+AMSref
+\bib{aM1983a}{article}{
+author={Majda, Andrew},
+title={The existence of multidimensional shock fronts},
+journal={Mem. Amer. Math. Soc.},
+volume={43},
+date={1983},
+number={281},
+pages={v+93},
+issn={0065-9266},
+review={\MR {699241}},
+doi={10.1090/memo/0281},
+}
+[
+MRRS22
+]
+Frank Merle, Pierre Raphaël, Igor Rodnianski, and Jeremie Szeftel,
+On the implosion of a compressible fluid II: Singularity formation
+, Ann. of Math. (2)
+196
+(2022), no. 2, 779–889, DOI
+10.4007/annals.2022.196.2.4
+. MR
+4445443
+,
+AMSref
+\bib{fMpRiRjS2022b}{article}{
+author={Merle, Frank},
+author={Rapha\"{e}l, Pierre},
+author={Rodnianski, Igor},
+author={Szeftel, Jeremie},
+title={On the implosion of a compressible fluid II: Singularity formation},
+journal={Ann. of Math. (2)},
+volume={196},
+date={2022},
+number={2},
+pages={779--889},
+issn={0003-486X},
+review={\MR {4445443}},
+doi={10.4007/annals.2022.196.2.4},
+}
+[
+MY17
+]
+Shuang Miao and Pin Yu,
+On the formation of shocks for quasilinear wave equations
+, Inventiones Mathematicae
+207
+(2017), no. 2, 697–831, DOI
+10.1007/s00222-016-0676-2
+.,
+AMSref
+\bib{sMpY2017}{article}{
+author={Miao, Shuang},
+author={Yu, Pin},
+title={On the formation of shocks for quasilinear wave equations},
+date={2017},
+issn={1432-1297},
+journal={Inventiones Mathematicae},
+volume={207},
+number={2},
+pages={697\ndash 831},
+doi={10.1007/s00222-016-0676-2},
+}
+[
+Rau86
+]
+Jeffrey Rauch,
+BV estimates fail for most quasilinear hyperbolic systems in dimensions greater than one
+, Comm. Math. Phys.
+106
+(1986), no. 3, 481–484. MR
+859822
+,
+AMSref
+\bib{jR1986}{article}{
+author={Rauch, Jeffrey},
+title={BV estimates fail for most quasilinear hyperbolic systems in dimensions greater than one},
+journal={Comm. Math. Phys.},
+volume={106},
+date={1986},
+number={3},
+pages={481--484},
+issn={0010-3616},
+review={\MR {859822}},
+}
+[
+Ray55
+]
+Amalkumar Raychaudhuri,
+Relativistic cosmology. I
+, Phys. Rev. (2)
+98
+(1955), 1123–1126. MR
+69635
+,
+AMSref
+\bib{aR1955}{article}{
+author={Raychaudhuri, Amalkumar},
+title={Relativistic cosmology. I},
+journal={Phys. Rev. (2)},
+volume={98},
+date={1955},
+pages={1123--1126},
+issn={0031-899X},
+review={\MR {69635}},
+}
+[
+Rie60
+]
+Bernhard Riemann,
+Über die Fortpflanzung ebener Luftwellen von endlicher Schwingungsweite
+, Abhandlungen der Königlichen Gesellschaft der Wissenschaften in Göttingen
+8
+(1860), 43–66.,
+AMSref
+\bib{bR1860}{article}{
+author={Riemann, Bernhard},
+title={{\"{U}}ber die {F}ortpflanzung ebener {L}uftwellen von endlicher {S}chwingungsweite},
+date={1860},
+journal={Abhandlungen der K\"{o}niglichen Gesellschaft der Wissenschaften in G\"{o}ttingen},
+volume={8},
+pages={43\ndash 66},
+url={https://eudml.org/doc/135717},
+}
+[
+SV24
+]
+Steve Shkoller and Vlad Vicol,
+The geometry of maximal development and shock formation for the Euler equations in multiple space dimensions
+, Invent. Math.
+237
+(2024), no. 3, 871–1252, DOI
+10.1007/s00222-024-01269-x
+. MR
+4777088
+,
+AMSref
+\bib{ShkollerMGHD}{article}{
+author={Shkoller, Steve},
+author={Vicol, Vlad},
+title={The geometry of maximal development and shock formation for the Euler equations in multiple space dimensions},
+journal={Invent. Math.},
+volume={237},
+date={2024},
+number={3},
+pages={871--1252},
+issn={0020-9910},
+review={\MR {4777088}},
+doi={10.1007/s00222-024-01269-x},
+}
+[
+Spe19
+]
+Jared Speck,
+A New Formulation of the 3D Compressible Euler Equations with Dynamic Entropy: Remarkable Null Structures and Regularity Properties
+, Arch. Ration. Mech. Anal.
+234
+(2019), no. 3, 1223–1279, DOI
+10.1007/s00205-019-01411-7
+. MR
+4011696
+,
+AMSref
+\bib{jS2019c}{article}{
+author={Speck, Jared},
+title={A {N}ew {F}ormulation of the 3{D} {C}ompressible {E}uler {E}quations with {D}ynamic {E}ntropy: {R}emarkable {N}ull {S}tructures and {R}egularity {P}roperties},
+date={2019},
+issn={0003-9527},
+journal={Arch. Ration. Mech. Anal.},
+volume={234},
+number={3},
+pages={1223\ndash 1279},
+doi={10.1007/s00205-019-01411-7},
+review={\MR {4011696}},
+}
+Leonardo Abbrescia is an assistant professor of mathematics at the Georgia Institute of Technology. His email address is
+[email protected]
+.
+Jared Speck is a Stevenson Professor of Mathematics at Vanderbilt University. His email address is
+[email protected]
+.
+Article DOI:
+10.1090/noti3313
+Credits
+All figures are courtesy of the authors.
+Photo of Leonardo Abbrescia is courtesy of Britta Abbrescia.
+Photo of Jared Speck is courtesy of Genevieve Speck.

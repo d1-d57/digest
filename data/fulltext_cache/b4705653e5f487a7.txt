@@ -1,0 +1,1779 @@
+BULLETIN (New Series) OF THE
+AMERICAN MATHEMATICAL SOCIETY
+Volume 63, Number 1, January 2026, Pages 59–77
+https://doi.org/10.1090/bull/1874
+Article electronically published on October 15, 2025
+
+APOLLONIAN PACKINGS: THE RISE AND FALL
+OF THE LOCAL TO GLOBAL CONJECTURE
+ELENA FUCHS
+Abstract. Nearly twenty years ago, a paper of Graham, Lagarias, Mallows,
+Wilks, and Yan on the number theory of Apollonian circle packings sparked
+an interest in the number theory community, which was just developing tools
+to handle arithmetic problems involving so-called thin groups. At the time,
+these packings were the only naturally occurring example of such an arithmetic problem and, naturally, number theorists sprang upon the opportunity
+to discover all their rich properties, thinness notwithstanding. In 2010, building upon conjectures of Graham et al., the author and Katherine Sanden gave
+evidence toward the local to global conjecture for Apollonian circle packings,
+stating that in any integral packing, any large enough integer that satisﬁed
+certain congruence conditions modulo 24 must appear as a curvature in the
+packing. For thirteen years, most everyone believed this conjecture to be true.
+In this article, we will explore the history of this conjecture and its fascinating
+downfall after Haag, Kertzer, Rickards, and Stange proved that, in fact, inﬁnitely many integral Apollonian packings fail to abide by the local to global
+principle, and come with extra quadratic and quartic obstructions.
+
+1. Introduction
+Local to global style theorems and conjectures are central in many branches of
+number theory. Reminiscent of the idea in geometry that one can understand a
+(global) object, such as a surface in space, by studying properties near (local) ﬁxed
+points on that surface, in number theory the local to global principle (sometimes
+referred to as the Hasse principle) is a phenomenon in which one can completely
+understand an arithmetic entity, such as rational points on an elliptic curve, just
+by studying that object over local ﬁelds—the p-adic numbers and the reals.
+A well-known classical example of this which is often presented in a ﬁrst course
+in undergraduate number theory is the study of nonnegative integers which can be
+written as the sum of three squares:
+n = X2 + Y 2 + Z2
+where X, Y, Z ∈ Z. It is not hard to see that no number which is 7 modulo 8 can
+be written in this way—a square can only be 0, 1, or 4 modulo 8, and 7 is the only
+residue one cannot obtain from any combination of three of these. Indeed, there
+are no other local obstructions: any integer n can be written as the sum of three
+squares over the reals, and over Qp for p = 2. What is harder to see, and was ﬁrst
+Received by the editors February 4, 2025, and, in revised form, June 9, 2025.
+2020 Mathematics Subject Classiﬁcation. 11-02, 11D09.
+The author’s research is supported by NSF grant DMS-2154624.
+c
+2026 American Mathematical Society
+
+59
+
+60
+
+ELENA FUCHS
+
+proven by Legendre1 in 1797, is that any odd number which is not 7 modulo 8 can,
+in fact, be written as a sum of three squares. This, in fact, is a local to global
+principle governing which odd numbers can be written as sums of three squares.
+Furthermore, Legendre proved what is known as Legendre’s three-square theorem,
+that a number n can be written as a sum of three squares if and only if it is not of
+the form 4a (8k + 7) for any nonnegative integers a and k.
+There is also a wealth of interesting examples where the local to global principle
+does not hold. In contrast to Legendre’s three-square theorem, it is not in general
+true that if a number is represented by a quadratic form over the p-adics and reals,
+then it is represented over Z: for example, while 3x2 + 13y 2 = 1 is solvable both
+over the reals and over the p-adics for every prime p, it is clearly not solvable over Z.
+Indeed, Hilbert’s tenth problem asks if there is an algorithm to determine whether
+or not any given Diophantine equation has a solution over Z, and that problem was
+shown to be undecidable by work of Davis [8]; Matijasevič [25]; Davis, Putnam,
+and Robinson [9]; and Robinson [29]. However, the Hasse–Minkowski principle
+states precisely this for quadratic forms with rational coeﬃcients with Z replaced
+by Q—that a quadratic form with rational coeﬃcients represents a number over
+Q if and only if it represents a number over R and Qp for every prime p. Indeed,
+3x2 + 13y 2 = 1 is solvable over Q by taking x = 25 and y = 15 .
+In yet another example of failure of a local to global principle for a well-known
+problem, while Fermat’s last theorem famously says that there are no nontrivial
+solutions to X n + Y n = Z n for n > 2, one can solve the equation modulo any prime
+p in the case n = 3, and, as shown by ﬁrst by Dickson in [10] using Jacobi sums
+for n prime, and later in more generality by Schur in [30], modulo a large enough
+prime p for any given n (Here “large enough” depends on n).
+The arithmetic object we now turn our focus to is the Apollonian circle packing. Named after Apollonius of Perga, who studied the problem of constructing a
+circle tangent to all of three given circles in his (now lost) work The Tangencies
+sometime in the third century BCE, the ﬁrst known mention of an object like an
+Apollonian packing is in a letter from Leibniz to Des Bosses in 1706 [23] as part of
+a philosophical discussion:
+. . . it should not be concluded from this that an inﬁnitely small portion of matter (such as does not exist) must be assigned to any
+entelechy, even if we usually rush to such conclusions by a leap. I
+shall use an analogy. Imagine a circle; in it draw three other circles
+that are the same in size and as large as possible, and in any new
+circle and in the space between circles again draw the three largest
+circles of the same size that are possible. Imagine proceeding to
+inﬁnity in this way: it does not follow that there is an inﬁnitely
+small circle or that there is a center having its own circle in which
+(contrary to the hypothesis) no other is inscribed.
+Our construction is slightly diﬀerent: consider four pairwise tangent circles or
+lines in one of two conﬁgurations: either two tangent circles inscribed between two
+1 Legendre’s proof was not complete, and a complete proof was given by Gauss shortly after
+Legendre. A more elegant proof was produced by Dirichlet several decades later. The proof of the
+3-squares theorem that most closely ties in with the subject of this article comes from combining
+Hasse and Minkowski with a result of Aubry [2] from 1912 where if a number is represented as
+the sum of three rational squares, then it is represented as the sum of three integer squares.
+
+APOLLONIAN PACKINGS
+
+61
+
+Figure 1. Two starting conﬁgurations of circles
+
+parallel lines (tangent at inﬁnity) or three pairwise tangent circles inscribed inside
+one larger one (see Figure 1). Apollonius observed that for any three of these
+pairwise tangent circles or lines in either picture, there are precisely two others
+tangent to the other three. In the ﬁrst picture, taking the three pairwise tangent
+circles to be the two parallel lines and one of the circles, Apollonius’s theorem is
+obvious: the two circles tangent to these three are the two circles one can inscribe
+between the two lines on either side of the inside circle. Indeed, this is a nice way to
+see Apollonius’s theorem for the second conﬁguration as well, since one can obtain
+the second conﬁguration from the ﬁrst by performing several circle inversions, which
+are tangency preserving. Given this observation, one sees that there is a unique
+circle one can inscribe in the region bounded by any three of these circles. Iterating
+this process, one gets what is known as an Apollonian circle packing.
+As far as we know, the number theoretic aspects of this construction were discovered some two centuries later by chemistry Nobel Prize laureate Frederick Soddy,
+who was so taken by the problem that he wrote a poem about it [31]. Speciﬁcally,
+if the four circles in the starting conﬁguration have integer curvature (e.g., if we
+take the two circles in the ﬁrst conﬁguration in Figure 1 to have curvature 1, with
+the lines having curvature 0), all of the circles in the packing will have integer
+curvature. Nonetheless, for a long time most works on Apollonian packings were
+geometrically ﬂavored (see [1], [16], [17], [18], [21], [24], [26], [33], for example), and
+the ﬁrst paper which delved deep into the number theory of integral Apollonian
+packings was [19] by Graham, Lagarias, Mallows, Wilks, and Yan in 2003.
+
+-1
+
+86
+131
+
+167
+
+182
+
+74
+231
+
+98
+
+59
+
+30
+
+191
+
+266
+
+251
+
+95 194
+
+35
+
+95
+
+6
+
+290
+
+111
+227
+
+2
+
+179
+
+111
+
+350
+
+455
+
+174
+
+338
+
+59
+
+506
+
+423
+
+162
+
+486
+
+315
+
+255
+
+131
+
+354
+
+354
+
+179
+
+378
+
+471
+
+522
+
+299
+
+363
+
+47 98
+
+371
+
+119
+
+167
+
+194
+
+290
+
+122
+
+362
+
+62
+
+507
+
+170330
+
+447
+
+330
+
+231
+
+23
+
+131
+
+26
+
+42
+
+87
+
+294
+
+147
+
+438
+
+375
+
+110
+
+83
+
+6
+
+111
+
+50
+
+150
+
+182
+
+278
+
+59
+
+162
+
+174
+
+23
+
+147
+
+50
+
+275
+
+87
+
+98
+
+47
+
+122
+
+14
+
+143
+
+75
+
+42
+
+28
+
+167
+
+114
+
+371
+
+374
+
+71
+
+546
+
+219 447
+
+219
+
+654
+
+554
+
+222
+
+3
+
+71
+
+659
+
+222
+
+531
+
+455
+
+38
+
+279
+
+279
+
+738
+
+846
+
+107210
+
+107
+
+623
+
+911
+
+318
+
+662
+
+210
+
+347
+
+842
+
+318
+
+635
+
+546
+
+287
+
+867
+
+110
+647
+
+323
+
+203
+
+203
+
+599
+699
+
+638
+
+102
+803
+
+863
+
+302
+602
+
+863
+
+102
+
+203
+
+198 491
+590
+
+590
+
+198
+
+326
+
+63 99 143
+
+198 491
+
+326
+
+99 63
+
+407
+
+798
+
+198
+
+302
+
+35
+
+302
+
+102203
+
+263 498
+
+263
+
+699
+
+599
+
+338
+
+858
+
+323 642
+
+15
+
+927
+
+287
+318
+
+455
+
+222
+
+554
+
+38
+
+318
+
+842
+
+662
+
+911
+
+107
+
+347
+
+210
+
+210
+
+107
+
+623
+
+846
+
+279
+
+738
+
+279
+
+531
+
+659
+
+654
+
+374
+
+71
+
+3
+
+218
+
+110
+
+323
+
+867
+
+635
+
+114
+
+287
+
+218
+
+263
+407
+
+602
+
+302
+
+803
+
+638
+
+683
+
+110
+
+102
+
+263 498
+798
+
+15 35
+
+362
+
+218
+
+110
+
+338
+
+858
+
+683
+
+218
+362
+
+647
+
+762
+
+287
+
+38
+
+323 642
+
+927
+
+762
+
+546
+
+219
+
+447
+
+38
+219
+
+546
+
+371
+
+222
+
+71
+114
+
+167
+
+62
+
+42
+
+42
+
+143
+
+131
+
+26
+186
+
+87 182
+
+278
+
+231
+
+122
+
+330
+
+171
+
+167
+
+194
+
+119
+
+371
+
+299
+
+354
+
+279
+
+174
+455
+
+506
+
+2
+
+59
+
+338
+
+350
+
+111
+
+111
+
+290
+
+179
+
+6
+
+215
+
+66
+107
+
+143
+254
+
+299
+
+110
+
+215
+
+314
+
+83
+242
+
+39
+294
+
+267
+
+98
+
+183
+
+98
+
+59
+170
+
+191
+
+251
+
+30
+195
+
+194
+
+95
+266
+
+231
+
+74
+138
+
+11
+167
+
+110
+
+150
+
+54
+131
+
+86
+
+39
+
+38
+
+110
+
+95
+
+27
+
+18
+
+11
+54
+
+14
+111
+
+98
+
+95
+
+47
+131
+
+6
+
+83
+
+63
+
+27
+
+98
+
+59
+
+63 155
+
+18
+
+62 119
+
+179
+
+174
+
+111
+
+134
+
+182
+
+122
+
+170
+
+23
+162
+
+423
+
+314
+
+35
+194
+
+147
+
+375
+
+294
+
+315
+
+162
+
+486
+
+347
+
+227
+
+234
+
+50
+
+147
+
+23
+
+522
+
+179
+
+87
+
+50
+438
+
+507
+
+62
+471
+
+354
+
+255
+
+87
+
+275
+
+330
+
+47 98
+
+378
+
+131
+
+170
+
+447
+
+362
+
+290
+
+363
+
+14
+90
+
+87
+
+383
+
+150
+
+302
+
+443
+
+150
+
+26
+
+134
+
+218
+
+251
+
+231
+
+75
+
+30
+74
+
+90
+
+35
+66
+
+75
+
+397
+
+1128
+
+469
+
+1140
+
+1093
+
+157 376
+
+685
+
+412
+
+1084
+
+1125
+
+388
+
+181
+
+1104
+
+717
+
+288
+
+21
+
+213
+544
+
+52
+
+349
+
+59
+
+253
+
+204
+
+460
+
+40
+189
+
+285
+
+472
+565
+
+405
+
+85
+309
+
+741
+
+216
+
+117
+
+156
+
+24
+
+237
+
+26
+
+87
+
+62
+114
+
+628
+
+517
+131
+
+62 119
+
+150
+
+87
+
+134
+
+218
+
+616
+
+453
+
+237
+
+35 90
+
+111
+
+179
+
+170
+
+132
+
+66
+
+443
+
+302
+
+383
+
+251
+
+39
+
+421
+
+336
+
+98
+
+143
+
+347
+
+231
+
+-11 61
+
+59
+
+183
+
+314
+
+14
+
+150
+
+75
+
+186
+
+11 30
+74
+
+267
+
+242
+
+83
+
+205
+
+120
+
+316
+
+54
+
+63
+
+98
+
+294
+
+215
+
+279
+
+18
+
+39
+
+299
+
+254
+
+234
+
+27
+
+95
+
+134
+
+314
+
+110
+
+66
+
+171
+
+38
+
+27
+
+155
+
+63
+
+11
+215
+
+107
+194
+
+90
+
+18
+
+54
+
+110
+
+138
+195
+
+170
+
+96
+160
+
+Figure 2. The integral Apollonian packings PB and PC
+
+76
+132
+
+62
+
+ELENA FUCHS
+
+One of the open problems proposed in [19] had to do with a potential local
+to global conjecture for Apollonian packings, and indeed there is some interesting
+data already suggesting obstructions modulo powers of 2 and 3 in [19]. Graham,
+Lagarias, Mallows, Wilks, and Yan had the makings of the following local to global
+conjecture which we stated formally in joint work with Sanden in [14], backed up
+by convincing data.
+Conjecture 1.1 (Local to global conjecture for Apollonian packings, [14], [19]).
+Let P be an integral Apollonian circle packing and let R(P ) be the set of residue
+classes modulo 24 of curvatures in P . Then there exists XP ∈ Z such that any
+integer x > XP whose residue modulo 24 lies in R(P ) is, in fact, a curvature of a
+circle in P .
+For over a decade, no one doubted this conjecture, and various weaker results
+which were proven all increased our certainty that the conjecture was true. Specifically, in joint work with Bourgain [4], we showed that the integers that appear as
+curvatures in a given packing make up a positive fraction of all integers. In [5],
+Bourgain and Kontorovich showed that the integers that are admissible according
+to their residue class modulo 24, but nonetheless do not appear as curvatures in
+a given packing make up a zero density of all integers: more precisely, that the
+number of such badly behaved admissible integers < X is bounded above by X 1−
+for some . Both of these results relied on an observation of Sarnak’s in [28], connecting circles in Apollonian packings with shifted binary quadratic forms which
+we detail in Section 2. Variations and generalizations of these results, as well as
+generalizations of the local to global conjecture above, appeared in work of Zhang
+[34] and the author’s work with Stange and Zhang [15].
+Then, in the summer of 2023, during an REU exploring some related properties
+of Apollonian circle packings, Haag, Kertzer, Rickards, and Stange [20] stumbled
+upon—ﬁrst by numerical experimentation and then with a proof—the fact that in
+one of the packings explored in [14], one never gets any integers that are of the form
+n2 or 3n2 , and hence, indeed, inﬁnitely many admissible curvatures do not appear,
+and the local to global conjecture 1.1 is false. This discovery led them to suspect
+that, just as in various other examples for which the Hasse principle fails, there is
+an extra obstruction coming from quadratic reciprocity. Indeed, they were able to
+prove a likely complete result on how and when these obstructions arise, and also
+found several instances of obstructions coming from quartic reciprocity. With these
+new obstructions, they formulated the following new version of the local to global
+conjecture.
+Conjecture 1.2 (Modiﬁed local to global conjecture for Apollonian packings, [20]).
+Let P be an integral Apollonian circle packing, let R(P ) be the set of residue classes
+modulo 24 of curvatures in P , and let Q(P ) denote the set of integers ruled out by
+the quadratic and quartic obstructions detailed in Theorem 4.2. Then there exists
+XP ∈ Z such that any integer x > XP whose residue modulo 24 lies in R(P ), and
+which is not in Q(P ) is in fact a curvature of a circle in P .
+Note that there still are many packings for which the original local to global
+conjecture may hold (see Section 4 for details), and we are still far from proving
+any version of the conjecture for any packing.
+
+APOLLONIAN PACKINGS
+
+63
+
+In this article, we review how the original conjecture came about, how the quadratic and quartic obstructions were originally missed, and why the newly discovered obstructions of [20] occur.
+2. Background
+So far, we have only a geometric construction of the circles (and hence of the
+curvatures which may or may not satisfy a local to global principle). It will be
+convenient to put this construction into an algebraic context, and we do so in this
+section. One way to interpret the process of inscribing circles described in Section 1
+is that at each step we are given four pairwise tangent circles, and if we ﬁx any
+three of them, there are (according to Apollonius) two circles tangent to all three:
+one is the fourth circle in the quadruple, and the other might be a circle we have
+not yet included in our picture. Indeed, these two circles are related to each other
+geometrically via circle inversion: one circle is the image of the other upon inversion
+in the dual circle passing through the tangency points of the three circles we ﬁxed
+(see Figure 3 for an illustration of this).
+The curvatures of these two circles have an algebraic relationship as well, which
+is readily seen in the following theorem that is usually attributed to Descartes, but
+is more accurately due to both Descartes and Princess Elizabeth of Bohemia, with
+whom Descartes corresponded about the problem (see [3]).
+Theorem 2.1 (Descartes, Princess Elizabeth of Bohemia, 1643). Let a, b, c, d be
+curvatures of four pairwise tangent circles, where we take the curvature of a circle
+internally tangent to the other three to have negative curvature. Then
+(2.1)
+
+Q(a, b, c, d) := 2(a2 + b2 + c2 + d2 ) − (a + b + c + d)2 = 0.
+
+Fixing any three of the variables above, say, a, b, c, one can solve the following
+quadratic equation for the curvatures of the two possible fourth circles in the tangent
+quadruple:
+x2 − 2(a + b + c)x + (a2 + b2 + c2 − 2ab − 2ac − 2bc) = 0.
+
+Figure 3. In this picture, the shaded circle on the inside is the
+image of the circle on the outside under inversion in the dual circle passing through the tangency points of the other three circles.
+Inversion of these circles in the other dual circles would also yield
+circles in the pictured Apollonian packing.
+
+64
+
+ELENA FUCHS
+
+We hence see that, if d and d are the curvatures of the two circles tangent to the
+circles of curvature a, b, and c, we have
+d = 2(a + b + c) − d.
+In this way, one gets a very nice representation of curvatures in a packing via
+an orbit of a subgroup of OQ (Z), the orthogonal group ﬁxing Q. Performing the
+above process for the other three possible choices of coordinates to ﬁx, we come
+up with the following revelation. Given a quadruple of curvatures (a, b, c, d) in an
+Apollonian packing, the set of all quadruples in the packing is precisely the orbit
+of the group generated by
+⎛
+⎛
+⎞
+⎞
+-1 2 2 2
+1 0 0 0
+⎜ 0 1 0 0⎟
+⎜2 -1 2 2⎟
+⎜
+⎟
+⎟
+(2.2)
+S1 = ⎜
+⎝ 0 0 1 0⎠ , S2 = ⎝0 0 1 0⎠ ,
+0 0 0 1
+0 0 0 1
+⎛
+⎛
+⎞
+⎞
+1 0 0 0
+1 0 0 0
+⎜0 1 0 0⎟
+⎜0 1 0 0 ⎟
+⎜
+⎟
+⎟
+S3 = ⎜
+⎝2 2 -1 2⎠ , S4 = ⎝0 0 1 0 ⎠ ,
+0 0 0 1
+2 2 2 -1
+acting on (a, b, c, d)T via matrix multiplication on the left. This group, called the
+Apollonian group and ﬁrst discovered by Hirst [21], is a so-called thin group—
+it is Zariski dense in OQ (C) but inﬁnite index in OQ (Z) (see [12] for a proof of
+this), and governs all of the arithmetic and indeed geometry of Apollonian packings. It is now also clear why if one has a circle packing where one quadruple of
+pairwise tangent circles all have integer curvatures, then every circle in the packing
+has integer curvature. From now on, we deal only with primitive Apollonian packings, i.e., those in which the greatest common divisor of all the curvatures in the
+packing is 1.
+Studying the structure of subgroups of the Apollonian group generated by three
+of the four generators above, Sarnak made an observation in [28] which is central
+to nearly all arithmetic results on Apollonian circle packings to date. His result,
+stated below, associates every circle of curvature a of a given packing with a binary
+quadratic form of discriminant −4a2 .
+Proposition 2.2 ([28]). Let Ca be a circle of curvature a which is a member of a
+quadruple of pairwise tangent circles with curvatures (a, b, c, d). Let S be the set of
+circles tangent to Ca . Deﬁne
+fCa (x, y) − a = (b + a)x2 + (a + b + d − c)xy + (d + a)y 2 − a.
+Then the multiset of curvatures of the circles in S is exactly the multiset of values
+fa (x, y) − a where x and y are relatively prime integers.
+This result has been used in many subsequent works on Apollonian packings. Of
+note in the local to global story, the strategy in [4] is to consider all integers appearing as curvatures of circles two tangencies away from a ﬁxed circle—equivalently,
+integers represented by the corresponding family of shifted binary forms—and to
+show that these integers make up a positive fraction of Z. In [5], every element of
+the Apollonian group is associated with such a shifted binary form and the integers
+occurring as curvatures in the packing are then those integers represented by all
+the forms corresponding to the Apollonian group. In nearly all subsequent local
+
+APOLLONIAN PACKINGS
+
+65
+
+to global results akin to that in [5], one takes advantage of the presence of this
+phenomenon: that the integers one studies can be viewed as those represented by
+an inﬁnite family of shifted binary forms. Ironically, this phenomenon is also a key
+input into the proof that the local to global conjecture for Apollonian packings is
+in fact false in [20].
+3. The local to global conjecture
+With our algebraic way of expressing all quadruples of curvatures of pairwise
+tangent circles in the packing, we can now ask what quadruples a given packing
+can contain modulo a prime p. For example, if we look modulo 5, the packings
+in Figure 2 both have 144 diﬀerent quadruples of curvatures of pairwise tangent
+circles; indeed, these are exactly all nontrivial solutions to (2.1) modulo 5. The
+same can be said modulo 7, 11, 13, and indeed any prime p ≥ 5. The idea is
+to consider the Apollonian group—actually, its pre-image in the spin double cover
+of SOR (3, 1)—modulo various primes p. One has to work in this slightly diﬀerent
+setting because A is a subgroup of the orthogonal group OR (3, 1) where strong
+approximation does not hold, and it is diﬃcult to say anything about the projection
+of A into OQ (Z/pZ) by working in the orthogonal group alone. However, the preimage of A under the spin homomorphism (see [13]) is a Zariski dense subgroup
+of SL2 (C) where general results regarding strong approximation are known (see
+[32], for example). Most relevant for us, because of the Zariski density of A, one
+gets that the canonical homomorphism
+from the pre-image of A under the spin
+√
+homomorphism to SL2 (Z( −1)/p) is surjective for all but ﬁnitely many primes p.
+With some work, we determine that these ﬁnitely many primes are only p2 = (2)
+and p = (3), and, moreover, one can use a combination of Goursat’s lemma and
+versions of Hensel’s lemma to completely describe the group’s behavior modulo d
+for any d > 1. In a nutshell, everything is as multiplicative as one could hope for,
+and the serious obstruction is modulo 8 and 3 (once one understands the situation
+modulo 8, one lifts naturally to higher powers of 2, and similarly for 3. Speciﬁcally,
+we proved the following.
+Theorem 3.1 ([13]). Let P be an orbit of A acting on the root quadruple vP of
+a primitive packing P and let Pd be the reduction of this orbit modulo an integer
+d > 1. Let
+Cd = {v ∈ Z/dZ |v ≡ 0 (d), Q(v) ≡ 0 (d)}.
+Write d = d1 d2 with (d2 , 6) = 1 and d1 = 2n 3m where n, m ≥ 0.
+(i) The canonical projection Pd −→ P
+d1 × Pd2 is surjective.
+(ii) The canonical projection Pd2 −→ pr ||d2 Ppr is surjective and Ppr = Cpr .
+(iii) The canonical projection Pd1 −→ P2n × P3m is surjective.
+(iv) If n ≥ 4, let π : C2n → C8 be the canonical projection. Then P2n = π −1 (P8 ).
+(v) If m ≥ 2, let φ : C3m → C3 be the canonical projection. Then P3m = φ−1 (P3 ).
+In other words, if one computes an Apollonian orbit modulo 24, one can easily infer what the orbit looks like modulo any integer using this information coupled with solutions to (2.1) modulo prime powers. Given this theorem, it is natural to ask whether outside of this obstruction modulo 24, no other issues arise.
+For example, the ﬁrst packing in Figure 2 only has integers that are in the set
+{2, 3, 6, 11, 14, 15, 18, 23} modulo 24. Could it be that any large enough integer in
+this admissible set is, in fact, a curvature in this packing? In [14], we set out to see
+
+66
+
+ELENA FUCHS
+
+whether numerical evidence would support Conjecture 1.1, which predicts a local
+to global principle for the curvatures in a given integral Apollonian packing.
+Given computational limitations and our assumption that all integral packings
+probably exhibit similar behavior as far as the local to global principle is concerned,
+we considered two packings: PB generated by the quadruple (−1, 2, 2, 3); and PC ,
+generated by the quadruple (−11, 21, 24, 28), which are shown in Figure 2, in that
+order.
+In order to explain the data we obtain in both cases, and to shed more light upon
+the local properties of curvatures in an Apollonian packing which one can prove, we
+ﬁrst study the packings PB and PC modulo 24. Recall that the Apollonian group
+A is generated by the four generators Si described in Section 2. We can view an
+orbit of A modulo 24 as a ﬁnite graph G24 in which each vertex corresponds to a
+distinct (mod 24) quadruple of curvatures, and two vertices v and v are joined by
+an edge if and only if Si v = v for some 1 ≤ i ≤ 4. According to Theorem 3.1,
+given any orbit P of the Apollonian group, we have
+P24 = P8 × P3 ,
+so the graph G24 is completely determined by the structure of P3 and P8 . There
+are only two possible orbits modulo 3, pictured in Figure 4, the ﬁrst of which
+corresponds to PB , and the second to PC . There are many possible orbits modulo
+8, and we provide the graphs for these orbits in the case of PB and PC in Figure 5.
+Given the structure of these graphs, one sees that the curvatures of circles in a
+packing modulo 24 are equally distributed among the coordinates of the vertices in
+G24 . Combined with Theorem 3.1, this lets us compute the ratio of curvatures in a
+packing which fall into a speciﬁc congruence class modulo 24. Namely, let P24 (P )
+be the orbit mod 24 corresponding to a given packing P . For w ∈ P24 (P ) let wi
+be the ith coordinate of w. We then deﬁne
+(3.1)
+
+S4
+
+(2,2,2,0)
+S1
+
+S2
+S3
+
+4
+i=1 #{w ∈ P24 (P )| wi = n}
+
+γ(n, P ) =
+
+S2
+
+S1
+
+S3
+
+(2,0,2,0)
+
+S3
+
+S4
+
+S1 S2
+
+(2,0,0,2)
+
+(0,2,2,0)
+S3 S4
+S4
+
+( 2,0,2,2)
+
+S4
+
+(0,0,2,2)
+
+S2
+
+S4
+
+S3
+
+S1
+
+(2,2,0,0)
+
+4 · #{w ∈ P24 (P )}
+
+S1
+S4
+S1
+
+S2
+S3
+
+(0,2,2,2)
+
+S2
+
+S1
+
+S3
+
+(1,0,1,0)
+
+S3
+
+S4
+
+S1 S2
+
+(1,0,0,1)
+
+(0,1,1,0)
+
+S4
+
+( 1,0,1,1)
+
+(0,0,1,1)
+
+S2
+
+S3
+
+S1
+
+(1,1,0,0)
+
+S3 S4
+
+S2
+
+S2
+S1
+
+(1,1,1,0)
+
+.
+
+S4
+
+S2
+
+S1
+
+(1,1,0,1)
+
+S4
+S1
+
+S2
+S3
+
+(0,2,0,2)
+S4 S2
+
+S1
+
+(2,2,0,2)
+
+S3
+
+S1
+
+(0,1,1,1)
+
+S3
+
+(0,1,0,1)
+S4 S2
+
+Figure 4. Orbits of PB and PC modulo 3
+
+S3
+
+APOLLONIAN PACKINGS
+
+67
+
+S1 S4
+
+S1 S2
+(5,5,0,4)
+
+(7,2,2,3)
+S2
+
+S3
+S1
+S4
+
+(7,6,2,3)
+
+(7,2,6,3)
+
+S4
+
+S1
+
+S1
+
+S2
+
+(5,5,4,4)
+
+(5,5,0,0)
+
+S3
+
+S2
+
+S3
+
+S4
+
+S1
+
+S4
+
+S3
+
+(7,6,6,3)
+S4 S1
+
+S2
+
+(5,5,4,0)
+S2 S1
+
+Figure 5. Orbits of PB and PC modulo 8
+With this notation, a packing P contains a circle of curvature congruent to n modulo
+24 if and only if γ(n, P ) > 0. We express γ as follows:
+γ(n, P ) =
+(3.2)
+=
+
+4
+i=1 #{w ∈ P24 (P )| wi = n}
+
+4 · #{w ∈ P24 }
+4
+i=1 #{w ∈ P8 | wi ≡ n (3)} · #{w ∈ P3 | wi ≡ n (8)}
+4 · #{w ∈ P8 } · #{w ∈ P3 }
+
+.
+
+Theorem 3.1 then implies that, if NP (X) is the total number of circles of curvature
+< X in the packing P , then
+1 ∼ γ(n, P ) · NP (x)
+C∈P
+a(C)<x
+
+a(C)≡n (24)
+
+where C denotes a circle, and a(C) its curvature. Note that Kontorovich and Oh
+showed in [22] that
+NP (X) ∼ cP X δ
+where P is any packing—not necessarily integral—the constant cP depends on P ,
+and δ = 1.3056 . . . is the Hausdorﬀ dimension of P (this value is the same regardless
+of the packing), answering a question of Boyd in [6]. In general, the orbits P8 (P )
+and P3 (P ) have 4 and, respectively, 10 vertices in the corresponding ﬁnite graphs.
+Therefore, G24 always has 40 vertices, and the ratio in (3.2) is easily computed
+using this graph. Indeed, we have the following facts about the packings PB nd
+PC . Letting PB (24) and PC (24) denote the residue classes mod 24 in the packing
+PB and, respectively, PC , we have
+• PB (24) = {2, 3, 6, 11, 14, 15, 18, 23}
+• PC (24) = {0, 4, 12, 13, 16, 21}
+3
+, γ(3, PB ) = γ(6, PB ) =
+• γ(2, PB ) = γ(11, PB ) = γ(14, PB ) = γ(23, PB ) = 20
+1
+γ(15, PB ) = γ(18, PB ) = 10
+3
+3
+• γ(13, PC ) = 10
+, γ(21, PC ) = 15 , γ(4, PC ) = γ(16, PC ) = 20
+, γ(0, PC ) =
+1
+γ(12, PC ) = 10
+(i) NPB (x) ∼ cPB · xδ , where cPB = 0.402 . . . .
+(ii) NPC (x) ∼ cPC · xδ , where cPC = 0.0176 . . . .
+
+68
+
+ELENA FUCHS
+
+(iii) For 106 < x < 5 · 108 , let x24 denote x mod 24. If x24 ∈ PB,24 then x is a
+curvature in the packing PB .
+(iv) For 108 < x < 5 · 108 , let x24 denote x mod 24. If x24 = 13 or x24 = 21,
+then x is a curvature in the packing PC .
+Note that γ(n, PB ) = γ(n + 12, PB )—for this particular packing, one can hence
+express the local obstructions modulo 12 rather than modulo 24, an observation
+made by Graham, Lagarias, Mallows, Wilks, and Yan in [19]. Whenever this is the
+case for an integral Apollonian packing, we will ﬁnd that there are eight congruence
+classes modulo 24 in the curvatures of the circles.
+We then generated a number of histograms as follows. For various large intervals
+[X, Y ], given an admissible reside class r modulo 24 in a packing P , we considered
+the set Sr (X, Y ) of all integers in [X, Y ] congruent to r modulo 24 and, upon
+computing all curvatures in [X, Y ] (with multiplicity) in a packing P , we recorded
+how many integers in Sr (X, Y ) appeared n times as a curvature in P , for n ≥ 0.
+We recorded this in a histogram where the x-axis represents frequencies n, and the
+bars represent the number of integers in Sr (X, Y ) corresponding to a given range of
+frequencies. In general, we saw that, for X relatively small there was always a bar
+above n = 0 (meaning that there were some integers in Sr (X, Y ) not appearing as a
+curvature in P ), as X and Y grew that bar shrank and the mean of the frequencies
+shifted to the right. In the case of PB , we found that given [X, Y ] = [106 , 108 ],
+there was no longer a bar above n = 0 at all for any of the admissible congruence
+classes m, meaning that all integers in Sr (X, Y ) appeared as curvatures in PB , as
+is apparent in some of the histograms for PB in Figure 6.
+4
+
+6
+
+4
+
+x 10
+
+9
+8
+
+Mean: 407.0
+Variance: 12770
+Number of exceptions: 0
+
+5
+
+x 10
+
+Mean: 271.24
+Variance: 6081.6
+Number of exceptions: 0
+
+7
+
+4
+
+6
+5
+
+3
+4
+2
+
+3
+2
+
+1
+1
+0
+0
+
+500
+
+1000
+
+1500
+
+0
+0
+
+200
+
+m  2 (mod 24); 106  m < 108
+9
+
+400
+
+600
+
+800
+
+1000
+
+m  3 (mod 24), 106  m < 108
+
+4
+
+4
+
+x 10
+
+6
+
+8
+
+Mean: 271.55
+Variance: 6133.9
+Number of exceptions: 0
+
+7
+
+x 10
+
+Mean: 406.92
+Variance: 12604
+Number of exceptions: 0
+
+5
+
+6
+
+4
+
+5
+3
+4
+3
+
+2
+
+2
+1
+1
+0
+0
+
+200
+
+400
+600
+m  18 (mod 24), 106  m < 108
+
+800
+
+1000
+
+0
+0
+
+100
+
+200
+
+300
+
+400
+
+500
+6
+
+600
+
+700
+
+800
+
+900
+
+8
+
+m  23 (mod 24), 10  m < 10
+
+Figure 6. Histograms for PB
+In the case of PC , we considered the interval [X, Y ] = [4 · 108 , 5 · 108 ] (which is
+as far out as our program allowed us to go), and found that there was still a small
+bar over n = 0 for four of the six residue classes, and no bar over n = 0 for r = 13
+
+

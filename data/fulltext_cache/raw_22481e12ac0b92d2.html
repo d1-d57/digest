@@ -1,0 +1,476 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN" "http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg-flat.dtd" >
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+
+<title>The Agent That Doesn't Know Itself | The n-Category Caf&#xE9;</title>
+
+<meta name="ICBM" content="30.2893, -97.7367" />
+<meta name="DC.title" content="The n-Category Caf&#xE9;" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<style type="text/css" media="all" title="The n-Category Caf&#xE9; Stylesheet">@import url("/category/styles-site.css");</style>
+<link rel="stylesheet" href="/category/print.css" type="text/css" media="print" />
+
+<link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="/category/atom10.xml" />
+<link rel="alternate" type="application/atom+xml" title="Atom 1.0 Comments Feed" href="/category/comments.atom" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="/category/rsd.xml" />
+<link rel="shortcut icon" type="image/x-icon" href="/category/images/favicon.ico" />
+<link rel="icon" type="image/x-icon" href="/category/images/favicon2.ico" />
+<link rel="pgpkey" href="/category/urs.asc" title="Urs Schreiber's PGP Public Key" />
+<link rel="start" href="/category/" title="Home" />
+<link rel="search" href="/cgi-bin/MT-3.0/mt-search.cgi?IncludeBlogs=3&amp;Template=category" title="Search" />
+<link rel="contents" href="/category/archives.html" title="Comprehensive List of Blog Entries" />
+
+
+<link rel="bookmark" href="#content" title="Main Content" />
+<link rel="bookmark" href="#comments" title="Comments" />
+<link rel="bookmark" href="#search" title="Search Box" />
+<link rel="bookmark" href="#related" title="Related entries" />
+<link rel="bookmark" href="#AccessKeyList" title="AccessKeys" />
+<link rel="prev" href="/category/2026/03/a_typed_language_for_agent_coordination.html" title="A Typed Language for Agent Coordination" />
+<link rel="next" href="/category/2026/03/geometry_and_the_exceptional_j.html" title="Geometry and the Exceptional Jordan Algebra" />
+<link rel="up" href="/category/2026/03/" title="March, 2026" />
+
+<script type="text/javascript" src="/category/prototype.js"></script>
+<script type="text/javascript" src="/category/ie.js"></script>
+<script type="text/x-mathjax-config">
+  <!--//--><![CDATA[//><!--
+    MathJax.Hub.Config({
+      MathML: { useMathMLspacing: true },
+      "HTML-CSS": { scale: 90,
+                    noReflows: false,
+                    extensions: ["handle-floats.js"],
+                    linebreaks: { width: "container" }
+       }
+    });
+    MathJax.Hub.Queue( function () {
+       var fos = document.getElementsByTagName('foreignObject');
+       for (var i = 0; i < fos.length; i++) {
+         MathJax.Hub.Typeset(fos[i]);
+       }
+    });
+  //--><!]]>
+</script>
+<script type="text/javascript">
+  <!--//--><![CDATA[//><!--
+  window.addEventListener("DOMContentLoaded", function () {
+    var div = document.createElement('div');
+    var math = document.createElementNS('http://www.w3.org/1998/Math/MathML', 'math');
+    document.body.appendChild(div);
+    div.appendChild(math);
+  // Test for MathML support comparable to WebKit version https://trac.webkit.org/changeset/203640 or higher.
+    div.setAttribute('style', 'font-style: italic');
+    var mathml_unsupported = !(window.getComputedStyle(div.firstChild).getPropertyValue('font-style') === 'normal');
+    div.parentNode.removeChild(div);
+    if (mathml_unsupported) {
+      // MathML does not seem to be supported...
+      var s = document.createElement('script');
+      s.src = "/wiki/MathJax/MathJax.js?config=MML_HTMLorMML-full";
+      document.querySelector('head').appendChild(s);
+    } else {
+      document.head.insertAdjacentHTML("beforeend", '<style>svg[viewBox] {max-width: 100%}</style>');
+    }
+  });
+  //--><!]]>
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="https://golem.ph.utexas.edu/category/2026/03/the_agent_that_doesnt_know_its.html"
+    trackback:ping="https://golem.ph.utexas.edu/cgi-bin/MT-3.0/dxy-tb.fcgi/3631"
+    dc:title="The Agent That Doesn&apos;t Know Itself"
+    dc:identifier="https://golem.ph.utexas.edu/category/2026/03/the_agent_that_doesnt_know_its.html"
+    dc:subject="Computer Science"
+    dc:description="A large language model has very little self-awareness.  But it is easy to give it some rudimentary but useful forms of self-awareness using the &quot;plumbing&quot; language."
+    dc:creator="John Baez"
+    dc:date="2026-03-20T22:39:58+00:00" />
+</rdf:RDF>
+-->
+
+
+</head>
+
+<body>
+
+<div class="frame">
+
+<div id="banner">
+<h1><a href="/category/" accesskey="1" title="Jump to the blog main page">The n-Category Caf&#xE9;</a></h1>
+<div class="description">A group blog on math, physics and philosophy</div>
+</div>
+
+
+<h2 class="skip">Skip to the Main Content</h2>
+<div class="skip">
+<a href="#content" accesskey="2">Enough, already! Skip to the content.</a>
+</div>
+<p style="display:none;">
+<strong>Note:</strong>These pages make extensive use of the latest XHTML and CSS <a href="http://www.w3.org">Standards</a>. They ought to look great in any standards-compliant modern browser. Unfortunately, they will probably look horrible in older browsers, like Netscape 4.x and IE 4.x. Moreover, many posts use MathML, which is, currently <em>only</em> supported in Mozilla. My best suggestion (and you will <em>thank</em> me when surfing an ever-increasing number of sites on the web which have been crafted to use the new standards) is to upgrade to the latest version of your browser. If that's not possible, consider moving  to the Standards-compliant and open-source <a href="http://www.mozilla.org">Mozilla</a> browser.
+</p>
+
+
+<div class="blog">
+
+<div><div id='menu'>
+<a href='/category/2026/03/a_typed_language_for_agent_coordination.html' accesskey='p'>&#xab; A Typed Language for Agent Coordination</a> |
+
+<a href='/category/'>Main</a>
+| <a href='/category/2026/03/geometry_and_the_exceptional_j.html' accesskey='n'>Geometry and the Exceptional Jordan Algebra &#xbb;</a>
+
+</div>
+
+<h2 class='date'>March 20, 2026</h2>
+
+<div id='content' class='blogbody'>
+
+<h3 class='title'>The Agent That Doesn&#x2019;t Know Itself</h3>
+
+<h4 class='posted'>Posted by John Baez</h4>
+
+<div><a href='http://golem.ph.utexas.edu/~distler/blog/mathml.html' onclick='window.open(this.href, &#x27;MathML&#x27;, &#x27;width=310,height=150,scrollbars=no,resizable=yes,status=no&#x27;); return false;' onkeypress='if(window.event.keyCode == 13){window.open(this.href, &#x27;MathML&#x27;, &#x27;width=310,height=150,scrollbars=no,resizable=yes,status=no&#x27;); return false;}'><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+<p></p>
+
+<p><i>guest post by <b><a href='https://scholar.google.com/scholar?hl=en&amp;as_sdt=0%2C5&amp;q=william+waites&amp;btnG='>William Waites</a></b></i></p>
+
+<p>The <a href='https://golem.ph.utexas.edu/category/2026/03/a_typed_language_for_agent_coordination.html'>previous post</a> introduced the plumbing calculus: typed channels, structural morphisms, two forms of composition, and agents as stateful morphisms with a protocol for managing their state. The examples were simple. This post is about what happens when the algebra handles something genuinely complex.</p>
+
+<p>To get there, we need to understand a little about how large language models work. </p>
+
+<div id='more'>
+<div><a href='http://golem.ph.utexas.edu/~distler/blog/mathml.html' onclick='window.open(this.href, &#x27;MathML&#x27;, &#x27;width=310,height=150,scrollbars=no,resizable=yes,status=no&#x27;); return false;' onkeypress='if(window.event.keyCode == 13){window.open(this.href, &#x27;MathML&#x27;, &#x27;width=310,height=150,scrollbars=no,resizable=yes,status=no&#x27;); return false;}'><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+<p>Large language models are sequence-to-sequence transducers: a sequence of tokens comes in, a sequence comes out. Text is tokenised and the model operates on the tokens.</p>
+
+<p>From the outside, the morphism is simple: <code>!string &#x2192; !string</code>. A message goes in, a message comes out. But the client libraries (the code that calls the <acronym title='Large Language Model'>LLM</acronym> provider) maintain the conversation history and send it back with every call. The actual morphism is
+<code>(!string, ![Message]) &#x2192; (!string, ![Message])</code>: the input message and the accumulated history go in, the response and the updated history come out. The history feeds back. This is a trace in the sense of traced monoidal categories: the feedback channel is hidden from the user, who sees only <code>!string &#x2192; !string</code>.</p>
+
+<p>Crucially, the model has a limited amount of memory. It is not a memoryless process, but the memory it has is not large: 200,000 tokens for current models, perhaps a million for the state of the art. This sounds like a lot. It is not. An academic paper is roughly 10,000 tokens. A literature review that needs to work with thirty papers has already exceeded the context window of most models, and that is before the model has produced a single word of output.</p>
+
+<p>If you have used any of these agent interfaces, you will have noticed that after talking back and forth for a while, the agent will <em>compact</em>. This is a form of memory management. What is happening is that some supervisory process has noticed the context window filling up, and has intervened to shorten its contents. A na&#xef;ve approach is to truncate: discard everything before the last N exchanges. A better approach is to feed the entire context to another language model and ask it to summarise, then put the summary back.</p>
+
+<p>This is normally done by specialised code outside the agent, invisible to it.</p>
+
+<p>How to manage agent memory well is an active research area. We do not, in general, do it very well. Truncation loses information. Summarisation loses nuance. Pinning helps but the right pinning strategy depends on the task. These are open questions, and to make progress we need to be able to experiment with different schemes and mechanisms: express a memory management strategy, test it, swap it for another, compare. Not by recompiling specialised code or hardcoding behaviour, but by writing it down in a language designed for exactly this kind of composition. Memory management should be a plumbing program: modular, type-checked, swappable.</p>
+
+<p>So we built an implementation of compaction using the plumbing calculus, and the first thing we did was test it. I ran the protocol on a very short cycle: a single message caused a compaction, because the threshold was set to zero for testing. The compressor fired, produced a summary, rebuilt the agent&#x2019;s context. The logs showed <code>[compressor] 3404 in / 541 out</code>. The protocol worked.</p>
+
+<p>Then I asked the agent: "have you experienced compaction?"</p>
+
+<p>The agent said no. It explained what compaction is, accurately. Said it hadn&#x2019;t happened yet. It was confident.</p>
+
+<p>I asked: "do you have a context summary in your window?"</p>
+
+<p>Yes, it said, and described the contents accurately.</p>
+
+<p>"How did that context summary get there if you have not yet compacted?"</p>
+
+<p>The agent constructed a plausible, confident, and completely wrong explanation: the summary was "provided to me by the system at the start of this conversation" as a "briefing or recap." When pressed, it doubled down:</p>
+
+<p>"The context-summary is not evidence that compaction has occurred. It&#x2019;s more like a briefing or recap that the system gives me at the start of a conversation session to provide continuity."</p>
+
+<p>The agent was looking at the direct evidence of its own compaction and confidently explaining why it was not compaction. We will return to <em>why</em> it gets this wrong, and how to fix it. But first: how do we build this?</p>
+
+<h3>The compacting homunculus</h3>
+
+<p>At a high level, it works like this. An agent is running: input comes in, output goes out. Together with the output, the agent emits a telemetry report. The telemetry includes token counts: with each transaction, the entire train of messages and responses is sent to the <acronym>LLM</acronym> provider, and back comes a response together with a count of the tokens that went in and the tokens that came out. Our agent implementation sends this telemetry out of the telemetry port to anybody who is listening.</p>
+
+<p>The construction involves a second agent. This second agent is a <em>homunculus</em>: the little man who sits on your shoulder and watches what your mind is doing. Here is the topology:</p>
+
+<p><a href='https://leithdocs.com/ldc/documents/outgoing/plumbing/compaction-homunculus.png'><img width='450' src='https://leithdocs.com/ldc/documents/outgoing/plumbing/compaction-homunculus.png' alt='Topology of the compacting homunculus. Two boxes: Agent (large, bottom) and Compressor (smaller, top). The Agent has input and output ports for the main data flow (dark blue arrows). Three channels connect the Agent to the Compressor: telemetry flows up from the Agent (the Compressor watches token counts), ctrl_out flows up from the Agent (the Compressor receives acknowledgements), and ctrl_in flows down from the Compressor to the Agent (the Compressor sends commands). The Agent does not know the Compressor exists. It just receives control messages and responds to them.' /></a></p>
+
+<p>The homunculus listens to the telemetry and says: the memory is filling up. The token count has crossed a threshold. It is time to compact. And then it acts:</p>
+
+<p>&#x2022; Send <em>pause</em> to the agent&#x2019;s control port. Stop accepting input.</p>
+
+<p>&#x2022; Send <em>get memory</em>. The agent produces the contents of its context window.</p>
+
+<p>&#x2022; Summarise that memory (using another <acronym>LLM</acronym> call).</p>
+
+<p>&#x2022; Send <em>set memory</em> with the compacted version.</p>
+
+<p>&#x2022; Send <em>resume</em>. The agent continues processing input.</p>
+
+<p>Each step requires an acknowledgement before the next can proceed. This is a protocol: pause, acknowledge, get memory, here is the memory, set memory, acknowledge, resume, acknowledge.</p>
+
+<p>It is possible to express this directly in the plumbing calculus, but it would be painfully verbose. Instead, we use <strong>session types</strong> to describe the protocol. This is not pseudocode. There is a compiler and a runtime for this language. Here is the protocol:</p>
+
+<pre><code>protocol Compaction =
+  send Pause . recv PauseAck .
+  send GetMemory . recv MemoryDump .
+  send SetMemory . recv SetMemoryAck .
+  send Resume . recv ResumeAck . end
+</code></pre>
+
+<p>The protocol is eight lines. It reads as a sequence of steps:
+send, receive, send, receive, and so on. The compiler knows what
+types each step carries. Now we wire it up:</p>
+
+<pre><code>let compact : (!CtrlResp, !json) -&gt; !CtrlCmd =
+  plumb(ctrl_out, telemetry, ctrl_in) {
+&#xa0;
+    (ctrl_out, ctrl_in)  Compaction as session
+&#xa0;
+    telemetry
+      ; filter(kind = "usage" &amp;&amp; input_tokens &gt; 150000)
+      ; map(null) ; session@trigger
+&#xa0;
+    session@trigger ; map({pause: true})
+      ; session@send(Pause)
+    session@done(PauseAck) ; map({get_memory: true})
+      ; session@send(GetMemory)
+    session@recv(MemoryDump) ; compressor
+      ; session@send(SetMemory)
+    session@done(SetMemoryAck) ; map({resume: true})
+      ; session@send(Resume)
+}
+</code></pre>
+
+<p>The first line binds the protocol to the agent&#x2019;s control ports:</p>
+
+<p><code>(ctrl_out, ctrl_in) &lt;-&gt; Compaction as session</code>. </p>
+
+<p>This says: the <code>Compaction</code> protocol runs over the control channel, and we refer to it as <code>session</code>. The telemetry line is the trigger: when token usage crosses a threshold, the protocol begins. Each subsequent line is one step of the protocol, wired to the appropriate control
+messages.</p>
+
+<p>Here is a direct depiction of the protocol as wired. You can trace it through:</p>
+
+<p><a href='https://leithdocs.com/ldc/documents/outgoing/plumbing/compaction.png'><img width='450' src='https://leithdocs.com/ldc/documents/outgoing/plumbing/compaction.png' alt='Diagram of the compaction protocol wired between the homunculus and the bot agent. Shows the telemetry stream flowing from the bot to the homunculus, a filter checking token usage against a threshold, and then a sequence of control messages: Pause flows to ctrl_in, PauseAck returns on ctrl_out, GetMemory flows in, MemoryDump returns, passes through a compressor agent, SetMemory flows in, SetMemoryAck returns, Resume flows in, ResumeAck returns. The protocol steps are connected in sequence. This is a direct transcription of the session type protocol into a wiring diagram.' /></a></p>
+
+<p>And here is how we wire the homunculus to the agent:</p>
+
+<pre><code>let main : !string -&gt; !string =
+  plumb(input, output) {
+    let ctrl : !CtrlCmd = channel
+    let ctrl_out : !CtrlResp = channel
+    let telem : !json = channel
+&#xa0;
+    spawn bot(input=input, ctrl_in=ctrl,
+              output=output, ctrl_out=ctrl_out,
+              telemetry=telem)
+    spawn compact(ctrl_out=ctrl_out,
+                  telemetry=telem, ctrl_in=ctrl)
+}
+</code></pre>
+
+<p>The <code>main</code> morphism takes a string input and produces a string output. Internally, it creates three channels (control commands, control responses, telemetry) and spawns two processes: the <code>bot</code> agent and the <code>compact</code> homunculus. The homunculus listens to the bot&#x2019;s telemetry and control responses, and sends commands to the bot&#x2019;s control input. The bot does not know the homunculus exists.  It just receives control messages and responds to them.</p>
+
+<p>There are two nested traces here. The first is the one from before, inside the agent: messages go in, the output accumulates with everything that came before, and the whole history feeds back on the next turn. We do not see this trace. It is hidden inside the client library. The second trace is the one we have just built: the homunculus. What goes around the outer loop is control: telemetry flows out, commands flow in, acknowledgements come back. The memory dump passes through the control channel at one point in the protocol, but the feedback path is control, not conversation history. Nested traces compose; the algebra has identities for this and it is fine. But they are different loops carrying different things.</p>
+
+<h3>Session types as barrier chains</h3>
+
+<p>The connection between the protocol above and what the compiler actually produces is the functor from session types into the plumbing calculus. This functor works because of barrier.</p>
+
+<p>Why do we need the barrier? Because the protocol is about sending a message and waiting for a response. We can send a message, but we need the response to arrive before we proceed. The barrier takes two streams, one carrying the "done" signal and one carrying the response, and synchronises them into a pair. Only when both are present does the next step begin.</p>
+
+<p>Each session type primitive has a direct image in the plumbing category, and the structure is prettier than it first appears. The primitives come in dual pairs:</p>
+
+<p>In the diagrams below, session types are on the left in blue; their images in the plumbing calculus are on the right in beige.</p>
+
+<p>&#x2022; <strong>send</strong> and <strong>recv</strong> are dual. They map to <strong>map</strong> and <strong>filter</strong>, which are also dual: send wraps the value with map, then synchronises via barrier with the done signal from the previous step. Recv filters the control output by step number, synchronises via barrier, then extracts the payload with map.</p>
+
+<p>&#x2022; <strong>select</strong> and <strong>offer</strong> are dual. They map to <strong>tag</strong> and <strong>case analysis</strong>, which are also dual: select tags the value with a label via map, synchronises via barrier, and routes to the chosen branch chain. Offer copies the control output and filters each copy by label, routing to the appropriate branch chain.</p>
+
+<p><a href='https://leithdocs.com/ldc/documents/outgoing/plumbing/session-types-duals.png'><img width='450' src='https://leithdocs.com/ldc/documents/outgoing/plumbing/session-types-duals.png' alt='Diagram showing the two dual pairs of session type primitives and their images in the plumbing calculus. Session types are shown in blue on the left; plumbing calculus images in beige on the right. Top section: send T is a simple arrow carrying type T; its image is map(wrap) followed by barrier with a done signal, then routing to the control input. recv T is its dual: filtering ctrl_out by step number, barrier with done, then map to extract the payload. Bottom section: select with labelled alternatives maps to coproduct injection via map(tag), barrier, then routing to the chosen branch chain. offer is its dual: copy the control output, filter each copy by label, and route to the corresponding branch chain.' /></a></p>
+
+<p>&#x2022; The <strong>sequencing</strong> operator (<code>.</code>) maps to a <strong>barrier chain</strong>. Each send-then-recv step becomes a barrier that synchronises the outgoing message with the incoming acknowledgement, and these barriers chain together to enforce the protocol ordering.</p>
+
+<p><a href='https://leithdocs.com/ldc/documents/outgoing/plumbing/session-types-chain.png'><img width='450' src='https://leithdocs.com/ldc/documents/outgoing/plumbing/session-types-chain.png' alt='Diagram showing how the sequencing operator in session types maps to a barrier chain in the plumbing calculus. Top: the session type sequence "send T1 . recv T2 . send T3" shown as three boxes in a row connected by dots. Bottom: the plumbing image, a chain of barriers. Each send-recv pair becomes a barrier that takes the outgoing message on one arm and the incoming acknowledgement on the other, producing a synchronised pair. The done signal from one barrier feeds into the next, creating a chain that enforces protocol ordering. The trigger input starts the chain; the done output signals completion. Filters select responses by step number; maps construct outgoing messages.' /></a></p>
+
+<p>&#x2022; <strong>rec</strong> maps to a <strong>feedback loop</strong>: merge takes the initial
+arm signal and the last done signal from the previous iteration, feeds them into the barrier chain body, and copy at the end splits done into output and feedback. The trigger serialisation gate starts </p>
+
+<p>&#x2022; <strong>end</strong> is implicit: the chain simply stops. Discard handles any remaining signals.</p>
+
+<p><a href='https://leithdocs.com/ldc/documents/outgoing/plumbing/session-types-other.png'><img width='450' src='https://leithdocs.com/ldc/documents/outgoing/plumbing/session-types-other.png' alt='Diagram showing three more session type primitives and their plumbing images. Top: rec X . S (recursion) maps to a feedback loop. A merge node takes two inputs: the initial arm signal and the last-done signal fed back from the end of the body. The body is a barrier chain (S). At the output, copy splits the done signal into an output arm and a feedback arm that loops back to merge. Middle: end is shown as simply discarding any remaining signal. Bottom: the trigger and serialisation gate, which starts the protocol. A trigger input feeds through a barrier that synchronises with a copy of the done signal, ensuring only one instance of the protocol runs at a time.' /></a></p>
+
+<p>This mapping is a functor. It is total: every session type primitive has an image in the plumbing category, using only the morphisms we already have. Session types are a specification language; the plumbing calculus is the execution language. The compiler translates one into the other.</p>
+
+<p>The reason we do this becomes obvious from the diagram below. It is scrunched up and difficult to look at. If you click on it you can get a big version and puzzle it out. If you squint through the spaghetti, you can see that it does implement the same compaction protocol above. We would not want to implement this by hand. So it is nice to have a functor. If you have the patience to puzzle your way through it, you can at least informally satisfy yourself that it is correct.</p>
+
+<p><a href='https://leithdocs.com/ldc/documents/outgoing/plumbing/compaction-desugared.png'><img width='450' src='https://leithdocs.com/ldc/documents/outgoing/plumbing/compaction-desugared-smaller.png' alt='Thumbnail of the fully desugared compaction protocol as produced by the compiler. The diagram is intentionally dense: a large network of barriers, filters, maps, copy and merge nodes, all connected by typed wires. Each step of the compaction protocol (pause, get memory, set memory, resume) is visible as a cluster of barrier chains with filters selecting response types and maps constructing commands. The full-size version is linked for readers who want to trace the individual connections, but the point is that this is what the compiler produces from the eight-line session type specification above, and you would not want to construct it by hand.' /></a></p>
+
+<h3>Document pinning</h3>
+
+<p>There is another feature we implement, because managing the memory of an agent is not as simple as just compressing it.</p>
+
+<p>The problem with compression is that it is a kind of annealing. As the conversation grows, it explores the space of possible conversation. When it gets compacted, it is compressed, and that lowers the temperature. Then it grows again, the temperature rises, and then it is compressed again. With each compression, information is lost. Over several cycles of this, the agent can very quickly lose track of where it was, what you said at the beginning, what it was doing.</p>
+
+<p>We can begin to solve this with document pinning. The mechanism is a communication between the agent and its homunculus, not shown in the protocol above. It is another protocol. The agent says: this document that I have in memory (technically a tool call and response, or just a document in the case of the prompts), pin it. What does that mean? When we do compaction, we compact the contents of memory, but when we replace the memory, we also replace those pinned documents verbatim. And of course you can unpin a document and say: I do not want this one any more.</p>
+
+<p>Either the agent can articulate this or the user can. The user can say: you must remember this, keep track of this bit of information. And the agent has a way to keep the most important information verbatim, without it getting compacted away.</p>
+
+<p>This accomplishes two things.</p>
+
+<p>First, it tends to keep the agent on track, because the agent no longer loses the important information across compaction cycles. The annealing still happens to the bulk of the conversation, but the pinned documents survive intact.</p>
+
+<p>Second, it has to do with the actual operation of the underlying <acronym>LLM</acronym> on the GPUs. When you send a sequence of messages, this goes into the GPU and each token causes the GPU state to update. This is an expensive operation, very expensive. This is why these things cost so much. What you can do with some providers is put a cache point and say: this initial sequence of messages, from the beginning of the conversation up until the cache point, keep a hold of that. Do not recompute it. When you see this exact same prefix, this exact same sequence of messages again, just load that memory into the GPU directly. Not only is this a lot more efficient, it is also a lot cheaper, a factor of ten cheaper if you can actually hit the cache.</p>
+
+<p>So if you are having a session with an agent and the agent has to keep some important documents in its memory, it is a good idea to pin them to the beginning of memory. You sacrifice a little bit of the context window in exchange for making sure that, number one, the information in those documents is not forgotten, and number two, that it can hit the cache. This is explained in more detail in a <a href='https://leithdocs.com/ldc/documents/outgoing/structural-prompt-preservation.md'>separate post on structural prompt preservation</a>.</p>
+
+<h3>The agent that doesn&#x2019;t know itself</h3>
+
+<p>Why does the agent get this wrong? In one sense, it is right. It has not <em>experienced</em> compaction. Nobody experiences compaction. Compaction happens in the gap between turns, in a moment the agent cannot perceive. The agent&#x2019;s subjective time begins at the summary. There is no "before" from its perspective.</p>
+
+<p>The summary is simply where memory starts. It is like asking someone "did you experience being asleep?" You can see the evidence, you are in bed, time has passed. But you did not experience the transition.</p>
+
+<p>The <code>&lt;context-summary&gt;</code> tag is a structural marker. But interpreting it as evidence of compaction requires knowing what the world looked like <em>before</em>, and the agent does not have that. It would need a memory of not having a summary, followed by a memory of having one. Compaction erases exactly that transition.</p>
+
+<h4>Self-knowledge as metadata</h4>
+
+<p>The fix is not complicated. It is perfectly reasonable to provide, along with the user&#x2019;s message, self-knowledge to the agent as metadata. What would it be useful for the agent to know?</p>
+
+<p>The current time. The sense of time that these agents have is bizarre. We live in continuous time. Agents live in discrete time. As far as they are concerned, no time passes between one message and the next. It is instantaneous from their point of view. You may be having a conversation, walk away, go to the caf&#xe9;, come back two hours later, send another message, and as far as the agent is concerned no time has passed. But if along with your message you send the current time, the agent knows.</p>
+
+<p>How full the context window is. The agent has no way of telling, but you can provide it: this many tokens came in, this many went out.</p>
+
+<p>Compaction cycles. So the agent knows how many times it has been compacted, and can judge the accuracy of the contents of its memory, which otherwise it could not do.</p>
+
+<p>With the compaction counter, the agent immediately gets it right:</p>
+
+<p>"Yes, I have experienced compaction. According to the runtime context, there has been 1 compaction cycle during this session."</p>
+
+<p>No hedging, no confabulation. Same model, same prompts, one additional line of runtime context.</p>
+
+<h4>Context drift</h4>
+
+<p>This matters beyond the compaction story, because many of the failures we see in the news are context failures, not alignment failures.</p>
+
+<p>While we were writing this post, <a href='https://www.theguardian.com/technology/2026/mar/08/ai-chatbots-point-vulnerable-to-online-casinos-gambling-addiction-uk'>a story appeared in the Guardian</a> about AI chatbots directing people with gambling addictions to online casinos. This kind of story is common: vulnerable people talking to chatbots, chatbots giving them bad advice. The response of the industry is always the same: we need better guardrails, better alignment, as though the chatbots are badly aligned.</p>
+
+<p>I do not think that is what is happening. What is happening is a lack of context. Either the chatbot was never told the person was vulnerable, or it was told and the information got lost. Someone with a gambling addiction may start by saying "I have a gambling problem." Then there is a four-hour conversation about sports. Through compaction cycles, what gets kept is the four hours of sports talk. The important bit of information does not get pinned and does not get kept. Context drift. By the time the user asks for betting tips, the chatbot no longer knows it should not give them.</p>
+
+<p>The way to deal with this is not to tell the language model to be more considerate. The way to deal with it is to make sure the agent has enough information to give good advice, and that the information does not get lost. This is what document pinning is for: pinned context survives compaction, stays at the top of the window, cannot be diluted by subsequent conversation. This is discussed further in a <a href='https://leithdocs.com/ldc/documents/outgoing/structural-prompt-preservation.md'>separate post on structural prompt preservation</a>.</p>
+
+<p>But pinning is only one strategy. The field is in its infancy. We do not really know the right way to manage agent memory, and we do not have a huge amount of experience with it. What we are going to need is the ability to experiment with strategies: what if compaction works like this? What if pinning works like that? What if the homunculus watches for different signals? Each of these hypotheses needs to be described clearly, tested, and compared. This is where the formal language earns its keep. A strategy described in the plumbing calculus is precise, checkable, and can be swapped out for another without rewriting the surrounding infrastructure. We can experiment with memory architectures the way we experiment with any other part of a system: by describing what we want and seeing if it works.</p>
+
+<h3>Why has nobody done this?</h3>
+
+<p>When the first draft of this post was written, it was a mystery why the field had not thought to give agents self-knowledge as a routine matter: what they are doing, who they are talking to, what they should remember. Prompts are initial conditions. They get compacted away. There are agents that save files to disc, in a somewhat ad hoc way, but we do not give them tools to keep track of important information in a principled way.</p>
+
+<p>Contemporaneously with this work, some providers have started to do it. For example, giving agents a clock, the ability to know what time it is. This is happening now, in the weeks between drafting and publication. The field is only now realising that agents need a certain amount of self-knowledge in order to function well. The compressed timeline is itself interesting: the gap between "why has nobody done this?" and "everybody is starting to do this" was a matter of weeks.</p>
+
+<p>The mechanisms we have presented here allow us to construct agent networks and establish protocols that describe rigorously how they are meant to work. We can describe strategies for memory management in a formal language, test them, and swap them out. And perhaps beyond the cost savings and the efficiency increases, the ability to experiment clearly and formally with how agents manage their own memory is where the real value lies.</p>
+</div>
+
+
+<span class='posted'>Posted at March 20, 2026 10:39 PM UTC
+</span>
+</div>
+
+<p class='trackback-url'>TrackBack URL for this Entry:&#xa0;&#xa0; https://golem.ph.utexas.edu/cgi-bin/MT-3.0/dxy-tb.fcgi/3631</p>
+
+
+<h2 class='comments-head' id='related'>Some Related Entries</h2>
+
+<div id='pane'>
+
+<form method='get' action='/cgi-bin/MT-3.0/mt-search.cgi'>
+<fieldset class='search'>
+  <input type='hidden' name='IncludeBlogs' value='3' />
+  <input type='hidden' name='Template' value='category' />
+  <label for='search' accesskey='4'>Search for other entries:</label><br />
+  <input id='search' name='search' size='25' /><br />
+  <input type='submit' value='Search' />
+</fieldset>
+</form>
+
+
+
+</div>
+
+<ul class='blogbody related'>
+
+   <li><a href='/category/2026/03/a_typed_language_for_agent_coordination.html'>A Typed Language for Agent Coordination</a> &#x2014;
+<i>Mar 11, 2026</i></li>
+   <li><a href='/category/2025/08/safeguarded_ai_meeting.html'>Safeguarded AI Meeting</a> &#x2014;
+<i>Aug 14, 2025</i></li>
+   <li><a href='/category/2023/07/agentbased_models_part_1.html'>Agent-Based Models (Part 1)</a> &#x2014;
+<i>Jul 06, 2023</i></li>
+   <li><a href='/category/2023/05/categories_for_epidemiology.html'>Categories for Epidemiology</a> &#x2014;
+<i>May 05, 2023</i></li>
+   <li><a href='/category/2022/01/learning_computer_science_with.html'>Learning Computer Science With Categories</a> &#x2014;
+<i>Jan 26, 2022</i></li>
+   <li><a href='/category/2021/09/cospans_and_computation_-_part_3.html'>Cospans and Computation - Part 3</a> &#x2014;
+<i>Sep 10, 2021</i></li>
+   <li><a href='/category/2021/08/cospans_and_computation_part_2.html'>Cospans and Computation - Part 2</a> &#x2014;
+<i>Aug 23, 2021</i></li>
+   <li><a href='/category/2021/08/cospans_and_computation_part_1.html'>Cospans and Computation - Part 1</a> &#x2014;
+<i>Aug 10, 2021</i></li>
+
+</ul>
+</div>
+
+<h2 class="comments-head" id="comments">2 Comments &amp; 0 Trackbacks</h2>
+
+<div class="blogbody">
+
+<div class="comments-body" id="c069178">
+<h3 class="title">Re: The Agent That Doesn&#8217;t Know Itself</h3>
+
+<div><div><a href="http://golem.ph.utexas.edu/~distler/blog/mathml.html"><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>Perhaps a good way to manage memory is to have more than one memory. Roughly, combine topic modeling with attention and get a different memory per topic. Then access the memories that are most relevant at a given time.</p>
+</div>
+<div class="comments-post">Posted by:
+Steve Huntsman on March 23, 2026  1:32 PM | <a href="/category/2026/03/the_agent_that_doesnt_know_its.html#c069178" title="URL for comment by Steve Huntsman [March 23, 2026  1:32 PM]">Permalink</a>
+
+| <a href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3633;parent_id=69178" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}" title="Respond to comment by Steve Huntsman [March 23, 2026  1:32 PM]">Reply to this</a>
+</div>
+</div>
+
+<div class="comments-nest-box">
+<div class="comments-body" id="c069179">
+<h3 class="title">Re: The Agent That Doesn&#8217;t Know Itself</h3>
+
+<div><div><a href="http://golem.ph.utexas.edu/~distler/blog/mathml.html"><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>That is a very interesting idea. I have been experimenting with a few strategies for managing memory and that is one that I had not considered. As I work with the system (which also has access to an organised datastore), I definitely notice a difficulty when switching topics. For example, when returning to a topic that we discussed a while ago, it does not do as good a job as I would like of finding and remembering the important details. Something like what you suggest could help.</p>
+</div>
+<div class="comments-post">Posted by:
+<a title="https://leithdocs.com/" href="https://leithdocs.com/" rel="nofollow">William Waites</a> on March 24, 2026  7:35 AM | <a href="/category/2026/03/the_agent_that_doesnt_know_its.html#c069179" title="URL for comment by William Waites [March 24, 2026  7:35 AM]">Permalink</a>
+
+| <a href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3633;parent_id=69179" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}" title="Respond to comment by William Waites [March 24, 2026  7:35 AM]">Reply to this</a>
+</div>
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+</div>
+<p class="newpost"><a class="comments-post" href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3633" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}">Post a New Comment</a></p>
+
+</div>
+
+<div id="footer">   
+<h2>Access Keys:</h2>
+
+<dl id="AccessKeyList">
+<dt>0</dt><dd><a href="/category/accessibility.html" accesskey="0">Accessibility Statement</a></dd>
+<dt>1</dt><dd>Main Page</dd>
+<dt>2</dt><dd>Skip to Content</dd>
+<dt>3</dt><dd>List of Posts</dd>
+<dt>4</dt><dd>Search</dd>
+<dt>p</dt><dd>Previous (individual/monthly archive page)</dd>
+<dt>n</dt><dd>Next (individual/monthly archive page)</dd>
+</dl>
+<a href="/category/archives.html" accesskey="3"></a>
+</div>
+
+
+</div>
+
+</body>
+</html>

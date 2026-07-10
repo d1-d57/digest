@@ -1,0 +1,528 @@
+AMS :: Notices of the American Mathematical Society
+AMS Website Down
+Notice: All AMS websites will be down for maintenance on Saturday, July 11 from 8 am until 1 pm.
+PDFLINK
+On Max Bill’s
+gelbes feld
+Barry Cipra
+Communicated by
+Notices
+Executive Editor Siobhan Roberts
+I am training myself to solve, as best I can, within firmly fixed boundaries, certain problems that I have set myself.
+New math problems can come from all kinds of places — even from a seventy-eight-year-old painting. Not long ago, I was looking through a book
+2
+about the Swiss artist, architect, and designer Max Bill (1908–1994). Associated with the Bauhaus crowd, Bill is known for his interest in mathematics as a basis for creating art. His 1948 essay “The Mathematical Way of Thinking in the Visual Art of Our Time” is widely cited; an English translation can be found in
+The Visual Mind
+3
+. Many of his paintings are explicitly geometric; one, depicting nested polygons, was used for the cover of the April 2024 issue of these
+Notices
+4
+. A Google Images search on Max Bill turns up many more.
+The book I was looking at, a catalogue from a major 2016 show on Bill, had many of his geometricky works. The piece that really caught my eye, though, upon first glance looked like little more than a big yellow square; see Figure
+1
+.
+Figure 1
+.
+Max Bill’s 1948 painting,
+gelbes feld
+. Look closely!
+Its title,
+gelbes feld
+, says it all: yellow field. The painting, owned by the Kunst Museum Winterthur in Switzerland, is a square canvas, 81 centimeters per side, created in 1948. My first impulse was to turn the page, but for some reason I lingered. Then I noticed there was more to
+gelbes feld
+than just yellow; there were small dots scattered about. Once I saw them, I quickly realized what they were: In much the same way that pips on dice or dominoes represent the numbers 1 through 9, the dots in
+gelbes feld
+represent the numbers in the classic
+Lo Shu
+$3\times 3$
+magic square; see Figure
+2
+.
+Figure 2
+.
+Bill’s dots, exaggerated, with grid lines added (left) and
+Lo Shu
+numbers emphasized (right).
+This is no great revelation. As someone interested in mathematics, Bill likely knew about magic squares, though I’ve seen no reference to any such knowledge in anything I’ve read about him. And surely others have spotted the
+Lo Shu
+in
+gelbes feld
+, though I’ve seen no reference to this either.
+But then my eye was caught by something else: The way the 4 appears in the lower right-hand corner is not the way it’s typically represented by pips on a die or domino. The “normal” way to display a 4 is with dots in the four
+corners
+, not at the four midpoints. That artistic choice bothered me. Until a possible explanation jumped out: Bill had arranged things so that there are exactly 5 pips across each row, down each column, and along the two main diagonals of his array. I’ll use the term “pipification” to describe such a representation of numbers in an
+$n\times n$
+magic square using pips in an
+$n\times n$
+grid within each of the
+$n^2$
+cells in the square, arranged so that there are the same number of pips in each row, column, and diagonal; see Figure
+3
+.
+Figure 3
+.
+Count the pips.
+This
+is
+a noteworthy revelation. Whether Bill did so on purpose is uncertain; absent a diary entry or a letter to his gallerist, we can’t be sure of his artistic intent. It’s possible he had some other idea in mind — I’d be keen to hear alternative explanations. But in any event, the property of “all-5s” that I noticed in
+gelbes feld
+immediately raises a suite of possibly new questions for magic squares. In particular, can
+every
+magic square be “pipified”?
+If Bill did in fact arrange his pips with the all-5s property in mind, then he in effect posed and solved a mathematical problem for the
+$3\times 3$
+magic square. My guess is that he did do so on purpose but that he was unaware he’d done anything original. It may have simply occurred to him — let’s try to give this arrangement an extra all-5s property — and he found it wasn’t all that difficult to do, so he did it. I base that guess on the fact that I was able to easily come up with a couple of alternatives to Bill’s arrangement. It might be worth someone’s time and effort to count and classify the pipifications of the
+$3\times 3$
+square.
+I’m no Max Bill expert, so it’s possible others have noticed the all-5s property in
+gelbes feld
+, with or without making much of it mathematically. I’m also no expert on magic squares, so it’s possible the notion of pipifying magic squares already exists in the extensive magic square literature. All I can say is, I’ve seen no trace of it in any of the usual suspects
+5
+6
+7
+8
+9
+. So, I’m inclined to think of pipification as a brand-new mathematical problem, hidden in a painting. If anyone knows otherwise, I hope they’ll keep it to themselves. (More seriously, let the
+Notices
+know!)
+In any event, the Main Question stands: Can you pipify
+all
+magic squares?
+The short answer is No.
+A slightly longer answer is No, you cannot pipify any even-by-even magic square. That’s because the numbers 1 to
+$n^2$
+sum to
+,
+$n^2(n^2+1)/2$
+and since the pips appear within an
+$n^2\times n^2$
+array, we would need to have
+$(n^2+1)/2$
+pips in each row and column. But if
+$n$
+is even,
+$n^2+1$
+is odd, which would call for a half-integer number of pips.
+But this leaves half the Main Question standing: Can you pipify all
+odd-by-odd
+magic squares?
+The answer appears to be Yes, but the evidence is somewhat shaky. One wobbly bit is worth stating as a theorem:
+Theorem
+.
+You can
+semi
+-pipify any odd-by-odd magic square. That is, for any odd-by-odd magic square, the numbers in each cell can be represented by pips in such a way that there are exactly
+$(n^2+1)/2$
+pips in each row and each column.
+The terminology here is borrowed from the magic square literature, where “semi-magic” ignores the diagonals.
+The proof is by a “lazy” algorithm: Start with pips in the first
+$(n^2+1)/2$
+columns of each row, then move them lazily — no further than you have to — rightward until you’ve got the right number of pips in each cell of the square. I’m being vague because there are lots of different ways to be lazy, and they all apparently work. If you don’t like this style of proof, feel free to devise your own, with as much precision as you like. And then within each column of cells, continue to move pips lazily rightward, keeping them in their assigned row and cell, until you get the right number of pips in each column.
+Figure
+4
+indicates some of the key steps for the lazy algorithm for a
+$5\times 5$
+square that I grabbed more or less at random from the Internet. Having gotten this far, I counted the number of pips along the main down diagonal, and to my surprise and delight, found there were 13 of them — exactly the number you want! Excitedly, I counted along the other (up) diagonal.
+Damn it: 14 pips.
+Figure 4
+.
+The key stages in semi-pipifying a magic square. Upper right illustrates the steps for positioning pips within a sample row of cells. Lower left shows the result for all rows. Lower right shows the end result, getting the right number of pips in each column. The dotted lines are there to help the reader count pips along the two diagonals.
+Well, what do you expect? Then I noticed something nice: If you swap the first and fifth row of pips, all within the first row of the magic square, you can get rid of a pip on the up diagonal, while not making any change in the down diagonal; see Figure
+5
+.
+Figure 5
+.
+Success. Swapping two rows turns the semi-pipified result into a fully pipified magic square.
+With this simple change, we have, at last, a pipified
+$5\times 5$
+magic square. It’s worth noting that you can permute at will within any group of
+$n$
+rows or
+$n$
+columns of a semi-pipified magic square without disturbing the semi-pipification. So, for
+,
+$n=5$
+for example, there are
+$120^{10}\approx 6.19\times 10^{20}$
+chances to get the two diagonals to work out. The fact that I spotted one simple permutation right away suggests (but hardly proves!) that there are plenty of ways to convert a semi-pipification into a full-fledged one.
+Something that is worth highlighting is the fact that the random
+$5\times 5$
+magic square I grabbed off the Internet happens to be
+pan
+-diagonal, the term of art for a magic square in which not only do the two main diagonals have the magic sum, but so do all of its broken diagonals. Obviously one can ask for a pan-diagonal pipification of a pan-diagonal magic square, but the previously described permutational approach looks hopeless. Less obviously, one can also ask for a pan-diagonal pipification of a
+non
+-pan-diagonal magic square. But the answer here is a definite Not Always: The diagonal that goes through the 7, 9, and 8 cells of the
+Lo Shu
+cannot have fewer than 6 pips.
+We do not, however, need to abandon all hope, because there’s another way to go about pipifying magic squares, based on the following observation.
+Observation
+.
+Pipification can be posed as a binary integer programming problem. That is, think of pips as the 1’s in an
+$n^2\times n^2$
+array of 1’s and 0’s for the values of
+$n^4$
+binary variables
+$x_{1,1}$
+to
+,
+$x_{n^2,n^2}$
+subject to
+$n^2$
+constraints for the sum within each cell; another
+$n^2$
+constraints for the number of pips in each of the
+$n^2$
+rows; another
+$n^2$
+constraints for the number of pips in each of the
+$n^2$
+columns; and 2 constraints for the number pips in each of the 2 main diagonals (or, if you care to go pan-diagonal,
+$2n^2$
+constraints for all the diagonals).
+Along the way, I asked Bob Bosch, a mathematician and mathematical artist at Oberlin College who uses optimization theory to create what he calls Opt Art
+10
+, if he’d take a look at the pipification problem from a binary integer point of view. He reported success at pipifying two other
+$5\times 5$
+squares that he pulled from the Internet. This provided another wobbly leg of evidence for the stool of plausibility in answering Yes to the Main Question.
+Bosch’s reply came in time to include in a talk I gave at the 2025 Joint Mathematics Meetings in January. As it happened, he had submitted his own take on magic squares to the JMM art exhibit: a knight’s tour on an
+$81\times 81$
+chessboard with
+Lo Shu
+embedded in pip-like, but not “pipified,” form — that is, using the standard dice or dominoes representation of numbers as pips. More recently, Bosch did his own Max-Bill-style pipification of the
+Lo Shu
+, using a combination of
+$11\times 11$
+knight tours; see Figure
+6
+. Do great minds think alike, or what?
+Figure 6
+.
+A Bob Bosch original. A pipification of the
+Lo Shu
+, using a combination of
+$11\times 11$
+knight tours.
+That August, I repeated my talk on
+gelbes feld
+at the National Museum of Mathematics MOVES meeting in New York. Robin Houston, a software designer based in Shropshire, England, attended. Houston subsequently reported success pipifying sample magic squares of size
+,
+$7\times 7$
+,
+$9\times 9$
+and
+,
+$11\times 11$
+using Google’s CP-SAT tool (CP = Constraint Programming, SAT = SATisfiability, the technical term in computational complexity theory for the task of checking whether an expression in Boolean algebra can be satisfied). I asked Houston if he could check if my pan-diagonal
+$5\times 5$
+square could be pan-pipified. He replied with two pan-pipifications; see Figure
+7
+.
+Figure 7
+.
+Pan-diagonal success found by Robin Houston, with some extra mirror symmetries within cells.
+These two solutions, Houston pointed out, were produced with an additional set of constraints each: The pips within all the individual cells have a vertical mirror symmetry in one, and a horizontal mirror symmetry in the other. He had tried, he said, asking for
+both
+mirror symmetries at once, but CP-SAT said it couldn’t be done. This presumably means there really is no pan-diagonal pipification with that property. But it would be nice to have a proof beyond the Google tool’s say-so. There is no obvious reason the cells’ pips can’t be doubly mirror symmetric — the reader may have already noticed that in
+gelbes feld
+they are.
+In general, the matter of Yes/No pipification is a so-called class NP problem — a puzzle that’s potentially very hard to solve, yet always very easy to verify if a proposed answer is correct. If the answer is Yes, it can be easily proved by producing the pipification; while if the answer is No, all bets are off as to how easily proved that negative answer is. Note, also, even if there’s a theorem saying that all magic squares can be pipified, the job of finding pipifications could conceivably remain difficult. Longtime readers of the
+Notices
+may be aware that the Yes/No question of primality is known to be solvable in polynomial time, via the AKS algorithm
+11
+, but the challenge of factoring large composite numbers remains — for the time being — mercifully elusive.
+So that’s pretty much where things stand: The answer to the Main Question seems likely to be Yes, all odd-by-odd magic squares can be pipified, and there may even be a straightforward algorithm for producing their pipifications. At the very least, as Houston noted in an email, there might be an algorithm for producing pipified magic squares of any given (odd) size, much as there are algorithms for producing magic squares of any given size. Additional properties of pan-pipification (for pan-diagonal squares, at least) and/or mirror symmetries within cells are likely to exist.
+I’ll end on one final note. The mathematician and mathematics writer Dana Mackenzie, of Santa Cruz, who was at my JMM 2025 talk on
+gelbes feld
+, opined afterwards that even though I’d shown why it was impossible, there should nevertheless be a way to pipify even-by-even magic squares. After all, you can’t take the square root of a negative number, yet still…
+We kicked around the idea, and came up with a reinterpretation of pipification that makes sense in the even-by-even case:
+Double
+all the numbers in your square, then change the 0/1 binary integer problem into a 0/1/2
+ternary
+integer problem — allow yourself to put two pips, not just one, in each position. I later asked Houston if he could test this out on the
+$4\times 4$
+square famous from Albrecht Dürer’s etching
+Melencolia I
+; see Figure
+8
+.
+Figure 8
+.
+Dürer’s
+Melencolia I
+and its
+$4\times 4$
+magic square.
+He responded in the affirmative; see Figure
+9
+.
+Figure 9
+.
+Dürer’s magic square bipipified.
+When I described this in my update of the pipification pursuit at JMM 2026, sarah-marie belcastro, a mathematician and mathematical artist at Bryn Mawr College, noted that it should really be done Max-Bill style. She promptly produced a striking version; see Figure
+10
+.
+Figure 10
+.
+Dürer’s bipipified square, as reimagined by sarah-marie belcastro, using two shades of green for the 2’s and orange and light yellow for the 1’s.
+In her bipipified
+$4\times 4$
+square, belcastro incorporated an aspect of
+gelbes feld
+that I’ve not yet mentioned: Bill’s pips are not all the same color. Some are orangey, while others look lightly green or gray. I had noticed this too (as, perhaps, has the reader), but hadn’t pursued it, for two reasons. First, there was already enough mathematical meat in the pipification problem. And second, I was looking at a
+reproduction
+of
+gelbes feld
+, not the original painting, and as good as the technology is these days, colors don’t always reproduce faithfully. It’s quite possible I’ve managed to overlook something equally or even more interesting in Bill’s pipification; I encourage the reader to see what’s going on there. But a proper study may involve a trip to Winterthur.
+On another final note, one thing that may have predisposed me to see the
+Lo Shu
+in
+gelbes feld
+is a
+Lo Shu
+-based design of my own that I came up with sometime in the 1990s; see Figure
+11
+.
+Figure 11
+.
+What is it?
+I leave it to the reader to figure out the magic square connection. If you succeed in reading my mind, you’ll see that the design idea easily generalizes to squares of all sizes — indeed, it applies to any
+$n\times n$
+arrangement of the numbers 1 to
+,
+$n^2$
+magical or not. On the one hand, this ease of generality is an attractive feature, allowing for all kinds of artistic freedom. On the other hand, it’s a disappointing bug, in that it doesn’t suggest any interesting, unsolved problem. If you happen to spot one, let me know!
+On a finally final note: In his essay on mathematical thinking, Bill offers a much-quoted remark: “I am of the opinion that it is possible to develop an art largely on the basis of mathematical thinking.” We might counterpose this with the question, Can we develop a mathematics largely on the basis of artistic thinking? Mathematicians of an artistic bent may be inclined to say Of course. But it’s worth reading Bill’s essay in its entirety. In the very next sentence, he continues: “This opinion has, of course, aroused the most vehement opposition.”
+Acknowledgment
+The author thanks Paul Zorn for his always insightful advice.
+References
+[
+1
+]
+Margit Staber,
+Max Bill
+, Methuen 1964.
+[
+2
+]
+Max Bill, Fundación Juan March, Madrid, October 16, 2015–January 17, 2016.
+[
+3
+]
+Michele Emmer (ed.),
+The visual mind
+:
+Art and mathematics
+, Leonardo Book Series, MIT Press, Cambridge, MA, 1993. MR
+1255834
+,
+AMSref
+\bib{2}{collection}{
+title={The visual mind},
+series={Leonardo Book Series},
+editor={Emmer, Michele},
+subtitle={Art and mathematics},
+publisher={MIT Press, Cambridge, MA},
+date={1993},
+pages={xx+274},
+isbn={0-262-05048-X},
+review={\MR {1255834}},
+}
+[
+4
+]
+George Hart,
+What can we say about “math/art”?
+, Notices Amer. Math. Soc.
+71
+(2024), no. 4, 520–525. MR
+4721348
+,
+AMSref
+\bib{3.5}{article}{
+author={Hart, George},
+title={What can we say about ``math/art''?},
+journal={Notices Amer. Math. Soc.},
+volume={71},
+date={2024},
+number={4},
+pages={520--525},
+issn={0002-9920},
+review={\MR {4721348}},
+}
+[
+5
+]
+Frank J. Swetz,
+Legacy of the luoshu
+:
+The 4,000 year search for the meaning of the magic square of order three
+, A K Peters, Ltd., Wellesley, MA, 2008, DOI
+10.1201/b10589
+. MR
+2433106
+,
+AMSref
+\bib{3}{book}{
+author={Swetz, Frank J.},
+title={Legacy of the luoshu},
+subtitle={The 4,000 year search for the meaning of the magic square of order three},
+publisher={A K Peters, Ltd., Wellesley, MA},
+date={2008},
+pages={xiv+214},
+isbn={978-1-56881-427-8},
+review={\MR {2433106}},
+doi={10.1201/b10589},
+}
+[
+6
+]
+W. S. Andrews,
+Magic squares and cubes
+, Dover Publications, Inc., New York, 1960. With chapters by other writers; 2nd ed., revised and enlarged. MR
+114763
+,
+AMSref
+\bib{4}{book}{
+author={Andrews, W. S.},
+title={Magic squares and cubes},
+note={With chapters by other writers; 2nd ed., revised and enlarged},
+publisher={Dover Publications, Inc., New York},
+date={1960},
+pages={vii+419},
+review={\MR {114763}},
+}
+[
+7
+]
+Paul C. Pasles,
+Benjamin Franklin’s numbers
+:
+An unsung mathematical odyssey
+, Princeton University Press, Princeton, NJ, 2008. MR
+2355634
+,
+AMSref
+\bib{5}{book}{
+author={Pasles, Paul C.},
+title={Benjamin Franklin's numbers},
+subtitle={An unsung mathematical odyssey},
+publisher={Princeton University Press, Princeton, NJ},
+date={2008},
+pages={x+254},
+isbn={978-0-691-12956-3},
+isbn={0-691-12956-8},
+review={\MR {2355634}},
+}
+[
+8
+]
+Clifford A. Pickover,
+The zen of magic squares, circles, and stars
+:
+An exhibition of surprising structures across dimensions
+, Princeton University Press, Princeton, NJ, 2002. MR
+1878449
+,
+AMSref
+\bib{6}{book}{
+author={Pickover, Clifford A.},
+title={The zen of magic squares, circles, and stars},
+subtitle={An exhibition of surprising structures across dimensions},
+publisher={Princeton University Press, Princeton, NJ},
+date={2002},
+pages={xx+405},
+isbn={0-691-07041-5},
+review={\MR {1878449}},
+}
+[
+9
+]
+Lee C.F. Sallows,
+Geometric magic squares
+, Dover Publications, Inc., New York, 2013.,
+AMSref
+\bib{sallows}{book}{
+author={Sallows, Lee C.F.},
+title={Geometric magic squares},
+publisher={Dover Publications, Inc., New York},
+date={2013},
+}
+[
+10
+]
+Robert Bosch,
+Opt art
+:
+From mathematical optimization to visual design
+, Princeton University Press, Princeton, NJ, 2019. MR
+4192743
+,
+AMSref
+\bib{7}{book}{
+author={Bosch, Robert},
+title={Opt art},
+subtitle={From mathematical optimization to visual design},
+publisher={Princeton University Press, Princeton, NJ},
+date={2019},
+pages={x+188},
+isbn={978-0-691-16406-9},
+review={\MR {4192743}},
+}
+[
+11
+]
+Folkmar Bornemann,
+PRIMES is in P: a breakthrough for “Everyman”
+, Notices Amer. Math. Soc.
+50
+(2003), no. 5, 545–552. MR
+1968414
+,
+AMSref
+\bib{8}{article}{
+author={Bornemann, Folkmar},
+title={PRIMES is in P: a breakthrough for ``Everyman''},
+journal={Notices Amer. Math. Soc.},
+volume={50},
+date={2003},
+number={5},
+pages={545--552},
+issn={0002-9920},
+review={\MR {1968414}},
+}
+Barry Cipra is a mathematician and freelance mathematics writer based in Northfield, MN. His email address is
+[email protected]
+.
+Article DOI:
+10.1090/noti3334
+Credits
+Epigram ©Max, Binia + Jakob Bill Foundation / ProLitteris Zürich.
+Figure
+1
+is courtesy of SIK-ISEA, Zürich, Lutz Hartmann. ©2026 Artists Rights Society (ARS), New York/ProLitteris, Zürich.
+Figures
+2
+–
+5
+are courtesy of Barry Cipra.
+Figure
+6
+is courtesy of Bob Bosch.
+Figure
+7
+is courtesy of Robin Houston.
+Figure
+8
+(top) is public domain and Figure
+8
+(bottom) is courtesy of Barry Cipra.
+Figure
+9
+is courtesy of Robin Houston and Barry Cipra.
+Figure
+10
+is courtesy of sarah-marie belcastro.
+Figure
+11
+is courtesy of Barry Cipra.
+Author photo is courtesy of Barry Cipra.

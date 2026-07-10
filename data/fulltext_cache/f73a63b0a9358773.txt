@@ -1,0 +1,470 @@
+Snapsho t s o f m o d e r n m athematics                                    № 9/2025
+from Ob e r wo l f a c h
+
+
+
+
+                      Why oscillation counts:
+                    Diophantine approximation,
+                        geometr y, and the
+                        Four ier transfor m
+
+
+                                   Rajula Sr ivastava 1
+
+
+
+
+       Is it possible to approximate arbitrary points in space
+       by vectors with rational coordinates, with which we,
+       and computers, feel much more comfortable? If yes,
+       can we approximate those points arbitrarily close? In
+       this snapshot, we explore how the geometric configu-
+       ration of these points influences the answers to these
+       questions. Further, we delve into the closely related
+       problem of counting rational vectors near surfaces.
+       The unlikely tool which helps us in this endeavour is
+       Fourier analysis – the study of waves and oscillations!
+
+1 I n t roduction
+
+For almost two millennia, humans across civilizations have asked: how well can
+an arbitrary real number, like π, be approximated by fractions? Indeed, this
+question lies at the heart of a branch of modern mathematics which is now
+
+1 The author is supported by the Deutsche Forschungsgemeinschaft (DFG, German Research
+
+Foundation) under Germany’s Excellence Strategy - EXC-2047/1 - 390685813 as well as SFB
+1060.
+
+
+                                            1
+called Diophantine approximation. 2 One of the primary applications of this
+area is in cryptography, particularly in the security of encryption algorithms,
+where the hardness of certain Diophantine problems ensures the robustness
+of cryptographic keys. Moreover, in the field of signal processing, it helps in
+minimizing errors in the representation and transformation of signals.
+   But what does it mean for a real number (call it α) to be well-approximable
+by fractions, also called rational numbers? Supposing you had a new classmate
+or coworker called α, what would it take for you to know them well? Most of
+us will agree that it would require contact which is both close and frequent.
+Indeed, the same goes for numbers too! The fundamental idea in Diophantine
+approximation is to understand how closely and how often α (the real number,
+this time) can be approximated by rationals with a given denominator.
+   We already know a perfect rational approximation to α when it is a rational:
+the number itself! We therefore consider the case when α is irrational, that
+means, not a fraction. In 1840, Dirichlet 3 proved that for any irrational
+number α and any positive integer N , there exists a fraction pq with 1 ≤ q ≤ N
+such that
+                                    p     1      1
+                                α−    ≤      ≤ 2.
+                                    q    qN     q
+Since we can choose N to be as big as we please, Dirichlet’s theorem tells us
+that α can be approximated by fractions of the form pq for infinitely many
+denominators q (in other words, infinitely often).
+   The proof of this fundamental result is small enough to fit in a paragraph
+(though perhaps not in the margin 4 )! For a real number x, let ⌊x⌋ denote the
+greatest integer less than or equal to x, and let
+                                     {x} = x − ⌊x⌋
+denote its fractional part. For example, {3.14} = 3.14 − 3 = 0.14, 22
+                                                                          
+                                                                            7   =
+22        1
+ 7 − 3 =  7 , {π} = π − 3 = 0.14159265358979323846    . . . , and {3} = 3 − 3 = 0.
+   The first crucial observation is that when α is irrational, the numbers
+                                 {α}, {2α}, . . . , {N α}
+are all distinct from each other. It is a fun exercise to figure out why! 5 In
+addition, the fractional part of any number lies in the interval [0, 1]. Since
+
+2   Named after the Greek mathematician Diophantus of Alexandria who lived in the second
+century BCE.
+3 Johann Peter Gustav Lejeune Dirichlet (1805–1859) was a German mathematician, famous
+
+for fundamental contributions to analytic number theory, Fourier analysis, and mathematical
+physics. Among other achievements, he was one of the first to give the modern formal
+definition of a function.
+4 To understand the joke, see wikipedia.org/wiki/Fermat%27s_Last_Theorem.
+5 Hint: Assume {nα} − {mα} = 0 for n ̸= m. What would this imply?
+
+
+
+
+                                            2
+                                         {3α}
+                                {α}
+                                                     {5α}
+
+
+
+
+                            {4α}
+                                              {2α}
+
+Figure 1 : Dirichlet’s theorem with N = 5 (the red dots demarcate intervals of
+           length N1 ).
+
+
+further {0} = {1} = 0, that is, the fractional parts of both endpoints of this
+interval are the same, we can think of them as being the same with respect
+to fractional parts. Therefore, gluing the end points together transforms the
+interval [0, 1] into a circle, which represents the fractional parts. Consequently,
+the numbers {α}, {2α}, . . . , {N α} can be visualised as N distinct points on this
+circle of circumference 1 (see Figure 1).
+    For all of them to be accommodated, there have to be at least two which
+lie within a distance of N1 from each other. In other words, we are guaranteed
+positive numbers q1 < q2 ≤ N such that
+
+                                                  1
+                                {(q2 − q1 )α} ≤     .
+                                                  N
+Let q = q2 − q1 . Then q ≤ N and the above inequality tells us that for the
+integer p = ⌊qα⌋ it is true that
+
+                                                     1
+                              |qα − p| = |{qα}| ≤      .
+                                                     N
+Dividing both sides above by q then proves Dirichlet’s theorem.
+   At this point, it is natural to wonder if it is possible for rationals to get even
+closer to α, infinitely often? More precisely, can we replace q12 by, say, q13 or
+more generally, q1s for s > 2, and still conclude the above? Note that we ask for
+a closer approximation of α by rationals, when we increase the value of s. At
+some point, it simply becomes too much to ask for!
+   Indeed, in 1924, Khintchine 6 showed that for s > 2, the set of numbers α
+
+6 Alexandre Iakovlevitch Khintchine (1894–1959) was a Russian mathematician and one of
+
+the most significant contributors to the Soviet school of probability theory.
+
+
+                                          3
+for which it is true that
+                        p   1                                 p
+                   α−     ≤ s          for infinitely many      ∈ Q,
+                        q  q                                  q
+
+is of negligible size. Going back to our analogy with the new classmate or
+coworker, this says that while it is possible to have a lot of friends, it is virtually
+impossible to have too many (in fact, infinitely many) very close friends!
+   The above result can be easily generalized to higher dimensions as well.
+There, the question is to approximate an n-dimensional vector α by vectors
+with rational entries of the same denominator q. This means, the approximating
+vectors have entries pq1 , . . . pqn ∈ Q. However, the cut-off point for the exponent
+now is s > n1 + 1 (instead of s > 2 in the 1-dimensional case). More precisely,
+Khintchine’s theorem says that for s > n1 + 1, the set of vectors α ∈ Rn which
+can be approximated very closely is of negligible size.
+
+
+2 Counting rational points near surfaces
+
+We now introduce some geometric flavour to our setup! Let S be a curve or a
+surface in three dimensions (the entire discussion remains valid, and even more
+challenging, in higher dimensions). Now S can be a two-dimensional surface
+like a plane (think of a sheet of paper, see Figure 3) or a sphere (a football); or
+a one-dimensional curve such as a circle (ring) or a helix (like the model of a
+DNA strand), see Figure 2.
+
+                                       z
+
+
+
+
+                                                         y
+                            x
+
+             F i g u r e 2 : A helix, in blue, and a planar circle, in red.
+
+   Suppose we now want to approximate points lying on S by rational vectors.
+Can we prove an analogue of Khintchine’s theorem for S? In other words, can
+we say that for s > n1 + 1 (in our case: n = 3 and s > 34 ), the set of points α
+on S which can be approximated very closely, is of negligible size? Since S is a
+
+
+                                           4
+curve or a surface, it has no volume. Therefore, the points on S form a very
+sparse or singular collection. Consequently, approximating them with rationals
+is a much more delicate issue. On the contrary, the geometry of S itself gives
+us a lot of structural information about how these points are arranged in space!
+    The question of proving Khintchine’s theorem for S is closely related to the
+problem of counting the number of three-dimensional rational points in “close
+proximity” to S. Let us use the parameter δ to denote the maximal distance
+we allow. How small δ can be taken depends on how finely these rationals
+are distributed. In other words, this is the distance between two neighboring
+fractions in the three-dimensional lattice formed by them, see Figure 3 for an
+illustration of the lattice. It is determined by the size of their denominator q
+(the bigger it is, the finer the lattice). We now stipulate that q is bounded by
+some number Q.
+    Question 1: Let NS (δ, Q) denote the number of rational points of denomi-
+                                                                         1
+nator q with 1 ≤ q ≤ Q, within a distance of δ from S, where δ < Q         . Can we
+find a formula for NS (δ, Q), in terms of δ and Q? If yes, then in what range
+of δ (in terms of Q) is the formula true?
+    When S is a planar sheet, which is, say, horizontal (parallel to the x-y-plane),
+the above question has a very easy (albeit uninteresting) answer. In this case,
+it does not matter how far or near we are to S, it will always “catch” the
+maximum possible number of fractions. The geometric reason behind this is
+that a plane is completely flat and therefore aligns fully with the lattice formed
+by rational points, see Figure 3.
+    To work this out more precisely, we choose a specific sheet, namely
+
+                        S = {(x, y, 0) ∈ R3 : x, y ∈ [0, 1]}.
+
+This is the square with side length 1 lying on the x-y-plane. The aim is to
+find for every number q with 1 ≤ q ≤ Q rational points ( pq1 , pq2 , pq3 ) within a
+distance of δ from S. Since S is parallel to the lattice of rational points, the
+distance from S is completely determined by the z-coordinate and thus given by
+| pq3 |. As we are interested in δ < 1q , also | pq3 | < 1q and hence p3 = 0. Thus, all
+the rational points of interest lie on the plane and have coordinates ( pq1 , pq2 , 0),
+where both p1 and p2 can take any integer value between 0 and q. Therefore,
+for each q we obtain a possible number of (q + 1)2 rational points within a
+distance of δ from S. Consequently,
+                                         Q
+                                         X
+                           NS (δ, Q) ≈     (q + 1)2 ≈ Q3 .
+                                         q=1
+
+   However, if S is not completely flat, the question gets far more interesting. If
+the surface has random distortions, one expects the number of fractions within
+
+
+                                           5
+                                       z
+
+
+
+
+                                                           y
+                          x
+
+Figu r e 3 : A planar sheet aligned parallel to a three-dimensional lattice of
+           rational points.
+
+
+a distance of δ to S to be proportional to an appropriate power of δ times the
+maximum number of such fractions allowed. This power of δ is determined by
+the number of constraints used to describe S; for a two-dimensional surface (as
+the sheet above) this is one (the remaining dimension), while for a curve this
+will be two.
+
+
+3 The Four ier transfor m enters the picture
+
+The previous discussion tells us that the geometry of the surface S plays a
+crucial role in determining the number of rational points close to S. However,
+what does it have to do with the Fourier transform?
+   Fourier analysis, in contrast to Diophantine approximation, is a young branch
+of mathematics. Its foundations were laid about two centuries ago by Fourier’s 7
+treatise Théorie analytique de la chaleur [2]. In this, he proposed that any
+reasonable function (say, a heat wave) can be decomposed as an infinite sum of
+simple sinusoidal waves of different frequencies (oscillations). This breakthrough
+idea was the precursor of what is now called the Fourier transform: a tool
+ubiquitous in mathematics, science, engineering, and information technology
+alike.
+   Why do we even care about the decomposition of a function into oscillations?
+This has many everyday applications outside of mathematics. Say, for example,
+we have a signal from a music file which we want to store economically. Then,
+the Fourier transform extracts all the frequencies which make the signal up.
+
+7 Jean-Baptiste Joseph Fourier (1768–1830) was a French mathematician, famous for initi-
+
+ating the investigation of Fourier series and developing the Fourier transform.
+
+
+                                           6
+Thus, we can choose a threshold above which we decide to discard all occurring
+frequencies, since we know that this will not affect the signal too much. Putting
+the remaining frequencies together restores a signal that is very close to the
+original. This is the way mp3-files work. In short, the Fourier transform allows
+to disassemble information into components, which might be more fundamental
+and useful to work with.
+   Although the question of seeking new ways to decompose (or stitch back) a
+function into (or from) simpler oscillatory components remains fundamental,
+the techniques have evolved naturally into several directions. In the plane
+or three dimensions, the geometry and curvature of the shapes around which
+the frequencies of the component waves are concentrated can reveal a lot of
+information about a function. In such cases, the waves are often bunched
+together into “packets” or “tubes”, and geometrical questions about how these
+are arranged become important.
+   Let w be a nice, smooth function which is zero except in a tiny region of
+thickness δ around the surface S. A fundamental approach to understanding
+the geometry of S using Fourier analysis would be to study how the Fourier
+transform of w is concentrated in the frequency domain 8 and where it decays.
+In other words, we would like to see how the geometry of S influences the
+arrangement of the constituent frequencies of w.
+
+3.1 Du a l i t y
+
+In general, gaining a precise understanding of the decay of the Fourier transform,
+and linking it to the geometry of S, is a highly delicate and complicated matter.
+The degree of difficulty increases as the dimension of S decreases; for example,
+the Fourier transform of a function which lives near one-dimensional curves can
+be incredibly complicated!
+    However, at least when S is a two-dimensional surface in space, we have
+more tools at our disposal. As the planar example in the beginning already
+showed, complete flatness prevents interesting things from happening. Thus, it
+is more promising to deal with surfaces with curvature. The perfect example is
+that of a sphere, though some might also prefer the two-dimensional paraboloid
+(see Figure 4).
+    Suppose that S is a paraboloidal surface as in Figure 4, which has no flat
+parts. If the function w lives in a small neighborhood of S, it turns out that
+its Fourier transform is also concentrated around another two-dimensional
+surface S ∗ in the frequency domain, which we call the dual of S. Moreover (and
+it takes some work to see this), the surface S ∗ also has no flat parts. In other
+
+8 This is the space where the Fourier transform of a function lives. The name is motivated
+
+from the idea to disassemble an oscillation into its constituting frequencies.
+
+
+                                            7
+   Fig u r e 4 : The paraboloid which is described by the equation z = x2 + y 2 .
+
+
+words, S and S ∗ essentially turn out to be geometric twins!
+    On the contrary, what if S does have points around which it is “flat” to
+a certain degree? Things get even more interesting in such situations! If S
+is a two-dimensional, locally flat surface, its dual S ∗ is a locally rough two
+dimensional surface, with spikes at isolated points! Consider the example
+illustrated in Figure 5.
+
+3.2 E x p l o i t i n g o s c i l l a t i o n
+
+Using the Fourier transform converts the counting problem around S to a dual
+counting problem around S ∗ . Moreover, fortunately for us, our notion of duality
+turns out to have a great property: taking duals twice brings us back to the
+original surface
+                                       ∗
+                                 (S ∗ ) = S.
+   However, is this repeated switching between the original and dual counting
+problems getting us any closer to obtaining a good estimate for the counting
+
+
+
+
+(a) The surface which is described by the                  ( b ) Its dual surface.
+                                      20
+     equation z = x2 + y 2                  .
+
+          F i g u r e 5 : A locally flat surface S and its locally “spiky” dual S ∗ .
+
+
+                                                8
+function associated to S? This incessant ping-pong would be of no benefit to
+us unless something significant was happening at each step to give us some
+leverage! This comes in the form of a powerful tool from Fourier analysis called
+the method of stationary phase. This method gives a precise description of the
+Fourier transform of functions living on surfaces without flat parts; in particular,
+its decay (or lack of) in different directions. For surfaces with flat parts, we
+need an even more elaborate analysis.
+    We exploit this information about the decay of the Fourier transform using
+a fundamental tool in analytic number theory; the Poisson summation formula
+equates evaluations of a function at discrete points of a periodic lattice to
+discrete evaluations of its Fourier transform. A refined geometric knowledge
+about the decay of the Fourier transform of functions which live on nice surfaces
+enables us to obtain the desired upper bounds on the number of rational points
+in tiny regions around these shapes. The set of well-approximable points on
+these surfaces, by their very definition, are contained in infinitely many such
+balls around fractions with shrinking radii. Thus, obtaining a tight bound on the
+number of these fractions, and therefore balls, enables us to estimate the volume
+of the set of these approximable points. If the number of fractions is small
+enough, in the limiting case, we can show that the volume of the intersection of
+these balls has to be negligible.
+    We desist from going into further details as it is beyond the scope of this
+snapshot. However, for the interested reader, we end our write-up with a brief
+description of a few older and recent results in this area, which has seen some
+exciting developments in the last few years! The list is by no means exhaustive.
+
+
+4 S t ate of the ar t and fur ther reading
+
+The random model for the number of rational points within a certain distance
+of S, as described in Section 2, was proven to be correct for planar curves
+with non-vanishing curvature in the seminal works [4, 9]. The influential
+paper [3] established the same for surfaces of dimension one less than the
+ambient space and with non-vanishing curvature (like spheres). More recently,
+in [8], N. Technau and the author showed that the random model is true even
+for a special class of surfaces where the curvature vanishes at exactly one point
+(or a few isolated points).
+   The breakthrough paper [1] published last year established the convergence
+case of Khintchine’s theorem for surfaces of arbitrary dimension under a mild
+curvature condition. Shortly afterwards, in the joint work [7] with D. Schindler
+and N. Technau, the author developed a novel combination of Fourier analytic
+methods and deep results from homogeneous dynamics, to make new progress
+on answering Question 1 for these general surfaces.
+
+
+                                         9
+   Finally, for an introduction to related ideas from Fourier analysis and Dio-
+phantine approximation, we invite the reader to consult Snapshots 6/2023 [5],
+1/2024 [10], 6/2020 [11], and 3/2019 [6].
+
+
+
+
+                                      10
+R e f e rences
+
+ [1] V. Beresnevich and L. Yang, Khintchine’s theorem and diophantine ap-
+     proximation on manifolds, Acta Mathematica 231 (2023), 1–30.
+ [2] J.-B. J. Fourier, Théorie analytique de la chaleur, F. Didot Paris, 1822.
+ [3] J.-J. Huang, The density of rational points near hypersurfaces, Duke Math-
+     ematical Journal 169 (2020), no. 11.
+ [4] M. N. Huxley, The rational points close to a curve, Annali della Scuola
+     Normale Superiore di Pisa-Classe di Scienze 21 (1994), no. 3, 357–375.
+ [5] G. Negro and D. Oliveira e Silva, 4= 2× 2, or the power of even integers
+     in Fourier analysis, Snapshots of modern mathematics from Oberwolfach
+     (2023), no. 6, https://doi.org/10.14760/SNAP-2023-006-EN.
+ [6] H. Pasten, Diophantine equations and why they are hard, Snapshots of
+     modern mathematics from Oberwolfach (2019), no. 3, https://doi.org/10.
+     14760/SNAP-2019-003-EN.
+ [7] D. Schindler, R. Srivastava, and N. Technau, Rational points near manifolds,
+     homogeneous dynamics, and oscillatory integrals, arXiv:2310.03867, 2023.
+ [8] R. Srivastava and N. Technau, Density of rational points near flat/rough
+     hypersurfaces, arXiv:2305.01047, 2023.
+ [9] R. C. Vaughan and S. Velani, Diophantine approximation on planar curves:
+     the convergence theory, Inventiones mathematicae 166 (2006), no. 1, 103–
+     124.
+[10] P.-L. Yung, Waves and incidences, Snapshots of modern mathematics from
+     Oberwolfach (2024), no. 1, https://doi.org/10.14760/SNAP-2024-001-EN.
+[11] J. Zahl, Rotating needles, vibrating strings, and Fourier summation, Snap-
+     shots of modern mathematics from Oberwolfach (2020), no. 6, https:
+     //doi.org/10.14760/SNAP-2020-006-EN.
+
+
+
+
+                                      11
+Rajul a S r i va s t ava i s an Assistant           Connect i o n s t o o t h e r f i e l d s
+Profe s s o r a t t h e U n i versity of            Compute r S c i e n c e, E n g i n e e r i n g a n d
+Wisconsin-Madison. At the time of wr iting          Technolo g y, P hy s i c s
+this s n a p s h o t , s h e was a Hirzebr uch
+Rese a r c h I n s t r u c t o r at the Hausdorff   License
+Cente r f o r M a t h e m a ti cs (University of    Creative C o m m o n s B Y- S A 4 . 0
+Bonn ) a n d t h e M a x P lanck Institute for
+Mathe m a t i c s, B o n n .                        DOI
+                                                    10.1476 0 / S N A P - 2 0 2 5 - 0 0 9 - E N
+Mathe m a t i c a l s u b j e c ts
+Algeb ra a n d N u m b e r Theor y, Analysis
+
+
+
+
+Snapshots of modern mathematics from Oberwolfach provide exciting insights into
+current mathematical research. They are written by participants in the scientific
+program of the Mathematisches Forschungsinstitut Oberwolfach (MFO). The
+snapshot project is designed to promote the understanding and appreciation of
+modern mathematics and mathematical research in the interested public worldwide.
+All snapshots are published in cooperation with the IMAGINARY platform and
+can be found on www.imaginary.org/snapshots and on www.mfo.de/snapshots.
+
+ISSN 2626 -1995
+
+
+Junio r E d i t o r                                 Mathema t i s c h e s Fo r s c h u n g s i n s t i t u t
+Victo r B l o c h                                   Oberwol f a c h g G m b H
+junio r - ed i t o r s @ m f o. de                  Schwarz wa l d s t r. 9 – 11
+                                                    77709 O b e r wo l f a c h
+Senio r E d i t o r                                 Ger many
+Anja R a n d e cke r
+senio r - ed i t o r @ m f o. d e                   Director
+                                                    Gerhard H u i s ke n
+

@@ -1,0 +1,643 @@
+
+
+Summing the Reciprocals of Primes | Azimuth
+
+ 
+
+Azimuth
+
+Home
+About
+
+ 
+
+Summing the Reciprocals of Primes
+
+The sum of the reciprocals of the primes diverges, but very slowly.  The sum of the reciprocals of the first 100 primes is
+
+2.106…
+
+The sum of the reciprocals of the first 1,000 primes is
+
+2.457…
+
+For the first 10,000 it’s
+
+2.709…
+
+And it keeps creeping up, ever more slowly.  To get the sum to reach 6, you need to add up the reciprocals of the first 3 × 10¹³² primes—far more than the number of atoms in the observable universe!  Luckily there is no shortage of primes.
+
+Here’s how you can see that the sum diverges, and that it diverges very slowly.  First, remember 
+Euler’s product formula
+ for the 
+Riemann zeta function
+:
+
+This diverges logarithmically when 
+  Taking logs we see
+
+must diverge too—but only log-logarithmically!
+
+A deeper result, called Merten’s Second Theorem and proved 
+here
+, says that
+
+for some constant 
+   This constant is called the 
+Meissel–Mertens constant
+.  You can think of it as a fancier relative of 
+Euler’s constant
+ 
+ which is defined by
+
+But it’s much less widespread in mathematics than Euler’s constant, much as primes are less widespread than natural numbers.
+
+Here’s how it works:
+
+What’s a bit surprising, given the slowness of convergence and the somewhat erratic behavior of the primes, is that people can compute the Meissel–Mertens constant very precisely:
+
+The trick, of course, is to use another formula for this constant, which lets you compute it much more efficiently than the definition.  Here it is:
+
+where 
+ is the 
+Möbius function
+ and 
+ is the Riemann zeta function.  By the way, this formula shows that calling 
+ a fancier relative of 
+ is not just talk.
+
+When you know how to compute the Meissel–Mertens constant, you can compare the sum of reciprocals of primes to 
+ and the agreement is very good:
+
+In 1983, Guy Robin proved the curve goes above and below the actual sum infinitely many times, i.e.
+
+changes sign infinitely many times.  You can see a bit of that happening here:
+
+Puzzle.
+  Can you find a naturally occurring sum that diverges even more slowly, for example like 
+
+ Acknowledgements 
+
+The pictures were created by Dcoetzee, Marek Wolf and Saroad, respectively, and placed into the public domain on Wikicommons.  Click on the pictures for more details.
+
+Related
+
+					This entry was posted  on Monday, June 1st, 2026 at 3:20 pm and is filed under 
+mathematics
+.					You can follow any responses to this entry through the 
+RSS 2.0
+ feed.
+											You can 
+leave a response
+, or 
+trackback
+ from your own site.
+					
+					
+
+Post navigation
+
+« Previous Post
+
+Next Post »
+
+11 Responses to 
+Summing the Reciprocals of Primes
+
+ 
+Marcos
+ 
+says:
+ 
+
+1 June, 2026 at 4:25 pm
+ 
+
+I wonder what is the “first” series of reciprocals that converges, if we keep “rarefying” the integers with some elegant system of rules (in this case, accepting only primes did not work, but accepting only squares works)
+
+I feel there is plenty of space between primes and squares to explore.
+
+Reply
+
+ 
+John Baez
+ 
+says:
+ 
+
+1 June, 2026 at 10:34 pm
+ 
+
+There is no “first” series of reciprocals that converges—nor any “last” one that diverges!  For any decreasing series of reciprocals of positive integers that converges, you can include infinitely many reciprocals that had been left out, and get another series that still converges.  Also, for any decreasing series of reciprocals of positive integers that diverges, you can remove infinitely many terms and get another such series that still diverges.  These are not hard to show if you’ve had some practice showing things about convergence of series.
+
+Reply
+
+ 
+Bruce Smith
+ 
+says:
+ 
+
+3 June, 2026 at 5:16 am
+ 
+
+I read the question as ruling those out, since they no longer follow “some elegant system of rules”. That is, I think we are being called to consider only very simply-defined series in this question. (And even then, to interpret “first” informally.)
+
+Reply
+
+ 
+John Baez
+ 
+says:
+ 
+
+3 June, 2026 at 7:42 am
+ 
+
+Yes, I wanted a naturally occurring series, but some questions I’ve gotten here and there on social media made me realize not everyone interested in this knows all the standard facts about convergence and divergence.  (And indeed, why should they?)   Like this:
+
+These series diverge, but ever more slowly:
+
+and so on.  (We have to keep jacking up the lower limit on the sum to avoid taking the logarithm of zero or a negative number.)   The second of these series is related to the sum of reciprocals of primes because the kth prime is roughly 
+
+On the other hand, these series converge, but ever more slowly:
+
+and so on.
+
+Reply
+
+ 
+Sir Lleb
+ 
+says:
+ 
+
+5 June, 2026 at 6:14 pm
+ 
+
+“Inequalities” by Hardy, Littlewood, and Polya is always worth revisiting. Much wisdom, and half forgotten techniques.
+
+That’s J.E. Littlewood — Analysis and Number Theory, not to be confused with D.E. Littlewood — Group Representation Theory and Abstract Algebra.
+
+ 
+lfm3131
+ 
+says:
+ 
+
+1 June, 2026 at 10:17 pm
+ 
+
+Thank you for this expanding glimpse into the never-terminating wonderments of Number Theory :  )
+
+Off the top of my head, I was wondering: in a Dedekind domain, is there any analogy to this phenomenon in terms of prime ideals?
+
+Is that an idle question with an obvious answer ?
+
+Reply
+
+ 
+Toby Bartels
+ 
+says:
+ 
+
+1 June, 2026 at 10:36 pm
+ 
+
+If you have an ordered principal ideal domain D with the property that each ideal has a unique positive generator (and I'm not sure how restrictive this is, but it's certainly more restrictive than a Dedekind domain), then you could take the positive generators of the prime ideals, consider their reciprocals in the field of fractions of D, and start adding them up.  Since the order on D induces an order on its field of fractions (again I'm not sure how reasonable it is to consider this order in any examples other than when D is the integers), you can use the order topology and ask whether the sum converges.  (And I have no idea what the answer is.)
+
+Reply
+
+ 
+John Baez
+ 
+says:
+ 
+
+1 June, 2026 at 10:44 pm
+ 
+
+I guess the obvious thing to try is summing the reciprocals of the so-called 
+norms
+ of the prime ideals.   If you’re not familiar with that concept, it’s best to start with the 
+norm
+ of an element in an 
+algebraic number field
+.  (The only Dedekind domains I understand are algebraic number fields.)
+
+However, I don’t know much about summing reciprocals of norms, except that for algebraic number fields this is probably related to studying the 
+Dedekind zeta function
+ as we approach a pole—generalizing what I mentioned in the blog article, where the sum of the reciprocals of primes was related to the limit of the Riemann zeta function as 
+ thanks to the Euler product formula.   There’s an Euler product formula in the algebraic number field case, too, so maybe a lot of things generalize to this case.
+
+Reply
+
+ 
+Jesús López
+ 
+says:
+ 
+
+2 June, 2026 at 2:13 am
+ 
+
+As for the puzzle, or around it, I liked first sight what wikipedia called Carleman matrices before, and  now calls Jabotinsky. They are matrices associated to real smooth functions with the property that  function composition is homomorphic to the product of their Carleman matrices. Hmm. So one can use linear algebra methods to study  nonlinear functions of interest. In R. Aldrovandi book of ISBN 9810247087 there are more details (by still another name, Bell matrices). Log() behaves badly at 0, the Carleman matrix for 
+ about 1, 
+, is signed first kind Stirling numbers triangle with a factorial scaling: 
+, with 
+ appearing naturally in falling factorial coefficient developments. Asking what happens about 0 can be a good or bad idea, but it amounts to precomposing previous function with an anti-shift $x \mapsto x-1$. The Carleman matrix 
+ for the shift is nicely the Pascal triangle. The inverse function (anti-shift) has as  Carleman matrix the inverse matrix of Pascal triangle (
+), in accord with above homomorphism, and that has a convenient matrix: a signed version also of Pascal triangle itself, findable in the Binomial transform page of OEIS wiki. So good or bad idea, the Carleman matrix of 
+ about 0 under make-do suspension of disbelief has to be 
+ (matrix product), and hence, triple log has to have as Carleman matrix the triple power of that. That should be the punchline. As I reread the post, I realize the above is not quite addressing series asymptotics, yet I’m posting anyhow for if it seeds some lateral thinking. Triangle matrices have frequently nice finite calculations and finite truncated versions of some identities often nest into bigger dimension versions, in a chain.
+
+Reply
+
+ 
+Vassil Nikolov | Васил Николов
+ 
+says:
+ 
+
+2 June, 2026 at 6:09 am
+ 
+
+May I ask, even though I probably won't solve the puzzle,
+what is "a naturally occurring sum"?
+
+@johncarlosbaez.wordpress.com
+
+			Reply as 
+ 
+
+		Reply on the Fediverse	
+
+Remote Reply
+
+Original Comment URL
+
+		Paste the comment URL into the search field of your favorite open social app or platform.	
+
+			Comment URL		
+
+Your Profile
+
+		Or, if you know your own profile, we can start things that way!				
+
+Why do I need to enter my profile?
+
+				This site is part of the ⁂ open social web, a network of interconnected social platforms (like Mastodon, Pixelfed, Friendica, and others). Unlike centralized social media, your account lives on a platform of your choice, and you can interact with people across different platforms.			
+
+				By entering your profile, we can send you to your account where you can complete this action.			
+
+			Your Fediverse profile		
+
+Reply
+
+Loading…
+
+			Save my profile for future comments.		
+
+ 
+John Baez
+ 
+says:
+ 
+
+2 June, 2026 at 11:21 am
+ 
+
+A sum that mathematicians would find interesting for reasons other than merely that it diverges at the desired rate.  It’s easy to make up sums that diverge at any desired rate.   For example (see above):
+
+and so on.
+
+Reply
+
+You can use Markdown or HTML in your comments.  You can also use LaTeX, like this: $latex E = m c^2 $. The word 'latex' comes right after the first dollar sign, with a space after it. 
+Cancel reply
+Your email address will not be published.
+ 
+Required fields are marked 
+*
+Comment 
+*
+ 
+Name 
+*
+ 
+
+Email 
+*
+ 
+
+Website
+ 
+
+ 
+
+ 
+Notify me of new comments via email.
+ 
+Notify me of new posts via email.
+Δ
+
+ 
+
+latest posts:
+
+Octonions and the Standard Model
+
+Interview with Micah Zarin
+
+Summing the Reciprocals of Primes
+
+From Pentagons to Pentagrams
+
+The Great Icosahedron
+
+What Are Atoms Made Of?
+
+Phasons in Quasicrystals
+
+Naturally Occurring Quasicrystals
+
+Freiman’s Constant
+
+Quantum Mechanics of the Inverse Cube Force Law
+
+latest comments:
+
+allenknutson on 
+Octonions and the Standard…
+John Baez
+ on 
+Octonions and the Standard…
+allenknutson on 
+Octonions and the Standard…
+BLK on 
+Norton’s Dome
+walgaterobert on 
+Octonions and the Standard…
+Phillip Helbig on 
+Octonions and the Standard…
+mitchellporter on 
+Octonions and the Standard…
+John Baez
+ on 
+Octonions and the Standard…
+John Baez
+ on 
+Octonions and the Standard…
+walgaterobert on 
+Octonions and the Standard…
+ 
+
+How To Write Math Here:
+
+You can 
+include math in your comments using LaTeX
+,  but you need to do it this way:
+
+$latex  E = mc^2$
+
+You need the word 'latex' right after the first dollar sign, and it needs a space after it.  Double dollar signs don't work, and other limitations apply, some described 
+here
+.  You can't preview comments here, but I'm happy to fix errors.
+
+Read Posts On:
+
+art
+ (8)
+
+astronomy
+ (59)
+
+azimuth
+ (65)
+
+biodiversity
+ (41)
+
+biology
+ (114)
+
+carbon emissions
+ (80)
+
+chemistry
+ (92)
+
+climate
+ (162)
+
+computer science
+ (80)
+
+conferences
+ (113)
+
+culture
+ (8)
+
+economics
+ (33)
+
+energy
+ (51)
+
+engineering
+ (12)
+
+epidemiology
+ (22)
+
+game theory
+ (30)
+
+geography
+ (5)
+
+health
+ (7)
+
+history
+ (21)
+
+information and entropy
+ (100)
+
+jobs
+ (17)
+
+journals
+ (5)
+
+mathematics
+ (653)
+
+music
+ (55)
+
+networks
+ (192)
+
+oceans
+ (13)
+
+physics
+ (270)
+
+politics
+ (2)
+
+probability
+ (99)
+
+psychology
+ (6)
+
+publishing
+ (20)
+
+puzzles
+ (14)
+
+quantum technologies
+ (28)
+
+questions
+ (3)
+
+risks
+ (59)
+
+seminars
+ (23)
+
+software
+ (33)
+
+strategies
+ (44)
+
+sustainability
+ (76)
+
+the practice of science
+ (29)
+
+this week's finds
+ (18)
+
+also visit these:
+
+Bit Tooth Energy
+
+Brave New Climate
+
+Do the Math
+
+Dot Earth
+
+Environment 360
+
+Planet3.0
+
+RealClimate
+
+Serendipity
+
+The Science of Doom
+
+Yale Environment 360
+
+RSS feeds:
+
+ 
+RSS - Posts
+ 
+RSS - Comments
+
+Email Subscription:
+
+Enter your email address to subscribe to this blog and receive notifications of new posts by email.
+
+						Email Address:					
+
+ 
+
+ 
+
+						Sign me up!					
+
+					Join 5,451 other subscribers				
+
+SEARCH:
+
+Search
+
+Blog Stats:
+
+5,558,995 hits
+
+Blog at WordPress.com.
+
+ 
+Comment						
+
+Reblog
+
+Subscribe
+
+Subscribed
+
+				Azimuth			
+
+Join 5,451 other subscribers
+
+ 
+
+												Sign me up											
+
+											Already have a WordPress.com account? 
+Log in now.
+ 
+
+ 
+Privacy						
+
+ 
+
+				Azimuth			
+
+Subscribe
+
+Subscribed
+
+Sign up
+
+Log in
+
+Copy shortlink
+
+										Report this content									
+
+										View post in Reader									
+
+Manage subscriptions
+
+Collapse this bar
+
+Loading Comments...
+
+Write a Comment...
+
+Email (Required)
+
+Name (Required)
+
+Website
+
+ 
+

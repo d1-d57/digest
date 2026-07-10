@@ -1,0 +1,544 @@
+
+
+To Have Machines Make Math Proofs, Turn Them Into a Puzzle | Quanta Magazine
+
+Quanta Homepage
+
+Physics
+
+Mathematics
+
+Biology
+
+Computer Science
+
+Topics
+
+Archive
+
+Special Issues
+
+Podcasts
+
+Videos
+
+Qualia Essays
+
+Multimedia
+
+Q&As
+
+Explainers
+
+About Quanta
+
+                                    Search
+
+Search for:
+
+Search
+
+Search
+
+                Newsletter            
+
+Get the latest news delivered to your inbox.
+
+Email
+
+Subscribe
+
+Recent newsletters
+
+                                    Follow Quanta
+
+Facebook
+
+Youtube
+
+Instagram
+
+RSS
+
+An editorially independent publication supported by the Simons Foundation.
+
+Quanta Homepage
+
+Physics
+
+Mathematics
+
+Biology
+
+Computer Science
+
+Topics
+
+Archive
+
+Saved articles
+
+Saved Articles
+
+Create a reading list by clicking the Read Later icon next to the articles you wish to save.
+
+See all saved articles
+
+Login
+
+Log out
+
+Change password
+
+Search
+
+Type search term(s)
+ and press enter
+
+What are you looking for?
+
+Search
+
+Popular
+                                    Searches
+
+                                                    Mathematics
+
+                                                    Physics
+
+                                                    Black Holes
+
+                                                    Evolution
+
+Home
+
+                To Have Machines Make Math Proofs, Turn Them Into a Puzzle            
+
+Comment
+
+Save Article
+
+Read Later
+
+Share
+
+Facebook
+
+Copied!
+
+Copy link
+
+Email
+
+Pocket
+
+Reddit
+
+Ycombinator
+
+Comment
+
+Comments
+
+Save Article
+
+                Read Later
+
+Read Later
+
+Q&A
+
+To Have Machines Make Math Proofs, Turn Them Into a Puzzle
+
+By 
+
+John Pavlus
+
+November 10, 2025
+
+            Marijn Heule turns mathematical statements into something like Sudoku puzzles, then has computers go to work on them. His proofs have been called “disgusting,” but they go beyond what any human can do.        
+
+Comment
+
+Save Article
+
+Read Later
+
+Marijn Heule stands behind artwork by David Magán at the Opera Gallery in Madrid.
+
+Luis Camacho for 
+Quanta Magazine
+
+Introduction
+
+By 
+John Pavlus                
+
+Contributing Writer
+
+November 10, 2025
+
+View PDF/Print Mode
+
+computer science
+
+computer-assisted proofs
+
+large language models
+
+logic
+
+mathematics
+
+Q&A
+
+All topics
+
+The mathematical conundrums that Marijn Heule has helped crack in the last decade sound like code names lifted from a sci-fi spy novel: 
+the empty hexagon
+. 
+Schur Number 5
+. 
+Keller’s conjecture, dimension seven
+. In reality, they are (or, more accurately, were) some of the most stubborn problems in geometry and combinatorics, defying solution for 90 years or more. Heule used a computational Swiss Army knife called satisfiability, or SAT, to whittle them into submission. Now, as a member of Carnegie Mellon University’s Institute for Computer-Aided Reasoning in Mathematics, he believes that SAT can be joined with large language models (LLMs) to create tools powerful enough to tame even harder problems in pure math.
+
+“LLMs have won medals in the International Mathematical Olympiad, but these are all problems that humans can also solve,” Heule said. “I really want to see AI solve the first problem that humans cannot. And the cool thing about SAT is that it already has been shown that it was able to solve several problems for which there is no human proof.”
+
+SAT is actually one of the foundations of artificial intelligence itself, although not the kind of AI that makes headlines by 
+mimicking fluent conversation
+ or 
+spooking researchers with supposedly “evil” thoughts
+. Instead, SAT belongs to the tradition of symbolic artificial intelligence (also known as GOFAI, or “good old-fashioned AI”), which uses hard-coded rules — not the 
+inscrutable interactions
+ within a 
+deep neural network
+ — to produce results. In fact, SAT is about as simple as AI gets, conceptually speaking: It relies on statements that can have only two possible values, true or false, linked together in ironclad chains of logic. If problems can be ground down into these logical “atoms,” computer programs called SAT solvers can often build airtight proofs about them — a process called, appropriately, “automated reasoning.” Those proofs might be long, sometimes 
+too long for humans to ever parse ourselves
+. But they are sound.
+
+                Share this article
+
+Facebook
+
+Copied!
+
+Copy link
+
+Email
+
+Pocket
+
+Reddit
+
+Ycombinator
+
+                    Newsletter
+
+Get Quanta Magazine delivered to your inbox
+
+Subscribe now
+
+Recent newsletters
+
+Heule argues that most mathematicians overvalue understanding and undervalue trust.
+
+Luis Camacho for 
+Quanta Magazine
+
+Heule admits his expertise isn’t necessarily in the actual math underlying such proofs, but rather in the puzzlelike thinking required to translate problems into a format that SAT solvers can attack. And his talent came early. “According to my parents, I was able to solve my first puzzle of 100 pieces when I was 1 year old — so, before I could walk,” Heule said. Heule took his first class in satisfiability as an undergraduate at the Delft University of Technology, built his first SAT solver soon after, and earned a doctorate in computer science under the supervision of Hans van Maaren, “one of the founding fathers of the field” of satisfiability research, Heule said. The two men went on to co-author a definitive 
+1,500-page textbook on SAT
+.
+
+Heule says he’s long been intrigued by whether computers can solve problems beyond human reasoning. “That’s the question I’m still asking: How do you automate reasoning? Can it be done the way humans do, or does it need to be something completely different? My conclusion, so far, is the latter. All my successes are based on that insight.”
+
+Quanta
+ spoke to Heule about the difference between machine and human reasoning, how SAT’s simplicity is its secret weapon, and why understanding is overrated in mathematics. The interview has been condensed and edited for clarity.
+
+Heule in front of Órgano, a sculpture by Eusebio Sempere.
+
+Luis Camacho for 
+Quanta Magazine
+
+First things first: What is SAT?
+
+It uses something called a propositional formula, which you can imagine as a very big sudoku board. In every cell, you only have two options: only one or zero, standing for true or false. You also have the rules, or constraints, about how many zeros or ones can be in each row or column. Can you put in all the zeros and ones such that all those constraints are satisfied?
+
+Despite its simplicity, this formulation is remarkably powerful. A wide variety of important problems, including hardware and software verification, scheduling, and even areas of pure mathematics, can be translated into SAT.
+
+That just sounds like binary computation. How is SAT-solving different from anything else a digital computer does?
+
+What SAT tools do is fundamentally different from ordinary computation. A standard program takes input and carries out a sequence of operations to produce output. A SAT tool is not computing with the zeros and ones. Instead, it is searching for a combination of them that satisfies all the constraints.
+
+That makes it more like solving a puzzle: You explore possibilities, rule out large portions of the space using clever reasoning, and keep going until you either find a satisfying assignment or conclude that none exists.
+
+What can generative AI add to the power of SAT solvers?
+
+Once you’ve figured out the right representation of a problem, called the encoding, SAT tools are extremely powerful. One of my skills is that I’m really good at coming up with the right representation. I’ve really studied how these tools reason; I know what is required so that you can get everything out of them. But ideally, you wouldn’t need this knowledge. I would really like to take myself out of the equation — then the technology could really shine.
+
+Heule at the Monument to the Spanish Constitution of 1978.
+
+Luis Camacho for 
+Quanta Magazine
+
+So how can we make these effective translations also automatic? If you feed an LLM with lots of good examples of how you should do this, it will come up with something much better than the average user would do. Of course, the challenge here is how to be sure that the translation is correct.
+
+Mathematicians such as Terence Tao 
+think
+ that generative AI can help the research process itself. Where does SAT fit into that picture?
+
+LLMs can generate a lot of plausible-sounding lemmas [statements that are used to prove larger theorems], and automated reasoning can check whether they’re correct or not. But as soon as something is incorrect, the SAT solver can give counterexamples back — ideally, the smallest counterexample. Because the solver is really good at figuring out: OK, that mistake I just made, what did it depend on?
+
+This matters because, in mathematics, counterexamples are incredibly valuable for developing intuition. If you ask a SAT solver, “Does a counterexample exist?” you don’t want it to return an enormous, incomprehensible object. A small counterexample often reveals immediately why the statement fails. Feeding such counterexamples back to an LLM can guide it in the same way a human would: by helping it to refine its suggestions and to propose better lemmas next.
+
+Heule in Castilla, a sculpture by Gustavo Torner.
+
+Luis Camacho for 
+Quanta Magazine
+
+Kind of like a “targeting computer” for the AI?
+
+Yes. I think LLMs can focus on the big picture of a mathematical statement and suggest how to break it into smaller pieces. Once you have that decomposition, automated reasoning can go through the pieces one by one: It can prove a piece, or it can refute it by giving a counterexample. And just as important, it can also check that the pieces really cover everything, so that nothing slips through the cracks.
+
+To make the whole story trustworthy, you want a system like Lean, [a formal proof checker] that checks all the proofs and all the gluing: that the lemmas are correct and that they really add up to the full statement. So the LLM performs the high-level carving, automated reasoning certifies each piece, and Lean ensures the whole thing is watertight. When all of that lines up, the pieces really do add up.
+
+These automated proofs can end up extremely long — far too long for humans to even read, much less understand. Won’t that become even more of a problem if LLMs, 
+which are already hard to understand themselves
+, enter the picture?
+
+The initial criticism of my work was mostly about this lack of understanding. [The Fields Medal–winning mathematician] Timothy Gowers called 
+my work on the Pythagorean triples problem
+ “the most disgusting proof ever.” But how I feel about this is that understanding in mathematics is highly overrated.
+
+Luis Camacho for 
+Quanta Magazine
+
+The thing is, there’s no mathematician alive who understands all of mathematics. It’s more that there are reputable mathematicians who can say, for each little piece of the puzzle, “OK, I checked. This is correct.” And now others can build on top of that. They overvalue understanding and undervalue trust. I think we should really embrace trust as the key thing to further mathematics, and this is what automation can give you. LLMs can do all of their bullshitting, but as soon as automated reasoning is able to say, “OK, but this part is actually correct, and here’s a proof,” this is actually more trustworthy than most of the pen-and-paper proofs out there. As long as there’s a good trust story, then you can build on top of that and really help mathematics. In such a way, you can see it as a “co-author” because it’s something that follows along with you and tries to spot the gaps in your reasoning.
+
+Related:
+
+Mathematical Beauty, Truth and Proof in the Age of AI
+
+Why Mathematical Proof Is a Social Compact
+
+Proof Assistant Makes Jump to Big-League Math
+
+Suppose that the productive interaction you describe between LLMs and SAT were actually built. What would be left for human mathematicians to do?
+
+When I’ve solved open problems with SAT, it has always been together with mathematicians. They had already spent years thinking hard about these questions. I took their insights and encoded them so that the solver could finish the job. If I’d tried to do it alone, starting from scratch, I would have gotten nowhere.
+
+I expect the future will look similar. My role has been to translate mathematical understanding into a SAT representation, but LLMs could help many more mathematicians learn how to do this themselves, so they don’t need me as the middleman. That’s incredibly exciting. With mathematicians, generative AI and automated reasoning working together, we have a real shot at cracking long-standing open problems. But removing humans from the loop entirely would be a mistake. The creative intuition, the conceptual reframing, that’s still something people are uniquely good at. The magic comes from the collaboration.
+
+By 
+John Pavlus                
+
+Contributing Writer
+
+November 10, 2025
+
+View PDF/Print Mode
+
+computer science
+
+computer-assisted proofs
+
+large language models
+
+logic
+
+mathematics
+
+Q&A
+
+All topics
+
+                Share this article
+
+Facebook
+
+Copied!
+
+Copy link
+
+Email
+
+Pocket
+
+Reddit
+
+Ycombinator
+
+                    Newsletter
+
+Get Quanta Magazine delivered to your inbox
+
+Subscribe now
+
+Recent newsletters
+
+                The Quanta Newsletter            
+
+Get highlights of the most important news delivered to your email inbox
+
+Email
+
+Subscribe
+
+Recent newsletters
+
+Also in 
+Computer Science
+
+Researchers Reveal the Power of ‘Quantum Proofs’
+
+computational complexity
+
+                    Researchers Reveal the Power of ‘Quantum Proofs’                
+
+By 
+
+Ben Brubaker
+
+July 6, 2026
+
+Comment
+
+Save Article
+
+Read Later
+
+Key Chemistry Question Answered, No Quantum Computer Required
+
+chemistry
+
+                    Key Chemistry Question Answered, No Quantum Computer Required                
+
+By 
+
+Kevin Hartnett
+
+May 29, 2026
+
+Comment
+
+Save Article
+
+Read Later
+
+How Unknowable Math Can Help Hide Secrets
+
+cryptography
+
+                    How Unknowable Math Can Help Hide Secrets                
+
+By 
+
+Ben Brubaker
+
+May 11, 2026
+
+Comment
+
+Save Article
+
+Read Later
+
+Comment on this article
+
+Quanta Magazine moderates comments to facilitate an informed, substantive, civil conversation. Abusive, profane, self-promotional, misleading, incoherent or off-topic comments will be rejected. Moderators are staffed during regular business hours (New York time) and can only accept comments written in English. 
+
+Show comments
+
+Next article
+
+Physicists Take the Imaginary Numbers Out of Quantum Mechanics
+
+Quanta Homepage
+
+Facebook
+
+Youtube
+
+Instagram
+
+About Quanta
+
+Archive
+
+Contact Us
+
+Terms & Conditions
+
+Privacy Policy
+
+AI Editorial Policy
+
+All Rights Reserved © 2026
+
+An editorially independent publication supported by the Simons Foundation.
+
+Simons Foundation
+
+Close
+
+Log in to Quanta
+
+Use your social network
+
+Facebook
+
+Connect with Facebook
+
+Connect with Google
+
+or
+
+email
+
+password
+
+Remember me
+
+Forgot your password ?
+
+        Don't have an account yet?
+
+Sign up
+
+Close
+
+Forgot your password?
+
+We’ll email you instructions to reset your password
+
+email
+
+Close
+
+Change your password
+
+Enter your new password
+
+Password
+
+Retype new password
+
+Close
+
+Sign Up
+
+First Name
+
+Last Name
+
+Email
+
+Password
+
+Retype Password
+
+            Creating an account means you accept Quanta Magazine's
+
+Terms & Conditions
+ and 
+Privacy Policy
+

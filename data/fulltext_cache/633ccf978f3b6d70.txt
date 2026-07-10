@@ -1,0 +1,179 @@
+Quantum Scientists Have Built a New Math of Cryptography | Quanta Magazine
+Quanta Homepage
+About Quanta
+Search
+Newsletter
+Get the latest news delivered to your inbox.
+Recent newsletters
+Follow Quanta
+Facebook
+Youtube
+Instagram
+RSS
+An editorially independent publication supported by the Simons Foundation.
+Type search term(s)
+and press enter
+Home
+Quantum Scientists Have Built a New Math of Cryptography
+Comment
+Save Article
+Read Later
+Share
+Facebook
+Copied!
+Copy link
+Email
+Pocket
+Reddit
+Ycombinator
+Comment
+Comments
+Save Article
+Read Later
+Read Later
+quantum cryptography
+Quantum Scientists Have Built a New Math of Cryptography
+By
+Ben Brubaker
+July 25, 2025
+In theory, quantum physics can bypass the hard mathematical problems at the root of modern encryption. A new proof shows how.
+Comment
+Save Article
+Read Later
+Researchers are rebuilding the foundations of the tower of cryptography.
+Wei-An Jin/
+Quanta Magazine
+Introduction
+Hard problems are usually not a welcome sight. But cryptographers love them. That’s because certain hard math problems underpin the security of modern encryption. Any clever trick for solving them will doom most forms of cryptography.
+Several years ago, researchers found
+a radically new approach to encryption
+that lacks this potential weak spot. The approach exploits the peculiar features of quantum physics. But unlike earlier quantum encryption schemes, which only work for a few special tasks, the new approach can accomplish a much wider range of tasks. And it could work even if all the problems at the heart of ordinary “classical” cryptography turn out to be easily solvable.
+But this striking discovery relied on unrealistic assumptions. The result was “more of a proof of concept,” said
+Fermi Ma
+, a cryptography researcher at the Simons Institute for the Theory of Computing in Berkeley, California. “It is not a statement about the real world.”
+Now, a
+new paper
+by two cryptographers has laid out a path to quantum cryptography without those outlandish assumptions. “This paper is saying that if certain other conjectures are true, then quantum cryptography must exist,” Ma said.
+Castle in the Sky
+You can think of modern cryptography as a tower with three essential parts. The first part is the bedrock deep beneath the tower, which is made of hard mathematical problems. The tower itself is the second part — there you can find specific cryptographic protocols that let you send private messages, sign digital documents, cast secret ballots and more.
+In between, securing those day-to-day applications to mathematical bedrock, is a foundation made of building blocks called
+one-way functions
+. They’re responsible for the asymmetry inherent in any encryption scheme. “It’s one-way because you can encrypt messages, but you can’t decrypt them,” said
+Mark Zhandry
+, a cryptographer at NTT Research.
+In the 1980s, researchers proved that cryptography built atop one-way functions would ensure security for many different tasks. But decades later, they still aren’t certain that the bedrock is strong enough to support it. The trouble is that the bedrock is made of special hard problems — technically known as NP problems — whose defining feature is that it’s easy to check whether any candidate solution is correct. (For example, breaking a number into its prime factors is an NP problem: hard to do for large numbers, but easy to check.)
+Many of these problems seem intrinsically difficult, but computer scientists
+haven’t been able to prove it
+. If someone discovers an ingenious algorithm for rapidly solving the hardest NP problems, the bedrock will crumble, and the whole tower will collapse.
+Unfortunately, you can’t simply move your tower elsewhere. The tower’s foundation — one-way functions — can only sit on a bedrock of NP problems.
+To build a tower on harder problems, cryptographers would need a new foundation that isn’t made of one-way functions. That seemed impossible until just a few years ago, when researchers realized that quantum physics could help.
+It started with a
+2021 paper
+by a graduate student named
+William Kretschmer
+that drew attention to a strange problem about the properties of quantum systems. Researchers soon showed that Kretschmer’s problem could replace one-way functions as the foundation for a new tower of
+cryptographic
+protocols
+. The following year, Kretschmer and others
+proved
+that this alternative approach could work even without hard NP problems. Suddenly, it seemed like it might be possible to construct a cryptographic fortress that would be far sturdier.
+But where to build it? The quantum problem Kretschmer used as his foundation involved
+hypothetical computing devices called oracles
+that can instantaneously answer specific questions. Oracles can be useful theoretical tools, but they don’t actually exist. Kretschmer’s proofs were like a blueprint for building a castle in the sky. Was there a way to bring it down to earth?
+Second Foundation
+In the fall of 2022, that question caught the attention of
+Dakshita Khurana
+, a cryptographer at the University of Illinois at Urbana-Champaign and NTT Research. Khurana and her graduate student
+Kabir Tomer
+set out to build a new tower of cryptography. Her first step was to build a new foundation using quantum building blocks instead of classical one-way functions. She would then need to prove that this new foundation could support a tower of other cryptographic protocols. Once she proved that the foundation could support the tower, she would have to find a solid place for the whole thing to sit — a bedrock of real-world problems that seem even harder than the NP problems used in classical cryptography.
+Dakshita Khurana set out to find mathematical building blocks that could replace one-way functions as a foundation for quantum cryptography.
+Ravi Shankar Khurana
+For the first step, Khurana and Tomer focused on a quantum version of a one-way function, called a
+one-way state generator
+, that satisfied the three properties that make one-way functions useful. First, the function must run quickly so that you can easily generate a cryptographic lock and the corresponding key to open it for each message you want to send. Second, each lock must be secure, requiring great effort to break open without the right key. Finally, every lock must be easy to open with the right key.
+The crucial difference lay in the nature of the locks. Classical one-way functions generate mathematical locks made of bits — the 0s and 1s that store information in a classical computer. Quantum one-way state generators would instead generate locks made of units of quantum information called qubits. These quantum locks could potentially remain secure even if all classical locks are easy to break. Khurana and Tomer hoped to start with this new quantum foundation and build a tower of cryptographic protocols on top of it. “This turned out to be quite hard,” Khurana said. “We were stuck for many, many months.”
+By July 2023, Khurana was nearly nine months pregnant and planning for parental leave. Tomer was out of ideas. “I’m much more pessimistic than Dakshita,” he said. “She’s always the one who believes that things will work.”
+Then they made a breakthrough. The crucial step was defining another mathematical building block that served as something like a basement floor: a structure that would connect the foundation of one-way state generators to a tower of cryptographic protocols. When Khurana and Tomer worked out what properties that building block would need to have, they found that it resembled a one-way function with a perplexing mixture of quantum and classical characteristics. As in an ordinary one-way function, both locks and keys were made of classical bits, but the procedure for generating these locks and keys would only run on a quantum computer. Stranger still, the new building block satisfied the first two defining properties of one-way functions, but not the third: It was easy to generate locks and keys, and every lock was hard to break. But a key wouldn’t easily open its lock.
+Khurana and Tomer dubbed these perplexing new building blocks one-way puzzles. Intuitively, it’s hard to imagine how they could possibly be useful: What good is a key that you can never use? But the two cryptographers showed that one-way puzzles combined with other quantum trickery would actually
+enable many cryptographic protocols
+. If you can generate locks and keys that fit together in principle, it doesn’t matter whether the unlocking procedure is wildly inefficient.
+Kabir Tomer and Khurana connected the new quantum building blocks to real-world problems harder than the ones used in classical cryptography.
+James Bartusek
+“Just knowing that there exists some algorithm that can be arbitrarily slow is sufficient,” said Kretschmer, who is now a researcher at the Simons Institute. “That is very surprising.”
+With that missing piece in place, they quickly finished the proof on August 4. Khurana’s daughter was born just days later.
+Permanent Record
+By November, Khurana was back at work and ready to attempt the second phase of her plan. She and Tomer had shown that many kinds of cryptography could be built upon one-way puzzles, and that one-way puzzles could in turn be built upon a new quantum foundation made of one-way state generators. The next step in their original plan was to connect that quantum foundation to a new bedrock — some relatively unassailable set of math problems that are even more intractable than those in NP.
+But as Khurana and Tomer grappled with that task, they decided to take a more direct approach: Forget about the one-way state generators, and instead anchor one-way puzzles directly to the mathematical bedrock.
+From one perspective, that seemed like an odd choice. One-way puzzles were mathematical oddities that Khurana and Tomer had used in an intermediate step of their proof.
+Yet one-way puzzles had some advantages. For one thing, while they’re quantum, the locks and keys that they generate are classical. Khurana thought that might make it easier to connect them to a bedrock of classical mathematics. In addition, one-way puzzles generate keys that are too unwieldy to actually open locks. That could make it easier to link them to problems so tricky that even checking solutions seems hopelessly hard.
+But what specific problems would work? Khurana had a candidate in mind: calculating a specific combination of the entries in a table of numbers called a matrix. This problem, known as the matrix permanent problem, is notoriously difficult to solve for large matrices, and there’s no simple way to check whether a calculation is correct. The matrix permanent problem also has other special mathematical properties that cryptographers find appealing.
+“This would be a beautiful problem to base cryptography on,” Khurana said.
+The matrix permanent problem also connects to a different problem that
+quantum computers can easily solve but classical computers seemingly can’t
+. Researchers are working on proving this quantum computational advantage in a precise theoretical sense. Khurana and Tomer showed that such a proof would also let them build secure one-way puzzles — and thus the whole tower of quantum cryptography — on top of the permanent problem.
+“They were able to do this from these well-studied assumptions,” Kretschmer said. “I was really happy to see that.”
+With their new result, Khurana and Tomer have effectively reduced two open problems to one. If researchers complete the proof that quantum computers truly surpass classical ones at a specific task, that will automatically put quantum cryptography on much stronger theoretical footing than practically any kind of classical cryptography.
+Alas, you won’t be able to use Khurana and Tomer’s new approach to send secret messages any time soon. Despite
+recent progress
+, quantum computing technology is not yet mature enough to put their ideas into practice. Meanwhile, other researchers have devised quantum cryptography methods that
+could be used sooner
+, though more work will be needed to establish that they’re truly secure.
+Quantum cryptography has already proved full of surprises, and researchers have only recently begun exploring the possibilities. “We’re just trying to understand this new landscape that really existed the whole time,” Zhandry said.
+The Quanta Newsletter
+Get highlights of the most important news delivered to your email inbox
+Recent newsletters
+Also in
+Computer Science
+Researchers Reveal the Power of ‘Quantum Proofs’
+computational complexity
+Researchers Reveal the Power of ‘Quantum Proofs’
+By
+Ben Brubaker
+July 6, 2026
+Comment
+Save Article
+Read Later
+Key Chemistry Question Answered, No Quantum Computer Required
+chemistry
+Key Chemistry Question Answered, No Quantum Computer Required
+By
+Kevin Hartnett
+May 29, 2026
+Comment
+Save Article
+Read Later
+How Unknowable Math Can Help Hide Secrets
+cryptography
+How Unknowable Math Can Help Hide Secrets
+By
+Ben Brubaker
+May 11, 2026
+Comment
+Save Article
+Read Later
+Comment on this article
+Quanta Magazine moderates comments to facilitate an informed, substantive, civil conversation. Abusive, profane, self-promotional, misleading, incoherent or off-topic comments will be rejected. Moderators are staffed during regular business hours (New York time) and can only accept comments written in English.
+Show comments
+Next article
+Why Did The Universe Begin?
+Close
+Log in to Quanta
+Use your social network
+Facebook
+Connect with Facebook
+Connect with Google
+or
+Don't have an account yet?
+Sign up
+Close
+Forgot your password?
+We’ll email you instructions to reset your password
+Close
+Change your password
+Enter your new password
+Close
+Sign Up
+Creating an account means you accept Quanta Magazine's
+Terms & Conditions
+and
+Privacy Policy

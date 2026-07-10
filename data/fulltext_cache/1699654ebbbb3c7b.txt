@@ -1,0 +1,2147 @@
+Séminaire BOURBAKI                                                              Janvier 2026
+78e année, 2025–2026, n° 1248
+
+
+LA CONJECTURE DE HODGE POUR LES VARIÉTÉS ABÉLIENNES
+               DE DIMENSION AU PLUS 5
+                   [d’après Markman]
+
+                                      par Claire Voisin
+
+
+
+
+1. Introduction
+
+    La conjecture de Hodge concerne les variétés algébriques projectives lisses X définies
+sur le corps des nombres complexes et leurs contre-parties analytiques Xan , qui sont des
+variétés complexes, c’est-à-dire des variétés différentiables munies d’un atlas de cartes
+holomorphes. Dans chaque carte, on dispose de coordonnées locales à valeurs complexes
+z1 , . . . , zn , n = dim X, dites holomorphes, telles que les changements de coordonnées
+zi′ = ϕi (z1 , . . . , zn ) sur l’intersection de deux cartes soient holomorphes. Si X ⊂ PN est
+définie par des équations algébriques et donc localement dans la topologie de Zariski
+par des équations polynomiales, la variété Xan est la sous-variété complexe de CPN
+définie localement par les mêmes équations polynomiales, vues comme des fonctions
+holomorphes. Un théorème important dû à Chow (1949) dit qu’inversement toute sous-
+variété complexe fermée de CPN est algébrique, c’est-à-dire est l’analytisée Xan d’une
+sous-variété algébrique X de PN , définie par des équations polynomiales homogènes.
+    La variété Xan est aussi un espace topologique auquel on associe ses groupes de
+cohomologie de Betti H i (Xan , Z). Les théorèmes de de Rham permettent de calculer les
+groupes
+                                       H i (Xan , C) = H i (Xan , Z) ⊗ C
+via les formes différentielles
+                                                     i             i+1
+                                      Ker (d : A (Xan ) → A (Xan ))
+                      H i (Xan , C) ∼
+                                    =                                  ,
+                                      Im (d : Ai−1 (Xan ) → Ai (Xan ))
+où Ai (Xan ) est l’espace des formes différentielles de degré i, de classe C ∞ et à coeffi-
+cients complexes sur la variété différentiable sous-jacente à Xan . La structure de variété
+complexe de Xan permet de définir les formes de type (p, q) sur Xan . Ce sont celles qui
+s’écrivent localement dans des coordonnées holomorphes sous la forme
+                                         X
+                                 α=                 αI,J dzI ∧ dz J ,
+                                      |I|=p,|J|=q
+
+où les fonctions αI,J sont de classe C ∞ à valeurs complexes.
+                                           1248–02
+
+
+  Le théorème fondamental de décomposition de Hodge est le résultat suivant. La
+variété X étant projective lisse complexe, soit
+
+                                 H p,q (Xan ) ⊂ H p+q (Xan , C)
+
+le sous-espace des classes de formes différentielles fermées de type (p, q) sur Xan . Alors
+
+                    H k (Xan , C) = H k (Xan , C) =           H p,q (Xan ).
+                                                       M
+(1)
+                                                      p+q=k
+
+
+Définition 1.1. — L’espace Hdg2k (X, Q) des classes de Hodge rationnelles de X de
+degré 2k est l’intersection
+
+                        Hdg2k (X, Q) := H 2k (Xan , Q) ∩ H k,k (Xan ),
+
+prise dans l’espace vectoriel complexe H2k (Xan , C).
+
+  Si X est une variété projective lisse complexe et Z ⊂ X est un fermé algébrique de
+codimension c, donc défini localement par des équations algébriques et tel qu’un ouvert
+de Zariski dense de Z soit une sous-variété algébrique lisse de codimension c de X, on
+dispose d’un fermé analytique correspondant
+
+                                         Zan ⊂ Xan .
+
+(Toujours d’après Chow, les fermés analytiques de Xan sont en fait en bijection avec
+les fermés algébriques de X.) Même lorsque Z est singulier, on sait depuis Borel et
+Haefliger (1961) construire la classe de cycle
+
+                                 [Z] := [Zan ] ∈ H 2c (Xan , Z)
+
+et a fortiori la classe de cohomologie rationnelle correspondante qui nous intéressera
+ici. Le point important est que [Z] est une classe de Hodge, ce qui se voit soit en
+introduisant suivant Lelong (1957) le courant d’intégration sur Z, soit en utilisant
+la résolution d’Hironaka, qui donne une variété algébrique lisse Ze et un morphisme
+τ : Ze → Z propre, holomorphe et birationnel. On a alors un morphisme composé
+
+                                      j̃ : Ze → Z → X,
+
+tel que
+                              [Z] = j̃∗ (1Ze) dans H 2c (Xan , Z),
+où j̃∗ : H 0 (Zean , Z) → H 2c (Xan , Z) est le morphisme de Gysin.
+  La conjecture de Hodge est l’énoncé suivant.
+
+Conjecture 1.2. — Toute classe de Hodge rationnelle sur une variété projective
+lisse complexe X est une combinaison à coefficients rationnels de classes [Z] de fermés
+algébriques de X.
+                                         1248–03
+
+
+   De telles classes seront appelées des classes de cycles et dites « classes algébriques ».
+Dans la suite de ce texte, on ne distinguera plus la variété projective X sur C et la variété
+complexe associée Xan , et on notera H i (Xan , C) =: H i (X, C). Grâce au principe GAGA
+de Serre (1955b) les constructions de géométrie algébrique (telles que les faisceaux
+cohérents et leur cohomologie ou plus généralement leurs images directes) peuvent se
+faire de façon équivalente dans le cadre analytique, ce qui autorise cette confusion.
+   Le travail présenté ici concerne la conjecture de Hodge pour une classe très particulière
+de variétés projectives lisses, à savoir les variétés abéliennes (de dimension ≤ 5). La
+définition la plus simple consiste à dire que ce sont les variétés projectives également
+munies d’une structure de groupe commutatif compatible avec la structure de variété
+algébrique. Les variétés complexes correspondantes sont alors des tores complexes.
+   Le théorème présenté ici et dû à Eyal Markman (2025) est le suivant.
+
+Théorème 1.3. — La conjecture de Hodge est satisfaite par les variétés abéliennes de
+dimension ≤ 5.
+
+   Une variété abélienne “très générale” ne possède pas de classes de Hodge autres que
+les puissances de la classe d’une section hyperplane, qui sont évidemment algébriques.
+Le sujet des contraintes (dites de Mumford–Tate) imposées aux variétés abéliennes
+par l’existence d’autres classes de Hodge a été abondamment étudié, en particulier par
+Deligne (1982), Tankeev (1982) et Moonen et Zarhin (1995, 1999). Le travail de Markman
+concerne en fait les variétés abéliennes de Weil, qui sont des variétés abéliennes possédant
+un automorphisme satisfaisant certaines conditions. Une construction formelle permet
+d’en déduire l’existence de classes de Hodge exceptionnelles, dites de Weil, dans la
+cohomologie de telles variétés. Les travaux mentionnés ci-dessus permettent de ramener
+le théorème 1.3 à l’énoncé suivant.
+
+Théorème 1.4 (Markman, 2025). — La conjecture de Hodge est satisfaite par les
+classes de Weil sur les variétés abéliennes de Weil de dimension 6 et de discriminant 1.
+
+   Les variétés abéliennes de Weil admettent l’action par isogénies d’un corps quadra-
+tique K. Leur discriminant est un invariant numérique lié à leur polarisation (choisie
+compatible avec l’action de K et généralement unique à un coefficient multiplicatif près).
+Je renvoie à la section 2 (voir aussi van Geemen, 1994) pour la définition des variétés
+abéliennes de Weil, leurs classes de Weil et leur discriminant.
+   Des résultats similaires antérieurs avaient été obtenus par Markman (2023), établissant
+l’analogue du théorème 1.4 pour les variétés abéliennes de Weil de dimension 4 et
+discriminant 1. Une autre démonstration de ce résultat, reposant également sur la
+géométrie hyper-kählérienne, a été obtenue ultérieurement par Floccari et Fu (2025).
+Ce même énoncé avait été établi par Schoen (1988, 2007) pour des corps K spécifiques.
+   Dans les paragraphes qui suivent, je présente quelques résultats classiques sur la
+conjecture de Hodge, de façon à situer l’énoncé de Markman par rapport à l’ensemble
+du sujet.
+                                           1248–04
+
+
+1.1. Classes de cycles, classes de Chern et classes de Hodge
+   Soit X une variété projective lisse sur C et F un fibré vectoriel algébrique sur X. On
+peut considérer les classes de Chern ci (F ) ∈ H 2i (X, Q). La donnée d’un tel fibré F est
+équivalente à celle de son faisceau F de sections locales, qui est cohérent et localement
+libre. On peut également considérer les classes de Chern de faisceaux cohérents (non
+nécessairement localement libres) sur X. Les faisceaux cohérents F sur X admettent
+des résolutions finies par des faisceaux cohérents localement libres
+                             0 → Fn → . . . → F0 → F → 0,
+et on a l’égalité de classes de Chern totales (voir Borel et Serre, 1958)
+                                           c(Fi )ϵi , ϵi := (−1)i .
+                                       Y
+                             c(F) :=
+                                       i
+Ceci montre que les classes de Chern de faisceaux cohérents et celles des fibrés vectoriels
+sur X engendrent le même Q-sous-espace vectoriel de H 2i (X, Q) pour tout i.
+   Il est connu depuis Grothendieck (1958), Borel et Serre (1958) que pour formuler la
+conjecture de Hodge, on peut remplacer les classes de cycles par les classes de Chern
+introduites ci-dessus. Cette construction est cruciale dès la codimension 1, où l’on
+associe classiquement à une hypersurface D ⊂ X un fibré en droites OX (D) muni d’une
+section sD , dont D est le lieu des zéros. Partant d’un fibré vectoriel E sur X de rang k,
+quitte à le tordre par un fibré en droites suffisamment ample, on peut supposer qu’il
+est engendré par N sections globales, et donc provient d’un fibré vectoriel sur une
+Grassmannienne G(k, N ) via un morphisme ϕE : X → G(k, N ). La cohomologie entière
+de G(k, N ) étant engendrée par des classes de cycles algébriques (variétés de Schubert),
+les classes ci (E) sont donc des classes algébriques sur X.
+   Dans l’autre direction, si on part d’un fermé algébrique Z ⊂ X de codimension k, le
+faisceau cohérent OZ a la propriété que ci (OZ ) = 0 pour i < k, et
+                     ck (OZ ) = (−1)k−1 (k − 1)![Z] dans H 2k (X, Z).
+  On voit donc qu’à coefficients rationnels ces différentes constructions engendrent les
+mêmes classes de Hodge. Le point de vue des faisceaux est souvent plus performant
+comme on le verra ci-dessous et dans toute la suite.
+1.1.1. Faisceaux tordus. — Soit E un faisceau cohérent sans torsion de rang r ou un
+fibré vectoriel sur une variété projective complexe X. Si le fibré en droites det E est
+divisible par r dans Pic X, c’est-à-dire qu’il existe un fibré en droites L sur X tel que
+L⊗r ∼= det E, le faisceau cohérent ou fibré vectoriel
+                                       F := E ⊗ L−1
+satisfait det F = OX . De plus les classes de Chern à coefficients rationnels de F ne
+dépendent pas du choix de L et sont calculées formellement à partir de celles de E du
+fait que le caractère de Chern est multiplicatif sous le produit tensoriel, ce qui donne
+                                                           c1 (E)
+                                                                 
+(2)                 ch(F) = ch(E)ch(L−1 ) = ch(E)exp −              .
+                                                              r
+                                          1248–05
+
+
+  On observe maintenant que le terme de droite fournit en général un élément de
+H 2∗ (X, Q), qui a son terme de degré 2 nul, définissant
+                                         −1                       −1
+                         ch(E ⊗ (det E) r ) := ch(E)exp(c1 (E)) r
+sans l’hypothèse de divisibilité de det E. Sans cette hypothèse, le fibré en droites L
+n’existe que de façon “fractionnaire”, c’est-à-dire dans (Pic X) ⊗ Q. Pour donner un
+sens géométrique à E ⊗ L−1 , pensons à L comme à une racine r-ième de det E. Le fibré
+en droites det E −1 admet des trivialisations holomorphes
+                                               −1 ∼
+                                     ti : det E|U i
+                                                    = OUi
+dans des ouverts (pour la topologie analytique) Ui couvrant X, et les fonctions inversibles
+tij := ti ◦ t−1
+             j sur Ui ∩ Uj satisfont la condition de cocycle
+
+                                        tij tjk tki = 1
+sur Ui ∩ Uj ∩ Uk . Quitte à restreindre les ouverts Ui , on peut choisir des racines r-ièmes
+sij de tij sur Ui ∩ Uj , et on obtient
+(3)                                 sij sjk ski = αijk
+sur Ui ∩ Uj ∩ Uk , où les αijk sont des racines r-ièmes de l’unité et fournissent un 2-cocycle
+à valeurs dans le groupe µr des racines r-ièmes de l’unité, soit une “classe de Brauer”
+                                      α ∈ H 2 (X, µr ).
+Étant donnée une classe α ∈ H 2 (X, µr ), on a la notion de « faisceau tordu par α » :
+les faisceaux cohérents localement libres de rang s tordus par α sont trivialisés dans les
+ouverts Ui d’un recouvrement ouvert adéquat de X, et leurs matrices Mij de transition
+sur Uij = Ui ∩ Uj , doivent satisfaire la condition de cocycle tordue
+                                 Mij ◦ Mjk ◦ Mki = αijk 1s ,
+où (αijk ) est un cocycle représentant la classe α pour ce recouvrement.
+   Ce formalisme permet de donner un sens à E ⊗L−1 comme faisceau tordu par α lorsque
+              1
+L = (det E) r n’existe que de façon fractionnaire : les matrices de transition Mij de E
+sont remplacées par sij Mij . On dispose d’une catégorie des faisceaux cohérents tordus
+par α, et on peut faire la théorie de leurs déformations. Notons que la description a été
+donnée ici dans le contexte analytique (du fait de la nécessité de trivialiser localement
+et de prendre des racines r-ièmes de fonctions holomorphes), mais l’utilisation de la
+topologie étale aurait permis de définir la classe de Brauer et les faisceaux cohérents
+tordus dans le contexte algébrique (un principe GAGA s’applique également ici). Les
+classes de Chern d’un faisceau tordu F relativement à une classe de Brauer α sont
+                                                         1
+données par la formule (2) lorsque F = E ⊗ (det E)− r comme ci-dessus. En général on
+peut utiliser une variété de Brauer–Severi f : X ′ → X sur laquelle la classe de Brauer
+devient triviale, de sorte que le tiré en arrière f ∗ F est un faisceau cohérent sur X ′ , et
+définir les classes de Chern de F en utilisant celles de f ∗ F, qu’on descend sur X par
+                                          1248–06
+
+
+une formule de projection. Ces classes de Chern sont des classes de Hodge rationnelles
+qui sont en fait algébriques à coefficients rationnels.
+   Bien que cette construction puisse paraître artificielle, elle est essentielle pour amélio-
+rer le champ d’application de la théorie de la semi-régularité décrite dans la section 5,
+intervenant dans l’approche variationnelle de la conjecture de Hodge. En effet, le fais-
+                         1
+ceau tordu E ⊗ (det E)− r est à déterminant trivial. Il peut donc très bien se déformer
+avec X sans que la classe de Chern c1 (E) reste algébrique, ce qui n’est évidemment
+pas le cas de E. Cette observation est particulièrement importante dans la théorie des
+variétés hyper-kählériennes (voir Charles et Markman, 2013, Markman, 2020).
+
+1.2. Cas connus de la conjecture de Hodge et exemples classiques de classes
+     de Hodge
+  On peut dire qu’à part les cas triviaux k = 0, où H 0 (X, Q) est engendré par la classe
+de X lui-même, et k = n := dim X, où H 2n (X, Q) est engendré par la classe d’un point
+de X, le seul cas connu de la conjecture de Hodge est celui où k = 1, pour lequel le
+point de vue des faisceaux est fondamental.
+
+Théorème 1.5 (Théorème de Lefschetz sur les classes (1, 1))
+    Soit X une variété projective lisse complexe et γ ∈ Hdg2 (X, Z) une classe de Hodge
+entière. Alors γ est algébrique sur X et plus précisément :
+   (i) Il existe un fibré en droites algébrique L sur X tel que c1 (L) = γ.
+   (ii) Il existe un cycle à coefficients entiers D = i ni Di , où les Di ⊂ X sont des
+                                                       P
+
+fermés algébriques de codimension 1 de X, tel que [D] := i ni [Di ] = γ.
+                                                             P
+
+
+  Il se trouve que ce cas entraîne grâce à l’isomorphisme de Lefschetz un second cas, à
+savoir celui des classes de courbes :
+
+Théorème 1.6. — Soit X une variété projective lisse complexe de dimension n et soit
+γ ∈ Hdg2n−2 (X, Q) une classe de Hodge rationnelle de degré 2n − 2. Alors il existe un
+cycle Z = i ni Zi de codimension n − 1 de X, où ni ∈ Q et les Zi ⊂ X sont des courbes,
+           P
+
+tel que [Z] := i ni [Zi ] = γ.
+              P
+
+
+   A priori, il est difficile de construire des classes de Hodge intéressantes sur les variétés
+algébriques, qui ne soient pas évidemment algébriques. Cependant, il existe des classes
+de Hodge construites par des opérations formelles sur la cohomologie des variétés algé-
+briques. Les classes de Weil étudiées par Markman entrent dans cette catégorie, mais
+aussi d’autres classes que nous décrivons ci-dessous. L’algébricité de certaines de ces
+classes fait l’objet des conjectures standard (voir Kleiman, 1968), très importantes dans
+la théorie des motifs.
+
+Exemple 1.7 (Conjecture de Künneth standard). — Soit X une variété projective lisse
+complexe de dimension n et soit ∆X ⊂ X × X sa diagonale. La diagonale ∆X est un
+fermé algébrique de X × X et sa classe δX := [∆X ] ∈ H 2n (X × X, Z) est donc une
+                                            1248–07
+
+
+classe algébrique, et en particulier de Hodge. La cohomologie à coefficients rationnels
+H 2n (X × X, Q) admet la décomposition de Künneth
+                    H 2n (X × X, Q) ∼        H p (X, Q) ⊗ H q (X, Q)
+                                         M
+                                     =
+                                           p+q=2n
+
+et on voit formellement que chaque composante de Künneth δp,q ∈ H p (X, Q)⊗H q (X, Q)
+de δX est une classe de Hodge sur X × X. Lorsque n ≥ 3, la conjecture de Hodge pour
+ces classes n’est pas connue en général.
+Exemple 1.8. — Soit X une variété projective lisse complexe et k ≥ 0 un entier. Soit
+bk := dim H k (X, Q). On a une inclusion composée
+                     bk
+                          H k (X, Q) ⊂ H k (X, Q)⊗bk ⊂ H kbk (X bk , Q)
+                     ^
+
+
+et on voit de façon formelle que le sous-espace de rang 1
+                               bk
+                                    H k (X, Q) ⊂ H kbk (X bk , Q)
+                               ^
+
+
+est engendré par une classe de Hodge. L’algébricité de cette classe n’est pas connue en
+général.
+Exemple 1.9 (Conjecture de Lefschetz standard). — Si X est une variété projective
+lisse complexe de dimension n et L est un fibré en droites ample sur X, la première
+classe de Chern l = c1 (L) ∈ H 2 (X, Q) est une classe de Kähler sur Xan et le théorème
+de Lefschetz difficile dit que pour tout k ≤ n, on a un isomorphisme donné par le
+cup-produit
+(4)                       ln−k ∪ : H k (X, Q) → H 2n−k (X, Q).
+   Le morphisme ln−k ∪ est un morphisme de structures de Hodge et fournit par dualité
+de Poincaré et décomposition de Künneth une classe de Hodge γk ∈ Hdg4n−2k (X ×X, Q)
+telle que pour tout α ∈ HBk (X, Q)
+                           ln−k ∪ α = γk∗ (α) := pr2∗ (pr∗1 α ∪ γk ).
+Supposant L très ample, il est immédiat de voir que la classe γk peut être construite
+comme la classe du cycle Zk ⊂ ∆X ⊂ X × X défini comme l’intersection, dans ∆X ∼    =
+X, de n − k hypersurfaces de X de classe l. Considérons maintenant l’isomorphisme
+réciproque
+(5)                   (ln−k ∪)−1 : H 2n−k (X, Q) → H k (X, Q)
+de (4). Cet isomorphisme est donné par l’action d’une classe de Hodge
+                                    γ k ∈ Hdg2k (X × X, Q).
+La conjecture de Hodge prédit donc que cet isomorphisme est induit par l’action de la
+classe [Z k ] = γ k d’un cycle de codimension k dans X × X. Cette conjecture est d’une
+importance capitale dans la théorie des motifs et est essentiellement ouverte, bien que
+connue pour certains types de variétés algébriques, telles que les variétés abéliennes
+                                          1248–08
+
+
+(Lieberman, 1968) et certaines variétés hyper-kählériennes (Charles et Markman, 2013,
+Voisin, 2022, Ancona, Cavicchi, Laterveer et Saccà, 2025).
+
+1.3. Déformations des variétés algébriques et lieux de Hodge
+   La plupart des variétés projectives lisses complexes X admettent des déformations,
+c’est-à-dire qu’elles apparaissent comme fibre X0 ∼    = X au-dessus de 0 ∈ B d’un mor-
+phisme projectif lisse f : X → B, où X et B sont quasi-projectives et B est irréductible.
+(Un fait remarquable dû à la théorie des variétés de Chow, ou du schéma de Hilbert, est
+qu’il existe un ensemble dénombrable de tels morphismes f : X → B, tel que toute va-
+riété projective lisse soit isomorphe à une fibre de f pour au moins un f .) Soit f : X → B
+un tel morphisme et supposons maintenant que X = X0 admet une classe de Hodge
+γ ∈ Hdg2k (X, Q). Le morphisme correspondant fan : Xan → Ban de variétés complexes
+étant propre et lisse, le théorème d’Ehresmann dit que c’est une fibration C ∞ , et en
+particulier topologique. La classe γ admet donc dans un voisinage Ban,0 de 0 ∈ Ban une
+extension γ̃0 ∈ Γ(Ban,0 , R2k fan∗ Q) et on peut définir le lieu de Hodge
+                         Bγ,0 = {t ∈ Ban,0 , γ̃0,t ∈ Hdg2k (Xt , Q)}.
+Grâce aux travaux de Griffiths sur les variations de structures de Hodge, il est facile
+de voir que Bγ,0 est un fermé analytique de Ban,0 (Voisin, 2002b, section 17.3.1). Un
+résultat majeur, qui constitue un argument fort en faveur de la conjecture de Hodge,
+est le suivant.
+
+Théorème 1.10 (Cattani, Deligne et Kaplan, 1995). — Le germe d’espace analytique
+Bγ,0 ⊂ Ban est ouvert dans une branche d’un fermé algébrique Bγ de B. De plus, il
+existe un morphisme algébrique fini r : Be γ → Bγ tel que la section locale r∗ γ̃0 s’étende
+en une section globale γ̃ du système local tiré en arrière r−1 (R2k fan∗ Q). La section γ̃ est
+partout de Hodge, au sens où, pour tout t ∈ Be γ , γ̃t ∈ Hdg2k (Xr(t) ).
+
+  Les travaux de Deligne (1971) sur la théorie de Hodge mixte permettent de donner
+une version plus forte de la seconde assertion. En effet, ils entraînent le résultat suivant.
+
+Théorème 1.11. — Dans la situation du théorème 1.10, soit f˜: X      f →B
+                                                                      γ
+                                                                             e le produit
+                                                                              γ
+fibré X ×B Bγ et soit Y une compactification lisse projective de Xγ . Alors il existe une
+           e                                                     f
+classe de Hodge γY ∈ Hdg2k (Y, Q) induisant la section γ̃, i.e. γ̃t = γY |Xet pour tout t
+dans Be γ .
+
+  Ces résultats constituent la première étape de l’étude variationnelle de la conjecture
+de Hodge. Soit X une variété projective lisse complexe et soit γ ∈ Hdg∗ (X) une classe
+de Hodge sur X. Soit f : X → B un morphisme propre et lisse de fibre X0 = X, et
+avec les notations ci-dessus, soit fγ : Xγ,0 → Bγ,0 la restriction de f au-dessus du lieu
+de Hodge Bγ,0 .
+
+Conjecture 1.12 (Conjecture de Hodge variationnelle). — Si la classe γ est algébrique
+sur X, alors pour tout t ∈ Bγ,0 , la classe de Hodge γ̃0,t est algébrique sur Xt .
+                                           1248–09
+
+
+  Grâce aux théorèmes 1.10 et 1.11, la conjecture de Hodge variationnelle est en fait
+équivalente à la conjecture suivante.
+Conjecture 1.13. — Soit f : Y → S un morphisme projectif, avec Y lisse projective
+et S irréductible. Soit S 0 ⊂ S l’ouvert au-dessus duquel f est lisse. Soit γ ∈ Hdg2k (Y, Q).
+S’il existe un point t0 ∈ S 0 tel que γ|Yt0 est algébrique, alors pour tout point t ∈ S 0 , γ|Yt
+est algébrique.
+   La conjecture 1.12 est presque complètement ouverte mais nous présenterons dans la
+section 5 la théorie de la semi-régularité, qui fournit des critères permettant de l’établir.
+                                                                                       0
+On sait par des généralités sur les variétés de Chow relatives que l’ensemble Sγ−alg
+des points t ∈ S 0 tels que γ|Yt est algébrique, est une union dénombrable de fermés
+algébriques de S 0 . On sait, grâce à la construction par Kollár de contre-exemples à la
+conjecture de Hodge entière (voir Kollár, 1990), que la conjecture 1.12 devient fausse si
+on la formule pour les classes de Hodge entières. On sait aussi (voir par exemple André,
+2006) que la conjecture de Lefschetz standard (Exemple 1.9) entraîne la conjecture
+1.13 et donc la conjecture de Hodge variationnelle 1.12. Finalement Deligne (1982) et
+André (1996) étudient systématiquement les classes de Hodge γ|Yt apparaissant dans
+la conjecture 1.13, qui ont par hypothèse la propriété de se spécialiser en une classe
+algébrique sur au moins une fibre. Ces classes sont généralisées par André sous la forme
+des “classes de Hodge motivées”, et par Deligne sous la forme des “classes de Hodge
+absolues”. Il est montré par Deligne (1982) que les classes de Hodge sur les variétés
+abéliennes sont engendrées par des classes de Hodge satisfaisant cette propriété.
+
+1.4. Stratégie de la démonstration
+   Je renvoie à la section 2.3 pour la réduction du théorème 1.3 au théorème 1.4. Pour
+la preuve du théorème 1.4, Markman utilise la spécialisation déjà utilisée par Deligne
+(1982). Une variété abélienne de Weil de dimension 2n se spécialise sur un produit
+X × X, où X est une variété abélienne de dimension n très générale (voir section 3.1).
+De plus, sous cette spécialisation, les classes de Weil deviennent algébriques (comme le
+sont toutes les classes de Hodge sur un produit X × X, avec X très générale). Markman
+étudie alors la conjecture de Hodge variationnelle (conjecture 1.12) pour les classes de
+Weil spécialisées. Dans le cas qui nous intéresse, on a n = 3 et les variétés abéliennes X
+(qu’on peut choisir principalement polarisées grâce à l’hypothèse de discriminant 1) sont
+donc des jacobiennes de courbes. La variété abélienne X étant principalement polarisée
+et donc isomorphe à sa duale X,c Markman construit explicitement sur un quotient Y de
+                                                                            −1
+X × X un faisceau cohérent sans torsion de rang r tordu EY ⊗ (det EY ) r qui satisfait
+      c
+la condition de semi-régularité de Buchweitz–Flenner, et dont les classes de Chern en
+degré 6 sont des classes de Hodge–Weil, c’est-à-dire des combinaisons des classes de
+Weil et des puissances de la polarisation. Ce sont aussi les classes de Hodge sur X × X
+qui restent de Hodge lorsque X × X se déforme comme variété abélienne de Weil. On
+notera HW(A) l’espace des classes de Hodge–Weil pour une variété abélienne de Weil A
+projective.
+                                        1248–10
+
+
+   La théorie de la semi-régularité (voir section 5) a été initiée par Bloch (1972). C’est
+a priori l’outil idéal pour attaquer la conjecture de Hodge variationnelle mais elle a été
+quelque peu délaissée du fait du manque d’objets semi-réguliers fournissant des applica-
+tions. Si on prend le cas le plus simple d’une sous-variété Z ⊂ W , où W est projective
+lisse, la semi-régularité de Z introduite par Bloch est une condition cohomologique
+garantissant que pour toute déformation d’ordre fini, c’est-à-dire toute déformation
+WA → Spec A de W paramétrée par un schéma de longueur finie, telle que la classe
+[Z] de Z ⊂ W reste une classe de Hodge sur WA , il existe un sous-schéma ZA ⊂ WA
+plat au-dessus de Spec A et étendant Z ⊂ W . Cela permet donc d’établir une version
+formelle de la conjecture de Hodge variationnelle pour γ = [Z]. On conclut finalement
+par le théorème d’algébrisation d’Artin (1969) que la conjecture de Hodge variationnelle
+est satisfaite par γ = [Z]. Markman a recours à la théorie analogue de la semi-régularité
+développée par Buchweitz et Flenner (2003) pour les faisceaux et l’étend au cas des
+faisceaux tordus, au moins sur les variétés abéliennes. La preuve de la propriété de
+semi-régularité pour le faisceau EY sur le quotient Y de X × X  c repose sur le fait que X
+est la jacobienne d’une courbe C de genre 3, et que l’idéal de C dans X est semi-régulier
+(lemme 5.3).
+   Les variétés de Weil spécialisées X × Xc possèdent beaucoup plus de classes de Hodge
+que les classes de Hodge–Weil. Les classes de Hodge–Weil sont caractérisées par leur
+invariance sous un certain groupe de spineurs agissant sur H ∗ (X × X, c Q). L’invariance
+                                                      −1
+des classes de Chern du faisceau tordu EY ⊗(det EY ) r sous ce groupe de spineurs résulte
+de l’étude cohomologique du foncteur d’Orlov (voir section 3.2) utilisé par Markman
+pour construire EY en partant d’un faisceau très simple sur X × X. Cette construction
+sera présentée dans la section 3.3.
+
+Remarque 1.14. — Il est nécessaire ici de travailler avec les classes de Hodge–Weil et
+pas seulement avec les classes de Weil. Il n’est pas possible en effet de construire des
+faisceaux tordus semi-réguliers sur X × Xc dont les classes de Chern soient des classes de
+Weil. Ceci entraînerait que les classes de Weil sur X × X c restent des classes de Chern
+de faisceaux analytiques tordus sur une déformation générale de X × X     c comme tore
+complexe de Weil. Or il est prouvé par Voisin (2002a) que les classes de Weil sur un
+tore complexe de Weil très général de dimension ≥ 4 ne sont pas analytiques.
+
+   Remerciements. Je remercie Eyal Markman pour sa patience et la clarté de ses
+réponses à mes questions parfois très naïves au cours de la préparation de cet exposé.
+
+
+
+2. Variétés abéliennes de Weil et classes de Weil
+
+2.1. Tores complexes
+  Soit A une variété abélienne de dimension n sur C, qu’on voit ici comme une variété
+complexe. Le point de vue de la géométrie analytique permet d’appliquer l’uniformisation
+                                                 1248–11
+
+
+et de conclure que A est un tore complexe
+                                               A∼
+                                                = Cn /Γ,
+où Γ ⊂ Cn est un réseau cocompact, donc Γ ∼      = Z2n . Ce point de vue permet de
+décrire explicitement la topologie de A et la décomposition de Hodge sur ses groupes
+de cohomologie. En effet on a des isomorphismes canoniques
+                                                                     i
+                                Γ∼
+                                 = H1 (A, Z), H i (A, Z) ∼               Γ∗ ,
+                                                                     ^
+                                                         =
+et l’inclusion Γ ⊂ Cn s’étend en une application surjective
+                                         β : ΓC := Γ ⊗ C → Cn
+d’espaces vectoriels complexes, de noyau Γ′ . On a alors
+(6)          Γ∗C = H 1 (A, C), H 1,0 (A) = (Γ′ )⊥ = β ∗ ((Cn )∗ ) ⊂ H 1 (A, C),
+et (Γ′ )∗ ∼
+          = H 0,1 (A) = H 1,0 (A). Finalement
+(7)                                                  H 1 (A, C) = H 1,0 (A) ⊕ H 0,1 (A)
+                       p                 q                 p+q
+         H p,q (A) =       H 1,0 (A) ⊗       H 0,1 (A) ⊂         H 1 (A, C) = H p+q (A, C).
+                       ^                 ^                 ^
+(8)
+
+   La principale difficulté de ce point de vue est que les objets et constructions décrits ici
+ne voient pas la structure algébrique de A, mais seulement sa structure de tore complexe.
+L’algébricité de A se traduit, grâce au théorème de plongement de Kodaira (1954), par
+l’existence d’une classe de Kähler entière θ ∈ H 2 (A, Z) ∼  = 2 Γ∗ , qui fournit donc une
+                                                                V
+
+forme d’intersection alternée non dégénérée sur Γ, satisfaisant des conditions, dites
+de Hodge–Riemann, de positivité et de compatibilité avec la décomposition (7). Cette
+donnée, appelée une polarisation, introduit un invariant discret, le type de la polarisation
+qui décrit la classe d’isomorphisme de la forme d’intersection alternée entière sur Γ (voir
+Debarre, 1999, Chapitre IV.1). En fait, lorsqu’on s’intéresse aux variétés abéliennes
+seulement à isogénie près, ce qui est le cas pour l’étude de la conjecture de Hodge pour
+les variétés abéliennes, on remplace les données précédentes par le Q-espace vectoriel
+ΓQ := Γ ⊗ Q munie de sa forme alternée à coefficients rationnels, et le seul invariant
+discret qui subsiste est le discriminant, un nombre rationnel bien défini modulo les
+carrés.
+
+2.2. Variétés abéliennes de Weil, classes de Weil et polarisations
+  Une variété abélienne de Weil est une variété abélienne A de dimension paire 2n
+admettant un endormorphisme ϕ : A → A tel que ϕ2 = −d IdA pour un entier d > 0 et
+satisfaisant de plus une condition que nous décrivons maintenant. L’endomorphisme ϕ
+agit par tiré en arrière sur la cohomologie de degré 1 de A. L’endomorphisme
+                                   ϕ∗ : H 1 (A, C) → H 1 (A, C)
+                                                      1248–12
+
+
+préserve le sous-espace H 1,0 (A) ⊂ H 1 (A, C) qui est de dimension 2n, et satisfait l’équa-
+tion
+                                   (ϕ∗ )2 = −d IdH 1 (A,C) .
+                                ∗              1,0
+La condition
+          √ de Weil est que ϕ agissant sur H  √ (A) ait exactement    n valeurs propres
+                                                           +      1
+égales à i d et n valeurs propres égales à √−i d. Soit W ⊂ H (A, C) le sous-espace
+propre de ϕ∗ associé à la valeur propre i d et soit W − ⊂ H 1 (A, C) √    son conjugué
+                                            ∗
+complexe, qui est le sous-espace propre de ϕ associé à la valeur propre −i d. Ces deux
+espaces vectoriels sont de dimension 2n.
+
+Lemme 2.1. — Sous la condition de Weil, les sous-espaces vectoriels de dimension 1
+                              2n                2n
+                                   W+ ⊂              H 1 (A, C) = H 2n (A, C),
+                              ^                 ^
+
+
+                              2n                2n
+                                   W− ⊂              H 1 (A, C) = H 2n (A, C)
+                              ^                 ^
+
+
+sont contenus dans H 2n,2n (A).
+
+Démonstration. — En effet comme ϕ∗ préserve la décomposition de Hodge (7), on a
+W + = W +1,0 ⊕ W +0,1 , où W +1,0 := W + ∩ H 1,0 (A), et W +0,1 := W + ∩ H 0,1 (A). On sait
+par hypothèse (condition de Weil) que chacun des deux espaces W +1,0 , W +0,1     √ est de
+                          +1,0
+dimension n. En effet W        est l’espace propre associé à la valeur propre i d pour
+             ∗     1,0
+l’action de ϕ sur H (A). Donc
+                         2n             n                      n
+                              W+ =              W +1,0 ⊗           W +0,1 ⊂ H n,n (A),
+                         ^              ^                      ^
+
+
+                   W − ⊂ H n,n (A).
+             V2n
+et de même
+                                  √                                        √
+   Soit K le corps de
+                   √  nombres  Q(   −d).  On verra K comme contenu dans C,   −d ∈ K
+                                                     V2n  + V2n   −
+étant envoyé sur i d ∈ C. On note que les espaces        W ,    W ci-dessus sont en
+fait définis sur K dans le sens suivant :
+
+Lemme 2.2. — Il existe un K-sous-espace vectoriel WK+ de rang 1 de
+                                                                                            V2n
+                                                                                                  H 1 (A, K) tel
+que
+                                   2n                2n                  2n
+                   WK+ ⊗ R =                +              1
+                                                                              H 1 (A, K) ⊗ R.
+                                   ^                 ^                   ^
+                                        W       ⊂         H (A, C) =
+
+  Cela résulte en effet du fait que les espaces W + et W − sont définis sur K, étant des
+espaces propres de ϕ∗ pour des valeurs propres qui sont dans K.
+
+Corollaire 2.3. — Il existe un sous-espace vectoriel
+                                            WQ ⊂ Hdg2n (A, Q)
+de dimension 2, tel que
+                                                          2n         2n
+                                                               W+         W −.
+                                                          ^         M^
+                                   WQ ⊗ C =
+                                              1248–13
+
+
+Démonstration. — On prend pour WQ la trace TrK/Q WK+ , qui est de dimension 2 par le
+lemme 2.2. Par le lemme 2.1, WQ est contenu dans H 2n,2n (A) et donc est contenu dans
+l’espace des classes de Hodge.
+  La construction décrite ci-dessus n’a fait intervenir que le tore complexe A, et on
+peut donc parler de tores complexes de Weil et de leurs classes de Weil. Les variétés
+abéliennes de Weil sont des variétés projectives, admettant donc un fibré en droites
+ample L de classe θ = c1 (L) ∈ Hdg2 (A, Q). Comme ϕ2 = −d IdA , l’action
+                                   ϕ∗ : H 2 (A, Q) → H 2 (A, Q)
+                        V2
+de ϕ sur H 2 (A, Q) =        H 1 (A, Q) satisfait
+                                       (ϕ∗ )2 = d2 IdH 2 (A,Q) .
+L’espace vectoriel H 2 (A, Q) est donc la somme directe
+                             H 2 (A, Q) = H 2 (A, Q)d        H 2 (A, Q)−d
+                                                        M
+
+
+des espaces propres associés aux valeurs propres d et −d. Chacun de ces sous-espaces
+est une sous-structure de Hodge de H 2 (A, Q), c’est-à-dire, est stable sous la décomposi-
+tion (1).
+Lemme 2.4. — Pour toute variété abélienne de Weil, il existe une polarisation ω de A
+qui est dans H 2 (A, Q)d , c’est-à-dire satisfait
+(9)                                       ϕ∗ ω = d ω.
+Démonstration. — Si θ0 = c1 (L) est une polarisation, ω := d θ0 + ϕ∗ θ0 est aussi une
+polarisation, qui satisfait (9).
+  Une telle polarisation ω sera dite compatible avec l’action de K. On peut montrer
+(voir van Geemen, 1994) que le nombre de Picard d’une variété abélienne de Weil très
+générale est égal à 1, c’est-à-dire que la polarisation ω ci-dessus est unique à un multiple
+près. Le discriminant d’une telle variété abélienne polarisée est un élément (positif) de
+Q∗ /Nm(K ∗ ), où Nm(K ∗ ) est le sous-groupe de Q∗ constitué des normes d’éléments de
+K ∗ . Il est obtenu en associant à la polarisation ω ∈ H 2 (A, Q) invariante sous ϕ la forme
+hermitienne hω sur l’espace vectoriel H1 (A, Q) vu comme un K-espace vectoriel, définie
+par                                                   √
+                           hω (u, v) = −ω(u, ϕ∗ v) + −d ω(u, v).
+Le discriminant est défini comme le déterminant de la matrice de cette forme her-
+mitienne dans une K-base de H1 (A, Q). Le corps K étant donné, le discriminant est
+l’unique invariant discret des variétés abéliennes de Weil pour K à isogénie près (la
+classification à isomorphisme près étant évidemment plus compliquée). Si on fixe d, n,
+ϕ∗ agissant sur Γ et la classe d’isomorphisme à coefficients entiers de la polarisation
+compatible ω, il existe une famille connexe paramétrant les variétés abéliennes de Weil A
+avec action de ϕ∗ sur le réseau H1 (A, Z) et polarisation compatible ω du type fixé. En
+effet, comme variété projective, A est déterminée par la variété complexe A munie de sa
+                                           1248–14
+
+
+polarisation ω et comme tore complexe, A est déterminée par le sous-espace vectoriel
+de dimension n complexe H1,0 (A) ⊂ H1 (A, C) (noté Γ′ dans (6)), qui doit être invariant
+sous ϕ∗ . Introduisant comme ci-dessus les espaces propres
+                                    W+ , W− ⊂ H1 (A, C)
+pour ϕ∗ , A est déterminée par le choix des deux sous-espaces vectoriels complexes de
+dimension n,
+(10)                         W+(1,0) ⊂ W+ , W−(1,0) ⊂ W−
+puisque
+                                                     M
+                               H1,0 (A) = W+(1,0)        W−(1,0) .
+Les deux espaces (10) déterminent respectivement par conjugaison complexe
+                               W−(0,1) ⊂ W− , W+(0,1) ⊂ W+ .
+Mais par ailleurs la condition que ω polarise A entraîne que W+(1,0) est orthogonal à
+W−(1,0) ⊂ W− relativement à ω ∈ 2 H 1 (A, C). Donc W+(1,0) détermine W−(1,0) par la
+                                  V
+
+formule
+                                                 ⊥ω
+                               W−(1,0) = W− ∩ W+(1,0) ,
+du fait que par l’invariance (9), les deux espaces W+ et W− sont lagrangiens et duaux
+pour ω. Finalement, l’espace W+(1,0) n’est pas arbitraire dans la grassmannienne
+G(n, W+ ), car
+                               M
+                       W+(1,0)     W−(1,0) = H1,0 (A) ⊂ H1,B (A, C)
+doit satisfaire également les secondes relations bilinéaires de Hodge–Riemann (voir
+Debarre, 1999, Chapitre IV.1 ou Voisin, 2002b, section 7.2.2) relatives à ω, disant que la
+forme hermitienne h′ω (u, v) := iω(u, v) est définie positive sur H1,0 (A). Cette condition
+définit un ouvert de la grassmannienne G(n, W+ ). On obtient de cette manière une
+uniformisation de l’espace de modules des variétés abéliennes de Weil relatives à K par
+une variété complexe connexe, les invariants numériques entiers de la polarisation étant
+fixés.
+
+2.3. Réduction aux classes de Weil
+  Une variété abélienne complexe A a une algèbre de cohomologie très riche, à savoir
+                                                ∗
+                                 H ∗ (A, Q) ∼       H 1 (A, Q).
+                                                ^
+                                            =
+L’ensemble des classes de Hodge
+                                 Hdg2∗ (A, Q) ⊂ H 2∗ (A, Q)
+est une sous-algèbre, qui contient par ailleurs au minimum les puissances θi , i = 1, . . . , g
+d’une polarisation θ = c1 (L). Les classes de Hodge γ agissent par cup-produit sur
+H ∗ (A, Q) et les morphismes induits
+                        γ∪ : H i (A, Q) → H i+2c (A, Q), 2c = deg γ,
+                                         1248–15
+
+
+sont des morphismes de structure de Hodge (i.e. sont compatibles avec la décompo-
+sition de Hodge (1)), réduisant fortement le groupe de Mumford–Tate MT(A) (voir
+Deligne, 1982). On peut définir ce dernier comme le plus petit sous-groupe algébrique
+de End(H 1 (A, Q)) contenant (après extension à R) la copie du sous-groupe S1 ⊂ C∗ des
+nombres complexes de module 1, agissant sur a = a1,0 + a0,1 ∈ H 1 (A, R) par
+
+                                   z · a = za1,0 + za0,1
+
+et donc déterminant la décomposition de Hodge (7, 8). Son lien avec les classes de Hodge
+est que les classes de Hodge de A sont clairement invariantes sous MT(A) (puisqu’elles le
+sont sous S1 ) et qu’inversement MT(A) peut être défini comme le sous-groupe algébrique
+de End(H 1 (A, Q)) laissant invariantes les classes de Hodge sur les puissances Ak pour
+tout k. L’étude du groupe de Mumford–Tate MT(A) a donné lieu à de nombreux
+résultats (voir entre autres Tankeev, 1982, Moonen et Zarhin, 1995, Hazama, 1989). Par
+exemple, Tankeev (1982) montre le résultat suivant :
+
+Théorème 2.5. — Soit A une variété abélienne simple sur C, dont la dimension g est
+un nombre premier. Alors la Q-algèbre des classes de Hodge de A est engendrée par les
+classes de Hodge de degré 2 de A.
+
+   On dit ici que A est simple si elle n’est pas isogène à un produit non trivial de
+variétés abéliennes. Comme la conjecture de Hodge est connue en degré 2 (théorème
+1.5), il en résulte que sous les hypothèses du théorème 2.5, A satisfait la conjecture
+de Hodge. En dimension 5, seules les variétés abéliennes non simples nécessitent une
+analyse supplémentaire. Pour les applications au théorème de Markman, l’article de
+Moonen et Zarhin (1999) fournit exactement la réduction désirée de la conjecture de
+Hodge au cas des classes de Weil.
+
+Théorème 2.6 (Moonen et Zarhin, 1999, Theorem 0.1 et Theorem 0.2)
+    Soit X une variété abélienne sur C, avec dim X ≤ 5. Alors la Q-algèbre des classes
+de Hodge rationnelles de X est engendrée par les classes de Hodge de degré 2 et par des
+classes de Weil sur certains facteurs de X admettant un endomorphisme quadratique.
+
+Remarque 2.7. — Dans loc. cit., les auteurs donnent également la liste des groupes
+de Mumford–Tate possibles, ce qui revient à analyser les classes de Hodge sur les
+puissances Ak .
+
+Corollaire 2.8. — La conjecture de Hodge pour les variétés abéliennes de dimension
+au plus 5 est entraînée par la conjecture de Hodge pour les classes de Weil sur les variétés
+abéliennes de Weil de dimension ≤ 4.
+
+ Comme√ on l’a vu plus haut, une variété abélienne de Weil a un corps de nombres
+K = Q( −d) associé et un discriminant δ ∈ Q∗+ /Nm(K ∗ ).
+                                          1248–16
+
+
+Lemme 2.9. — Le produit A1 × A2 de deux variétés abéliennes de Weil de même
+corps K associé et de discriminants respectifs δ1 , δ2 est une variété abélienne de Weil
+de discriminant δ1 δ2 . De plus, si la conjecture de Hodge est satisfaite par les classes de
+Weil sur A1 et par les classes de Weil sur A1 × A2 , alors elle l’est par les classes de Weil
+sur A2 .
+Démonstration. — L’ensemble des classes de Weil sur A1 × A2 est un sous-espace vec-
+toriel W (A1 × A2 ) de dimension 2 non dégénéré de W (A1 ) ⊗ W (A2 ). La restriction de
+la forme d’intersection de H 2g1 (A1 , Q), g1 := dim A1 , à l’espace W (A1 ) des classes de
+Weil sur A1 est non dégénérée. Partant d’une classe de Weil w2 ∈ W (A2 ), on peut donc
+écrire w2 de la façon suivante
+                                  w2 = pr2∗ (pr∗1 w1 ∪ w),
+où w ∈ W (A1 × A2 ), et w1 ∈ W (A1 ). Dans cette formule, les classes w1 et w sont par
+hypothèse algébriques, et donc w2 est algébrique.
+  On déduit de ce corollaire, en utilisant le théorème de Lefschetz sur les classes (1, 1)
+(Théorème 1.5) lorsque dim A1 = 2, le résultat suivant.
+Corollaire 2.10. — Le corps K étant donné, la conjecture de Hodge pour les classes
+de Weil sur les variétés abéliennes de Weil pour le corps K, de dimension 6 et de
+discriminant 1, entraîne la conjecture de Hodge pour les classes de Weil sur les variétés
+abéliennes de Weil pour le corps K, de dimension 4 et de discriminant arbitraire. Elle
+entraîne donc également la conjecture de Hodge pour les variétés abéliennes de dimension
+≤ 5 par le corollaire 2.8.
+
+
+3. Foncteur d’Orlov et faisceaux sur X × X
+                                         c
+
+
+3.1. Spécialisation des variétés abéliennes de Weil
+                                                             √
+  Soit X une variété abélienne de dimension n et soit K := Q( −d). Soit A := X × X.
+Soit ϕ l’endomorphisme de A défini par
+(11)                              ϕ(a, b) = (−b, d a).
+De toute évidence, on a ϕ2 = −d IdA . Vérifions que A est une variété abélienne de Weil.
+L’action de ϕ∗ sur H 1,0 (A) = pr∗1 H 1,0 (X) ⊕ pr∗2 H 1,0 (X) est donnée par la formule
+                                  ϕ∗ (α, β) = (d β, −α).
+                                               √
+L’espace propre associé à la valeur propre i d de ϕ∗ agissant sur H 1,0 (A) est donc
+isomorphe à H 1,0 (X) et de dimension n. La variété abélienne A est donc une variété
+abélienne de Weil, associé au corps K. Ces variétés abéliennes de Weil sont des spé-
+cialisations de variétés abéliennes de Weil générales. C’est la spécialisation utilisée par
+Markman en dimension 6, X étant alors de dimension 3. Notons que cette spécialisation
+est utilisée également par Deligne (1982) pour montrer que les classes de Hodge sur
+                                               1248–17
+
+
+les variétés abéliennes se spécialisent sur des classes algébriques. En effet, lorsque la
+variété X est une variété abélienne très générale, toutes les classes de Hodge sur X × X
+sont algébriques. L’action ϕ∗ de ϕ sur
+          H 2 (A, Z) = pr∗1 H 2 (X, Z) ⊕ pr∗2 H 2 (X, Z) ⊕ pr∗1 H 1 (X, Z) ⊗ pr∗2 H 1 (X, Z)
+est donnée par
+(12) ϕ∗ (pr∗1 ω) = pr∗2 ω, ϕ∗ (pr∗2 ω) = d2 pr∗1 ω, ϕ∗ (pr∗1 α ∧ pr∗2 β) = −d pr∗2 α ∧ pr∗1 β.
+Si X est très générale de polarisation θX , il résulte de (12) que les polarisations inva-
+riantes de A = X × X sont de la forme
+(13)                                 ω = d pr∗1 θX + pr∗2 θX .
+Si de plus θX est unimodulaire (de sorte que (X, θX ) est une variété abélienne principa-
+lement polarisée), le discriminant de ω est une puissance de d, qui est une norme de K
+et donc les variétés abéliennes de Weil obtenues en partant d’une variété abélienne X
+principalement polarisée sont de discriminant 1. Dans ce cas, X est aussi isomorphe à
+sa variété abélienne duale X c = Pic0 (X).
+                                                           √
+   Une variété abélienne de Weil A pour le corps Q( −d) et de discriminant 1 se
+spécialise (après isogénie) sur un produit X × X comme ci-dessus. On connaît l’algèbre
+des classes de Hodge sur le produit X × X pour X très générale. Elle est engendrée
+par Hdg2 (X × X, Q), qui est de dimension 3. Nous aborderons dans la section 4 la
+question suivante : quelles sont les spécialisations sur X × X des classes de Weil sur A ?
+En fait, comme déjà mentionné, c’est l’espace HW(X × X) des classes de Hodge–Weil,
+combinaisons linéaires des classes de Weil et des puissances de la polarisation qui nous
+intéresse pour cette question.
+
+3.2. Foncteur d’Orlov
+                                            c = Pic0 (X) sa variété abélienne duale. Les
+  Soit X une variété abélienne complexe, et X
+tores complexes correspondants X et Xc sont donc duaux au sens où les décompositions
+de Hodge sur H (X, Z) et H (X, Z) = H 1 (X, Z)∗ sont duales. Soit
+                1            1 c
+
+
+                                          P ∈ Pic(X × X)
+                                                      c
+
+le fibré de Poincaré, c’est-à-dire le fibré en droites uniquement déterminé par le fait que
+                                  P|X×{ô} = OX , P|{o}×Xb = OXb ,
+                                           c et c (P) ∈ Hdg2 (X × X,
+où o, ô sont les origines des variétés X, X,                     c Z) est donnée par
+                                                 1
+
+  IdH 1 (X,Z)∗ ∈ Hom(H 1 (X, Z)∗ , H 1 (X, Z)∗ ) = H 1 (X, Z) ⊗ H 1 (X,
+                                                                     c Z) ⊂ H 2 (X × X,
+                                                                                     c Z).
+
+La restriction de P à la fibre X × {L}, L ∈ X,
+                                             c est (avec un abus de notation) le fibré
+                        b
+en droites L. On note D (Y ) la catégorie dérivée d’une variété algébrique lisse Y . C’est
+la catégorie des complexes de faisceaux cohérents bornés à gauche de Y , considérés à
+quasi-isomorphisme près. Le foncteur de Fourier–Mukai P
+                                          Db (X) → Db (X)
+                                                       c
+                                          1248–18
+
+
+associé à P est une équivalence de catégories définie par Mukai (1981) comme
+(14)                          ΦP (E) = Rpr2∗ (pr∗1 E ⊗ P).
+Le foncteur de Fourier–Mukai agit sur la cohomologie à coefficients rationnels par la
+formule
+(15)                      ΦP∗ (α) = pr2∗ (pr∗1 α ∪ exp(c1 (P)).
+Il n’est pas difficile de voir que ΦP∗ préserve la structure entière et est en fait l’isomor-
+phisme
+                             H ∗ (X, Z) ∼
+                                        = H ∗ (X, Z)∗ ∼
+                                                      = H ∗ (X,
+                                                             c Z)
+
+où le premier isomorphisme est donné par la dualité de Poincaré. Notons que par le
+théorème de Grothendieck–Riemann–Roch (Borel et Serre, 1958), les formules (14) et
+(15) sont compatibles au sens où
+                                 ch(ΦP (E)) = ΦP∗ (ch(E)).
+  Le foncteur d’Orlov est une équivalence de catégories
+                              Φ : Db (X × X) → Db (X × X)
+                                                       c
+
+introduite par Orlov (2002) et définie de la façon suivante. Soit µ̃ : X × X → X × X
+l’automorphisme défini par
+                                 µ̃(u, v) = (u + v, v).
+Soient pr12 , pr13 , pr23 les trois projections de X × X × X
+                                                           c sur X × X et X × X.
+                                                                              c
+
+(16)                     Φ(F) = Rpr13∗ (pr∗12 (µ̃∗ F) ⊗ pr∗23 P).
+Partons du cas (qui sera celui qui nous intéresse) où F est un faisceau cohérent de la
+forme
+                              F1 ⊠ F2 := pr∗1 F1 ⊗ pr∗2 F2 .
+Alors la restriction du faisceau pr∗12 (µ̃∗ (F)) à la fibre {u} × X × {L} de pr13 au-dessus
+de (u, L), est égale à
+                                           tu∗ F1 ⊗ F2
+et la restriction de pr∗23 P à cette même fibre est isomorphe à L. Le complexe Φ(F) sur
+X ×X  c encode donc la cohomologie des faisceaux
+
+(17)                       tu∗ F1 ⊗ F2 ⊗ L, u ∈ X, L ∈ X
+                                                       c
+
+sur X.
+  Le foncteur Φ est une équivalence de catégories car il est aussi la composée des
+équivalences de catégories µ̃∗ : Db (X × X) → Db (X × X) et du foncteur de type Fourier–
+Mukai
+                                 Db (X × X) → Db (X × X)
+                                                       c
+
+associé à pr∗23 P sur X × X × X,
+                              c qui est aussi une équivalence de catégories par les
+mêmes arguments que dans Mukai (1981).
+                                          1248–19
+
+
+3.3. Construction d’un faisceau tordu
+   Soit C une courbe de genre 3 non hyperelliptique. Choisissons un plongement C ⊂
+X := J(C), où J(C) est la jacobienne de C. Soient G1 , G2 deux sous-groupes cycliques
+d’ordre d + 1 de J(C), agissant sur X √
+                                      par translation. Le nombre d qui apparaît ici est
+celui qui déterminera le corps K = Q( −d) plus tard. Pour des choix génériques de C,
+de son plongement dans X et de G1 , G2 , les translatés
+                         Ci := C + si ⊂ X, G1 = {o, s1 , . . . , sd }
+sont disjoints deux à deux et les translatés
+                        Cj′ := −C + tj ⊂ X, G2 = {ô, t1 , . . . , td }
+sont disjoints deux à deux. De plus Ci ∩ Cj′ = ∅ pour tous i, j.
+  Avec ces notations, soient
+(18)          F1 := I∪di=0 Ci (Θ) ⊂ OX (Θ), F2 := I∪dj=0 Cj′ (Θ) ⊂ OX (Θ),
+
+où Θ est un diviseur Thêta fixé de J(C). Considérons l’objet
+                             G := Φ(F1 ⊠ F2 ) ∈ Db (X × X).
+                                                        c
+
+A priori c’est un complexe, mais sous des hypothèses de généricité, c’est en fait le dual
+(au sens dérivé) d’un faisceau cohérent et même réflexif sur X × X.
+                                                                 c
+
+
+Théorème 3.1 (Markman, 2025, Proposition 9.2.2). — Si C et les groupes Gi sont
+génériquement choisis, les faisceaux de cohomologie G i de G satisfont aux propriétés
+suivantes : G 0 = 0, G 3 = 0, le faisceau G 2 est de torsion supporté sur un fermé de
+codimension 4 de X × X  c et, notant E := (G 1 )∗ , on a
+
+  i) Le faisceau cohérent E est réflexif et G 1 ∼
+                                                = E ∗.
+  ii) Le complexe G est quasi-isomorphe à Ext(E, OX×Xb )[1]. En particulier
+                             G1 ∼
+                                = E ∗, G 2 ∼
+                                           = Ext1 (E, OX×Xb ),
+et Exti (E, OX×Xb ) = 0 pour i ≥ 2.
+
+   Commentons tout d’abord les conditions de généricité. Elles concernent les intersec-
+tions entre la courbe C• := di=0 Ci et les translatés de la courbe C•′ := j Cj′ . On notera
+                               S                                         S
+
+Cu′ = tu (C ′ ) le translaté de C ′ par u ∈ J(C).
+
+Lemme 3.2. — Si l’intersection C ∩ Cu′ , pour u ∈ J(C), est non vide, alors elle est
+constituée de deux points (ou d’un point de multiplicité 2). Cette condition est satisfaite
+pour u dans un diviseur ΘCC ′ ⊂ J(C).
+
+Démonstration. — En effet, soit z ∈ Pic1 (C) donnant le plongement C ⊂ J(C) =
+Pic0 (C). Pour u ∈ J(C) = Pic0 (C), un point de C ∩ Cu′ est un point x ∈ C tel que
+                           x − z = −x′ + z + u dans Pic0 (C),
+                                          1248–20
+
+
+pour un point x′ de C. Ceci équivaut au fait que x + x′ = 2z + u dans Pic2 (C), équation
+symétrique en x et x′ , et réalisée pour u dans une hypersurface de J(C), qui est un
+diviseur Thêta (c’est-à-dire un translaté de C (2) ⊂ J(C)).
+  La première condition est la suivante
+  (A) (Markman, 2025, Assumption 9.1.1) On a H 0 (X, IC• (2Θ + L)) = 0 pour tout
+L ∈ Pic0 (X).
+  Cette hypothèse est évidemment satisfaite si d est suffisamment grand, ce qu’on peut
+supposer quitte à remplacer d par m2 d pour m grand.
+  Une autre condition imposée est que les courbes translatées Ci soient disjointes deux
+à deux, ce qui est facile à réaliser, au moins pour C générique.
+  La seconde condition est la suivante
+  (B) (Markman, 2025, Assumption 9.2.1.) Les (d + 1)2 surfaces Θij := Ci − Cj′ (qui sont
+des translatés de diviseurs Thêta comme expliqué ci-dessus) sont en position générale, au
+sens où leurs intersections triples sont de dimension 0 et leurs intersections quadruples
+sont vides.
+  Une dernière condition facile à réaliser est que le groupe G1 × G2 s’injecte dans X.
+Preuve du théorème 3.1. — Rappelons que par (16) et (18), on a
+(19)                      G = Rpr13∗ (pr∗12 µ̃∗ (F) ⊗ pr∗23 P),
+où le faisceau F sur X × X est défini par
+(20)                        F = pr∗1 IC• (Θ) ⊗ pr∗2 IC•′ (Θ).
+Soit Fe := pr∗12 µ̃∗ (F)⊗pr∗23 P. Le faisceau Fe est plat au-dessus de X×X,
+                                                                         c via le morphisme
+pr13 . Pour tout t = (u, L) ∈ X × X, notons Xt la fibre {u} × X × {L} de pr13 au-dessus
+                                       c
+de t.
+  En un point t = (u, L) ∈ X × X       c tel que t (C ) ∩ C ′ = ∅ pour tous i, j, on a
+                                                   u   i     j
+
+(21)                       Fe|Xt = Itu (C• )∪C•′ (Θ + Θu + L),
+où Θu := tu (Θ). On montre en utilisant (21) et la condition (A) que l’on a
+                               h0 (Fe|Xt ) = 0, h3 (Fe|Xt ) = 0
+pour t ∈ X × Xc général, mais il n’est pas difficile d’établir en fait ces annulations
+                  c Il en résulte immédiatement que G 0 = 0 = G 3 . Par la théorie
+pour tout t ∈ X × X.
+du changement de base, il existe alors deux fibrés vectoriels K 1 , K 2 sur X × X
+                                                                                c et un
+morphisme
+(22)                                 δ : K1 → K2
+tels que
+(23)                         G1 ∼
+                                = Ker δ, G 2 ∼
+                                             = Coker δ.
+En utilisant la condition (B) et (21), on va montrer ensuite que h2 (Fe|Xt ) = 0 pour tout
+t = (u, L) ∈ X × Xc en dehors d’un fermé Σ de codimension 4 de X × X.   c Il résulte alors
+                                               1248–21
+
+
+de la théorie du changement de base que le faisceau G 2 est de torsion, supporté sur le
+fermé Σ que nous décrivons maintenant.
+   Comme sur chaque composante Ci ou Cj′ de l’union tu (C• )∪C•′ , le degré de Θu +Θ+L
+est 6, on a
+                      H 1 (tu (C• ) ∪ C•′ , L(Θu + Θ)|tu (C• )∪C•′ ) = 0,
+                               c tel que t (C ) ∩ C ′ = ∅ pour tous i, j, et donc on a
+en tout point t = (u, L) ∈ X × X          u  i     j
+sous cette hypothèse
+                  H 2 (Xt , Fe|Xt ) = H 2 (Xt , Itu (C• )∪C•′ ⊗ L(Θu + Θ)) = 0.
+La situation est plus compliquée quand tu (Ci ) ∩ Cj′ ̸= ∅ pour une paire (i, j). Dans
+ce cas, Fe|Xt a de la torsion (supportée aux points d’intersection des courbes tu (C• )
+et C•′ ) mais l’isomorphisme (21) reste vrai modulo la torsion de Fe|Xt . Le fermé Σ
+supportant G 2 paramètre les paires (u, L) ∈ X × X     c telles que pour au moins un couple
+                    ′                                0
+(i, j), tu (Ci ) ∩ Cj ̸= ∅ (donc u ∈ Θij ) et L ∈ Pic (X) a la propriété que
+(24)                  H 1 (tu (Ci ) ∪ Cj′ , L(Θu + Θ)|tu (Ci )∪Cj′ ) ̸= 0.
+
+   La courbe réductible mais connexe tu (Ci ) ∪ Cj′ étant de genre 7 par le lemme 3.2, et
+le degré de Θu + Θ + L sur cette courbe étant 12, le fibré L ∈ Pic0 (X) est uniquement
+déterminé par la condition (24) qui implique que L(Θ + Θu )|tu (Ci )∪Cj′ = Ktu (Ci )∪Cj′ .
+On obtient donc dans X × X     c une réunion finie de surfaces Θ  b , chacune isomorphe
+                                                                    ij
+au diviseur Θij . En fait, il faut aussi étudier ce qui se passe sur les intersections de
+deux surfaces Θij , c’est-à-dire lorsque le couple (i, j) n’est pas unique, ce qui est fait
+soigneusement par Markman (2025). Le fermé Σ ⊂ X × X         c est donc S Θ
+                                                                          ij
+                                                                             b qui est de
+                                                                              ij
+codimension 4.
+  Le morphisme δ de (22) est donc surjectif génériquement et son transposé
+                                      t
+                                          δ : (K 2 )∗ → (K 1 )∗
+est un morphisme injectif de conoyau E. En écrivant la suite exacte
+                                              tδ
+(25)                         0 → (K 2 )∗ → (K 1 )∗ → E → 0
+et en utilisant (23), on voit que G ∼
+                                    = Ext(E, OX×Xb )[1]. La réflexivité de E résulte de (25)
+                   1            ∼   2
+et du fait que Ext (E, OX×Xb ) = G est supporté en codimension ≥ 4.
+
+  Le faisceau E a les premières propriétés numériques suivantes.
+
+Lemme 3.3. — Le rang de E est 8d.
+
+Démonstration. — D’après la démonstration précédente, le rang de E est égal à celui
+de G 1 qui par la théorie du changement de base et par (21) pour t = (o, ô) (qui sous nos
+hypothèses n’est pas dans le fermé Σ) est égal à
+(26)          h1 (Fe|Xt ) = h0 (C• ∪ C•′ , OC• ∪C•′ (2Θ)) − h0 (X, OX (2Θ)).
+                                            1248–22
+
+
+On a h0 (X, OX (2Θ)) = 8 et
+                         h0 (C• ∪ C•′ , OC• ∪C•′ (2Θ)) = 2(d + 1) · 4
+puisqu’on a 2d + 2 courbes disjointes de genre 3 sur lesquelles le diviseur Thêta est de
+degré 3. Donc le rang de E est 8d par (26).
+  Comme on le verra dans la section 4, le caractère de Chern tordu
+                                                              1
+                                 κ(E) := ch(E ⊗ det(E)− r )
+                                 1
+du faisceau tordu E ⊗ det(E)− r est fait de classes de Hodge–Weil, qui restent donc de
+Hodge pour toute déformation de X × X    c comme variété abélienne de Weil. Cependant
+                               1
+le faisceau tordu E ⊗ det(E)− r n’est pas encore l’objet géométrique cherché. En effet,
+il ne satisfait pas la condition de semi-régularité énoncée dans la section 5 (voir la
+sous-section 5.3), qui garantirait que ses classes de Chern restent algébriques le long de
+ces déformations.
+   Markman corrige ce défaut de la façon suivante. Rappelons qu’à un décalage près, le
+dual au sens dérivé de E est le complexe
+                             G := Φ(F1 ⊠ F2 ) ∈ Db (X × X),
+                                                        c
+
+où Φ : Db (X × X) → Db (X × X)
+                            c est le foncteur d’Orlov et
+
+                                F1 = IC• (Θ), F2 = IC•′ (Θ).
+En particulier E = (G 1 )∗ . On peut aussi écrire
+(27)                                 G = Ψ(IC• ⊠ IC•′ ),
+où l’équivalence de catégories Ψ est la composition de Φ et de l’autoéquivalence de
+catégories de Db (X × X) donnée par le produit tensoriel avec OX (Θ) ⊠ OX (Θ).
+   Or par construction le faisceau IC• sur X est invariant sous l’action de G1 par
+translations et le faisceau IC•′ sur X est invariant sous l’action de G2 par translations.
+Donc le faisceau IC• ⊠ IC•′ sur X × X est invariant sous l’action de G1 × G2 par
+translations. Il en résulte que G ∈ Db (X × X)
+                                             c est invariant sous l’action de G × G sur
+                                                                               1     2
+Db (X × X)
+         c donnée pour u ∈ G × G par
+                                  1    2
+
+(28)                      M 7→ Tu (M ) := Ψ ◦ tu∗ ◦ Ψ−1 (M ),
+où tu∗ est l’action induite par la translation tu sur Db (X × X). L’action (28) n’est
+pas induite par une action de translation sur la base X × X.  c Markman la calcule
+explicitement :
+Proposition 3.4 (Markman, 2025, Equation (9.3.1)). — Pour u = (u1 , u2 ) ∈ G1 × G2 ,
+F ∈ Db (X × X),
+            c on a
+
+(29)              Tu = ((pr∗1 Lu1 ⊗ pr∗2 Pu2 )⊗) ◦ (tu1 −u2 , tLu1 +Lu2 )∗ ,
+où pour u ∈ Gi ⊂ X, Lu := OX (Θu − Θ) ∈ Pic0 (X), la translation tLu est la translation
+           c et P = P
+par Lu sur X,                b ∈ Pic(X).
+                                     c
+                  u     |{u}×X
+                                           1248–23
+
+
+Corollaire 3.5. — Si G1 ∩ G2 = {0}, l’action de G1 × G2 sur X × X
+                                                                c induite par T
+est fidèle.
+
+              1 × G2 le groupe G1 × G2 agissant par translations sur X × X, par la
+   On notera G\                                                            c
+formule
+                       (u1 , u2 ) 7→ t(u\
+                                        1 ,u2 )
+                                                := (tu1 −u2 , tLu1 +Lu2 ).
+Le faisceau EY qui va nous intéresser est grosso modo obtenu en descendant E sur le
+quotient
+(30)                            Y := X × X/ 1 × G2 .
+                                         c G\
+
+La formule (29) et l’invariance de G 1 = E ∗ sous Tu , pour u ∈ G1 × G2 , disent que pour
+tout u = (u1 , u2 ) ∈ G1 × G2 , on a canoniquement
+(31)                     t(u\
+                            1 ,u2 )∗
+                                     (E) ∼
+                                         = pr∗1 Lu1 ⊗ pr∗2 Pu2 ⊗ E.
+Ceci ne dit pas cependant que E est invariant sous les translations tu1  \,u2 du fait du
+coefficient multiplicatif apparaissant à droite. Pour obtenir un objet G1 ×
+                                                                        \   G2 -invariant
+à partir√de E, Markman
+                    √      demande que d soit pair (ce qu’on peut toujours supposer vu
+que Q( −d) = Q( −4d)). Il montre alors :
+
+Lemme 3.6 (Markman, 2025, Lemma 9.3.5). — Si d est pair, il existe un fibré en
+droites D sur X × X
+                  c tel que D ⊗ E soit G\
+                                        1 × G2 -linéarisable.
+
+  Le fibré en droites D est tel que pour (u1 , u2 ) ∈ G1 × G2 ,
+(32)                  t(u\
+                         1 ,u2 )∗
+                                  (D) = (pr∗1 Lu1 ⊗ pr∗2 Pu2 )−1 ⊗ D.
+  Les formules (31) et (32) montrent que D ⊗ E est invariant par translations sous
+G1 × G2 , et en fait il est même G\
+ \                                   1 × G2 -linéarisable. Il descend donc en un faisceau
+cohérent EY sur la variété Y , tel que, notant q : X × X c → Y l’application quotient,
+
+(33)                                   q ∗ EY ∼
+                                              = E.
+                                                                                       1
+Le faisceau EY sur Y , ou plus précisément le faisceau tordu associé EY ⊗ (detEY )− 8d ,
+fournit la paire désirée.
+
+
+                                                 1
+4. Les classes de Chern de E ⊗ (det E)− r sont de Hodge–Weil
+
+  Rappelons que nous appelons classes de Hodge–Weil les classes de Hodge   √ existant
+sur une variété abélienne de Weil très générale, pour un corps K = Q( −d) fixé et
+de discriminant 1, ou leurs spécialisations X × X,
+                                                 c vues comme variétés abéliennes de
+Weil comme dans la section 3.1. En les degrés 2k ̸= 2n, ces classes sont des puissances
+de la polarisation ω compatible avec l’action de K (c’est-à-dire satisfaisant à (9)). En
+degré 2n, l’espace des classes de Hodge–Weil est de dimension 3, engendré par les classes
+de Weil elles-mêmes et la puissance ω n .
+                                             1248–24
+
+
+Théorème 4.1. — Supposons dim X = 3. Soit E le faisceau sur X × X   c de rang r = 8d
+construit dans le théorème 3.1. Alors
+                                                                           1
+  (i) (Markman, 2025, Remark 6.2.4) Les classes κi (E) := chi (E ⊗ (detE)− r ) sont de
+Hodge–Weil sur X × X. c
+
+  (ii) (Markman, 2025, Lemma 8.3.1) La classe κ3 (E) n’est pas proportionnelle à ω 3 .
+
+  Les classes de Hodge sur un produit X × X, où X est une variété abélienne très
+générale munie d’une polarisation θ, sont toutes obtenues comme des polynômes en les
+trois classes de Hodge de degré 2
+(34)                      θ1 := pr∗1 θ, θ2 := pr∗2 θ, θ3 := µ∗ θ,
+où µ : X × X → X est l’application somme. Il n’y a pas de relations polynomiales
+P (θ1 , θ2 , θ3 ) = 0 non triviales dans H 2k (X × X, Q) lorsque le degré k de P (supposé
+homogène) est ≤ n := dim X. Lorsque k ≤ n, les classes de Hodge–Weil sur X×X, munie
+d’une structure de variété abélienne de Weil relative à un corps quadratique K, forment
+donc un sous-espace de dimension 1 (en degré 2k < 2n) ou 3 en degré 2k = 2n, dans
+un espace vectoriel de dimension (k+1)(k+2)
+                                         2
+                                               . Markman (2025) commence par caractériser
+ce sous-espace afin de démontrer le théorème 4.1. Les sections 4.1 et 4.1.2 décrivent
+cette caractérisation. La section 4.2 conclut la preuve du théorème 4.1 par l’analyse
+cohomologique du foncteur d’Orlov.
+
+4.1. K-sécantes de la variété des spineurs et variétés abéliennes de Weil
+  Soit (X, θX ) une variété abélienne principalement polarisée sur C et soit X
+                                                                             c sa duale
+(qui est donc isomorphe à X). Soit
+(35)                            c Q) = H 1 (X, Q) ⊕ H 1 (X, Q)∗
+                  V := H 1 (X × X,
+
+                                   ∗
+                                       H 1 (X, Q) = H ∗ (X, Q).
+                                   ^
+(36)                      S :=
+L’espace vectoriel V est muni de la forme bilinéaire symétrique ( , ) définie par
+                                               
+                                 (x, e), (x′ , e′ ) = e′ (x) + e(x′ ).
+Notons x 7→ x̂ et v 7→ v̂ les isomorphismes
+                            X∼ c H 1 (X, Q) ∼
+                             = X,                  c Q)∗
+                                            = H 1 (X,
+donnés par la polarisation θX . L’endomorphisme ϕ : X × X → X × X de (11), défini
+par ϕ(a, b) = (−b, d a), et satisfaisant
+                                         ϕ2 = −d IdX×X
+induit un endomorphisme ϕ′ de X × X,
+                                  c défini par
+
+(37)                                ϕ′ (x, ŷ) = (−y, d x̂)
+                                               1248–25
+
+
+qui satisfait également ϕ′ 2 = −d IdX×Xb . De plus on a la formule suivante pour le tiré
+en arrière agissant sur V
+                                      ∗
+(38)                                ϕ′ (v, ŵ) = (d w, −v̂).
+Soit
+                    W ⊂ H 1 (X × X, c C) = H 1 (X, C) ⊕ H 1 (X, C)∗
+                                                  √
+le sous-espace propre associé à la valeur propre i d de ϕ′ ∗ .
+Lemme 4.2. — W est un sous-espace totalement isotrope maximal de H 1 (X, C) ⊕
+H 1 (X, C)∗ muni de la forme bilinéaire ( , ).
+Démonstration. — Les éléments γ de W sont de la forme
+                                                      1  ∗
+                                    γ = (v, ŵ) + √ ϕ′ (v, ŵ)
+                                                    i d
+                      1               1        ∗
+pour tous v ∈ H (X, C), ŵ ∈ H (X, C) , c’est-à-dire, en utilisant (38)
+                                                  1
+(39)                             γ = (v, ŵ) + √ (d w, −v̂).
+                                                 i d
+On obtient donc pour γ, γ ′ ∈ W
+                                         1                          1
+                                                                                   
+                        ′                               ′                      ′
+                (γ, γ ) = (v, ŵ) + √ (d w, −v̂), (v , ŵ ) + √ (d w , −v̂ )
+                                                             ′                    ′
+                                        i d                      i d
+                          1                          1                          1
+= ŵ′ (v) + ŵ(v ′ ) + √ (−v̂ ′ (v) + d ŵ(w′ )) + √ (d ŵ′ (w) − v̂(v ′ )) − (−dv̂ ′ (w) − dv̂(w′ )).
+                        i d                       i d                           d
+                                                    1        ∼   1           ∗
+Ceci vaut 0 du fait que l’isomorphisme H (X, Q) = H (X, Q) , v 7→ v̂, est alterné,
+c’est-à-dire v̂(w) = −ŵ(v) pour tous v, w ∈ H 1 (X, Q).
+  On rappelle qu’étant donné un Q-espace vectoriel V muni d’une forme quadratique
+q(x) = (x, x), l’algèbre de Clifford C(V ) est définie comme le quotient
+                                          C(V ) = V ⊗∗ /I
+où I est l’idéal de l’algèbre tensorielle V ⊗∗ engendré par les tenseurs
+                                  x1 ⊗ x2 + x2 ⊗ x1 − (x1 , x2 )1
+pour x1 , x2 ∈ V . On note C(V )+ la sous-algèbre engendrée par les tenseurs de degré
+pair. L’algèbre C(V ) admet une anti-involution ∗ définie par
+                                  (x1 . . . xr )∗ = (−1)r xr . . . x1 .
+Le groupe Spin(V ) est défini par
+(40)               Spin(V ) = {x ∈ C(V )+ , xx∗ = 1, et xV x∗ ⊂ V }.
+  Les Q-espaces vectoriels V et S étant définis comme dans (35) et (36), l’algèbre de
+Clifford C(V ) agit sur S : un élément (u, v̂) de V = S 1 ⊕ (S 1 )∗ agit sur S = ∗ S 1 par
+                                                                                V
+
+produit extérieur par u et produit intérieur par v̂. On note mv ∈ End(S) l’action de
+v ∈ C(V ) sur S. L’algèbre S se décompose selon la parité du degré en S = S + ⊕ S − .
+Le groupe Spin(V ) ⊂ C(V )+ agit d’une part sur V par définition (voir (40)), et donc
+                                             1248–26
+
+
+aussi sur ses puissances extérieures (on notera g 7→ ρg cette action) et d’autre part sur
+S + par multiplication de Clifford comme ci-dessus (on notera g 7→ mg cette action). Un
+élément ξ ∈ SC+ est appelé un « spineur pair pur »si
+                                   mξ : VC → S − , v 7→ mv (ξ)
+a pour noyau un sous-espace vectoriel isotrope maximal de VC . Inversement un tel sous-
+espace détermine à un coefficient près l’unique spineur pair pur dont il est le noyau. Si
+ξ est un spineur pur pair de noyau K, et g ∈ Spin(V ), le noyau de mg (ξ) est ρg (K).
+La grassmannienne isotrope IG(2n, 4n) des sous-espaces vectoriels isotropes maximaux
+de VC est donc plongée dans P(SC+ ). Le lemme 4.2 combiné avec les considérations
+précédentes montre que l’action de K définie ci-dessus sur V fournit un spineur pair
+pur ξW (défini sur K) associé à W , son conjugué complexe étant le spineur pair pur ξW .
+Le plan
+(41)                                 P = ⟨ξW , ξW ⟩ ⊂ SC+
+est clairement défini sur Q. La droite projective associée est une droite sécante de la
+variété des spineurs IG(2n, 4n) ⊂ P(S + ). Le plan P est calculé explicitement de la façon
+suivante.
+                                                                  √
+Lemme 4.3 (Markman, 2025, Equation (2.4.5)). — Soit u := i d θX ∈ Hdg2 (X) ⊗ C.
+Alors on a
+(42)                            P ⊗ C = ⟨exp(u), exp(u)⟩C
+                                 *                    +
+                                           Im(exp(u))
+(43)                       P = Re(exp(u)),    √           .
+                                                d       Q
+
+Démonstration. — Si η ∈ 2 H 1 (X, C), le cup-produit avec exp(η) est un automor-
+                               V
+
+phisme de l’algèbre SC = ∗ H 1 (X, C) qui est de la forme mexp(η) pour un élément
+                           V
+
+exp(η) ∈ Spin(V )C dont la représentation spinorielle ρexp(η) sur VC est donnée par
+(44)                         ρexp(η) (w, ŵ′ ) = (w − ŵ′ ⌟η, ŵ′ ).
+Ceci se voit en écrivant η comme une somme de bivecteurs décomposables η ′ := x1 ∧ x2 .
+Supposons pour simplifier que dim H 1 (X, C) = 2 et x1 , x2 est une base de H 1 (X, C), avec
+base duale x∗i . Alors l’élément de Spin(V ) correspondant est exp(η ′ ) = 1+x1 x2 ∈ C(V )+
+et on trouve que dans C(V ), (1 + x1 x2 )xi (1 + x2 x1 ) = xi et
+         (1 + x1 x2 )x∗1 (1 + x2 x1 ) = x∗1 − x1 , (1 + x1 x2 )x∗2 (1 + x2 x1 ) = x∗2 + x1 ,
+expliquant la formule (44).
+                       √
+  En posant η = u = i d θX , on trouve que
+                                                      √
+(45)                        ρexp(u) (w, ŵ′ ) = (w − i d w′ , ŵ′ )
+puisque par définition ŵ′ ⌟θX = w′ .
+  L’élément 1 ∈ S + est un spineur pur de noyau H 1 (X, C)∗ . Le spineur exp(u) =
+mexp(u) (1) ∈ SC est donc un spineur pur dont le noyau est ρexp(u) (H 1 (X, C)∗ ). D’après
+                                           1248–27
+
+
+(45), l’espace isotrope maximal W ⊂ H 1 (X, C) ⊕ H 1 (X, C)∗ associé au spineur pur
+exp(u) est donc
+                                             √
+(46)        W = ρexp(u) (H 1 (X, C)∗ ) = {(−i d w′ , ŵ′ ), ŵ′ ∈ H 1 (X, C)∗ }.
+Finalement, on note que l’espace W défini ci-dessus est le même que l’espace W considéré
+dans (39), si l’on pose w′ = w − i√1 d v.
+   L’importance du lemme 4.3 vient du corollaire suivant. On reprend les notations et
+la construction de la section 3.3.
+
+Corollaire 4.4. — Les faisceaux F1 = I∪di=0 Ci (Θ) ⊂ OX (Θ) et F2 = I∪dj=0 Cj′ (Θ) ⊂
+OX (Θ) de (18) ont la propriété que
+(47)                                   ch(Fi ) ∈ P.
+
+Démonstration. — Le caractère de Chern est multiplicatif. De plus, les Ci étant dis-
+jointes, on a IC• = i ICi et de même pour C•′ . On a donc
+                   N
+
+                                 d
+                                 Y                                      d
+                                                                        Y
+          ch(F1 ) = ch(OX (Θ))         ch(ICi ), ch(F2 ) = ch(OX (Θ))         ch(ICj′ ).
+                                 i=0                                    j=0
+
+On a ch(OX (Θ)) = exp(θX ). Par ailleurs, le théorème de Grothendieck–Riemann–Roch
+appliqué à l’inclusion iC de C ou C ′ dans X = J(C) donne
+                                                      2
+                                                     θX
+                         ch(OCi ) = iC∗ (ch(TCi )) =      − 2[pt],
+                                                      2
+où [pt] est la classe d’un point de X. Comme le caractère de Chern est additif, on en
+déduit
+                                               θ2
+                                 ch(ICi ) = 1 − X + 2[pt],
+                                                2
+d’où
+                                                      θ2
+                                                                  d+1
+                     ch(F1 ) = ch(F2 ) = exp(θX ) 1 − X + 2[pt]         .
+                                                        2
+                                                 θ2                              θ2
+Comme on est en dimension 3, on obtient (1− 2X +2[pt])d+1 = 1−(d+1) 2X +2(d+1)[pt]
+et donc
+                                         θ2                        θ3
+            ch(F1 ) = exp(θX ) − (d + 1) X + 2(d + 1)[pt] − (d + 1) X .
+                                          2                         2
+        3
+Comme θX = 6[pt], il vient
+                                    θ2           θ3              θ2     θ3
+(48)    ch(F1 ) = exp(θX ) − (d + 1) X − (d + 1) X = 1 + θX − d X − d X .
+                                     2            6               2      6
+                                       √
+Par ailleurs, la formule (43), où u = i d θX , montre que P est engendré sur Q par
+
+                                       θ2         θ3
+                                  1 − d X , θX − d X .
+                                        2          6
+                                                 1248–28
+
+
+4.1.1. Polarisation de X × Xc comme variété abélienne de Weil. — Les notations précé-
+dentes permettent aussi de décrire commodément la polarisation sur la variété abélienne
+de Weil sur X × X c (relativement au corps K). En effet, l’isomorphisme X ∼      c est
+                                                                               = X
+donné par une polarisation θX sur X, c’est-à-dire une 2-forme
+                                                  2
+                                                      H 1 (X, Q)
+                                                  ^
+                                           θX ∈
+telle que v̂(u) = θX (u, v) pour u, v ∈ H1 (X, Q) et satisfaisant les conditions de Hodge–
+Riemann
+(49)    θX (α, β) = 0, ∀α, β ∈ H1,0 (X), iθX (α, α) > 0, ∀α ∈ H1,0 (X), α ̸= 0.
+
+  Considérons la forme bilinéaire ω sur V ∗ = H1 (X, Q ⊕ H1 (X, Q)∗ définie par
+(50)                                 ω(w, w′ ) := (w, ϕ′∗ (w′ ))
+Pour w = (u, v̂), w′ = (u′ , v̂ ′ ) ∈ V ∗ , on a ϕ′∗ w′ = (−v ′ , d û′ ), d’où
+(51)                        ω(w, w′ ) = (w, ϕ′∗ (w′ )) = d û′ (u) − v̂(v ′ )
+                         = d û′ (u) + v̂ ′ (v) = d θX (u, u′ ) + θX (v, v ′ ).
+
+  Ainsi la forme ω de (50) est une polarisation K-compatible de X × X
+                                                                    c qui coïncide
+avec la forme donnée en (13).
+4.1.2. Caractérisation spinorielle des classes de Hodge–Weil. — Avec les notations de
+la section précédente, P = ⟨ξW , ξW ⟩ étant le plan correspondant à une droite K-sécante
+de la variété des spineurs IG(2n, 4n) ⊂ P(S + ), on définit le groupe Spin(V )P ⊂ Spin(V )
+comme étant le sous-groupe des éléments g ∈ Spin(V ) tels que mg (p) = p, ∀p ∈ P .
+Rappelons que le groupe Spin(V ) agit par ailleurs sur ∗ V = H ∗ (X × X,
+                                                            V                 c Q) par la
+représentation ρ. Markman établit la caractérisation suivante des classes de Hodge–Weil.
+
+Proposition 4.5. — Les classes de Hodge–Weil de X × X
+                                                    c sont les classes invariantes
+sous la ρ-action de Spin(V )P .
+
+  Cette proposition résulte de l’énoncé suivant.
+
+Lemme 4.6 (Markman, 2025, Lemma 2.2.7). — L’espace ( ∗ V )Spin(V )P des invariants
+                                                                          V
+
+de ∗ V sous Spin(V )P est réduit à 0 en degré ∗ impair, de dimension 1 et engendré
+   V
+
+par la puissance ω k de la polarisation compatible ω de (51) en degré 2k ̸= 2n, et de
+dimension 3 en degré 2n, engendré sur C par les classes 2n W , 2n W et ω n .
+                                                        V       V
+
+
+  Ces résultats peuvent être obtenus également en utilisant le groupe de Mumford–Tate
+d’une variété abélienne de Weil très générale, déformation de (X × X,c K, ω) (voir van
+Geemen, 1994, Section 6). Ce dernier groupe est en effet le sous-groupe du groupe or-
+thogonal SO(V, ( , )) constitué des automorphismes K-linéaires. Le formalisme spinoriel
+va par contre être fortement utilisé dans la démonstration du théorème 4.1.
+                                          1248–29
+
+
+4.2. Preuve du théorème 4.1
+   D’après la proposition 4.5, pour démontrer le théorème 4.1(i), il suffit de montrer
+l’invariance sous Spin(V )P de κ(E). Rappelons (voir section 3.3) que
+          E ∨ = G[−1], G = Φ(F1 ⊠ F2 ) = Rpr13∗ (pr∗12 (µ̃∗ (F1 ⊠ F2 )) ⊗ pr∗23 P),
+où Φ : Db (X × X) ∼= Db (X × X)
+                             c est l’équivalence de catégories dérivées d’Orlov et où
+le dual E ∨ = Ext(E, OX×Xb ) doit être pris au sens dérivé puisque E n’est pas localement
+libre.
+   Il suffit donc de montrer que κ(G) est Spin(V )P -invariant. Par le théorème de
+Grothendieck–Riemann–Roch, en utilisant le fait que le fibré tangent relatif de pr23
+est trivial, on obtient
+(52)              ch(G) = pr13∗ (pr∗12 (µ̃∗ (ch(F1 ⊠ F2 )))pr∗23 (ch(P))
+                                                 =: Φcoh (ch(F1 ⊠ F2 )).
+  On a vu dans le corollaire 4.4 que le caractère de Chern de F1 et F2 est un élément
+de P ⊂ S et donc invariant sous Spin(V )P × Spin(V )P . Malheureusement le morphisme
+                                                                  ∗
+                                             ∗
+                                                                  ^
+                         Φcoh : S ⊗ S = H (X × X, Q) →                 V
+défini dans (52) n’est pas équivariant sous les diverses actions du groupe Spin(V ). (Plus
+précisément, le groupe Spin(V ) agit à gauche sur S par la multiplication de Clifford
+g 7→ mg et à droite par sa transposée g 7→ m†g . Par ailleurs il agit sur ∗ V = i i V
+                                                                          V      L V
+
+par la représentation ρ.) Ce défaut d’équivariance est analysé par Markman (2025). Soit
+                                                             ∗         ∗
+                      ρ′g := Φcoh ◦ (mg × m†g ) ◦ Φ−1
+                                                             ^         ^
+                                                   coh :         V →       V.
+La différence entre ρg et ρ′g mesure le défaut de Spin(V )-équivariance de Φcoh .
+  La formule suivante est établie par Orlov (2002). Pour tout g ∈ Spin(V ), on a
+(53)                            ρ′g = exp(c1 (Ng )) ∪ ρg ,
+où Ng est un fibré en droites topologique (c’est-à-dire une classe entière de degré 2) sur
+X×c  X.
+  Markman (2025, Proposition 6.1.2) établit une formule explicite pour c1 (Ng ) :
+                                    1
+(54)                      c1 (Ng ) = (c1 (P) − ρg (c1 (P))).
+                                    2
+Preuve du théorème 4.1(i). — Le caractère de Chern
+                          ch(F1 ⊠ F2 ) = ch(F1 )ch(F2 ) ∈ S ⊗ S
+est invariant sous mg × m†g pour g ∈ Spin(V )P et donc
+                                ch(G) = Φcoh (ch(F1 ⊠ F2 ))
+est invariant sous ρ′g , pour g ∈ Spin(V )P . D’après (53), on conclut que pour tout
+g ∈ Spin(V )P ,
+(55)                      exp(c1 (Ng )) ∪ ρg (ch(G)) = ch(G).
+                                                  1248–30
+
+
+Comme ch0 (G) = −8d ̸= 0 par le lemme 3.3, on obtient
+(56)                        −8d c1 (Ng ) = ch1 (G) − ρg (ch1 (G)).
+De plus, d’après (56), on a pour tout g ∈ Spin(V )P ,
+                        ch1 (G)                                ch1 (G)
+                                                                                                       
+            κ(G) = exp          ch(G) = exp(c1 (Ng ))−1 exp ρg                                                  ch(G)
+                          8d                                     8d
+et donc, en utilisant (55)
+                                                                                            ch1 (G)
+                                                                                                    
+                                                                     −1
+(57)                     ρg (κ(G)) = exp(ρg (c1 (Ng ))) exp                       ρ2g                      ρg (ch(G))
+                                                                                              8d
+                                                                         ch1 (G)
+                                                                                 
+                       = exp(ρg (c1 (Ng ))) exp −1
+                                                               ρ2g                      exp(c1 (Ng ))−1 ch(G)
+                                                                           8d
+                                            ch1 (G)                                              ch1 (G)
+                                                                                                      −1
+       = exp(ρg (c1 (Ng )))−1 exp ρ2g                      exp(c1 (Ng ))−1 exp                                   κ(G).
+                                              8d                                                   8d
+Finalement, (56) entraîne que
+                                   ch1 (G)                       ch1 (G)
+                                                                                                       −1
+                            −1
+        exp(ρg (c1 (Ng ))) exp       ρ2g     exp(c1 (Ng ))−1 exp                                                  = 1,
+                                      8d                           8d
+et donc κ(G) est Spin(V )P -invariant d’après (57).
+
+Remarque 4.7. — Notons que d’après (56) et (54), c1 (E) = ch1 (G) n’est pas invariant
+                                                                                   −1
+sous Spin(V )P , d’où la nécessité de travailler avec le faisceau tordu E ⊗ (detE) 8d .
+
+Preuve du théorème 4.1(ii). — La démonstration du fait que κ3 (G) n’est pas propor-
+tionnel à ω 3 repose sur les calculs précédents et sur l’analyse de l’action d’un groupe
+Spin(V )ξW ,ξW légèrement plus gros que Spin(V )P . Le groupe Spin(V )ξW ,ξW est le sous-
+groupe de Spin(V ) qui fixe (via la représentation m) chaque élément ξW , ξW à un
+coefficient près. Ce groupe agit trivialement (via la représentation ρ) sur les puissances
+de la polarisation ω, mais pas sur les classes de Weil. En utilisant (54), Markman montre
+que ce groupe ne laisse pas κ3 (G) invariant.
+
+
+
+5. Semi-régularité
+
+5.1. Semi-régularité de Bloch
+   La théorie de la semi-régularité pour les sous-variétés ou sous-schémas fournit un
+critère permettant d’étudier la question suivante de déformation des paires.
+
+   Question 1. Soit X une variété projective lisse et soit f : X → B un morphisme
+lisse de fibre X0 ∼
+                  = X. Soit Z ⊂ X une sous-variété ou un sous-schéma. Existe-t-il un
+sous-schéma Z ⊂ X plat sur B tel que Z0 = Z ?
+                                        1248–31
+
+
+   Cette question peut être posée dans le cadre analytique complexe ou dans le cadre
+algébrique. Dans les deux cas, il est naturel d’étudier ce problème d’abord à l’ordre
+fini (arbitrairement grand), c’est-à-dire lorsque B = Spec A est un schéma artinien
+local, i.e. de longueur finie supporté en un point. Si l’étude formelle ne rencontre pas
+d’obstructions, des méthodes analytiques difficiles permettent de répondre à la question
+en géométrie complexe localement sur la base (Kodaira, 1963) et dans le cadre algébrique,
+le principe d’algébrisation d’Artin (1969) permet de répondre à la question globalement
+mais après un changement de base.
+   Le critère suivant est établi par Kodaira (1963).
+
+Théorème 5.1. — Soit X une variété complexe compacte et Z ⊂ X une sous-variété
+complexe. Supposons que le fibré vectoriel holomorphe NZ/X sur Z satisfait
+                                   H 1 (Z, NZ/X ) = 0.
+Alors la réponse à la question 1 est oui (dans le cadre formel, ou analytique local).
+
+   On note cependant que la question ci-dessus est trop naïve pour avoir une réponse
+satisfaisante. En effet, s’il existe une déformation Z ⊂ X de Z, la classe [Z] de Z reste
+une classe de cycle et a fortiori de Hodge dans les fibres voisines Xt , pour t ∈ B proche
+de 0. Ici, on pense au morphisme lisse f comme à un morphisme analytique qui est
+donc localement topologiquement trivial par Ehresmann, ce qui permet de transporter
+la classe [Z] ∈ H 2c (X, Z) en une classe [Z]t ∈ H 2c (Xt , Z), pour t ∈ B. Comme déjà
+mentionné, c’est en fait le cas d’une base formelle ou artinienne B qui est intéressant,
+mais on peut là aussi donner un sens à la condition que la classe [Z] ∈ H 2c (X, Z) reste
+une classe de Hodge sur les fibres Xt , grâce à la connexion de Gauss–Manin et aux
+fibrés de Hodge (voir Voisin, 2002b, section 17.3 par exemple). Même dans le cas très
+simple des surfaces projectives lisses (par exemple les surfaces S de degré d ≥ 4 dans
+P3 étudiées par Noether), on sait bien que des classes de courbes C ⊂ S ne restent pas
+en général des classes de Hodge dans toutes les déformations St de S.
+   La semi-régularité de Bloch étudie donc la question raffinée suivante.
+
+   Question 2. Soit X une variété projective lisse sur C et soit f : X → B un morphisme
+lisse de fibre X0 ∼
+                  = X. Soit Z ⊂ X une sous-variété ou un sous-schéma de codimension c.
+On suppose que la classe [Z] ∈ H 2c (X, Z) reste une classe de Hodge sur les fibres Xt ,
+t ∈ B. Existe-t-il un sous-schéma Z ⊂ X plat sur B tel que Z0 = Z ?
+
+  Supposons que Z ⊂ X est localement intersection complète de codimension c, de
+sorte que son fibré normal
+                              NZ/X = (IZ /IZ2 )∗
+est localement libre sur Z. L’application de semi-régularité
+(58)                    δZ : H 1 (Z, NZ/X ) → H c+1 (X, Ωc−1
+                                                         X )
+                                         1248–32
+
+
+est introduite par Bloch (1972). Elle est définie comme la transposée, relativement à la
+dualité de Serre, de l’application de restriction
+                                                  ∗
+              H n−c−1 (X, Ωn−c+1
+                           X     ) → H n−c−1 (Z, NZ/X ⊗ KZ ), n := dim X
+induite par le morphisme naturel de faisceaux Ωn−c+1
+                                                X     → NZ/X∗
+                                                                ⊗ KZ . Le sous-schéma
+Z ⊂ X est dit semi-régulier si l’application δZ de (58) est injective. Bloch montre le
+résultat suivant.
+
+Théorème 5.2 (Bloch, 1972). — Si l’application de semi-régularité δZ est injective, la
+réponse à la question 2 est affirmative pour Z, sur toute base artinienne B.
+
+   Le théorème 5.2 est une extension naturelle du théorème 5.1. En effet, la théorie de
+Griffiths des variations de structure de Hodge et l’étude des lieux de Hodge montrent
+que l’espace H c+1 (X, Ωc−1
+                         X ) contient les obstructions successives à tous les ordres à ce
+que la classe [Z] reste de Hodge sous la déformation Z → B. Si celle-ci reste de Hodge,
+les obstructions successives à tous les ordres à étendre Z lui-même sont donc annulées
+par δZ . Les démonstrations de ces théorèmes ont été rendues plus conceptuelles et
+élégantes par la théorie du relèvement T 1 de Ran (1995).
+   Bien que le théorème 5.2 puisse paraître enthousiasmant, il est limité par la difficulté
+de construire des sous-variétés semi-régulières. Pour les diviseurs, la semi-régularité est
+satisfaite lorsque les diviseurs sont suffisamment amples (la condition précise est l’an-
+nulation H 1 (X, OX (D)) = 0, qui est satisfaite par (Serre, 1955a), quitte à remplacer D
+par D + kH où k >> 0 et H est une section hyperplane de X). Par contre, on peut
+remarquer que si X est une variété de dimension n ≥ 4 à fibré canonique trivial ou de
+dimension n ≥ 3 à fibré canonique ample, et telle que H 2 (X, OX ) = 0, une courbe lisse
+                                         C⊂X
+de genre ≥ 2 n’est pas semi-régulière. En effet comme H 2 (X, OX ) = 0, la semi-régularité
+signifierait dans ce cas que H 1 (C, NC/X ) = 0. Or la formule de Riemann–Roch et la
+formule d’adjonction donnent
+  χ(C, NC/X ) = −deg KX|C + 2g − 2 + (n − 1)(1 − g) = −deg KX|C + (n − 3)(1 − g).
+Sous les hypothèse indiquées, on trouve χ(C, NC/X ) < 0 et donc h1 (C, NC/X ) ̸= 0, de
+sorte que C n’est pas semi-régulière dans X. Si on prend par exemple une hypersurface
+très générale de dimension ≥ 3 et de degré d ≥ 2n − 1 dans Pn avec n ≥ 4, on sait grâce
+à Clemens (1986) que toutes les courbes C ⊂ X sont de genre au moins 2 et toutes
+les hypothèses ci-dessus sont satisfaites. Cette absence de courbes semi-régulières est
+cohérente avec le fait que la conjecture de Hodge variationnelle à coefficients entiers
+n’est pas satisfaite par de telles variétés, au moins pour des degrés adéquats, voir Kollár
+(1990).
+   Le succès de la stratégie de Markman repose directement sur le fait suivant, qui
+concerne les variétés abéliennes de dimension 3 principalement polarisées (en particulier
+à fibré canonique trivial).
+                                         1248–33
+
+
+Lemme 5.3. — Soit C une courbe lisse de genre 3 et non-hyperelliptique et X = J(C)
+sa jacobienne. Alors C ⊂ X est semi-régulière au sens de Bloch.
+
+Démonstration. — Écrivons la suite exacte normale
+                             0 → TC → TX|C → NC/X → 0.
+Il en résulte que
+                     H 1 (C, NC/X ) ∼
+                                    = H 1 (C, TX|C )/H 1 (C, TC ).
+Or comme TX est trivial et H 1 (X, OX ) ∼
+                                        = H 1 (C, OC ), on a
+                               H 1 (C, TX|C ) = H 1 (X, TX ).
+Comme C est de genre 3 et n’est pas hyperelliptique, l’application
+  H 1 (C, TC ) → H 1 (X, TX ) = H 1 (X, OX ) ⊗ H 0 (X, TX ) = H 1 (X, OX ) ⊗ H 1 (X, OX ),
+où l’isomorphisme H 0 (X, TX ) ∼= H 1 (X, OX ) est donné par le produit intérieur avec la
+classe θX ∈ H 1 (X, ΩX ) du diviseur Θ de X, a exactement pour image Sym2 H 1 (X, OX ).
+Son conoyau H 1 (C, NC/X ) est donc naturellement isomorphe à 2 H 1 (X, OX ). On vérifie
+                                                                V
+
+finalement que le composé
+                             2
+              H (X, OX ) ∼       H 1 (X, OX ) ∼
+                2                                              δC
+                                              = H 1 (C, NC/X ) → H 3 (X, ΩX )
+                             ^
+                         =
+est l’isomorphisme de Lefschetz H 2 (X, OX ) ∼
+                                             = H 3 (X, ΩX ) donné par le cup-produit par
+la classe θX . Donc l’application de semi-régularité δC est injective.
+
+
+5.2. Semi-régularité de Buchweitz–Flenner
+   Nous présentons une transposition due à Buchweitz et Flenner des résultats de Bloch
+à un autre problème de déformation des paires, qui concerne cette fois les déformations
+des paires (X, E), où E est un faisceau cohérent sur une variété projective lisse X. Étant
+données une telle paire et une déformation de X donnée par un morphisme projectif
+lisse
+                                  f : X → B, X0 ∼ = X,
+existe-t-il un faisceau cohérent E sur X , plat sur B, tel que E|X ∼= E ? La discussion
+                                                                     0
+
+concernant la base B (munie du point 0) est la même que dans la section précédente.
+L’étude se concentre donc sur le cas formel. Une condition nécessaire est que les classes de
+Chern de E restent des classes de Hodge sur les fibres Xt , (ce qui comme précédemment
+a un sens même lorsque la base est artinienne, à l’aide des variations de structures de
+Hodge). La vraie question est donc :
+
+  Question 3. Étant donnés une variété projective complexe lisse X, un faisceau
+cohérent E sur X, et une déformation de X donnée par un morphisme projectif lisse
+                                   f : X → B, X0 ∼
+                                                 = X,
+                                             1248–34
+
+
+telle que toutes les classes de Chern ci (E) restent de Hodge sur les fibres Xt , t ∈ B,
+existe-t-il un faisceau cohérent E sur X , plat sur B, tel que E|X0 ∼
+                                                                    =E?
+
+   La réponse apportée par Buchweitz et Flenner (2003) fait intervenir la classe d’Atiyah
+de E. Supposons d’abord que E est localement libre (i.e. E est le faisceau des sections
+d’un fibré vectoriel). La classe d’Atiyah at1 (E) ∈ Ext1 (E, E ⊗ ΩX ) a été introduite à
+l’origine par Atiyah. Dans le contexte analytique, E admet une connexion ∇ de Chern,
+dont la courbure R∇ est une forme fermée de type (1, 1) à coefficients dans End E,
+fournissant une classe de cohomologie de Dolbeault at1 (E) ∈ H 1 (X, ΩX ⊗ End E). En
+fait la construction peut se faire de façon beaucoup plus formelle et algébrique, en
+introduisant le faisceau P1 (E) des jets de sections de E à l’ordre 1. On a une suite
+exacte
+                            0 → ΩX ⊗ E → P1 (E) → E → 0,
+qui fournit la classe d’extension voulue at1 (E) ∈ Ext1 (E, ΩX ⊗ E). Cette construction
+s’étend ensuite à tout complexe et donc tout faisceau cohérent sur une variété projective
+lisse. On note
+                       at(E) = exp(at1 (E)) ∈     Exti (E, ΩiX ⊗ E).
+                                              M
+
+                                                   i
+La classe d’Atiyah at(E) permet de calculer les classes de Chern ci (E) (ou du moins leur
+version « Dolbeault »dans H i (X, ΩiX ). (Il faut en principe prêter attention à la différence
+entre les versions algébrique et analytique des classes de Chern dans H i (X, ΩiX ), qui
+différent par des puissances de 2iπ, du fait de la compatibilité voulue dans le second
+cas avec les classes de Chern en cohomologie de Betti, mais nous n’entrerons pas dans
+ces détails ici). On a en effet la formule suivante (voir Buchweitz et Flenner, 2000) :
+            ch(E) = Tr(exp(at1 (E))) = Tr(at(E)) dans                   H i (X, ΩiX ).
+                                                                   M
+(59)
+                                                                    i
+                                         i     i
+Le caractère de Chern ch(E) ∈
+                                 L
+                                      i H (X, ΩX ) d’un fibré vectoriel E de rang r et somme
+directe de fibrés en droites L1 ⊕ . . . ⊕ Lr étant défini par
+                                r
+                                                                 H i (X, ΩiX ),
+                                X                          M
+                      ch(E) =         exp(c1 (Li )) dans
+                                i=1                          i
+                 1
+avec c1 (Li ) = at (Li ), on obtient immédiatement la formule (59).
+  Buchweitz et Flenner (2000) construisent l’application de semi-régularité
+                           δE : Ext2 (E, E) →           H i+2 (X, ΩiX ),
+                                                  M
+
+                                                  i≥0
+
+pour un faisceau cohérent E. L’application δE est obtenue par composition avec la classe
+at(E) suivie de la trace. On dira que E est semi-régulier (au sens de Buchweitz–Flenner)
+si δE est injective. On a alors
+Théorème 5.4 (Buchweitz et Flenner, 2003). — Soit E un faisceau cohérent semi-
+régulier sur une variété projective lisse X. Alors la réponse à la question 3 est affirmative,
+au moins sur toute base formelle.
+                                          1248–35
+
+
+   Une petite déformation Xt de X sur laquelle les classes de Chern ci (E) restent de
+Hodge, possède donc un faisceau cohérent qui est une déformation Et de E. En particulier
+les classes de Chern ci (E) restent algébriques sur Xt .
+  Le passage du cas formel au cas analytique local (dans la seconde partie de l’énoncé)
+ou au cas algébrique (après revêtement fini) se fait par les méthodes de Kodaira (1963)
+ou Artin (1969).
+  On utilisera le résultat suivant :
+Lemme 5.5. — Soit C une courbe de genre 3 non hyperelliptique et soit X := J(C),
+de sorte que C est plongée dans X par l’application d’Abel. Alors le faisceau cohérent
+d’idéaux IC sur X est semi-régulier (Markman, 2025, Lemma 8.3.7(3)).
+   Ceci se montre en effet en utilisant le lemme 5.3. Il faut noter cependant que la
+semi-régularité d’une sous-variété Y ⊂ X n’est pas en général équivalente à celle du
+faisceau d’idéaux IY ⊂ OX . L’exemple le plus simple est celui des diviseurs D ⊂ X.
+Pour qu’un tel diviseur soit semi-régulier, il faut que H 1 (X, OX (D)) = 0, tandis qu’un
+fibré vectoriel de rang 1, et en particulier le faisceau OX (−D), est toujours semi-régulier
+au sens de Buchweitz–Flenner.
+
+5.3. Cas des faisceaux tordus
+  La classe d’Atiyah et l’application de semi-régularité sont définies pour un faisceau
+cohérent tordu relativement à une classe α ∈ H 2 (W, µr ) sur une variété W , de la même
+manière que pour le cas non tordu décrit dans la section précédente (Markman, 2025,
+Definition 7.3.5), c’est-à-dire via la classe d’extension du faisceau tordu des 1-jets associé.
+Lemme 5.6. — Soit E un faisceau cohérent sans torsion de rang r sur une variété
+projective lisse W . Alors E est semi-régulier si et seulement si le faisceau tordu E ⊗
+         1
+(det E)− r est semi-régulier. Plus généralement, E est semi-régulier si et seulement si le
+faisceau tordu E ⊗ H est semi-régulier pour tout fibré en droites fractionnaire H (voir
+section 1.1.1).
+Démonstration. — On a
+(60)                      at1 (E ⊗ H) = at1 (E) + at1 (H)IdE
+dans Ext1 (E, E ⊗ ΩW ) = Ext1 (E ⊗ H, E ⊗ H ⊗ ΩW ) et
+(61)             at E = exp(at1 (E)), at(E ⊗ H) = exp(at1 (E ⊗ H)).
+Notons que at1 (H) = c1 (H) ∈ H 1 (W, ΩW ). Par ailleurs
+                            Ext2 (E, E) = Ext2 (E ⊗ H, E ⊗ H).
+Par (60) et (61), les applications de semi-régularité δE pour E et δE⊗H pour E ⊗ H
+satisfont
+             δE⊗H = (exp(c1 (H))∪) ◦ δE : Ext2 (E, E) →   H i+2 (W, ΩiW ).
+                                                        M
+
+                                                              i
+                                         1248–36
+
+
+L’application exp(c1 (H))∪ : i H i+2 (W, ΩiW ) → H i+2 (W, ΩiW ) est clairement un iso-
+                                L                    L
+
+morphisme et donc δE⊗H est injective si et seulement si δE l’est.
+  Markman montre dans son article l’analogue du théorème 5.4 pour les faisceaux tordus
+             1
+E ⊗ (det E)− r , dans le cas des variétés abéliennes. Rappelons la notation
+                                                   1 1
+                                                         
+                              κ(E) := ch(E)exp − ch (E) .
+                                                   r
+Théorème 5.7 (Markman, 2025, Section 7.4). — Si un faisceau cohérent E est semi-
+régulier sur une variété abélienne X, les déformations du faisceau tordu E ′ = E ⊗
+         1
+(det E)− r sont non obstruées le long d’une déformation de X préservant les classes de
+Hodge κi (E). Une petite déformation Xt de X sur laquelle les classes κi (E) restent de
+                                                                                       1
+Hodge possède donc un faisceau tordu qui est une déformation Et′ de E ⊗ det E − r . En
+particulier les classes κi (E) restent algébriques le long d’une telle déformation (supposée
+projective).
+                            1                                    1
+Remarque 5.8. — Si det E − r est un fibré en droites, E ⊗ det E − r est un faisceau cohérent
+semi-régulier par le lemme 5.6 et le théorème 5.7 est obtenu en appliquant le théorème
+5.4 à ce dernier.
+Remarque 5.9. — Le théorème 5.7 n’est pas entraîné par le théorème 5.4. En effet,
+les déformations de X considérées dans ces théorèmes ne sont pas les mêmes. Dans le
+théorème 5.4, on considère les déformations de X pour lesquelles toutes les classes de
+Chern de E restent de Hodge. Dans le théorème 5.7, l’hypothèse ne concerne que les
+κi (E), et en particulier, on ne demande pas que la première classe de Chern c1 (E) reste
+                                           1
+de Hodge. Les déformations de E ⊗ det E − r obtenues grâce au théorème 5.7 ne sont pas
+en général induites par une déformation de E.
+
+
+6. Conclusion de la preuve et une remarque
+
+6.1. Semi-régularité du faisceau tordu EY
+  Dans la section 3.3, nous avons construit suivant Markman un faisceau cohérent
+semi-régulier EY sur une variété abélienne de Weil Y obtenue comme un quotient
+                                    X × X/ 1 × G2 ,
+                                        c G\
+
+où X = J(C) est une variété abélienne principalement polarisée générale de dimension 3.
+Le faisceau EY satisfait l’équation
+
+
+(62)                                q ∗ EY = D ⊗ E
+où le faisceau E sur X × X   c est construit dans le théorème 3.1, q : X × X c → Y est
+l’application quotient, et D est un fibré en droites sur X × X
+                                                             c tel que D ⊗ E est G\
+                                                                                  1 × G2 -
+linéarisé. L’application q est une isogénie, Y est donc une variété abélienne de Weil de
+                                               1248–37
+
+
+dimension 6 et discriminant 1, l’application q ∗ : H ∗ (Y, Q) → H ∗ (X × X,
+                                                                         c Q) induisant
+un isomorphisme entre les espaces de classes de Hodge–Weil. D’après le théorème 4.1
+et (62), le caractère de Chern corrigé κ(EY ) de EY satisfait
+                                          κ(EY ) ∈ HW∗ (Y ).
+
+  Pour pouvoir appliquer le théorème 5.7, il suffit donc de montrer le résultat suivant.
+
+Théorème 6.1 (Markman, 2025, Lemma 9.3.11). — Le faisceau EY est semi-régulier
+au sens de Buchweitz–Flenner.
+
+   Le théorème 5.7(i) entraîne alors que la classe κ3 (EY ) reste algébrique sur une déforma-
+tion générale Yt de Y comme variété abélienne de Weil projective. Comme κ3 (EY ) n’est
+pas proportionnelle à ωY3 par le théorème 4.1(ii), il en résulte (en considérant l’action
+du corps K sur HW(Y )) que toutes les classes de Hodge–Weil sur Y sont algébriques,
+ce qui conclut la preuve du théorème 1.4.
+Preuve du théorème 6.1. — On note que comme q est une isogénie, l’application
+                     q∗ :         H i+2 (Y, ΩiY ) →         H i+2 (X × X,
+                                                                       c Ωi
+                            M                         M
+                                                                            b)
+                                                                          X×X
+                            i≥0                       i≥0
+
+est un isomorphisme. Par ailleurs, grâce à (62) et au lemme 5.6, l’application
+                                   q ∗ : Ext2 (EY , EY ) → Ext2 (E, E)
+induit un isomorphisme
+
+                             q ∗ : Ext2 (EY , EY ) → Ext2 (E, E)G1 ×G2
+                                                                    \
+
+
+où l’action de G\1 × G2 sur le terme de droite est induite par celle de G1 × G2 sur
+D (X × X), décrite dans la proposition 3.4. La compatibilité des applications q ∗ ci-
+  b       c
+dessus avec les applications de semi-régularité δEY et δE montre alors que l’injectivité
+de δEY résulte du lemme 6.2 ci-dessous.
+
+
+Lemme 6.2. — L’application de semi-régularité δE , restreinte à Ext2 (E, E)G1 ×G2 , est
+                                                                                     \
+
+injective.
+
+Démonstration. — Rappelons avec les notations de la section 3.3 que E ∗ = G[1], avec
+                                  G = Φ(F1 ⊠ F2 ) = Ψ(IC• ⊠ IC•′ ),
+
+où Ψ : Db (X × X) → Db (X × X) c est l’équivalence de catégories introduite dans (27). Le
+lemme 6.2 résulte alors de l’énoncé analogue pour le faisceau IC• ⊠ IC•′ , qui est invariant
+sour le groupe G1 × G2 : La restriction de l’application de semi-régularité δIC• ⊠IC ′ à la
+                                                                                         •
+partie invariante Ext2 (IC• ⊠ IC•′ , IC• ⊠ IC•′ )G1 ×G2 est injective. Ce dernier énoncé résulte
+du lemme 5.5.
+                                             1248–38
+
+
+6.2. Remarque sur la conjecture de Hodge généralisée
+  Considérons un tore complexe T de dimension n muni d’un endomorphisme
+                                            ϕ: T → T
+satisfaisant une équation quadratique ϕ2 = −d IdT , pour un certain entier d > 0. L’action
+                                   ϕ∗ : H 1 (T, C) → H 1 (T, C)
+donne une décomposition
+                                    H 1 (T, C) = W + ⊕ W − ,
+                                                                  √     √
+en sous-espaces propres associés aux valeurs propres respectives i d, −i d. Chacun de
+ces espaces est de dimension n et stable sous la décomposition de Hodge
+(63)               W + = W +1,0 ⊕ W +0,1 , W − = W −1,0 ⊕ W −0,1 ,
+où (du fait de la symétrie de Hodge) la seconde décomposition se déduit de la première
+par conjugaison complexe. La condition de Weil est que n = 2m est pair et que
+                              dim W +1,0 = m = dim W +0,1 .
+  On discute dans cette section ce qui se passe lorsqu’on omet cette condition et les
+conséquences du théorème de Markman. Notons
+(64)                        k := dim W +1,0 = dim W −0,1 ,
+d’où
+                            n − k = dim W +0,1 = dim W −1,0 .
+On peut bien sûr supposer n − k ≥ k, quitte à changer le choix des valeurs propres. On
+dit qu’une structure de Hodge de poids m sur un Q-espace vectoriel L, donnée par une
+décomposition
+                                        Lp,q , Lq,p = Lp,q ,
+                                   M
+                            LC =
+                                         p+q=m
+                             p,q
+est de niveau ≤ r si on a L = 0 pour |p − q| > r. Le niveau est le plus petit nombre
+positif r tel que, quitte à décaler tous les bidegrés par un bidegré (s, s) tel que r = m−2s,
+on ait
+                                    LC = Lr,0 ⊕ · · · ⊕ L0,r ,
+avec Lr,0 ̸= 0.
+  Une sous-structure de Hodge L1 ⊂ L2 est la donnée d’un Q-sous-espace vectoriel
+stable sous la décomposition de Hodge, i.e.
+                             L1C = ⊕Lp,q   p,q          p,q
+                                     1C , L1C := L1C ∩ L2C .
+
+Lemme 6.3. — Le sous-espace vectoriel de dimension 2
+                                     n
+                                         H 1 (T, Q) ⊂ H n (T, Q)
+                                     ^
+(65)                       LK :=
+                                     K
+                                           1248–39
+
+
+tel que
+                                       n          n
+                                           W+ ⊕       W −,
+                                       ^          ^
+(66)                          LK,C =
+et introduit dans le lemme 2.2 est une sous-structure de Hodge de H n (T, Q), de niveau
+n − 2k.
+
+Démonstration. — En effet, d’après (63), n W + est de type de Hodge (k, n − k) et
+                                              V
+Vn
+   W − est de type de Hodge (n − k, k). Donc LK est une sous-structure de Hodge par
+(66), et ses nombres de Hodge non nuls sont en bidegrés (k, n − k) et (n − k, k).
+  Une version de la conjecture de Hodge généralisée formulée par Grothendieck (1969)
+est la suivante.
+
+Conjecture 6.4. — Soit X une variété projective complexe lisse de dimension n et
+soit L ⊂ H m (X, Q) une sous-structure de Hodge de niveau r, avec m − r = 2c (c est
+aussi appelé le coniveau de L). Alors il existe une variété projective lisse Y de dimension
+r, et un cycle algébrique Z ⊂ Y × X de dimension n − c tel que
+(67)                   L ⊂ Im([Z]∗ : H r (Y, Q) → H m (X, Q)).
+
+   Étant donné une variété abélienne A (i.e. un tore complexe algébrique) de dimension n
+munie d’un endomorphisme quadratique ϕ comme ci-dessus, la conjecture 6.4 prédit
+l’existence d’une variété projective Y de dimension r = n−2k et d’une correspondance Z
+satisfaisant (67), pour la sous-structure de Hodge L ⊂ H n (A, Q) de niveau n−2k exhibée
+dans le lemme 6.3.
+
+Proposition 6.5. — Si la conjecture de Hodge est satisfaite pour les classes de Weil sur
+les variétés abéliennes de Weil de dimension 2n − 2k, la conjecture de Hodge généralisée
+6.4 est satisfaite pour les sous-structures de Hodge L de niveau n − 2k décrites ci-dessus
+sur les variétés abéliennes de dimension n munies d’un endomorphisme quadratique ϕ,
+l’entier k ≤ n − k associé étant défini dans (64).
+
+Démonstration. — Étant donnés A et ϕ, on peut construire une variété abélienne B
+de dimension n − 2k, munie d’un endomorphisme quadratique ψ tel que ψ 2 = −d Id et
+la variété abélienne B × A munie de l’endomorphisme (ψ, ϕ) est une variété abélienne
+                                                                        ∗       1,0
+de Weil. Il suffit
+                √ pour cela que l’endomorphisme ψ agissant par ψ sur H (B) ait         √ la
+valeur propre i d avec la multiplicité n − 2k (et donc n’ait pas la valeur propre√−i d).
+Alors (ψ, ϕ) agissant par (ψ, ϕ)∗ = (ψ ∗ , ϕ∗ ) sur H 1,0
+                                                       √(B × A) a la valeur propre i d avec
+la multiplicité n − k, et donc a la valeur propre −i d avec la multiplicité n − k, puisque
+dim(B × A) = 2n − 2k. La variété B × A munie de l’endomorphisme quadratique (ψ, ϕ)
+est donc bien une variété abélienne de Weil. Supposant satisfaite la conjecture de Hodge
+pour les variétés abéliennes de Weil de dimension ≤ 2n − 2k, on en conclut que les
+classes de Weil sur B × A sont algébriques, ce qui donne des sous-variétés algébriques
+Zi ⊂ B × A de dimension n − k telles que les classes de Weil sur B × A soient des
+combinaisons linéaires des [Zi ]. On conclut alors la démonstration avec
+                                         1248–40
+
+
+Lemme 6.6. — Soit 0 ̸= α ∈ H 2n−2k (B × A, Q) une classe de Weil. Alors
+                           Im(α∗ : H n−2k (B, Q) → H n (A, Q))
+contient la sous-structure de Hodge LK de (65).
+Démonstration. — Cela résulte en effet du fait que si l’on adopte la notation
+            B×A
+LA     B
+  K , LK , LK   pour les sous-structures de Hodge de rang 2 associées comme dans le
+lemme 6.3 aux actions respectives de ϕ, ψ, (ψ, ϕ), on a par définition
+                        LB×A
+                         K   ⊂ LB    A
+                                K ⊗ LK ⊂ H
+                                           2n−2k
+                                                 (B × A, Q),
+et l’espace LB×A
+             K     est l’espace des classes de Weil de B × A. Le reste de l’argument est
+formel et utilise la décomposition de Künneth et la dualité de Poincaré.
+
+
+
+Remarque 6.7. — La construction utilisée dans cette démonstration apparaît sous une
+forme plus générale dans l’article van Geemen (2001).
+  Lorsque n = 2k, la proposition 6.5 est vide. Lorsque 2k < n, la variété B est de
+dimension positive et on peut choisir sa polarisation de façon que B × A ait une
+polarisation de discriminant 1. De ce fait, on peut améliorer la proposition 6.5 en
+supposant 2k < n et en demandant seulement que la conjecture de Hodge soit satisfaite
+par les classes de Weil sur les variétés abéliennes de Weil de dimension 2n − 2k et de
+discriminant 1. En appliquant le théorème principal de Markman (théorème 1.4) qui
+concerne les variétés abéliennes de Weil de dimension 6 et de discriminant 1, on obtient
+donc les conséquences suivantes du théorème 1.4.
+Corollaire 6.8. — Soit A une variété abélienne de dimension n munie d’un endomor-
+phisme quadratique ϕ comme ci-dessus, et soit k ≤ n − k l’entier de (64). Si k < n − k
+et 2n − 2k ≤ 6, la conjecture de Hodge généralisée est satisfaite par la sous-structure de
+Hodge L de niveau n − 2k du lemme 6.3.
+   Le cas k = 0 est vide mais les cas k = 1, n = 4, et k = 2, n = 5 sont des énoncés non
+triviaux.
+
+
+Références
+
+Giuseppe Ancona, Mattia Cavicchi, Robert Laterveer et Giulia Saccà (2025). « Relative
+  and absolute Lefschetz standard conjectures for some Lagrangian fibrations », J. Lond.
+  Math. Soc. (2) 111 (4), Paper No. e70133, 27.
+Yves André (1996). « Pour une théorie inconditionnelle des motifs », Inst. Hautes Études
+  Sci. Publ. Math. (83), p. 5-49.
+        (2006). « Déformation et spécialisation de cycles motivés », J. Inst. Math. Jussieu
+  5 (4), p. 563-603.
+                                       1248–41
+
+
+Michael Artin (1969). « Algebraic approximation of structures over complete local
+  rings », Inst. Hautes Études Sci. Publ. Math. (36), p. 23-58.
+Spencer Bloch (1972). « Semi-regularity and de Rham cohomology », Invent. Math. 17,
+  p. 51-66.
+Armand Borel et André Haefliger (1961). « La classe d’homologie fondamentale d’un
+  espace analytique », Bull. Soc. Math. France 89, p. 461-513.
+Armand Borel et Jean-Pierre Serre (1958). « Le théorème de Riemann-Roch », Bull.
+  Soc. Math. France 86, p. 97-136.
+Ragnar-Olaf Buchweitz et Hubert Flenner (2000). « The Atiyah-Chern character yields
+  the semiregularity map as well as the infinitesimal Abel-Jacobi map », in : The
+  arithmetic and geometry of algebraic cycles (Banff, AB, 1998). T. 24. CRM Proc.
+  Lecture Notes. Amer. Math. Soc., Providence, RI, p. 33-46.
+        (2003). « A semiregularity map for modules and applications to deformations »,
+  Compositio Math. 137 (2), p. 135-210.
+Eduardo Cattani, Pierre Deligne et Aroldo Kaplan (1995). « On the locus of Hodge
+  classes », J. Amer. Math. Soc. 8 (2), p. 483-506.
+François Charles et Eyal Markman (2013). « The standard conjectures for holomorphic
+  symplectic varieties deformation equivalent to Hilbert schemes of K3 surfaces »,
+  Compos. Math. 149 (3), p. 481-494.
+Wei-Liang Chow (1949). « On compact complex analytic varieties », Amer. J. Math.
+  71, p. 893-914.
+Herbert Clemens (1986). « Curves on generic hypersurfaces », Ann. Sci. École Norm.
+  Sup. (4) 19 (4), p. 629-636.
+Olivier Debarre (1999). Tores et variétés abéliennes complexes. T. 6. Cours Spécialisés.
+  Société Mathématique de France, Paris ; EDP Sciences, Les Ulis, p. vi+125.
+Pierre Deligne (1971). « Théorie de Hodge. II », Inst. Hautes Études Sci. Publ. Math.
+  (40), p. 5-57.
+         (1982). « Hodge Cycles on Abelian Varieties (notes by J. S. Milne) », in :
+  Hodge cycles, motives, and Shimura varieties. T. 900. Lecture Notes in Mathematics.
+  Springer, Berlin, p. 9-100.
+Salvatore Floccari et Lie Fu (2025). The Hodge conjecture for Weil fourfolds with dis-
+  criminant 1 via singular OG6-varieties. arXiv : 2504.13607 [math.AG].
+Bert van Geemen (1994). « An introduction to the Hodge conjecture for abelian varie-
+  ties », in : Algebraic cycles and Hodge theory (Torino, 1993). T. 1594. Lecture Notes
+  in Math. Springer, Berlin, p. 233-252.
+        (2001). « Half twists of Hodge structures of CM-type », J. Math. Soc. Japan 53
+  (4), p. 813-833.
+Alexandre Grothendieck (1958). « La théorie des classes de Chern », Bull. Soc. Math.
+  France 86, p. 137-154.
+        (1969). « Hodge’s general conjecture is false for trivial reasons », Topology 8,
+  p. 299-303.
+                                         1248–42
+
+
+Fumio Hazama (1989). « Algebraic cycles on nonsimple abelian varieties », Duke Math.
+  J. 58 (1), p. 31-37.
+Steven L. Kleiman (1968). « Algebraic cycles and the Weil conjectures », in : Dix
+  exposés sur la cohomologie des schémas. T. 3. Adv. Stud. Pure Math. North-Holland,
+  Amsterdam, p. 359-386.
+Kunihiko Kodaira (1954). « On Kähler varieties of restricted type (an intrinsic charac-
+  terization of algebraic varieties) », Ann. of Math. (2) 60, p. 28-48.
+        (1963). « On stability of compact submanifolds of complex manifolds », Amer.
+  J. Math. 85, p. 79-94.
+János Kollár (1990). « Lemma p. 134 », in : Classification of irregular varieties. T. 1515.
+  Lecture Notes in Math. Springer, Berlin.
+Pierre Lelong (1957). « Intégration sur un ensemble analytique complexe », Bull. Soc.
+  Math. France 85, p. 239-262.
+David I. Lieberman (1968). « Numerical and homological equivalence of algebraic cycles
+  on Hodge manifolds », Amer. J. Math. 90, p. 366-374.
+Eyal Markman (2020). « The Beauville-Bogomolov class as a characteristic class », J.
+  Algebraic Geom. 29 (2), p. 199-245.
+        (2023). « The monodromy of generalized Kummer varieties and algebraic cycles
+  on their intermediate Jacobians », J. Eur. Math. Soc. (JEMS) 25 (1), p. 231-321.
+        (2025). Cycles on abelian 2n-folds of Weil type from secant sheaves on abelian
+  n-folds. arXiv : 2502.03415 [math.AG].
+Ben J. J. Moonen et Yuri G. Zarhin (1995). « Hodge classes and Tate classes on simple
+  abelian fourfolds », Duke Math. J. 77 (3), p. 553-581.
+        (1999). « Hodge classes on abelian varieties of low dimension », Math. Ann. 315
+  (4), p. 711-733.
+Shigeru Mukai (1981). « Duality between D(X) and D(X̂) with its application to Picard
+  sheaves », Nagoya Math. J. 81, p. 153-175.
+Dmitri O. Orlov (2002). « Derived categories of coherent sheaves on abelian varieties
+  and equivalences between them », Izv. Ross. Akad. Nauk Ser. Mat. 66 (3), p. 131-158.
+Ziv Ran (1995). « Hodge theory and deformations of maps », Compositio Math. 97 (3),
+  p. 309-328.
+Chad Schoen (1988). « Hodge classes on self-products of a variety with an automor-
+  phism », Compositio Math. 65 (1), p. 3-32.
+        (2007). « A family of surfaces constructed from genus 2 curves », Internat. J.
+  Math. 18 (5), p. 585-612.
+Jean-Pierre Serre (1955a). « Faisceaux algébriques cohérents », Ann. of Math. (2) 61,
+  p. 197-278.
+        (1955b). « Géométrie algébrique et géométrie analytique », Ann. Inst. Fourier
+  (Grenoble) 6, p. 1-42.
+Sergei G. Tankeev (1982). « Cycles on simple abelian varieties of prime dimension »,
+  Izv. Akad. Nauk SSSR Ser. Mat. 46 (1), p. 155-170, 192.
+                                      1248–43
+
+
+Claire Voisin (2002a). « A counterexample to the Hodge conjecture extended to Kähler
+  varieties », Int. Math. Res. Not. (20), p. 1057-1075.
+        (2002b). Théorie de Hodge et géométrie algébrique complexe. T. 10. Cours Spé-
+  cialisés [Specialized Courses]. Société Mathématique de France, Paris, p. viii+595.
+        (2022). « On the Lefschetz standard conjecture for Lagrangian covered hyper-
+  Kähler varieties », Adv. Math. 396, Paper No. 108108, 29.
+
+
+
+                                        Claire Voisin
+                                        Institut de mathématiques de
+                                        Jussieu-Paris rive gauche,
+                                        4 Place Jussieu, 75005 Paris
+                                        E-mail : claire.voisin@imj-prg.fr
+

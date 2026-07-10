@@ -1,0 +1,193 @@
+Researchers Reveal the Power of ‘Quantum Proofs’ | Quanta Magazine
+Home
+Researchers Reveal the Power of ‘Quantum Proofs’
+Comment
+Save Article
+Read Later
+Share
+Facebook
+Copied!
+Copy link
+Email
+Pocket
+Reddit
+Ycombinator
+Comment
+Comments
+Save Article
+Read Later
+Read Later
+computational complexity
+Researchers Reveal the Power of ‘Quantum Proofs’
+By
+Ben Brubaker
+July 6, 2026
+When checking that solutions to certain problems are correct, it turns out, you can’t get around the inherent complexity of the quantum world.
+Comment
+Save Article
+Read Later
+Ada Zejun Shen/
+Quanta Magazine
+Introduction
+More than 30 years ago, researchers discovered that hypothetical computers based on the laws of quantum physics would be able to rapidly solve difficult math problems. Ever since then, they’ve sought to pinpoint cases where quantum computers are more powerful than their ordinary “classical” cousins.
+For nearly as long, a small band of computer scientists has pursued a related question that gets less attention: Are proofs that exploit quantum physics also more powerful than classical proofs?
+In this context, a “proof” is not a series of logical statements that leads to a theorem, as it is in math. Instead, it’s a certificate confirming that a problem has been solved correctly. For example, if you solve a tricky sudoku puzzle, your solution itself is a proof. A computer can easily scan the grid and verify that it’s correct.
+Researchers have identified problems where this proof-checking process likely requires a quantum computer. For some of these problems, the proofs themselves are still classical — ordinary written documents. But for other problems, the only known proofs are fundamentally different mathematical objects called quantum states.
+Researchers want to understand whether such exotic quantum proofs are necessary. In those cases where a problem appears to require a quantum proof, is it really impossible to come up with an ordinary classical proof? Or is there some clever way to replace the quantum proof with a classical one, and researchers just haven’t discovered it?
+For over 20 years, this question has ranked among the biggest open problems in the field of quantum complexity theory, which studies the intrinsic hardness of quantum problems. Now, in a 100-page paper that received a best-paper award at the
+2026 Symposium on Theory of Computing
+in June, four researchers have
+finally resolved it
+— or at least, they’ve come as close to a comprehensive answer as anyone expects to get. They identified a special computational problem that truly requires a quantum proof. No classical proof will do the trick.
+“It’s a beautiful result,” said
+Anand Natarajan
+, a quantum information theorist at the Massachusetts Institute of Technology. “There’s a bunch of fresh, new ideas that come out of it.”
+Show, Don’t Tell
+Suppose you want to prove that a material has a particular property — say, that it’s magnetic. This is a hard problem unless you have access to the material’s quantum state: a mathematical object specifying the configuration of its electrons. Given a copy of that quantum state, a quantum computer can easily check it to verify that the material is magnetic. That means the material’s quantum state can serve as a quantum proof for this problem. Quantum versions of many classic math problems also come with analogous quantum proofs.
+The trouble is that quantum states can be extraordinarily complicated, due to a phenomenon called superposition, in which many different configurations of a system can coexist in a single state. Even in a relatively simple system, the number of possible configurations that contribute to a quantum superposition can exceed the number of atoms in the universe, making it impossible to write down a classical description of the system’s quantum state.
+For some problems, the natural proof might be one of these impossible-to-describe quantum states. A classical proof, if it existed, would have to bypass the intrinsic complexity of the quantum world completely. Researchers don’t think that’s possible.
+To confirm this intuition, complexity theorists need to find a specific problem that checks two boxes: First, it must have a quantum proof. Second, it must not have a classical proof. That second step is the hard part, and it’s made harder still by the fact that problems with classical proofs might still use quantum computers for their proof-checking procedures (or algorithms). To succeed, researchers must rule out every potential combination of classical proof and quantum proof-checking algorithm.
+It’s notoriously hard to prove sweeping statements that apply to all algorithms. Short of a revolution in complexity theory, a comprehensive result is out of the question. Instead, researchers have sought compelling evidence that quantum proofs are categorically different from classical ones. In 2006, they
+made partial progress
+, but they couldn’t achieve their ultimate goal: a particularly coveted form of evidence that avoids making unusual assumptions.
+“That just seemed like a much, much harder problem,” said
+Scott Aaronson
+, a complexity theorist at the University of Texas, Austin, who co-authored the 2006 paper with the mathematician
+Greg Kuperberg
+.
+In 2025, four researchers finally succeeded.
+Quantum Forensics
+The story of the new result began with
+Mark Zhandry
+, a researcher in the field of quantum cryptography, the study of how to harness quantum effects to protect sensitive information. In 2024, he began to suspect that a feature of quantum physics at the heart of many cryptographic schemes could also help distinguish quantum proofs from classical ones.
+“It was sort of by accident that I started thinking about it,” said Zhandry, who’s now at Stanford University.
+Clockwise from top left: Chinmay Nirkhe, Mark Zhandry, Jonas Haferkamp, and John Bostanci blended ideas from cryptography, statistical physics, and other far-flung fields to show that quantum proofs are more powerful than classical ones.
+Clockwise from top left: From left: Patricia Rossi; Matt Hagen; Michael Schwettmann; Kristy (Sungmin) Hong
+From left: Chinmay Nirkhe, Mark Zhandry, John Bostanci, and Jonas Haferkamp blended ideas from cryptography, statistical physics, and other far-flung fields to show that quantum proofs are more powerful than classical ones.
+From left: Patricia Rossi; Matt Hagen; Kristy (Sungmin) Hong; Michael Schwettmann
+To put his idea to the test, Zhandry needed a candidate for a problem that has a quantum proof but no classical proof. The problem that he settled on, called the spectral forrelation problem, involves comparing two distinct ways of measuring a quantum state. Zhandry and his colleagues liken the possible outcomes of these two measurements to the shadows cast by an object illuminated from two different angles. In the spectral forrelation problem, you’re given a pair of shadows, and your goal is to determine whether they really could have come from different measurements of the same state.
+“It’s this forensics problem,” said
+Chinmay Nirkhe
+, a computer scientist at the University of Washington who collaborated with Zhandry on the new result. “Is there possibly an object that would have cast both of these shadows?”
+Without any extra information, this problem is hard to solve even for a quantum computer. But given an appropriate quantum state, a quantum computer can easily confirm that it’s consistent with both shadows. In other words, that state is a valid quantum proof.
+Now imagine you’re instead given a written procedure for how to generate a quantum state consistent with both shadows. That procedure would count as a classical proof for the spectral forrelation problem: To check that it’s valid, you’d first run the procedure on your quantum computer, then compare the resulting state to the two shadows. It doesn’t sound like a traditional mathematical proof, but it would still be a concise written document rather than a quantum state that’s too complex to write down.
+Zhandry needed to show that classical proofs can’t exist. He sought to do so with a strategy called a proof by contradiction. First, he’d assume the opposite of what he wanted to prove: that a classical proof for the spectral forrelation problem is possible. Then he’d need to show that this assumption would eventually lead to a contradiction.
+That contradiction, he suspected, would come from a property of classical proofs that we usually take for granted: It’s possible to read a proof more than once.
+Chasing Shadows
+Outside of spy movies, documents rarely self-destruct after they’re read — and fortunately for mathematicians, proofs are no exception. But in the quantum world, things are different: Measuring a quantum state can irreversibly disturb it, altering the results of any subsequent measurements. This kind of measurement disturbance
+plays a central role
+in many quantum cryptography schemes, but researchers hadn’t exploited it in previous attempts to distinguish between quantum and classical proofs.
+Coming from a background in cryptography, however, Zhandry saw that measurement disturbance could be relevant. A quantum proof for the spectral forrelation problem is a quantum state that’s vulnerable to measurement disturbance. A hypothetical classical proof, on the other hand, would be a written document, such as a procedure for generating a valid quantum state. Anyone could run the procedure repeatedly to churn out fresh copies of that state.
+Zhandry wanted to explore the implications of this reusability, because he suspected it was too good to be true.
+He
+quickly showed
+that if a classical proof for the spectral forrelation problem existed, anyone with a copy of the proof could use it repeatedly to accomplish a seemingly difficult task: guessing the shapes of shadows given only partial information. Only one step remained. If Zhandry could separately prove that this guessing task was not just hard but so hard that even a classical proof couldn’t help, he would have a contradiction. That would mean his starting assumption, that classical proofs were possible, had to be false.
+Zhandry couldn’t figure out how to complete that last step alone, so at the end of 2024 he teamed up with
+John Bostanci
+, now a researcher at the Simons Institute for the Theory of Computing in Berkeley, California, and
+Jonas Haferkamp
+, a computer scientist now at Ruhr University Bochum in Germany. Soon the trio had what they thought was a finished proof — but the final step turned out to have a fatal flaw. Coming so tantalizingly close made them all the more determined to succeed.
+“That kind of lit the fire under our butts,” Bostanci said.
+Nirkhe, who’d been
+wrestling with the problem independently
+for years, joined the team in early 2025 and suggested a way to tweak Zhandry’s approach. They could use the same overall strategy, but almost every detail would have to change. Nirkhe’s proposal kicked off a nine-month period full of overstuffed emails and travel back and forth between New York, Washington state, California, and Germany.
+“It really dominated my year,” Bostanci said. “I basically didn’t do much else.”
+The four researchers chipped away at the problem by drawing on ideas from other areas of physics and computer science, including
+quantum learning theory
+and the math of
+quantum particles called bosons
+. One crucial breakthrough came in the early fall while Bostanci was in the middle of a 20-mile run in New York City’s Central Park, part of his training for the upcoming marathon.
+After two more months of intense work, the team finally succeeded. They’d reached a contradiction, which meant that their original assumption had to be wrong: A classical proof for the spectral forrelation problem was impossible. They posted their result online in mid-November, 10 days after Bostanci successfully finished his race.
+Proof of Concept
+Officially, the team proved, with one caveat, that two classes of computational problems are different. One class includes all problems with quantum proofs and is known as QMA. The other, called QCMA, includes problems with classical proofs that a quantum computer can check. (The unwieldy acronyms stand for quantum Merlin-Arthur and quantum-classical Merlin-Arthur, respectively, in reference to a
+fanciful thought experiment
+featuring the two characters from medieval legend.)
+The caveat is that the team’s result is an “oracle separation” between QMA and QCMA. This means it relies on certain assumptions that restrict the space of possibilities one needs to consider. But it’s strong evidence that quantum proofs are more powerful than classical ones — precisely the kind of evidence that researchers have sought for 20 years.
+Soon after the team posted their paper online, an MIT master’s student named
+Andrew Huang
+heard Bostanci give a talk about the result. He realized that one aspect of the team’s proof could also play a role in an oracle separation based on a
+completely different computational problem
+. Huang and his adviser,
+Vinod Vaikuntanathan
+, teamed up with Bostanci and soon proved a
+second oracle separation
+between QMA and QCMA. The newer result further bolsters the case that quantum proofs are inherently more powerful than classical ones.
+The techniques used to prove these oracle separations could one day find applications in cryptography. But for many researchers, the allure of the “QMA versus QCMA” question doesn’t come from any potential practical application. It offers a way to explore deep philosophical questions about quantum theory that have
+vexed physicists for over a century
+.
+“My real interest has always been, ‘Why is quantum mechanics not classically describable?’” Nirkhe said. “I think of computation as the yardstick, or the metric, with which we can understand this.”
+Editor’s note: Scott Aaronson is a member of
+Quanta Magazine
+’s advisory board.
+The Quanta Newsletter
+Get highlights of the most important news delivered to your email inbox
+Email
+Subscribe
+Recent newsletters
+Also in
+Computer Science
+Key Chemistry Question Answered, No Quantum Computer Required
+chemistry
+Key Chemistry Question Answered, No Quantum Computer Required
+By
+Kevin Hartnett
+May 29, 2026
+Comment
+Save Article
+Read Later
+How Unknowable Math Can Help Hide Secrets
+cryptography
+How Unknowable Math Can Help Hide Secrets
+By
+Ben Brubaker
+May 11, 2026
+Comment
+Save Article
+Read Later
+The AI Revolution in Math Has Arrived
+foundations of mathematics
+The AI Revolution in Math Has Arrived
+By
+Konstantin Kakaes
+April 13, 2026
+Comment
+Save Article
+Read Later
+Comment on this article
+Quanta Magazine moderates comments to facilitate an informed, substantive, civil conversation. Abusive, profane, self-promotional, misleading, incoherent or off-topic comments will be rejected. Moderators are staffed during regular business hours (New York time) and can only accept comments written in English.
+Show comments
+Next article
+Astrophysicists Puzzle Over Webb’s New Universe
+Close
+Log in to Quanta
+Use your social network
+Facebook
+Connect with Facebook
+Connect with Google
+or
+email
+password
+Remember me
+Forgot your password ?
+Don't have an account yet?
+Sign up
+Close
+Forgot your password?
+We’ll email you instructions to reset your password
+email
+Close
+Change your password
+Enter your new password
+Password
+Retype new password
+Close
+Sign Up
+First Name
+Last Name
+Email
+Password
+Retype Password
+Creating an account means you accept Quanta Magazine's
+Terms & Conditions
+and
+Privacy Policy

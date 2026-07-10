@@ -1,0 +1,2339 @@
+Séminaire BOURBAKI                                                       Novembre 2025
+78e année, 2025–2026, n° 1244
+
+
+                          MINIMAL SURFACES
+           VIA EQUIVARIANT EIGENVALUE OPTIMIZATION
+              [after Karpukhin, Kusner, McGrath, and Stern]
+
+                                    by Giada Franz
+
+
+
+
+Introduction
+
+   Spectral geometry concerns the interplay between the geometry of a manifold and
+suitable eigenvalue problems defined on it. One classical renowned example is the
+Faber–Krahn inequality (Faber, 1923; Krahn, 1925), which states that the first Dirichlet
+eigenvalue of the Laplace operator on Euclidean domains with fixed area is minimized
+by a round disk. In other words, of all drums with the same area, the round one has
+the lowest pitch.
+   Here, we are interested in other classical shape optimization problems that have
+surprising connections with the theory of minimal surfaces. In particular, we examine
+the groundbreaking work of Karpukhin, Kusner, McGrath, and Stern (2024), who exploit
+this connection to construct many new examples of minimal surfaces in the sphere and
+free boundary minimal surfaces in the ball. Minimal surfaces are critical points of the
+area functional, one of the oldest and most classical objects in differential geometry,
+and they play a central role in current research. Beyond their relevance in physical
+applications, they are beautiful and rich mathematical objects, exhibiting both a great
+diversity of examples and strong rigidity properties.
+   We will now briefly introduce the objects and results we are going to discuss, before
+delving into the details in the next sections.
+
+Laplace eigenvalue optimization and minimal surfaces in spheres
+   The first problem discussed in this exposé regards the optimization of the eigenvalues
+of the Laplace operator on a Riemannian surface with fixed area. Hersch (1970) proved
+that among all Riemannian two-spheres with fixed area, the first eigenvalue of the
+Laplacian is maximized by the round sphere. It is then natural to pose the same question
+when the Riemannian surface has more complicated topology. Surprisingly, Nadirashvili
+(1996) discovered that, if a Riemannian surface maximizes the first eigenvalue of the
+Laplacian among all Riemannian surfaces with the same topology and the same area,
+then it can be isometrically immersed as a minimal surface in the unit sphere Sn ⊂ Rn+1
+for some n ≥ 3. We recall that basic examples of minimal surfaces in S3 are the equatorial
+                                        1244–02
+
+
+two-sphere (whose metric indeed coincides with the round metric in Hersch’s result)
+and the Clifford torus (see Example 1.1).
+  This connection between Laplacian eigenvalue optimization and minimal surfaces
+in round spheres spurred advances in the study of shape optimization, as well as in
+the study of minimal surfaces in spheres. The work of Karpukhin, Kusner, McGrath,
+and Stern (KKMS, from now on) is a striking example of this. Indeed, the authors
+use equivariant Laplace eigenvalue optimization to construct many new examples of
+embedded minimal surfaces in S3 . This is the first time that eigenvalue optimization
+has been successfully employed to systematically construct new families of embedded
+minimal surfaces in a three-dimensional manifold.
+Theorem A (KKMS, Theorem 1.1). — For every γ ∈ N, there exist at least ⌊ γ−1 4
+                                                                               ⌋+1
+                                                         3
+nonisometric, embedded, orientable, minimal surfaces in S with genus γ and area less
+than 8π.
+
+
+
+
+       Figure 1. Numerical simulations from Schulz (2025) of two minimal surfaces
+       obtained in Theorem A, with genus 7 and 11 respectively. Both surfaces are
+       represented after stereographic projection of S3 into R3 . The right image
+       represents only half of the surface.
+
+   Note that, prior to this result, Ketover (2022) proved that the number of embedded
+minimal surfaces in S3 with genus γ goes to infinity as γ → ∞ (with rate at least
+γ/ log log γ). All the surfaces constructed in (Ketover, 2022) have area less than 4π 2
+and they are constructed via Simon–Smith min-max theory. It is an interesting open
+question to understand the asymptotic number of nonisometric minimal surfaces as
+the genus γ goes to infinity. However, though expected, so far we do not even know
+if there are finitely many nonisometric minimal surfaces for every given genus. Only
+compactness, in the smooth topology, of the space of embedded minimal surfaces in S3
+with fixed genus is known by a result of Choi and Schoen (1985).
+   Theorem A is proven by finding a Riemannian surface M maximizing the first Laplace
+eigenvalue among all Riemannian metrics on M which are symmetric with respect to
+a reflection τ such that M/⟨τ ⟩, the quotient of M by the two-element group generated
+by τ , has genus zero. By work of Nadirashvili (1996), the surface M can be isometrically
+                                         1244–03
+
+
+immersed as a minimal surface in a sphere Sn . However, in general, the immersion is
+not an embedding, and the target sphere cannot be expected to have low dimension.
+One of the core ideas of KKMS, which we will see in detail in Section 4, is that imposing
+the symmetry with respect to the reflection τ ensures that the immersion is actually an
+embedding in S3 with area control, as stated in the theorem.
+   Besides the reflection τ , it is possible to further assume symmetry with respect to
+any larger discrete group Γ = ⟨τ ⟩ × G acting on M and generated by reflections. By
+choosing different groups Γ and different actions on a surface with fixed genus γ, it is
+possible to prove the existence of many nonisometric examples as stated in the theorem.
+Indeed, the number ⌊ γ−1 4
+                            ⌋ + 1 in Theorem A is obtained by performing equivariant
+eigenvalue optimization with respect to different actions of the group Γ = Z2 × Z2 . The
+number is not optimized and can be improved by taking different groups Γ.
+   Theorem A fits into a long history of existence results for minimal surfaces in S3 , be-
+ginning with the result of Lawson (1970), who proved the existence of embedded minimal
+surfaces in S3 with arbitrary prescribed genus. Active research on existence questions has
+continued ever since (see e.g. Karcher, Pinkall, and Sterling, 1988; Kapouleas and Yang,
+2010; Ketover, 2022; Kapouleas and McGrath, 2023). Observe that proving existence
+of minimal surfaces is in general hard, as these objects display instability and rigidity
+properties, as witnessed for example by uniqueness results for low topologies (see e.g.
+Brendle, 2013a; Marques and Neves, 2014; and related Bourbaki seminars by Carron,
+2016; Rivière, 2015) or with suitable symmetries (see Choe and Soret, 2009; Kapouleas
+and Wiygul, 2020, 2022 for properties of the Lawson surfaces, including uniqueness
+results). Despite these advances, many fundamental questions concerning the number
+and uniqueness of minimal surfaces remain open (see e.g. KKMS, Section 1.6, for open
+questions related to Theorem A).
+
+Remark 0.1. — All the closed (i.e., compact without boundary) surfaces obtained in
+KKMS are doublings of an equatorial sphere S2 ⊂ S3 . Heuristically, this means that
+they resemble two copies of an equatorial sphere attached by some necks (cf. Figure 1).
+We refer to (Kapouleas and McGrath, 2023, Definition 1.1) for a precise definition.
+  Since their introduction by Kapouleas and Yang (2010), doublings of the sphere and
+more generally of any minimal surface have been extensively studied. We mention for
+example recent papers via gluing methods by Kapouleas and McGrath (2024) and Chu
+and Stern (2025). So far, all the known examples of embedded minimal surfaces with
+area less than 8π are the equatorial sphere itself or a doubling of it. It is an interesting
+open question to understand if this is always the case or whether there are examples of
+embedded minimal surfaces in S3 with area less than 8π which are not a doubling of
+the equatorial sphere (see e.g. Kapouleas and McGrath, 2019).
+
+Remark 0.2. — The closed minimal surfaces constructed in KKMS have area less
+than 8π, and the area converges to 8π as the genus goes to infinity. This asymp-
+totic behavior has been studied by Karpukhin, McGrath, and Stern (2025), who prove
+                                        1244–04
+
+
+that the convergence is exponential in the genus γ for most of the surfaces and, in
+general, at least as fast as the area growth for the Lawson surfaces ξγ,1 , which are
+conjectured to have the least area among minimal surfaces with genus γ (cf. Kusner,
+1989, p. 343).
+
+Steklov eigenvalue optimization and free boundary minimal surfaces in balls
+   Minimal surfaces in spheres have a natural counterpart in Euclidean unit balls Bn
+in Rn , namely free boundary minimal surfaces. As the name suggests, these objects are
+surfaces with boundary and they are critical points of the area functional with respect
+to variations that constrain the boundary of the surface to the boundary ∂Bn of the ball.
+Two examples are the equatorial disk and the critical catenoid in B3 (see Example 2.1).
+   One might hope that there is a connection with an eigenvalue problem on surfaces with
+boundary, in analogy with the closed case. It turns out that this is indeed the case and
+the right eigenvalue problem is the Steklov problem (or Dirichlet-to-Neumann problem),
+thanks to work of Fraser and Schoen (2011, 2013, 2016). After Fraser–Schoen’s results,
+the study of free boundary minimal surfaces in B3 has seen a lot of activity over the
+last 10 years, with many existence results (see e.g. Folha, Pacard, and Zolotareva, 2017;
+Kapouleas and Li, 2021; Fernández, Hauswirth, and Mira, 2023; Franz and Schulz,
+2023) and works on the properties of these objects (see e.g. Kusner and McGrath, 2024).
+However, the analogue of Lawson’s problem, posed by Fraser and Li (2014, Question 1;
+see also the survey by Li, 2020, Open Question 1), about the existence of free boundary
+minimal surfaces in B3 of every topological type, was still open until Karpukhin, Kusner,
+McGrath, and Stern (2024) affirmatively answered this question.
+Theorem B (KKMS, Theorem 1.2). — For every γ, β ∈ N, β ≥ 1, there exist at least
+⌊ γ−2
+   4
+      ⌋ + 1 nonisometric, embedded, orientable, free boundary minimal surfaces in B3
+with genus γ and β boundary components. Moreover, these embeddings have area less
+than 2π and are doublings of an equatorial disk B2 ⊂ B3 .
+
+
+
+
+       Figure 2. Simulations from Schulz (2025) of two free boundary minimal
+       surfaces obtained in Theorem B. The left one has genus one and two boundary
+       components, while the right one has genus two and two boundary components.
+                                         1244–05
+
+
+   The surfaces in the previous theorem are obtained as embeddings by first eigenfunc-
+tions (i.e., the coordinate functions are first eigenfunctions) of the Steklov operator on a
+compact orientable surface M with genus γ and β boundary components, with respect
+to a metric maximizing the first Steklov eigenvalue with fixed area, among metrics
+symmetric with respect to a suitable action of the group Γ = Z2 × Z2 . As in the closed
+case, many different groups and many different actions can be considered, even if, for
+technical reasons, the possibilities are not as general as in the closed case (see KKMS,
+Theorem 9.15 and Remark 6.2 below). Similarly to the closed case, many questions
+remain open, concerning for example the existence, uniqueness and number of examples
+for each topology.
+
+Existence of a maximizing metric
+   As mentioned above, the proofs of Theorems A and B are based on proving the
+existence of a metric maximizing the first Laplace eigenvalue (in the closed case) or
+Steklov eigenvalue (in the case with boundary) among metrics with suitable symmetries
+and fixed area. Then, one shows that the associated first eigenfunctions give a (free
+boundary) minimal embedding in S3 (resp. B3 ). One of the novelties of the paper
+KKMS is a new technique for proving the existence of such a maximizer. This problem
+is extremely delicate, whether one assumes symmetry or not, and has seen many partial
+results and attempts (see KKMS, Section 1.3 for a more detailed discussion). We will
+explain the new method introduced in KKMS in more detail in Sections 6. Besides
+proving the existence of a maximizing metric under suitable symmetry assumptions,
+this new technique has already led to important advances in the existence of maximizing
+metrics for the eigenvalues of the Laplacian.
+Theorem C (Petrides, 2024, Karpukhin, Petrides, and Stern, 2025)
+    Every closed surface M admits a metric (smooth away from finitely many conical
+singularities) maximizing the first Laplace eigenvalue among metrics with fixed area.
+   The result was first proved by Petrides (2024) for M orientable and then extended
+to the nonorientable case by Karpukhin, Petrides, and Stern (2025), who also provide a
+different proof for the orientable case. We refer to Section 6.3 for more details.
+   Note that the analogous question for the first Steklov eigenvalue on general surfaces
+with boundary is still open. However, we know that a maximizer exists for some
+topologies of M with boundary (e.g. for all surfaces with genus zero and one, thanks to
+KKMS, Corollary 1.11), and it is expected that the methods developed by Karpukhin,
+Kusner, McGrath, and Stern (KKMS), Petrides (2024) and Karpukhin, Petrides, and
+Stern (2025) will help in this direction.
+
+Plan of the article
+  The goal of this exposé is to give an introduction to the study of (free boundary)
+minimal surfaces via eigenvalue optimization and present the main ideas in the proofs of
+KKMS, after developing the most significant ingredients. We introduce both the closed
+                                           1244–06
+
+
+case and the case with boundary, but we will mainly focus on the closed orientable case
+for what concerns the proofs, in order to simplify the exposition, while still presenting
+the key ideas. Below is an outline of the content of the article.
+
+                                                                            Preliminaries
+  1. The closed setting
+  – Minimal surfaces in the sphere.
+  – Laplace eigenvalue problem on closed surfaces.
+
+  2. The setting with boundary
+  – Free boundary minimal surfaces in the ball.
+  – Steklov eigenvalue problem on surfaces with boundary.
+
+  3. Li–Yau conformal volume
+  A milestone in spectral geometry, the paper by Li and Yau (1982) serves to prove some
+  results in Section 4 and as a motivation for Section 5.
+
+                                                                       Results of KKMS
+  4. Eigenvalue optimization on basic reflection surfaces
+  – Problem of maximizing the first eigenvalue on surfaces with suitable symmetries.
+  – Proof in KKMS that if a maximizing metric exists, then Theorem A follows.
+
+  5. Existence of a conformal eigenvalue maximizer
+  Proof of the existence of a maximizing metric in each conformal class via min-max char-
+  acterization of conformal eigenvalues by Karpukhin and Stern (2024c).
+
+  6. Existence of an eigenvalue maximizer
+  Proof of the existence of a maximizing metric of the first eigenvalue on surfaces with
+  symmetries considered in Section 4, with new technique introduced in KKMS.
+
+
+
+
+1. The closed setting
+
+1.1. Minimal surfaces in spheres
+   Let (M, g) be a closed Riemannian surface and let u : (M, g) → Sn ⊂ Rn+1 be a
+smooth isometric(1) immersion in the sphere Sn . We say that the immersion is minimal
+if it is a critical point of the area functional. Namely, for every one-parameter family of
+immersions ut : M → Sn for t ∈ (−ε, ε) such that u0 = u, we have
+                                   d
+                                          area(ut (M )) = 0.
+                                   dt t=0
+
+  By isometric immersion, we mean that g = u∗ gSn = u∗ gRn+1 , in other words, the metric g is
+(1)
+
+induced by the Euclidean metric on Rn+1 via the map u. In this case, we denote by area(u(M )) =
+area(M, u∗ gSn ) = area(M, g) the area of M with respect to the metric g.
+                                            1244–07
+
+
+By computing the first variation of area, it turns out that an immersion is minimal if
+and only if its mean curvature is equal to zero. We refer to (Colding and Minicozzi,
+2011; White, 2016) for classical references in the study of minimal surfaces.
+
+Example 1.1. — The equatorial sphere S2 ⊂ S3 is a minimal surface. Another classical
+example of minimal surface in S3 is the Clifford torus, given by
+                         (                                                      )
+      1       1               1
+      √ S1 × √ S1 =          √ (cos θ, sin θ, cos φ, sin φ) ∈ R4 : θ, φ ∈ [0, 2π) ⊂ S3 .
+       2       2               2
+  By results of Almgren (1966) and Brendle (2013a), these are the only embedded
+minimal surfaces (up to ambient isometry) in S3 of genus zero and one respectively.
+However, note that there are infinitely many nonisometric immersed minimal tori in S3
+by a result of Lawson (1969). We refer also to the survey (Brendle, 2013b).
+
+
+
+
+       Figure 3. Image of the equatorial sphere S2 ⊂ S3 and the Clifford torus
+       √1 S1 × √1 S1 ⊂ S3 after stereographic projection of S3 into R3 .
+         2       2
+
+
+
+Remark 1.2. — In the study of minimal surfaces, including some of the results discussed
+in this paper, minimal immersions with branch points may appear. A map u : M → Rn+1
+is said to be a branched immersion if it is an immersion away from finitely many points,
+called branch points, where the map locally behaves like the complex map C ∋ z 7→ z k
+for some k > 1. We refer to (Gulliver, Osserman, and Royden, 1973, Definition 1.2)
+for a precise definition. See also (Colding and Minicozzi, 2011, Chapter 4, §4) for a
+discussion of branch points in the context of minimal surfaces. If u : (M, g) → Rn+1 is
+an isometry, then g is smooth away(2) from finitely many conical singularities at the
+branch points, namely it degenerates to zero there.
+   In this exposé, we do not insist on branch points and conical singularities (also because
+they do not appear in the main theorems A and B). The reader not interested in the
+technical details can ignore these elements.
+
+   It was first observed by Takahashi (1966, Theorem 3) that an isometric immersion
+u : (M, g) → Sn ⊂ Rn+1 is minimal if and only if the coordinate functions uj = xj ◦ u
+
+(2)
+  Note that, even if the expression “smooth away from” is used, the metric g is actually smooth
+everywhere, but degenerates to zero at the conical singularities.
+                                                  1244–08
+
+
+for j = 1, . . . , n + 1 are eigenfunctions of the Laplacian ∆g with eigenvalue 2. Indeed,
+for every isometric immersion u : (M, g) → Sn ⊂ Rn+1 , we have
+                                                                 n+1                     n
+(1)        −∆g uj = −∆g (⟨x, ej ⟩ ◦ u) = −⟨H M ⊂R                      , ej ⟩ = −⟨H M ⊂S , ej ⟩ + 2uj ,
+                                                                                      n+1                 n
+where {ej }n+1
+           j=1 is the canonical basis of R
+                                              n+1
+                                                  , and where H M ⊂R and H M ⊂S are the
+mean curvatures of M as a submanifold of Rn+1 and Sn , respectively. Therefore, the
+                                           n
+immersion u is minimal, namely H M ⊂S = 0, if and only if uj is a Laplace eigenfunction
+with eigenvalue 2 for every i = 1, . . . , n + 1.
+
+Remark 1.3. — In 1982, Yau conjectured that 2 is the first eigenvalue of the Laplacian
+for every embedded minimal surface in S3 . This question is still open.
+
+Remark 1.4. — If we do not require the immersion u : (M, g) → Sn to be an isometry,
+we have that u is immersed by eigenfunctions (with respect to the same eigenvalue) of
+the Laplacian ∆g if and only if it is harmonic (and not necessarily minimal). We recall
+that a map u : (M, g) → Sn is harmonic if it is a critical point of the Dirichlet energy
+                                                       
+                                                   1
+(2)                                        E(u) :=             |du|2g dvg ,
+                                                   2       M
+
+where dvg is the volume form on (M, g). When M has dimension two, the Dirichlet
+energy is a conformal invariant, namely it does not change if computed with respect to
+any other metric in the conformal class(3) [g] of g.
+  Let us now show that u is harmonic if and only if it is immersed by λ-eigenfunctions of
+the Laplacian (possibly(4) with respect to a metric conformal to g). If u : (M, g) → Sn is
+immersed by eigenfunctions with eigenvalue λ, then −∆g ui = λui for all i = 1, . . . , n + 1.
+Multiplying the equation by ui and summing over i = 1, . . . , n + 1, we then get
+                     n+1             n+1                   n+1
+                                                           X      1
+                                                                                         
+                           u2i = −                                   ∆g (u2i ) − |dui |2g = |du|2g .
+                     X               X
+              λ=λ                          ui ∆ g ui = −
+                     i=1             i=1                   i=1     2
+
+This implies that −∆g u = |du|2g u, and this equation precisely says that u is harmonic
+(see Struwe, 2008, Section 6).
+   Conversely, if u : (M, g) → Sn is harmonic, then −∆g u = |du|2g u. Therefore, by
+taking gu = 12 |du|2g g, we have −∆gu u = 2u, in other words, the components of u are
+eigenfunctions with eigenvalue 2 with respect to the metric gu .
+   Note that in general the pull-back metric u∗ gSn may not belong to the conformal class
+[g] of g, but when it does the immersion u is minimal. Indeed, we have that the map u
+is minimal if and only if it is conformal and harmonic.
+
+(3)
+    Given a Riemannian surface (M, g), the conformal class of g is defined as the set of all metrics that
+differ from g by a positive multiplicative function, i.e., [g] := {f g : f ∈ C ∞ (M ), f > 0}.
+(4)
+    Recall that being harmonic is a conformal invariant, while being immersed by eigenfunctions is not.
+                                                   1244–09
+
+
+1.2. Laplace eigenvalue problem on closed surfaces
+  Let M be a smooth connected closed surface and let g be a smooth metric on M . Then,
+the Laplace operator ∆g on M admits a discrete spectrum consisting of eigenvalues
+0 = λ0 < λ1 ≤ λ2 ≤ · · · ≤ λk ≤ · · · → ∞. Namely, there exists an L2 (M )-orthonormal
+basis {uk }k∈N of smooth functions such that
+                                              −∆g uk = λk uk .
+   We recall that the eigenvalues λk admit a variational characterization. In particular,
+for the first eigenvalue λ1 we have(5)
+                                                                            
+                                               |du|2 dvg                         |du|2 dvg
+(3)                λ1 =        inf          M           =       inf          M           .
+                          u∈C∞ (M )\{0}
+                                             M
+                                                 u2 dvg      u∈Lip(M
+                                                                    )\{0}
+                                                                               M
+                                                                                   u2 dvg
+                              M u=0                              M u=0
+                               
+Note that the condition M u dvg = 0 is necessary to exclude the constant functions,
+which are eigenfunctions with respect to eigenvalue λ0 = 0.
+Remark 1.5. — Recall that, if u ∈ Lip(M ), that is to say u : M → R is Lipschitz contin-
+uous, then uis differentiable almost everywhere by Rademacher’s theorem. Therefore,
+the integral M |du|2 dvg is well-defined.
+  We refer to (Chavel, 1984, Chapter 1, §5) for further background concerning the
+spectral theory of the Laplacian on manifolds, including the following theorem. We
+recall that the nodal set of an eigenfunction u is defined as its zero set u−1 (0) ⊂ M ,
+denote by Nu , while its nodal domains are the connected components of M \ Nu .
+Theorem 1.6 (Courant’s nodal domain theorem). — Let u = uk be the kth eigen-
+function of the Laplacian ∆g on M . Then, its nodal set consists of a finite number of
+C 2 -immersed circles that meet at a finite number of points, and the number of its nodal
+domains is at most k + 1.
+Remark 1.7. — A direct consequence of Courant’s nodal domain theorem is that a
+first eigenfunction of the Laplacian has exactly two nodal domains. Indeed, it cannot
+have one nodal domain (i.e., be nowhere zero) because it is orthogonal to the constant
+functions, which are eigenfunctions with respect to eigenvalue λ0 = 0.
+Remark 1.8. — A variant of Courant’s nodal domain theorem works also for Laplace
+eigenvalues with Dirichlet or Neumann boundary conditions on a surface with boundary,
+and for the Steklov eigenvalues considered in Section 2. A corollary of this (cf. Chavel,
+1984, Corollary 2 in Chapter 1, §5) is that the first Dirichlet eigenvalue on a surface
+with boundary is simple.(6)
+(5)
+    From now on, we omit the subscript g, i.e., write |du|2 = |du|2g , when it is clear with respect to which
+metric the norm is computed.
+(6)
+    Note that the zero eigenvalue of the Laplacian on a connected closed surface is also simple (the
+eigenfunctions are the constant functions). For the Dirichlet eigenvalue on a surface with boundary
+the first eigenvalue is already positive and thus we start enumerating the eigenvalues from one.
+                                            1244–10
+
+
+  Since we consider the eigenvalue problem as the metric on M changes, we explicitly
+write the dependence of the eigenvalues on the surface and the metric as λk (M, g).
+Moreover, let us introduce a renormalized version of the eigenvalues as follows
+                               λk (M, g) = λk (M, g) area(M, g).
+Observe that λk (M, g) is scale invariant and is uniformly bounded from above on the
+space of all metrics, by (Yang and Yau, 1980; Korevaar, 1993). Therefore, the maximum
+of λk (M, g) over all smooth metrics on g, denote by
+                                 Λk (M ) := sup λk (M, g),
+                                             g smooth
+                                              metric
+
+is finite, and we can ask whether there exists a metric g0 maximizing the kth renormalized
+eigenvalue over all metrics, that is to say λk (M, g0 ) = Λk (M ). Note that this is equivalent
+to maximizing λk (M, g) among metrics of fixed area, as stated in the introduction.
+Nadirashvili realized that if we find such a maximizing metric g0 then, surprisingly, we
+get an associated minimal immersion into a sphere.
+
+Theorem 1.9 (Nadirashvili, 1996, Theorems 1 and 5). — If g0 is a metric on M
+maximizing the kth renormalized eigenvalue over all metrics, then there exist independent
+kth eigenfunctions u1 , . . . , un+1 for some n ≥ 2 such that u := (u1 , . . . , un+1 ) : M → Rn+1
+is a (branched) minimal immersion in Sn . Moreover, the map u can be made isometric
+by rescaling g0 using a positive constant.
+
+Remark 1.10. — In the previous theorem, we allow the metric g0 to have finitely many
+conical singularities, which correspond to the branch points of u. This is because in
+general we expect the maximizing metric to have this regularity (see Kokarev, 2014,
+Regularity theorem). In fact, conical singularities arise for example for the maximizer
+in case M has genus 2 (cf. Nayatani and Shoda, 2019, see also Example 1.16 below).
+Note that the Laplace eigenvalues for metrics with conical singularities still make sense
+(see e.g. Kokarev, 2014, Example 1.1).
+
+Remark 1.11. — The theorem above holds more generally for metrics g0 that are critical
+points of the renormalized eigenvalue λk (M, g), giving a correspondence between critical
+points of renormalized eigenvalues and (branched) minimal immersions into spheres. We
+stated it for maximizers only, because λk (M, g) is Lipschitz continuous with respect to
+the metric g, in the smooth topology, but not differentiable in general. Therefore, one
+needs a definition of critical points for the Lipschitz function λk (M, g). This is given in
+(Nadirashvili, 1996, Section 3). The result also admits generalizations to manifolds M
+of higher dimension (see El Soufi and Ilias, 2000; Karpukhin and Métras, 2022).
+
+Remark 1.12. — For every n ≥ 2 for which Theorem 1.9 holds, we have that n + 1 is
+no larger than the multiplicity of the eigenvalue λk (M, g0 ), but can be strictly smaller.
+However, we know that n ≥ 3 unless M is a two-sphere.
+                                                 1244–11
+
+
+Idea of the proof of Theorem 1.9. — We refer to (Fraser and Schoen, 2013, Proposi-
+tion 2.1) for a complete proof of the theorem, giving here only an idea of it. The result
+follows from the first variation formula for λk (M, g) at a critical point. The delicate
+point is that eigenvalues depend only Lipschitz continuously on the metric, therefore
+we cannot just take classical derivatives.
+   Let g0 be a metric maximizing λk (M, g). By rescaling the metric, without loss of
+generality we can assume that λk (M, g0 ) = 2. It turns out that, for every symmetric
+(0, 2)-tensor ω on M such that M ⟨ω, g0 ⟩ dvg0 = 0, there exists a kth eigenfunction u
+with ∥u∥L2 (M,g0 ) = 1 and
+                               
+                                                  1
+                Qω (u) := −          ⟨ω, du ⊗ du − |du|2 g0 + u2 g0 ⟩ dvg0 = 0.
+                                   M              2
+Note that ω represents the
+                         
+                           first derivative of a variation of g0 with fixed area (which is
+assured by the condition M ⟨ω, g0 ⟩ dvg0 = 0).
+Remark 1.13. — When the eigenvalue λk (M, g0 ) is simple, it is known that g 7→ λk (M, g)
+is differentiable at g0 , and we can compute the derivative of λk in the direction ω,
+obtaining Qω (u) (which is then equal to zero by criticality of g0 ). The previous one is
+the general statement when λk (M, g0 ) is not simple (and not differentiable).
+  Thanks to an application of the Hahn–Banach theorem, we then obtain that g0 belongs
+to the convex hull (in the space of symmetric (0, 2)-tensor fields on (M, g0 )) of the set
+                            1
+                                                                      
+                du ⊗ du − |du|2 g0 + u2 g0 : u is a kth eigenfunction .
+                            2
+In other words, there exist linearly independent kth eigenfunctions u1 , . . . , un+1 such
+that
+                               n+1
+                                                   1
+                               X                                            
+(4)                    g0 =             duj ⊗ duj − |duj |2 g0 + u2j g0 .
+                               j=1                 2
+This easily implies that n+1 u2 = 1 (by tracing the equation) and, applying the Laplace
+                        P
+                             j=1    j
+operator to this equation, we get
+                      n+1                  n+1                    n+1
+                             |duj |2 = −                                uj 2 = 2,
+                      X                    X                      X
+(5)                                              uj ∆g0 uj = λk
+                       j=1                 j=1                    j=1
+
+where we used that the uj ’s are kth eigenfunctions and λk = λk (M, g0 ) = 2. Together
+with (4), this implies that n+1
+                             j=1 duj ⊗ duj = g0 .
+                           P
+
+  In other words, the map u := (u1 , . . . , un+1 ) : M → Rn+1 takes values in Sn and it is
+an isometric immersion. Moreover, each uj is an eigenfunction of ∆g0 with eigenvalue 2.
+This implies that u is minimal by (Takahashi, 1966, Theorem 3), as discussed above.
+   Recall that smooth closed surfaces are characterized by their topology, more precisely
+by specifying their genus and whether they are orientable or not. The simplest case
+is when M is topologically a two-dimensional sphere. This case was studied prior to
+Nadirashvili’s result in seminal work of Hersch. Let us briefly present the result here.
+                                                      1244–12
+
+
+Proposition 1.14 (Hersch, 1970). — The round metric on S2 uniquely (up to rescal-
+ing) maximizes the first renormalized Laplace eigenvalue on S2 among all smooth metrics.
+In particular, we get Λ1 (S2 ) = λ1 (S2 , gS2 ) = 8π.
+
+Proof. — Let g be any metric on S2 . By the uniformization theorem, there exists a
+conformal diffeomorphism f : (S2 , g) → (S2 , gS2 ). Up to composing with a conformal
+transformation of the round sphere (S2 , gS2 ), we can assume that S2 f dvg = 0: this
+follows from the explicit characterization of the conformal transformations
+                                                               
+                                                                                of S2 (see
+Section 3), which gives the freedom(7) to choose the value of S2 f dvg . Therefore, by
+the variational characterization (3) of λ1 applied to the components f1 , f2 , f3 of f , we
+have that
+                   3                                      3                          3 
+            2                 2
+                                               fj2 dvg ≤              |dfj |2g dvg =              |dxj |2gS2 dvgS2 = 8π,
+                   X                                       X                           X
+(6) λ1 (S , g) =         λ1 (S , g)
+                   j=1                    S2               j=1   S2                    j=1   S2
+
+where we used that the Dirichlet energy is conformally invariant.
+   Now, let g be a metric for which equality holds. Up to a rescaling, we can assume
+that λ1 (S2 , g) = 2. By equality in (6), the coordinates f1 , f2 , f3 are first Laplace
+eigenfunctions on (M, g). Then, by applying the Laplace operator to the equation
+P3     2                                        P3          2
+  j=1 fj = 1 (similarly to (5)), we obtain that   j=1 |dfj |g = 2. Since f is a conformal
+map, this implies that f is actually an isometry, concluding the proof.
+
+
+Remark 1.15. — Let M be a genus zero surface with boundary and let λN       1 (M, g) be
+the first Laplace eigenvalue on (M, g) with Neumann boundary conditions. Then, the
+same proof as above shows that λN 1 (M, g)area(M, g) < 8π. Indeed, if M has genus zero,
+there exists a conformal embedding f : (M, g) → (S2 , gS2 ) and then the proof proceeds
+as above, using the variational characterization for the first Neumann eigenvalue:
+                                                                        
+                                                                            |du|2 dvg
+(7)                               λN
+                                   1 (M, g) =              inf           M           .
+                                                    u∈C∞ (M )\{0}
+                                                                           M
+                                                                               u2 dvg
+                                                        M u=0
+
+
+
+Example 1.16. — The maximum of the first renormalized Laplace eigenvalue is known
+in the following cases. In most of these cases the maximizing metric is unique, meaning
+that it is unique up to rescaling.
+      – For the sphere, Λ1 (S2 ) = 8π and the unique maximizer is the round metric on S2 ,
+        thanks to the previous proposition.
+      – For the projective plane, Λ1 (RP2 ) = 12π and the unique maximizer is the Veronese
+        surface, minimally embedded in S4 (see Li and Yau, 1982, Corollary 5).
+
+  The idea of composing with a conformal transformation of a sphere Sn to prescribe a “center of
+(7)
+
+mass”, i.e., an integral quantity on the sphere, comes from (Szegö, 1954) and it is referred to as the
+Hersch trick.
+                                           1244–13
+
+                                    √
+  – For the torus, Λ1 (T2 ) = 8π 2 / 3 and the unique maximizer is the flat equilater
+                                                                                   √ torus
+    (i.e., the torus R2 /L, where L is the lattice generated by (1, 0) and (1/2, 3/2)),
+    which can be isometrically minimally embedded in S5 by first eigenfunctions by
+    (Nadirashvili, 1996, Theorem 1). By (El Soufi and Ilias, 2000, Theorem 2.1), the
+    only other critical metric for λ1 on T2 is the flat square metric, which is the metric
+                                                       3
+    on the Clifford torus, minimally embedded   √ in S .         √
+                                    2
+  – For the Klein bottle, Λ1 (K ) = 12πE( 8/9), where E( 8/9) is the complete
+    elliptic integral of the second kind evaluated at 8/9, by (El Soufi, Giacomini, and
+    Jazar, 2006, Theorem 1.1). The unique maximizing metric is a metric of revolution,
+    with which K2 can be isometrically minimally embedded in S4 .
+  – For the orientable genus 2 surface, Λ1 (T2 #T2 ) = 16π and a maximizing metric is
+    the metric on the Bolza surface, which is a branched double cover of the round S2 ,
+    by (Nayatani and Shoda, 2019).
+
+
+
+2. The setting with boundary
+
+2.1. Free boundary minimal surfaces in balls
+   Let (M, g) be a compact Riemannian surface with boundary and let u : (M, g) → Bn
+be a smooth isometric immersion into the ball Bn ⊂ Rn such that u(∂M ) ⊂ ∂Bn .
+Analogously to the closed case, we say that the immersion is free boundary minimal
+if it is a critical point of the area functional; more precisely, if for every smooth one-
+parameter family of immersions ut : M → Bn , with t ∈ (−ε, ε), such that ut (∂M ) ⊂ ∂Bn
+and u0 = u, we have
+                                    d
+                                          area(ut (M )) = 0.
+                                   dt t=0
+Note that we allow the boundary of the immersion to move inside the boundary of
+the ball, which is where the name “free boundary” comes from. Computing the first
+variation of area, we get that being a free boundary minimal surface is equivalent to
+having zero mean curvature and intersecting the boundary of Bn orthogonally.
+
+Example 2.1. — The easiest examples of free boundary minimal surfaces in B3 are the
+equatorial disk B2 ⊂ B3 and the critical catenoid, explicitly parametrized by
+                                                                                
+      [−aT, aT ] × [0, 2π] ∋ (t, θ) 7→ a cosh(a−1 t) cos θ, a cosh(a−1 t) sin θ, t ∈ B3 ,
+where T > 0 is the unique positive solution of T tanh T = 1, and a = (T cosh T )−1 .
+   The equatorial disk is the only free boundary minimal disk in B3 by a result of
+Nitsche (1985) but we still do not know if the critical catenoid is the only embedded
+free boundary minimal annulus in B3 . Note that there are infinitely many examples
+of immersed free boundary minimal annuli in B3 by a result of Fernández, Hauswirth,
+and Mira (2023). See also the construction by Kapouleas and McGrath (2022) with a
+different method.
+                                         1244–14
+
+
+
+
+              Figure 4. The equatorial disk and the critical catenoid in B3 .
+
+
+  In analogy with (Takahashi, 1966) in the closed case, Fraser and Schoen (2011,
+Lemma 2.2) observed that an isometric immersion u : (M, g) → Bn is free boundary
+minimal if and only if the coordinate functions uj = xj ◦ u for j = 1, . . . , n satisfy
+                                  
+                                  ∆ u
+                                      g j = 0     on M
+                                   ∂uj = u       on ∂M ,
+                                    ∂η     j
+
+where η is the unit outward conormal to ∂M . By definition, this equation means that
+they are Steklov eigenfunctions with eigenvalue 1. We introduce the Steklov operator
+in more detail in the next section.
+
+2.2. Steklov eigenvalue problem on surfaces with boundary
+ Let M be a smooth connected compact surface with boundary and let g be a smooth
+metric on M . The Steklov operator is the Dirichlet-to-Neumann map given by
+                                                ∂ û
+                            u ∈ C ∞ (∂M ) 7→         ∈ C ∞ (∂M ),
+                                                ∂η
+where û ∈ C ∞ (M ) is the harmonic extension of u in the interior of M . The Steklov
+operator admits a discrete spectrum consisting of eigenvalues 0 = σ0 < σ1 ≤ σ2 ≤ · · · ≤
+σk ≤ · · · → ∞. Namely, there exist smooth functions {uk }k∈N ⊂ C ∞ (M ), which form
+an orthonormal basis of L2 (∂M ), such that
+                                 
+                                 ∆ u
+                                     g k = 0       on M
+                                  ∂uk = σ u       on ∂M .
+                                   ∂η      k k
+
+We often write σk (M, g) to materialize the dependence of the Steklov eigenvalues on
+the Riemannian manifold (M, g). We consider the renormalized Steklov eigenvalue
+
+                          σ k (M, g) = σk (M, g) length(∂M, g),
+                                             1244–15
+
+
+which is invariant with respect to rescalings of the metric. Then, we define
+
+                                  Σk (M ) := sup σ k (M, g),
+                                               g smooth
+                                                metric
+
+and wonder whether there is metric g0 maximizing the kth renormalized Steklov eigen-
+value σ k (M, g) over all metrics, that is to say σ k (M, g0 ) = Σk (M ).
+  We refer to (Girouard and Polterovich, 2017; Colbois, Girouard, Gordon, and Sher,
+2024) for surveys on the study of the Steklov operator. Here, we are interested in
+the following connection between maximizing metrics for Steklov eigenvalues and free
+boundary minimal surfaces, analogous to Theorem 1.9.
+
+Theorem 2.2 (Fraser and Schoen, 2013, Proposition 2.4). — If g0 is a metric
+on M maximizing the kth renormalized Steklov eigenvalue over all metrics, then
+there exist independent kth eigenfunctions u1 , . . . , un for some n ≥ 2 such that
+u := (u1 , . . . , un ) : M → Rn is a (branched) free boundary minimal immersion in Bn .
+Moreover, up to rescaling g0 , the map u is an isometry when restricted to ∂M .
+
+Example 2.3. — The maximal value Σ1 (M ) is known explicitly in the following cases:
+
+      – On the disk B2 , we have Σ1 (B2 ) = π and the unique maximizer (up to σ-homothety,
+        cf. Fraser and Schoen, 2016, Definition 2.1) is the flat disk by (Weinstock, 1954).
+      – On the annulus, σ 1 is uniquely realized (up to σ-homothety) by the metric on the
+        critical catenoid by (Fraser and Schoen, 2016, Theorem 1.3).
+      – On the Möbius band, σ 1 is uniquely realized (up to σ-homothety) by the metric on
+        the critical Möbius band, which is a free boundary minimal Möbius band embedded
+        in B4 , by (Fraser and Schoen, 2016, Theorem 1.5).
+
+Remark 2.4. — Besides the obvious analogy between the closed case and the case with
+boundary, there is another very interesting connection between Theorems 1.9 and 2.2.
+Fix an arbitrary γ ∈ N. Let M be the (differentiable) closed orientable surface with
+genus γ, and, for every β ∈ N, let Mβ be the (differentiable) orientable surface with
+genus γ and β boundary components. Then, Girouard and Lagacé (2021, Theorem 1.3)
+and Karpukhin and Stern (2024c, Theorem 1.6) proved that limβ→∞ Σ1 (Mβ ) = Λ1 (M ).
+Moreover, by (Karpukhin and Stern, 2024b, Theorem 1.1), if maximizing metrics on Mβ
+and M exist,(8) then the associated free boundary minimal immersions Mβ → Bn+1
+from Theorem 2.2 converge (in some suitable sense) to the minimal immersion M → Sn
+from Theorem 1.9, as β → ∞.
+
+(8)
+  By Theorem C, we know that a maximizing metric for the first Laplace eigenvalue on closed surfaces
+exists, but we do not currently know that a maximizing metric for the first Steklov eigenvalue exists
+on all surfaces with boundary (see the discussion after Theorem C).
+                                                          1244–16
+
+
+3. Li–Yau conformal volume
+
+   In this section, we recall the notion of conformal volume introduced by Li and Yau
+(1982), both because it is useful to prove results related to the first Laplace eigenvalue
+that will be important in what follows, and because it is one of the inspirations of the
+min-max characterization of conformal eigenvalues by Karpukhin and Stern (2024c),
+discussed in Section 5.
+   Unless otherwise stated, let us assume that (M, g) is a closed(9) Riemannian surface.
+If there exists a conformal immersion ϕ : M → Sn , then we define
+                            Vc (n, ϕ) :=              sup        area(M, (h ◦ ϕ)∗ gSn ),
+                                                   h∈Conf(Sn )
+
+where Conf(Sn ) is the space of conformal automorphisms of Sn . Since h◦ϕ is a conformal
+map, area(M, (h ◦ ϕ)∗ gSn ) is equal to the Dirichlet energy E(h ◦ ϕ) defined in (2) (see
+e.g. White, 2016, Section 4); in other words
+                                                                               
+                                           ∗         1
+(8)                area(M, (h ◦ ϕ) g ) = E(h ◦ ϕ) :=
+                                                Sn                                  |d(h ◦ ϕ)|2 dvg .
+                                                     2                          M
+
+   Recall that the set of conformal automorphisms Conf(Sn ) of Sn has the structure of a
+finite-dimensional Lie group, called Möbius group. Its quotient(10) modulo the isometry
+group of Sn is homeomorphic to the open ball Bn+1 . In particular, we have that
+                                               (                                                         )
+           Conf(Sn )⧸                     1 − |a|2
+(9)                        n ∼= G  (x) :=          (x + a) + a : a ∈ Bn+1 .
+                     Isom(S )    a
+                                          |x + a|2
+Therefore, we can rewrite Vc (n, ϕ) as
+(10)            Vc (n, ϕ) = sup            area(M, (Ga ◦ ϕ)∗ gSn ) = sup                    E(Ga ◦ ϕ).
+                                a∈Bn+1                                             a∈Bn+1
+
+Recall that the Dirichlet energy is invariant under conformal reparameterization of the
+domain, as mentioned in Remark 1.4. Thus, Vc (n, ϕ) depends only on the conformal
+class [g].
+
+Lemma 3.1 (Li and Yau, 1982, Proposition 1). — If ϕ : (M, g) → Sn is an isometric
+minimal immersion, then Vc (n, ϕ) = area(M, g).
+                                       n
+Proof. — Let H ϕ = H ϕ(M )⊂S be the mean curvature of the immersion ϕ, and let dvϕ be
+the volume measure on (M, ϕ∗ gSn). By standard Riemannian geometry computations,
+one can check that the quantity M (|H ϕ |2 + 1) dvϕ is invariant under composition of ϕ
+with a conformal change of Sn , that is to say
+                                                                    
+                                      Ga ◦ϕ 2
+                                (|H        | + 1) dvGa ◦ϕ =                  (|H ϕ |2 + 1) dvϕ
+                            M                                            M
+
+(9)
+  It is also possible to define the conformal volume for surfaces with boundary in the same way.
+   The isometry group of Sn is a closed subgroup of Conf(Sn ). Therefore, the quotient is a well-defined
+(10)
+
+topological space with the induced topology.
+                                                    1244–17
+
+
+for every a ∈ Bn+1 . In particular, for every a ∈ Bn+1 , we get
+                                               
+            area(M, g) =              1 dvg =           (|H ϕ |2 + 1) dvϕ
+                              M                    M
+
+                          =           (|H Ga ◦ϕ |2 + 1) dvGa ◦ϕ ≥ area(M, (Ga ◦ ϕ)∗ gSn ),
+                                  M
+
+where we used that H ≡ 0, since ϕ is minimal, and g = ϕ∗ gSn . By taking the supremum
+                      ϕ
+
+over a ∈ Bn+1 and using that area(M, g) = area(M, ϕ∗ gSn ) ≤ Vc (n, ϕ), we get the desired
+equality.
+  In order to prove Theorem A, we will first obtain minimal immersions with area
+bounded by 8π. Then, their embeddedness will be a consequence of the following result.
+Proposition 3.2 (Li and Yau, 1982, Corollary 10). — If ϕ : (M, g) → Sn is an
+isometric (branched) minimal immersion and area(M, g) < 8π, then ϕ is an embedding.
+Proof. — Assume by contradiction that ϕ is not an embedding, then there exists p ∈ Sn
+such that the density of ϕ at p (cf. White, 2016, Section 1) is greater than two, namely
+                                      area(ϕ−1 (Br (p)), ϕ∗ gSn )
+                       Θ(ϕ, p) := lim                             ≥ 2,
+                                  r→0            πr2
+where Br (p) is the geodesic ball in Sn of center p and radius r. Observe that this takes
+into account both the cases where the preimage ϕ−1 (p) contains more than one point
+and where p is a branch point for ϕ. We now claim that Vc (n, ϕ) ≥ area(S2 )Θ(ϕ, p) =
+4πΘ(ϕ, p) ≥ 8π. This would contradict our assumption area(M, g) < 8π since Vc (n, ϕ) =
+area(M, g) by the previous lemma.
+   Let us give a heuristic idea of the proof of the inequality Vc (n, ϕ) ≥ area(S2 )Θ(ϕ, p).
+For t ∈ (−1, 1), consider the conformal transformation
+                                                 1 − t2
+                                  Gtp (x) =               (x + tp) + tp.
+                                                |x + tp|2
+   Note that the map Gtp fixes p and −p and it
+converges to the constant map −p on S2 \ {p} as                    p
+t → −1. In other words, for t close to −1, Gtp                        Gtp for t < 0
+maps a small neighborhood of p onto almost the
+entire sphere Sn and the rest of the sphere to a small
+neighborhood of −p. As a result, as t approaches −1,
+under the map Gtp ◦ ϕ : M → Sn a small neighbor-
+hood of each point in ϕ−1 (p) approaches a collection
+of equatorial two-spheres (passing through p and −p)              −p
+in Sn (Θ(ϕ, p) of them, counted with multiplicity).
+The rest of the surface M is mapped to a small neighborhood of −p and has small
+area with respect to the induced metric (Gtp ◦ ϕ)∗ gSn . In particular, we get that
+area(M, (Gtp ◦ ϕ)∗ gSn ) → area(S2 )Θ(ϕ, p) = 4πΘ(ϕ, p), as desired.
+                                              1244–18
+
+
+   Now, we define the n-conformal volume of (M, [g]), where [g] is the conformal class
+of g (recall that Vc (n, ϕ) depends only on [g]), as
+(11)                        Vc (n, M, [g]) :=         inf     Vc (n, ϕ).
+                                                  ϕ : M →Sn
+                                                  conformal
+
+If there are no conformal maps ϕ : M → Sn , we set Vc (n, M, [g]) = ∞.
+   Note that Vc (n, M, [g]) < ∞ for every sufficiently large n by Nash’s embedding
+theorem, which gives the existence of a conformal map ϕ : M → Sn for all n sufficiently
+large. Moreover, Vc (n, M, [g]) ≥ Vc (n + 1, M, [g]), since a conformal map ϕ : M → Sn
+can be seen as a conformal map into Sn+1 ⊃ Sn .
+   Thanks to a Hersch-type trick (cf. Proposition 1.14), it is possible to bound the first
+renormalized Laplace eigenvalue from above by the conformal volume.
+
+Theorem 3.3 (Li and Yau, 1982, Theorem 1). — For every closed Riemannian surface
+(M, g) and n ∈ N, we have
+                               λ1 (M, g) ≤ 2Vc (n, M, [g]).
+Moreover, equality holds if and only if (M, g) can be minimally (branched) immersed
+isometrically (up to a rescaling of the metric) in Sn by first eigenfunctions.
+
+Remark 3.4. — The theorem holds also for surfaces (M, g) with boundary (cf. Re-
+mark 1.15), by considering the first Laplace eigenvalue λN 1 (M, g) with Neumann bound-
+ary conditions, using the variational characterization (7) of the first Neumann eigenvalue.
+
+Proof. — If Vc (n, M, [g]) = ∞, the result is obvious. Therefore, let us assume
+Vc (n, M, [g]) < ∞. For every conformal map ϕ : M → Sn ,by the Hersch trick, there
+exists a conformal automorphism h : Sn → Sn such that M (h       
+                                                                    ◦ ϕ) dvg = 0 ∈ Rn+1 .
+Therefore, without loss of generality, we can assume that M ϕ dvg = 0. By the
+variational characterization (3) of the first eigenvalue of the Laplacian, we have
+                                                             
+                                                  2
+(12) λ1 (M, g)area(M, g) = λ1 (M, g)            |ϕ| dvg ≤             |dϕ|2 dvg = 2E(ϕ) ≤ 2Vc (n, ϕ),
+                                            M                     M
+
+where we used (10) in the last inequality. Since this holds for every conformal map ϕ,
+we get the desired inequality.
+
+Remark 3.5. — If we take the supremum over the metrics in the conformal class [g] in
+Theorem 3.3, we obtain that
+                      Λ1 (M, [g]) := sup λ1 (M, g̃) ≤ 2Vc (n, M, [g]).
+                                     g̃∈[g]
+
+Observe that the equality case in the theorem tells us that every minimal immersion
+in Sn by first eigenfunctions realizes the maximum of λ1 in its conformal class. In
+particular, if ϕ : (M, g) → Sn is an isometric minimal immersion by first eigenfunctions,
+then Vc (n, ϕ) = Vc (n, M, [g]) = area(M, g).
+                                          1244–19
+
+
+4. Eigenvalue optimization on basic reflection surfaces
+
+   We now delve into eigenvalue optimization on a surface M for metrics satisfying
+suitable symmetry assumptions. This is one of the key aspects of the paper KKMS.
+   We mention that equivariant techniques have been fruitfully used to construct exam-
+ples of (free boundary) minimal surfaces via other methods too, such as Simon–Smith
+min-max (see e.g. Ketover, 2016) and gluing (see e.g. Kapouleas, 2017). Moreover,
+Petrides (2023a) used equivariant eigenvalue optimization to construct an embedded,
+nonplanar minimal surface in every three-dimensional ellipsoid with suitable properties
+(see Petrides, 2023b for the free boundary analogue).
+
+4.1. Basic reflection surfaces
+   Unless otherwise stated, let M be a smooth, connected, closed, orientable Riemannian
+surface. Given an isometry τ of M , we denote by M τ := {p ∈ M : τ (p) = p} its set of
+fixed points.
+Definition 4.1 (KKMS, Definition 2.1, Lemma 5.3). — We say that an isometry τ
+of M is a reflection if M \ M τ is not connected. Equivalently, dτp : Tp M → Tp M is a
+Euclidean reflection (with respect to the metric on M ) for all p ∈ M τ .
+Remark 4.2. — By (KKMS, Lemma 2.3), a reflection τ is an involution (i.e., τ 2 = idM ),
+M τ is a codimension one submanifold (possibly disconnected), and M \ M τ has exactly
+two connected components.
+  One of the key ideas in KKMS is to perform equivariant eigenvalue optimization on
+so-called basic reflection surfaces (see Figure 5).
+Definition 4.3 (KKMS, Definition 5.4). — A pair (M, τ ) is a basic reflection surface
+if τ is a reflection on M such that M/⟨τ ⟩ has genus zero.
+
+
+
+                                                                           M
+
+              reflection τ
+                                                          Mτ
+
+
+
+       Figure 5. Example of a closed basic reflection surface (M, τ ) of genus 3. Note
+       that M/⟨τ ⟩ is diffeomorphic to a sphere with 4 disks removed, in particular it
+       has genus zero.
+
+  The key property of a basic reflection surface is that the quotient M/⟨τ ⟩ has genus
+zero. Then, heuristically, equivariant eigenvalue optimization on such surfaces might
+be expected to behave well, in line with the nice properties enjoyed for example by
+                                           1244–20
+
+
+Neumann eigenvalue optimization on genus zero surfaces (see e.g. Remark 1.15) or
+Steklov eigenvalue optimization on genus zero surfaces. Note for example that the
+multiplicity of the first Steklov eigenvalue on genus zero surfaces is at most 3 by (Fraser
+and Schoen, 2016, Theorem 2.3). It is possible to recover an analogous multiplicity
+bound for the first Laplace eigenvalue on basic reflection surfaces.
+
+Proposition 4.4 (KKMS, Proposition 5.12 and 5.15). — Let (M, τ ) be a closed basic
+reflection surface and let g be a Riemannian metric on M which is invariant with respect
+to the reflection τ . Then, the multiplicity of the first eigenvalue λ1 (M, g) of the Laplacian
+on (M, g) is at most 4.
+
+Proof. — Let us denote by E the first eigenspace of the Laplacian on (M, g). We want
+to prove that dim(E) ≤ 4. Note that E is invariant with respect to the action of τ (i.e.,
+if u is a first eigenfunction, then u ◦ τ is also a first eigenfunction). Therefore, we can
+decompose E as the orthogonal direct sum of its odd part E − := {u ∈ E : u ◦ τ = −u}
+and its even part E + := {u ∈ E : u ◦ τ = u} with respect to the reflection τ .
+   Recall from Definition 4.1 (see Remark 4.2) that M \ M τ consists of exactly two con-
+nected components M1 and M2 . Then, we have the following bounds on the dimensions
+of E − and E + , respectively.
+   First bound : dim(E − ) ≤ 1. If u ∈ E − then by definition u ◦ τ = −u and hence
+u ≡ 0 on M τ . Therefore, u is a Dirichlet eigenfunction on M1 (and M2 ). By Courant’s
+nodal domain Theorem 1.6 (see Remark 1.7), u has exactly two nodal domains, which
+must coincide with M1 and M2 . Therefore, u|M1 is a Dirichlet eigenfunction which is
+never zero on M1 . This implies that u|M1 is a first Dirichlet eigenfunction on M1 . Since
+the first Dirichlet eigenspace is simple (see Remark 1.8), we get that dim(E − ) ≤ 1.
+   Second bound : dim(E + ) ≤ 3. Let us consider any u ∈ E + , so that u ◦ τ = u. In
+particular, u is a Neumann eigenfunction on M1 . We claim that u|M1 has two nodal
+domains. Let U+ , U− be the two nodal domains of u in M , i.e., M \ Nu = U+ ⊔ U− ,
+where Nu = {u = 0}, U+ = {u > 0}, U− = {u < 0}. Observe that U+ |M1 and U− |M1
+are both connected subsets of M1 . Indeed, it is easily observed that, if a subset V of M1
+is not connected, then V ∪ τ (V ) is not connected in M (see also KKMS, Lemma 5.14).
+As a result, the Neumann eigenfunction u|M1 has exactly two nodal domains. By
+Theorem 1.6, Nu is a union of C 2 -immersed circles. Since M1 has genus zero and Nu
+divides M1 into two connected components both touching ∂M1 , the nodal set Nu has
+to be a single C 2 circle without self-intersections. Therefore, we can apply the Hopf
+lemma (see e.g. Gilbarg and Trudinger, 2001, Lemma 3.4) to obtain that, for all p ∈ Nu ,
+dup ̸= 0. As a result, if we fix any point p ∈ M1 , then the linear map
+
+                                    T : E + → R × Tp∗ M
+                                         u 7→ (u(p), dup )
+
+is injective. Therefore, dim(E + ) ≤ dim(R × Tp∗ M ) = 3.
+                                            1244–21
+
+
+   Recall that the first renormalized Neumann eigenvalue on a genus zero surface is less
+than 8π (cf. Remark 1.15). The same holds for the first renormalized Steklov eigenvalue
+on genus zero surfaces (Kokarev, 2014, Theorem A1 , see also Example 1.3 therein).
+We have a similar upper bound for the first renormalized Laplace eigenvalue on basic
+reflection surfaces.
+Lemma 4.5 (KKMS, Lemma 5.19). — Let (M, τ ) be a closed basic reflection surface
+and let g be a metric on M which is invariant with respect to τ . We then have
+                                        λ1 (M, g) < 16π.
+Proof. — Let M1 ⊂ M be one of the two connected components of M \ M τ . By the
+definition of a basic reflection surface, M1 is a genus zero surface with boundary M τ .
+Therefore, by Remark 1.15, we have
+                                  λN
+                                   1 (M1 , g)area(M1 , g) < 8π,
+
+where λN1 (M1 , g) is the first Neumann eigenvalue on (M1 , g). Now note that area(M, g) =
+2area(M1 , g), since g is invariant with respect to the reflection τ . Moreover, by the
+variational characterization (3) for eigenvalues, we have
+                            (                                 
+                                |du|2
+                                                                                  )
+        λN
+         1 (M1 , g) = inf
+                             
+                             M1
+                                       : u Lipschitz on M1 ,            u=0
+                               M1
+                                  |u|2                             M1
+                            (                                            
+                                  |du|2
+                                                                                      )
+                   = inf     M         : u τ -even Lipschitz on M ,              u=0
+                                   |u|2                                       M
+                            (
+                                 M
+                                                               
+                                  |du|2
+                                                                              )
+                   ≥ inf     M         : u Lipschitz on M ,           u = 0 = λ1 (M, g).
+                                 M
+                                   |u|2                            M
+
+As a result, we get the desired inequality
+                  λ1 (M, g)area(M, g) ≤ 2λN
+                                          1 (M1 , g)area(M1 , g) < 16π.
+
+
+4.2. Equivariant basic reflection surfaces
+  Performing equivariant eigenvalue optimization on basic reflection surfaces is already
+sufficient to obtain embedded minimal surfaces in S3 with area less than 8π. However,
+KKMS imposes further symmetries with respect to a larger group Γ. This lets them
+obtain multiple examples of nonisometric minimal surfaces with the same topology.
+Definition 4.6. — A pair (M, τ ) is a Γ-equivariant basic reflection surface if (M, τ )
+is a basic reflection surface, Γ is a finite group generated by reflections of M , and τ is
+contained in Γ and commutes with each of its elements. In other words, Γ = ⟨τ ⟩ × G
+for some finite group G generated by reflections.
+Remark 4.7. — To be precise we should distinguish between the group Γ and its action
+Γ × M → M on M , as is done in (KKMS, see for example Section 2.3 therein). However,
+to simplify our notation, we identify the group and its action. The reader should be
+aware that the same group could correspond to different actions.
+                                            1244–22
+
+
+   Sections 5.3, 5.7, 5.8 and 5.9 of KKMS contain many properties and a precise classi-
+fication of basic reflection surfaces and group actions as above. Here, we just give an
+example in the case when G = Z2 , namely when Γ = ⟨τ ⟩ × ⟨ρ⟩ for reflections τ, ρ of M .
+   The quotient M/⟨τ ⟩ can be represented as a sphere with γ + 1 disks removed, where
+γ is the genus of M . If we impose an extra symmetry with respect to a reflection ρ, the
+surface M/⟨τ ⟩ can be represented as a sphere with γ + 1 disks removed, such that the
+disks are symmetric with respect to the reflection across an equator (representing the
+reflection ρ). In particular, let a be the number of disks centered along the equator and
+b be the number of disks in each hemisphere bounded by the equator, in such a way
+that a + 2b = γ + 1. See Figure 6.
+   Fixing γ ∈ N and performing equivariant eigenvalue optimization on surfaces of this
+type, as the number of disks a and b varies, we shall see that it is possible to obtain
+⌊ γ−1
+   4
+      ⌋ + 1 nonisometric minimal embeddings with genus γ in S3 , as stated in Theorem A
+(see also Section 6).
+
+
+
+                                                     Mτ
+                                                                       Mρ
+                    reflection ρ
+
+
+
+
+       Figure 6. Representation of M/⟨τ ⟩, half of a Γ-equivariant basic reflection
+       surface (M, τ ), where Γ = ⟨τ ⟩ × ⟨ρ⟩. The surface M/⟨τ ⟩ is diffeomorphic to a
+       sphere with a = 3 disks removed along an equator (which corresponds to M ρ )
+       and b = 2 disks removed in each hemisphere. In this case, M has genus γ = 6.
+
+
+4.3. Equivariant eigenvalue optimization
+  Given a Γ-equivariant basic reflection surface (M, τ ) as in Definition 4.6, we denote
+by MetΓ (M ) the space of Riemannian metrics on M that are invariant with respect to
+the action of Γ. Then, we can define
+                              ΛΓk (M ) :=      sup        λk (M, g),
+                                            g∈MetΓ (M )
+
+and look for a metric g0 that maximizes the kth renormalized Laplace eigenvalue among
+Γ-symmetric metrics on M , that is to say λk (M, g0 ) = ΛΓk (M ). By the principle of
+symmetric criticality of Palais (1979), one expects that critical points of some eigen-
+value in the space of symmetric metrics MetΓ (M ) are also unconstrained critical points.
+Since the eigenvalues depend only Lipschitz continuously on g, this needs to be proved,
+but goes through without problems, see (KKMS, Theorems 2.12 and 2.15). Moreover,
+                                          1244–23
+
+
+as described above, since (M, τ ) is a basic reflection surface, we expect the equivari-
+ant maximizer to have nice properties. In fact, KKMS gets the following result for
+equivariant maximizers of the first renormalized eigenvalue.
+
+Theorem 4.8 (cf. KKMS, Theorem 2.12 and Lemma 5.35)
+     Let (M, τ ) be a closed Γ-equivariant basic reflection surface with genus(M ) ̸= 0.
+If g0 ∈ MetΓ (M ) is a metric maximizing the first renormalized Laplace eigenvalue
+among the Γ-symmetric metrics on M , then there exist independent first eigenfunctions
+u1 , u2 , u3 , u4 such that u := (u1 , u2 , u3 , u4 ) : (M, g0 ) → R4 is an isometric minimal
+embedding into S3 . Moreover, the embedding has area less than 8π and it is a doubling
+of an equatorial sphere.
+
+Example 4.9 (cf. KKMS, Corollary 2.6). — When the genus of M is equal to 0, in other
+words M = S2 is a sphere, it is known that the round metric gS2 on S2 is Γ-invariant for
+every finite group Γ acting on S2 . Therefore, using Hersch’s result (Proposition 1.14),
+we get
+                      8π = λ1 (S2 , gS2 ) ≤ ΛΓ1 (S2 ) ≤ Λ1 (S2 ) = 8π,
+which implies that ΛΓ1 (S2 ) = 8π for every finite group Γ.
+
+   We will see in Sections 5 and 6 that a Γ-equivariant maximizing metric as in Theo-
+rem 4.8 indeed exists. For now, let us sketch the proof of Theorem 4.8.
+Sketch of the proof of Theorem 4.8. — Let g0 ∈ MetΓ (M ) be a metric maximizing λ1
+among the Γ-equivariant metrics on M . Up to rescaling g0 , we can assume that
+λ1 (M, g0 ) = 2. We can apply Theorem 1.9 to our equivariant setting thanks to the
+principle of symmetric criticality of Palais (1979), as described at the beginning of
+this section. We obtain that there exist independent first eigenfunctions u1 , . . . , un+1
+for some n ≥ 3 such that u := (u1 , . . . , un+1 ) : (M, g0 ) → Sn ⊂ Rn+1 is an isometric
+(branched) minimal immersion. Note that n = 3 thanks to Proposition 4.4. Moreover,
+by Lemma 4.5, we have
+                                            1
+                              area(M, g0 ) = λ1 (M, g0 ) < 8π.
+                                            2
+In particular, by Proposition 3.2, the map u is an embedding.
+  We are left with showing that u(M ) is a doubling of an equatorial sphere. This relies
+on the fact that the reflection τ on u(M ) is induced by that across an equatorial sphere
+in S3 , and the coordinate functions of R4 span the first eigenspace of the Laplacian
+on (M, g0 ), for which we know the properties described in the proof of Proposition 4.4.
+We refer to (KKMS, Lemma 3.35) for the details.
+
+  We conclude this section with a sort of rigidity property of any minimal embedding of
+the type produced by Theorem 4.8, which says that any other map by first eigenfunctions
+to Sn must also be an embedding. The usefulness may be unclear now, but it will be
+helpful to prove the existence of a maximizing metric in Section 6. Indeed, this result
+                                            1244–24
+
+
+is what makes it somewhat easier to prove the existence of a maximizing metric in this
+equivariant setting, compared with the general case.
+
+Proposition 4.10 (cf. KKMS, Theorem 8.5). — Let (M, g) be an orientable Rieman-
+nian surface with genus(M ) ̸= 1. Assume that the multiplicity of λ1 (M, g) is 4, and
+that there exists a minimal embedding u : (M, g) → S3 by first eigenfunctions. Then,
+any other map v : M → Sn by first eigenfunctions of ∆g satisfies v(p) ̸= v(q) for all
+p ̸= q ∈ M .
+
+Proof. — When M has genus zero, the only minimal embedding (M, g) → S3 is the one
+giving the equatorial sphere and the statement follows. Therefore, let us now assume that
+genus(M ) > 1. Since u is an embedding, the components of u span the first eigenspace.
+Therefore, we can write v = Au, where A is a matrix with n + 1 rows and 4 columns.
+Using that 1 = |v|2 = ⟨Au, Au⟩ = uT AT Au, we have that u(M ) is contained in the
+intersection of S3 with the level set {Q(x) = 1} of the quadratic form Q on R4 associated
+to AT A (i.e., Q(x) = xT AT Ax). If A has rank 4 then v(p) − v(q) = A(u(p) − u(q)) ̸= 0
+for all p ̸= q ∈ M , since u is injective and so is the linear map R4 → Rn+1 attached
+to A. If on the other hand A does not have rank 4, (KKMS, p. 101) shows that M must
+have genus one, which is excluded by assumption. As a result, A has rank 4 and v is
+injective.
+
+Remark 4.11. — We stated the proposition for surfaces with genus greater than one
+because it actually fails when genus(M ) = 1. In that case, the only minimal embedding
+u : (M, g) → S3 by first eigenfunctions is the one giving the Clifford torus, by (El Soufi
+and Ilias, 2000, Theorem 2.1).(11) In particular, (M, g) is (up to homothety) the flat
+square torus (T 2 = R2 /Z2 , gflat ) and the first eigenspace is generated by the functions
+cos(2πx), sin(2πx), cos(2πy), sin(2πy) (see the proof of Theorem 2.1 in El Soufi and
+Ilias, 2000). In particular, the map v : M → S1 given by v(x, y) = (cos(2πx), sin(2πx))
+contradicts Proposition 4.10.
+
+4.4. Basic reflection surfaces with boundary
+  The definition of a basic reflection surface (M, τ ), Definition 4.3, carries over to the
+case where M has boundary, but we additionally require that the double M          f of M
+(obtained by gluing two copies of M along its boundary) is a closed basic reflection
+surface with respect to the natural extension of τ to M   f . For an equivalent definition
+see (KKMS, Definition 5.4).
+  The definition of a Γ-equivariant basic reflection surface also carries over to the case
+where M has boundary. Note that, if (M, τ ) is a Γ-equivariant basic reflection surface,
+then its double (Mf , τ ) is a Γ-equivariant
+                               e             basic reflection surface, where Γ e = ⟨ι⟩ × Γ
+and ι is the natural reflection interchanging the two copies of M in M .f
+
+(11)
+    Recall that by (Brendle, 2013a) (cf. Example 1.1), we could remove the assumption that u is by
+first eigenfunctions.
+                                            1244–25
+
+
+  In this setting, one can define
+                              ΣΓ1 (M ) :=      sup        σ 1 (M, g),
+                                            g∈MetΓ (M )
+
+and say that a metric g0 ∈ MetΓ (M ) maximizes the first renormalized Steklov eigenvalue
+if σ 1 (M, g0 ) = ΣΓ1 (M ). Then, we get the analogue of Theorem 4.8 for surfaces with
+boundary.
+
+Theorem 4.12 (cf. KKMS, Theorem 2.15, Lemma 5.37). — Let (M, τ ) be a Γ-
+equivariant basic reflection surface with boundary. If g0 ∈ MetΓ (M ) is a metric
+on M maximizing the first renormalized Steklov eigenvalue among the Γ-symmetric
+metrics on M , then there exist independent first eigenfunctions u1 , u2 , u3 so that u :=
+(u1 , u2 , u3 ) : M → R3 is a free boundary minimal embedding in B3 with area less than 2π.
+Moreover, the embedding is a doubling of an equatorial disk.
+
+   We do not discuss the proof of this theorem, which presents some further technical
+difficulties compared with the closed case, but the main ideas are similar. In Sections 5
+and 6, we will discuss the existence of an equivariant maximizing metric. However, again,
+we will not go into the details of the case with boundary. For technical reasons, KKMS
+does not get existence of a maximizer for every equivariant basic reflection surface with
+boundary (see also Remark 6.2). One case in which they do get existence is when (M, τ )
+is a Γ-equivariant basic reflection surface with Γ = ⟨τ ⟩ × ⟨ρ⟩ for two reflections τ, ρ. Let
+us discuss this setting in more detail.
+
+
+
+                                                                             ∂M
+
+                                                                        Mρ
+                     reflection ρ
+
+
+                                                     Mτ
+
+
+
+       Figure 7. Schematic representation of M/⟨τ ⟩, half of a Γ-equivariant basic
+       reflection surface (M, τ ), where Γ = ⟨τ ⟩ × ⟨ρ⟩. The surface M is obtained
+       by gluing two copies of M/⟨τ ⟩ along M τ . In this case, M has genus 9 and 3
+       boundary components.
+
+   Half of the surface M/⟨τ ⟩ can be represented as a disk with γ disks removed in the
+interior and β half-disks removed along the boundary. Here, γ and β correspond to the
+genus and the number of boundary components of M . The extra symmetry ρ can be
+represented as the reflection across a diameter of the disk. In this way, all the removed
+                                         1244–26
+
+
+disks are symmetric with respect to this reflection. In particular, we have a of these
+disks centered along the diameter and b of them centered in each half-disk bounded by
+the diameter, in such a way that a + 2b = γ. See Figure 7.
+   One can perform equivariant eigenvalue optimization on (Z2 × Z2 )-equivariant basic
+reflection surfaces as the action of Z2 × Z2 on M varies in order to have different values
+of a and b. In this way, one can obtain ⌊ γ−2
+                                            4
+                                              ⌋ + 1 nonisometric free boundary minimal
+embeddings with genus γ and β boundary components in B3 , as stated in Theorem B.
+
+
+
+5. Existence of a conformal eigenvalue maximizer
+
+  Thanks to Theorem 4.8, in order to prove Theorem A, we are left with the proof of
+the existence of a maximizing metric g0 ∈ MetΓ (M ). The first step, discussed in this
+section, is to prove the existence of a maximizer among the Γ-equivariant metrics in
+every given conformal class [g]. More precisely, defining
+                  ΛΓ1 (M, [g]) := sup{λ1 (M, g̃) : g̃ ∈ MetΓ (M ) ∩ [g]},
+the following theorem states that, under suitable assumptions, there is a metric g0 ∈
+MetΓ (M )∩[g] maximizing the first renormalized Laplace eigenvalue among Γ-equivariant
+metrics in [g], that is to say λ1 (M, g0 ) = ΛΓ1 (M, [g]).
+
+Theorem 5.1 (Petrides, 2014; KKMS, Theorem 3.12). — Let (M, τ ) be a Γ-equivariant
+basic reflection surface. Consider g ∈ MetΓ (M ) such that ΛΓ1 (M, [g]) > 8π. Then there
+exists a metric g0 ∈ MetΓ (M )∩[g], smooth away from finitely many conical singularities,
+maximizing the first renormalized Laplace eigenvalue among Γ-equivariant metrics in [g].
+Moreover, there exists a harmonic map u : (M, g0 ) → Sn by first eigenfunctions, for some
+n ∈ N.
+
+Remark 5.2. — Observe that, by maximizing in a conformal class, we only get a har-
+monic map and not a minimal immersion. This is because we cannot guarantee in
+general that the immersion is an isometry (cf. Remark 1.4).
+
+Remark 5.3. — Note that, thanks to Theorem 3.3, if u : (M, g) → Sn is an isometric
+immersion by first eigenfunctions, then g maximizes the first renormalized eigenvalue λ1
+in its conformal class [g]. Moreover, by (Montiel and Ros, 1986, Theorem 1), there exists
+at most one such metric in each conformal class. However, this uniqueness regards the
+intrinsic metric on M . We do not know whether the same metric on M can give rise to
+minimal immersions that are not related by an ambient isometry.
+
+Remark 5.4. — When M is not a sphere, for every conformal class [g], the strict
+inequality Λ1 (M, [g]) > 8π was proven by Petrides (2014, Theorem 1) in the case
+without symmetry and, in Section 6, we will see that it also holds in our setting with
+symmetry.
+                                                 1244–27
+
+
+   Theorem 5.1 in the case without symmetry was first proved by Petrides (2014), using
+a method which was later refined in (Petrides, 2025). The proof is based on Ekeland’s
+variational principle, which allows one to find a maximizing sequence of metrics(12)
+in [g] and associated maps by first eigenfunctions, which are almost harmonic. Careful
+analysis shows that this sequence of metrics converges to a maximizer for λ1 in [g]. See
+also (Petrides, 2026) for more details.
+   Subsequently, other proofs have been obtained (see e.g. Vinokurov, 2025). Here, we
+describe in more detail the approach taken by Karpukhin, Kusner, McGrath, and Stern
+(KKMS, Sections 3 and 4), since it is based on a min-max characterization of ΛΓ1 (M )
+developed in (Karpukhin and Stern, 2024c) which is of independent interest.
+
+5.1. Definition of min-max energy and first results
+   The idea is to define a min-max energy En (M, [g]), inspired by the Li–Yau conformal
+volume Vc (n, M, [g]) presented in Section 3, such that not only Λ1 (M, [g]) ≤ 2En (M, [g])
+(as in Theorem 3.3 for the Li–Yau conformal volume), but also equality holds for every
+sufficiently large n. Indeed, as explained in (Karpukhin and Stern, 2024c, Section 2.4),
+the min-max energy En (M, [g]) can be thought as a relaxation of the conformal volume
+Vc (n, M, [g]) such that Theorem 3.3 and its proof still hold. The energies En (M, [g]) are
+defined on suitable spaces of maps and, by running a min-max scheme for these energies,
+the authors produce a special harmonic map which induces the desired maximizing
+metric for λ1 in [g].
+   Given the subset {Ga }a∈Bn+1 of conformal transformations of Sn defined in (9), we
+recall from (11) that
+                                                                
+                                                                    1
+     Vc (n, M, [g]) := inf n sup E(Ga ◦ ϕ) = inf n sup                |d(Ga ◦ ϕ)|2 dvg .
+                      ϕ : M →S a∈Bn+1            ϕ : M →S a∈Bn+1 M 2
+                         conformal                           conformal
+                   n+1
+Now, let C 0 (B , W 1,2 (M, Sn )) be the space of continuous functions from the closed
+      n+1
+ball B    to the Sobolev space W 1,2 (M, Sn ). We then define its subset Ben as the set
+                                      n+1
+of functions F = (a 7→ Fa ) ∈ C 0 (B , W 1,2 (M, Sn )) such that Fa ≡ a for all a ∈ Sn ,
+meaning that Fa is equal to the constant function equal to a for all a ∈ Sn . The first
+idea of Karpukhin and Stern (2024c) is to relax the definition of conformal volume to(13)
+                                                            
+                                                                1
+              En (M, [g]) := inf sup E(Fa ) = inf sup
+              e                                                   |dFa |2 dvg ,
+                               en a∈Bn+1
+                            F ∈B                   en a∈Bn+1 M 2
+                                                F ∈B
+                                                                                   
+The key is that, if F ∈ Ben , then there exists a ∈ Bn+1 such that M Fa = 0 by topological
+degree theory. Thus, by the variational characterization of the first eigenvalue we get
+                                                                              
+                                                                    2
+       λ1 (M, g) = λ1 (M, g)area(M, g) = λ1 (M, g)               |Fa | dvg ≤           |dFa |2 dvg = 2E(Fa ),
+                                                             M                     M
+
+(12)
+     To be precise, one first has to consider a suitable weak notion of metrics, and then prove that the
+maximizer is smooth away from finitely many conical singularities.
+(13)
+     Note that we use the tilde here, i.e., Een , because this is not the final definition of the energy En ,
+which will be given in Definition 5.7.
+                                                    1244–28
+
+
+exactly as in (12), which is the core inequality in the proof of Theorem 3.3. Taking the
+infimum over all F ∈ Ben and the supremum over all g̃ ∈ [g], we then get
+(13)                                    Λ1 (M, [g]) ≤ 2Een (M, [g]).
+                                                                             n+1
+Remark 5.5. — Note that the maps Fa , for F ∈ Ben and a ∈ B , are not necessarily
+conformal. Conformality of Ga ◦ ϕ was needed in the Li–Yau construction to have
+area(Ga ◦ ϕ) = E(Ga ◦ ϕ) (see (8)).
+
+   It is well known that the Dirichlet energy E presents a lack of compactness due
+to its conformal invariance. Therefore, it is often convenient to perturb the Dirichlet
+functional to a functional Eε that approaches E as ε → 0 and has some compactness
+property for ε > 0 (e.g. the Palais–Smale condition, see e.g. Ambrosetti and Malchiodi,
+2007, Section 7.4), which allows one to find critical points easily. This idea was first
+introduced by Sacks and Uhlenbeck (1981) and the second ingredient in (Karpukhin
+and Stern, 2024c) is indeed a similar perturbation. In particular, they consider the
+Ginzburg–Landau approximation of the Dirichlet energy introduced by Chen (1989)
+and Chen and Struwe (1989):
+                                        
+                                              1         (1 − |u|2 )2
+                            Eε (u) :=           |du|2 +              dvg ≥ E(u),
+                                            M 2             4ε2
+defined for functions u ∈ W 1,2 (M, Rn+1 ). The second term in the integrand is called
+the potential term.
+
+Remark 5.6. — The choice of the Ginzburg–Landau energy is not essential; the Sacks–
+Uhlenbeck perturbation could potentially work too.
+
+  Note that Eε (u) = E(u) if u takes values in Sn . Moreover, Eε is nondecreasing
+as ε ↘ 0. Therefore, the following energies are well-defined.
+
+Definition 5.7 (cf. Karpukhin and Stern, 2024c, Section 3)
+  For every ε > 0, we define the perturbed min-max energy
+                                   En,ε (M, g) := inf max  Eε (Fa ),
+                                                     F ∈Bn a∈B
+                                                       n+1
+
+                                     n+1
+where(14) Bn = {F ∈ C 0 (B , W 1,2 (M, Rn+1 )) : Fa ≡ a for a ∈ Sn }. As ε ↘ 0,
+En,ε (M, g) is nondecreasing. Thus, we can define
+                             En (M, g) := sup En,ε (M, g) = lim En,ε (M, g).
+                                              ε>0                ε↘0
+
+  As mentioned above, the definition of En is devised to be a relaxation of the conformal
+volume such that Theorem 3.3 still holds. We make this precise in the following
+proposition.
+
+(14)
+       The difference with Ben is that we now allow the maps to take values in Rn+1 and not only in Sn .
+                                              1244–29
+
+
+Proposition 5.8 (Karpukhin and Stern, 2024c, Section 3.1)
+  The energy En (M, g) is a conformal invariant, and we write En (M, [g]) := En (M, g).
+Moreover, for every n ≥ 2, we have
+                       Λ1 (M, [g]) ≤ 2En (M, [g]) ≤ 2Vc (n, M, [g]) < ∞.
+
+Idea of the proof. — Note that the energies En,ε (M, g) are not conformally invariant
+because of the potential term in the definition of Eε . However, for every g̃ ∈ [g], there
+exists C = C(g, g̃) > 0 such that En,Cε (M, g) ≤ En,ε (M, g̃) ≤ En,ε/C (M, g). Taking the
+limit as ε → 0, we get En (M, g) = En (M, g̃) = En (M, [g]).
+   The inequality En (M, [g]) ≤ Vc (n, M, [g]) follows from the fact that every map
+  n+1
+B     ∋ a 7→ Ga ◦ ϕ ∈ W 1,2 (M, Sn ), in the definition of Vc (n, M, [g]), can be approxi-
+mated by maps in Bn by mollification. We refer to (Karpukhin and Stern, 2024c,
+Proposition 3.3) for the details of the proof.
+   We are left with the proof of the inequality Λ1 (M, [g]) ≤ 2En (M, [g]). The idea is the
+same as for the proof of (13). Here, the difference is that En (M, [g]) is obtained as an
+approximation of the energies En,ε (M, [g]). Therefore, one first proves that
+                                  1−ε              Γ
+                                      λ1 (M, g) ≤ En,ε (M, g),
+                                  2+ε
+by using a similar argument but taking care of the potential term (see Karpukhin and
+Stern, 2024c, Proposition 3.4 and KKMS, Proposition 3.4). Then, one gets the desired
+inequality by taking the limit as ε → 0.
+
+   The third and final ingredient to adapt the energy En (M, [g]) to the setting of KKMS
+is to consider its equivariant adaptation. Let (M, g) be a closed, smooth, Riemannian
+surface and let Γ be a finite group of isometries of M (in particular, this applies to
+the case when (M, τ ) is a Γ-equivariant basic reflection surface and g ∈ MetΓ (M )).
+Then, (KKMS, Section 3) replaces the set Bn in the definition of En,ε (M, g) with a
+                                  m
+suitable subset(15) BmΓ
+                         of C 0 (B , WΓ1,2 (M, Rm|Γ| )), where WΓ1,2 (M, Rm|Γ| ) is the set of
+Γ-equivariant W 1,2 Sobolev maps with respect to a natural action of Γ on Rm|Γ| .
+   Then, again, one can define
+                                 Γ
+                                Em,ε (M, g) := infΓ max
+                                                      m
+                                                        Eε (Fa )
+                                                 F ∈Bm a∈B
+
+and
+                 Γ             Γ                Γ                 Γ
+                Em (M, [g]) = Em (M, g) := sup Em,ε (M, g) = lim Em,ε (M, g).
+                                               ε>0                 ε↘0
+
+By similar arguments as in the proof of Proposition 5.8, we get the inequality
+                 Γ
+ΛΓ1 (M, [g]) ≤ 2Em (M, [g]) < ∞, for every m sufficiently large (cf. KKMS, Lemma 3.3
+and Proposition 3.4).
+
+(15)
+   Note that we use the index m instead of n for the equivariant setting, because we use n + 1 for the
+dimension of the target space Rn+1 (see e.g. Theorem 5.17 below).
+                                           1244–30
+
+
+5.2. Min-max characterization of the first conformal eigenvalue
+  We now show that the inequality ΛΓ1 (M, [g]) ≤ 2Em  Γ
+                                                        (M, [g]) is actually an equality for
+every m sufficiently large, obtaining the following min-max characterization for the first
+conformal eigenvalue.
+
+Theorem 5.9 (Karpukhin and Stern, 2024c, Theorem 1.3, KKMS, Theorem 3.11)
+  For every m ∈ N sufficiently large, if ΛΓ1 (M, [g]) > 8π, then we have
+                                 ΛΓ1 (M, [g]) = 2Em
+                                                  Γ
+                                                    (M, [g]).
+
+Remark 5.10. — Karpukhin and Stern (2024c, Theorem 1.13) find a min-max charac-
+terization for the second conformal eigenvalue, but it is still not known if there is an
+analogous result for Λk (M, [g]) with k > 2.
+
+   We keep discussing the Γ-equivariant case, but the proofs are similar to the case
+without equivariance and the reader interested in the nonequivariant setting can ignore
+the group Γ for the rest of the section. Note that in (KKMS, Section 3), the authors
+adapt the proofs in (Karpukhin and Stern, 2024c) to the equivariant setting, simplifying
+some of the arguments. Figure 8 contains a schematic representation of the main
+elements in the proof presented in this section.
+
+        Perturbed energy                                     Min-max energy
+          (Lemma 5.11)             (Proposition 5.15)         (Theorem 5.17)
+
+   Γ                                      ε→0            Γ (M, [g])
+  Em,ε (M, g) = inf max
+                      m
+                        Eε (Fa )                        Em
+                       Γ a∈B
+                   F ∈Bm
+        =                                                   =
+    Eε (um,ε )                                            E(um )
+
+                                    smoothly
+  um,ε : M → Rm|Γ|                                      um : M → Sn ⊂ Rm|Γ|−1 harmonic
+
+
+            1 − |um,ε |2             smoothly                1
+  gm,ε :=                g                              gm := |dum |2 g
+               2ε2                                           2
+  λ1 (M, gm,ε ) ∼ ΛΓ1 (M, [g])              Γ (M, [g]) = 2E(u ) = λ (M, g ) = ΛΓ (M, [g])
+                                          2Em                m     1     m     1
+
+
+       Figure 8. Schematic representation of the proof of the min-max characteriza-
+       tion of the first conformal eigenvalue. This scheme holds for every m sufficiently
+       large, namely the energies Em  Γ (M, [g]) stabilize equal to ΛΓ (M, [g]) as m → ∞.
+                                                                     1
+
+
+   As a byproduct of the proof of Theorem 5.9, we get a proof of Theorem 5.1. In-
+deed, we aim to obtain a harmonic map um whose associated metric gm := 12 |dum |2 g
+maximizes λ1 in its conformal class (for every m sufficiently large) and such that
+ΛΓ1 (M, [g]) = λ1 (M, gm ) = 2E(um ) = 2Em
+                                         Γ
+                                           (M, [g]) (see Theorem 5.17). To do this, we
+                                          1244–31
+
+
+first study the perturbed problem, we get maps um,ε and metrics gm,ε , and then we
+prove smooth convergence as ε → 0.
+   The first step is to fix m ∈ N, and consider critical points um,ε ∈ WΓ1,2 (M, Rm|Γ| )
+for ε > 0. The existence of such critical points follows from standard arguments in
+the calculus of variations, given that Eε satisfies a Palais–Smale condition (see KKMS,
+Proposition 3.1(iii)):
+Lemma 5.11 (KKMS, Lemma 3.2 and Propositions 3.1 and 3.6)
+   For every m ∈ N and ε > 0, there exists a smooth Γ-equivariant critical point
+um,ε ∈ WΓ1,2 (M, Rm|Γ| ) for Eε that realizes the perturbed min-max energy Em,ε
+                                                                            Γ
+                                                                                (M, g), i.e.,
+                                                Γ
+                                  Eε (um,ε ) = Em,ε (M, g).
+Moreover, we have that:
+                                                                   2
+                                                                   |
+  (i) um,ε solves the Euler–Lagrange equation ∆g um,ε + 1−|uεm,ε 2   um,ε = 0 for Eε ;
+                                                        1−|um,ε |2
+ (ii) |um,ε | < 1, and in particular the metric gm,ε := 2ε2 g ∈ [g] is well defined;
+(iii) the Γ-equivariant Morse index indΓEε (um,ε ) of um,ε is at most m;
+(iv) there is a universal constant C > 0 such that, for every sufficiently large m,
+                                                         C
+                                   λ1 (M, gm,ε ) ≥ 2 −     .
+                                                         m
+Remark 5.12. — Note that our definition of gm,ε differs from that in (KKMS, Proposi-
+tion 3.6) by a factor of 12 . As a consequence, we have a different constant in the estimate
+in item (iv).
+Proof. — We give a brief outline of the proof. The existence of a smooth critical
+point um,ε satisfying the desired index bound follows from standard min-max methods
+(see e.g. Ambrosetti and Malchiodi, 2007, Chapter 8), since Eε satisfies the Palais–Smale
+condition, and from elliptic regularity (cf. KKMS, Proposition 3.1 and Lemma 3.2). The
+                                                                       Γ
+index bound holds because the maximum in the definition of Em,ε           (M, g) is over an m-
+dimensional parameter space. The bound |um,ε | < 1 is deduced using the inequality
+                                 |2
+∆g (1 − |um,ε |2 ) ≥ −2 1−|uεm,ε
+                             2      |um,ε |2 and the elliptic maximum principle.
+   We are left with (iv), which is the most delicate point, and is derived from the index
+bound indΓEε (um,ε ) ≤ m. The idea is to use the constant vector fields in Rm|Γ| and the
+first eigenfunction of ∆gm,ε to construct a number of negative directions for the second
+derivative of Eε at um,ε , whose existence violates the index bound indΓEε (um,ε ) ≤ m
+                               C
+unless λ1 (M, gm,ε ) ≥ 2 − m     . See (KKMS, Proposition 3.6) for the details.
+   A consequence of the previous lemma is that the metric gm,ε from the statement
+is close to being a maximizer of the first renormalized eigenvalue λ1 in the conformal
+class [g], when m is sufficiently large and ε is sufficiently small.
+Corollary 5.13. — Given a metric gm,ε as in Lemma 5.11, we have that
+                           C
+                            
+                      2−     E Γ (M, g) ≤ λ1 (M, gm,ε ) ≤ ΛΓ1 (M, [g]).
+                           m m,ε
+                                              1244–32
+
+
+                              Γ              Γ
+Remark 5.14. — Since limε→0 2Em,ε (M, g) = 2Em (M, [g]) ≥ ΛΓ1 (M, [g]), we get
+                          C
+                               
+(14)                  1−    ΛΓ1 (M, [g]) ≤ lim λ1 (M, gm,ε ) ≤ ΛΓ1 (M, [g]).
+                         2m                ε→0
+
+In this sense, we say that gm,ε is close to be a maximizer for λ1 in [g] if m is large and
+ε is small enough.
+
+Proof. — Observe that
+                                 
+   Γ                               1         2    (1 − |um,ε |2 )2
+  Em,ε (M, g) = Eε (um,ε ) =         |dum,ε | +                    dvg
+                                 M 2                    4ε2
+                                                          
+        (1 − |um,ε |2 )        2   (1 − |um,ε |2 )2              (1 − |um,ε |2 ) (1 + |um,ε |2 )
+  =                     |um,ε |  +                  dvg =                       ·                dvg
+      M     2ε2                         4ε2                  M       2ε2               2
+    
+        (1 − |um,ε |2 )
+  ≤                      dvg = area(M, gm,ε ),
+      M     2ε2
+where we integrated by parts and we used (i) and (ii) from Lemma 5.11. As a result,
+using (iv), we conclude the desired inequality
+                                                                    C
+                                                                      
+                                                                       Γ
+           λ1 (M, gm,ε ) = λ1 (M, gm,ε )area(M, gm,ε ) ≥ 2 −          Em,ε (M, gm,ε ).
+                                                                    m
+
+  The next step is to show that, fixed m ∈ N sufficiently large, the maps um,ε : M →
+ m|Γ|
+R     converge smoothly as ε → 0 to a harmonic map um : M → Sm|Γ|−1 ⊂ Rm|Γ| , whose
+                                      Γ
+Dirichlet energy realizes the energy Em (M, [g]).
+
+Proposition 5.15 (KKMS, Propositions 3.6 and 3.9). — For any m ∈ N and ε > 0,
+let um,ε be a map satisfying the properties in Lemma 5.11. Then, for every sufficiently
+large m ∈ N, up to extracting a subsequence the maps um,ε converge smoothly as ε → 0
+to a smooth Γ-equivariant harmonic map um : M → Sm|Γ|−1 such that
+                             Γ
+                   E(um ) = Em (M, [g]),       indΓE (um ) ≤ m,     |dum |2g ≤ C,
+where C > 0 is a constant independent of m. In particular, the associated metrics gm,ε
+from Lemma 5.11 converge smoothly as ε → 0 to the (well-defined, smooth with possibly
+finitely many conical singularities) metric gm := 12 |dum |2g g ∈ [g], as ε → 0.
+
+Remark 5.16. — As a consequence of (14), the metric gm in the statement satisfies
+                               C
+                                   
+(15)                       1−    ΛΓ1 (M, [g]) ≤ λ1 (M, gm ) ≤ ΛΓ1 (M, [g]).
+                              2m
+Idea of the proof. — We give a rough idea of the proof, which requires some careful
+analysis. Let um,ε ∈ WΓ1,2 (M, Rm|Γ| ) be the critical points of Eε from Lemma 5.11.
+The idea is to show that bubbling cannot appear in the limit of um,ε as ε → 0. This
+follows from the bound λ1 (gm,ε ) ≥ 2 − C/m from Lemma 5.11(iv) and the assumption
+                                               1244–33
+
+
+ΛΓ1 (M, [g]) > 8π (see KKMS, Lemma 3.8 and Proposition 3.9). The Euler–Lagrange
+equation for um,ε in Lemma 5.11(i) is also used. In particular, one shows that
+                                           1 − |um,ε |2
+(16)                                                    ≤ C,
+                                               ε2
+for some C = C(M, g), which together with the Euler–Lagrange equation implies smooth
+convergence to a harmonic map u : M → Sm|Γ|−1 (cf. KKMS, Proposition 3.9).
+                                          (1−|um,ε |2 )2
+  Note that the potential terms        M        ε2
+                                                          dvg converge to 0 as ε → 0 by (16). Thus
+                                                 Γ             Γ
+                  E(um ) = lim Eε (um,ε ) = lim Em,ε (M, g) = Em (M, [g]).
+                            ε→0                  ε→0
+
+  Finally, by the smooth convergence um,ε → um as ε → 0, using the Euler–Lagrange
+equation −∆g um = |dum |2g um for harmonic maps, we have
+
+              2                                                (1 − |um,ε |2 )|um,ε |2
+        |dum |g = ⟨−∆g um , um ⟩ = lim⟨−∆g um,ε , um,ε ⟩ = lim           2
+                                   ε→0                     ε→0               ε
+                      1 − |um,ε |2
+                = lim              .
+                  ε→0     ε2
+                               2
+                               |
+Recall that the terms 1−|uεm,ε
+                           2     are uniformly bounded by (16). Therefore, |dum |2g is also
+                                                                           |2
+uniformly bounded independently of m, and we obtain that gm,ε = 1−|u2εm,ε2    g converges
+                   1      2
+smoothly to gm = 2 |dum |g g as ε → 0.
+
+  The final step consists in proving that the metrics gm = 12 |dum |2 g are not only close to
+maximizing the first Γ-equivariant renormalized eigenvalue in [g] (cf. (15)), but actually
+maximize it for every sufficiently large m. In particular, the following results prove
+Theorems 5.1 and 5.9.
+
+Theorem 5.17 (KKMS, Lemma 3.10 and Theorem 3.11). — Let um : M → Sm|Γ|−1 ,
+m ∈ N, be any family of Γ-equivariant harmonic maps satisfying the properties of
+Proposition 5.15. Then, for every m sufficiently large, the metric gm := 12 |dum |2 g
+maximizes λ1 among Γ-equivariant metrics in [g]. In particular, we obtain
+                   ΛΓ1 (M, [g]) = λ1 (M, gm ) = 2E(um ) = 2Em
+                                                            Γ
+                                                              (M, [g]).
+Moreover, there exists a number n = n(M, [g]) such that um takes values in a totally
+geodesic sphere of dimension n, i.e., um (M ) ⊂ Sn ⊂ Sm|Γ|−1 .
+
+Sketch of the proof. — One first bounds the dimension of the image of um . Assuming
+it is not bounded, the space spanned by the coordinate functions of um has dimension
+going to infinity as m → ∞. However, the coordinate functions of um are eigenfunctions
+with eigenvalue 2 of ∆gm . As a result, we get limm→∞ λk (gm ) ≤ 2 for all k ∈ N. By the
+Bochner identity for sphere-valued harmonic maps (see Karpukhin and Stern, 2024a,
+Section 3), we have that |dum |2g is uniformly bounded in W 1,2 (M ) and thus, up to passing
+to a subsequence, we find ρ ∈ W 1,2 (M ) such that 12 |dum |2g → ρ in Lp for all p ∈ [1, ∞).
+                                               1244–34
+
+
+In particular, λk (M, ρg) = limm→∞ λk (gm ) ∈ [0, 2]. However, this contradicts(16) the
+fact that λk (M, ρg) → ∞ as k → ∞.
+  Next, one shows that λ1 (M, gm ) = 2. The proof is similar to Lemma 5.11(iv). Namely,
+one uses the constant vectors on Rm|Γ| as test functions for the second derivative of
+the energy E at um , and the index bound indΓE (um ) ≤ m. However, we can now
+use as test functions the constant vectors orthogonal to the image um (M ), which is
+contained in a sphere Sn of bounded dimension independent of m. This helps improve
+the estimate to λ1 (M, gm ) ≥ 2. The inequality λ1 (M, gm ) ≤ 2 follows from the fact that
+the coordinates of um are eigenfunctions with eigenvalue 2, therefore we get the desired
+equality λ1 (M, gm ) = 2. This concludes the proof, since
+                                                                           
+             ΛΓ1 (M, [g]) ≥ λ1 (M, gm ) = λ1 (M, gm )area(M, gm ) =                |dum |2g dvg
+                                                                               M
+                                        Γ
+                          = 2E(um ) = 2Em (M, [g]) ≥ ΛΓ1 (M, [g]).
+
+   Let us conclude this section with a corollary of the min-max characterization of
+ΛΓ1 (M, [g]), which will be useful in the next section.
+
+Corollary 5.18 (cf. Karpukhin, Nahon, Polterovich, and Stern, 2025, Proposition 3.1,
+Karpukhin, Petrides, and Stern, 2025, Proposition 2.2)
+   Under the assumptions of Theorem 5.1, there exists n = n(M, [g]) ∈ N such that,
+for every continuous linear functional T : W 1,2 (M,
+                                                  
+                                                      Rn+1 ) → R, there exists a map
+f ∈ W 1,2 (M, Sn ) such that T (f ) = 0 ∈ Rn+1 and M |df |2g dvg ≤ ΛΓ1 (M, [g]).
+                                                                                          Γ
+   We do not give the proof of this result, but the key idea is that, for every F ∈ Bm      ,
+we can choose a ∈ Bm+1 such that T (Fa ) = 0. Using the min-max characterization of
+ΛΓ1 (M, [g]), this leads to the
+                             
+                                desired result. Note that this is the same principle that we
+used above with T (f ) = M f dvg , generalized to any linear operator T .
+
+
+
+6. Existence of an eigenvalue maximizer
+
+   The following theorem asserts the existence of a metric maximizing the first renormal-
+ized Laplace eigenvalue among the symmetric metrics on any equivariant basic reflection
+surface (see Section 4.3). This section is devoted to its proof.
+
+Theorem 6.1 (KKMS, Theorem 8.7). — Let (M, τ ) be a closed Γ-equivariant basic
+reflection surface. There then exists a metric g0 ∈ MetΓ (M ) (smooth away from finitely
+many conical singularities) maximizing the first renormalized Laplace eigenvalue on M
+among Γ-equivariant metrics.
+
+(16)
+   Although ρg is not smooth, its spectrum is still well defined, is discrete, and converges to infinity,
+see e.g. (Kokarev, 2014, Proposition 1.3).
+                                           1244–35
+
+
+Remark 6.2. — A version of this theorem works for the first renormalized Steklov
+eigenvalue on surfaces with boundary, but does not cover all possible equivariant basic
+reflection surfaces with boundary (see KKMS, Theorem 9.15). As mentioned in Sec-
+tion 4.4, the case when Γ = Z2 × Z2 , which is sufficient to get all possible topologies
+and prove Theorem B together with Theorem 4.12, is covered by KKMS.
+
+6.1. Degenerations at the boundary of the moduli space of conformal classes
+   Let gn be a maximizing sequence of metrics in MetΓ (M ) for ΛΓ1 (M ), that is to
+say λ1 (M, gn ) goes to ΛΓ1 (M ) as n → ∞. Thanks to Theorem 5.17, without loss of
+generality, we can assume that gn maximizes the first renormalized Laplace eigenvalue
+in its conformal class, i.e., λ1 (M, gn ) = ΛΓ1 (M, [gn ]). If gn converges (in some good sense)
+to a metric g0 on M , then we conclude that g0 is the desired maximizing metric by
+arguing that λ1 (M, g0 ) = limn→∞ λ1 (M, gn ) = limn→∞ ΛΓ1 (M, [gn ]) = ΛΓ1 (M ).
+   However, a priori, the conformal classes [gn ] could converge to the boundary of the
+space of (equivariant) conformal classes on M , as we will see in the proof of Theorem 6.7.
+In this case, one can show that the sequence of Riemannian surfaces (M, gn ) converges
+to a Riemannian manifold (M ′ , g ′ ), which is a topological degeneration of M , as defined
+below.
+
+Definition 6.3 (cf. KKMS, Definition 6.1). — Let M, M ′ be two closed(17) Riemannian
+surfaces and let Γ be a finite group acting on M and M ′ by isometries. We say M ′ is a
+                                                     Γ
+topological Γ-degeneration of M , and write M ′ ≺      M , if M ′ is obtained from M via a
+Γ-equivariant surgery. That is, if M ′ is obtained from M by removing a Γ-equivariant
+set U consisting of a disjoint union of annuli that are not homotopically trivial and gluing
+a disk to each boundary component of M \ U (two disks for each annulus removed).
+
+
+
+
+                                            surgery
+                      M                                              M′
+
+
+
+
+       Figure 9. Representation of one of the surgeries described in Definition 6.3,
+       consisting of removing an annulus and gluing in two disks. Note that a Γ-
+       equivariant surgery consists of multiple surgeries in such a way that the proce-
+       dure is equivariant.
+
+
+(17)
+   The definition in KKMS requires the surfaces to be connected. We remove this assumption to
+simplify the exposition.
+                                             1244–36
+
+
+Remark 6.4. — Note that these degenerations are the same ones that occur when
+one tries to find a surface M ′ minimizing the area in the isotopy class of a given
+surface M , as described by Meeks, Simon, and Yau (1982). Moreover, these are the
+same pathologies that one encounters when applying a Simon–Smith min-max procedure
+to obtain minimal surfaces, cf. (De Lellis and Pellandini, 2010, Section 2.2).
+
+Remark 6.5. — For the entirety of this exposition, we discuss only the case of orientable
+surfaces. In KKMS, nonorientable surfaces are also considered. In that case, the
+definition of surgery allows not only for annuli to be removed but also Möbius strips.
+
+Remark 6.6. — It is possible to describe all Γ-equivariant surgeries of a Γ-equivariant
+basic reflection surface, see (KKMS, Propositions 6.4, 6.5, 6.6). In particular, if (M, τ )
+is a Γ-equivariant basic reflection surface and M ′ is a topological Γ-degeneration of M ,
+then (M ′ , τ ) is also a Γ-equivariant basic reflection surface.
+
+  The following theorem provides a condition which precludes the convergence of max-
+imizing sequence gn for ΛΓ1 (M ) (as introduced above) to the boundary of the moduli
+space of conformal classes on M . Namely, it is sufficient to check that the value of ΛΓ1
+on M is greater than its value on all topological Γ-degenerations.
+
+Theorem 6.7 (Petrides, 2014, Theorem 2, KKMS, Theorems 7.6 and 7.7)
+  Let (M, τ ) be a Γ-equivariant basic reflection surface. If
+(17)                  ΛΓ1 (M ) > max{ΛΓ1 (M ′ ) : M ′ ≺
+                                                      Γ
+                                                        M, M ′ ̸= M },
+then there exists a Γ-equivariant metric g0 on M realizing ΛΓ1 (M ). This metric is smooth
+up to finitely many conical singularities.
+
+Ideas of the proof. — First observe that, if the statement holds and M is not a topologi-
+cal sphere, then ΛΓ1 (M ) > 8π. Indeed, by the characterization of all possible topological
+Γ-degenerations in (KKMS, Proposition 6.4, 6.5 and 6.6) (see also the discussion at the
+beginning of the proof of KKMS, Theorem 8.7), then starting from M and performing
+a succession of Γ-equivariant surgeries, it is possible to obtain a topological sphere,
+for which we know that ΛΓ1 (S2 ) = 8π (see Example 4.9). In particular, we get that
+ΛΓ1 (M ) > ΛΓ1 (S2 ) = 8π and we can apply Theorem 5.1.
+   Let gn be a sequence of metrics such that ΛΓ1 (M, [gn ]) → ΛΓ1 (M ). By Theorem 5.1,
+we can assume λ1 (M, gn ) = ΛΓ1 (M, [gn ]). The idea is that, up to a subsequence, (M, gn )
+converges (in a suitable sense) to a topological Γ-degeneration (M ′ , g ′ ) of M , such that
+       ΛΓ1 (M ′ ) ≥ λ1 (M ′ , g ′ ) ≥ lim sup λ1 (M, gn ) = lim sup ΛΓ1 (M, [gn ]) = ΛΓ1 (M ).
+                                    n→∞                     n→∞
+
+By the assumption (17), this implies that the degeneration M ′ has to be trivial equal
+to M and g0 = g ′ is the desired maximizing metric.
+  The proof of what we just stated is based on two steps:
+                                         1244–37
+
+
+   – First, one needs to appeal to a compactness result to show that, up to a subsequence,
+     (M, gn ) converges to a topological Γ-degeneration (M ′ , g ′ ). The convergence is
+     roughly defined as local smooth convergence away from the surgery regions, up to
+     composing with diffeomorphisms of M . We refer to (KKMS, Theorem 7.4) for a
+     precise statement.
+   – The second step is to prove λ1 (M ′ , g ′ ) ≥ lim supn→∞ λ1 (M, gn ), the upper semi-
+     continuity along the sequence. This, a priori, is not always true and follows from
+     a careful analysis of gn as n → ∞, which was first performed in (Petrides, 2014,
+     Section 4). We refer to (KKMS, Theorem 7.6) for the proof, but remark here
+     that the inequality ΛΓ1 (M ) > 8π is used to prevent the formation of bubbles and
+     concentration of energy in the surgery regions via Hersch-type arguments.
+
+
+
+6.2. New technical ingredients in KKMS
+   Thanks to the previous theorem, the proof of Theorem 6.1 reduces to showing the strict
+inequality (17). In order to do this, Karpukhin, Kusner, McGrath, and Stern (KKMS)
+introduced a new method. Indeed, proving this strict inequality turns out to be very
+delicate. In the nonequivariant case, there had been many failed attempts before KKMS.
+Those attempts tried to prove the inequality directly, by taking a metric g ′ on M ′ and
+explicitly constructing a metric g on M , where M ′ is obtained by M through surgeries
+along some necks, such that λ1 (M, g) > λ1 (M ′ , g ′ ). Unfortunately, this approach turned
+out not to be fruitful. We now explain the new techniques introduced in KKMS. We
+present a sketch of the proof, with simplifications by Karpukhin, Petrides, and Stern
+(2025) and personal communication with the authors.
+Sketch of the proof of Theorem 6.1. — Assume by contradiction that there exists a Γ-
+equivariant basic reflection surface (M, τ ) and a topological Γ-degeneration M ′ of M
+such that ΛΓ1 (M ) ≤ ΛΓ1 (M ′ ). To simplify the discussion, let us only discuss the case
+when M ′ is obtained from M via surgery on a single neck. In other words, the surface M ′
+is obtained from M by removing an annulus (which is not homotopically trivial) and
+                           Γ
+gluing in two disks. Since ≺   is a well-defined partial ordering, arguing by induction, we
+can assume that M admits a maximizing metric g ′ , i.e., λ1 (M ′ , g ′ ) = ΛΓ1 (M ′ ).
+                    ′
+
+   Since M is obtained by M ′ via surgery on one neck, M can be recovered from M ′
+by removing two disks around two points p, q ∈ M ′ and gluing in an annulus. More
+precisely, we can consider two disks Dε (p), Dε (q) in M and consider the metric gε on M
+(for ε > 0 sufficiently small) obtained by removing from M ′ the two disks Dε (p), Dε (q)
+and gluing in the flat cylinder Cε = S1ε × [0, 2ε] to ∂Dε (p) and ∂Dε (q) (see Figure 10).
+Note that gε is not necessarily smooth, however, it is smooth up to a conformal factor
+and this is sufficient for our purposes.
+  Thanks to Corollary 5.18, there exists a Γ-equivariant map fε ∈ W 1,2 (M, Sn ), for
+some n independent of ε (a priori n depends on [gε ], but the dependence on ε can be
+                                                                      1244–38
+
+
+
+
+                                              (M ′ , g ′ )                            Dε (p)
+                                                                                                              Cε
+                           τ
+
+                                                                                      Dε (q)
+
+
+
+
+                                                                          (M, gε )
+
+               Figure 10. The surface (M, gε ) is obtained from (M ′ , g ′ ) by gluing in a flat
+               cylinder. In the equivariant case, this operation has to be done equivariantly
+               and may involve gluing multiple necks. For simplicity, we discuss only the case
+               in which one neck is added.
+
+removed, cf. Karpukhin, Petrides, and Stern, 2025), such that
+                               
+(18)                                   |dfε |2 dvgε ≤ ΛΓ1 (M, [gε ]) ≤ ΛΓ1 (M ′ ) = λ1 (M ′ , g ′ )
+                                   M
+
+and
+                                                             
+(19)                                                                  fˆε dvg′ = 0,
+                                                                 M′
+
+where fˆε : M ′ → Rn+1 is obtained by fε : M → Sn by harmonic extension on Dε (p), Dε (q).
+More precisely, the map fˆε is defined as
+                               
+                                 f
+                                ε
+                               
+                               
+                                                                                      on M ′ \ Dε (p) ∪ Dε (q)
+                       fˆε := harmonic extension of fε |∂Dε (p)                       on Dε (p)
+                               
+                               harmonic extension of f |
+                               
+                                                                                       on Dε (q).
+                                                                         ε ∂Dε (q)
+                                                                                                
+Note that we applied Corollary 5.18 on (M, gε ) with T (f ) =                                       M′
+                                                                                                         fˆ dvg′ .
+                                                 (18)
+       1 : In the regime when ε → 0, we have
+   Step
+    –    |dfˆε |2 dvg′ = λ1 (M ′ , g ′ ) + o(1);
+               M′
+           
+       –            |1 − |fˆε |2 | dvg′ = o(1);
+               M′
+
+
+       –                 fˆε dvg′ −                fˆε dvg′ = o(1).
+               ∂Dε (p)                   ∂Dε (q)
+
+
+
+(18)
+                               
+  Here, the symbol denotes the average integral, that is the integral divided by the measure of the
+domain of integration.
+                                                                  1244–39
+
+
+Let us now sketch the proof of these estimates. First note that we decided to impose (19)
+in order to have a test function for λ1 (M ′ , g ′ ). Indeed, we get
+                                                                                   
+                                             |dfˆε |2 dvg′ ≥ λ1 (M ′ , g ′ )                 |fˆε |2 dvg′ .
+                                        M′                                              M′
+
+Moreover, since |fε | ≡ 1 and fˆε is either equal to fε or to its harmonic extension inside
+Dε (p) ∪ Dε (q), we have |fˆε | ≤ 1 and hence
+                                                       
+                           |1 − |fˆε |2 | dvg′ =                         |1 − |fˆε |2 | dvg′ = O(ε2 ) = o(1).
+                      M′                                 Dε (p)∪Dε (q)
+
+Combining this with the previous equation gives
+                                         
+                                                  |dfˆε |2 dvg′ ≥ λ1 (M ′ , g ′ ) + o(1).
+                                             M′
+
+    Now observe that
+                                            
+(20)                     |dfˆε |2 dvg′ =             |dfε |2 dvgε + ∥dfˆε ∥2L2 (Dε (p)∪Dε (q)) − ∥dfε ∥2L2 (Cε ) .
+                    M′                           M
+
+The choice of fˆε as the harmonic extension of fε in the removed disks has been done in
+order to being able to estimate it well in terms of fε . Thanks to (KKMS, Lemma 8.11,
+applied with L = 2 > 32 ln(2)), we indeed get
+
+(21)                           ∥dfˆε ∥2L2 (Dε (p)∪Dε (q)) − ∥dfε ∥2L2 (Cε ) ≤ C∥dfε ∥2L2 (Cε ) ,
+
+for some universal constant C > 0. Moreover, using the assumption ΛΓ1 (M ) ≤ ΛΓ1 (M ′ ),
+it is possible to estimate the Dirichlet energy of fε on the neck Cε as follows.
+
+Lemma 6.8. — There exists C > 0 such that
+                                                            ∥dfε ∥2L2 (Cε ) ≤ Cε2 .
+
+Proof of the lemma. — Using |fˆε | ≤ 1 together with (19), we have that
+
+                                                 Aε :=                                fˆε dvg′
+                                                               M ′ \(Dε (p)∪Dε (q))
+
+is of order ε2 . Therefore, using fˆε − Aε as test function in the variational characteriza-
+                                                   ′                     ′
+tion (7) of the first Neumann eigenvalue λN   1 (M \ (Dε (p) ∪ Dε (q)), g ), we get
+                                            
+                               2
+                         |dfε | dvgε =                                  |dfˆε |2 dvg′
+    M \(Dε (p)∪Dε (q))                           M ′ \(Dε (p)∪Dε (q))
+                                                                              
+                           ≥ λN   ′                      ′
+                              1 (M \ (Dε (p) ∪ Dε (q)), g )                                               |fˆε − Aε |2 dvg′
+                                                                                  M ′ \(Dε (p)∪Dε (q))
+                                  ′                      ′         ′                      ′
+                           ≥ λN                                                                  2
+                              1 (M \ (Dε (p) ∪ Dε (q)), g ) (area(M \ (Dε (p) ∪ Dε (q)), g ) − Cε )
+
+                           ≥ (λ1 (M ′ , g ′ ) − Cε2 )(area(M ′ , g ′ ) − Cε2 ) ≥ λ1 (M ′ , g ′ ) − Cε2 ,
+                                                                    1244–40
+
+
+                                   ′                             ′           ′ ′
+where we used that λN                                                                  2
+                              1 (M \ (Dε (p) ∪ Dε (q)), g ) ≥ λ1 (M , g ) − Cε by (Matthiesen
+and Siffert, 2019, Theorem 5.1). Combining this inequality with (18) and the fact that
+∥dfε ∥2L2 (Cε ) = ∥dfε ∥2L2 (M ) − ∥dfε ∥2L2 (M \(Dε (p)∪Dε (q))) , we get the desired result.
+
+
+Remark 6.9. — The estimate in Lemma 6.8 is stronger than the one used in (KKMS, see
+Lemma 8.13 therein), and simplifies some of the arguments. It was used in (Karpukhin,
+Petrides, and Stern, 2025, see (4.9) in their paper), but the proof presented there is differ-
+ent, uses a different definition of fˆε , and is not always possible in the equivariant setting.
+However, as explained by Karpukhin, Petrides, and Stern in personal communication,
+the proof sketched above does work in the equivariant setting.
+   Using this better estimate in place of the one in (KKMS, Lemma 8.13), it is possible
+to fix the length of the neck L = 2, instead of having to take it going to ∞ as ε → 0
+(see KKMS, p. 113).
+
+  Therefore, Lemma 6.8 together with (20) and (21) gives
+                                                      
+                                    |dfˆε |2 dvg′ ≤            |dfε |2 dvgε + Cε2 ≤ λ1 (M ′ , g ′ ) + o(1).
+                               M′                          M
+
+Combining this with the reverse inequality (18) obtained earlier, we thus get
+                                             
+                                                      |dfˆε |2 dvg′ = λ1 (M ′ , g ′ ) + o(1).
+                                                 M′
+
+  Finally, the last point in the statement of Step 1 follows by
+
+                           fˆε dvg′ −                  fˆε dvg′ =                 fε dvg′ −             fε dvg′
+                 ∂Dε (p)                    ∂Dε (q)                     ∂Dε (p)               ∂Dε (q)
+                                              1
+                                            ≤ ∥dfε ∥L2 (Cε ) area(Cε )1/2 ≤ Cε2 = o(1).
+                                              ε
+   Step 2 : Define a map vε : M ′ → Rn+1 to be the projection of fˆε onto the space of
+λ1 (M ′, g ′ )-eigenfunctions. Then vε also has the properties of Step 1, namely
+    –            |dvε |2 dvg′ = λ1 (M ′ , g ′ ) + o(1);
+            M′
+        
+    –            |1 − |vε |2 | dvg′ = o(1);
+            M′
+
+
+    –                 vε dvg′ −                   vε dvg′ = o(1).
+            ∂Dε (p)                     ∂Dε (q)
+
+
+This step is useful to have nice convergence properties of the maps vε as ε → 0 and
+obtain in the limit a map by first eigenfunctions, as described in Step 3 below. The idea
+to prove this is to write fˆε = vε + Rε and prove that ∥Rε ∥2W 1,2 (M ′ ) ≤ Cε. Observe that
+this estimate is better than the one in (KKMS, (8.16)) thanks to our use of Lemma 6.8
+in place of (KKMS, Lemma 8.13).
+                                         1244–41
+
+
+  Step 3 : Since the maps vε are uniformly bounded in W 1,2 (M ′ , g ′ ) and their compo-
+nents are first eigenfunctions, we can extract a subsequence converging smoothly to a
+map v : M ′ → Sn by first eigenfunctions. Moreover, we have that
+                                                                                !
+                v(p) − v(q) = lim               vε dvg′ −             vε dvg′       = 0.
+                               ε→0
+                                      ∂Dε (p)               ∂Dε (q)
+
+Now recall that (M ′ , g ′ ) maximizes λ1 among Γ-equivariant metrics. Therefore, by
+Theorem 4.8, the multiplicity of λ1 (M ′ , g ′ ) is 4 and there exists a minimal embedding
+u : (M ′ , g ′ ) → S3 . As a result, if genus(M ′ ) ̸= 1, applying Proposition 4.10 we get a
+contradiction to the fact that v(p) = v(q) for p ̸= q, proving ΛΓ1 (M ′ ) < ΛΓ1 (M ). The
+inequality when M ′ has genus one is showed separately in (KKMS, p. 103), using that
+the only genus one minimal surface in S3 is the Clifford torus. This concludes the
+proof.
+
+Proof of Theorem A. — Thanks to Theorems 6.1 and 4.8, for every Γ-equivariant basic
+reflection surface (M, τ ) there exists a minimal embedding u : M → S3 by first Laplace
+eigenfunctions, with area less than 8π, and which is a doubling of an equatorial sphere.
+Applying this for different actions of the group Γ = Z2 × Z2 on a surfaces M with
+genus γ gives ⌊ γ−1
+                  4
+                    ⌋ + 1 such embeddings which are nonisometric (see Section 4.2). For
+the proof of this final statement see (KKMS, Proposition 8.8).
+
+
+6.3. Maximizing metric without symmetries
+  The ideas introduced by KKMS to prove the strict inequality (17) in the equivariant
+setting have also turned out to be very useful for proving the existence of maximizing
+metrics on closed surface in the case without symmetries, as stated in Theorem C.
+However, since Proposition 4.10 is no longer available in the nonequivariant setting, a
+more careful analysis is necessary. In particular, note that:
+   – Petrides (2024, Theorem 0.1) proves the result for orientable surfaces. The paper
+uses some ideas from KKMS but is based on an approach via Ekeland’s variational
+principle from (Petrides, 2025). The idea is to find a maximizing sequence of metrics and
+associated maps by first eigenfunctions that are almost harmonic and almost conformal.
+Then, the existence of a maximizer follows by performing a careful analysis of the limit
+of the sequence of metrics and maps. The method is very robust: it works for higher
+eigenvalues (under suitable assumptions), and its application to the equivariant setting
+might cover more general group actions than KKMS, e.g. the ones missing in the Steklov
+case as described in Remark 6.2.
+   – Karpukhin, Petrides, and Stern (2025, Theorem 1.2) cover both the orientable
+and nonorientable cases with a proof along the lines of KKMS. The proof works only
+for the first eigenvalue, but it is shorter and simpler, once one knows the min-max
+characterization of conformal eigenvalues discussed in Section 5. In order to bypass
+Proposition 4.10, it is necessary to attach the cylinder Cε to M ′ more carefully (with a
+                                         1244–42
+
+
+twist), in order to define a metric gε on M . Moreover, one needs to define the map fˆε
+more carefully.
+Remark 6.10. — For the kth eigenvalue with k ≥ 2, it is not true in general that there
+is a metric maximizing it which is smooth away from finitely many conical singularities.
+See (Karpukhin, Nadirashvili, Penskoi, and Polterovich, 2021), which also contains a
+nice survey of results about higher eigenvalues.
+Remark 6.11. — The existence of a maximizing metric for the first renormalized Steklov
+eigenvalue is still open in general. However, KKMS proves the result for some topologies
+(see e.g. Corollary 1.11 therein), and it is expected that the methods described in this
+section will soon lead to a proof the general result.
+
+
+Acknowledgments. I would like to thank M. Karpukhin, R. Petrides and D. Stern
+for the interesting conversations and their detailed answers to my questions, S. Lynch
+for valuable comments that greatly helped improve the exposition, and N. Bourbaki for
+the precious detailed feedback on an earlier version of the text. I also thank G. Besson,
+L. Hauswirth, R. Kusner, I. Mondello, P. Laurain, R. Souam and all my colleagues at
+LAMA and IMJ-PRG for their help and support during the preparation of this exposé.
+
+
+Abbreviations
+
+KKMS Mikhail Karpukhin, Robert Kusner, Peter McGrath, and Daniel Stern (2024).
+     “Embedded minimal surfaces in S3 and B3 via equivariant eigenvalue optimiza-
+     tion”, preprint. arXiv: 2402.13121 [math.DG].
+
+
+References
+
+Frederick J. Almgren Jr. (1966). “Some interior regularity theorems for minimal surfaces
+  and an extension of Bernstein’s theorem”, Ann. of Math. (2) 84, pp. 277–292.
+Antonio Ambrosetti and Andrea Malchiodi (2007). Nonlinear analysis and semilinear
+  elliptic problems. Vol. 104. Cambridge Studies in Advanced Mathematics. Cambridge
+  University Press, Cambridge, pp. xii+316.
+Simon Brendle (2013a). “Embedded minimal tori in S 3 and the Lawson conjecture”,
+  Acta Math. 211 (2), pp. 177–190.
+         (2013b). “Minimal surfaces in S 3 : a survey of recent results”, Bull. Math. Sci. 3
+  (1), pp. 133–171.
+Gilles Carron (2016). “De nouvelles utilisations du principe du maximum en géométrie
+  [d’après B. Andrews, S. Brendle, J. Clutterbuck]”, in: Séminaire Bourbaki, Volume
+  2014/2015, Astérisque, no. 380 (2016), Exposé No. 1094, 171–206.
+                                       1244–43
+
+
+Isaac Chavel (1984). Eigenvalues in Riemannian geometry. Vol. 115. Pure and Applied
+   Mathematics. Including a chapter by Burton Randol, With an appendix by Jozef
+   Dodziuk. Academic Press, Inc., Orlando, FL, pp. xiv+362.
+Yun Mei Chen (1989). “The weak solutions to the evolution problems of harmonic
+   maps”, Math. Z. 201 (1), pp. 69–74.
+Yun Mei Chen and Michael Struwe (1989). “Existence and partial regularity results for
+   the heat flow for harmonic maps”, Math. Z. 201 (1), pp. 83–103.
+Jaigyoung Choe and Marc Soret (2009). “First eigenvalue of symmetric minimal surfaces
+   in S3 ”, Indiana Univ. Math. J. 58 (1), pp. 269–281.
+Hyeong In Choi and Richard Schoen (1985). “The space of minimal embeddings of a
+   surface into a three-dimensional manifold of positive Ricci curvature”, Invent. Math.
+   81 (3), pp. 387–394.
+Adrian Chun-Pong Chu and Daniel Stern (2025). “Minimal surface doublings and
+   electrostatics for Schrödinger operators”, preprint. arXiv: 2509.18630 [math.DG].
+Bruno Colbois, Alexandre Girouard, Carolyn Gordon, and David Sher (2024). “Some
+   recent developments on the Steklov eigenvalue problem”, Rev. Mat. Complut. 37 (1),
+   pp. 1–161.
+Tobias Holck Colding and William P. Minicozzi II (2011). A course in minimal sur-
+   faces. Vol. 121. Graduate Studies in Mathematics. American Mathematical Society,
+   Providence, RI, pp. xii+313.
+Camillo De Lellis and Filippo Pellandini (2010). “Genus bounds for minimal surfaces
+   arising from min-max constructions”, J. Reine Angew. Math. 644, pp. 47–99.
+Ahmad El Soufi, Hector Giacomini, and Mustapha Jazar (2006). “A unique extremal
+   metric for the least eigenvalue of the Laplacian on the Klein bottle”, Duke Math. J.
+  135 (1), pp. 181–202.
+Ahmad El Soufi and Saïd Ilias (2000). “Riemannian manifolds admitting isometric
+   immersions by their first eigenfunctions”, Pacific J. Math. 195 (1), pp. 91–99.
+Georg Faber (1923). “Beweis, daß unter allen homogenen Membranen von gleicher Fläche
+   und gleicher Spannung die kreisförmige den tiefsten Grundton gibt”, Sitzungsber.-
+  Bayer. Akad. Wiss., Math.-Phys. Munich., pp. 169–172.
+Isabel Fernández, Laurent Hauswirth, and Pablo Mira (2023). “Free boundary minimal
+   annuli immersed in the unit ball”, Arch. Ration. Mech. Anal. 247 (6), Paper No. 108,
+  44.
+Abigail Folha, Frank Pacard, and Tatiana Zolotareva (2017). “Free boundary minimal
+   surfaces in the unit 3-ball”, Manuscripta Math. 154 (3-4), pp. 359–409.
+Giada Franz and Mario B. Schulz (2023). “Topological control for min-max free boundary
+   minimal surfaces”, preprint. arXiv: 2307.00941 [math.DG].
+Ailana Fraser and Martin Man-chun Li (2014). “Compactness of the space of embed-
+   ded minimal surfaces with free boundary in three-manifolds with nonnegative Ricci
+   curvature and convex boundary”, J. Differential Geom. 96 (2), pp. 183–200.
+                                        1244–44
+
+
+Ailana Fraser and Richard Schoen (2011). “The first Steklov eigenvalue, conformal
+  geometry, and minimal surfaces”, Adv. Math. 226 (5), pp. 4011–4030.
+         (2013). “Minimal surfaces and eigenvalue problems”, Geometric analysis, math-
+  ematical relativity, and nonlinear partial differential equations, Contemp. Math. 599,
+  pp. 105–121.
+         (2016). “Sharp eigenvalue bounds and minimal surfaces in the ball”, Invent.
+  Math. 203 (3), pp. 823–890.
+David Gilbarg and Neil S. Trudinger (2001). Elliptic partial differential equations of
+  second order. Classics in Mathematics. Reprint of the 1998 edition. Springer-Verlag,
+  Berlin, pp. xiv+517.
+Alexandre Girouard and Jean Lagacé (2021). “Large Steklov eigenvalues via homogeni-
+  sation on manifolds”, Invent. Math. 226 (3), pp. 1011–1056.
+Alexandre Girouard and Iosif Polterovich (2017). “Spectral geometry of the Steklov
+  problem (survey article)”, J. Spectr. Theory 7 (2), pp. 321–359.
+Robert D. Gulliver II, Robert Osserman, and Halsey L. Royden (1973). “A theory of
+  branched immersions of surfaces”, Amer. J. Math. 95, pp. 750–812.
+Joseph Hersch (1970). “Quatre propriétés isopérimétriques de membranes sphériques
+  homogènes”, C. R. Acad. Sci. Paris Sér. A-B 270, A1645–A1648.
+Nikolaos Kapouleas (2017). “Minimal surfaces in the round three-sphere by doubling
+  the equatorial two-sphere, I”, J. Differential Geom. 106 (3), pp. 393–449.
+Nikolaos Kapouleas and Martin Man-chun Li (2021). “Free boundary minimal surfaces
+  in the unit three-ball via desingularization of the critical catenoid and the equatorial
+  disc”, J. Reine Angew. Math. 776, pp. 201–254.
+Nikolaos Kapouleas and Peter McGrath (2019). “Minimal surfaces in the round three-
+  sphere by doubling the equatorial two-sphere, II”, Comm. Pure Appl. Math. 72 (10),
+  pp. 2121–2195.
+         (2022). “Free boundary minimal annuli ommersed in the unit 3-ball”, preprint.
+  arXiv: 2212.09680 [math.DG].
+         (2023). “Generalizing the linearized doubling approach, I: General theory and
+  new minimal surfaces and self-shrinkers”, Camb. J. Math. 11 (2), pp. 299–439.
+         (2024). “New minimal surface doublings of the Clifford torus and contributions
+  to questions of Yau”, preprint. arXiv: 2411.00613 [math.DG].
+Nikolaos Kapouleas and David Wiygul (2020). “The index and nullity of the Lawson
+  surfaces ξg,1 ”, Camb. J. Math. 8 (2), pp. 363–405.
+         (2022). “The Lawson surfaces are determined by their symmetries and topology”,
+  J. Reine Angew. Math. 786, pp. 155–173.
+Nikolaos Kapouleas and Seong-Deog Yang (2010). “Minimal surfaces in the three-sphere
+  by doubling the Clifford torus”, Amer. J. Math. 132 (2), pp. 257–295.
+Hermann Karcher, Ulrich Pinkall, and Ivan Sterling (1988). “New minimal surfaces in
+  S 3 ”, J. Differential Geom. 28 (2), pp. 169–185.
+                                        1244–45
+
+
+Mikhail Karpukhin, Robert Kusner, Peter McGrath, and Daniel Stern (2024). “Embed-
+  ded minimal surfaces in S3 and B3 via equivariant eigenvalue optimization”, preprint.
+  arXiv: 2402.13121 [math.DG].
+Mikhail Karpukhin, Peter McGrath, and Daniel Stern (2025). “Large topology asymp-
+  totics for spectrally extremal minimal surfaces in B3 and S3 ”, preprint. arXiv: 2502.
+  10225 [math.DG].
+Mikhail Karpukhin and Antoine Métras (2022). “Laplace and Steklov extremal metrics
+  via n-harmonic maps”, J. Geom. Anal. 32 (5), Paper No. 154, 36.
+Mikhail Karpukhin, Nikolai Nadirashvili, Alexei V. Penskoi, and Iosif Polterovich (2021).
+  “An isoperimetric inequality for Laplace eigenvalues on the sphere”, J. Differential
+  Geom. 118 (2), pp. 313–333.
+Mikhail Karpukhin, Mickaël Nahon, Iosif Polterovich, and Daniel Stern (2025). “Stability
+  of isoperimetric inequalities for Laplace eigenvalues on surfaces”, J. Differential Geom.
+  129 (2), pp. 415–490.
+Mikhail Karpukhin, Romain Petrides, and Daniel Stern (2025). “Existence of metrics
+  maximizing the first Laplace eigenvalue on closed surfaces”, preprint. arXiv: 2505.
+  05293 [math.DG].
+Mikhail Karpukhin and Daniel Stern (2024a). “Existence of harmonic maps and eigen-
+  value optimization in higher dimensions”, Invent. Math. 236 (2), pp. 713–778.
+        (2024b). “From Steklov to Laplace: free boundary minimal surfaces with many
+  boundary components”, Duke Math. J. 173 (8), pp. 1557–1629.
+        (2024c). “Min-max harmonic maps and a new characterization of conformal
+  eigenvalues”, J. Eur. Math. Soc. (JEMS) 26 (11), pp. 4071–4129.
+Daniel Ketover (2016). “Equivariant min-max theory”, preprint. arXiv: 1612.08692
+  [math.DG].
+        (2022). “Flipping Heegaard splittings and minimal surfaces”, preprint. arXiv:
+  2211.03745 [math.DG].
+Gerasim Kokarev (2014). “Variational aspects of Laplace eigenvalues on Riemannian
+  surfaces”, Adv. Math. 258, pp. 191–239.
+Nicholas Korevaar (1993). “Upper bounds for eigenvalues of conformal metrics”, J.
+  Differential Geom. 37 (1), pp. 73–93.
+Edgar Krahn (1925). “Über eine von Rayleigh formulierte Minimaleigenschaft des
+  Kreises”, Math. Ann. 94 (1), pp. 97–100.
+Robert Kusner (1989). “Comparison surfaces for the Willmore problem”, Pacific J.
+  Math. 138 (2), pp. 317–345.
+Robert Kusner and Peter McGrath (2024). “On Steklov eigenspaces for free boundary
+  minimal surfaces in the unit ball”, Amer. J. Math. 146 (5), pp. 1275–1293.
+H. Blaine Lawson Jr. (1969). “Local rigidity theorems for minimal hypersurfaces”, Ann.
+  of Math. (2) 89, pp. 187–197.
+        (1970). “The unknottedness of minimal embeddings”, Inventiones Math. 11,
+  pp. 183–87.
+                                       1244–46
+
+
+Martin Man-chun Li (2020). “Free boundary minimal surfaces in the unit ball: recent
+  advances and open questions”. In: Proceedings of the International Consortium of
+  Chinese Mathematicians 2017. Int. Press, Boston, MA, pp. 401–435.
+Peter Li and Shing Tung Yau (1982). “A new conformal invariant and its applications to
+  the Willmore conjecture and the first eigenvalue of compact surfaces”, Invent. Math.
+  69 (2), pp. 269–291.
+Fernando C. Marques and André Neves (2014). “Min-max theory and the Willmore
+  conjecture”, Ann. of Math. (2) 179 (2), pp. 683–782.
+Henrik Matthiesen and Anna Siffert (2019). “Handle attachment and the normalized
+  first eigenvalue”, preprint. arXiv: 1909.03105 [math.DG].
+William Meeks III, Leon Simon, and Shing Tung Yau (1982). “Embedded minimal
+  surfaces, exotic spheres, and manifolds with positive Ricci curvature”, Ann. of Math.
+  (2) 116 (3), pp. 621–659.
+Sebastián Montiel and Antonio Ros (1986). “Minimal immersions of surfaces by the first
+  eigenfunctions and conformal area”, Invent. Math. 83 (1), pp. 153–166.
+Nikolai Nadirashvili (1996). “Berger’s isoperimetric problem and minimal immersions
+  of surfaces”, Geom. Funct. Anal. 6 (5), pp. 877–897.
+Shin Nayatani and Toshihiro Shoda (2019). “Metrics on a closed surface of genus two
+  which maximize the first eigenvalue of the Laplacian”, C. R. Math. Acad. Sci. Paris
+  357 (1), pp. 84–98.
+Johannes C. C. Nitsche (1985). “Stationary partitioning of convex bodies”, Arch. Ra-
+  tional Mech. Anal. 89 (1), pp. 1–19.
+Richard S. Palais (1979). “The principle of symmetric criticality”, Comm. Math. Phys.
+  69 (1), pp. 19–30.
+Romain Petrides (2014). “Existence and regularity of maximal metrics for the first
+  Laplace eigenvalue on surfaces”, Geom. Funct. Anal. 24 (4), pp. 1336–1376.
+        (2023a). “Laplace eigenvalues and non-planar minimal spheres into 3-dimensional
+  ellipsoids”, preprint. arXiv: 2304.12119 [math.DG].
+         (2023b). “Non planar free boundary minimal disks into ellipsoids”, preprint.
+  arXiv: 2304.12111 [math.DG].
+         (2024). “Geometric spectral optimization on surfaces”, preprint. arXiv: 2410.
+  13347 [math.DG].
+         (2025). “A variational method for functionals depending on eigenvalues”, J.
+  Lond. Math. Soc. (2) 112 (4), Paper No. e70315.
+         (2026). “Problèmes variationnels en géométrie spectrale et applications”. Mé-
+  moire d’habilitation à diriger des recherches, to appear.
+Tristan Rivière (2015). “Méthodes de min-max et la conjecture de Willmore (d’après
+  F. C. Marques et A. Neves)”, in: Séminaire Bourbaki, Volume 2010/2011, Astérisque,
+  no. 367-368 (2012), Exp. No. 1080, viii, 179–217.
+Jonathan Sacks and Karen Uhlenbeck (1981). “The existence of minimal immersions of
+  2-spheres”, Ann. of Math. (2) 113 (1), pp. 1–24.
+                                        1244–47
+
+
+Mario B. Schulz (2025). Geometric analysis gallery. URL: mbschulz.github.io. Last
+  visited on 2025/10/24.
+Michael Struwe (2008). Variational methods, Applications to nonlinear partial differential
+  equations and Hamiltonian systems. Fourth edition. Vol. 34. Ergeb. Math. Grenzgeb.
+  (3), 34. Springer-Verlag, Berlin, pp. xx+302.
+Gábor Szegö (1954). “Inequalities for certain eigenvalues of a membrane of given area”,
+  J. Rational Mech. Anal. 3, pp. 343–356.
+Tsunero Takahashi (1966). “Minimal immersions of Riemannian manifolds”, J. Math.
+  Soc. Japan 18, pp. 380–385.
+Denis Vinokurov (2025). “Maximizing higher eigenvalues in dimensions three and above”,
+  preprint. arXiv: 2506.09328 [math.DG].
+Robert Weinstock (1954). “Inequalities for a classical eigenvalue problem”, J. Rational
+  Mech. Anal. 3, pp. 745–753.
+Brian White (2016). “Introduction to minimal surface theory”, IAS/Park City Math.
+  Ser. 22, pp. 387–438.
+Paul C. Yang and Shing Tung Yau (1980). “Eigenvalues of the Laplacian of compact
+  Riemann surfaces and minimal submanifolds”, Ann. Scuola Norm. Sup. Pisa Cl. Sci.
+  (4) 7 (1), pp. 55–63.
+
+
+
+                                           Giada Franz
+                                           CNRS and LAMA, Université Gustave Eiffel
+                                           5 boulevard Descartes
+                                           77420 Champs-sur-Marne, France
+                                           E-mail : giada.franz@cnrs.fr
+

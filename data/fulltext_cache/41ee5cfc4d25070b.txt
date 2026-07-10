@@ -1,0 +1,2014 @@
+                                           POSITIVE DEFINITE KERNELS, ALGORITHMS, FRAMES, AND
+                                                             APPROXIMATIONS
+
+
+                                                       PALLE E.T. JORGENSEN, MYUNG-SIN SONG, AND JAMES TIAN
+
+
+
+
+arXiv:2104.11807v1 [math.FA] 23 Apr 2021
+                                                    Abstract. The main purpose of our paper is a new approach to design of al-
+                                                    gorithms of Kaczmarz type in the framework of operators in Hilbert space. Our
+                                                    applications include a diverse list of optimization problems, new Karhunen-
+                                                    Loève transforms, and Principal Component Analysis (PCA) for digital im-
+                                                    ages. A key feature of our algorithms is our use of recursive systems of pro-
+                                                    jection operators. Specifically, we apply our recursive projection algorithms
+                                                    for new computations of PCA probabilities and of variance data. For this we
+                                                    also make use of specific reproducing kernel Hilbert spaces, factorization for
+                                                    kernels, and finite-dimensional approximations. Our projection algorithms are
+                                                    designed with view to maximum likelihood solutions, minimization of “cost”
+                                                    problems, identification of principal components, and data-dimension reduc-
+                                                    tion.
+
+
+
+
+                                                                                     Contents
+                                              1. Introduction                                                                               2
+                                              2. Positive definite kernels and measures                                                     3
+                                              3. Operators from p.d. kernels, and some of their applications                                7
+                                              4. Restrictions of Positive Definite Kernels                                                  8
+                                              5. Finite point-configurations governed by p.d. kernels                                      11
+                                              6. Principal Component Analysis                                                              12
+                                              6.1. Principal Component Analysis and Maximal Variance                                       15
+                                              6.2. The Algorithm for a Digital Image Application                                           18
+                                              6.3. Principal Component Analysis in a Digital Image                                         20
+                                              6.4. A Matrix Example                                                                        22
+                                              6.5. Digital Image Compression Using Principal Component Analysis                            24
+                                              7. Frames, projections, and Kaczmarz algorithms                                              24
+                                              7.1. The case of rank-1 projections in H                                                     28
+                                              8. Paley Wiener spaces                                                                       30
+                                              9. Gaussian Processes and Gaussian Hilbert Spaces                                            31
+                                              References                                                                                   34
+
+
+                                              2000 Mathematics Subject Classification. Primary: 47B32. Secondary: 41A15, 41A65, 42A82,
+                                           42C15, 46E22, 47A05, 47N10, 60G15, 62H25, 68T07, 90C20, 94A08, 94A12, 94A20.
+                                              Key words and phrases. Positive-definite kernels, Fourier analysis, probability, stochastic pro-
+                                           cesses, reproducing kernel Hilbert space, complex function-theory, interpolation, signal/image
+                                           processing, sampling, frames, moments, machine learning, embedding problems, geometry, in-
+                                           formation theory, optimization, algorithms, Kaczmarz, Karhunen–Loève, factorizations, splines,
+                                           Principal Component Analysis, dimension reduction, digital image analysis, covariance matrix,
+                                           Gaussian process.
+                                                                                           1
+2            PALLE E.T. JORGENSEN, MYUNG-SIN SONG, AND JAMES TIAN
+
+
+                                  1. Introduction
+   While positive-definite (p.d.) kernels date back to the 1950ties, recently they
+have found striking and new applications in applied mathematics. Indeed, there
+are by now multiple and diverse applications, most of quite recent vintage. In
+outline, a p.d. kernel is a generalization of the notion of positive-definite func-
+tion, or p.d. matrix. Initially, p.d. kernels were introduced with view to the use
+for the solution of integral operator equations arising in PDE theory (especially
+boundary value problems), potential theory, and in optimization problems. Since
+their inception, positive-definite kernels and their associated Hilbert spaces, re-
+producing kernel Hilbert spaces (RKHSs) have come up in entirely new areas of
+mathematics. A RKHS is a Hilbert space H of functions on a set, say X, with
+the property that for f in H , f (x) is continuous in the norm of H . RKHSs
+arise naturally in Fourier analysis, probability theory, stochastic processes, opera-
+tor theory, complex function-theory, interpolation, signal/image processing, sam-
+pling, moment problems, machine learning, embedding problem from geometry
+and analysis, and information theory, among other areas. Readers are referred to
+[AJL18, Che18, DS17, EP01, HJW18b, JS18, NSW16, SV09, Zha19].
+   In details, every p.d. kernel K on a set X has an associated RKHS HK . The
+reproducing axiom is as follows: For all x ∈ X, the function K (·, x) on X is in
+HK , and
+                              F (x) = hK (·, x) , F iHK                         (1.1)
+holds for all x ∈ X and all F ∈ HK . Eq (1.1) is referred to as the reproducing
+property.
+                        K                                                     n
+   A kernel X × X −−→ C is called positive definite (p.d.) if ∀n ∈ N, ∀ {αi }1 ,
+       n
+∀ {xi }1 , αi ∈ C, xi ∈ X, we have
+                              XX
+                                   αi αj K (xi , xj ) ≥ 0.                 (1.2)
+                              i   j
+
+Given K p.d., a realization of the RKHS HK is to take the completion of the linear
+span of {K (·, x)}x∈X with respect to the norm
+                    X                 2    XX
+                        αi K (·, xi )   :=      αi αj K (xi , xj ) .         (1.3)
+                                      HK
+                                            i   j
+
+   Organization. The paper is organized as follows: in sections 2 and 3, we
+present systems (K, µ) in duality, where K is a fixed p.d. kernel, and choices of µ
+runs through an associated family of measures. This duality will play an important
+role, for example in a unified approach to (i) a class of optimization problems, and
+to (ii) realization of p.d. kernels as integral operators. In particular, we show how
+properties of µ reflect themselves in spectral theory for the corresponding integral
+operator. Section 4 offers a framework for sampling. The starting point is a p.d.
+kernel defined on X × X for a given set X. The questions we address are: What
+countably discrete subsets V of X provide sets of sample points for suitable classes
+of functions on X, and algorithms of Kaczmarz type, sect. 7. The answer to this,
+and related, questions depends on configuration of systems of finite subsets of X,
+addressed in section 5; with examples in sections 6and 8. In section 9, we then
+present a new harmonic analysis of general Gaussian processes, with the use of our
+RKHS-analysis, and projection based algorithms, from inside the paper.
+    POSITIVE DEFINITE KERNELS, ALGORITHMS, FRAMES, AND APPROXIMATIONS                 3
+
+
+    Our projection approach to algorithms is motivated in part by principal com-
+ponent analysis (PCA), and its applications in dimension reduction and manifold
+learning, which in turn, extends earlier work on Monte Carlo, and Karhunen–
+Loève analysis, also known as the Kosambi–Karhunen–Loève approach. See, e.g.,
+[Son08, JS07, LHN18, GK19, JKST19].
+    Background material. Our paper is interdisciplinary, and we have aimed for
+multiple target audiences. Inside our paper, we have therefore added explanations
+for the benefit of readers from neighboring areas. Specifically, background material
+is included for such notions as Karhunen-Loève transforms, Principal Component
+Analysis (PCA), Monte-Carlo simulations, and Paley-Wiener spaces. Monte-Carlo
+refers to the use randomness in order to solve problems that might be deterministic
+in principle. In rough outline, Karhunen-Loève transforms, and PCAs, are algo-
+rithmic tools, used data analysis. Our present emphasis is that of digital image
+algorithms. Such algorithms serve to produce the best possible bases for image
+expansions. This area is combined with Monte-Carlo simulations, i.e., random sim-
+ulations that make use of computer-generated sequences of independent, centered
+real stochastic process (typically, Gaussian N (0, 1)); as well as related Paley-Wiener
+spaces. A key use of the Karhunen–Loève theorem is algorithmic designs of canoni-
+cal and orthogonal representations of images and signals. Paley-Wiener spaces offer
+a useful framework for such reconstruction algorithms.
+
+                 2. Positive definite kernels and measures
+   The notion of positive definite (p.d.) functions, usually called kernels, adapts
+well to many diverse optimization problems, arising for example in machine leaning,
+where training data are chosen to best accommodate features which serve as input
+in the “learning.” The notion of feature spaces and feature maps are defined from
+specific Hilbert spaces (which we will call the feature space); details below. For
+most application a suitable infinite-dimensional framework is essential. So in the
+general case, if a p.d. kernel function K is given on a X × X, where X is a set, then
+there is a rich variety of factorizations. More precisely, this means that there are
+many choices of feature maps from X into some Hilbert space (a choice of feature
+space) which yield back K in a factorization. Among the feature spaces, the RKHS
+HK associated with K is universal (minimal) in the sense that HK is isometrically
+“included” in any of the feature spaces which arise in factorizations for K. For many
+optimization problems it will be helpful to adapt factorizations in such a way that
+the feature Hilbert space is an L2 space, and this will be the present focus.
+   Motivated by related applications to the study of stochastic processes, it is of
+special significance to focus on the cases when the family of feature spaces may be
+chosen in the form L2 (µ). This raises the question of which measures µ are right
+for a particular kernel K and its associated RKHS. The answer to this depends on
+the particular application at hand.
+   We begin with the correspondence between reproducing kernel Hilbert spaces
+(RKHSs) and integral operators and their spectral resolutions.
+   To make precise the notion of Borel measures, we must first introduce a suitable
+sigma-algebra of Borel subsets of X. The idea is as follows: Starting with a p.d.
+kernel K on X × X, we note below that there is then an induced metric dK on X
+which makes K jointly continuous as a function on X × X. But of course, dK also
+introduces a (metric) topology on X, and therefore the associated sigma-algebra
+4            PALLE E.T. JORGENSEN, MYUNG-SIN SONG, AND JAMES TIAN
+
+
+BK generated by the dK neighborhoods; see details below. For some purposes, it
+may be convenient to pass to the metric completion of (X, dK ).
+              K
+   Let X × X −−→ R be a positive definite (p.d.) kernel on a set X. Let HK be the
+associated RKHS with norm k·kHK . Let M (X) be the set of all Borel measures
+on X.
+                                    K
+Lemma 2.1. Given X × X −−→ R as above, the set X can be equipped with a
+metric               p
+         dK (x, y) := K (x, x) + K (y, y) − 2K (x, y), ∀x, y ∈ X. (2.1)
+Proof. One checks that dK (x, y) = kKx − Ky kHK , where Ks = K (·, s) for all
+s ∈ X.                                                                     
+Lemma 2.2. The kernel K is continuous on X × X with respect to the product
+topology induced by dK × dK .
+Proof. Indeed, for all a, b, c, d ∈ X, it holds that
+     |K (a, b) − K (c, d)| = hKa , Kb iHK − hKc , Kd iHK
+                            ≤ hKa , Kb − Kd iHK + hKa − Kc , Kd iHK
+                            ≤ kKa kHK kKb − Kd kHK + kKd kHK kKa − Kc kHK ,
+so the assertion follows.                                                                     
+Definition 2.3. Let µ ∈ M (X), i.e., a Borel measure on (X, F ). The measure µ
+is said to be in Reg (K) if
+                       Kx := K (·, x) ∈ L2 (X, F , µ) , ∀x ∈ X.                            (2.2)
+   If (2.2) is assumed to hold for some σ-finite measure µ on (X, F ) and F = BK ,
+the Borel σ-algebra defined from the open sets with respect to the metric dK , then
+we get a well defined linear operator Tµ : HK → L2 (µ), by
+                          X                     X
+                       Tµ        cj K (·, xj ) :=   cj K (·, xj )              (2.3)
+                                j                      j
+where cj ∈ R, xj ∈ X with a finite sum. However, the operator Tµ may be
+unbounded. It is always closable (Lemma 2.5). We now turn to the adjoint operator
+Tµ∗ : L2 (µ) → HK .
+Lemma 2.4. Fix K, and µ ∈ Reg (K) (see Definition 2.3). Let Tµ be as in (2.3),
+then                   Z
+             ∗
+                          K (y, x) ϕ (y) dµ (y) , ∀ϕ ∈ dom Tµ∗ .
+                                                             
+            Tµ ϕ (x) =                                                   (2.4)
+                               X
+
+Proof. For all x ∈ X, and all ϕ ∈ dom Tµ∗ ,
+                                         
+                                                           Z
+        Tµ∗ ϕ, K (·, x) H = ϕ, Tµ (K (·, x)) L2 (µ) =            ϕ (y) K (y, x) µ (dy) .
+                         K     |    {z     }                X
+                                        =K(·,x)
+
+                                                                                              
+Lemma 2.5. Let Tµ∗ be as above. Then ϕ ∈ dom Tµ ⊂ L2 (µ) if and only if
+                                                           ∗
+                                                             
+                Z Z
+                       ϕ (y) ϕ (z) K (y, z) µ (dy) µ (dz) < ∞.         (2.5)
+                  X X
+  Moreover, dom Tµ∗ is dense in L2 (µ), and so T is closable.
+                   
+    POSITIVE DEFINITE KERNELS, ALGORITHMS, FRAMES, AND APPROXIMATIONS                               5
+
+
+Proof. Let ϕ ∈ L2 (µ). If (2.5) holds, then X K (y, ·) ϕ (y) µ (dy) belongs to HK ,
+                                                R
+
+and so Tµ∗ ϕ is well-defined, i.e., ϕ ∈ dom Tµ∗ . Conversely, if ϕ ∈ dom Tµ∗ , then
+                       Z                            Z                       
+                2
+          Tµ∗ ϕ H =          K (y, ·) ϕ (y) µ (dy) ,   K (z, ·) ϕ (z) µ (dz)
+                  K
+                              X                                X                           HK
+                          Z Z
+                      =               ϕ (y) ϕ (z) K (y, z) µ (dy) µ (dz) < ∞
+                          X       X
+which is (2.5).                                                                                    
+Corollary 2.6. Let µ ∈ Reg (K) as above. For all x, z ∈ X, then
+                                       Z
+                 Tµ∗ Tµ K (·, x) (z) =
+                                
+                                         K (z, y) K (y, x) µ (dy)                               (2.6)
+                                                     X
+                                               = hK (·, z) , K (·, x)iL2 (µ) .
+Moreover,                                     Z
+                              Tµ Tµ∗ ϕ =          ϕ (y) K (y, ·) µ (dy)                         (2.7)
+
+with ϕ ∈ dom Tµ∗ , the domain of the operator Tµ∗ ; i.e., ϕ ∈ dom Tµ∗ if the RHS
+                                                                    
+
+of (2.7) is in HK .
+Corollary 2.7. Let K, HK , and µ be as in Definition 2.3, and let Tµ be the
+associated operator, see Lemma 2.4. Then for ϕ ∈ dom(Tµ∗ ) ⊂ L2 (µ), and α ∈ R+ ,
+consider the following optimization problem:
+                                   n                          o
+                                              2            2
+                 HK 3 f = argmin kϕ − Tµ f kL2 (µ) + α kf kHK .             (2.8)
+The solution is                                          −1
+                                  f = αI + Tµ∗ Tµ               Tµ∗ ϕ .
+                                                                     
+                                                               | {z }
+                                                                ∈HK
+
+Proof. This is a direct computation; see also [JT19b, JKST19, JT17].
+  Sketch. Define W : HK → HK × L2 (µ), W f = (f, Tµ f ), where
+                                      2                    2              2
+                      k(f, g)kHK ×L2 (µ) := α kf kHK + kgkL2 (µ) .
+Then, W ∗ (f, g) = αf + Tµ∗ g, and by the standard least square approximation,
+                                        n                        o
+                                                       2
+                 RHS(2.8) = argmin kW f − (0, ϕ)kHK ×L2 (µ)
+                                                  −1
+                                  =       (W ∗ W )   W ∗ ((0, ϕ))
+                                                       −1 ∗
+                                  =        αI + Tµ∗ Tµ    Tµ ϕ.
+                                                                                                   
+Remark. Recall that the functions
+              (x1 , x2 , · · · , xn ) 7−→ (K (·, x1 ) , K (·, x2 ) , · · · , K (·, xn ))        (2.9)
+are often called feature functions, and HK is interpreted as a feature space.
+   Kernel-optimization. One of the more recent applications of RKHSs is the
+kernel-optimization. It refers to training-data and feature spaces in the context of
+machine learning. In numerical analysis, a popular version of the method is used
+to produce splines from sample points; and to create best spline-fits. In statistics,
+6            PALLE E.T. JORGENSEN, MYUNG-SIN SONG, AND JAMES TIAN
+
+
+there are analogous optimization problems going by the names “least-square fitting,”
+and “maximum-likelihood” estimation.
+   What these methods have in common is a minimization (or a max problem)
+involving a “quadratic” expression Q (see (2.8)) with two terms: (i) a L2 -square ap-
+plied to a difference, and (ii) a penalty term which is a RKHS norm-squared. In the
+application to determination of splines, the penalty term may be a suitable Sobolev
+normed-square; i.e., L2 norm-squared applied to a chosen number of derivatives.
+Hence non-differentiable choices will be “penalized.”
+Definition 2.8. Let H be a Hilbert space with inner product denoted h·, ·i, or
+h·, ·iH when there is more than one possibility to consider. Let J be a countable
+index set, and let {wj }j∈J be an indexed family of non-zero vectors in H . We say
+that {wj }j∈J is a frame for H iff (Def.) there are two finite positive constants A
+and B such that
+                             2
+                                  X             2         2
+                        A kukH ≤      hwj , uiH ≤ B kukH                      (2.10)
+                                  j∈J
+holds for all u ∈ H . We say that it is a Parseval frame if A = B = 1.
+   For references to the theory and application of frames, see e.g., [HJL+ 13, KLZ09,
+CM13].
+Lemma 2.9. If {wj }j∈J is a Parseval frame in H , then the (analysis) operator
+T : H −→ l2 (J),                           
+                            T u = hwj , uiH j∈J                         (2.11)
+is well-defined and isometric. Its adjoint T ∗ : l2 (J) −→ H is given by
+                                              X
+                             T ∗ (γj )j∈J :=         γj wj                    (2.12)
+                                                j∈J
+
+and the following hold:
+   (1) The sum on the RHS in (2.12) is norm-convergent;
+   (2) T ∗ : l2 (J) −→ H is co-isometric; and for all u ∈ H , we have
+                                        X
+                           u = T ∗T u =     hwj , ui wj                       (2.13)
+                                          j∈J
+
+        where the RHS in (2.13) is norm-convergent.
+Proof. The details are standard in the theory of frames; see the cited papers above.
+Note that (2.10) for A = B = 1 simply states that V in (2.11) is isometric, and
+so T ∗ T = IH = the identity operator in H , and T T ∗ = the projection onto the
+range of V .                                                                      
+Remark 2.10. We may always get an orthonormal basis (ONB) or a Parseval frame
+{fi }i∈J in HK , where the index J is usually N0 = {0, 1, 2, 3, · · · }.
+Lemma 2.11. Given a Parseval frame {fi }i∈N0 in HK , then
+                            X
+                 K (x, y) =     fi (x) fi (y) , x, y ∈ X.                     (2.14)
+                                  i∈N0
+
+If µ ∈ Reg (K), then
+                                                  
+                       ϕ ∈ L2 (µ) ⇐⇒ hϕ, fi iL2 (µ) ∈ l2 (N0 )                (2.15)
+                                                      i
+    POSITIVE DEFINITE KERNELS, ALGORITHMS, FRAMES, AND APPROXIMATIONS                  7
+
+
+Proof. Given {fi }i∈N0 in HK , one checks that
+                                 X                       X
+             K (·, y) = Ky (·) =     hfi , Ky i fi (·) =   fi (y) fi (·)
+                                   i∈N0                  i∈N0
+
+which is (2.14).                                                                      
+Question 2.12. Find the spectrum of Tµ as µ varies in Reg (K). Actually it is
+the selfadjoint operator Tµ Tµ∗ : L2 (µ) → L2 (µ), whose spectrum we want.
+   It is important to keep in mind that we get a family of operators Tµ indexed by
+µ ∈ Reg (K). They are densely defined operators in the Hilbert space HK , but the
+spectra may vary with µ.
+                                K
+   Fix a p.d. kernel X × X −−→ R on a set X. Assign the Borel σ-algebra BK and
+measure µ, and get (X, BK ) as above. What is the interconnection between the
+following three conditions?
+     (1) K (·, x) ∈ L2 (µ), for all x ∈ X;
+     (2) {fi } ⊂ L2 (µ), for all ONB {fi } in HK ;
+     (3) How is the system {fi } related to the spectral properties of Tµ Tµ∗ : L2 (µ) →
+          L2 (µ)?
+A related question: Consider a p.d. kernel K on X × X. Suppose X is discrete and
+countable, equipped with the counting measure γ on X, i.e.,
+                              γ (B) = # (B) , ∀B ⊂ X.                            (2.16)
+When is
+                                   γ ∈ Reg (K)?                                  (2.17)
+We shall give a precise solution to (2.17) in the following section.
+
+    3. Operators from p.d. kernels, and some of their applications
+  Here, we consider a special case in the setting of Section 2, where a p.d. kernel
+admits a factorization in some L2 (µ)-space with µ ∈ Reg (K).
+               K
+  Let X × X −−→ R be a p.d. kernel on a set X. Let HK be the associated RKHS.
+Assume:
+   (1) µ ∈ Reg (K);
+   (2) {Kx }x∈X is dense in L2 (µ);
+   (3) for all F ∈ HK ,
+                               kF kHK ≥ kF kL2 (µ) .
+Lemma 3.1. Let (Hj , k·kj ), j = 1, 2, be a pair of Hilbert spaces. Suppose the
+inclusion map J : H1 ,→ H2 has dense image, and kxk1 ≥ kxk2 , for all x ∈ H1 .
+Then there exists a unique positive (selfadjoint) operator A ≥ 1, such that H1 =
+dom A1/2 and
+                                      D              E
+                            hx, yi1 = A1/2 x, A1/2 y
+                                                        2
+for all x, y ∈ H1 .
+Proof. It can be verified that
+                                                −1
+                                   A := (JJ ∗ )                                (3.1)
+is the unique positive operator having the desired properties. For more details, see
+e.g., [Nel69, DS88, AG93, RS75] and [JT15].                                       
+8            PALLE E.T. JORGENSEN, MYUNG-SIN SONG, AND JAMES TIAN
+
+
+Corollary 3.2. Let H1 = HK and H2 = L2 (µ). In view of Lemma 3.1, then
+Φ : X → L2 (µ), defined as
+                                Φ (x) = A1/2 Kx ,           x ∈ X,
+is a feature map for the p.d. kernel K, and L2 (µ) is the corresponding feature
+space.
+Corollary 3.3. Let A be as in (3.1). Suppose A−1 is compact with spectral decom-
+position
+                                    X∞
+                             A−1 =     λi |ui ih ui | ,
+                                              i=1
+where 1 ≥ λi ≥ λi+1 > 0, λi → 0 as i → ∞, and {ui } is an ONB in L2 (µ).
+  Then, for all x, y ∈ X, it holds that
+                                   ∞
+                                   X
+                      K (x, y) =            λ−1
+                                             i hKx , ui iL2 hui , Ky iL2 .
+                                      i=1
+
+Proof. One checks that
+                   K (x, y) = hKx , Ky iHK
+                            = hΦ (x) , Φ (y)iL2
+                              D                 E
+                            = A1/2 Kx , A1/2 Ky
+                                                            L2
+                              ∞ D
+                              X              E D            E
+                            =    A1/2 Kx , ui 2 ui , A1/2 Ky 2
+                                                        L                       L
+                                i=1
+                                X∞ D                   E     D                  E
+                            =           Kx , A1/2 ui             A1/2 ui , Ky
+                                                        L2                      L2
+                                i=1
+                                X∞
+                            =          λ−1
+                                        i hKx , ui iL2 hui , Ky iL2 .
+                                i=1
+
+                                                                                        
+
+               4. Restrictions of Positive Definite Kernels
+   Let K : X × X → C be a positive definite kernel defined on X × X (where X is a
+fixed set); i.e., it is assumed that for all finite subset F ⊂ X, and scalars (c (x))x∈F
+in C|F | we have              XX
+                                      c (x)c (y) K (x, y) ≥ 0.                      (4.1)
+                                F ×F
+As before the RKHS will be denoted HK .
+  If V ⊂ X is a countably infinite subset, then
+                                   KV := K (·, ·) V ×V                               (4.2)
+may be considered as an ∞ × ∞ matrix with V serving as row × column index.
+   Consider the standard l2 -space l2 (V ) with dense subspace l02 (V ) consisting of
+finitely supported sequences, i.e.,
+                     c ∈ l02 (V ) ⇐⇒ ∃F finite s.t. c ≡ 0 in V \F .                  (4.3)
+                                  def
+    POSITIVE DEFINITE KERNELS, ALGORITHMS, FRAMES, AND APPROXIMATIONS                9
+
+
+   We now turn to the discretized version of the condition we introduced in Defini-
+tion 2.3 in the general context of sigma-finite measures. Since we are now making
+selection of countably discrete subsets V of X, we will have a condition for each
+choice of V . See details below:
+Remark 4.1. When K, X, and V ⊂ X are specified as in (4.2), we shall impose the
+following l2 (V ) condition, which restricts the possible choice of countable discrete
+subsets V ⊂ X:
+   We shall assume that for all y ∈ V ,
+                             X             2
+                                 |K (x, y)| ≤ Cy(V ) < ∞,                        (4.4)
+                            x∈V
+                   (V )
+with the constant Cy depending on y, and choice of V .
+Example 4.2. If X = R, and K = the Shannon since kernel, i.e.,
+                            sin π (x − y)
+                 K (x, y) =               , ∀ (x, y) ∈ R × R
+                              π (x − y)
+then one checks that condition (4.4) is satisfied when V = (xn )n∈N ⊂ R\ {0}
+satisfying
+                                        −2
+                               X
+                                   |xn | < ∞.                          (4.5)
+                                  n∈N
+The verification is a direct computation; it is illustrated by the graph below (Figure
+4.1).
+
+
+
+
+        Figure 4.1. Illustration of condition (4.4) for the Shannon sinc
+        kernel. Assume c > 1, then the inequality in (4.4) is satisfied when
+                                                              2
+        |xn | is large. In the shaded region, x2n ≤ c (xn − y) .
+
+  We now return to the general case. Note that the action on l2 (V ) given by
+                                     X
+                        (KV c) (x) =    KV (x, y) c (y)                      (4.6)
+                                        y∈F
+
+is well defined. Note the finite set F from (4.3) depends on c.
+   Hence, when V is given, assumed countably infinite, it is of interest to consider
+the case when KV , as in (4.6), defines a bounded operator in l2 (V ); and when this
+operator is invertible.
+10            PALLE E.T. JORGENSEN, MYUNG-SIN SONG, AND JAMES TIAN
+
+
+Proposition 4.3. Let K, X, and V be as above, then the operator KV (see (4.6))
+is bounded (relative to l2 (V )) with bounded inverse if and only if there are constants
+A, B (depending on K, V ) such that
+                                   0 < A ≤ B < ∞,
+and one of the following two conditions hold:
+                                                 2
+             2                                            2
+                                                   ≤ B kckl2 (V ) , for all c ∈ l2 (V );
+                     P      P
+   (1) A kckl2 (V ) ≤ x∈V     y∈V K (x, y) c (y)
+             2                  2          2
+   (2) A kf kHK ≤ x∈V |f (x)| ≤ B kf kH (K) , for all f ∈ HK .
+                     P
+
+Proof. From general facts about operators in Hilbert space, we have the equivalence
+                                                                T
+of the following conditions on a densely defined operator H1 −−→ H2 acting from
+one Hilbert space H1 into another. First T is said to be bounded iff
+                        kT kH1 →H2 =          sup        kT uk2 < ∞.                (4.7)
+                                         u∈H1 ,kuk1 ≤1
+
+Note that
+                                                                  2
+                    kT ∗ T kH1 →H1 = kT T ∗ kH2 →H2 = kT kH1 →H2 .                  (4.8)
+     Let K, X, V ⊂ X be as specified in the proposition, and consider
+                                span {K (·, x) : x ∈ V }                            (4.9)
+as a dense subspace in H (KV ) := RKHS(K|V ×V ). Then we have a naturally
+defined operator H (KV ) → l2 (V ) with (4.9) as its dense domain: Set TV :
+H (KV ) → l2 (V ),
+                   T = TV : H (KV ) 3 f 7−→ (f (x))x∈V ∈ l2 (V ) .                 (4.10)
+    Considering the respective inner products in the two Hilbert spaces H (KV ) and
+l2 (V ), it follows that the adjoint operator TV∗ : l2 (V ) → H (KV ), to (4.10) is well
+defined with dense domain l02 (V ), and
+                                    X
+                    (TV∗ (c)) (x) =    KV (x, y) c (y) , ∀c ∈ l02 (V ) .
+                                  y∈V
+
+     Now the conclusion of the proposition follows once we verify that the operator
+                               TV TV∗ : l2 (V ) −→ l2 (V )                         (4.11)
+(possibly unbounded) is given by the ∞ × ∞ matrix KV := K V ×V . Indeed, for
+c ∈ l02 (V ) we have the following computation of TV TV∗ in (4.11):
+                              TV∗   X
+               l02 (V ) 3 c −−−− −→   c (y) K (·, y) (as a function on V ); (4.12)
+                                   y∈V
+
+and so                                        X
+                           (TV TV∗ c) (x) =         K (x, y) c (y) ,               (4.13)
+                                              y∈V
+
+which is the desired conclusion. Note that we used that, for fixed y, we have
+                        TV (K (·, y)) = (K (x, y))x∈V ∈ l2 (V ) .                  (4.14)
+                            | {z }
+                             ∈HK
+
+See assumption (4.4) above.                                                            
+    POSITIVE DEFINITE KERNELS, ALGORITHMS, FRAMES, AND APPROXIMATIONS                     11
+
+
+Corollary 4.4. Let K, X, and V be as specified. Denote by KV the operator in
+l2 (V ) which have K (·, ·) V ×V as its ∞×∞ matrix realization, see Proposition 4.3.
+    Then there are constants A, B, 0 < A ≤ B < ∞ (depending on V ) such that
+                            2
+                                       X        2        2
+                     A kf kH (KV ) ≤     |f (x)| ≤ B kf kH (KV )
+                                         x∈V
+                                                               −1
+for all f ∈ H (KV ), if and only if both KV and (KV )               define bounded operators
+in l2 (V ).
+
+         5. Finite point-configurations governed by p.d. kernels
+                     K
+   Given X × X −−→ R a fixed positive definite (p.d.) kernel, we consider the
+case such that for every finite subset F ⊂ X, the restriction KF := K (·, ·) F ×F is
+invertible. Denote by KF−1 the inverse matrix.
+Lemma 5.1. Let PF := the HK -orthogonal projection onto
+                            HK (F ) := span {K (·, x)}x∈F                              (5.1)
+then                                     X
+                                               KF−1 f F x K (·, x) .
+                                                       
+                         (PF f ) (·) =                                                 (5.2)
+                                         x∈F
+                                        T
+Note f F := f (x1 ) f (x2 ) · · · f (xn ) as a column vector, if F = {x1 , x2 , · · · , xn },
+and so KF−1 f F refers to matrix multiplication
+                
+
+                                   X
+                        KF−1 f F =          KF−1 xy f (y) .
+                                                
+                                                                               (5.3)
+                                               y∈F
+
+Proof.   Step 1. PF∗ = PF . Indeed,
+                                         PF∗    =    PF
+                                                m
+                         KF−1 f F , g H         =    f, KF−1 g F H
+                                        K                            K
+
+                                                m
+             XX                                      XX
+                     KF−1 xy f (y) g (x)               f (x) KF−1 xy g (y)
+                                                                
+                                                =
+              F ×F                                    F ×F
+                                                m
+                                  KF−1 xy            KF−1 yx
+                                                        
+                                                =                                      (5.4)
+but (5.4) follows from the fact that K is p.d. and so in particular K (x, y) = K (y, x),
+i.e., symmetric.
+Remark. If K is complex valued, the same conclusion holds but with K (x, y) =
+K (y, x), ∀x, y ∈ X.
+   Step 2. PF2 = PF . Now this follows from the definition (5.2) of the finite rank
+operator PF : HF → HF . So we iterate the formula (5.2) which defines the action
+of PF :
+                  PF
+                        X
+                             KF−1 f F x K (·, x)
+                                        
+             f −−− →
+                            x∈F
+12              PALLE E.T. JORGENSEN, MYUNG-SIN SONG, AND JAMES TIAN
+
+                      P
+                                XX
+                                     KF−1 f F x KF−1 y K (y, x) K (·, y)
+                      F
+                                                   
+                    −−−
+                      →
+                                F ×F           |         {z            }
+                                                                         δxy
+                                XX
+                                  KF−1 f F x δxy K (·, y)
+                                          
+                      =
+                                 F ×F
+                                X
+                                     KF−1 f F x K (·, x)
+                                             
+                      =
+                                 F
+                      =         (PF f ) (·)
+                    by (5.2)
+
+so PF2 = PF , and we proved that PF is the desired finite rank projection in HK
+onto the subspace HK (F ).
+Remark. We work with the case that for every F ⊂ X (discrete points)
+                       KF = K (·, ·) F ×F is an invertible matrix.                                 (5.5)
+But
+          (5.5) ⇐⇒ {K (·, x1 ) , · · · , K (·, xn )} is linearly independent,                      (5.6)
+where F = (xi ), xi 6= xj if i 6= j. To see this, fix c = (c1 , · · · , cn ), then
+                                X
+                                    ci K (·, xi ) = 0 in HK
+                                      i
+                                                      m
+                                      X                       2
+                                              ci K (·, xi )        =0
+                                                              HK
+                                             m
+                                     XX
+                                       ci cj K (xi , xj ) = 0
+                                      F ×F
+                                                      m
+                                          T
+                                      c KF c = 0 ⇐⇒ c = 0
+and so (5.6) holds, i.e., linear independence.
+                                                                                                      
+Corollary 5.2. If F0 = {x0 } is a singleton, then
+                                                   f (x0 )
+                               (PF0 f ) (·) =                  K (·, x0 ) ,
+                                                  K (x0 , x0 )
+and
+                                                  K (x0 , x1 ) K (x1 , x2 ) · · · K (xn , ·)
+          Pn · · · P2 P1 P0 : f 7−→ f (x0 )                                                    .
+           ↓       ↓ ↓ ↓                          K (x0 , x0 ) K (x1 , x1 ) · · · K (xn , xn )
+           xn     x2 x1 x0
+
+
+
+                          6. Principal Component Analysis
+   In this section we connect the projection operators of Karhunen-Loève transform
+or Principal Component Analysis (PCA) to the projections operators in sections
+5 and 7. These operator are from [JS07, Son08, JKST19] where in computing
+probabilities and variance, Hilbert spaces was used. For example, unit vector f was
+taken in some fixed Hilbert space H, and an orthonormal basis (ONB) ψi with i
+running over an index set I. Then two families of probability measures, were used
+    POSITIVE DEFINITE KERNELS, ALGORITHMS, FRAMES, AND APPROXIMATIONS                  13
+
+
+where one family Pf (·) indexed by f ∈ H, and a second family PT indexed by a
+class of operators T : H → H.
+Definition 6.1. Let H be a Hilbert space. Let (ψi ) and (φi ) be orthonormal bases
+(ONB), with index set I. Usually
+                                   I = N = {1, 2, ...}.                            (6.1)
+If (ψi )i∈I is an ONB, we set Qn := the orthogonal projection onto span{ψ1 , ..., ψn }.
+Proposition 6.2. Consider an ensemble of a large number N of objects of similar
+type such as a set of data, of which N wα , α = 1, 2, ..., ν where the relative frequency
+wα satisfies the probability axioms:
+                                                 ν
+                                                 X
+                                wα ≥ 0,                wα = 1.
+                                                 α=1
+
+   Assume that each type specified by a value of the index α is represented by f α (ξ)
+in a real domain [a, b], which we can normalize as
+                                 Z b
+                                     |f α (ξ)|2 dξ = 1.
+                                    a
+
+Let {ψi (ξ)}, i = 1, 2, ..., be a complete set of orthonormal base functions defined on
+[a, b]. Then any function (or data) f α (ξ) can be expanded as
+                                               ∞
+                                                      (α)
+                                               X
+                                 f α (ξ) =           xi ψi (ξ)                     (6.2)
+                                               i=1
+
+with
+                                        Z b
+                               xα
+                                i =           ψi∗ (ξ) f α (ξ) dξ.                  (6.3)
+                                         a
+Here, xα                       α
+        i is the component of f in ψi coordinate system. With the normalization
+of f α we have
+                                 X∞
+                                    |xα   2
+                                       i | = 1.
+                                        i=1
+
+Proof. If we substitute (6.3) into (6.2) we have
+                              Z b         hX∞                    i
+                    f α (ξ) =     f α (ξ)          ψi∗ (ξ) ψi (ξ) dξ
+                                a              i=1
+                              X∞
+                                             α
+                            =         hψi , f i ψi (ξ)
+                                   i=1
+by definition of ONB. Note this involves orthogonal projection.                        
+
+   We here give mathematical background of PCA.
+   Let H = L2 (a, b). ψi : H → l 2 (Z) and U : l 2 (Z) → l 2 (Z) where U is a unitary
+operator.
+   Notice that the distance is invariant under a unitary transformation. Thus, using
+another coordinate system (principal axis) {φj } in place of {ψi }, would preserve
+the distance. The idea is that when PCA transform is applied on a set of data, the
+set of data {xα
+              i } in the feature space represented in {ψi } basis are now represented
+in another coordinate system {φj } .
+14              PALLE E.T. JORGENSEN, MYUNG-SIN SONG, AND JAMES TIAN
+
+
+   Let {φj }, j = 1, 2, ..., be another set of orthonormal basis (ONB) functions
+instead of {ψi (ξ)}, i = 1, 2, ...,. Let yjα be the component of f α in {φj } where it
+can be expressed in terms of xα    i by a linear relation
+                                     ∞
+                                     X                          ∞
+                                                                X
+                             yjα =         hφj , ψi i xα
+                                                       i =             Ui,j xα
+                                                                             i
+                                     i=1                         i=1
+            2          2
+where U : l (Z) → l (Z) is the unitary operator
+                                          Z b
+                      Ui,j = hφj , ψi i =     φ∗j (ξ) ψi (ξ) dξ.
+                                                       a
+Also, xα                             α
+       i can be written in terms of yj under the following relation
+                                     ∞
+                                     X                          ∞
+                                                                X
+                                                                       −1 α
+                             xα
+                              i =          hψi , φj iyjα =            Ui,j yj
+                                     j=1                        j=1
+       −1                     ∗
+where Ui,j = Ui,j and Ui,j = Uj,i . Thus,
+                                  ∞
+                                  X                            X
+                      f α (ξ) =         xα
+                                         i (ξ) ψi (ξ) =               yiα (ξ) φi (ξ) .
+                                  i=1
+                                                                       P∞     α
+                                                                                           P∞    α
+So U (xi ) = (yi ) which is coordinate change, and                       i=1 xi ψi (ξ) =    j=1 yj φj (ξ),
+and
+                                                 Z b
+                           xα          α
+                            i = hψi , f i =                ψi∗ (ξ) f (α) (ξ) dξ.
+                                                   a
+                                  (α)
+  The squared magnitude |xi |2 of the coefficient for ψi in the expansion of f (α)
+can be considered as a good measure of the average in the ensemble
+                                    n
+                                              (α)
+                                  X
+                             Qi =      w(α) |xi |2 ,
+                                             α=1
+
+and as a measure of importance of {ψi }. Notice,
+                                       X
+                             Qi ≥ 0,       Qi = 1.
+                                                       i
+
+See also [Wat67, JKST19].
+    Let G (ξ, ξ 0 ) = α wα f α (ξ) f α∗ (ξ 0 ).
+                      P
+                                             P Then G α∗     is a Hermitian matrix that is the
+covariance matrix and Qi = G (i, i) = α wα xα             i i . Here, Qi = G (i, i) is the vari-
+                                                           x
+ance
+P     and  G (i,   j) determines the covariance       between    xi and xj . The normalization
+    Qi = 1 gives us trace G = 1, where the trace means the diagonal sum.
+    Then define a special function system {Θk (ξ)} as the set of eigenfunctions of G,
+i.e.,
+                            Z b
+                                G (ξ, ξ 0 ) Θk (ξ 0 ) dξ 0 = λk Θk (ξ).                    (6.4)
+                              a
+So GΘk (ξ) = λk Θk (ξ). Also, U : l 2 (Z) → l 2 (Z) is the unitary operator consisting
+of eigenfunctions of G in its columns. These eigenfunctions represent the directions
+of the largest variance of the data and the corresponding eigenvalues represent the
+magnitude of the variance in the directions. PCA allows us to choose the principal
+components so that the covariance matrix G of the projected data is as large as
+possible. The largest eigenfunction of the covariance matrix points to the direction
+    POSITIVE DEFINITE KERNELS, ALGORITHMS, FRAMES, AND APPROXIMATIONS                15
+
+
+of the largest variance of the data and the magnitude of this function is equal to the
+corresponding eigenvalue. The subsequent eigenfunctions are always orthogonal to
+the largest eigenfunctions.
+   Principal eigenfunctions and detecting largest variance. When the data
+                                                              (α)
+are not functions but vectors v α s whose components are xi in the ψi coordinate
+system, we have
+                                 X
+                                     G (i, i0 ) tki0 = λk tki                    (6.5)
+                                    i0
+
+where tki is the ith component of the vector Θk in the coordinate system {ψi }. So
+we get ψ : H → (xi ) and also Θ : H → (ti ). The two ONBs result in
+                           X                        X
+                     xα
+                      i =     cα  k
+                               k ti for all i, cα
+                                                k =   tk∗ α
+                                                       i xi ,
+                              k                                 i
+
+which is the Karhunen-Loève expansion of f (ξ) or vector v α . Hence {Θk (ξ)} is
+                                                       α
+
+the K-L coordinate system dependent on {wα } and {f α (ξ)}. Then we arrange the
+corresponding eigenfunctions or eigenvectors in the order of eigenvalues λ1 ≥ λ2 ≥
+. . . ≥ λk−1 ≥ λk ≥ . . . in the columns
+                                      P of U .
+     Now, Qi = Gi,i = hψi , Gψi i = k Aik λk where Aik = tki tk∗
+                                                               i which is a double
+stochastic matrix. Then we have the following eigendecomposition of the covariance
+matrix (operator), G
+                                                 
+                                       λ1 · · · 0
+                               G = U  0 . . . 0  U −1 .                     (6.6)
+                                                 
+
+                                         0       ···   λk
+
+6.1. Principal Component Analysis and Maximal Variance. In this sub-
+section, we discuss the orthonormal bases of Karhunen-Loève transform or PCA
+where it captures the maximal variance in the linear data to effectively perform
+dimensionality reduction. In [JKST19] these results to our Principal Component
+Analysis (PCA) on data, and dimension reduction algorithms for both linear and
+nonlinear data sets were shown. We shall recall here some definitions and results
+from [BJ02, JS07, JKST19].
+   The following definitions, lemmas and theorem are results from [JKST19, JS07].
+Let H be a Hilbert space which realizes trace class G as a self-adjoint operator.
+Definition 6.3. T ∈ B (H)      √ is said to be trace class if and only if the series
+   hψi , |T | ψi i, with |T | = T ∗ T , is convergent for some ONB (ψi ). In this case,
+P
+set                                          X
+                                 tr (T ) :=     hψi , T ψi i .                    (6.7)
+
+Definition 6.4. A sequence (hα )α∈A in H is called a frame if there are constants
+0 < c1 ≤ c2 < ∞ such that
+
+                        2
+                              X              2              2
+                  c1 kf k ≤         |hhα , f i| ≤ c2 kf k for all f ∈ H.          (6.8)
+                              α∈A
+Also see [BJ02, HKLW07, HWW05, BH19, CCEL15, CCK13, JKST19].
+Lemma 6.5. Let (hα )α∈A be a frame in H. Set L : H → l 2 ,
+                                  L : f 7→ (hhα , f i)α∈A .                       (6.9)
+16            PALLE E.T. JORGENSEN, MYUNG-SIN SONG, AND JAMES TIAN
+
+
+Then L∗ : l 2 → H is given by
+                                                   X
+                                   L∗ ((cα )) =          cα hα                      (6.10)
+                                                  α∈A
+
+where (cα ) ∈ l 2 ; and
+                                           X
+                                  L∗ L =          |hα ih hα | .                     (6.11)
+                                           α∈A
+
+Definition 6.6. Suppose we are given (fα )α∈A , a frame, non-negative numbers
+{wα }α∈A , where A is an index set, with kfα k = 1, for all α ∈ A.
+                                    X
+                              G :=      wα |fα ih fα |                  (6.12)
+                                         α∈A
+
+is called a frame operator associated to (fα ).
+Remark 6.7. If we take vectors (fα ) from a frame (hα ) and normalize them such
+                                    2
+that hα = khα k fα , and wα := khα k , then L∗ L has the form (6.12) and it becomes
+to covariance matrix G above. Thus G = L∗ L : H → H.
+                                                                          P
+Lemma 6.8. Let G be as in (6.12). Then G is trace class if and only if α wα <
+∞; and then
+                                           X
+                                 tr (G) =      wα .                           (6.13)
+                                                  α∈A
+
+Definition 6.9. Suppose we are given a frame operator
+                                 X
+                            G=       wα |fα ih fα |                                 (6.14)
+                                         α∈A
+
+and an ONB (ψi ). Then for each n, the numbers
+                                  X                n
+                                                   X
+                          Enψ =         wα kfα −         hψi , fα i ψi k2           (6.15)
+                                  α∈A              i=1
+
+are called the error or the residual of the projection.
+                                                  Pn
+Lemma 6.10. When (ψi ) is given, set Qn := i=1 |ψi ih ψi | and Q⊥
+                                                                n = I − Qn
+where I is the identity operator in H. Then (see (6.15))
+                                      Enψ = tr(GQ⊥
+                                                 n ).                               (6.16)
+     The more general frame operators are as follows: Let
+                                       X
+                                  G=       wα Pα                                    (6.17)
+                                            α∈A
+
+where (Pα ) is an indexed family of projection operators in H, i.e., Pα = Pα∗ = Pα2 ,
+for all α ∈ A. Pα is trace class if and only if it is finite-dimensional, i.e., if and only
+if the subspace Pα H = {x ∈ H | Pα x = x} is finite-dimensional.
+    PCA, is the scheme involves a choice of “principal components,” often realized
+as a finite-dimensional subspace of a global (called latent) data set. There are two
+views of principal components: The simplest case of consideration of covariance
+operators, and in [JKST19] kernel PCA which refers to a class of reproducing
+kernels, as used in learning theory is discussed. In the latter case, one identifies
+principal features for the machine learning algorithm.
+    POSITIVE DEFINITE KERNELS, ALGORITHMS, FRAMES, AND APPROXIMATIONS              17
+
+
+   In can be observed that the simplest way to identify a PCA subspace is to turn
+to a covariance operator, namely G, acting on the global data. With the use of
+a suitable Karhunen-Loève transform or PCA, and via a system of i.i.d. standard
+Gaussians, a covariance operator which is of trace class may be obtained. An appli-
+cation of the spectral theorem to this associated operator G (see (6.18) below), we
+then the algorithm for computing eigenspaces corresponding to the top of the spec-
+trum of G, i.e., the subspace spanned by the eigenvectors for the top n eigenvalues
+can be obtained; see (6.19). These subspaces will then be principal components of
+order n since the contribution from the span of the remaining eigenspaces will be
+negligible. The algorithm and example will be given in the next subsections.
+   A second approach to PCA is based on an analogous identification of principal
+component subspaces, but with the optimization involving maximum likelihood, or
+minimization of “cost.”
+   Now, although PCA is used popularly in linear data dimension reductions as
+PCA decorrelates data, it is noted that the decorrelation only corresponds to statis-
+tical independence in the Gaussian case. So PCA is not generally the optimal choice
+for linear data dimension reduction. However, PCA captures maximal variability
+in the data. The reader may find more details in [JKST19, XCM09, SSA+ 14].
+   PCA enables finding projections which maximize the variance: The first principal
+component is the direction in the feature space along which gives projections with
+the largest variance. The second principal component is the variance maximizing
+direction to all directions orthogonal to the first principal component. The ith
+component is the direction which maximizes variance orthogonal to the i−1 previous
+components. Thus, PCA captures maximal variability then projects a set of data in
+higher dimensional feature space to a lower dimensional feature space orthogonally
+and this was proved in Theorem 2.12 in [JKST19] which is the following theorem.
+Below, we formulate the iterative algorithm (see eq. (6.19)) of producing principal
+components in the context of trace class operators. In the proof of the theorem, we
+can observe how the orthogonal projection operators play the key part in capturing
+the maximal variance for PCA application. The example will be shown in the
+next subsections with a matrix and with PCA image compression with principal
+components which are obtained by using the projection operators.
+Theorem 6.11. The Karhunen-Loève ONB with respect to the frame operator
+G = L∗ L gives the smallest error in the approximation to a frame operator and the
+covariance operator G gives maximum variance.
+   In the proof of this theorem in [JKST19], we use the covariance operator G which
+is trace class and positive semidefinite, applying the spectral theorem to G results
+is a discrete spectrum, with the natural order λ1 ≥ λ2 ≥ ... and a corresponding
+ONB (φk ) consisting of eigenvectors, i.e.,
+                                  Gφk = λk φk , k ∈ N,                        (6.18)
+called the Karhunen-Loève data or principal components. The spectral data is
+constructed recursively starting with
+                     λ1 =       sup        hφ, Gφi = hφ1 , Gφ1 i , and
+                            φ∈H, kφk=1
+
+                  λk+1 =         sup           hφ, Gφi = hφk+1 , Gφk+1 i .    (6.19)
+                              φ∈H, kφk=1
+                            φ⊥φ1 ,φ2 ,...,φk
+18             PALLE E.T. JORGENSEN, MYUNG-SIN SONG, AND JAMES TIAN
+
+
+This way, the maximal variance is achieved. Now by applying [AK06] we have
+                    n                    n
+                    X                  X
+                          λk ≥ tr Qψ
+                                   n G =   hψk , Gψk i       for all n,       (6.20)
+                    k=1                        k=1
+
+where Qψn is the sequence of projections, deriving from some ONB (ψi ) and are
+arranged such that the following holds:
+                             hψ1 , Gψ1 i ≥ hψ2 , Gψ2 i ≥ ... .
+Hence we are comparing ordered sequences of eigenvalues with sequences of diag-
+onal matrix entries. So here, the sequence of projections Qψ  n derived from
+deriving from some ONB (ψi ) play the key role in selection of principal
+components.
+  Lastly, we have
+                               ∞
+                               X       ∞
+                                       X
+                      tr (G) =    λk =   hψk , Gψk i < ∞.
+                                  k=1          k=1
+     The assertion in Theorem 6.11 is the validity of
+                                         Enφ ≤ Enψ                            (6.21)
+for all (ψi ) ∈ ON B(H), and all n = 1, 2, ...; and moreover, that the infimum on the
+RHS in (6.21) is attained for the KL-ONB (φk ). But in view of our lemma for Enψ
+(6.10), we see that (6.21) is equivalent to the system (6.20) in the Arveson-Kadison
+theorem.
+6.2. The Algorithm for a Digital Image Application. Here, we show how the
+above PCA theory with orthogonal projections Qψ       n are implemented as algorithm
+for application. Our aim is to reduce the number of bits needed to represent an
+image by removing redundancies as much as possible. Karhunen-Loève transform
+or PCA is a transform of m vectors with the length n formed into m-dimensional
+vector X = [X1 , · · · , Xm ] into a vector Y according to
+                                   Y = A (X − mX ) ,                          (6.22)
+where matrix A is obtained by eigenvectors of the covariance matrix C as in (6.24)
+below.
+   The algorithm for Karhunen-Loève transform or PCA can be described as fol-
+lows:
+      1. Take an image or data matrix X, and compute the mean of the column
+         vectors of X
+                                               n
+                                            1X
+                            mX = E (X) =          Xi .                      (6.23)
+                                            n i=1
+       2. Subtract the mean: Subtract the mean, mX in (6.23) from each column
+          vector of X. This produces a data set matrix B whose mean is zero, and
+          it is called centering the data.
+       3. Compute the covariance matrix from the matrix in the previous step
+                                                            
+                                                           T
+                        C = cov(X) = E (X − mX ) (X − mX )                  (6.24)
+                                           n
+                                        1X
+                                    =         Xi XiT − mX mTX .               (6.25)
+                                        n i=1
+    POSITIVE DEFINITE KERNELS, ALGORITHMS, FRAMES, AND APPROXIMATIONS               19
+
+
+        Here X − mX can be interpreted as subtracting mX from each column of
+        X. C (i, i) lying in the main diagonal are the variances of
+                           C(i, i) = E((Xi − mXi )2 ).                     (6.26)
+                                                
+        Also, C(i, j) = E (Xi − mXi ) Xj − mXj is the covariance between Xi
+        and Xj .
+     4. Compute the eigenvectors and eigenvalues, λi of the covariance matrix.
+     5. Choose components and form a feature vector (matrix of vectors),
+                                A = (eig1 , ..., eign ).                       (6.27)
+        List the eigenvectors in decreasing order of the magnitude of their eigen-
+        values. This matrix A is called the row feature matrix. By normalizing
+        the column vectors of matrix A, this new matrix P becomes an orthogonal
+        matrix. Eigenvalues found in step 4 are different in values. The eigenvector
+        with highest eigenvalue is the principle component of the data set. Here,
+        the eigenvectors of eigenvalues that are not up to certain specific values can
+        be dropped thus creating a data matrix with less dimension value.
+     6. Derive the new data set.
+              Final Data = Row Feature Matrix × Row Data Adjust.
+The rows of the feature matrix A are orthogonal so the inversion of PCA can be
+done on equation (6.22) by
+
+                                  X = AT Y + mX .                              (6.28)
+   With the l largest eigenvalues with more variance are used instead of neigenvalues,
+the matrix Al is formed using the l corresponding eigenvectors. This yields the
+newly constructed data or image X 0 as follows:
+
+                                  X 0 = ATl Y + mX .                            (6.29)
+   Row Feature Matrix is the matrix that has the eigenvectors in its rows with the
+most significant eigenvector (i.e., with the greatest eigenvalue) at the top row of
+the matrix. Row Data Adjust is the matrix with mean-adjusted data transposed.
+That is, the matrix contains the data items in each column with each row having
+a separate dimension (see e.g., [MP05, AW12, Mar14, JKST19, Tha20, Reb20,
+SSA+ 14, XCM09, JC16]).
+   In PCA, image compression occurs by the method of dimension reduction. Here,
+we need to determine how to choose the right axes. PCA gives a linear subspace
+of dimension that is lower than the dimension of the original image data in such
+a way that the image data points lie mainly in the linear subspace with the lower
+dimension. PCA creates a new feature-space (subspace) that captures as much
+variance in the original image data as possible. The linear subspace is spanned by
+the orthogonal vectors that form a basis. These orthogonal vectors give principal
+axes, i.e., directions in the data with the largest variations. As in section 6.2, the
+PCA algorithm performs the centering of the image data by subtracting off the
+mean, and then determines the direction with the largest variation of the data and
+chooses an axis in that direction, and then further explores the remaining variation
+and locates another axis that is orthogonal to the first and explores as much of
+the remaining variation as possible. This iteration is performed until all possible
+axes are exhausted. Once we have a principal axis, we subtract the variance along
+20            PALLE E.T. JORGENSEN, MYUNG-SIN SONG, AND JAMES TIAN
+
+
+this principal axis to obtain the remaining variance. Then the same procedure
+is applied again to obtain the next principal axis from the residual variance. In
+addition to being the direction of maximum variance, the next principal axis must
+be orthogonal to the other principal axes. When all the principal axes are obtained,
+the data set is projected onto these axes. These new orthogonal coordinate axes
+are also called principal components.
+   The outcome is all the variation along the axes of the coordinate set, and this
+makes the covariance matrix diagonal which means each new variable is uncorre-
+lated with the rest of the variables except itself. As for some of the axes that are
+obtained towards last have very little variation. So they don’t contribute much,
+thus, can be discarded without affecting the variability in the image data, hence
+reducing the dimension (see e.g., [Mar14]).
+   In PCA image compression, feature selection method is used where we go through
+the available features of an image and select useful features such as variables or
+predictors, i.e., correlation of pixel values to the output variables.
+   PCA removes redundancies and describe the image data with less properties
+in a way that it performs a linear transformation moving the original image data
+to a new space spanned by principal component. This done by constructing a
+new set of properties based on combination of the old properties. The properties
+that present low variance are considered not useful. PCA looks for properties that
+has maximal variation across the data to make the principal component space.
+The eigenvectors found in PCA algorithm are the new set of axes of the principal
+component. Dimension reduction occurs when the eigenvectors with more variance
+are chosen but those with less variance are discarded. [Mar14, MP05, JKST19,
+XCM09, SSA+ 14, JC16]
+
+6.3. Principal Component Analysis in a Digital Image. We would like to
+use a color digital image PCA to illustrate dimension change in this section, so we
+introduce a color digital image. A color digital image is read into a matrix of pixels.
+We would like to use Karhunen-Loève transform or PCA applied to a digital image
+data illustrate dimension reduction. Here, an image is represented as a matrix of
+functions where the entries are pixel values. The following is an example of a matrix
+representation of a digital image:
+                                                                      
+                      f (0, 0)     f (0, 1)     ···     f (0, N − 1)
+                  f (1, 0)        f (1, 1)     ···     f (1, N − 1) 
+      f (x, y) =                                                      .       (6.30)
+                                                                      
+                          ..           ..         ..           ..
+                          .            .          .            .      
+                   f (M − 1, 0) f (M − 1, 1) · · · f (M − 1, N − 1)
+A color image has three components. Thus a color image matrix has three of
+above image pixel matrices for red, green and blue components and they all appear
+black and white when viewed “individually.” We begin with the following duality
+principle, (i) spatial vs (ii) spectral, and we illustrate its role for the redundancy,
+and for correlation of variables, in the resolution-refinement algorithm for images.
+Specifically:
+      (i) Spatial Redundancy: correlation between neighboring pixel values.
+     (ii) Spectral Redundancy: correlation between different color planes or spectral
+          bands.
+We are interested in removing these redundancies using correlations.
+    POSITIVE DEFINITE KERNELS, ALGORITHMS, FRAMES, AND APPROXIMATIONS             21
+
+
+   Starting with a matrix representation for a particular image, we then compute
+the covariance matrix using the steps from (3) and (4) in algorithm above. We
+then compute the Karhunen-Loève eigenvalues. Next, the eigenvalues are arranged
+in decreasing order. The corresponding eigenvectors are arranged to match the
+eigenvalues with multiplicity. The eigenvalues mentioned here are the same eigen-
+values λi in step 4 above, thus yielding smallest error and smallest entropy in the
+computation (see e.g., [Son08, JKST19, XCM09, SSA+ 14, JC16]).
+   The following figure shows the principal components of an image in increasing
+eigenvalues where the original image is a color png file.
+
+
+
+
+                   Figure 6.1. The Original Jorgensen Image
+
+   The original file is in red, green and blue color image which had three R, G, B
+color components. So if I is the original image it can be represented as
+                     I = w1 R + w2 G + w3 B = fR + fG + fB                    (6.31)
+where w1 , w2 and w3 are weights which are determined for different light intensity
+for color, and fR , fG and fB are the three R, G, B components of the form equation
+(6.30). Each matrix appears black and white when viewed individually. Now, when
+PCA is performed on the image I, it gives alternative components. Here the original
+image I is 6.1. The original image used for 6.1, is in red, green and blue color
+components which are fR , fG , and fB . Please see [JKST19, MP05].
+   Here, after PCA transformation, instead of RGB components a new three com-
+ponents are used and this is shown in the Figures 6.2. The principal components
+of the image are in the order of increasing eigenvalues.
+   Once we see the principal components of the image, we can notice the signifi-
+cance of the eigenvalue λ. With PCA, the principal component corresponding to
+the largest eigenvalue picks up all the dominant features of the original image in
+comparison to the second principal component corresponding to the second largest
+eigenvalue and so on. So the more prominent features of the image is captured in
+the principal components in the order of decreasing eigenvalues with the correlation
+of pixels of images.
+22          PALLE E.T. JORGENSEN, MYUNG-SIN SONG, AND JAMES TIAN
+
+
+
+
+        Figure 6.2. From left to right: First principal component of Jor-
+        gensen which corresponds to the largest eigenvalue, second prin-
+        cipal component of Jorgensen which corresponds to the second
+        largest eigenvalue, third principal component of Jorgensen which
+        corresponds to the third largest eigenvalue.
+
+
+6.4. A Matrix Example. In this section, we provide a matrix example of PCA
+to illustrated how the PCA algorithm in section 6.2 works.
+   Let,
+                                        
+                         1   0    0    3
+                       −1 1      1    0
+                  X=  −1 −2 4 −5 be an image matrix.
+                                                                     (6.32)
+                         0   3 −1 0
+
+   Following the algorithm of section 6.2, we compute the mean of each column of
+the above matrix, X. Then we subtract the mean of each column. For matrix X,
+column 1 has mean of -0.25, column 2 has mean of 0.5, column 3 has mean of 1,
+and column 4 has mean of -0.5.
+   Next we compute the covariance matrix of X namely C = cov(X).
+                                                                  
+                              0.9167     0.5000 −1.3333 2.5000
+                            0.5000      4.3333 −4.0000 3.6667 
+            C = cov(X) =  −1.3333 −4.0000 4.6667 −6.0000
+                                                                          (6.33)
+                              2.5000     3.6667 −6.0000 11.0000
+
+   The eigenvalues of the covariance matrix, C = cov(X) are λ1 = 0, λ2 = 0.3551,
+λ3 = 3.2692, and λ4 = 17.2924. The corresponding eigenvectors of the covariance
+matrix, C = cov(X) are as follows:
+   For λ1 = 0, the corresponding eigenvector is
+                                               
+                                        0.4295
+                                       0.5154
+                                  v1 = 
+                                       0.7302
+                                                
+
+                                        0.1289
+    POSITIVE DEFINITE KERNELS, ALGORITHMS, FRAMES, AND APPROXIMATIONS            23
+
+
+  For λ2 = 0.3551, the corresponding eigenvector is
+                                             
+                                       0.8584
+                                     −0.1339
+                                v2 = 
+                                     −0.3484
+                                              
+
+                                      −0.3519
+  For λ3 = 3.2692, the corresponding eigenvector is
+                                             
+                                       0.2240
+                                     −0.7582
+                                v3 =         
+                                      0.3102 
+                                       0.5279
+  For λ4 = 17.2924, the corresponding eigenvector is
+                                             
+                                       0.1685
+                                      0.3762 
+                                v4 = 
+                                     −0.4992
+                                              
+
+                                       0.7622
+   We then form a matrix A which consists of eigenvectors in the columns of the
+matrix. The eigenvectors point to the direction of the principal components rep-
+resented by eigenvectors with magnitude of eigenvalues. These λ eigenvalues are
+the variance of the image data and the magnitude of the eigenvector direction or
+principal component direction. The first column of matrix A is the eigenvector
+v4 corresponding to the largest eigenvalue λ4 and the column of matrix A is the
+eigenvector v3 corresponding to the largest eigenvalue λ3 and so on in decreasing
+order of eigenvalues from the largest to smallest respectively.
+                                                               
+                          0.1685     0.2240    0.8584 0.4295
+                         0.3762 −0.7582 −0.1339 0.5154
+                   A=  −0.4992 0.3102 −0.3484 0.7302
+                                                                          (6.34)
+                          0.7622     0.5279 −0.3519 0.1289
+  Then we can put the corresponding eigenvalues as diagonal entries in the D
+matrix as follows,
+                                                  
+                       17.2924     0        0    0
+                          0    3.2692      0    0 
+                   D=                                                (6.35)
+                          0       0     0.3551 0 
+                           0       0        0    0
+which is the diagonal matrix of eigenvalues. [JS07]
+   Performing Principal Component Analysis on our matrix X will result in putting
+the eigenvectors of C = cov(X) in column vector form in decreasing order of eigen-
+value. After removing the least significant eigenvector v4 we obtain Al matrix
+                                                          
+                              0.1685      0.2240    0.8584
+                             0.3762 −0.7582 −0.1339
+                      Al = −0.4992 0.3102 −0.3484
+                                                                            (6.36)
+                              0.7622      0.5279 −0.3519
+  Then using equation (6.29) we can obtain compressed image X 0 .
+24           PALLE E.T. JORGENSEN, MYUNG-SIN SONG, AND JAMES TIAN
+
+
+                 No. of P. C.s     CR       File Size    MSE
+                   [0.5ex] 10    10.0392   160.642 KB   9.3646
+                   [0.5ex] 20    5.0196    172.250 KB   5.5603
+                   [0.5ex] 30    3.3464    175.908 KB   3.3438
+                   [0.5ex] 40    2.5098    176.492 KB   1.9192
+                   [0.5ex] 50       2      176.436 KB   1.0752
+                   [0.5ex] 60    1.6678    176.949 KB   0.6133
+                   [0.5ex] 70    1.4302      178 KB     0.3315
+                   [0.5ex] 80    1.2518      178 KB     0.1477
+                   [0.5ex] 90    1.1130      178 KB     0.0370
+                  [0.5ex] 100       1        178 KB   1.0363e-10
+                     [0.5ex]
+
+        Table 6.1. Table for Barbara PCA compression using different
+        number of principal components used to reconstruct back the im-
+        age.
+
+
+
+6.5. Digital Image Compression Using Principal Component Analysis.
+In this section, we will do PCA image compression using black and white Barbara
+image using different number of principal components to reconstruct the image.
+For more information please see, [Tha20, Reb20].
+
+
+
+
+        Figure 6.3. The original Barbara image from the Test image pool
+        in Google.
+
+
+
+            7. Frames, projections, and Kaczmarz algorithms
+   In this section, we consider certain infinite products of projections. Our frame-
+work is motivated by problems in approximation theory, in harmonic analysis, in
+frame theory, and the context of the classical Kaczmarz algorithm [Kac37]. Tra-
+ditionally, the infinite-dimensional Kaczmarz algorithm is stated for sequences of
+vectors in a specified Hilbert space H , (typically, H is an L2 -space.) We shall
+here formulate it instead for sequences of projections. As a corollary, we get explicit
+    POSITIVE DEFINITE KERNELS, ALGORITHMS, FRAMES, AND APPROXIMATIONS              25
+
+
+
+
+        Figure 6.4. Reconstructed images of Barbara using 10, 20, 30,
+        40, 50, 60, 70, 80, 90 and 100 principal components respectively
+        from top to bottom, left to right.
+
+and algorithmic criteria for convergence of certain infinite products of projections
+in H .
+   Motivation. Our extension of the Kaczmarz algorithm to sequences of projec-
+tions is highly nontrivial: while in general convergence questions for infinite prod-
+ucts of projections (in Hilbert space) is difficult (see e.g., [Aro50, Rue82, Rue04,
+26            PALLE E.T. JORGENSEN, MYUNG-SIN SONG, AND JAMES TIAN
+
+
+AJL18]), our projection-valued formulation of Kaczmarz’ algorithm yields an an-
+swer to this convergence question, as well as a number of applications to stochastic
+analysis, and to frame-approximation questions in the Hilbert space L2 (µ), where
+µ is in a class of iterated function system (IFS) measures (see [Hut81, Hut95, DJ07,
+HJW19, JS18]).
+   Literature guide: In addition to Kaczmarz’ pioneering paper [Kac37], there are
+also the following more recent developments of relevance to our present discus-
+sion [Bau95, EP01, Pop01, HS05, KM06, Szw07, Pop10, EN11, CT13, IZ13, LZ15,
+NSW16, Che18, Pop18, Zha19], as well as [HJW19, HJW18a, HJW18b].
+
+   The classical Kaczmarz algorithm is an iterative method for solving systems of
+linear equations, for example, Ax = b, where A is an m × n matrix.
+   Assume the system is consistent. Let x0 be an arbitrary vector in Rn , and set
+                                                         2
+                         xk := argmin kx − xk−1 k , k ∈ N;                     (7.1)
+                                  haj ,xi=bj
+
+where j = k mod m, and aj denotes the j th row of A. At each iteration, the
+minimizer is given by
+                                        bj − haj , xk−1 i
+                          xk = xk−1 +              2      aj .                (7.2)
+                                             kaj k
+That is, the algorithm recursively projects the current state onto the hyperplane
+determined by the next row vector of A.
+   There is a stochastic version of (7.2), where the row vectors of A are selected
+randomly [SV09].
+   The Kaczmarz algorithm can be formulated in the Hilbert space setting as fol-
+lows:
+Definition 7.1. Let {ej }j∈N0 be a spanning set of unit vectors in a Hilbert space
+H , i.e., span {ej } is dense in H . For all x ∈ H , let x0 = e0 , and set
+                            xk := xk−1 + ek hek , x − xk−1 i .                 (7.3)
+We say the sequence {ej }j∈N0 is effective if kxk − xk → 0 as k → ∞, for all x ∈ H .
+Remark 7.2. A key motivation for our present analysis is an important result by
+Stanisław Kwapień and Jan Mycielski [KM06], giving a criterion for stationary
+sequences (referring to a suitable L2 (µ)) to be effective.
+     Observation. Equation (7.3) yields, by forward induction:
+                   x − xk    =     (1 − Pk ) (x − xk−1 )
+                             =     (1 − Pk ) (1 − Pk−1 ) (x − xk−2 )
+                             ..
+                              .
+                             =     (1 − Pk ) (1 − Pk−1 ) · · · (1 − P0 ) x,
+where Pj is the orthogonal projection onto ej . Throughout, we shall use “1” also
+for the identity operator. This motivates the following:
+Definition 7.3. A system {Pj }j∈N0 of orthogonal projections in H is said to be
+effective if
+                                                                 s
+                    Tn := (1 − Pn ) (1 − Pn−1 ) · · · (1 − P0 ) −→ 0,      (7.4)
+i.e., Tn converges to zero as n → ∞ in the strong operator topology.
+    POSITIVE DEFINITE KERNELS, ALGORITHMS, FRAMES, AND APPROXIMATIONS                                         27
+
+
+Proposition 7.4. Let {Pj }j∈N0 be a sequence of orthogonal projections in a Hilbert
+space H . Suppose there exists 0 < c < 1 such that
+                                                     2                                  2
+                            kPj (1 − Pj−1 ) yk ≥ c k(1 − Pj−1 ) yk                                         (7.5)
+for all y ∈ H , and all j ∈ N. Then the system {Pj }j∈N0 is effective.
+Proof. Assume (7.5) holds. Then, for all x ∈ H ,
+                                                                      2
+                 k(1 − Pn ) (1 − Pn−1 ) · · · (1 − P0 ) xk
+                                                      2                                               2
+          = k(1 − Pn−1 ) · · · (1 − P0 ) xk − kPn (1 − Pn−1 ) · · · (1 − P0 ) xk
+                                                      2                                           2
+          ≤      k(1 − Pn−1 ) · · · (1 − P0 ) xk − c k(1 − Pn−1 ) · · · (1 − P0 ) xk
+                                                                 2
+          =      (1 − c) k(1 − Pn−1 ) · · · (1 − P0 ) xk
+                        2                                            2
+          ≤      (1 − c) k(1 − Pn−2 ) · · · (1 − P0 ) xk
+          ..
+           .
+                        n                    2
+          ≤      (1 − c) k(1 − P0 ) xk → 0, as n → ∞.
+                                                                                                              
+Remark 7.5. Condition (7.5) may be replaced by
+                                         2                                     2
+                  kPj (1 − Pj−1 ) yk ≥ cj k(1 − Pj−1 ) yk ,                            ∀y ∈ H ,
+with 0 < cj < 1. Then the proof of Proposition 7.4 is modified as:
+                                                                                   2
+                       k(1 − Pn ) (1 − Pn−1 ) · · · (1 − P0 ) xk
+                                                                               2
+                  ≤ (1 − cn ) k(1 − Pn−1 ) · · · (1 − P0 ) xk
+                  ..
+                   .
+                                                                           2
+                  ≤ (1 − cn ) · · · (1 − c1 ) k(1 − P0 ) xk → 0, as n → ∞.
+Theorem 7.6. Let {Pj }j∈N0 be a sequence of orthogonal projections in a Hilbert
+space H . Set
+                            Tn = (1 − Pn ) (1 − Pn−1 ) · · · (1 − P0 ) ,                                   (7.6)
+                            Qn = Pn (1 − Pn−1 ) · · · (1 − P0 ) ,                                          (7.7)
+where Q0 = P0 .
+  For all n ∈ N, we have
+                                                    n
+                                                    X
+                              2               2                       2
+                         kxk = kTn xk +                    kQk xk ,            x∈H.
+                                                    k=0
+           s
+Hence Tn −→ 0 if and only if                        X
+                                             I=            Q∗j Qj .                                        (7.8)
+                                                    j∈N0
+More precisely, (7.8) means that,
+                                X
+                       hx, yi =   hQj x, Qj yi ,                          x, y ∈ H .                       (7.9)
+                                        j∈N0
+
+In particular,                               X
+                                    2                        2
+                                  kxk =             kQj xk ,          x∈H.                                (7.10)
+                                             j∈N0
+28              PALLE E.T. JORGENSEN, MYUNG-SIN SONG, AND JAMES TIAN
+
+
+Proof. Note that
+            2                                                                      2
+     kTn xk     = k(1 − Pn ) (1 − Pn−1 ) · · · (1 − P0 ) xk
+                                                                      2                                         2
+                = k(1 − Pn−1 ) · · · (1 − P0 ) xk − kPn (1 − Pn−1 ) · · · (1 − P0 ) xk
+                                2                    2
+                = kTn−1 xk − kQn xk
+                                2                         2                   2
+                = kTn−2 xk − kQn−1 xk − kQn xk
+                ..
+                 .
+                                        2                     2                            2            2
+                = k(1 − P0 ) xk − kQ1 xk − · · · − kQn−1 xk − kQn xk
+                        2                   2                     2                            2            2
+                = kxk − kQ0 xk − kQ1 xk − · · · − kQn−1 xk − kQn xk .
+Therefore
+                                    s                             2
+                                                                          X            2
+                            Tn −→ 0 ⇐⇒ kxk =                                     kQj xk .
+                                                                          j∈N0
+                                                                                                                    
+Remark 7.7. The system of operators {Qj }j∈N0 in Theorem 7.6 has frame-like
+properties, see (7.8)–(7.10). Specifically, the mapping
+                                                V
+                            H 3 x 7−−→ (Qj x) ∈ l2 (N0 ) ⊗ H
+plays the role of an analysis operator, and the synthesis operator V ∗ is given by
+                                             V∗
+                                                 X
+                          l2 (N0 ) ⊗ H 3 ξ 7−−−→     Q∗j ξj .
+                                                                           j∈N0
+                   ∗
+Note that 1 = V V , and (7.10) is the generalized Parseval identity.
+7.1. The case of rank-1 projections in H . Let {Pj }j∈N0 be a system of rank-
+1 projections, i.e., Pj = |ej ih ej |, where {ej }j∈N0 is a set of unit vectors in H .
+When the system {ej } is independent, then the corresponding family of projections
+Pj = |ej ih ej | is non-commutative.
+Corollary 7.8. Suppose all the Pj ’s are of rank-1, i.e., Pj = |ej ih ej | where
+{ej }j∈N0 is a set of unit vectors in H . Assume {Pj }j∈N0 is effective (Definition
+7.3). Set
+                   g0 = e0 ,
+                   gn = (1 − P0 ) (1 − P1 ) · · · (1 − Pn−1 ) en ,                             n ∈ N.
+Then {gn }n∈N0 is a Parseval frame in H .
+  Specifically, we have
+                            g0 = e0
+                                                    n−1
+                                                    X
+                            gn = en −                     hej , en i gj ,         n ∈ N.                        (7.11)
+                                                    j=0
+
+Proof. Recall that
+                               Qn = Pn (1 − Pn−1 ) · · · (1 − P0 ) ,
+see (7.7).
+   Since Pn has rank-1, it follows that Qn has the form
+                                                Qn = |en ih gn |
+    POSITIVE DEFINITE KERNELS, ALGORITHMS, FRAMES, AND APPROXIMATIONS                            29
+
+
+for some gn ∈ H , which in turn is given by
+  gn    = Q∗n en = (1 − P0 ) (1 − P1 ) · · · (1 − Pn−1 ) Pn en
+        =     (1 − P0 ) (1 − P1 ) · · · (1 − Pn−1 ) en
+        =     (1 − P0 ) (1 − P1 ) · · · (1 − Pn−2 ) (en − hen−1 , en i en−1 )
+        =     (1 − P0 ) (1 − P1 ) · · · (1 − Pn−2 ) en − hen−1 , en i gn−1
+        =     (1 − P0 ) (1 − P1 ) · · · (1 − Pn−3 ) en − hen−2 , en i gn−2 − hen−1 , en i gn−1
+        ..
+         .
+                    n−1
+                    X
+        = en −            hej , en i gj .
+                    j=0
+
+  Now,
+                           2
+                                  X           2
+                                                      X                 2
+                     kxk =              kQj xk =              |hgj , xi| ,       x∈H.
+                                 j∈N0                 j∈N0
+                                                                                                 
+Corollary 7.9. The system {|ej ih ej |}j∈N0 is effective iff {gj }j∈N0 (see (7.11)) is
+a Parseval frame in H .
+                                                                                   K
+Example 7.10. Consider a positive definite function G × G −−→ C on a lca group
+G, where K (x, y) = K (x − y) and K (0) = 1. Let HK be the associated RKHS.
+  Fix a discrete subset {xj }j∈N0 ⊂ G, and define
+                                 Pj = 1 − Kxj ih Kxj ,                j ∈ N0 .            (7.12)
+Corollary 7.11. Assume there exists 0 < c < 1 such that
+                                                  2
+                                 K (xj − xj−1 ) ≤ 1 − c,               j ∈ N.             (7.13)
+Then the system {Pj }j∈N0 in (7.12) is effective.
+  For the operator valued frame {Qj }j∈N0 in Theorem 7.6, it holds that
+                                       rank (Qj ) ≤ 2,            j ∈ N0 .
+Proof. In the current setting, condition (7.5) in Proposition 7.4 translates to
+                                           2               2
+                  1 − Kxj ih Kxj Kxj−1 H ≥ c Kxj−1 H = c
+                                                              K                    K
+
+                                                      m
+                                                                        2
+                               Kxj−1 − K (xj − xj−1 ) Kxj H ≥ c
+                                                                             K
+
+                                                      m
+                                                          2
+                                       K (xj − xj−1 ) ≤ 1 − c.
+Therefore {Pj }j∈N0 is effective, provided that (7.13) is satisfied.
+  Let Qj be as in Theorem 7.6. That is, for all f ∈ HK (see Corollary 5.2),
+       Qj f    =    Pj (1 − Pj−1 ) · · · (1 − P0 ) f
+                                                          
+               =     1 − Kxj ih Kxj          Kxj−1 ih Kxj−1 · · · (|Kx0 ih Kx0 |) f
+               =    Kxj−1 K (xj−1 − xj−2 ) · · · K (x1 − x0 ) f (x0 )
+                                       
+                    −Kxj K xkj − xkj−1 K (xj−1 − xj−2 ) · · · K (x1 − x0 ) f (x0 ) .
+30             PALLE E.T. JORGENSEN, MYUNG-SIN SONG, AND JAMES TIAN
+
+
+     In particular,
+                                             
+                                  Qj f ∈ span Kxj−1 , Kxj
+and so rank (Qj ) ≤ 2.                                                                       
+
+                                  8. Paley Wiener spaces
+Definition 8.1 (Paley Wiener spaces (see, e.g., [DS17])). Let Ω be a bounded
+subset of Rd , and let L2 = L2 (λd ) = L2 Rd , λd with λd = the usual Lebesgue
+measure on Rd . Set
+                                  n                     o
+                        PW (Ω) := f ∈ L2 : supp(fb) ⊆ Ω
+where                                       Z
+                                  fb(ξ) =        e−iξ·x f (x) dx                          (8.1)
+                                            Rd
+is the Fourier transform, and x = (x1 , · · · , xd ) ∈ Rd , dx = λd (x).
+Lemma 8.2. PW (Ω) is a RKHS.
+Proof. Let f ∈ PW (Ω). Since Ω is bounded and λd (Ω) < ∞, then
+                                       Z
+                                   1
+                         f (x) =     d
+                                         eiξ·x fb(ξ) dξ                                   (8.2)
+                                 (2π) Ω
+where ξ = (ξ1 , · · · , ξd ) ∈ Rd , and dξ = λd (ξ).
+  For f ∈ PW (Ω), we have
+                                                   Z
+                            2             2                    2
+                       kf kPW(Ω) := kf kL2 (Rd ) =      |f (x)| dx
+                                                     Rd
+                                      Z                 Z
+                                                 2             2
+                                    =      f (ξ) dξ =
+                                            b               fb dλ < ∞.                    (8.3)
+                                      Rd                     Ω
+
+From (8.2),
+                                            Z              1/2
+                              1                       2
+                 |f (x)| ≤        λ (Ω)
+                                 d d
+                                                    fb dλ          = Cd kf kPW(Ω)
+                             (2π)               Ω
+
+where cd := λ(2π)
+              d (Ω)
+                  d . That is, point evaluation at every x ∈ R
+                                                               d
+                                                                 is a bounded linear
+functional on PW (Ω).
+   Moreover, the reproducing kernel is given by
+                                          bΩ (x − y) ,
+                         KPW(Ω) (x, y) := χ                      x, y ∈ Rd ,
+where χ
+      bΩ denotes the Fourier transform of the indicator function
+                                     (
+                                      1 ξ∈Ω
+                           χΩ (ξ) =
+                                      0 ξ ∈ Rd \Ω.
+                                                                                             
+
+     Proposed duality:
+
+        countably discrete subset V ⊂ Rd with ks                        +3     Ω ⊂ Rd
+                                                                                          (8.4)
+          generalized interpolation properties                               λd (Ω) < ∞
+    POSITIVE DEFINITE KERNELS, ALGORITHMS, FRAMES, AND APPROXIMATIONS                    31
+
+
+When Ω and V are as above, see (8.4), consider the question of existence of finite
+constants 0 < A ≤ B < ∞ such that
+                  2
+                          X        2        2
+            A kf kPW(Ω) ≤   |f (x)| ≤ B kf kPW(Ω) , ∀f ∈ PW (Ω) ;            (8.5)
+                           x∈V
+
+or with a weight function w : V → R+ ,
+             2
+                     X                2        2
+       A kf kPW(Ω) ≤     w (x) |f (x)| ≤ B kf kPW(Ω) ,                ∀f ∈ PW (Ω) .   (8.6)
+                     x∈V
+
+Definition 8.3. Give Ω ⊂ Rd , λd (Ω) < ∞, set
+      SAMP (Ω) := V : V ⊂ Rd countably discrete, and (8.5) or (8.6)
+                   
+
+                   holds for some finite constants A, B, 0 < A ≤ B < ∞ ;
+                  
+     FREBD (V ) := Ω : λd (Ω) < ∞, and (8.5) or (8.6) holds for some
+                      constants A, B, 0 < A ≤ B < ∞ .
+Problem. (i) Given Ω, find SAMP (Ω); (ii) Given V , find FREBD (V ).
+
+           9. Gaussian Processes and Gaussian Hilbert Spaces
+  By a probability space, we mean a triple (Ω, F , P) where
+     • Ω: set of sample points,
+     • F : σ-algebra of events (subsets of Ω),
+
+     • P: a probability measure defined on F .
+
+A random variable
+                       K : Ω → R (C, or a Hilbert space)                              (9.1)
+is a measurable function defined on (Ω, F ), i.e., we require that for Borel sets B
+(in R, or C), and cylinder sets (referring to a fixed Hilbert space H ) we have
+K −1 (B) ∈ F where
+                        K −1 (B) = {ω ∈ Ω : K (ω) ∈ B} .                              (9.2)
+The distribution µK of K is the measure
+                                    µK := P ◦ K −1 .                                  (9.3)
+If µK is Gaussian, we say that K is a Gaussian random variable. A Gaussian
+process is a system {Kx : x ∈ X} of random variables (refer to (Ω, F , P)), indexed
+by some set X, in this case X.
+   Here we shall restrict to the case of a Gaussian process, and we shall assume
+                                 E (Kx ) = 0,       ∀x ∈ X;                           (9.4)
+where                                         Z
+                                    E (·) =         (·) dP                            (9.5)
+                                                Ω
+denotes expectation w.r.t. P.
+  If µK ∈ N (0, 1), i.e.,
+                                     1   2
+                           µK (t) = √ e−t /2 ,               t ∈ R,                   (9.6)
+                                     2π
+we say that K (or µK ) is a standard Gaussian.
+32            PALLE E.T. JORGENSEN, MYUNG-SIN SONG, AND JAMES TIAN
+
+
+Lemma 9.1. Let {Zn }n∈N0 be a system of independent identically distributed N (0, 1)s
+(i.i.d N (0, 1)). Let H be a Hilbert space, and {Qn }n∈N0 a system of projections
+as in Theorem 7.6, i.e.,
+                     X
+                         hQn u, Qn viH = hu, viH , ∀u, v ∈ H .               (9.7)
+                     n∈N0
+
+Then                                                  X
+                           W (·) = W (Q,H ) (·) :=           Qn Zn (·)           (9.8)
+                                                      n∈N0
+defines an operator valued Gaussian process, and
+                    E (hW (·) u, W (·) viH ) = hu, vi ,         ∀u, v ∈ H .      (9.9)
+Proof sketch. Fix u, v ∈ H ; then
+                                         XX
+                  LHS(9.9)        =               hQn u, Qm viH E (Zn Zm )
+                              by (9.8)                          | {z }
+                                         N0 ×N0                       =δn,m
+                                         X
+                                  =             hQn u, Qn viH
+                                         n∈N0
+                                  =      hu, viH .
+                              by (9.7)
+
+                                                                                    
+Corollary 9.2. Let {Qn }n∈N0 be an effective system in HK , where K : X ×X → R
+is a given p.d. kernel and HK the associated RKHs. Then W from (9.8) has the
+property that                                            
+                     K (x, y) = E hW (·) Kx , W (·) Ky iHK .
+
+   We recall the following theorem of Kolmogorov. It states that there is a 1-1
+correspondence between p.d. kernels on a set and mean zero Gaussian processes
+indexed by the set. One direction is easy, and the other is the deep part:
+Theorem 9.3 (Kolmogorov). Let X be a set. A function K : X ×X → C is positive
+definite if and only if there is a Gaussian process {Wx }x∈X realized in L2 (Ω, F , P)
+with mean zero, such that
+                                                    
+                                 K (x, y) = E W x Wy .                          (9.10)
+Proof. We refer to [PS75] for the non-trivial direction. To stress the idea, we
+                                                                         n
+include a proof of the easy part of the theorem: Assume (9.10). Let {ci }i=1 ⊂ C
+         n
+and {xi }i=1 ⊂ X, then we have
+                                                  h X          i
+                  X X                                        2
+                           ci cj K (xi , xj ) = E     ci Wxi     ≥ 0,
+                       i      j
+i.e., K is p.d.                                                                     
+  Let (X, B, ν) be a σ-finite measure space, and let Bf in = {E ∈ B : ν (E) < ∞}.
+Below we consider the following kernel K on Bf in × Bf in : Set
+                           K (A, B) = ν (A ∩ B) ,      A, B ∈ Bf in            (9.11)
+and let HK (ν) denote the associated RKHS.
+Proposition 9.4.
+   (1) K = K (ν) in (9.11) is positive definite.
+    POSITIVE DEFINITE KERNELS, ALGORITHMS, FRAMES, AND APPROXIMATIONS                     33
+
+
+    (2) K (ν) is the covariance kernel for the stationary Wiener process W = W (ν)
+        indexed by Bf in , i.e., Gaussian, mean zero, and
+                       E (WA WB ) = K (ν) (A, B) = ν (A ∩ B) .          (9.12)
+                   2
+                                        R
+    (3) If f ∈ L (ν), and Wf = X f (x) dWx denotes the corresponding Ito-
+        integral, then
+                                           Z
+                                         2              2
+                               E |Wf | =            |f | dν;
+                                                  X
+                               P
+        in particular, if f = i αi χAi , then
+                  X X                               Z X            2
+                           αi αj K (ν) (Ai , Aj ) =          αi χAi dν.
+                     i   j                              X        i
+
+    (4) The RKHS HK (ν) of the positive definite kernel in (9.11) consists of func-
+        tions F on Bf in represented by f ∈ L2 (ν) via
+                                        Z
+                    F (A) = Ff (A) =       f dν, A ∈ Bf in ;                 (9.13)
+                                                  A
+
+        and                                              Z
+                              2                  2                   2
+                         kFf kH (ν) = kf kL2 (ν) =              |f | dν.              (9.14)
+                                  K
+                                                            X
+    (5) The map specified by
+                            
+             Ψ K (ν) (·, A) = Ψ (ν ((·) ∩ A)) = χA ,                     ∀A ∈ Bf in   (9.15)
+
+        extends by linearity and by limits to an isometry
+                              Ψ : HK (ν) −→ L2 (ν) .                        (9.16)
+        More generally if Ff ∈ H K (ν) is as in (9.13), then Ψ (Ff ) = f ∈ L2 (ν).
+                                        
+
+Proof. The details can be found at various places in the literature; see e.g., [AJ12,
+JS18, JT19b, JT19a].                                                               
+                                             K
+Proposition 9.5. Let Bf in × Bf in −−→ R be the p.d. kernel as in (9.11), and
+HK (ν) the RKHS of K. Suppose {Qn }N0 is an effective system in HK (ν) , and let
+Ψ be the isometry specified in (9.15)–(9.16). Then
+                                        {ΨQn }n∈N0
+is effective in the closed subspace
+                                  Ψ (HK (ν) ) ⊂ L2 (Ω, P) .
+Proof. For all F, G ∈ HK (ν) , we have
+                   E [Ψ (F ) Ψ (G)] = hF, GiH (ν)
+                                             K
+                                       X
+                                    =      hQn F, Qn GiH (ν)
+                                                                     K
+                                           n∈N0
+                                           X
+                                       =          E [Ψ (Qn F ) Ψ (Qn G)] .
+                                           n∈N0
+
+                                                                                          
+34            PALLE E.T. JORGENSEN, MYUNG-SIN SONG, AND JAMES TIAN
+
+
+                                       References
+[AG93]   N. I. Akhiezer and I. M. Glazman, Theory of linear operators in Hilbert space, Dover
+         Publications, Inc., New York, 1993, Translated from the Russian and with a preface
+         by Merlynd Nestell, Reprint of the 1961 and 1963 translations, Two volumes bound
+         as one. MR 1255973
+[AJ12]   Daniel Alpay and Palle E. T. Jorgensen, Stochastic processes induced by singular
+         operators, Numer. Funct. Anal. Optim. 33 (2012), no. 7-9, 708–735. MR 2966130
+[AJL18]  Daniel Alpay, Palle Jorgensen, and Izchak Lewkowicz, W -Markov measures, transfer
+         operators, wavelets and multiresolutions, Frames and harmonic analysis, Contemp.
+         Math., vol. 706, Amer. Math. Soc., Providence, RI, 2018, pp. 293–343. MR 3796644
+[AK06]   William Arveson and Richard V. Kadison, Diagonals of self-adjoint operators, Op-
+         erator theory, operator algebras, and applications, Contemp. Math., vol. 414, Amer.
+         Math. Soc., Providence, RI, 2006, pp. 247–263. MR 2277215
+[Aro50]  N. Aronszajn, Theory of reproducing kernels, Trans. Amer. Math. Soc. 68 (1950),
+         337–404. MR 0051437
+[AW12]   Arash A. Amini and Martin J. Wainwright, Sampled forms of functional PCA in repro-
+         ducing kernel Hilbert spaces, Ann. Statist. 40 (2012), no. 5, 2483–2510. MR 3097610
+[Bau95]  H. H. Bauschke, A norm convergence result on random products of relaxed projections
+         in Hilbert space, Trans. Amer. Math. Soc. 347 (1995), no. 4, 1365–1373. MR 1257097
+[BH19]   Peter Balazs and Helmut Harbrecht, Frames for the Solution of Operator Equations
+         in Hilbert Spaces with Fixed Dual Pairing, Numer. Funct. Anal. Optim. 40 (2019),
+         no. 1, 65–84. MR 3928472
+[BJ02]   Ola Bratteli and Palle Jorgensen, Wavelets through a looking glass, Applied and Nu-
+         merical Harmonic Analysis, Birkhäuser Boston, Inc., Boston, MA, 2002, The world of
+         the spectrum. MR 1913212
+[CCEL15] Jameson Cahill, Peter G. Casazza, Martin Ehler, and Shidong Li, Tight and ran-
+         dom nonorthogonal fusion frames, Trends in harmonic analysis and its applications,
+         Contemp. Math., vol. 650, Amer. Math. Soc., Providence, RI, 2015, pp. 23–36.
+         MR 3441732
+[CCK13] Jameson Cahill, Peter G. Casazza, and Gitta Kutyniok, Operators and frames, J.
+         Operator Theory 70 (2013), no. 1, 145–164. MR 3085820
+[Che18]  Xuemei Chen, The Kaczmarz algorithm, row action methods, and statistical learning
+         algorithms, Frames and harmonic analysis, Contemp. Math., vol. 706, Amer. Math.
+         Soc., Providence, RI, 2018, pp. 115–127. MR 3796634
+[CM13]   B. Currey and A. Mayeli, The orthonormal dilation property for abstract Parseval
+         wavelet frames, Canad. Math. Bull. 56 (2013), no. 4, 729–736. MR 3121682
+[CT13]   Wojciech Czaja and James H. Tanis, Kaczmarz algorithm and frames, Int. J. Wavelets
+         Multiresolut. Inf. Process. 11 (2013), no. 5, 1350036, 13. MR 3117886
+[DJ07]   Dorin Ervin Dutkay and Palle E. T. Jorgensen, Fourier frequencies in affine iterated
+         function systems, J. Funct. Anal. 247 (2007), no. 1, 110–137. MR 2319756
+[DS88]   Nelson Dunford and Jacob T. Schwartz, Linear operators. Part II, Wiley Classics
+         Library, John Wiley & Sons, Inc., New York, 1988, Spectral theory. Selfadjoint oper-
+         ators in Hilbert space, With the assistance of William G. Bade and Robert G. Bartle,
+         Reprint of the 1963 original, A Wiley-Interscience Publication. MR 1009163
+[DS17]   Harry Dym and Santanu Sarkar, Multiplication operators with deficiency indices (p, p)
+         and sampling formulas in reproducing kernel Hilbert spaces of entire vector valued
+         functions, J. Funct. Anal. 273 (2017), no. 12, 3671–3718. MR 3711878
+[EN11]   Yonina C. Eldar and Deanna Needell, Acceleration of randomized Kaczmarz method
+         via the Johnson-Lindenstrauss lemma, Numer. Algorithms 58 (2011), no. 2, 163–177.
+         MR 2835851
+[EP01]   David J. Evans and Constantin Popa, Projections and preconditioning for inconsistent
+         least-squares problems, Int. J. Comput. Math. 78 (2001), no. 4, 599–616. MR 1898684
+[GK19]   Constantin Grigo and Phaedon-Stelios Koutsourelakis, Bayesian Model and Di-
+         mension Reduction for Uncertainty Propagation: Applications in Random Media,
+         SIAM/ASA J. Uncertain. Quantif. 7 (2019), no. 1, 292–323. MR 3922239
+    POSITIVE DEFINITE KERNELS, ALGORITHMS, FRAMES, AND APPROXIMATIONS                        35
+
+
+[HJL+ 13]Deguang Han, Wu Jing, David Larson, Pengtong Li, and Ram N. Mohapatra, Dilation
+         of dual frame pairs in Hilbert C ∗ -modules, Results Math. 63 (2013), no. 1-2, 241–250.
+         MR 3009685
+[HJW18a] John E. Herr, Palle E. T. Jorgensen, and Eric S. Weber, A matrix characterization
+         of boundary representations of positive matrices in the Hardy space, Frames and har-
+         monic analysis, Contemp. Math., vol. 706, Amer. Math. Soc., Providence, RI, 2018,
+         pp. 255–270. MR 3796641
+[HJW18b] John E. Herr, Palle E.T. Jorgensen, and Eric S. Weber, A characterization of boundary
+         representations of positive matrices in the hardy space via the abel product, Linear
+         Algebra and its Applications (2018).
+[HJW19] John E. Herr, Palle E. T. Jorgensen, and Eric S. Weber, Positive matrices in the
+         Hardy space with prescribed boundary representations via the Kaczmarz algorithm, J.
+         Anal. Math. 138 (2019), no. 1, 209–234. MR 3996038
+[HKLW07] Deguang Han, Keri Kornelson, David Larson, and Eric Weber, Frames for under-
+         graduates, Student Mathematical Library, vol. 40, American Mathematical Society,
+         Providence, RI, 2007. MR 2367342
+[HS05]   Rainis Haller and Ryszard Szwarc, Kaczmarz algorithm in Hilbert space, Studia Math.
+         169 (2005), no. 2, 123–132. MR 2140451
+[Hut81]  John E. Hutchinson, Fractals and self-similarity, Indiana Univ. Math. J. 30 (1981),
+         no. 5, 713–747. MR 625600
+[Hut95]          , Fractals: a mathematical framework, Complex. Int. 2 (1995), 14 HTML doc-
+         uments. MR 1656855
+[HWW05] Ryan Harkins, Eric Weber, and Andrew Westmeyer, Encryption schemes using fi-
+         nite frames and Hadamard arrays, Experiment. Math. 14 (2005), no. 4, 423–433.
+         MR 2193805
+[IZ13]   Andrey Aleksandrovich Ivanov and Aleksandr Ivanovich Zhdanov, Kaczmarz algo-
+         rithm for Tikhonov regularization problem, Appl. Math. E-Notes 13 (2013), 270–276.
+         MR 3159297
+[JC16]   I. T. Jolliffe and Jorge Cadima, Principal component analysis: a review and recent
+         developments, Philosophical Transactions of the Royal Society A: Mathematical, Phys-
+         ical and Engineering Sciences 374 (2016).
+[JKST19] Palle E. T. Jorgensen, Sooran Kang, Myung-Sin Song, and Feng Tian, Dimension
+         reduction and kernel principal component analysis, 2019.
+[JS07]   Palle E. T. Jorgensen and Myung-Sin Song, Entropy encoding, Hilbert space,
+         and Karhunen-Loève transforms, J. Math. Phys. 48 (2007), no. 10, 103503, 22.
+         MR 2362796
+[JS18]           , Infinite-dimensional measure spaces and frame analysis, Acta Appl. Math.
+         155 (2018), 41–56. MR 3800275
+[JT15]   Palle Jorgensen and Feng Tian, Infinite networks and variation of conductance func-
+         tions in discrete Laplacians, J. Math. Phys. 56 (2015), no. 4, 043506, 27. MR 3390972
+[JT17]           , Non-commutative analysis, World Scientific Publishing Co. Pte. Ltd., Hack-
+         ensack, NJ, 2017, With a foreword by Wayne Polyzou. MR 3642406
+[JT19a]          , Realizations and factorizations of positive definite kernels, J. Theoret.
+         Probab. 32 (2019), no. 4, 1925–1942. MR 4020693
+[JT19b]  Palle E. T. Jorgensen and Feng Tian, Random measures in infinite-dimensional dy-
+         namics, Advanced topics in mathematical analysis, CRC Press, Boca Raton, FL, 2019,
+         pp. 1–38. MR 3888850
+[Kac37]  S. Kaczmarz, Angenäherte Auflösung von Systemen linearer Gleichungen, Bulletin
+         International de l’Académie Polonaise des Sciences et des Lettres 35 (1937), 355–357.
+[KLZ09]  Victor Kaftal, David R. Larson, and Shuang Zhang, Operator-valued frames, Trans.
+         Amer. Math. Soc. 361 (2009), no. 12, 6349–6385. MR 2538596
+[KM06]   Stanisł aw Kwapień and Jan Mycielski, Erratum to the paper: “On the Kaczmarz
+         algorithm of approximation in infinite-dimensional spaces” [Studia Math. 148 (2001),
+         no. 1, 75–86; mr1881441], Studia Math. 176 (2006), no. 1, 93. MR 2263965
+[LHN18]  Yeejin Lee, Keigo Hirakawa, and Truong Q. Nguyen, Camera-aware multi-resolution
+         analysis for raw image sensor data compression, IEEE Trans. Image Process. 27
+         (2018), no. 6, 2806–2817. MR 3780557
+36             PALLE E.T. JORGENSEN, MYUNG-SIN SONG, AND JAMES TIAN
+
+
+[LZ15]      Junhong Lin and Ding-Xuan Zhou, Learning theory of randomized Kaczmarz algo-
+            rithm, J. Mach. Learn. Res. 16 (2015), 3341–3365. MR 3450541
+[Mar14]     S. Marsland, Machine learning: An algorithmic perspective, Chapman and Hall/CRC,
+            Boca Raton, FL, 2014.
+[MP05]      M. Mudrova and A. Prochazka, Principal component analysis in image processing,
+            Proceedings of In Technical Computing Conference (2005).
+[Nel69]     Edward Nelson, Topics in dynamics. I: Flows, Mathematical Notes, Princeton Uni-
+            versity Press, Princeton, N.J.; University of Tokyo Press, Tokyo, 1969. MR 0282379
+[NSW16]     Deanna Needell, Nathan Srebro, and Rachel Ward, Stochastic gradient descent,
+            weighted sampling, and the randomized Kaczmarz algorithm, Math. Program. 155
+            (2016), no. 1-2, Ser. A, 549–573. MR 3439812
+[Pop01]     C. Popa, Oblique projections as preconditioner in Kaczmarz-like algorithms, Proceed-
+            ings of the Ninth Symposium of Mathematics and its Applications, Rom. Acad., Tim-
+            işoara, 2001, pp. 118–122. MR 2208766
+[Pop10]     Constantin Popa, A hybrid Kaczmarz-conjugate gradient algorithm for image recon-
+            struction, Math. Comput. Simulation 80 (2010), no. 12, 2272–2285. MR 2721177
+[Pop18]             , Convergence rates for Kaczmarz-type algorithms, Numer. Algorithms 79
+            (2018), no. 1, 1–17. MR 3846956
+[PS75]      K. R. Parthasarathy and K. Schmidt, Stable positive definite functions, Trans. Amer.
+            Math. Soc. 203 (1975), 161–174. MR 0370681 (51 #6907)
+[Reb20]     Jason         Rebello,          Principal       component         analysis       (pca)
+            (https://www.mathworks.com/matlabcentral/fileexchange/42847-principal-
+            component-analysis-pca), MATLAB Central File Exchange (2020).
+[RS75]      Michael Reed and Barry Simon, Methods of modern mathematical physics. II. Fourier
+            analysis, self-adjointness, Academic Press [Harcourt Brace Jovanovich, Publishers],
+            New York-London, 1975. MR 0493420
+[Rue82]     David Ruelle, Characteristic exponents and invariant manifolds in Hilbert space, Ann.
+            of Math. (2) 115 (1982), no. 2, 243–290. MR 647807
+[Rue04]             , Thermodynamic formalism, second ed., Cambridge Mathematical Library,
+            Cambridge University Press, Cambridge, 2004, The mathematical structures of equi-
+            librium statistical mechanics. MR 2129258
+[Son08]     Myung-Sin Song, Entropy encoding in wavelet image compression, Representations,
+            wavelets, and frames, Appl. Numer. Harmon. Anal., Birkhäuser Boston, Boston, MA,
+            2008, pp. 293–311. MR 2459323
+[SSA+ 14]   Shruti Sehgal, Harpreet Singh, Mohit Agarwal, V. Bhasker, and Shantanu, Data anal-
+            ysis using principal component analysis, 2014 International Conference on Medical
+            Imaging, m-Health and Emerging Communication Systems (MedCom), 2014, pp. 45–
+            48.
+[SV09]      Thomas Strohmer and Roman Vershynin, A randomized Kaczmarz algorithm with ex-
+            ponential convergence, J. Fourier Anal. Appl. 15 (2009), no. 2, 262–278. MR 2500924
+[Szw07]     Ryszard Szwarc, Kaczmarz algorithm in Hilbert space and tight frames, Appl. Comput.
+            Harmon. Anal. 22 (2007), no. 3, 382–385. MR 2311862
+[Tha20]     Alaa         Tharwat,           Pca        (principal      component        analysis)
+            (https://www.mathworks.com/matlabcentral/fileexchange/30792-pca-principal-
+            component-analysis), MATLAB Central File Exchange (2020).
+[Wat67]     Satosi Watanabe, Karhunen-Loève expansion and factor analysis: Theoretical re-
+            marks and applications, Trans. Fourth Prague Conf. on Information Theory, Statisti-
+            cal Decision Functions, Random Processes (Prague, 1965), Academia, Prague, 1967,
+            pp. 635–660. MR 0234768 (38 #3084)
+[XCM09]     Huan Xu, Constantine Caramanis, and Shie Mannor, High dimensional principal com-
+            ponent analysis with contaminated data, 2009 IEEE Information Theory Workshop on
+            Networking and Information Theory, 2009, pp. 246–250.
+[Zha19]     Jian-Jun Zhang, A new greedy Kaczmarz algorithm for the solution of very large linear
+            systems, Appl. Math. Lett. 91 (2019), 207–212. MR 3896982
+   POSITIVE DEFINITE KERNELS, ALGORITHMS, FRAMES, AND APPROXIMATIONS           37
+
+
+   (Palle E.T. Jorgensen) Department of Mathematics, The University of Iowa, Iowa
+City, IA 52242-1419, U.S.A.
+   Email address: palle-jorgensen@uiowa.edu
+
+  (Myung-Sin Song) Department of Mathematics and Statistics, Southern Illinois
+University Edwardsville, Edwardsville, IL 62026, USA
+  Email address: msong@siue.edu
+
+  (James F. Tian) Mathematical Reviews, 416 4th Street Ann Arbor, MI 48103-4816,
+U.S.A.
+  Email address: jft@ams.org
+

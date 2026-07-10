@@ -1,0 +1,619 @@
+
+
+A New Bridge Links the Strange Math of Infinity to Computer Science | Quanta Magazine
+
+Quanta Homepage
+
+Physics
+
+Mathematics
+
+Biology
+
+Computer Science
+
+Topics
+
+Archive
+
+Special Issues
+
+Podcasts
+
+Videos
+
+Qualia Essays
+
+Multimedia
+
+Q&As
+
+Explainers
+
+About Quanta
+
+                                    Search
+
+Search for:
+
+Search
+
+Search
+
+                Newsletter            
+
+Get the latest news delivered to your inbox.
+
+Email
+
+Subscribe
+
+Recent newsletters
+
+                                    Follow Quanta
+
+Facebook
+
+Youtube
+
+Instagram
+
+RSS
+
+An editorially independent publication supported by the Simons Foundation.
+
+Quanta Homepage
+
+Physics
+
+Mathematics
+
+Biology
+
+Computer Science
+
+Topics
+
+Archive
+
+Saved articles
+
+Saved Articles
+
+Create a reading list by clicking the Read Later icon next to the articles you wish to save.
+
+See all saved articles
+
+Login
+
+Log out
+
+Change password
+
+Search
+
+Type search term(s)
+ and press enter
+
+What are you looking for?
+
+Search
+
+Popular
+                                    Searches
+
+                                                    Mathematics
+
+                                                    Physics
+
+                                                    Black Holes
+
+                                                    Evolution
+
+Home
+
+                A New Bridge Links the Strange Math of Infinity to Computer Science            
+
+Comment
+
+Save Article
+
+Read Later
+
+Share
+
+Facebook
+
+Copied!
+
+Copy link
+
+Email
+
+Pocket
+
+Reddit
+
+Ycombinator
+
+Comment
+
+Comments
+
+Save Article
+
+                Read Later
+
+Read Later
+
+set theory
+
+A New Bridge Links the Strange Math of Infinity to Computer Science
+
+By 
+
+Joseph Howlett
+
+November 21, 2025
+
+            Descriptive set theorists study the niche mathematics of infinity. Now, they’ve shown that their problems can be rewritten in the concrete language of algorithms.        
+
+Comment
+
+Save Article
+
+Read Later
+
+Valentin Tkach for 
+Quanta Magazine
+
+Introduction
+
+By 
+Joseph Howlett                
+
+Contributing Writer
+
+November 21, 2025
+
+View PDF/Print Mode
+
+combinatorics
+
+computer science
+
+foundations of mathematics
+
+graph theory
+
+infinity
+
+logic
+
+mathematics
+
+network science
+
+set theory
+
+All topics
+
+All of modern mathematics is built on the foundation of set theory, the study of how to organize abstract collections of objects. But in general, research mathematicians don’t need to think about it when they’re solving their problems. They can take it for granted that sets behave the way they’d expect, and carry on with their work.
+
+Descriptive set theorists are an exception. This small community of mathematicians never stopped studying the fundamental nature of sets — particularly the strange infinite ones that other mathematicians ignore.
+
+Their field just got a lot less lonely. In 2023, a mathematician named 
+Anton Bernshteyn
+ published a 
+deep and surprising connection
+ between the remote mathematical frontier of descriptive set theory and modern computer science.
+
+He showed that all problems about certain kinds of infinite sets can be rewritten as problems about how networks of computers communicate. The bridge connecting the disciplines surprised researchers on both sides. Set theorists use the language of logic, computer scientists the language of algorithms. Set theory deals with the infinite, computer science with the finite. There’s no reason why their problems should be related, much less equivalent.
+
+“This is something really weird,” said 
+Václav Rozhoň
+, a computer scientist at Charles University in Prague. “Like, you are not supposed to have this.”
+
+Since Bernshteyn’s result, his peers have been exploring how to move back and forth across the bridge to prove new theorems on either side, and how to extend that bridge to new classes of problems. Some descriptive set theorists are even starting to apply insights from the computer science side to reorganize the landscape of their entire field, and to rethink the way they understand infinity.
+
+                Share this article
+
+Facebook
+
+Copied!
+
+Copy link
+
+Email
+
+Pocket
+
+Reddit
+
+Ycombinator
+
+                    Newsletter
+
+Get Quanta Magazine delivered to your inbox
+
+Subscribe now
+
+Recent newsletters
+
+Anton Bernshteyn has been uncovering and exploring important connections between set theory and more applied fields, such as computer science and dynamical systems.
+
+Siiri Kivimaki
+
+“This whole time we’ve been working on very similar problems without directly talking to each other,” said 
+Clinton Conley
+, a descriptive set theorist at Carnegie Mellon University. “It just opens the doors to all these new collaborations.”
+
+Broken Sets
+
+Bernshteyn was an undergraduate when he first heard of descriptive set theory — as an example of a field that had once mattered, then decayed to nothing. More than a year would pass before he found out the professor had been wrong.
+
+In 2014, as a first-year graduate student at the University of Illinois, Bernshteyn took a logic course with 
+Anush Tserunyan
+, who would later become one of his advisers. She corrected the misconception. “She should take all the credit for me being in this field,” he said. “She really made it seem that logic and set theory is this glue that connects all different parts of math.”
+
+Descriptive set theory dates back to Georg Cantor, who proved in 1874 that there are 
+different sizes of infinity
+. The set of whole numbers (0, 1, 2, 3, …), for instance, is the same size as the set of all fractions, but smaller than the set of all real numbers.
+
+Anush Tserunyan sees descriptive set theory as the connective tissue that holds different parts of mathematics together.
+
+Courtesy of Anush Tserunyan
+
+At the time, mathematicians were deeply uncomfortable with this menagerie of different infinities. “It’s hard to wrap your head around,” said Bernshteyn, who is now at the University of California, Los Angeles.
+
+Partly in response to that discomfort, mathematicians developed a different notion of size — one that described, say, how much length or area or volume a set might occupy, rather than the number of elements it contained. This notion of size is known as a set’s “measure” (in contrast to Cantor’s notion of size, which is a set’s “cardinality”). One of the simplest types of measure — the Lebesgue measure — quantifies a set’s length. While the set of real numbers between zero and 1 and the set of real numbers between zero and 10 are both infinite and have the same cardinality, the first has a Lebesgue measure of 1 and the second a Lebesgue measure of 10.
+
+Georg Cantor discovered that mathematical infinity can come in many different shapes and sizes.
+
+Emilio Segre Visual Archives
+
+To study more complicated sets, mathematicians use other types of measures. The uglier a set is, the fewer ways there are to measure it. Descriptive set theorists ask questions about which sets can be measured according to different definitions of “measure.” They then arrange them in a hierarchy based on the answers to those questions. At the top are sets that can be constructed easily and studied using any notion of measure you want. At the bottom are “unmeasurable” sets, which are so complicated they can’t be measured at all. “The word people often use is ‘pathological,’” Bernshteyn said. “Nonmeasurable sets are really bad. They’re counterintuitive, and they don’t behave well.”
+
+This hierarchy doesn’t just help set theorists map out the landscape of their field; it also gives them insights into what tools they can use to tackle more typical problems in other areas of math. Mathematicians in some fields, such as dynamical systems, group theory and probability theory, need information about the size of the sets they’re using. A set’s position in the hierarchy determines what tools they can use to solve their problem.
+
+Descriptive set theorists are thus like librarians, tending to a massive bookshelf of different kinds of infinite sets (and the different ways of measuring them). Their job is to take a problem, determine how complicated a set its solution requires, and place it on the proper shelf, so that other mathematicians can take note.
+
+Making a Choice
+
+Bernshteyn belongs to a group of librarians who sort problems about infinite sets of nodes connected by edges, called graphs. In particular, he studies graphs that have infinitely many separate pieces, each containing infinitely many nodes. Most graph theorists don’t study these kinds of graphs; they focus on finite ones instead. But such infinite graphs can represent and provide information about dynamical systems and other important kinds of sets, making them a major area of interest for descriptive set theorists.
+
+Here’s an example of the kind of infinite graph that Bernshteyn and his colleagues might study. Start with a circle, which contains infinitely many points. Pick one point: This will be your first node. Then move a fixed distance around the circle’s circumference. This gives you a second node. For example, you might move one-fifth of the way around the circle. Connect the two nodes with an edge. Move the same distance to a third node, and connect it to the previous one. And so on.
+
+If you move one-fifth of the way around the circle each time, it’ll take five steps to get back where you started. In general, if you move any distance that can be written as a fraction, the nodes will form a closed loop. But if the distance can’t be written as a fraction, the process will go on forever. You’ll get an infinite number of connected nodes.
+
+Mark Belan/
+Quanta Magazine
+
+But that’s not all: This infinitely long sequence forms only the first piece of your graph. Even though it contains infinitely many nodes, it doesn’t contain all the points on the circle. To generate the other pieces of the graph, start at one of those other points. Now move the same distance at each step as you did in the first piece. You’ll end up building a second infinite sequence of connected nodes, totally disconnected from the first.
+
+Do this for every possible new starting point on the circle. You’ll get a graph consisting of infinitely many separate pieces, with each piece made of an infinite number of nodes.
+
+Mathematicians can then ask whether it’s possible to color the nodes in this graph so that they obey certain rules. Using just two colors, for instance, can you color every node in the graph so that no two connected nodes are the same color? The solution might seem straightforward. Look at the first piece of your graph, pick a node, and color it blue. Then color the rest of the piece’s nodes in an alternating pattern: yellow, blue, yellow, blue. Do the same for every piece in your graph: Pick a node, color it blue, then alternate colors. Ultimately, you’ll use just two colors to achieve your task.
+
+But to accomplish this coloring, you had to rely on a hidden assumption that set theorists call the axiom of choice. It’s one of the nine fundamental building blocks from which all mathematical statements are constructed. According to this axiom, if you start with a bunch of sets, you can choose one item from each of those sets to create a new set — even if you have infinitely many sets to choose from. This axiom is useful, in that it allows mathematicians to prove all sorts of statements of interest. But it also leads to strange paradoxes. Descriptive set theorists avoid it.
+
+Your graph had infinitely many pieces. This corresponds to having infinitely many sets. You chose one item from each set — the first point you decided to color blue in each of the pieces. All those blue points formed a new set. You used the axiom of choice.
+
+Which leads to a problem when you color the rest of the nodes in alternating patterns of blue and yellow. You’ve colored each node (which has zero length) separately, without any understanding of how nodes relate to one another when they come from different pieces of the graph. This means that you can’t describe the set of all the graph’s blue nodes, or the set of all its yellow nodes, in terms of length either. In other words, these sets are unmeasurable. Mathematicians can’t say anything useful about them.
+
+To descriptive set theorists, this is unsatisfying. And so they want to figure out a way to color the graph in a continuous way — a way that doesn’t use the axiom of choice, and that gives them measurable sets.
+
+To do this, remember how you built the first piece of your graph: You picked a node on a circle and connected it to a second node some distance away. Now color the first node blue, the second yellow, and the entire arc between them blue. Similarly, color the arc between the second and third nodes yellow. Color the third arc blue. And so on.
+
+Soon, you’ll have made it almost completely around the circle — meaning that you’ve assigned a color to all the nodes in your graph except for the ones that fall in a small, leftover segment. Say the last arc you colored was yellow. How do you color this final, smaller segment? You can’t use blue, because these nodes will connect to nodes in the original arc you colored blue. But you also can’t use yellow, because these nodes connect back to yellow ones from the previous arc.
+
+You have to use a third color — say, green — to complete your coloring.
+
+Still, the sets of blue, yellow and green nodes you end up with are all just pieces of the circle’s circumference, rather than the scatterings of points you ended up with when you used the axiom of choice. You can calculate the lengths of these sets. They’re measurable.
+
+Descriptive set theorists therefore place the two-color version of the problem on the lowest shelf in their hierarchy (for unmeasurable sets), while the three-color problem goes on a much higher shelf of problems — ones where lots of notions of measure can be applied.
+
+Bernshteyn spent his years in graduate school studying such coloring problems, shelving them one by one. Then, shortly after he finished his degree, he stumbled on a potential way to shelve them all at once — and to show that these problems have a much deeper and more mathematically relevant structure than anyone had realized.
+
+Round by Round
+
+From time to time, Bernshteyn enjoys going to computer science talks, where graphs are finite and represent networks of computers.
+
+In 2019, one of those talks changed the course of his career. It was about “distributed algorithms” — sets of instructions that run simultaneously on multiple computers in a network to accomplish a task without a central coordinator.
+
+Say you have a bunch of Wi-Fi routers in a building. Nearby routers can interfere with each other if they use the same communication frequency channel. So each router needs to choose a different channel from the ones used by its immediate neighbors.
+
+Computer scientists can reframe this as a coloring problem on a graph: Represent each router as a node, and connect nearby ones with edges. Using just two colors (representing two different frequency channels), find a way to color each node so that no two connected nodes are the same color.
+
+Mathematicians Bridge Finite-Infinite Divide
+
+foundations of mathematics
+
+                    Mathematicians Bridge Finite-Infinite Divide                
+
+May 24, 2016
+
+Comment
+
+Save Article
+
+Read Later
+
+But there’s a catch: Nodes can only communicate with their immediate neighbors, using so-called local algorithms. First, each node runs the same algorithm and assigns itself a color. It then communicates with its neighbors to learn how other nodes are colored in a small region around it. Then it runs the algorithm again to decide whether to keep its color or switch it. It repeats this step until the whole network has a proper coloring.
+
+Computer scientists want to know how many steps a given algorithm requires. For example, any local algorithm that can solve the router problem with only two colors must be incredibly inefficient, but it’s possible to find a very efficient local algorithm if you’re allowed to use three.
+
+At the talk Bernshteyn was attending, the speaker discussed these thresholds for different kinds of problems. One of the thresholds, he realized, sounded a lot like a threshold that existed in the world of descriptive set theory — about the number of colors required to color certain infinite graphs in a measurable way.
+
+To Bernshteyn, it felt like more than a coincidence. It wasn’t just that computer scientists are like librarians too, shelving problems based on how efficiently their algorithms work. It wasn’t just that these problems could also be written in terms of graphs and colorings.
+
+Perhaps, he thought, the two bookshelves had more in common than that. Perhaps the connection between these two fields went much, much deeper.
+
+Perhaps all the books, and their shelves, were identical, just written in different languages — and in need of a translator.
+
+Opening the Door
+
+Bernshteyn set out to make this connection explicit. He wanted to show that every efficient local algorithm can be turned into a Lebesgue-measurable way of coloring an infinite graph (that satisfies some additional important properties). That is, one of computer science’s most important shelves is equivalent to one of set theory’s most important shelves (high up in the hierarchy).
+
+He began with the class of network problems from the computer science lecture, focusing on their overarching rule — that any given node’s algorithm uses information about just its local neighborhood, whether the graph has a thousand nodes or a billion.
+
+To run properly, all the algorithm has to do is label each node in a given neighborhood with a unique number, so that it can log information about nearby nodes and give instructions about them. That’s easy enough to do in a finite graph: Just give every node in the graph a different number.
+
+The computer scientist Václav Rozhoň has been taking advantage of a newfound connection between set theory and network science to solve problems he’s interested in.
+
+Tomáš Princ, Charles University
+
+If Bernshteyn could run the same algorithm on an infinite graph, it meant he could color the graph in a measurable way — solving a graph-coloring question on the set theory side. But there was a problem: These infinite graphs are “uncountably” infinite. There’s no way to uniquely label all their nodes.
+
+Bernshteyn’s challenge was to find a cleverer way to label the graphs.
+
+He knew that he’d have to reuse labels. But that was fine so long as nearby nodes were labeled differently. Was there a way to assign labels without accidentally reusing one in the same neighborhood?
+
+Bernshteyn showed that there is always a way — no matter how many labels you decide to use, and no matter how many nodes your local neighborhood has. This means that you can always safely extend the algorithm from the computer science side to the set theory side. “Any algorithm in our setup corresponds to a way of measurably coloring any graph in the descriptive set theory setup,” Rozhoň said.
+
+The proof came as a surprise to mathematicians. It demonstrated a deep link between computation and definability, and between algorithms and measurable sets. Mathematicians are now exploring how to take advantage of Bernshteyn’s discovery. In a paper published this year, for instance, Rozhoň and his colleagues figured out that it’s possible to 
+color special graphs called trees
+ by looking at the same problem in the computer science context. The result also illuminated which tools mathematicians might use to study the trees’ corresponding dynamical systems. “This is a very interesting experience, trying to prove results in a field where I don’t understand even the basic definitions,” Rozhoň said.
+
+Related:
+
+Is Mathematics Mostly Chaos or Mostly Order?
+
+How Big Is Infinity?
+
+To Settle Infinity Dispute, a New Law of Logic
+
+Banach-Tarski and the Paradox of Infinite Cloning
+
+Mathematicians have also been working to translate problems in the other direction. In one case, they used set theory to 
+prove a new estimate
+ of how hard a certain class of problems is to solve.
+
+Bernshteyn’s bridge isn’t just about having a new tool kit for solving individual problems. It has also allowed set theorists to gain a clearer view of their field. There were lots of problems that they had no idea how to classify. In many cases, that’s now changed, because set theorists have computer scientists’ more organized bookshelves to guide them.
+
+Bernshteyn hopes this growing area of research will change how the working mathematician views set theorists’ work — that they’ll no longer see it as remote and disconnected from the real mathematical world. “I’m trying to change this,” he said. “I want people to get used to thinking about infinity.”
+
+By 
+Joseph Howlett                
+
+Contributing Writer
+
+November 21, 2025
+
+View PDF/Print Mode
+
+combinatorics
+
+computer science
+
+foundations of mathematics
+
+graph theory
+
+infinity
+
+logic
+
+mathematics
+
+network science
+
+set theory
+
+All topics
+
+                Share this article
+
+Facebook
+
+Copied!
+
+Copy link
+
+Email
+
+Pocket
+
+Reddit
+
+Ycombinator
+
+                    Newsletter
+
+Get Quanta Magazine delivered to your inbox
+
+Subscribe now
+
+Recent newsletters
+
+                The Quanta Newsletter            
+
+Get highlights of the most important news delivered to your email inbox
+
+Email
+
+Subscribe
+
+Recent newsletters
+
+Also in 
+Mathematics
+
+After 80 Years, Mathematicians Give Famed ‘Erdős Method’ an Upgrade
+
+graph theory
+
+                    After 80 Years, Mathematicians Give Famed ‘Erdős Method’ an Upgrade                
+
+By 
+
+Leila Sloman
+
+June 26, 2026
+
+Comment
+
+Save Article
+
+Read Later
+
+What Is the Positive Grassmannian and Why Does It Show Up Everywhere?
+
+The Joy of Why
+
+                    What Is the Positive Grassmannian and Why Does It Show Up Everywhere?                
+
+By 
+
+Janna Levin
+
+ +1 author
+
+Steven Strogatz
+
+June 25, 2026
+
+Comment
+
+Save Article
+
+Read Later
+
+Seven Perfect Shuffles Randomize a Deck of Cards. But How Many Sloppy Ones?
+
+probability
+
+                    Seven Perfect Shuffles Randomize a Deck of Cards. But How Many Sloppy Ones?                
+
+By 
+
+John Pavlus
+
+June 17, 2026
+
+Comment
+
+Save Article
+
+Read Later
+
+Comment on this article
+
+Quanta Magazine moderates comments to facilitate an informed, substantive, civil conversation. Abusive, profane, self-promotional, misleading, incoherent or off-topic comments will be rejected. Moderators are staffed during regular business hours (New York time) and can only accept comments written in English. 
+
+Show comments
+
+Next article
+
+Cosmic Paradox Reveals the Awful Consequence of an Observer-Free Universe
+
+Quanta Homepage
+
+Facebook
+
+Youtube
+
+Instagram
+
+About Quanta
+
+Archive
+
+Contact Us
+
+Terms & Conditions
+
+Privacy Policy
+
+AI Editorial Policy
+
+All Rights Reserved © 2026
+
+An editorially independent publication supported by the Simons Foundation.
+
+Simons Foundation
+
+Close
+
+Log in to Quanta
+
+Use your social network
+
+Facebook
+
+Connect with Facebook
+
+Connect with Google
+
+or
+
+email
+
+password
+
+Remember me
+
+Forgot your password ?
+
+        Don't have an account yet?
+
+Sign up
+
+Close
+
+Forgot your password?
+
+We’ll email you instructions to reset your password
+
+email
+
+Close
+
+Change your password
+
+Enter your new password
+
+Password
+
+Retype new password
+
+Close
+
+Sign Up
+
+First Name
+
+Last Name
+
+Email
+
+Password
+
+Retype Password
+
+            Creating an account means you accept Quanta Magazine's
+
+Terms & Conditions
+ and 
+Privacy Policy
+

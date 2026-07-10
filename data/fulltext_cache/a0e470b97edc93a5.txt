@@ -1,0 +1,811 @@
+
+
+Notices of the American Mathematical Society
+
+Welcome to the 
+Notices of the American Mathematical Society
+.
+With 
+support from AMS membership
+, we are pleased to share the journal with the global mathematical community.
+
+PDFLINK
+
+Short Stories
+
+Numerical Conformal Mapping
+Lloyd N. Trefethen
+Communicated by 
+Notices
+ Associate Editor Reza Malek-Madani
+
+Conformal mapping may be the best-known topic in complex analysis. Any simply connected nonempty domain 
+$\Omega$
+ in the complex plane 
+$\mathbb{C}$
+ (assuming 
+)
+$\Omega \ne \mathbb{C}$
+ can be mapped bijectively to the unit disk by an analytic function with nonvanishing derivative, as in Figure 
+1
+. If 
+$\Omega$
+ is doubly connected, it can be mapped to a circular annulus 
+$1<|z|<R$
+ for some 
+,
+$R$
+ called the 
+conformal modulus,
+ which is uniquely determined by 
+,
+$\Omega$
+ as in Figure 
+2
+. If 
+$\Omega$
+ has connectivity higher than 
+,
+$2$
+ it can be mapped onto various canonical domains such as a disk with exclusions in the form of slits or smaller disks, as in Figure 
+3
+.
+
+Figure 1
+.
+A simply connected conformal map onto the unit disk. The most common target domains are a disk, a half-plane, or a rectangle.
+
+Figure 2
+.
+A doubly connected conformal map onto a circular annulus, which is the most common target domain.
+
+Figure 3
+.
+A triply connected conformal map onto a disk with radial slits. Other standard target domains involve exclusions in the form of disks or circular arcs.
+
+Most conformal maps cannot be found analytically, so when computers began to appear in the 1950s and 1960s, the field of 
+numerical conformal mapping
+ was born. Many methods involve discretizations of integral equations, such as those of Gerschgorin, Lichtenstein, Kerzmann-Stein-Trummer, Symm, and Theodorsen. Dieter Gaier of the University of Giessen published an important monograph in those early years, which unfortunately was never translated into English. A later reference is the book of Henrici 
+12
+, and there is a major survey paper by Wegmann 
+20
+.
+
+Conformal mapping of polygons has always been a conspicuous special case, thanks to the Schwarz-Christoffel transformation, and this became readily available for applications with the appearance of Driscoll’s SC Toolbox in Matlab in the 1990s 
+6
+8
+. To this day, this Toolbox remains the most widely used software for conformal mapping, and Figure 
+4
+ illustrates that its power extends to nontrivial geometries 
+9
+. This figure shows the mapping of a 
+quadrilateral,
+ namely a domain with four distinguished boundary points, onto a rectangle, whose aspect ratio 
+$\mu \approx 18.20539$
+ (also called the conformal modulus) is uniquely determined 
+16
+.
+
+Figure 4
+.
+Schwarz-Christoffel map of “Emma’s maze” computed with the SC Toolbox; image taken from 
+6
+. The problem domain, defined by a rectangle with crooked slits, is known as a quadrilateral because of the four distinguished vertices (where red meets black). The canonical domain, not shown, is a rectangle.
+
+Many other conformal mapping methods have been developed. For multiply connected domains, for example, there are methods based on generalized Schwarz-Christoffel mapping 
+5
+, the Schottky-Klein prime function 
+4
+, and an integral equation related to the Neumann kernel 
+14
+. In a field as old as this, there are numerous further methods that have been explored, including “circle packing” (introduced by Thurston) 
+17
+, the “zipper algorithm” 
+13
+, the “charge simulation method” (a version of the method of fundamental solutions) 
+1
+, rational approximation 
+10
+19
+, and many varieties of series and iterations, sometimes accelerated by the fast multipole method 
+2
+15
+. Commands 
+conformal
+ and 
+conformal2
+ for smooth simply and doubly connected conformal mapping can be found in the 
+Chebfun Guide
+
+7
+. Figure 
+5
+ shows another map of a quadrilateral, now one with curved sides, computed by the “lightning” rational function method 
+10
+.
+
+Figure 5
+.
+Map of another quadrilateral onto a rectangle computed with rational functions 
+10
+19
+.
+
+Traditionally, a fundamental distinction in numerical conformal mapping was between methods mapping from problem domain to canonical domain and those going in the inverse direction, from canonical domain to problem domain. In the former case, the map can be reduced to a Laplace problem, so the integral equations of Lichtenstein and Symm are linear, for example, whereas that of Theodorsen in the other direction is nonlinear. However, the recent appearance of fast numerical methods for rational approximation has diminished the distinction between the forward and inverse maps. Once one has the 
+boundary correspondence function,
+ the homeomorphism between the domain and range boundaries (provided this makes sense, as is always the case for Jordan domains), it is an easy matter to use it to compute efficient and accurate rational approximations in both directions 
+11
+. For example, the conformal map of an irregular hexagon to the unit disk, and its inverse map, can each typically be approximated to six-digit accuracy by rational functions of degrees of the order of 50 to 100. Evaluation of such functions takes just microseconds per point.
+
+As just mentioned, conformal mapping is a special case of a Laplace problem. For a simply connected domain 
+$\Omega$
+ bounded by a Jordan curve 
+$\Gamma$
+ enclosing the origin, following Theorem 16.5a of 
+12
+, suppose we seek the unique conformal map 
+$f$
+ onto the unit disk with 
+$f(0) = 0$
+ and 
+.
+$f'(0)>0$
+ Then 
+$g(z) = \log (f(z)/z)$
+ is a nonzero analytic function on 
+$\Omega$
+ that is continuous on 
+$\overline{\Omega }$
+ and has real part 
+$-\log |z|$
+ for 
+.
+$z\in \Gamma$
+ If we write 
+,
+$g(z) = u(z) + iv(z)$
+ where 
+$u$
+ and 
+$v$
+ are real harmonic functions, then 
+$u$
+ is the solution of the Dirichlet problem
+
+$$\begin{equation} \Delta u = 0\, ; \quad u(z) = -\log |z|, \ z\in \Gamma , \tag{1} \end{equation}$$
+
+and 
+$v$
+ is its harmonic conjugate in 
+$\Omega$
+ with 
+.
+$v(0) = 0$
+ Combining these elements, we see that 
+$f$
+ is given by the formula
+
+$$\begin{equation} f(z) = z \, e^{u(z) + i v(z)}. \tag{2} \end{equation}$$
+
+Thus a solution to (1), provided it also produces the harmonic conjugate 
+,
+$v(z)$
+ solves the conformal mapping problem. Note that 
+$u(z) + \log |z|$
+ is the Green’s function of 
+$\Omega$
+ with respect to the point 
+,
+$z=0$
+ so 
+$f$
+ is essentially the exponential of the Green’s function. Domains of higher connectivity can also be reduced to Laplace problems.
+
+The availability of so many tools for numerical conformal mapping may suggest that the problem is easy, but in fact there are challenges, of which two stand out. One is that most domains of practical interest contain corners, where the mapping function will usually be singular, and it is essential to treat these specially if one wants more than a digit or two of accuracy. In the case of a polygon, the corners define the whole problem, and these are dealt with by the Schwarz-Christoffel formula and its numerical realization, e.g., with compound Gauss-Jacobi quadrature. The other great challenge is that of exponential distortions, which are referred to as the phenomenon of “crowding.” Whenever a domain is elongated in certain directions, even as mildly as in the example of Figure 
+1
+, its conformal map onto a nonelongated canonical region will involve exponentially large distortions. As summarized in Theorems 2–5 of 
+11
+, the distortion scales as 
+,
+$\exp (\pi L)$
+ where 
+$L$
+ is the aspect ratio of the elongation. As a consequence, it is usually not a good idea to attempt to map an elongated region onto, say, a disk or a half-plane. Other targets such as rectangles or infinite strips may come into play, for example to treat a domain like that of Figure 
+4
+.
+
+I have saved the most philosophical question for last. What is the use of numerical conformal mapping? The following views are personal, and not all experts would agree with them.
+
+A great use of numerical conformal maps is to give us insight into principles of complex analysis, harmonic functions, and their applications. For example, the blue curves in Figure 
+4
+ can be interpreted as flow lines of electricity, heat, ideal fluid, or probability from one end to the other. If the image rectangle has length-to-width ratio 
+,
+$L$
+ for example, then a channel cut into this shape from a piece of metal will have electrical resistance 
+,
+$\rho L$
+ where 
+$\rho$
+ is the resistance of a unit square. A good image, which will almost always have to be numerically computed, can fix these ideas beautifully in the mind. Throughout my career I have drawn pleasure and insight from pictures like these. I cannot imagine teaching complex variables without showing some online demonstrations of conformal maps.
+
+Specifically, two of the features that numerical conformal maps illustrate compellingly are precisely the two computational challenges mentioned above: behavior near singularities (note how the blue curves in Figure 
+4
+ avoid salient corners while wrapping tightly around reentrant ones), and exponential distortions (note the big white region in Figure 
+1
+).
+
+The use of conformal maps that is mentioned perhaps more often is that they may be helpful for solving problems. For example, every complex analysis text tells the reader that a conformal map may be used to solve the Laplace equation, since it reduces a hard problem to an easy one. I believe that the truth is not so simple. In fact, computing a conformal map is essentially the same as solving a Laplace problem, and whatever numerical method one employs to find the map could probably be applied to the Laplace problem directly. So in many cases, nothing is gained numerically from conformal mapping. The lesson becomes even stronger for applications to other partial differential equations (PDEs) that may not be conformally invariant.
+
+Figure 6
+.
+Repetition of Figure 4 with a color spectrum showing the conformal map—or equivalently, the solution to a Laplace problem.
+
+For example, suppose one is given a Laplace Dirichlet problem on the domain on the left side of Figure 
+1
+. One can solve it by mapping to the disk and applying the Poisson integral formula—but where does one get that map? Probably by solving an integral equation or expanding in a series, and these techniques would work equally well for the Laplace problem itself. In smooth multiply connected domains, for example, series expansions work beautifully for solving Laplace problems 
+18
+, and although a circular annulus is a natural domain for doubly connected geometries, the canonical domains with connectivity 
+$\ge 3$
+ are less natural and do not often lead to an easy solution of your PDE. In more extreme cases, conformal maps may not merely transplant the difficulty but increase it, when corners or elongations are present.
+
+So for me, the glory of numerical conformal mapping is not in the numbers it produces, but in the images and insights. To finish with a fine image provided by Toby Driscoll, Figure 
+6
+ shows Emma’s maze again, but now with the solution indicated by a color spectrum blending from red at one end to blue at the other. The lightness of the colors is scaled by 
+$1-y^2$
+ if the target rectangle has its smaller dimension 
+.
+$-1<y<1$
+ As a mark of exponential distortion or “crowding,” a particle beginning Brownian motion at the center of this royal road (marked by a black dot) would have exponentially small probability very close to 
+$(8/\pi ) \exp (-\mu \pi /2) \approx 9.692555\times 10^{-13}$
+ of hitting the boundary first at one of the ends rather than along the sides 
+3
+, 
+chapter 10
+.
+
+Acknowledgment
+
+A number of colleagues have helped me considerably in preparing this column, and I am particularly grateful to Tom DeLillo and Toby Driscoll.
+
+References
+[
+1
+]
+ K. Amano, 
+A charge simulation method for the numerical conformal mapping of interior, exterior and doubly-connected domains
+, J. Comput. Appl. Math. 
+53
+ (1994), no. 3, 353–370, DOI 
+10.1016/0377-0427(94)90063-9
+. MR
+1310252
+, 
+
+AMSref
+
+\bib{amano}{article}{
+ author={Amano, K.},
+ title={A charge simulation method for the numerical conformal mapping of interior, exterior and doubly-connected domains},
+ journal={J. Comput. Appl. Math.},
+ volume={53},
+ date={1994},
+ number={3},
+ pages={353--370},
+ issn={0377-0427},
+ review={\MR {1310252}},
+ doi={10.1016/0377-0427(94)90063-9},
+}
+
+[
+2
+]
+ Lehel Banjai and L. N. Trefethen, 
+A multipole method for Schwarz-Christoffel mapping of polygons with thousands of sides
+, SIAM J. Sci. Comput. 
+25
+ (2003), no. 3, 1042–1065, DOI 
+10.1137/S1064827502411675
+. MR
+2046124
+, 
+
+AMSref
+
+\bib{banjai}{article}{
+ author={Banjai, Lehel},
+ author={Trefethen, L. N.},
+ title={A multipole method for Schwarz-Christoffel mapping of polygons with thousands of sides},
+ journal={SIAM J. Sci. Comput.},
+ volume={25},
+ date={2003},
+ number={3},
+ pages={1042--1065},
+ issn={1064-8275},
+ review={\MR {2046124}},
+ doi={10.1137/S1064827502411675},
+}
+
+[
+3
+]
+ Folkmar Bornemann, Dirk Laurie, Stan Wagon, and Jörg Waldvogel, 
+The SIAM 100-digit challenge
+: 
+A study in high-accuracy numerical computing
+, Society for Industrial and Applied Mathematics (SIAM), Philadelphia, PA, 2004, DOI 
+10.1137/1.9780898717969
+. MR
+2076374
+, 
+
+AMSref
+
+\bib{bornemann}{book}{
+ author={Bornemann, Folkmar},
+ author={Laurie, Dirk},
+ author={Wagon, Stan},
+ author={Waldvogel, J\"{o}rg},
+ title={The SIAM 100-digit challenge},
+ subtitle={A study in high-accuracy numerical computing},
+ publisher={Society for Industrial and Applied Mathematics (SIAM), Philadelphia, PA},
+ date={2004},
+ pages={xii+306},
+ isbn={0-89871-561-X},
+ review={\MR {2076374}},
+ doi={10.1137/1.9780898717969},
+}
+
+[
+4
+]
+ Darren Crowdy, 
+Solving problems in multiply connected domains
+, CBMS-NSF Regional Conference Series in Applied Mathematics, vol. 97, Society for Industrial and Applied Mathematics (SIAM), Philadelphia, PA, 2020, DOI 
+10.1137/1.9781611976151.ch1
+. MR
+4094688
+, 
+
+AMSref
+
+\bib{crowdy}{book}{
+ author={Crowdy, Darren},
+ title={Solving problems in multiply connected domains},
+ series={CBMS-NSF Regional Conference Series in Applied Mathematics},
+ volume={97},
+ publisher={Society for Industrial and Applied Mathematics (SIAM), Philadelphia, PA},
+ date={2020},
+ pages={xxii+434},
+ isbn={978-1-611976-14-4},
+ review={\MR {4094688}},
+ doi={10.1137/1.9781611976151.ch1},
+}
+
+[
+5
+]
+ Thomas K. DeLillo, Alan R. Elcrat, Everett H. Kropf, and John A. Pfaltzgraff, 
+Efficient calculation of Schwarz-Christoffel transformations for multiply connected domains using Laurent series
+, Comput. Methods Funct. Theory 
+13
+ (2013), no. 2, 307–336, DOI 
+10.1007/s40315-013-0023-1
+. MR
+3089960
+, 
+
+AMSref
+
+\bib{dekp}{article}{
+ author={DeLillo, Thomas K.},
+ author={Elcrat, Alan R.},
+ author={Kropf, Everett H.},
+ author={Pfaltzgraff, John A.},
+ title={Efficient calculation of Schwarz-Christoffel transformations for multiply connected domains using Laurent series},
+ journal={Comput. Methods Funct. Theory},
+ volume={13},
+ date={2013},
+ number={2},
+ pages={307--336},
+ issn={1617-9447},
+ review={\MR {3089960}},
+ doi={10.1007/s40315-013-0023-1},
+}
+
+[
+6
+]
+T. A. Driscoll, Schwarz-Christoffel Toolbox in Matlab, 
+https://github.com/tobydriscoll/sc-toolbox
+.
+[
+7
+]
+T. A. Driscoll, N. Hale, and L. N. Trefethen, 
+Chebfun Guide
+, Pafnuty Publications, Oxford (2014); see also 
+www.chebfun.org
+.
+[
+8
+]
+ Tobin A. Driscoll and Lloyd N. Trefethen, 
+Schwarz-Christoffel mapping
+, Cambridge Monographs on Applied and Computational Mathematics, vol. 8, Cambridge University Press, Cambridge, 2002, DOI 
+10.1017/CBO9780511546808
+. MR
+1908657
+, 
+
+AMSref
+
+\bib{dt}{book}{
+ author={Driscoll, Tobin A.},
+ author={Trefethen, Lloyd N.},
+ title={Schwarz-Christoffel mapping},
+ series={Cambridge Monographs on Applied and Computational Mathematics},
+ volume={8},
+ publisher={Cambridge University Press, Cambridge},
+ date={2002},
+ pages={xvi+132},
+ isbn={0-521-80726-3},
+ review={\MR {1908657}},
+ doi={10.1017/CBO9780511546808},
+}
+
+[
+9
+]
+ Tobin A. Driscoll and Stephen A. Vavasis, 
+Numerical conformal mapping using cross-ratios and Delaunay triangulation
+, SIAM J. Sci. Comput. 
+19
+ (1998), no. 6, 1783–1803, DOI 
+10.1137/S1064827596298580
+. MR
+1638056
+, 
+
+AMSref
+
+\bib{crdt}{article}{
+ author={Driscoll, Tobin A.},
+ author={Vavasis, Stephen A.},
+ title={Numerical conformal mapping using cross-ratios and Delaunay triangulation},
+ journal={SIAM J. Sci. Comput.},
+ volume={19},
+ date={1998},
+ number={6},
+ pages={1783--1803},
+ issn={1064-8275},
+ review={\MR {1638056}},
+ doi={10.1137/S1064827596298580},
+}
+
+[
+10
+]
+ Abinand Gopal and Lloyd N. Trefethen, 
+Solving Laplace problems with corner singularities via rational functions
+, SIAM J. Numer. Anal. 
+57
+ (2019), no. 5, 2074–2094, DOI 
+10.1137/19M125947X
+. MR
+4000218
+, 
+
+AMSref
+
+\bib{gopal}{article}{
+ author={Gopal, Abinand},
+ author={Trefethen, Lloyd N.},
+ title={Solving Laplace problems with corner singularities via rational functions},
+ journal={SIAM J. Numer. Anal.},
+ volume={57},
+ date={2019},
+ number={5},
+ pages={2074--2094},
+ issn={0036-1429},
+ review={\MR {4000218}},
+ doi={10.1137/19M125947X},
+}
+
+[
+11
+]
+ Abinand Gopal and Lloyd N. Trefethen, 
+Representation of conformal maps by rational functions
+, Numer. Math. 
+142
+ (2019), no. 2, 359–382, DOI 
+10.1007/s00211-019-01023-z
+. MR
+3941934
+, 
+
+AMSref
+
+\bib{rep}{article}{
+ author={Gopal, Abinand},
+ author={Trefethen, Lloyd N.},
+ title={Representation of conformal maps by rational functions},
+ journal={Numer. Math.},
+ volume={142},
+ date={2019},
+ number={2},
+ pages={359--382},
+ issn={0029-599X},
+ review={\MR {3941934}},
+ doi={10.1007/s00211-019-01023-z},
+}
+
+[
+12
+]
+ Peter Henrici, 
+Applied and computational complex analysis. Vol. 3
+: 
+Discrete Fourier analysis—Cauchy integrals—construction of conformal maps—univalent functions
+, Pure and Applied Mathematics (New York), John Wiley & Sons, Inc., New York, 1986. MR
+822470
+, 
+
+AMSref
+
+\bib{henrici}{book}{
+ author={Henrici, Peter},
+ title={Applied and computational complex analysis. Vol. 3},
+ series={Pure and Applied Mathematics (New York)},
+ subtitle={Discrete Fourier analysis---Cauchy integrals---construction of conformal maps---univalent functions},
+ publisher={John Wiley \& Sons, Inc., New York},
+ date={1986},
+ pages={xvi+637},
+ isbn={0-471-08703-3},
+ review={\MR {822470}},
+}
+
+[
+13
+]
+ Donald E. Marshall and Steffen Rohde, 
+Convergence of a variant of the zipper algorithm for conformal mapping
+, SIAM J. Numer. Anal. 
+45
+ (2007), no. 6, 2577–2609, DOI 
+10.1137/060659119
+. MR
+2361903
+, 
+
+AMSref
+
+\bib{zipper}{article}{
+ author={Marshall, Donald E.},
+ author={Rohde, Steffen},
+ title={Convergence of a variant of the zipper algorithm for conformal mapping},
+ journal={SIAM J. Numer. Anal.},
+ volume={45},
+ date={2007},
+ number={6},
+ pages={2577--2609},
+ issn={0036-1429},
+ review={\MR {2361903}},
+ doi={10.1137/060659119},
+}
+
+[
+14
+]
+ Mohamed M. S. Nasser, 
+Numerical conformal mapping via a boundary integral equation with the generalized Neumann kernel
+, SIAM J. Sci. Comput. 
+31
+ (2009), no. 3, 1695–1715, DOI 
+10.1137/070711438
+. MR
+2491542
+, 
+
+AMSref
+
+\bib{nasser}{article}{
+ author={Nasser, Mohamed M. S.},
+ title={Numerical conformal mapping via a boundary integral equation with the generalized Neumann kernel},
+ journal={SIAM J. Sci. Comput.},
+ volume={31},
+ date={2009},
+ number={3},
+ pages={1695--1715},
+ issn={1064-8275},
+ review={\MR {2491542}},
+ doi={10.1137/070711438},
+}
+
+[
+15
+]
+ S. T. O’Donnell and V. Rokhlin, 
+A fast algorithm for the numerical evaluation of conformal mappings
+, SIAM J. Sci. Statist. Comput. 
+10
+ (1989), no. 3, 475–487, DOI 
+10.1137/0910031
+. MR
+991737
+, 
+
+AMSref
+
+\bib{odonnell}{article}{
+ author={O'Donnell, S. T.},
+ author={Rokhlin, V.},
+ title={A fast algorithm for the numerical evaluation of conformal mappings},
+ journal={SIAM J. Sci. Statist. Comput.},
+ volume={10},
+ date={1989},
+ number={3},
+ pages={475--487},
+ issn={0196-5204},
+ review={\MR {991737}},
+ doi={10.1137/0910031},
+}
+
+[
+16
+]
+ Nicolas Papamichael and Nikos Stylianopoulos, 
+Numerical conformal mapping
+: 
+Domain decomposition and the mapping of quadrilaterals
+, World Scientific Publishing Co. Pte. Ltd., Hackensack, NJ, 2010, DOI 
+10.1142/9789814289535
+. MR
+2681383
+, 
+
+AMSref
+
+\bib{papa}{book}{
+ author={Papamichael, Nicolas},
+ author={Stylianopoulos, Nikos},
+ title={Numerical conformal mapping},
+ subtitle={Domain decomposition and the mapping of quadrilaterals},
+ publisher={World Scientific Publishing Co. Pte. Ltd., Hackensack, NJ},
+ date={2010},
+ pages={xii+229},
+ isbn={978-981-4289-52-8},
+ isbn={981-4289-52-3},
+ review={\MR {2681383}},
+ doi={10.1142/9789814289535},
+}
+
+[
+17
+]
+ Kenneth Stephenson, 
+Introduction to circle packing
+: 
+The theory of discrete analytic functions
+, Cambridge University Press, Cambridge, 2005. MR
+2131318
+, 
+
+AMSref
+
+\bib{packing}{book}{
+ author={Stephenson, Kenneth},
+ title={Introduction to circle packing},
+ subtitle={The theory of discrete analytic functions},
+ publisher={Cambridge University Press, Cambridge},
+ date={2005},
+ pages={xii+356},
+ isbn={978-0-521-82356-2},
+ isbn={0-521-82356-0},
+ review={\MR {2131318}},
+}
+
+[
+18
+]
+ Lloyd N. Trefethen, 
+Series solution of Laplace problems
+, ANZIAM J. 
+60
+ (2018), no. 1, 1–26, DOI 
+10.1017/S1446181118000093
+. MR
+3853349
+, 
+
+AMSref
+
+\bib{series}{article}{
+ author={Trefethen, Lloyd N.},
+ title={Series solution of Laplace problems},
+ journal={ANZIAM J.},
+ volume={60},
+ date={2018},
+ number={1},
+ pages={1--26},
+ issn={1446-1811},
+ review={\MR {3853349}},
+ doi={10.1017/S1446181118000093},
+}
+
+[
+19
+]
+ Lloyd N. Trefethen, 
+Numerical conformal mapping with rational functions
+, Comput. Methods Funct. Theory 
+20
+ (2020), no. 3-4, 369–387, DOI 
+10.1007/s40315-020-00325-w
+. MR
+4175490
+, 
+
+AMSref
+
+\bib{ncm}{article}{
+ author={Trefethen, Lloyd N.},
+ title={Numerical conformal mapping with rational functions},
+ journal={Comput. Methods Funct. Theory},
+ volume={20},
+ date={2020},
+ number={3-4},
+ pages={369--387},
+ issn={1617-9447},
+ review={\MR {4175490}},
+ doi={10.1007/s40315-020-00325-w},
+}
+
+[
+20
+]
+ Rudolf Wegmann, 
+Methods for numerical conformal mapping
+, Handbook of complex analysis: geometric function theory. Vol. 2, Elsevier Sci. B. V., Amsterdam, 2005, pp. 351–477, DOI 
+10.1016/S1874-5709(05)80013-7
+. MR
+2121864
+, 
+
+AMSref
+
+\bib{wegmann}{article}{
+ author={Wegmann, Rudolf},
+ title={Methods for numerical conformal mapping},
+ conference={ title={Handbook of complex analysis: geometric function theory. Vol. 2}, },
+ book={ publisher={Elsevier Sci. B. V., Amsterdam}, },
+ date={2005},
+ pages={351--477},
+ review={\MR {2121864}},
+ doi={10.1016/S1874-5709(05)80013-7},
+}
+
+Lloyd N. Trefethen is a professor of applied mathematics in residence in the School of Engineering and Applied Sciences at Harvard University. His email address is 
+[email protected]
+.
+
+Article DOI: 
+10.1090/noti3269
+Credits
+
+Figures 
+1
+–
+3
+ and 
+5
+ are courtesy of the author.
+
+Figures 
+4
+ and 
+6
+ are courtesy of Toby Driscoll.
+
+Photo of the author is courtesy of Eliza Grinnell.
+

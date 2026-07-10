@@ -1,0 +1,1660 @@
+Séminaire BOURBAKI                                                                                                                Juin 2026
+78e année, 2025–2026, n° 1256
+
+
+
+                           THE ENERGY OF DILUTE BOSE GASES
+                                 [after Fournais and Solovej]
+
+                                                        by Julien Sabin
+
+
+
+
+                                                              Contents
+      Introduction. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1
+      1. The model. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3
+      2. The two-body ground state energy. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6
+      3. The Bogoliubov approximation. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11
+      4. Reduction to small boxes. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
+      5. Rigorous implementation of Bogoliubov’s method. . . . . . . . . . . . . . . . . . . 19
+      6. Renormalization of the interaction potential. . . . . . . . . . . . . . . . . . . . . . . . 23
+      7. The Lee–Huang–Yang lower bound. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 26
+      Acknowledgements. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 28
+      References. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 28
+
+
+
+Introduction
+
+   Bosons are quantum particles present in nature either as fundamental particles (such
+as the photon) or as composite particles (such as the Helium 4 atom). It has been
+realized since the birth of quantum mechanics that such particles have very peculiar
+properties: in 1924, Bose and Einstein argued that a system of (identical) such particles
+must condensate at sufficiently low temperatures. Roughly speaking, condensation
+means that most particles in the system want to occupy the same quantum state. Bose–
+Einstein condensation has been observed experimentally for the first time in 1995 and
+led to the 2001 Nobel Prize in Physics.
+   A major insufficiency of the theoretical argument of Bose and Einstein is the fact
+that it applies only to non-interacting particles. When particles start to interact, their
+individual behaviour is much harder to understand due to correlations appearing between
+particles. A milestone in the study of systems of a large number of identical bosons
+(such a system is often referred to as a Bose gas) was the article of Bogoliubov (1947)
+who proposed an approximate model that is the basis of many subsequent works on the
+Bose gas. Putting Bogoliubov’s approximation on solid mathematical grounds has been
+the topic of many works, starting from Ginibre (1968) and much later Lieb, Seiringer,
+                                         1256–02
+
+
+and Yngvason (2005). Despite these advances, the mathematical understanding of
+Bose–Einstein condensation remains incomplete.
+   Another famous result concerning the Bose gas was a formula proposed by Lee,
+Huang, and Yang (1957) in a regime where Bogoliubov’s method is expected to fail.
+Their formula is a two-term asymptotics of the energy per unit volume of a Bose gas,
+in the small density limit. The rigorous proof of this formula has been done in several
+steps. First, Dyson (1957) proved an upper bound for the first term in the asymptotics,
+and had a lower bound off by a factor 1/14. The correct lower bound was proved by
+Lieb and Yngvason (1998) forty years later! The second term in the asymptotics was
+proved as an upper bound by Yau and Yin (2009). Finally, a matching lower bound
+for the second term in the asymptotics was proved by Fournais and Solovej (2020),
+achieving the full justification of the Lee–Huang–Yang formula. It is this last work that
+we review here.
+   The mathematical analysis of the Bose gas has a long history with many names
+attached to it. A good first reference is the book of Lieb, Seiringer, Solovej, and
+Yngvason (2005) about the works until 2005. After this date, there were many key
+results about the Bose gas, sometimes in regimes different from the one that we consider
+here (for instance, the mean-field regime of the Gross–Pitaevskii regime). We cannot
+give all the references attached to these very important results, but let us at least point
+out the review articles (Lewin, 2015; Schlein, 2022; Nam, 2023).
+   The result of Fournais and Solovej that we review here is partly the continuation of
+these previous results, and also has some new key insights that we will try to emphasize
+here. After their article, several works appeared that both generalize the scope of their
+result and simplify some of the arguments. In a subsequent article, Fournais and Solovej
+(2023b) extend their work to include more general interactions between particles (in
+particular the hard-core one). Then, Fournais, Girardot, Junge, Morin, and Olivieri
+(2024b) extended these results to two-dimensional bosons (while the result of Fournais
+and Solovej covered the three-dimensional case). The physically important case of
+positive temperature (the work of Fournais and Solovej deals with the zero-temperature
+case) was then tackled by Haberberger, Hainzl, Nam, Seiringer, and Triay (2023), with
+a simplified proof and extended result in Fournais, Girardot, Junge, Morin, Olivieri, and
+Triay (2026). A review of the work of Fournais and Solovej can be found in (Fournais
+and Solovej, 2023a), and a review video can be found in (Solovej, 2025).
+   This review is aimed towards general mathematicians. For those who are already
+familiar with the topic, we refer to the articles mentioned above. Here, we will focus
+on the basic formalism, problems, and tools around the Bose gas with a particular
+emphasis on the lower bound of the energy per unit volume in the dilute regime, which
+is the setting of Fournais and Solovej. As we already said, their result is a two-term
+asymptotics in this dilute regime. In this review, we will (partly) prove the first term in
+the asymptotics using their method, to illustrate the techniques and motivate the new
+ideas that they needed to go to the next order. Originally, the proof of the first term
+                                           1256–03
+
+
+in the asymptotics is due to Lieb and Yngvason (1998), with a different method. The
+main sources for our presentation were of course the original article of Fournais and
+Solovej, but also, importantly, Fournais, Girardot, Junge, Morin, and Olivieri (2024a)
+and Fournais, Girardot, Junge, Morin, Olivieri, and Triay (2026).
+   This survey is structured as follows. In Section 1, we introduce the formalism of
+Bose gases, the definition of condensation, as well as the statement of the Lee–Huang–
+Yang asymptotics. In Section 2, we compute the ground state energy of two interacting
+particles which is the main building block to understand the dilute regime. Interestingly,
+this exercise already illustrates several key techniques such as the use of spectral gaps. In
+Section 3, we explain the Bogoliubov approximation, a key tool to understand interacting
+Bose gases. In Section 4, we state a technical but crucial tool in the analysis, which
+shows that in order to get asymptotics in a large box, it is enough to prove asymptotics
+in a much smaller box. In Section 5, we explain how to rigorously justify the Bogoliubov
+approximation to obtain first-order lower bounds to the ground state energy, with a
+major defect that even if the order of this lower bound is correct, the pre-factor is not.
+In Section 6, we explain another key idea which allows correcting this pre-factor: the
+renormalization of the interaction potential. Finally, in Section 7 we explain the broad
+ideas that allow to go to the next order and obtain the full Lee–Huang–Yang lower
+bound.
+
+
+1. The model
+
+  We begin with the basic definitions that allow to state the main result that is the
+topic of this survey, the Lee–Huang–Yang formula of Theorem 1.12.
+
+1.1. States and condensation
+Definition 1.1 (Bosonic quantum states). — Let Ω ⊂ R3 be a measurable set and
+N ∈ N∗ . A bosonic N -body quantum state in Ω is a function in L2 (ΩN , C) which is
+symmetric with respect to the exchange of the N variables in ΩN (the space of such
+functions is denoted by L2sym (ΩN )) and such that ΩN |Ψ|2 = 1.
+                                                  R
+
+
+Example 1.2. — Let φ ∈ L2 (Ω, C) be such that                 Ω |φ|
+                                                                      2
+                                                          R
+                                                                          = 1 (in other words, φ is a
+1-body quantum state). Then, the function
+                            Ψ(x1 , . . . , xN ) := φ(x1 ) · · · φ(xN )
+is a bosonic N -body quantum state in Ω. Such a state is called a product state, denoted
+by φ⊗N .
+
+  Let (ΨN )N ∈N∗ be a sequence of bosonic N -body quantum states in some set Ω. A
+natural definition of Bose–Einstein condensation would be that there exists φ such that
+                               lim ∥ΨN − φ⊗N ∥L2 (ΩN ) = 0.
+                              N →+∞
+                                                   1256–04
+
+
+This definition is too restrictive: it does not allow for some particles not to be in the
+state φ. For instance, if ψ ∈ L2 (Ω) is normalized and orthogonal to φ, the (symmetrized
+version of the) state ΨN := φ(x1 ) · · · φ(xN −1 )ψ(xN ) satisfies ∥ΨN − φ⊗N ∥L2 = 1 while
+only 1 among the N particles is not in the state φ.
+
+Definition 1.3. — Let Ψ be a bosonic N -body quantum state in Ω and let φ be a
+1-body quantum state. The average number of particles in Ψ which are in the state φ,
+denoted by nφ (Ψ), is
+                      Z        Z                                             2
+        nφ (Ψ) := N                    φ(x1 )Ψ(x1 , x2 , . . . , xN ) dx1        dx2 · · · dxN ∈ [0, N ].
+                       ΩN −1       Ω
+
+
+Remark 1.4. — For a product state, one of course has that nφ (φ⊗N ) = N .
+
+Definition 1.5 (Bose–Einstein condensation). — Let (ΨN )N ∈N∗ be a sequence of
+bosonic N -body quantum states in Ω, and let φ be a 1-body quantum state. We say
+that (ΨN )N ∈N∗ condenses in the state φ if
+                                                  nφ (ΨN )
+                                            lim inf        > 0.
+                                            N →+∞    N
+
+  When the above liminf is 1, we say that we have full condensation in φ. Otherwise,
+we may have partial/fractional condensation.
+  In the remaining, Ω will be a large box
+
+                                              CL := [− L2 , L2 ]3 ,
+
+for some large L > 0.
+
+1.2. Energy
+  Let v ∈ L∞ (R3 , R) be an even function such that v ⩾ 0 a.e. and such that v is
+compactly supported. This function is called the interaction potential which describes
+how two particles interact. In classical mechanics, a particle situated at x ∈ R3 and a
+particle situated at y ∈ R3 have an interaction energy v(x − y). The generalization to
+quantum mechanics is given in the following definition.
+
+Definition 1.6 (Energy of a quantum state). — Let N ∈ N∗ and L > 0. Let Ψ be a
+bosonic N -body quantum state in CL such that Ψ ∈ H 1 ((CL )N ). The energy of Ψ is
+                       Z            N
+                                   X                            N                              
+                                                      2                                     2
+                                                                 X
+             E(Ψ) :=                      |∇xj Ψ(x)|      + 21           v(xj − xk )|Ψ(x)|          dx.
+                          (CL )N   j=1                           j,k=1
+                                                                  j̸=k
+
+The infimum of E(Ψ) over all such Ψ is called the ground state energy in CL , denoted
+by E(N, L). Any Ψ such that E(Ψ) = E(N, L) is called a ground state in CL .
+                                           1256–05
+
+
+Remark 1.7. — The energy of Ψ may be formally written as E(Ψ) = ⟨Ψ, HN,L Ψ⟩ where
+⟨·, ·⟩ denotes the inner product in L2 ((CL )N ), and HN,L is the formal Hamiltonian
+                                  N                    N
+                                  X                1 X
+                         HN,L =       (−∆)xj +             v(xj − xk ).
+                                  j=1              2 j,k=1
+                                                      j̸=k
+
+
+We use the word “formal” because we don’t want to enter into the details over which
+domain this Hamiltonian is defined as an unbounded operator. The term involving
+the Laplacian describes the kinetic energy of the particles, and the term involving v
+describes the interaction energy of the particles.
+
+
+Remark 1.8. — For non-interacting particles, that is when v = 0, we have E(N, L) = 0
+and the unique ground state is given by Ψ(x1 , . . . , xN ) = φ0 (x1 ) · · · φ0 (xN ) with
+
+                                        φ0 (x) = L−3/2 ,
+
+i.e., Ψ ≡ L−3N/2 . In other words, when v = 0, the ground state is a product state, and
+we have full condensation in φ0 .
+
+
+  The following result is due to Ruelle (1969, Thm. 3.5.11).
+
+
+Proposition 1.9 (Existence of the thermodynamic limit)
+  Let ρ > 0. Then, the following limit exists:
+
+                                                     E(N, L)
+                                 e(ρ) :=     lim             .
+                                           N,L→+∞      L3
+                                           N/L3 →ρ
+
+
+
+Remark 1.10. — The number N/L3 is the number of particles per unit volume, which
+is called the density of particles.
+
+
+  A major open problem in the field is the following.
+
+
+Conjecture 1.11 (Bose–Einstein condensation in the thermodynamic limit)
+   Let ρ > 0. For any N ∈ N∗ , let ΨN be a ground state in CL for L = ρ−1/3 N 1/3 .
+Then, (ΨN )N ∈N∗ condenses in the state φ0 .
+
+
+   Condensation in the ground state is known in other regimes than the thermodynamic
+limit, for instance in the mean-field limit or in the Gross–Pitaevskii limit (see the reviews
+mentioned above).
+                                                  1256–06
+
+
+1.3. The Lee–Huang–Yang formula
+   A simpler problem than knowing the ground state, and in particular if it condenses,
+is knowing its energy. In the thermodynamic limit and in the dilute regime of small
+densities ρ → 0, we have the following very precise result:
+Theorem 1.12 (Lee–Huang–Yang formula). — As ρ → 0, we have
+                                  128
+                                               
+(1)                         2
+                 e(ρ) = 4πaρ 1 +   √      3 1/2
+                                       (ρa )      + o(ρ5/2 ),
+                                 15 π
+where a ⩾ 0 is given by
+                            1             Z                             
+(2)          a = a(v) :=        inf           2|∇ω(r)|2 + v(r)|1 − ω(r)|2 dr.
+                           8π ω∈Ḣ 1 (R3 ) R3
+   As we mentioned in the introduction, Eq. (1) was first proposed by Lee, Huang,
+and Yang (1957) by some formal arguments replacing the two-body potential v by a
+“pseudopotential.” The first order upper bound e(ρ) ⩽ 4πaρ2 + o(ρ2 ) was proved by
+Dyson (1957). The matching lower bound e(ρ) ⩾ 4πaρ2 + o(ρ2 ) was proved by Lieb
+and Yngvason (1998). The second order upper bound was then proved by Yau and Yin
+(2009), and finally the second order lower bound by Fournais and Solovej (2020).
+   The fact that upper and lower bounds are often proved separately is related to
+different strategies to obtain them: given the definition of e(ρ), obtaining an upper
+bound amounts to find an adequate Ψ such that E(Ψ) has the right asymptotics, while
+obtaining a lower bounds amounts to bound E(Ψ) from below for any Ψ. We will
+illustrate this strategy on a simple example: the two-body problem.
+
+
+2. The two-body ground state energy
+
+  The following result motivates the appearance of the number a in the statement of
+Theorem 1.12. It is stated without proof in Lieb (1963, p. 326).
+Proposition 2.1. — We have
+                                     lim L3 E(2, L) = 8πa,
+                                    L→+∞
+
+where E(2, L) was defined in Definition 1.6 and a was defined in (2) and satisfies
+                                     Z                                   
+                 8πa =       inf                2|∇ω(r)|2 + v(r)|1 − ω(r)|2 dr.
+                          ω∈Ḣ 1 (R3 ) R3
+
+  From Proposition 2.1, the main term 4πaρ2 of Theorem 1.12 can be easily interpreted:
+among the N particles, there are N (N − 1)/2 ∼ N 2 /2 pairs. Since the ground state
+energy of a single pair is ∼ 8πaL−3 by Proposition 2.1, it makes sense that the ground
+state energy per unit volume of N particles is
+                                   1    N2
+                              ∼       ×    × 8πaL−3 = 4πaρ2 ,
+                                   L3   2
+                                                                 1256–07
+
+
+since we recall that N/L3 ∼ ρ. It remains to justify this formal argument.
+   Proposition 2.1 has another important consequence: from it, we already see that
+the two-body problem for interacting particles (v ̸= 0) is very different from the non-
+interacting case (v = 0). Indeed, when v = 0 we saw in Remark 1.8 that Ψ0 ≡ L−3 ∈
+H 1 ((CL )2 ) is the unique ground state. When v ̸= 0, this product state has energy
+                                                                               Z
+                                             E(Ψ0 ) ∼L→+∞ L−3                          v,
+                                                                                R3
+which is not the behaviour given by Proposition 2.1. Indeed, we always have
+                                Z                                                                    Z
+                                                         2                             2
+                       inf                2|∇ω(r)| + v(r)|1 − ω(r)|                             dr ⩽        v(r) dr
+                    ω∈Ḣ 1 (R3 ) R3                                                                    R3
+
+by taking ω ≡ 0 as a test function. If v ̸= 0, the above inequality is actually always
+strict, taking εω as a test function and using that
+  Z                                                     
+            2|∇εω(r)|2 + v(r)|1 − εω(r)|2 dr
+   R3
+                         Z                       Z                                     Z
+                     =         v(r) dr − 2ε                  v(r)ω(r) dr + ε2                   (2|∇ω(r)|2 + v(r)|ω(r)|2 ) dr,
+                          R3                     R3                                        R3
+which is < v for ε small enough, if ω is such that vω ̸= 0.
+                R                                                                  R
+
+  Hence, already for two particles we see that ground states are not product states and
+that two-body correlations appear.
+
+Remark 2.2. — From standard compactness methods, it can be shown that the problem
+                                                 Z                                                         
+                      8πa(v) =             inf                   2|∇ω(r)|2 + v(r)|1 − ω(r)|2 dr
+                                      ω∈Ḣ 1 (R3 ) R3
+
+has a minimizer whose Euler–Lagrange equation is
+                                                 −2∆ω = v(1 − ω).
+Furthermore, one can assume that 0 ⩽ ω ⩽ 1 since replacing ω by min(1, |ω|) lowers
+the energy. This will be useful in Section 6.
+
+  Below, we provide the full proof of Proposition 2.1 since we could not find it anywhere,
+and since it illustrates several important aspects of the overall strategy: upper bound
+using a good test function, lower bound estimating the energy of any state from below,
+use of spectral gaps through Poincaré inequalities.
+Proof of Proposition 2.1. — Recall that
+                                             E(2, L) =                inf      E(Ψ),
+                                                                   Ψ∈H 1 (CL
+                                                                           2
+                                                                    R 2 )
+                                                                     |Ψ| =1
+
+where                                 Z
+                         E(Ψ) =        2
+                                           (|∇x Ψ|2 + |∇y Ψ|2 + v(x − y)|Ψ|2 ) dx dy.
+                                      CL
+
+For any Ψ ∈ H 1 ((CL )2 ) such         2
+                               that |Ψ| = 1,R define F (c, r) = Ψ(c + r/2, c − r/2), i.e.
+                                                     R
+
+Ψ(x, y) = F 21 (x + y), x − y . Then, we have |F (c, r)|2 = 1 where F is defined on the
+                                                                      1256–08
+
+
+set of (c, r) in R3 × R3 such that c ± r/2 ∈ CL . In these variables, the energy has the
+form                             Z
+                 E(Ψ) = E(F ) := ( 12 |∇c F |2 + 2|∇r F |2 + v(r)|F |2 ) dc dr.
+                         e
+
+For each fixed r ∈ C2L , c ± r/2 ∈ CL if and only if |cj | ⩽ (L − |rj |)/2 for all j ∈ {1, 2, 3}.
+We call this cube C(r), which has volume
+                                                                          3
+                                                                          Y
+                                                        |C(r)| =              (L − |rj |).
+                                                                          j=1
+
+For the upper bound, let ω ∈ Ḣ 1 (R3 ) and consider F (c, r) = L−3 (1 − ω(r)) so that
+  |Ψ|2 ∼L→+∞ 1 as well as
+R
+                                             Z
+                   E(Ψ) = L−3                        (2|∇r ω|2 + v(r)|1 − ω(r)|2 )                    (1 − |rLj | ) dr,
+                                                                                                 Y
+                                             C2L                                                  j
+
+so that                                                           Z
+                                         3
+                       lim sup L E(2, L) ⩽                             (2|∇r ω|2 + v(r)|1 − ω(r)|2 ) dr,
+                       L→+∞                                       R3
+
+for any ω ∈ Ḣ 1 (R3 ), proving the desired upper bound.
+  To prove the lower bound, let Ψ ∈ H 1 ((CL )2 ) with |Ψ|2 = 1. By the upper bound
+                                                        R
+
+that we just proved, we may also assume that E(Ψ) ≲ L−3 . Define
+                        1 Z
+                                                1/2                        
+             f (r) :=             |F (c, r)|2 dc
+                      |C(r)| C(r)
+                           Z                                                                                      1/2
+                       =             |F ((L − |r1 |)c1 , (L − |r2 |)c2 , (L − |r3 |)c3 , r)|2 dc                          ,
+                                C1
+
+which satisfies                                  Z
+                                                          f (r)2
+                                                                      Y
+                                                                          (L − |rj |) dr = 1,
+                                                  C2L                 j
+
+as well as             Z                                                             Z
+                                         2
+                                                                                         |F (c, r)|2 v(r) dc dr.
+                                                     Y
+                                f (r) v(r)                (L − |rj |) dr =
+                         C2L                          j
+
+For any j ∈ {1, 2, 3}, we have by Cauchy–Schwarz
+                   Z
+  |∂rj f (r)|2 ⩽           |(∂rj F )((L − |r1 |)c1 , (L − |r2 |)c2 , (L − |r3 |)c3 , r)
+                    C1
+
+                                 − sgn(rj )cj (∂cj F )((L − |r1 |)c1 , (L − |r2 |)c2 , (L − |r3 |)c3 , r)|2 dc
+so that                                                   Z
+                   |∂rj f (r)|2 |C(r)| ⩽                          (2|∂rj F (c, r)|2 + 21 |∂cj F (c, r)|2 ) dc,
+                                                           C(r)
+
+and hence E(F e ) ⩾ E(f
+                      e ). Define the measure dµ (r) :=
+                                                               j (1 − |rj |/L) dr on C2L . It
+                                                                                                 Q
+                                                    L
+satisfies µL (C2L ) = L , as well as a Poincaré inequality: for any u ∈ H 1 (C2L ), one has
+                       3
+                                     Z                                               Z
+                                                              2                  2
+                                                 |u − u| dµL ⩽ CL                          |∇u|2 dµL ,
+                                      C2L                                            C2L
+                                                              1256–09
+
+
+where u := L−3 C2L u dµL , for some C > 0 independent of L and u. The prefactor L2
+                  R
+
+follows from a scaling argument: once the inequality is known for L = 1, it follows for
+any L by considering u(L·) which is defined on C2 if u is defined on C2L . The fact that
+dµ1 satisfies a Poincaré inequality on C2 follows from the fact that dµ1 is factorized
+and the fact that the measure m(t) dt satisfies a Poincaré inequality on [−1, 1], with
+m(t) := 1 − |t|. Indeed, the criterion for such a measure to satisfy a Poincaré inequality
+is (Muckenhoupt, 1972), see also Roustant, Barthe, and Iooss (2017, Thm. 1):
+                                                  Z 1               Z x
+                                                                                 dt
+                                          sup           m(t) dt                      < +∞,
+                                      x∈[0,1) x                         0       m(t)
+which holds here since as x → 1 the second factor behaves as log(1 − x) while the first
+behaves as (1 − x)2 . Another important consequence of the Poincaré inequality is the
+fact that for any u ∈ H 1 (C2L ) one has
+                                                                            Z
+                                      ∥u − u∥2L6 (CL ) ⩽ C                              |∇u|2 dµL
+                                                                            C2L
+
+for some C > 0 independent of L. Indeed, by scaling it is again enough to prove it for
+L = 1. Then, by the Sobolev embedding H 1 (C1 ) ,→ L6 (C1 ) we have
+                              ∥u − u∥L6 (C1 ) ≲ ∥u − u∥L2 (C1 ) + ∥∇u∥L2 (C1 ) .
+Using that dµ1 ⩾ 21 dx on C1 , we deduce that
+                          Z                             Z                                  Z
+                                   |∇u|2 dx ⩽ 2                  |∇u|2 dµ1 ⩽ 2                     |∇u|2 dµ1 ,
+                          C1                             C1                                 C2
+
+and similarly that
+                      Z                                 Z                                      Z
+                                          2                                     2
+                              |u − u| dx ⩽ 2                     |u − u| dµ1 ≲                      |∇u|2 dµ1 ,
+                      C1                                    C2                                 C2
+
+where in the last inequality we used the Poincaré inequality. This indeed proves that
+                                                                        Z
+                                          ∥u − u∥2L6 (C1 ) ≲                        |∇u|2 dµ1 ,
+                                                                            C2
+
+which will be useful later on. Defining cf = L−3 C2L f dµL and g = f − cf , we deduce
+                                                                                    R
+
+by the Poincaré inequality that
+                                                   Z                                           Z
+                              −3                                    2                     −2
+                          L        ≳ E(f
+                                     e )⩾                   |∇f | dµL ≳ L                                g 2 dµL ,
+                                                    C2L                                            C2L
+
+so that g 2 dµL ≲ L−1 . Since f 2 dµL = c2f L3 + g 2 dµL , we deduce that (L3/2 cf )2 =
+        R                                     R                                      R
+
+1 + O(L−1 ) and hence cf = L−3/2 + O(L−5/2 ). Now since g 2 = (f − cf )2 ⩽ 2f 2 + 2c2f ,
+we deduce that vg 2 ⩽ 2 vf 2 + 2c2f v ⩽ 2E(f
+                R        R         R        e ) + 2c2 R v and hence R vg 2 ≲ L−3 . The
+                                                    f
+potential energy may be split as
+  Z          Z                        Z
+       2
+      vf =       v(cf + g) =   2
+                                          v(L−3/2 + g + O(L−5/2 ))2
+                                              Z                                                                      Z
+                                          =       v(L−3/2 + g)2 + O(L−5 ) + O(L−5/2 )                                    v(L−3/2 + g),
+                                                         1256–10
+
+
+and since | vg| ≲ ( vg 2 )1/2 ≲ L−3/2 , we deduce that                                 vf 2 = v(L−3/2 + g)2 + O(L−4 )
+                 R        R                                                        R          R
+
+so that
+                                          E(f   e −3/2 + g) + O(L−4 ).
+                                          e ) ⩾ E(L
+
+Writing g = −L−3/2 ω we finally deduce that
+                                      Z
+         −3                      −3
+                                               (2|∇ω|2 + v(1 − ω)2 )               (1 − |rj |/L) dr + O(L−4 ).
+                                                                               Y
+       L         ≳ E(Ψ) ⩾ L
+                                        C2L                                    j
+
+
+Now let Ln → +∞ be such that lim inf L→+∞ L3 E(2, L) = limn→+∞ L3n E(2, Ln ). Let
+Ψn ∈ H 1 ((CLn )2 ) with |Ψn |2 = 1 and E(Ψn ) ⩽ E(2, Ln ) + L−4
+                        R
+                                                              n . From Ψn we build ωn
+as above. Then, for any R > 0 the sequence (ωn ) is bounded in H 1 (B(0, R)) since
+                      Z                                                                       Z
+                                      2
+                                                                                                         |∇ωn |2 ,
+                                          Y
+                 1≳            |∇ωn |          (1 − |rj |/Ln ) dr ⩾ (1 − R/Ln )
+                       C2Ln                j                                                    B(0,R)
+
+
+and since
+                          Z                      Z                     Z
+                                           6                    6
+                                   |ωn | ⩽              |ωn | ≲                |∇ωn |2 dµLn ≲ 1
+                          B(0,R)                  CLn                   C2Ln
+
+as we saw above. Hence, by a diagonal argument we may assume that (ωn ) converges
+weakly in H 1 (B(0, R)) for all R > 0 (and strongly in L2 (B(0, R))) towards some
+       1
+ω ∈ Hloc (R3 ). Since C2Ln |∇ωn |2 j (1 − |rj |/Ln ) dr ≲ 1 we deduce that R3 |∇ω|2 ≲ 1.
+                      R           Q                                        R
+
+Similarly, we have R3 |ω|6 ≲ 1 and thus ω ∈ Ḣ 1 (R3 ). By strong local convergence and
+                    R
+
+the fact that v is compactly supported, we have
+             Z                                                                            Z
+                     (2|∇ωn |2 + v(1 − ωn )2 )                                                    (2|∇ω|2 + v(1 − ω)2 ).
+                                                        Y
+   lim inf                                                  (1 − |rj |/Ln ) dr ⩾
+   n→+∞      C2Ln                                                                          R3
+                                                        j
+
+This proves that
+                                                            Z
+                              lim inf L3 E(2, L) ⩾                  (2|∇ω|2 + v(1 − ω)2 ) dr
+                              L→+∞                          R3
+
+and the desired lower bound.
+
+
+Remark 2.3. — In the above proof, notice that a good trial state is given by Ψ(x, y) =
+L−3 (1−ω(x−y)), which has to be compared to the constant product state Ψ0 (x, y) = L−3 .
+Notice that Ψ and Ψ0 are very close in L2 -norm, since the L2 -norm of L−3 ω(x − y) has
+size ∼ L−3/2 . However, the energy of Ψ and Ψ0 are very different.
+
+Remark 2.4. — Another important point of the above proof is the use of Poincaré
+inequalities: on a box of size length L, the spectral gap is of size L−2 , much larger than
+the ground state energy of order L−3 . This allows to show that most of the ground
+state wants to be in the constant state Ψ0 .
+                                             1256–11
+
+
+3. The Bogoliubov approximation
+
+   From the last section, we understand where the main term in the Lee–Huang–Yang
+expansion (1) comes from. We now give some motivation for the next term, which may
+be understood formally from Bogoliubov’s method (Bogoliubov, 1947). This method not
+only aims at describing the ground state energy of the Bose gas but also all the low-lying
+eigenvalues, which are key to understand another important property of the Bose gas:
+superfluidity. Concerning the ground state energy E(N, L) defined in Definition 1.6,
+the Bogoliubov method consists in claiming that it is well approximated by a number
+EBog (v) (that we explicitly identify below), which satisfies the following asymptotics:
+
+Proposition 3.1 (Bogoliubov ground state energy for dilute systems)
+  We have
+             EBog (v)                              128
+(3)     lim inf  3
+                      ⩾ 4π(a0 + a1 )ρ2 + 4πa0 ρ2 × √ (ρa30 )1/2 + oρ→0 (ρ5/2 ),
+        L→+∞   L                                  15 π
+where
+                                 vb(0)                        1 Z vb(k)2
+                  a0 = a0 (v) :=       ,   a1 = a1 (v) := −                dk.
+                                   8π                       128π 4 R3 |k|2
+
+  Compared to the Lee–Huang–Yang asymptotics (1), we see two discrepancies: in the
+main term, a is replaced by a0 + a1 while in the next term, a is replaced by a0 . Notice
+that a0 is linear in v while a1 is quadratic in v. It turns out that a0 and a1 are the first
+two terms in the expansion of a for small v. Hence, it seems that Bogoliubov’s method
+only agrees with the Lee–Huang–Yang formula for small v, and this is why it is not
+expected that it works for v which is not small.
+  Let us now explain the nature of Bogoliubov’s approximation and the origin of the
+number EBog (v). To explain it, we follow the presentation of Lieb, Seiringer, Solovej,
+and Yngvason (2005, App. A).
+
+3.1. Fock space, creation and annihilation operators
+   Bogoliubov’s method is better explained using the formalism of creation and anni-
+hilation operators. This formalism is very useful in a context where the number of
+particles is fluctuating, as in quantum field theory. In our context, it seems that the
+number of particles is fixed. However, concerning the question of condensation, we said
+that the number of particles that actually condense was unclear a priori. Hence, the
+fluctuating number of particles in our case may be thought as the number of particles
+in the condensate, of equivalently the number of particles outside the condensate (often
+called excitations).
+
+Definition 3.2 (Bosonic Fock space). — Let H be a complex Hilbert space. For any
+n ∈ N∗ , we denote by H⊗sym n the n-fold symmetric tensor product of H with itself. By
+                                                  1256–12
+
+
+convention, we also denote H⊗sym 0 := C. Then, the bosonic Fock space associated to H
+is the Hilbert space
+                                                       ∞
+                                                             H⊗sym n .
+                                                       M
+                                        F(H) :=
+                                                       n=0
+
+Remark 3.3. — When H = L2 (CL ) and n ∈ N∗ , H⊗sym n can be identified with
+L2sym ((CL )n ).
+
+Definition 3.4 (Creation and annihilation operators). — Let f ∈ L2 (CL ).
+  1. For any n ⩾ 2, we define the annihilation operator a(f ) : L2sym ((CL )n ) →
+     L2sym ((CL )n−1 ) by: for any Ψ ∈ L2 ((CL )n ) and for a.e. x1 , . . . , xn−1 ∈ CL ,
+                                               n Z
+                                           1 X
+           (a(f )Ψ)(x1 , . . . , xn−1 ) = √          f (x)Ψ(x1 , . . . , x, . . . , xn−1 ) dx,
+                                            n j=1 CL
+     where the x in Ψ(x1 , . . . , x, . . . , xn−1 ) is in position j. For n = 1, we just define
+     a(f )Ψ = CL f Ψ ∈ C.
+               R
+
+  2. For any n ⩾ 1, we define the creation operator a∗ (f ) : L2 ((CL )n ) → L2 ((CL )n+1 )
+     by: for any Ψ ∈ L2 ((CL )n ) and for a.e. x1 , . . . , xn+1 ∈ CL ,
+                                                  n+1
+                                             1
+       (a∗ (f )Ψ)(x1 , . . . , xn+1 ) = √
+                                                  X
+                                                      f (xj )Ψ(x1 , . . . , xj−1 , xj+1 , . . . , xn+1 ).
+                                            n + 1 j=1
+
+The creation and annihilation operators can be extended to F(L2 (CL )) by setting a(f )|C =
+0 and for all z ∈ C, a∗ (f )z = zf . On F(L2 (CL )), they satisfy the canonical commuta-
+tion relations (CCR): for any f, g ∈ L2 (CL ),
+          [a(f ), a(g)] = 0 = [a∗ (f ), a∗ (g)],             [a(f ), a∗ (g)] = ⟨f, g⟩IdF (L2 (CL )) ,
+where ⟨·, ·⟩ denotes the inner product on L2 (CL ).
+
+  For any k ∈ (2π/L)Z3 and x ∈ CL , we define ek (x) := L−3/2 eik·x so that ek ∈ L2 (CL )
+and we use the shortcut notation
+                                  ak := a(ek ),           a∗k := a∗ (ek ).
+Since k is interpreted as a momentum, ak annihilates a particle of momentum k while a∗k
+creates a particle of momentum k. The operator a∗k ak counts the number of particles of
+momentum k. Notice that for k = 0, e0 = φ0 is the constant function which represents
+the condensate. Hence, a∗0 a0 counts the number of particles in the condensate. Indeed,
+one can show that the operator nφ given in Definition 1.3 satisfies for all Ψ
+                                       nφ0 (Ψ) = ⟨Ψ, a∗0 a0 Ψ⟩.
+For any f ∈ L2 (CL ) and any k ∈ (2π/L)Z3 , we denote its Fourier coefficients by
+                                                 Z
+                                    fb(k) =            f (x)e−ik·x dx.
+                                                  CL
+                                                 1256–13
+
+
+Proposition 3.5. — Let N ⩾ 2. Assume that v : R3 → R is measurable, non-negative,
+bounded, and LZ3 -periodic. Then, for all Ψ ∈ H 1 ((CL )N ) LZ3 -periodic we have
+                                                      1
+                              |k|2 ⟨Ψ, a∗k ak Ψ⟩ +                     vb(k)⟨Ψ, a∗p+k a∗q−k ap aq Ψ⟩,
+                    X                                         X
+        E(Ψ) =                                          3
+                 k∈(2π/L)Z3
+                                                     2L k,p,q∈(2π/L)Z3
+
+where ⟨·, ·⟩ denotes the inner product in L2 ((CL )n ).
+
+Remark 3.6. — The above expression of the energy in terms of creation and annihilation
+may be formally written as
+                                                      1
+                                     |k|2 a∗k ak +                     vb(k)a∗p+k a∗q−k ap aq .
+                              X                               X
+(4)            HN,L =                                   3
+                        k∈(2π/L)Z3
+                                                     2L k,p,q∈(2π/L)Z3
+
+3.2. c-number substitution
+   Bogoliubov’s method consists in claiming that the ground state energy is the same as
+if, in the above sum (4), among the terms a∗p+k a∗q−k ap aq , we only keep the ones where
+either all momenta are 0 or√exactly two of them are 0. In the resulting Hamiltonian, all
+a0 and a∗0 are replaced by N . This last step is called c-number √       substitution because
+                                          ∗
+we replace the operators a0 and a0 by a number c = N . This is motivated by
+the fact that condensation in the ground state means that ⟨Ψ, a∗0 a0 Ψ⟩ ∼ N so that
+1 = ⟨Ψ, [a0 , a∗0 ]Ψ⟩ ≪ ⟨Ψ, a∗0 a0 Ψ⟩ in the ground state, so that a0 and a∗0 almost commute
+and may thus be approximated by numbers. The resulting Bogoliubov Hamiltonian is
+                 1                                                1
+                                           (|k|2 + ρvb(k))a∗k ak + ρvb(k)(ak a−k + a∗−k a∗k )
+                                 X
+      HBog (v) := vb(0)ρN +
+                 2          k∈(2π/L)Z3 \{0}
+                                                                  2
+
+Note also that HBog (v) does not preserve L2 ((CL )N ) contrary to HN,L , so that it acts
+on the full Fock space F(L2 (CL )). This should not come as a surprise, since Bogoli-
+ubov’s method somehow already includes the condensate and thus HBog (v) should be
+interpreted as a Hamiltonian describing the excitations outside the ground state, which
+may not have a fixed number of particles.
+   The nice thing about HBog (v) is that its ground state can be easily computed (Lieb
+and Solovej, 2001, Thm. 6.3, Seiringer, 2011, Sec. 3) since it is a quadratic expression
+in ak and a∗k , and hence we may “complete the square” as in the following result:
+
+Lemma 3.7. — Let A, B ∈ R be such that |B| < A. Define
+                                  1       √
+                            α := (A − A2 − B 2 ) ∈ [0, 1).
+                                  B
+Then, if b, c are two elements of a ∗-algebra such that [b, c] = 0 we have
+                                  √
+                                    A2 − B 2
+                                                                                    
+     ∗       ∗        ∗ ∗                       ∗               ∗     ∗            ∗
+  A(b b + c c) + B(b c + bc) =                (b + αc)(b + αc ) + (c + αb)(c + αb )
+                                    1 − α2
+                                                     1        √
+                                                  − (A − A2 − B 2 )([b, b∗ ] + [c, c∗ ])
+                                                     2
+                                                           1256–14
+
+
+Proof. — Expanding and using that b and c commute, we get
+
+(b∗ +αc)(b+αc∗ )+(c∗ +αb)(c+αb∗ ) = (1+α2 )(b∗ b+c∗ c)+2α(b∗ c∗ +bc)+α2 ([b, b∗ ]+[c, c∗ ]).
+
+It remains to use the relations
+√                1 + α2      √          2α        √          α2    1   √
+    A2 − B 2            = A,  A 2 − B2       = B,   A2 − B2       = (A− A2 − B 2 ).
+                 1−α  2                1−α 2                1−α 2  2
+
+
+
+  Applying the above lemma to b = ak , c = a−k , A = 12 (|k|2 + ρvb(k)), B = 12 ρvb(k) for
+k ∈ (2π/L)Z3 \ {0}, and using that v is real and even so that vb(k) = vb(−k), we obtain
+that HBog (v) ⩾ EBog (v) where
+                    1          1
+                                                                   q                                     
+                                                 |k|2 + ρvb(k) − |k| |k|2 + 2ρvb(k) .
+                                      X
+          EBog (v) = vb(0)ρN −
+                    2          2 k∈(2π/L)Z3 \{0}
+
+By Riemann sums, we get for the thermodynamic limit
+                EBog (v)   1              1 Z
+                                                                   q                                     
+                                   2                2
+        lim inf          ⩾   v
+                             b (0)ρ  −           |k|  + ρ b(k) − |k| |k|2 + 2ρv
+                                                          v                   b(k) dk.
+        L→+∞      L3       2           2(2π)3 R3
+The behaviour of the right side as ρ → 0 is given by the following result:
+
+Lemma 3.8. — We have
+         1 Z
+                                   q                                 
+                    2
+    −           |k|   + ρ b(k) − |k| |k|2 + 2ρv
+                          v                   b(k) dk
+      2(2π)3 R3
+                              ρ2 Z vb(k)2                  128
+                      =−         3        2
+                                            dk + 4πa0 ρ2 × √ (ρa30 )1/2 + oρ→0 (ρ5/2 ),
+                            2(2π) R3 2|k|                 15 π
+where a0 := (8π)−1 vb(0).
+
+Proof. — We first extract the main term in the expansion
+
+        1 Z
+                                     q                               
+                      2
+  −               |k|   + ρ b(k) − |k| |k|2 + 2ρv
+                            v                    b(k) dk =
+     2(2π)3 R3
+     ρ2 Z vb(k)2                1 Z                                            vb(k)2
+                                                          q                          
+                                           2
+−                     dk −              |k|  + ρv                    b(k) − ρ2
+                                                 b(k) − |k| |k|2 + 2ρv                  dk.
+  2(2π)3 R3 2|k|2            2(2π)3 R3                                          2|k|2
+                                                             √
+The last integral is computed by changing variables k = ρk ′ ,
+
+                                                                  vb(k)2
+    Z                           q                                     
+              |k|2 + ρvb(k) − |k| |k|2 + 2ρvb(k) − ρ2                    dk
+     R3                                                            2|k|2
+                                                                                                       √
+                                                            √                             √         vb( ρk)2
+                                     Z                                     q                                
+                               5/2                  2
+                            =ρ                |k|       + vb(   ρk) − |k|       |k|2 + 2vb(   ρk) −            dk,
+                                     R3                                                                2|k|2
+                                                       1256–15
+
+
+and by dominated convergence we have
+                                                        √
+                         √                    √      vb( ρk)2
+    Z                             q                          
+                  2
+                |k| + vb( ρk) − |k| |k| + 2vb( ρk) −
+                                       2                        dk
+      R3                                                2|k|2
+                                                                                                    vb(0)2
+                                                   Z                      q                             
+                                            ∼ρ→0           |k|2 + vb(0) − |k| |k|2 + 2vb(0) −              dk.
+                                                   R3                                                2|k|2
+                               q
+Again by scaling k =                vb(0)k ′ we have
+
+                                                       vb(0)2
+    Z                          q                             
+                  2
+                |k| + vb(0) − |k|    |k|2 + 2vb(0) −          dk =
+      R3                                                2|k|2
+                                                                                                      1
+                                                              Z                   q                     
+                                                        5/2            2
+                                                   vb(0)           |k| + 1 − |k|       |k|2 + 2 −         dk.
+                                                              R3                                    2|k|2
+Going to radial coordinates, the last integral is equal to
+                                                                                   √
+Z                       q      1
+                                              Z ∞         √        1            32  2π
+        |k|2 +1−|k| |k|2 + 2−      2
+                                       dk = 4π     (r2 +1−r r2 + 2− 2 )r2 dr = −        .
+ R3                           2|k|              0                  2r              15
+
+
+
+Remark 3.9. — The above proof can be made more quantitative to infer that
+
+(5)                             EBog (v) ⩾ 4π(a0 (v) + a1 (v))ρ2 ℓ3 − Cρ2 ℓ2 ,
+
+for small values of ρ. To get this bound, we need some quantitative comparison between
+Riemann sums and the associated integral, which requires some decay on the derivatives
+of vb(k) that we will ignore. This bound will be useful when we prove rigorous bounds
+for Bogoliubov’s method in Section 5.
+
+   In the following sections, we will explain how to implement rigorously Bogoliubov’s
+method (i.e., how to justify the c-number substitution), and how to solve the problem
+that the numbers a0 and a1 appearing in (3) are not the correct ones. We will proceed
+in two steps: first, in Section 5, we will justify the lower bound (3) at first order for the
+full ground state energy E(N, L), even though the wrong numbers a0 and a1 appear
+in it. Then, in Section 6, we will explain how to replace these wrong numbers by the
+correct ones.
+
+
+
+4. Reduction to small boxes
+
+  Before going to the actual justification of Bogoliubov’s method, we explain a crucial
+argument in order to prove Theorem 1.12: the fact that it is enough to obtain the
+asymptotics on smaller boxes. The main result that we will prove is the following:
+                                                    1256–16
+
+
+Proposition 4.1. — Let α1 > 1. Then, there exists K > 0 such that the following
+holds. If, for some α2 , β ∈ R such that α1 < α2 < β, for some c1 > 0, c2 ∈ R, δ > 0,
+and C > 0 one has that for all ρ ∈ (0, δ), there exists ℓ ⩾ ρ−1/3 such that for all n ∈ N∗
+with nℓ−3 ⩽ Kρ, one has
+                             E(n, ℓ)
+                                 3
+                                     ⩾ c1 ραn,ℓ1 + c2 ραn,ℓ2 − Cρβ ,
+                               ℓ
+where ρn,ℓ  := nℓ , then there exist C ′ > 0 and β ′ > α2 such that for all ρ ∈ (0, δ) one
+                 −3
+
+has
+                                                                ′
+                              e(ρ) ⩾ c1 ρα1 + c2 ρα2 − C ′ ρβ .
+  The key point of Proposition 4.1 is that it somehow allows bringing the double limit
+N, L → +∞ with N/L3 → ρ and then ρ → 0 into a single limit ρ → 0, with some ℓ that
+depends on ρ (in applications, we will typically take ℓ = ρ−η for some η > 1/3). While
+technical, this statement is crucial because it allows to have a single small parameter ρ,
+and then we are in a position to prove error bounds only with respect to this parameter.
+  Proposition 4.1 has its origin in the seminal work (Lieb and Yngvason, 1998) and was
+extended by Fournais and Solovej. We follow the presentation of Haberberger, Hainzl,
+Nam, Seiringer, and Triay (2023, Sec. 9) as well as Fournais, Girardot, Junge, Morin,
+Olivieri, and Triay (2026, App. B).
+Lemma 4.2. — For any ρ > 0, any ℓ > 0, and any µ ⩾ 0 we have
+                                   1
+                           e(ρ) ⩾ 3 inf∗ (E(n, ℓ) − µn) + µρ.
+                                   ℓ n∈N
+Proof. — Let M ∈ N∗ and define L := M ℓ, J := M 3 , and N := ⌊ρL3 ⌋ + 1. Decompose
+                                                      (j)
+the big cube CL of side length L into disjoint cubes Cℓ of side length ℓ, for j = 1, . . . , J.
+Let Ψ ∈ H 1 ((CL )N ) be such that (CL )N |Ψ|2 = 1. For all x ∈ (CL )N denote by
+                                   R
+
+                                  N                                N
+                                        |∇xj Ψ(x)|2 + 12                   v(xj − xk )|Ψ(x)|2 ,
+                                  X                                X
+                      eΨ (x) :=
+                                  j=1                              j,k=1
+                                                                    j̸=k
+                                                                                     (j)
+so that E(Ψ) = (CL )N eΨ (x) dx. Given that CL = ∪Jj=1 Cℓ , we deduce that
+                  R
+
+                                            X           Z
+                            E(Ψ) =                          (j )           (j   )
+                                                                                    eΨ (x) dx.
+                                                          Cℓ 1 ×···×Cℓ N
+                                        j∈{1,...,J}N
+
+For any j ′ ∈ {1, . . . , J} and any j ∈ {1, . . . , J}N , denote by
+                             nj ′ (j) := |{k ∈ {1, . . . , N }, jk = j ′ }|.
+By non-negativity of v, we have
+            Z                                  J                            Z
+                                                                                                  |Ψ(x)|2 dx
+                                               X
+              (j )
+                              e (x) dx ⩾
+                         (jN ) Ψ
+                                                        E(nj ′ (j), ℓ)           (j )      (j )
+             Cℓ 1 ×···×Cℓ                      j ′ =1                           Cℓ 1 ×···×Cℓ N
+
+                                               N
+                                               X
+                                           =            cn (j)E(n, ℓ),
+                                               n=0
+                                                       1256–17
+
+
+where                                                                Z
+                              ′
+               cn (j) := |{j ∈ {1, . . . , J}, nj ′ (j) = n}|          (j )      (j )
+                                                                                                |Ψ(x)|2 dx.
+                                                                      Cℓ 1 ×···×Cℓ N
+
+Finally, defining cn := ℓ3 L−3
+                                      P
+                                            j∈{1,...,J}N cn (j), we have
+
+                                                        1 N
+                                       L−3 E(Ψ) ⩾
+                                                           X
+                                                               cn E(n, ℓ).
+                                                        ℓ3 n=0
+                                                                                                                 PN         ′
+The numbers cn have the following properties. Clearly, cn ⩾ 0. Furthermore,                                       n=0 |{j       ∈
+{1, . . . , J}, nj ′ (j) = n}| = J = L3 /ℓ3 so that
+                N                           Z                                        Z
+                                                              |Ψ(x)|2 dx =                      |Ψ|2 = 1.
+                X                 X
+                      cn =                      (j )    (jN )
+                n=0                          Cℓ 1 ×···×Cℓ                              (CL )N
+                             j∈{1,...,J}N
+
+Finally, we have
+                N                                                    N            J
+                      n|{j ′ ∈ {1, . . . , J}, nj ′ (j) = n}| =
+                X                                                    X            X
+                                                                              n            1(nj ′ (j) = n)
+                n=0                                                  n=0          j ′ =1
+                                                                     J
+                                                                     X
+                                                                 =            nj ′ (j)
+                                                                     j ′ =1
+
+                                                                     X N
+                                                                     J
+                                                                                     1(jk = j ′ ) = N,
+                                                                       X
+                                                                 =
+                                                                     j ′ =1 k=1
+          PN            3 −3
+so that    n=0 ncn = N ℓ L   ⩾ ρℓ3 . We deduce that
+                                                N
+                                            1 X
+                        L−3 E(Ψ) ⩾                 cn E(n, ℓ)
+                                            ℓ3 n=0
+                                N                           N
+                            1 X                         −3
+                                                           X
+                        = 3       cn (E(n, ℓ) − µn) + µℓ       ncn
+                            ℓ n=0                          n=0
+                            1
+                        ⩾ 3 inf∗ (E(n, ℓ) − µn) + µρ,
+                            ℓ n∈N
+         −3          −3
+so that L E(N, L) ⩾ ℓ inf n∈N∗ (E(n, ℓ) − µn) + µρ. We conclude by taking the limit
+M → +∞ so that N, L → +∞ with N/L3 → ρ.
+Proof of Proposition 4.1. — Let n0 := ⌊Kρℓ3 ⌋. Since ρℓ3 ⩾ 1, we have (K − 1)ρ ⩽
+ρn0 ,ℓ ⩽ Kρ. For n ⩽ n0 , we have by assumption that for all µ ∈ R,
+E(n, ℓ)
+   3
+        − µ(ρn,ℓ − ρ) ⩾ c1 ρα1 + c2 ρα2 − Cρβ + c1 (ραn,ℓ1 − ρα1 ) − µ(ρn,ℓ − ρ) + c2 (ραn,ℓ2 − ρα2 ).
+  ℓ
+We may write with x := ρn,ℓ /ρ ∈ [0, K],
+                                                                                                            
+             c1 (ραn,ℓ1 − ρα1 ) − µ(ρn,ℓ − ρ) = c1 ρα1 xα1 − 1 − c−1
+                                                                  1 ρ
+                                                                      1−α1
+                                                                           µ(x − 1) ,
+
+which motivates the choice µ := c1 α1 ρα1 −1 , so that by convexity of x 7→ xα1 one has
+                                    c1 (ραn,ℓ1 − ρα1 ) − µ(ρn,ℓ − ρ) ⩾ 0.
+                                               1256–18
+
+
+By strict convexity of x 7→ xα1 , let c > 0 be such that for all x > 0 one has
+              xα1 − 1 − α1 (x − 1) ⩾ c((x − 1)2 1|x−1|⩽1 + (x − 1)α1 1|x−1|⩾1 ).
+Then, recalling that 0 ⩽ x ⩽ K we can bound
+                |c2 (ραn,ℓ2 − ρα2 )| = |c2 |ρα2 |xα2 − 1| ⩽ |c2 |ρα2 α2 K α2 −1 |x − 1|.
+For |x − 1| ⩽ 1 we use that
+                            ρα2 |x − 1| ⩽ ερα1 |x − 1|2 + Cε ρ2α2 −α1 ,
+(where 2α2 − α1 > α2 ) while for |x − 1| ⩾ 1 we use that
+                                                                   α1 (α2 −1)
+                          ρα2 |x − 1| ⩽ ερα1 |x − 1|α1 + Cε ρ        α1 −1 ,
+
+              2 −1)
+(where α1α(α1 −1    > α2 ) which proves that (choosing ε so that ε|c2 |α2 K α2 −1 ⩽ cc1 /2)
+
+  c1 (ραn,ℓ1 − ρα1 ) − µ(ρn,ℓ − ρ) + c2 (ραn,ℓ2 − ρα2 )
+                                    1                                                        ′
+                                  ⩾ cc1 ρα1 ((x − 1)2 1|x−1|⩽1 + (x − 1)α1 1|x−1|⩾1 ) − CK ρβ ,
+                                    2
+                                  2 −1)
+where β ′ = min(2α2 − α1 , α1α(α1 −1    ) > α2 . To sum up, we have proved that for all n ⩽ n0
+we have
+   E(n, ℓ)                                             ′′
+
+      3
+            − µ(ρn,ℓ − ρ) ⩾ c1 ρα1 + c2 ρα2 − C ′′ ρβ
+     ℓ
+                                               1
+                                           + cc1 ρα1 ((x − 1)2 1|x−1|⩽1 + (x − 1)α1 1|x−1|⩾1 ),
+                                               2
+         ′′        ′    ′
+where β = min (β, β ) > α2 . Now let n > n0 . Due to the non-negativity of v, the map
+m 7→ E(m, ℓ) is superadditive, that is E(m + m′ , ℓ) ⩾ E(m, ℓ) + E(m′ , ℓ). This implies
+that
+                                                  n
+                                                  
+                                     E(n, ℓ) ⩾         E(n0 , ℓ),
+                                                  n0
+and hence
+                                              n
+                                            
+                          E(n, ℓ) − µn ⩾          (E(n0 , ℓ) − µn0 ) − µr,
+                                              n0
+where r = n − ⌊n/n0 ⌋n0 ⩽ n0 . Recall that K − 1 ⩽ ρn0 ,ℓ /ρ ⩽ K so that choosing K ⩾ 2
+we have seen above that
+           E(n0 , ℓ)                                              ′′   1
+              3
+                     − µρn0 ,ℓ ⩾ −µρ + c1 ρα1 + c2 ρα2 − C ′′ ρβ + cc1 ρα1 (K − 1)α1
+             ℓ                                                         2
+                                                          ′′         1
+                               = c1 ρα1 + c2 ρα2 − C ′′ ρβ + c1 ρα1 ( c(K − 1)α1 − α1 ),
+                                                                     2
+where we used that µρ = c1 ρα1 α1 . Choosing K large enough such that 12 c(K−1)α1 −α1 ⩾
+0, we deduce that for δ small enough we have E(n0 , ℓ) − µn0 ⩾ 0 and thus (using that
+⌊n/n0 ⌋ ⩾ 1 and that µr ⩽ µn0 )
+      E(n, ℓ)                       α1         α2     ′′ β ′′   1
+              − µ(ρ n,ℓ − ρ) ⩾ c1 ρ    + c 2 ρ    − C   ρ     +   cc1 ρα1 (K − 1)α1 − µρn0 ,ℓ .
+        ℓ3                                                      2
+                                                       1256–19
+
+
+Recalling again that µ = c1 α1 ρα1 −1 and that ρn0 ,ℓ ⩽ Kρ, we deduce that if we choose
+K large enough so that 12 c(K − 1)α1 − α1 K ⩾ 0, we have
+                      E(n, ℓ)                                           ′′
+
+                           3
+                              − µ(ρn,ℓ − ρ) ⩾ c1 ρα1 + c2 ρα2 − C ′′ ρβ
+                         ℓ
+for all n > n0 . Since the same inequality was shown to hold for n ⩽ n0 , this proves the
+result by Lemma 4.2.
+  In the remaining sections, our goal will be to bound from below E(n, ℓ) for n ⩽ Kℓ3 ρ
+and ℓ = ℓ(ρ) chosen adequately.
+
+
+5. Rigorous implementation of Bogoliubov’s method
+
+  The main result of this section is the following rigorous version of the Bogoliubov
+approximation introduced in Section 3, at first order in the dilute regime ρ → 0.
+
+Theorem 5.1. — We have
+                              e(ρ) ⩾ 4π(a0 (v) + a1 (v))ρ2 + oρ→0 (ρ2 ),
+where the numbers a0 (v) and a1 (v) are defined in Proposition 3.1.
+
+  While rigorous, this result does not give the correct lower bound at first order com-
+pared to (1) since we have to replace a0 (v) + a1 (v) by a(v). This will be done in the
+next section.
+
+5.1. Decomposition of the interaction
+  Let P := |ℓ−3/2 ⟩⟨ℓ−3/2 | be the orthogonal projection on the condensate in L2 (Cℓ ) and
+Q = 1 − P . For any j ∈ {1, . . . , n} we denote accordingly Pj and Qj the projections on
+L2 (Cℓn ) which act on the j-th variable. For any j ̸= k, we use the following identity:
+                 IdL2 (Cℓn ) = (Pj + Qj )(Pk + Qk ) = Pj Pk + Pj Qk + Pk Qj + Qj Qk ,
+from which we deduce the decomposition of the potential:
+                                   N
+                                   X
+                               1
+                               2
+                                           v(xj − xk ) = V0 + V2 + V3 + V4 ,
+                                   j,k=1
+                                    j̸=k
+
+where
+                                               X
+                                    V0 := 12          Pj Pk v(xj − xk )Pj Pk ,
+                                               j̸=k
+
+          X                                    X
+  V2 :=          Pj Qk v(xj − xk )Pk Qj +             Pj Qk v(xj − xk )Qk Pj
+          j̸=k                                 j̸=k
+                                                                          X
+                                                                   + 21          Pj Pk v(xj − xk )Qj Qk + h.c.,
+                                                                          j̸=k
+                                                1256–20
+
+                                  X
+                           V3 =          Pj Qk v(xj − xk )Qj Qk + h.c.,
+                                  j̸=k
+                                     X
+                           V4 = 12          Qj Qk v(xj − xk )Qj Qk ⩾ 0,
+                                     j̸=k
+
+where “h.c.” denotes the Hermitian conjugate. The operator V4 is non-negative and
+will not be dropped out completely; it will absorb parts of V3 . Note that the operator
+V1 that would appear with only one Qj is zero since the action of the potential on the
+constant function gives a constant function which is cancelled by the Qj .
+  Using creation and annihilation operators (to set the stage for Bogoliubov’s method),
+we have
+  n
+                                                               1
+                                              |k|2 a∗k ak +       vb(0)a∗0 a∗0 a0 a0
+  X                               X
+      (−∆xj ) + V0 + V2 =
+  j=1                       k∈(2π/ℓ)Z3 \{0}
+                                                              2ℓ3
+            1                                    1                               1
+                                                                                      
+                             vb(k)a∗0 a∗k ak a0 + vb(k)(a∗0 a∗0 ak a−k + h.c.) + 3 vb(0)n0 n+ ,
+                  X
+          + 3
+           ℓ k∈(2π/ℓ)Z3 \{0}                     2                              ℓ
+
+where n0 = a∗0 a0 = nj=1 Pj , n+ = k∈(2π/ℓ)Z3 \{0} a∗k ak = nj=1 Qj . Rigorously speaking,
+                    P                    P                              P
+
+in order to write such a formula as what we stated in Proposition 3.5, we need the
+interaction potential and Ψ to be ℓZ3 -periodic which is not the case for us: the interaction
+potential is compactly supported and Ψ does not satisfy periodic boundary conditions
+on Cℓ but rather Neumann boundary conditions. We will ignore this issue in this survey
+but let us emphasize that it is not a minor issue at all. In Fournais and Solovej (2020),
+this issue is solved by working with the family ek with k ∈ R and the sums are replaced
+by integrals; they then have to deal with the fact that the ek are not a Hilbert basis
+anymore so that the formula are less easy to manipulate. A very nice way around this
+problem was introduced by Haberberger, Hainzl, Nam, Seiringer, and Triay (2023) and
+consists in working rather with a Hilbert eigenbasis for the Neumann Laplacian (rather
+than the periodic Laplacian), and show that the interaction potential can be replaced
+by an adequate symmetrization of it so that the interaction has the same nice form as
+above in the Neumann basis.
+
+5.2. Coherent states
+   As we discussed in Section 3.2, a first step in Bogoliubov’s method is to replace a0 by
+a number (“c-number substitution”). One way to implement rigorously this approach
+was initiated by Ginibre (1968) and developed by Lieb, Seiringer, and Yngvason (2005),
+and is based on the use of coherent states.
+   Define H := L2 (Cℓ ) and F(H) the associated bosonic Fock space. Denote by |Ω⟩ ∈
+F(H) the vacuum state |Ω⟩ := (1, 0, 0, . . .). Let H0 := Cφ0 ⊂ H where φ0 := ℓ−3/2 is
+the condensate wavefunction, and let H′ := H⊥   0 (the “excitation” subspace). The spaces
+                          ′
+F(H) and F(H0 ) ⊗ F(H ) are unitarily equivalent (this is called the “exponential law”
+for Fock spaces, see Dereziński and Gérard, 2013, Sec. 3.3.7), so we identify them. In
+particular, in this representation we have a0 (Ψ0 ⊗ Ψ′ ) = (a0 Ψ0 ) ⊗ Ψ′ .
+                                                  1256–21
+
+
+  For any z ∈ C, define the coherent state
+                    2
+                                                         √                  2      ∗
+        |z⟩ := e−|z| /2 (1, zℓ−3/2 , . . . , (zℓ−3/2 )m / m!, . . .) = e−|z| /2 eza0 |Ω⟩ ∈ F(H0 ),
+which satisfies a0 |z⟩ = z|z⟩. We denote by Tz the map F(H′ ) ∋ Ψ′ 7→ |z⟩ ⊗ Ψ′ ∈
+F(H0 ) ⊗ F(H′ ). Its adjoint Tz∗ : F(H0 ) ⊗ F(H′ ) → F(H′ ) satisfies on pure tensors
+Tz∗ (Ψ0 ⊗ Ψ′ ) = ⟨z, Ψ0 ⟩Ψ′ for all (Ψ0 , Ψ′ ) ∈ H0 × H′ .
+   We have the resolution of the identity on F(H0 ) ⊗ F(H′ ):
+                                             1Z
+                             Id            =     Tz Tz∗ dz,
+                                      F (H0 )⊗F (H′ )
+                                             π C
+which follows from the fact that for all Ψ0 ∈ F(H0 ) one has
+                                           1Z
+                                      Ψ0 =     ⟨z, Ψ0 ⟩|z⟩ dz,
+                                           π C
+                                                             2
+which itself follows from the identity C z n z m e−|z| dz = πn!δn=m . An operator A on
+                                                 R
+
+F(H0 ) ⊗ F(H′ ) is said to have an upper symbol (KA (z))z∈C if for all z ∈ C, KA (z) is an
+operator on F(H′ ) and if
+                                     1Z
+                                 A=       Tz KA (z)Tz∗ dz.
+                                     π C
+Upper symbols are very useful to get bounds; indeed if KA (z) ⩾ c for all z then A ⩾ c
+as well. Then, it can be checked that Ka0 (z) = z and hence Ka∗0 (z) = z ∗ . From these
+and the CCR we deduce that
+           Ka0 a∗0 (z) = |z|2 , Ka∗0 a0 (z) = |z|2 − 1, Ka∗0 a∗0 a0 a0 (z) = |z|4 − 4|z|2 + 2.
+
+Proposition 5.2. — Let ρz := |z|2 ℓ−3 and µ ∈ R. We have
+                        n
+                                               1Z
+                                                   Tz K(z)Tz∗ dz + R0 ,
+                        X
+                           (−∆xj ) + V0 + V2 =
+                        j=1                    π C
+
+where
+                      K(z) = HBog (ρz , v) + (vb(0)ρz − µ)n+ − µ|z|2 + µn,
+                1                                                      1
+ HBog (ρz , v) = vb(0)ρ2z ℓ3 +                (|k|2 + ρz vb(k))a∗k ak + ρz vb(k)(ak a−k + a∗−k a∗k ),
+                                    X
+                2              k∈(2π/ℓ)Z3 \{0}
+                                                                       2
+and R0 is such that
+                                         R0 ⩾ −Cnℓ−3 + µ.
+
+Proof of Proposition 5.2. — The term R0 comes from the terms of lower degree in
+Ka∗0 a∗0 a0 a0 and Ka∗0 a0 , hence
+                   2               1         1                              1
+            R0 = − 3 vb(0)a0 a∗0 + 3 vb(0) − 3                vb(k)a∗k ak − 3 vb(0)n+
+                                                   X
+                  ℓ               ℓ         ℓ k∈(2π/ℓ)Z3 \{0}              ℓ
+
+On L2sym (Cℓn ), we have a0 a∗0 ⩽ n + 1, n+ =                 ∗
+                                                        P
+                                                        k̸=0 ak ak ⩽ n which proves the bound on
+R0 .
+                                                   1256–22
+
+
+   Proposition 5.2 relates explicitly the full Hamiltonian with a Bogoliubov Hamiltonian,
+with a major drawback that the density ρz in the Bogoliubov Hamiltonian can be
+different from the desired density ρ. Let us now see how to solve this problem.
+
+5.3. Error bounds for the Bogoliubov approximation
+Proposition 5.3. — There exists C > 0 such that for all ρ ∈ (0, δ), all ℓ ⩾ ρ−1/3 ,
+and all n ⩽ Kρℓ3 we have
+          ℓ−3 E(n, ℓ) ⩾ 4π(a0 (v) + a1 (v))(nℓ−3 )2 − Cρ2 ℓ−1/3 − Cρ3 ℓ2 − Cρℓ−3
+
+Proof. — We start by bounding from below V3 + V4 . Using the positivity of v, we have
+  ±(Pj Qk v(xj − xk )Qj Qk + h.c.) ⩽ Cε Pj Qk v(xj − xk )Pj Qk + εQj Qk v(xj − xk )Qj Qk
+and using furthermore that
+                                                                 Z
+                                  Pj v(xj − xk )Pj = ℓ−3 ( v)Pj ,
+
+we deduce that
+                                 V3 + V4 ⩾ −Cℓ−3 n0 n+ ⩾ −Cρn+ .
+Let us now estimate K(z) from below. To do so, we choose µ = 2c1 nℓ−3 ≲ ρ with
+c1 := 4π(a0 + a1 ). Let A > 0 be a large parameter to be specified later on. When
+|z|2 ⩾ An, we drop all the non-negative terms in K(z) and infer that
+                                  K(z) ⩾ −µ|z|2 − c(ρz + ρ)n+ .
+We then bound
+  Z                                      Z
+              |z| Tz Tz∗ dz ⩽ (An)−1
+                2
+                                              |z|4 Tz Tz∗ dz ≲ (An)−1 (n0 + 1)2 ≲ A−1 n ≲ A−1 ρℓ3 ,
+   |z|2 ⩾An                               C
+                             Z                            Z
+                                         ρz Tz Tz∗ dz ⩽       ρz Tz Tz∗ dz ≲ ρ,
+                              |z|2 ⩾An                    C
+to infer than
+                      1Z
+                                 Tz K(z)Tz∗ dz ≳ −A−1 ρ2 ℓ3 − ρn+ .
+                      π |z|2 ⩾An
+For |z|2 ⩽ An we have ρz ⩽ AKρ which is small if A ≪ ρ−1 , hence we may use the
+lower bound (5) to infer that
+                    K(z) ⩾ c1 ρ2z ℓ3 − Cρ2z ℓ2 + (vb(0)ρz − µ)n+ − µ|z|2 + µn,
+with c1 := 4π(a0 (v) + a1 (v)). We first have ρ2z ⩽ A2 ρ2 . Next, (vb(0)ρz − µ)n+ ⩾ −µn+ ≳
+−ρn+ . This proves that
+                     K(z) ⩾ (c1 ρ2z − µρz + µnℓ−3 )ℓ3 − CA2 ρ2 ℓ2 − Cρn+ ,
+which motivates the choice µ = 2c1 nℓ−3 in order to have c1 ρ2z − µρz + µρ = c1 (nℓ−3 )2 +
+c1 (ρz − nℓ−3 )2 which is minimal at ρz = nℓ−3 . Hence, for all |z|2 ⩽ An we have
+                    K(z) ⩾ 4π(a0 (v) + a1 (v))(nℓ−3 )2 ℓ3 − CA2 ρ2 ℓ2 − Cρn+ .
+                                             1256–23
+
+
+Integrating this bound over z we deduce that
+  1Z
+             Tz K(z)Tz∗ dz ⩾ 4π(a0 (v) + a1 (v))(nℓ−3 )2 ℓ3
+  π |z|2 ⩽An
+                                                         Z
+                                                   2 3
+                                               − cρ ℓ               Tz Tz∗ dz − CA2 ρ2 ℓ2 − Cρn+ ,
+                                                         |z|2 ⩾An
+
+where we used that |z|2 ⩽An = C − |z|2 ⩾An . Now multiplying and dividing by |z|2 under
+                     R              R   R
+
+the integral we get the bound
+                         Z
+                                    Tz Tz∗ dz ≲ (An)−1 (n0 + 1) ≲ A−1 .
+                         |z|2 ⩾An
+
+To control the remaining n+ term, we use the spectral gap Hn,ℓ ≳ ℓ−2 n+ and the fact
+that E(n, ℓ) ≲ n2 ℓ−3 ≲ ρ2 ℓ3 (which we obtain by computing the energy of the constant
+function), to infer that for any Ψ such that E(Ψ) ≲ ρ2 ℓ3 , we have ⟨Ψ, n+ Ψ⟩ ≲ ρ2 ℓ5 .
+Putting all of these bounds together, we deduce that
+   ℓ−3 E(n, ℓ) ⩾ 4π(a0 (v) + a1 (v))(nℓ−3 )2 − CA−1 ρ2 − CA2 ρ2 ℓ−1 − Cρ3 ℓ2 − Cρℓ−3 ,
+where the term ρ3 ℓ2 comes from the n+ and the term ρℓ−3 comes from the term R0 . We
+want the remainders involving A to be of the same order, i.e. A−1 ρ2 = A2 ρ2 ℓ−1 which
+is equivalent to A = ℓ1/3 .
+
+Proof of Theorem 5.1. — We combine Proposition 5.3 together with Proposition 4.1.
+To do so, we just have to choose ℓ such that ρ3 ℓ2 = o(ρ2 ), meaning that ℓ ≪ ρ−1/2 , and
+such that ρℓ−3 = o(ρ2 ), meaning that ℓ ≫ ρ−1/3 . One can optimize in ℓ by choosing
+ρ3 ℓ2 = ρ2 ℓ−1 , which leads to ℓ = ρ−3/7 and a final error in e(ρ) of order ρ2+1/7 .
+
+
+Remark 5.4. — The condition ℓ ≪ ρ−1/2 that we found in the proof above comes from
+the term n+ which counts the number of excitations. Hence, ρ−1/2 is the length scale
+under which the contribution of the excitations to the energy is sub-leading. This very
+important length scale is called the healing length.
+
+   Theorem 5.1 proves that the lower bound coming from the Bogoliubov approximation
+of Proposition 3.1 is a true lower bound to the full ground state energy of the Bose gas,
+at least to first order. There remains the problem that this lower bound has the right
+order ρ2 but is not the correct one, namely that we need to replace a0 (v) + a1 (v) by
+a(v).
+
+
+
+6. Renormalization of the interaction potential
+
+  In this section, we explain how to adapt the strategy of Section 5 to obtain the correct
+lower bound for e(ρ) at first order. The main result of this section is the following:
+                                            1256–24
+
+
+Theorem 6.1. — For any ω : R3 → [0, 1], we have
+                                                           
+                                                   gω(0) ρ2 + oρ→0 (ρ2 ),
+                    e(ρ) ⩾ 4π(a0 (g) + a1 (g)) + 21 c
+
+where g := v(1 − ω).
+
+  There remains to optimize the ρ2 -coefficient:
+
+Lemma 6.2. — There exists ω : R3 → [0, 1] such that
+                            4π(a0 (g) + a1 (g)) + 21 c
+                                                    gω(0) = 4πa(v),
+where we recall that g = v(1 − ω).
+
+Proof. — By Remark 2.2, let ω be a minimizer for 8πa such that 0 ⩽ ω ⩽ 1. Then, it
+satisfies the equation −2∆ω = v(1 − ω) which by integration against ω gives 2|∇ω|2 =
+                                                                           R
+
+  v(1 − ω)ω and hence
+R
+
+                       Z                             Z                Z
+                                 2              2
+           8πa(v) =        (2|∇ω| + v(1 − ω) ) =         v(1 − ω) =       g = 8πa0 (g),
+
+so that a0 (g) = a(v). Using again that −2∆ω = v(1 − ω) = g, we have
+                                                              Z
+                                      −1
+                8πa1 (g) = ⟨g, (2∆) g⟩ = −⟨g, ω⟩ = −              gω = − c
+                                                                        gω(0),
+
+and hence 4πa1 (g) + 12 gω(0)
+                        c     = 0.
+
+
+Remark 6.3. — Given the upper bound (that we did not prove) e(ρ) ⩽ 4πaρ2 +oρ→0 (ρ2 ),
+this shows that this choice of ω is indeed the best. This can be understood in the
+following way: we want to compute
+                             gω(0)   1                         1 Z gb(k)2
+                                      
+                             c
+    sup 4π a0 (g) + a1 (g) +       =    sup (g (0) + gω(0) −
+                                             b       c                      dk),
+   0⩽ω⩽1                      8π     2 0⩽ω⩽1                 (2π)3 R3 2|k|2
+and we notice that
+                      1 Z gb(k)2        Z
+          gω(0) −
+  gb(0) + c                        dk =     v(1 − ω 2 ) + ⟨1 − ω, v(2∆)−1 v(1 − ω)⟩
+                    (2π)3 R3 2|k|2       R3
+                                            Z
+                                        =       v − 2⟨v(2∆)−1 v, ω⟩ + ⟨ω, (v(2∆)−1 v − v)ω⟩.
+
+It is not completely clear how to maximize this functional over all 0 ⩽ ω ⩽ 1, but
+formally its Euler–Lagrange equation is
+                             −v(2∆)−1 v + (v(2∆)−1 v − v)ω = 0,
+which can be rewritten as
+                                     −2∆ω = v(1 − ω),
+which is the same equation satisfied by minimizers for 8πa(v).
+                                                       1256–25
+
+
+  To prove Theorem 6.1, the main idea is to change the decomposition of the interaction
+that we started with. To do so, let ω : R3 → R be such that 0 ⩽ ω ⩽ 1. Then, we have
+                          IdL2 (Cℓn ) = Πjk + (1 − ω)(xj − xk )(1 − Qj Qk ),
+where
+  Πjk := Qj Qk + ω(xj − xk )(1 − Qj Qk ) = Qj Qk + ω(xj − xk )(Pj Pk + Pk Qj + Pj Qk ).
+Previously, we used such a decomposition for ω = 0, and we will see that there is a better
+choice of ω. As before, this induces the following decomposition of the interaction:
+                                   n
+                                   X
+                              1
+                              2
+                                          v(xj − xk ) = V0 + V2 + V3 + V4 ,
+                                  j,k=1
+                                   j̸=k
+
+where
+                                       1X
+                             V0 :=            Pj Pk (g + gω)(xj − xk )Pk Pj ,
+                                       2 j̸=k
+          X                                              X
+  V2 :=          Pj Qk (g + gω)(xj − xk )Pk Qj +                Pj Qk (g + gω)(xj − xk )Qk Pj
+          j̸=k                                           j̸=k
+                                                                         1X
+                                                                     +          Pj Pk g(xj − xk )Qk Qj + h.c.,
+                                                                         2 j̸=k
+                                          X
+                               V3 =              Pj Qk g(xj − xk )Qk Qj + h.c.,
+                                          j̸=k
+
+                                            1X ∗
+                                   V4 =           Π v(xj − xk )Πjk ⩾ 0,
+                                            2 j̸=k jk
+where g := v(1 − ω) plays the role of a new interaction potential, the “renormalized”
+interaction potential. Again as above, we may write the part of the Hamiltonian without
+V3 and V4 using creation and annihilation operators:
+  n
+                                                                      1
+                                                     |k|2 a∗k ak +                 gω(0))a∗0 a∗0 a0 a0 +
+  X                                       X
+      (−∆xj ) + V0 + V2 =                                               3
+                                                                          (gb(0) + c
+  j=1                             k∈(2π/ℓ)Z3 \{0}
+                                                                     2ℓ
+1                                                1                             1
+                                                                                    
+                                 ∗ ∗
+                                                   b(k)(a∗0 a∗0 ak a−k +h.c.) + (g
+       X
+                  ( b(k)+gω(k))a
+                    g    c       0 a k a k a 0 +   g                              b(0)+gω(0))n
+                                                                                       c      0 n+ .
+ℓ3k∈(2π/ℓ)Z3 \{0}                                2                             ℓ3
+The generalization of Proposition 5.2 is then:
+
+Proposition 6.4. — Let ρz := |z|2 ℓ−3 and µ ∈ R. We have
+                         n
+                                                1Z
+                                                    Tz K(z)Tz∗ dz + R0 ,
+                         X
+                            (−∆xj ) + V0 + V2 =
+                         j=1                    π C
+where
+                       K(z) = Q(z) + Q2 (z) + (gb(0)ρz − µ)n+ − µ|z|2 + µn,
+                                   Q(z) = HBog (ρz , g) + 21 ρ2z ℓ3 c
+                                                                   gω(0),
+                                            1256–26
+
+
+                                                                  ∗
+                                         X
+                      Q2 (z) = ρz                 (gω(k)
+                                                   c     + gω(0))a
+                                                           c      k ak ,
+                                    k∈(2π/ℓ)Z3 \{0}
+and R0 is such that
+                                     R0 ⩾ −Cnℓ−3 + µ.
+
+Proof. — The proof follows the one of Theorem 5.1 using Proposition 5.3. We thus only
+explain what to adapt in the proof of Proposition 5.3. The term V3 + V4 is bounded
+using the same idea, controlling part of V3 using V4 and the remaining part being of
+order ρn+ : we write
+
+  Pj Qk g(xj − xk )Qk Qj = Pj Qk g(xj − xk )Πjk
+                                     − Pj Qk g(xj − xk )ω(xj − xk )(Pj Pk + Pk Qj + Pj Qk )
+The term in the first line is again treated by Cauchy–Schwarz, using the important
+property that 0 ⩽ g ⩽ v since g = v(1 − ω) and since 0 ⩽ ω ⩽ 1, so that it is controlled
+by V4 and a remainder of order ρn+ . The term with Pj Pk on the second line vanishes
+due to the Qk on the other side, and the last two terms on the second line are also
+controlled by ρn+ by the same argument. We deduce the same bound as before, namely
+V3 + V4 ≳ −ρn+ . We now bound K(z). The term Q2 (z) satisfies Q2 (z) ≳ −ρz n+ and
+since C ρz Tz Tz∗ dz ≲ ρ, we deduce that
+      R
+
+                               1Z
+                                    Tz Q2 (z)Tz∗ dz ≳ −ρn+ .
+                               π C
+         2
+When |z| ⩽ An, we get a new lower bound due to the new interaction potential g and
+the term 12 ρ2z ℓ3 gω(0):
+                   c
+
+                K(z) ⩾ (c1 ρ2z − µρz + µnℓ−3 )ℓ3 − CA5/2 ρ5/2 ℓ3 − Cρn+ ,
+where c1 = 4π(a0 (g) + a1 (g)) + 12 gω(0).
+                                    c      With this new c1 , the rest of the proof is
+identical.
+
+
+
+7. The Lee–Huang–Yang lower bound
+
+   Theorem 6.1 provides the first order term in the Lee–Huang–Yang expansion (1). To
+obtain the second order, a lot of additional work is needed so we only mention some of
+the key additional points that are needed.
+   The first point to notice is that the Bogoliubov lower bound of Proposition 3.1
+                                                        128
+(6) ℓ−3 EBog (g) ⩾ 4π(a0 (g) + a1 (g))ρ2 + 4πa0 (g)ρ2 × √ (ρa0 (g)3 )1/2 + oρ→0 (ρ5/2 )
+                                                       15 π
+indeed provides the correct next order term when applied to the renormalized interaction
+potential g chosen from Lemma 6.2 since its proof shows that a0 (g) = a(v). Hence, it
+seems that we only need to use this bound to get the Lee–Huang–Yang expansion (1).
+This will be indeed the case, except that we now need to show that all error terms are
+                                          1256–27
+
+
+lower order than this second order term of size ρ5/2 (or ρ5/2 ℓ3 if we look at the energy
+and not at the energy per unit volume), and this is where things become hard.
+  Going back to the proof of Theorem 6.1, we see that various error terms arise:
+  1. The first error term comes from R0 in Proposition 6.4, which has size ρ. Then, we
+     have ρ ≪ ρ5/2 ℓ3 if ℓ ≫ ρ−1/2 , which is already a major difference compared to the
+     proof of Proposition 5.3 where we had ℓ ≪ ρ−1/2 . Going to boxes of size ℓ much
+     larger than the healing length ρ−1/2 is one of the challenging parts of the proof.
+  2. Many other error terms were bounded by ρn+ , which, due to the excitation bounds,
+     has size ρ3 ℓ5 . We have ρ3 ℓ5 ≪ ρ5/2 ℓ3 if ℓ ≪ ρ−1/4 , which is incompatible with
+     the condition ℓ ≫ ρ−1/2 that we found in the previous item. This is the point
+     where the proof has to be substantially changed: one has to look more precisely
+     at the terms that were bounded by n+ and control them better. Also, one needs
+     to improve significantly the excitation bounds on n+ .
+  Let us now say a few words on how these problems are solved.
+  The error term ρn+ arises when we bound V3 + V4 ⩾ −ρn+ , as well as when we
+bounded Q2 . Fournais and Solovej crucially realized that these terms can be controlled
+thanks to the positive part that was thrown away in the Bogoliubov diagonalization:
+when we “completed the square” in Lemma 3.7 in Section 3, we actually proved that
+HBog (v) = EBog (v) + D for some operator D ⩾ 0 that we threw away as a lower
+bound. An important insight of Fournais and Solovej is that this D operator can help
+to control V3 and Q2 in the following way: they show that
+
+                                 D + Q2 + V3soft ⩾ −CG,
+
+where V3soft includes only “soft” pairs (roughly speaking, V3 involves 3 excitations; “soft”
+means that two of them have high momenta and one has low momentum), and G is
+a “spectral gap” operator that includes the excitation number n+ but also a “high
+momentum” excitation number nH       + . The part of V3 which is not coming from V3
+                                                                                         soft
+
+is essentially controlled by V4 and nH  + , as the argument we presented in the proof of
+Theorem 6.1.
+  The precise control of these excitations numbers n+ and nH  + is also one of the main
+challenges, in particular because we work on a large box of size ℓ ≫ ρ−1/2 . To obtain
+a good control on these quantities, Fournais and Solovej use a “sliding” localization
+technique which allows controlling them from a control on smaller boxes of size ≪ ρ−1/2 .
+Let us mention that in Haberberger, Hainzl, Nam, Seiringer, and Triay (2023) and Four-
+nais, Girardot, Junge, Morin, Olivieri, and Triay (2026), the Neumann symmetrization
+approach allows for a simpler control of the excitations.
+   To conclude the argument, one also needs a good control of the Bogoliubov energy
+EBog (ρz , g) when replacing sums by integrals, as well as a good splitting in the z-integral
+of Proposition 5.2 to again show that ρz wants to be close to ρ. We refer to the actual
+articles for the details on these matters.
+                                       1256–28
+
+
+Acknowledgements
+
+  The author wants to thank Jonas Lampart and Arnaud Triay for many discussions
+on the topic.
+
+
+References
+
+Nikolai Bogoliubov (1947). “On the theory of superfluidity”, Acad. Sci. USSR. J. Phys.
+  11, pp. 23–32.
+Jan Dereziński and Christian Gérard (2013). Mathematics of quantization and quantum
+  fields. Cambridge Monographs on Mathematical Physics. Cambridge University Press,
+  Cambridge, pp. xii+674.
+Freeman Dyson (1957). “Ground-state energy of a hard-sphere gas”, Phys. Rev. (2) 106,
+  pp. 20–26.
+Søren Fournais, Theotime Girardot, Lukas Junge, Leo Morin, and Marco Olivieri (2024a).
+  “Lower bounds on the energy of the Bose gas”, Rev. Math. Phys. 36 (9), Paper No.
+  2360004, 43 p.
+        (2024b). “The ground state energy of a two-dimensional Bose gas”, Comm. Math.
+  Phys. 405 (3), Paper No. 59, 104 p.
+Søren Fournais, Theotime Girardot, Lukas Junge, Leo Morin, Marco Olivieri, and
+  Arnaud Triay (2026). “The Free Energy of Dilute Bose Gases at Low Temperatures
+  Interacting Via Strong Potentials”, Ann. Henri Poincaré.
+Søren Fournais and Jan Philip Solovej (2020). “The energy of dilute Bose gases”, Ann.
+  of Math. (2) 192 (3), pp. 893–976.
+        (2023a). “On the energy of dilute Bose gases”, in: ICM—International Congress
+  of Mathematicians. Vol. 5. Sections 9–11. EMS Press, Berlin, pp. 4026–4038.
+         (2023b). “The energy of dilute Bose gases II: the general case”, Invent. Math.
+  232 (2), pp. 863–994.
+Jean Ginibre (1968). “On the asymptotic exactness of the Bogoliubov approximation
+  for many boson systems”, Comm. Math. Phys. 8, pp. 26–51.
+Florian Haberberger, Christian Hainzl, Phan Thành Nam, Robert Seiringer, and Arnaud
+  Triay (2023). “The free energy of dilute Bose gases at low temperatures”, arXiv:
+  2304.02405 [math-ph].
+Tsung-Dao Lee, Kerson Huang, and Chen-Ning Yang (1957). “Eigenvalues and eigen-
+  functions of a Bose system of hard spheres and its low-temperature properties”, Phys.
+  Rev. (2) 106, pp. 1135–1145.
+Mathieu Lewin (2015). “Mean-field limit of Bose systems: rigorous results”, arXiv:
+  1510.04407 [math-ph].
+Elliott Lieb (1963). “Simplified approach to the ground-state energy of an imperfect
+  Bose gas”, Phys. Rev. (2) 130 (6), pp. 2518–2528.
+                                         1256–29
+
+
+Elliott Lieb, Robert Seiringer, Jan Philip Solovej, and Jakob Yngvason (2005). The math-
+  ematics of the Bose gas and its condensation. Oberwolfach Seminars 34. Birkhäuser
+  Verlag, Basel, pp. viii+203.
+Elliott Lieb, Robert Seiringer, and Jakob Yngvason (2005). “Justification of c-number
+  substitutions in bosonic Hamiltonians”, Phys. Rev. Lett. 94 (8), p. 080401.
+Elliott Lieb and Jan Philip Solovej (2001). “Ground state energy of the one-component
+  charged Bose gas”, Comm. Math. Phys. 217 (1), pp. 127–163.
+Elliott Lieb and Jakob Yngvason (Mar. 1998). “Ground State Energy of the Low Density
+  Bose Gas”, Phys. Rev. Lett. 80 (12), pp. 2504–2507.
+Benjamin Muckenhoupt (1972). “Hardy’s inequality with weights”, Studia Math. 44,
+  pp. 31–38.
+Phan Thành Nam (2023). “Bogoliubov excitation spectrum of Bose gases”, in: European
+  Congress of Mathematics. EMS Press, Berlin, pp. 585–605.
+Olivier Roustant, Franck Barthe, and Bertrand Iooss (2017). “Poincaré inequalities on
+  intervals—application to sensitivity analysis”, Electron. J. Stat. 11 (2), pp. 3081–3119.
+David Ruelle (1969). Statistical mechanics: Rigorous results. W. A. Benjamin, Inc., New
+  York-Amsterdam, pp. xi+219.
+Benjamin Schlein (2022). “Bose gases in the Gross-Pitaevskii limit: a survey of some rig-
+  orous results”, in: The physics and mathematics of Elliott Lieb—the 90th anniversary.
+  Vol. II. EMS Press, Berlin, pp. 277–305.
+Robert Seiringer (2011). “The excitation spectrum for weakly interacting bosons”,
+  Comm. Math. Phys. 306 (2), pp. 565–578.
+Jan Philip Solovej (2025). Seventy Years of the Mathematical Physics of the Bose Gas.
+  Youtube. url: https://www.youtube.com/watch?v=FFeQMmP7naE.
+Horng-Tzer Yau and Jun Yin (2009). “The second order upper bound for the ground
+  energy of a Bose gas”, J. Stat. Phys. 136 (3), pp. 453–503.
+
+
+
+                                           Julien Sabin
+                                           Univ. Rennes, CNRS
+                                           IRMAR - UMR 6625
+                                           F-35000 Rennes, France
+                                           E-mail : julien.sabin@univ-rennes.fr
+

@@ -1,0 +1,788 @@
+
+
+The Tonnetz | Azimuth
+
+ 
+
+Azimuth
+
+Home
+About
+
+ 
+
+The Tonnetz
+
+Harmony in music is the dance of rational and irrational numbers, coming close enough to kiss but never touching.
+
+This image by my friend 
+Gro-Tsen
+ illustrates what I mean.  Check out how pairs of brightly colored hexagons seem to repeat over and over… but not exactly.   Look carefully.  The more you look, the more patterns you’ll find!  And most of them have musical significance.  I’ll give his explanation at the end.
+
+Gro-Tsen writes:
+
+Let me explain what I drew here, and what it has to do with music, but also with diophantine approximations of log(2), log(3) and log(5).  
+
+So, each hexagon in my diagram represents a musical note, or frequency, relative to a reference note which is the bright green hexagon in the exact center. Actually, more precisely, each hexagon represents a note modulo octaves… in the sense that two notes separated by an integer number of octaves are considered the same note. And when two hexagons are separated in the same way in the diagram, the notes are separated by the same interval (modulo octaves). 
+
+More precisely: for each given hexagon, the one to its north (i.e., above) is the note precisely one just fifth above, i.e. with 3/2 the same frequency; equivalently, it is the note one just fourth below (i.e., with 3/4 the frequency) since we are talking modulo octaves.  And of course, symmetrically, the hexagon to the south (i.e., below) is precisely one just fourth above, i.e., 4/3 the frequency, or equivalently, one just fifth below (2/3 the frequency).
+
+The hexagon to the northwest of any given hexagon is one major third above (frequency ×5/4) or equivalently, one minor sixth below (frequency ×5/8). Symmetrically, the hexagon to the southeast is one minor sixth above (×8/5) or one major third below (×4/5).  And the hexagon to the northeast of any given hexagon is one minor third above (frequency ×6/5) or equivalently, one major sixth below (×3/5); and the one to the southwest is one major sixth above (×5/3) or one minor third below.
+
+The entire grid is known as a “Tonnetz”, as explained in 
+
+• Wikipedia, 
+Tonnetz
+
+— except that unfortunately my convention (and JCB’s) is up-down-symmetric wrt the one used in the Wikipedia illustration. 🤷  
+
+[On top of that, I’ve rotated Gro-Tsen’s image 90 degrees counterclockwise to make it fit better in this blog.  I’ve changed his wording to reflect this, and I hope I did it right. – JCB]
+
+Mathematically, if we talk about the log base 2 of frequencies, modulo 1, we can say that one step to the north adds log₂(3), and one step to the northwest adds log₂(5) (all values being taken modulo 1).
+
+Since log(2), log(3) and log(5) are linearly independent over the rationals (an easy consequence of uniqueness of prime factorization!), NO two notes in the diagram are exactly equal. But they can come very close! And this is what my colors show.
+
+Black hexagons are those which distant from the reference note by more than 1 halftone (where here, “halftone” refers to exactly 1/12 of an octave in log scale), or 100 cents. Intervals between 100 and 50 cents are colored red (bright red for 50 cents), intervals between 50 and 25 cents are colored red-to-yellow (with bright yellow for 25 cents), intervals between 25 and 12.5 cents are colored yellow-to-white (with pure white for 12.5 cents), and below 12.5 cents we move to blue.
+
+(Yes, this is a purely arbitrary color gradient, I didn’t give it much thought. It’s somewhat reminiscent of star colors.) Anyway, red-to-white are good matches, and white-to-blue are pretty much inaudible differences, with pure blue representing an exact match, … except that the center hexagon has been made green instead so we can easily tell where it is (but in principle it should be pure blue).
+
+The thing about the diagram is that it LOOKS periodic, and it is APPROXIMATELY so, but not exactly!
+
+Because when you have an approximate match (i.e., some combination of fifths and thirds that is nearly an integer number of octaves), by adding it again and again, the errors accumulate, and the quality of the match decreases.
+
+For example, 12 hexagons to the north of the central one, we have a yellow hexagon (quality: 23.5 cents), because 12 perfect fifths gives almost 7 octaves. But 12 hexagons north of that is only reddish (quality: 46.9 cents) because 24 fifths isn’t so close to 14 octaves. 
+
+For the same reason that log(2), log(3) and log(5) are linearly independent over the rationals, the diagram is never exactly periodic, but there are arbitrarily good approximations, so arbitrarily good “almost periods”. 
+
+An important one in music is that 3 just fifths plus 1 minor third, so, 3 steps north and 1 step northeast in my diagram gives (2 octaves plus) a small interval with frequency ratio of 81/80 (that’s 21.5 cents) that often gets smeared away when constructing musical scales.
+
+Anyway, for better explanations about this, I refer to JCB’s blog post here: 
+
+• 
+Just intonation (part 2)
+.
+
+Can you spot how his basic parallelogram appears as an approximate period in my diagram?”
+
+The answer to Gro-Tsen’s puzzle is in the comments, but here are some hints.
+
+Musicians call the change in pitch caused by going 12 hexagons to the north the 
+Pythagorean comma
+:
+
+They call the change in pitch cause by going 3 hexagons north and 1 hexagon northeast the 
+syntonic comma
+:
+
+You can also see a lot of bright hexagons in pairs, one just a bit east of the other!  This is again a famous phenomenon: the change in pitch caused by going one hexagon northwest and then one hexagon northeast is called the 
+lesser chromatic semitone
+ in just intonation:
+
+If you go one hexagon south and one southwest from a bright hexagon, you’ll also sometimes reach a bright hexagon. This pitch ratio is called the 
+diatonic semitone
+
+But this pattern is weaker, because this number is farther from 1.
+
+With more work you should be able to find hexagons separated by the 
+lesser diesis
+ 
+128/125
+, the 
+greater diesis
+ 648/625, the 
+diaschisma
+ 2048/2025, and other musically important numbers close to 1, built from only the primes 2, 3, and 5.
+
+Happy New Year!
+
+For more on the mathematics of tuning systems, read these series:
+
+• 
+Pythagorean tuning
+.
+
+• 
+Just intonation.
+
+• 
+Quarter-comma meantone
+.
+
+• 
+Well-tempered scales
+.
+
+• 
+Equal temperament
+.
+
+Related
+
+					This entry was posted  on Thursday, January 1st, 2026 at 2:28 pm and is filed under 
+mathematics
+, 
+music
+.					You can follow any responses to this entry through the 
+RSS 2.0
+ feed.
+											You can 
+leave a response
+, or 
+trackback
+ from your own site.
+					
+					
+
+Post navigation
+
+« Previous Post
+
+Next Post »
+
+17 Responses to 
+The Tonnetz
+
+ 
+Justin
+ 
+says:
+ 
+
+2 January, 2026 at 3:05 am
+ 
+
+Could one meta-map any of the known quasicrystal tilings, e.g. 
+this one
+ and/or 
+this Penrose tiling
+  into tonal map alternatives to the Tonnetz, and have the resulting tonal map alternatives be not too sonically displeasing?  (I Googled for quasicrystal music and got these two interesting articles: 
+Ong2020
+ and 
+Trevino2022
+ — but those seem to be in regard to quasiperiodicity of timing/metre/rhythm, rather than in regard to tonal mapping.)
+
+Reply
+
+ 
+Justin
+ 
+says:
+ 
+
+2 January, 2026 at 5:51 am
+ 
+
+Oops! — my being on neither BlueSky nor Mathstodon meant that I missed the discussion of the above at 
+https://bsky.app/profile/glocq.mathstodon.xyz.ap.brid.gy/post/3mbaczn7otsq2
+
+(which might possibly form the basis of a quasiperiodic repeat of the same discussion with 1 day delay ;)
+
+Reply
+
+ 
+Justin
+ 
+says:
+ 
+
+2 January, 2026 at 6:29 am
+ 
+
+In this vein, I asked Google Gemini to draw me a quasicrystalline groundhog, in honour of Bill Murray (after I very sadly got robotically told off when I asked the same of ChatGPT), and eventually it rendered me 
+this nice one
+.
+
+I view that quasihog as probably emitting a meantone while hiding from a wolf interval. ;)
+
+Reply
+
+ 
+John Baez
+ 
+says:
+ 
+
+2 January, 2026 at 5:28 pm
+ 
+
+Gro-Tsen and I discussed
+ how both many quasiperiodic tilings and his coloring of the Tonnetz could be described in terms of a plane mapped into a higher-dimensional Euclidean space containing a lattice.  However, I haven’t gotten to the bottom of this. If I do, I’ll try to blog about it.
+
+Reply
+
+ 
+John Baez
+ 
+says:
+ 
+
+2 January, 2026 at 7:49 pm
+ 
+
+Here’s the answer to Gro-Tsen’s puzzle:
+
+  Can you spot how his basic parallelogram appears as an approximate period in my diagram?
+
+First, here is my parallelogram:
+
+and here is his diagram rotated so the directions match up:
+
+You can see that going from the southwest corner of my parallelogram to the two nearest corners corresponds to these two moves in Gro-Tsen’s diagram:
+
+• going 4 hexagons northeast, and thus multiplying the frequency by
+
+which after correcting by a suitable power of two is the 
+lesser diesis
+:
+
+• going 3 hexagons east and one southwest, and thus multiplying the frequency by
+
+which after correcting by a suitable power of 2 is the 
+syntonic comma
+:
+
+Reply
+
+ 
+nad
+ 
+says:
+ 
+
+7 January, 2026 at 10:06 am
+ 
+
+By looking at the Gro-Tsen coloured Tonnetz one feels to remark that a better “schisma” might be obtained by going one step north and 13 steps north east. Or in ratios (the software doesnt allow to write out highcommas so I write it out) 6/5 to the power of 13 times 3/2 equals 16.0489. Divided by 16 this gives 1.0030613. If this hasnt been given a name yet I’d like to dub it “charismatic schisma”.
+
+Reply
+
+ 
+John Baez
+ 
+says:
+ 
+
+7 January, 2026 at 12:09 pm
+ 
+
+Thanks!   I’ll have to think about this interval.   Let’s see, it’s
+
+3
+14
+ 2
+8
+ 5
+-13
+ ≈ 1.0030613004288…
+
+or in your way of thinking, we go up a just minor third 13 times, then a just fifth, and then down 4 octaves.
+
+We can grind small intervals against each other and get even smaller intervals.  For example the 
+lesser diesis
+ is
+
+128/125 = 1.024
+
+while the 
+syntonic comma
+ is
+
+81/80 = 1.0125
+
+so their ratio is even closer to one: Helmholtz called it the 
+diaschisma
+:
+
+diaschisma = lesser diesis / syntonic comma = 2048/2025 ≈ 1.011358…
+
+I wonder if a further ‘grinding’ process, taking ratios of musically important fractions slightly larger than 1, will lead to your ‘charismatic comma’!
+
+Reply
+
+ 
+nad
+ 
+says:
+ 
+
+8 January, 2026 at 10:22 am
+ 
+
+1/n
+
+I called it charismatic schisma, not charismatic comma. I find the word „schisma“ (cleft, rift, schism) somehow fits here better than „comma“ (incision), as this is not just an incision but a comparision of the difference of two notes who should be „equal“ (up to octaves) . In austrian the „comma“, as a punctuation, is called „Beistrich“ (by-stroke), and in german you also understand the word in this way – so for german speakers using the word „comma“ in this context feels a bit strange. That might also explain Helmholtz‘ choice. But well.
+
+Reply
+
+ 
+nad
+ 
+says:
+ 
+
+8 January, 2026 at 10:23 am
+ 
+
+2/n
+
+ You skipped an order in your comment.  The charismatic schisma 1.0030613 is about ten times closer to one than e.g. the diaschisma 1.011358.
+
+OK now thinking a bit further one sees that the charismatic schisma allows for an interesting tuning that gives a different tuning per octave. This comment here gets now a bit out of proportion but let me cast that out more. I actually, just this week, wanted to learn a bit more about Gregorian modes, as a free time project, which shall explain my sudden interest in this topic.
+
+The charismatic schisma defines a small 2 rows-14 column fundamental domain.
+
+One can get tuning scales into that domain, which could eventually -with a grain of salt- be seen as „modes“, as, with 4 octaves, they are roughly within the usual singing range.
+
+A tuning scale meanders in the fundamental domain.
+
+Reply
+
+ 
+nad
+ 
+says:
+ 
+
+8 January, 2026 at 10:24 am
+ 
+
+3/n
+
+Now follows a scale, that is a bit more interesting than going up the thirds and then jump by a fifth: If one denotes Ab as A flat etc. and denotes a jump by a minor third (3 halftones, factor 6/5) by „-“  and denoted a jump by a just fifth (7 halftones, factor 3/2) by „– > 7 – >“ and denoted a jump back by a just fourth „< – 5 < – „  (5 halftones back, factor ¾) then the tuning goes e.g. C-Eb-Gb-A – >7 – > e-g-bb-d‘b < – 5 < – ab-b-d‘-f‘ – >7 – > c‘‘-e‘‘b-g‘‘b-a‘‘-c‘‘‘. So between C and c‘‘‘ there is the charismatic schisma, which is connected with the fact that the pure 4 octave jump has to be „distorted“, by multiplying the frequency of C with 16.0489, instead of 16. I would like to call this scale a „charismatic scale“. As one can see this scale meanders through the 3 thirdcycles D-F-Ab-B-D, C-Eb-Gb-A-C, and Db-E-G-Bb-Db that define the usual Tonnetz domain. So one could also think about „flattening“ this scale to one octave, by omitting either C-Eb-Gb-A at the beginning or c‘‘-e‘‘b-g‘‘b-a‘‘ at the end, or by finding a „compromise“. But unfortunately one looses a lot of „charisma“ in that process, that is I could imagine that the step from B to a higher octave C could sound strange.
+
+Reply
+
+ 
+nad
+ 
+says:
+ 
+
+8 January, 2026 at 10:24 am
+ 
+
+4/n
+
+Of course one could also try to fill in the rest tones of the 4 twelvetone octaves, in order to get towards a full „charismatic twelvetone  tuning“ . This seems however not so straight forward. In order to fill in quite some „omitted tones“ one could tune first the rest of the domain e.g. meander „from above within the domain“ , ie. start at the just fifth above , i.e. at G and go to g‘‘. One obtains: C→7→[G-Bb-db-e<-5<-B-d-f-ab→7→e‘b-g‘b-a‘-c‘‘<-5<-g‘-b‘b-d‘‘b-e‘‘-g‘‘]→-5→C. One sees that e, c‘‘and e‘‘ are double. There one probably has to make a decision, which to take, or take something between the respective two. Some hexagons have a double layering, like being the A in the first tune path and the B in the second. Taking the fifth below one gets still not all notes of the 4 octaves „charismatically tuned“, but one could probably use the other fifths to fill in the gaps. Or one could simply  go up and down octaves from the above from the above „charismatic scale“. a.s.o.
+
+Reply
+
+ 
+nad
+ 
+says:
+ 
+
+12 January, 2026 at 6:26 am
+ 
+
+5/n
+
+As it turned out the tones in the charismatic scale in comment 2/n obtained by flattening with a power of two are far off their corresponding names. In fact the are about “double as far” from the base tone. As a consequence I noticed that there is yet another schisma. It is not as close to 1 as the above charismatic schisma, but almost. Since it is related to minor thirds and the “continued” (keep meandering) charismatic scale I dub this schisma “charismatic diesis”. In short the charismatic diesis is 2 to the power of ten divided by 6/5 to the power of 38, which is 1.003257943. I constructed a scale based on this charismatic diesis that looked more or less straight forward. You can hear it at 
+https://soundcloud.com/cat-caspari/microtonal
+
+By the way thanks for the music theory sessions here and Gro-Tsen’s graphics. Please regard the scale as a kind of thank you. I am not sure though whether I delve further into microtonal music.
+
+Reply
+
+ 
+John Baez
+ 
+says:
+ 
+
+12 January, 2026 at 4:24 pm
+ 
+
+Thanks for the thanks!   Your scale sounds pretty interesting—thanks for creating that!
+
+I want to investigate your charismatic schisma and charismatic diesis a bit, but I haven’t had time yet.  I want to write a program that systematically looks for numbers close to 1 of the form
+
+ 2
+i
+ 3
+j
+ 5
+k
+
+where i, j, k are integers whose absolute values are not too big.  This should turn up all the intervals we’ve been talking about, and maybe others.
+
+Reply
+
+ 
+nad
+ 
+says:
+ 
+
+12 January, 2026 at 6:06 pm
+ 
+
+Well Gro-Tsen’s Graphic does this already apart from the uncertainty of the colour block size, which is on the other hand sort of an obstacle for finding “better” schismas. So I understand your comment in such a way, that you basically want to plot in finer grade. Is that right? The darker, more saturated blues in Gro-Tsen’s image seem actually to be closer to one (even if black or dark colour means a hexagon is far away), so one finds 2 to the 5 divided by 6/5 to the 19 is 1.001627647, which is more close to one than the charismatic schisma and diesis could maybe furnish a “better” charismatic diesis. Likewise (3/2) to the 8 times 5/4 divided by 2 to the 5 is 1.00112915.
+
+Reply
+
+ 
+John Baez
+ 
+says:
+ 
+
+12 January, 2026 at 7:49 pm
+ 
+
+I want software that prints out a list of those numbers of the form 2
+i
+ 3
+j
+ 5
+k
+ that are closest to 1, with the closest ones being listed first, for all i,j,k with -M ≤ i, j, k ≤ M for some chosen M.    Or something like that, perhaps listing in order of “closeness, but penalized for larger M”.
+
+ 
+nad
+ 
+says:
+ 
+
+12 January, 2026 at 6:13 pm
+ 
+
+I wrote “Well Gro-Tsen’s Graphic does this already apart from the uncertainty of the colour block size..” ….. and one should add as well of course “apart from the octaves”, i.e. he mods out 2 to the 3 and not all powers of 2.
+
+Reply
+
+ 
+kaleberg
+ 
+says:
+ 
+
+16 February, 2026 at 5:19 pm
+ 
+
+I ran into a related problem. Back in the 1960s, Keufel & Esser sold a “dimensional” slide rule they called the Analon slide rule. Instead of numbers it had physical metrics like force, area, charge, density and so on represented by Latin or Greek letters. It worked like a slide rule with C, D and other scales. You could multiply distance times distance and get area or divide mass by volume to get density.
+
+Some time back, I bought one on Ebay, as I was curious about how it worked. It seemed obvious that it involved the logarithms of prime numbers, possibly one for each type of dimension e.g. distance, mass, charge and time. I wrote a small program to explore the space and realized that it was a trickier problem than I had expected. The solution K&E used was one of the few I could find that worked, and it was sensitive to precise alignment of the scales and cursor. K&E warned about the need for careful alignment in the slide rule manual, so this was no surprise.
+
+Like the musical notes problem, this slide rule problem also involves the logarithms of integers, modulo one arithmetic and accepting good but approximate equalities. I doubt many people remember the Analon slide rule though a quick search revealed a few web sites with more details. I only knew about it because K&E had a store near NYC City Hall and I dropped in back in my high school days.
+
+Reply
+
+You can use Markdown or HTML in your comments.  You can also use LaTeX, like this: $latex E = m c^2 $. The word 'latex' comes right after the first dollar sign, with a space after it. 
+Cancel reply
+Your email address will not be published.
+ 
+Required fields are marked 
+*
+Comment 
+*
+ 
+Name 
+*
+ 
+
+Email 
+*
+ 
+
+Website
+ 
+
+ 
+
+ 
+Notify me of new comments via email.
+ 
+Notify me of new posts via email.
+Δ
+
+ 
+
+latest posts:
+
+Octonions and the Standard Model
+
+Interview with Micah Zarin
+
+Summing the Reciprocals of Primes
+
+From Pentagons to Pentagrams
+
+The Great Icosahedron
+
+What Are Atoms Made Of?
+
+Phasons in Quasicrystals
+
+Naturally Occurring Quasicrystals
+
+Freiman’s Constant
+
+Quantum Mechanics of the Inverse Cube Force Law
+
+latest comments:
+
+allenknutson on 
+Octonions and the Standard…
+John Baez
+ on 
+Octonions and the Standard…
+allenknutson on 
+Octonions and the Standard…
+BLK on 
+Norton’s Dome
+walgaterobert on 
+Octonions and the Standard…
+Phillip Helbig on 
+Octonions and the Standard…
+mitchellporter on 
+Octonions and the Standard…
+John Baez
+ on 
+Octonions and the Standard…
+John Baez
+ on 
+Octonions and the Standard…
+walgaterobert on 
+Octonions and the Standard…
+ 
+
+How To Write Math Here:
+
+You can 
+include math in your comments using LaTeX
+,  but you need to do it this way:
+
+$latex  E = mc^2$
+
+You need the word 'latex' right after the first dollar sign, and it needs a space after it.  Double dollar signs don't work, and other limitations apply, some described 
+here
+.  You can't preview comments here, but I'm happy to fix errors.
+
+Read Posts On:
+
+art
+ (8)
+
+astronomy
+ (59)
+
+azimuth
+ (65)
+
+biodiversity
+ (41)
+
+biology
+ (114)
+
+carbon emissions
+ (80)
+
+chemistry
+ (92)
+
+climate
+ (162)
+
+computer science
+ (80)
+
+conferences
+ (113)
+
+culture
+ (8)
+
+economics
+ (33)
+
+energy
+ (51)
+
+engineering
+ (12)
+
+epidemiology
+ (22)
+
+game theory
+ (30)
+
+geography
+ (5)
+
+health
+ (7)
+
+history
+ (21)
+
+information and entropy
+ (100)
+
+jobs
+ (17)
+
+journals
+ (5)
+
+mathematics
+ (653)
+
+music
+ (55)
+
+networks
+ (192)
+
+oceans
+ (13)
+
+physics
+ (270)
+
+politics
+ (2)
+
+probability
+ (99)
+
+psychology
+ (6)
+
+publishing
+ (20)
+
+puzzles
+ (14)
+
+quantum technologies
+ (28)
+
+questions
+ (3)
+
+risks
+ (59)
+
+seminars
+ (23)
+
+software
+ (33)
+
+strategies
+ (44)
+
+sustainability
+ (76)
+
+the practice of science
+ (29)
+
+this week's finds
+ (18)
+
+also visit these:
+
+Bit Tooth Energy
+
+Brave New Climate
+
+Do the Math
+
+Dot Earth
+
+Environment 360
+
+Planet3.0
+
+RealClimate
+
+Serendipity
+
+The Science of Doom
+
+Yale Environment 360
+
+RSS feeds:
+
+ 
+RSS - Posts
+ 
+RSS - Comments
+
+Email Subscription:
+
+Enter your email address to subscribe to this blog and receive notifications of new posts by email.
+
+						Email Address:					
+
+ 
+
+ 
+
+						Sign me up!					
+
+					Join 5,451 other subscribers				
+
+SEARCH:
+
+Search
+
+Blog Stats:
+
+5,558,995 hits
+
+Blog at WordPress.com.
+
+ 
+Comment						
+
+Reblog
+
+Subscribe
+
+Subscribed
+
+				Azimuth			
+
+Join 5,451 other subscribers
+
+ 
+
+												Sign me up											
+
+											Already have a WordPress.com account? 
+Log in now.
+ 
+
+ 
+Privacy						
+
+ 
+
+				Azimuth			
+
+Subscribe
+
+Subscribed
+
+Sign up
+
+Log in
+
+Copy shortlink
+
+										Report this content									
+
+										View post in Reader									
+
+Manage subscriptions
+
+Collapse this bar
+
+ 
+

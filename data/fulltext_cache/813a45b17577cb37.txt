@@ -1,0 +1,711 @@
+Snapshots of modern mathematics                                          № 6/2025
+from Oberwolfach
+
+
+
+
+                          Brauer’s problems:
+                          60 years of legacy
+
+
+                 Noelia Rizo 1 • Mandi A. Schaeffer Fry 2
+
+
+
+      Richard Brauer (1901–1977) was a German–American
+      mathematician who is regarded as the founder of a
+      highly active mathematical area known as modular
+      representation theory. This area grew from group
+      theory, which can be thought of as the mathematical
+      study of symmetries. In this snapshot, we hope to
+      impress on the reader the legacy left by Brauer and
+      celebrate the 60th anniversary of “Brauer’s problems”,
+      a list of 43 conjectures and objectives suggested by
+      Brauer in 1963. These problems inspired an entire
+      branch within character theory, studying “local-global
+      conjectures”.
+
+1 Groups and representations
+
+Groups are mathematical objects that encode symmetries. They can also be
+thought of as abstract number systems: roughly speaking, a group is a set G on
+which there is an operation ∗ that allows you to combine two elements a and b
+
+1 Supported by Ministerio de Ciencia e Innovación (Grant PID2019-103854GB-I00 funded
+
+by MCIN/AEI/10.13039/501100011033) and a CDEIGENT grant CIDEIG/2022/29 funded
+by Generalitat Valenciana.
+2 Supported in part by the U. S. National Science Foundation, Award Nos. DMS-2100912
+
+and DMS-2439897.
+
+
+                                         1
+in G to obtain another element a ∗ b in G. This operation has to satisfy certain
+rules. Before specifying these, let us consider an example of a group that we
+are all familiar with: the set of integers Z under addition. Two integers a and b
+can be added up to obtain another integer a + b. The number 0 plays a special
+role as adding it to any integer “does nothing”. Furthermore, every integer n
+has the “inverse” −n, because adding −n to n results in 0. Another example is
+given by the real numbers R, this time under multiplication. Here, multiplying
+by 1 does nothing, and every real number r has the inverse 1r .
+   The definition of a group models the properties that we are used to from
+these two examples. A set G together with an operation ∗ is called a group if it
+satisfies the following properties:
+• There exists an identity element e ∈ G that “does nothing”, that is, such
+  that e ∗ g = g = g ∗ e for all g ∈ G.
+• Every g ∈ G has an inverse g −1 ∈ G that satisfies g ∗ g −1 = e = g −1 ∗ g.
+• The operation is associative, meaning that (g ∗ h) ∗ k = g ∗ (h ∗ k) for all
+  g, h, k ∈ G.
+In practice, the abstract group operation is often simply referred to as “multi-
+plication”, and the symbol ∗ is omitted.
+    Perhaps the reader has already caught us in a lie – since we cannot divide by
+0, this number has no inverse. This means that the set of real numbers under
+multiplication does not truly form a group! Instead, we obtain a group from
+the set of non-zero real numbers under multiplication. (This time, we have not
+lied!) The reader may also have noticed that the two sets in the examples given
+so far have infinitely many elements. However, our protagonist Brauer was
+particularly interested in finite groups, where the underlying set only has a finite
+number of elements. For an example of a finite group, consider the set {0, 1}
+with binary addition given by 0 + 0 = 0, 1 + 0 = 1, 0 + 1 = 1, and 1 + 1 = 0.
+
+1.1 “That napkin example”
+
+The reader may be asking themselves what this has to do with symmetry.
+Indeed, one of the most powerful uses of groups lies in their ability to describe
+the symmetry of objects. 3 As an example, consider a square napkin at your
+dinner table, with one flat side parallel to the edge of the table. Your task is
+to consider all of the ways you can move the napkin and place it back on the
+table so that one side is again parallel to the edge of the table (and without
+any folding). You might notice that you can rotate by 90◦ , 180◦ , 270◦ , or 360◦ .
+(The latter is equivalent to not moving the napkin at all!) You might also notice
+
+3 We refer the reader to another snapshot [15], which gives a beautiful overview of the idea
+
+of group theory from this perspective.
+
+
+                                             2
+     4              3   3             2       2           1   1            4
+
+
+
+
+     1              2   4             1       3           4   2            3
+           R 0◦              R90◦                 R180◦           R270◦
+
+     1              2   3             4       2           3   4            1
+
+
+
+
+     4              3   2             1       1           4   3            2
+           Sh                 Sv                   Sd1             Sd2
+
+
+                        Figure 1: The dihedral group D8 .
+
+
+that you can flip the napkin over an imaginary horizontal, vertical, or one of
+two diagonal lines through the center of the napkin. It turns out that these
+eight transformations are the only ones! You can do them in sequence, and
+always end up with your napkin in one of the same eight positions.
+    Abstractly, these transformations on your napkin correspond exactly to the
+symmetries of the square. They form what we call the dihedral group D8 , a
+finite group of size 8 (see Figure 1). The identity element is the rotation by 0◦ ,
+and the reader is invited to verify that every symmetry has an inverse (for
+example, the inverse of the rotation by 90◦ is the rotation by 270◦ ). Moreover,
+this is the first example we have given where the operation is not commutative –
+that is, it matters in which order we carry out the transformations. A group
+whose operation is commutative is called abelian.
+    In the same way, one can form the group of symmetries of an equilateral
+triangle, a regular pentagon, hexagon, and so on! On the surface, this may seem
+like nothing more than a mediocre dinner party trick, but the reader might
+imagine how this same concept can be applied to study the spin of particles in
+physics, the structure of chemical molecules, neural or social networks, and the
+list goes on!
+
+1.2 Group representations
+
+Given a group G, one wants to understand its group structure, that is, in
+what way the elements of the group interact with each other under the group
+operation. This structure can be quite complicated, even if G is finite. To get a
+better understanding of it, one studies its “representations”. This means that
+
+
+                                          3
+                                      y
+
+                               
+                              −1
+                              2
+                                                   
+                                                   2
+                                                   1
+
+                                                        x
+
+
+                     Figure 2: A vector of R2 rotated by 90◦ .
+
+
+instead of looking at the original group, one “represents” the group by certain
+groups of “invertible matrices”, since these are often simpler to deal with.
+   Matrices are arrays of numbers, which are often first introduced to students
+to solve systems of linear equations. Seen differently, matrices describe linear
+transformations, which are structure-preserving functions between vector spaces.
+For example, the matrix
+                                          
+                                      0 −1
+                                      1 0
+
+describes the linear transformation of the real 2-dimensional vector space R2
+which is given by (counterclockwise) rotation by 90◦ : If one multiplies an
+arbitrary vector (x, y) ∈ R2 with the above matrix, one obtains
+                                             
+                 0   −1    x   0 · x + (−1) · y    −y
+                         ·   =                   =    ∈ R2 ,
+                 1    0    y     1·x+0·y           x
+
+which is exactly the rotated vector (see Figure 2).
+   Here, we multiplied the matrix with the vector by the rules of matrix
+multiplication. To obtain a group of matrices under matrix multiplication, one
+has to consider square matrices (matrices that have the same number of rows
+and columns), because multiplying two of these yields again a square matrix of
+the same size. Furthermore, the matrices have to be invertible, meaning that
+they have an inverse with respect to matrix multiplication (where the identity
+element is the square matrix who has only 1’s on the main diagonal and 0’s
+everywhere else). The invertible square matrices of size n with entries in R form
+the general linear group, which is denoted GLn (R). Each matrix in this group
+represents an invertible linear transformation of Rn , and the multiplication of
+two matrices corresponds to carrying out two transformations after each other.
+   Now a (real) group representation of a group G is a group homomorphism
+
+                                    ρ : G → GLn (R).
+
+
+                                           4
+This means that ρ assigns to every element g ∈ G a matrix ρ(g) ∈ GLn (R)
+in a way that is compatible with the two group operations. That is, the
+multiplication of two elements in G is sent to the multiplication of the two
+corresponding matrices in GLn (R). Written formally, one has
+
+                                 ρ(g ∗ h) = ρ(g) · ρ(h),
+
+where ∗ denotes the operation of G and · denotes matrix multiplication. Given
+such a representation, one can study the behaviour of the matrices instead of
+that of the elements of G. Although matrix multiplication can be onerous, it is
+well understood, unlike the abstract type of operation found in many groups!
+With this, we are able to use the full power of linear algebra to study our
+sometimes complicated abstract group.
+   Let us look at an example of a group representation of our napkin group D8 . 4
+There is a group homomorphism ρ : D8 → GL2 (R) that sends the elements
+of D8 to the following matrices:
+                                                               
+                          1 0                              1 0
+              ρ(R0◦ ) =                         ρ(Sh ) =
+                          0 1                              0 −1
+                                                               
+                          0 −1                             −1 0
+             ρ(R90◦ ) =                         ρ(Sv ) =
+                          1 0                               0 1
+                                                             
+                          −1 0                             0 1
+            ρ(R180◦ ) =                        ρ(Sd1 ) =
+                           0 −1                            1 0
+                                                                 
+                           0 1                              0 −1
+            ρ(R270◦ ) =                        ρ(Sd2 ) =
+                          −1 0                             −1 0
+
+These matrices are exactly the symmetries of the square but seen as linear
+transformations on the whole plane. The reader is invited to verify that this
+really defines a group homomorphism.
+   An important class of group representations are the irreducible ones. A rep-
+resentation ρ : G → GLn (R) is called irreducible if there is no linear subspace
+of Rn that remains fixed under the transformations ρ(g) for all g ∈ G. For
+example, the linear subspaces of R2 are all the lines through the origin. There-
+fore, the example above is an irreducible representation, as there is no line that
+remains fixed under all the symmetries of the square. Maschke’s Theorem states
+that every (real or complex) representation of a finite group can be decomposed
+into a sum of irreducible representations. This means that irreducible represen-
+tations are in a sense the “building blocks” of all representations (analogous to
+viewing the prime numbers as the building blocks of all integers, or the chemical
+elements in the periodic table as the building blocks of matter).
+
+4   More examples of group representations can be found in the snapshot [14].
+
+
+                                            5
+1.3 Character tables
+
+In ordinary representation theory, the matrices take entries in the complex
+numbers, meaning that one studies group homomorphisms
+
+                                ρ : G → GLn (C).
+
+In this case, a remarkable amount of information about the representations of a
+finite group is encoded in its characters. The character of an element g ∈ G is
+obtained by simply taking the sum of the entries along the main diagonal of
+the matrix ρ(g). As the reader might imagine, this condenses the information
+significantly! Instead of studying sets of large matrices, one only needs to
+study one number for each matrix! This allows us to condense the ordinary
+representation theory of a finite group G into what is known as a character
+table, which consists of the characters χ(g) for every group element g ∈ G.
+    In our example of the napkin group D8 , the matrices have real entries, but as
+real numbers are also complex numbers, one can interpret the representation as a
+group homomorphism G → GL2 (C). The character table for this representation
+is the following:
+
+            g     R0◦    R90◦   R180◦    R270◦     Sh   Sv   Sd1   Sd2
+           χ(g)    2       0      −2        0      0    0     0     0
+
+A complete character table would include the characters of every single irre-
+ducible complex representation of G (if G is finite, there are only finitely many
+of these).
+   This leads us to two overarching questions in character theory:
+
+1.   Can we calculate the character table of a given finite group G?
+2.   Given a character table, what can we say about the group that it came
+     from?
+
+Much work has been done on the first of these questions, and there is even a
+book called the Atlas of Finite Groups [10] that includes many of the known
+character tables. But unfortunately, this only goes so far – there are many even
+relatively small groups for which we still do not know the full character table!
+   For our purposes, we focus on the second question. The reader might initially
+hope that, given a character table, we can determine exactly what group it
+came from. But it turns out that the second question is more subtle than this –
+in fact, the groups D8 and another group Q8 of size 8 (the “quaternion group”)
+have identical character tables! This leads us to Richard Brauer, who asked
+many questions related to this one.
+
+
+                                        6
+2 Richard Brauer
+
+Richard Brauer was born in 1901 in Berlin-Charlottenburg, Germany, and
+studied under Issai Schur (1875–1941) to obtain his doctorate in 1926. He
+held positions at the University of Königsberg, the University of Kentucky,
+the Institute for Advanced Study in Princeton, the University of Toronto, the
+University of Michigan, and finally Harvard University, from which he retired
+in 1971. He passed away in 1977. During his career, he won several famous
+awards (including the Cole Prize and the National Medal of Science), served
+as an editor on a number of top-tier journals, and left a lasting impression on
+the areas of group theory and representation theory that we can only begin to
+discuss in this snapshot. 5
+
+2.1 Brauer’s problems
+
+In 1963, Brauer published a paper [4] which enumerated 43 problems that
+he saw as the main questions to be answered in group theory and character
+theory. These problems had perplexed him for quite some time, and he gave
+some insight into his own thoughts on them. Many of Brauer’s problems are in
+the realm of “local-global” theory (and, really, they began this sort of study
+in character theory). This means that they posit relationships between the
+character theory of a finite group and that of certain nice “local subgroups”.
+   A subgroup is a smaller group sitting inside the original group under the same
+operation. For example, the non-zero rational numbers are a subgroup of the
+non-zero real numbers, because multiplication of rational numbers leaves you
+inside the rational numbers. Similarly, the four rotations of your napkin form a
+subgroup of the dihedral group D8 . Each group has two “trivial subgroups”,
+namely the group itself and the subgroup {e} that only consists of the identity
+element. Studying the properties of the group’s subgroups and their relationship
+to each other is essential for understanding the group structure.
+   The “local” subgroups appearing in Brauer’s problems are defined by a given
+prime number p – one can think of a local-global problem as zooming in on
+the group through the point of view of that prime. For example, one of the
+most quintessential local subgroups is known as a Sylow p-subgroup (named
+after the mathematician Peter Ludvig Sylow (1832–1918)). This is a subgroup
+whose size is pa , where pa is the largest power of p that divides the size of the
+group. More generally, a p-group is one whose size is a power of p. Just this
+one example of a local subgroup already seems to control an immense amount
+of information about the character theory of the group. For example, one of
+the easier-to-state problems of Brauer is the following, number 12 on his list:
+
+5   See https://mathshistory.st-andrews.ac.uk/Biographies/Brauer/ for a biography of Brauer.
+
+
+                                             7
+Brauer’s Problem 12. Given the character table of a finite group G, what
+can be said about a Sylow p-subgroup P ? In particular, can it be determined
+whether or not P is abelian?
+
+   This question allows different interpretations. For instance, it was proved in
+[19] that if two finite groups have the same character table and one of them has
+abelian Sylow p-subgroups, then the same holds for the other one. In [28], a
+different solution is given, providing an explicit criterion for the existence of
+abelian Sylow p-subgroups. The reader may notice that Problem 12 is quite
+open-ended. We can study this question forever and continue to find more
+relationships between the character table and properties of a Sylow p-subgroup!
+This is the case with many of the problems in Brauer’s list. For example:
+
+Brauer’s Problem 7. Study the irreducible characters of p-groups.
+
+
+3 The classification of finite simple groups
+
+Brauer’s problems inspired a number of other questions that are deep-rooted
+in group theory. At the same time that Brauer’s problems were first being
+studied, group theorists were in the thick of another transformative program:
+the classification of finite simple groups (or simply the CFSG).
+
+3.1 The classification
+
+We saw in subsection 1.2 that we are interested in studying irreducible repre-
+sentations, because every group representation is in fact a sum of these. This
+principle occurs in many areas of mathematics: once a mathematical object is
+introduced, we become interested in studying the “building blocks” of those
+objects. For example, the area of number theory began as the study of prime
+numbers, which can be thought of as the building blocks of the integers. For
+group theory, the corresponding notion is that of “finite simple groups”.
+   To introduce simple groups, we need to talk about an important relation
+between group elements: We say that two elements g and h of a group G are
+conjugate if there exists an element x ∈ G such that x−1 gx = h. This means
+that g can be transformed into h by multiplying it by x (from the right) and by
+the inverse of x (from the left). Intuitively, g is almost the same as h, just shifted
+by x, and the two group elements behave in a similar way. For instance, in our
+                                                                       −1
+napkin group D8 , the elements Sh and Sv are conjugate as Sh = R90       ◦ ◦ Sv ◦ R90◦
+
+(where ◦ denotes the operation of D8 ). This matches our intuition that reflection
+on the horizontal line is the same as reflection on the vertical line rotated by 90◦ .
+   We say that a subgroup N of G is normal in G if it is closed under conjugation,
+that is, if for every n ∈ N and for every x ∈ G we have that x−1 nx ∈ N . Normal
+
+
+                                          8
+subgroups are important as they allow us to “divide” our group into two smaller
+pieces, namely into the group N and a new group, the factor group G/N . In
+this new group, elements of G are identified if they only differ by an element
+of N . For example, the subgroup of D8 that consists of the four rotations is a
+normal subgroup (the reader is invited to verify this). Let us denote it by R.
+The factor group D8 /R only has two elements: the element that represents all
+reflections (as these are all “the same” up to some rotation) and the one that
+represents all rotations (which is the identity element).
+    We say that a group is simple if it has no normal subgroups (except of the
+trivial subgroups {e} and G, which are always normal). If a group is simple,
+we can not divide it into smaller groups using the above trick! For any finite
+group, we can do the “factoring trick” repeatedly until we get to the situation
+where all the factor groups appearing in the process are simple. In this way, we
+can decompose any finite group into finite simple groups.
+    Let us carry out this process for our napkin group D8 . We already found the
+normal subgroup R consisting of the four rotations and explained that D8 /R
+consists of only two elements, which implies that it is simple. Now we repeat this
+process with R: Inside R, there is another normal subgroup R′ = {R0◦ , R180◦ }.
+In the factor group R/R′ , the rotations R0◦ and R180◦ as well as R90◦ and R270◦
+are identified, as they only differ by R180◦ . Consequently, R/R′ also has only
+two elements and is therefore simple. Since R′ itself is simple, we can not
+continue, thus we are done. This means that for D8 , we have found the three
+simple groups D8 /R, R/R′ and R′ .
+    The Jordan–Hölder Theorem assures us that it does not matter how you
+do this process, you always end up with the same simple groups. This is why
+the finite simple groups can be thought of as the “building blocks” of all finite
+groups (and why it was so important to classify them!).
+    For the majority of the 20th century, especially in its second half, the primary
+goal in group theory was to completely classify the finite simple groups. After
+some hiccups, 6 it was finished in the early 2000’s. The remarkable result of the
+CFSG is that every finite simple group belongs to one of four specific classes of
+groups. 7 Brauer himself made huge contributions to this program, especially
+notably his article with Fowler On Groups of Even Order [5], which set the stage
+for the strategy that was eventually successful in completing the classification.
+
+3.2 Using the classification
+
+As the classification project was coming to a close (or, so it was thought) in the
+1980s, group theorists started to imagine the world post-classification. What
+
+6   The story of the CFSG is a tale in itself! For a more complete history, see [34].
+7   These four classes of simple groups are described in more detail in the snapshot [12].
+
+
+                                              9
+would group theory be like once the CFSG was completed? Would it be the
+“death” of the area? 8 The authors of this article would, of course, argue that
+the answer to the latter is a resounding “no!”, but that it certainly changed
+the landscape of group theory. In fact, the classification opened the doors to
+new possibilities. In 1984, Gerhard Michler published a paper [25] posing the
+question: “Which of the open problems [from Brauer’s list] can now be proved
+by means of the classification theorem?” He goes on to specifically suggest that
+perhaps the CFSG could be used to make progress on Brauer’s Problems 12,
+23 (Brauer’s Height Zero Conjecture), and 20 (Brauer’s k(B)-Conjecture). The
+strategy would be (and, indeed, has become) to approach large problems in
+group theory using two steps:
+1. Prove that condition A holds for every finite simple group by proving that
+   it holds for every class of finite simple groups individually.
+2. Prove that if condition A holds for every finite simple group, then property B
+   holds for every finite group.
+The idea behind the second step is to show that once condition A is verified for
+all simple building blocks of a finite group G, then G as a whole must inherit
+property B when assembling the simple pieces back together. In this way, many
+problems on finite groups can be reduced to problems on finite simple groups.
+    Among the first complete examples of the use of this strategy is the Itô–
+Michler Theorem, proved as [25, Theorem 2.3], in a sense as a proof of concept
+and as a step toward Brauer’s Height Zero Conjecture and Brauer’s Problem 12.
+The Itô–Michler Theorem. A finite group G has a normal abelian Sylow
+p-subgroup if and only if every irreducible character of G has degree not divisible
+by p.
+   This theorem illustrates a common theme among local-global problems: the
+idea of the degree (the size of the matrices in a representation) not being divisible
+by your chosen prime p. This idea also appears in the McKay Conjecture, which
+was introduced in 1972 by John McKay in a short note [24] dedicated to
+Brauer’s 70th birthday.
+The McKay Conjecture. For a finite group, the number of irreducible rep-
+resentations whose degree is not divisible by p is the same as that for the
+normalizer 9 of any of its Sylow p-subgroups.
+   The McKay Conjecture was reduced in 2007 to a problem on simple groups
+by Isaacs, Malle and Navarro in [17]. The authors gave a list of conditions and
+
+8    There was even a conference in 1979 that was nicknamed “The Funeral”!
+9    The normalizer of a subgroup H ⊂ G is the largest subgroup of G in which H is normal.
+
+
+                                            10
+showed that the conjecture would hold if these were satisfied by every simple
+group. (This is step 2 of the strategy!) Using this, the conjecture was proved for
+the case p = 2 by Malle and Späth in 2016 [23]. Over the years, the conditions
+were also established for several cases for odd primes [35, 36, 37, 8, 9, 39].
+Finally, in 2023, Cabanes and Späth announced that they had proven the
+conjecture for all finite groups and all primes. The proof will appear in [7].
+
+
+4 Modular representation theory
+
+When we introduced group representations in subsection 1.2, we assumed that
+our matrices had entries in the complex numbers. But there are many more types
+of representations that one can consider! The case of modular representations
+deals with matrices that take entries in a field of characteristic p, where p is
+a prime number. The reader may think of a field as a number system with
+two operations (for example, addition and multiplication) satisfying some nice
+conditions similar to the ones of a group. For example, the real numbers R
+and the complex numbers C form a field. A field of characteristic p is one
+where p · 1 = 0 (and p is the smallest number with this property). For example,
+the set {0, 1} with binary addition and multiplication is a field of characteristic 2.
+    Much of Brauer’s work was dedicated to relating this more complicated
+modular representation theory back to the ordinary representation theory. One
+of the essential tools he developed for studying this relationship is called a
+“p -block”. When studying ordinary characters, Brauer’s p -blocks can be thought
+of as a way to break a given character table into smaller pieces inherent to
+the prime p. By studying the characters of a finite group block by block, one
+obtains analogues to many of the pieces of data that we have discussed above.
+    For example, there is a type of local subgroup known as the “defect group”
+that plays the role that Sylow p -subgroups played before. The definition of
+this object is a bit technical and we don’t really need it for the purpose of
+this exposition. It is enough to say that to each p -block, we can associate a
+uniquely determined class of p -subgroups of G, which are the defect groups
+of the p -block. We say that a p -block of a finite group G has defect d if its
+associated defect group has pd elements.
+    In 1946, Brauer proved [2, Theorem 8] that the number of irreducible
+characters of a p -block B with defect d, which we denote by k(B), is less than
+or equal to pd(d+1)/2 . In that same work, he says that “it is probable that the
+bound pd(d+1)/2 here can be replaced by pd , but I have been able to prove this
+stronger result only for d = 0, 1, 2.” He later added this problem to his list:
+
+Brauer’s Problem 20. Is it true that a p-block of defect d consists of at most
+pd irreducible characters?
+
+
+                                         11
+   This problem is known today as Brauer’s k(B)-Conjecture, and although
+the bound pd(d+1)/2 has been improved since 1946, it is still not known if the
+more ambitious bound should hold. In fact, this problem is still wide open, in
+the sense that there is not even a reduction to simple groups. This means that
+step 2 of the strategy is not solved yet – we don’t know which conditions we
+need the finite simple groups to satisfy in order to obtain the result. However,
+some important cases have been solved (see [11] for an overview of the progress).
+   In his Problem 21, Brauer asks what kind of defect groups of a p -block can
+occur, assuming its number of irreducible characters is known. One way to
+state this problem is as follows:
+
+Brauer’s Problem 21. Let n be a natural number. Are there finitely many
+classes of defect groups that can occur as defect groups of a p-block B with
+k(B) = n?
+
+   In [20], Külshammer and Robinson show that the “blockwise” version of the
+McKay Conjecture (known as the Alperin–McKay Conjecture) implies Brauer’s
+Problem 21. Since the Alperin–McKay Conjecture was reduced to a question
+on simple groups in [38], so is Brauer’s Problem 21. However, step 1 of the
+strategy remains open, although the case of p = 2 is now known by [32] and
+the case of principal blocks was recently resolved in [26].
+   Another concept that arises when studying p -blocks of modular representa-
+tions are characters of “height zero”. Roughly speaking, a character in a p -block
+has height zero if its degree is “least divisible by p”, meaning that it contains the
+smallest possible power of p. These characters appear for instance in Brauer’s
+Problem 23, which is a generalization of Problem 12 involving p -blocks:
+
+Brauer’s Problem 23. Is it true that the defect group of a p-block is abelian
+if and only if all its irreducible characters have height 0?
+
+   This is known as Brauer’s Height Zero Conjecture, first stated in [3]. Unlike
+the previous conjectures, here we have a positive solution. After the work
+of many authors, the final solution to Brauer’s Height Zero Conjecture was
+obtained in [22] and announced in the Oberwolfach workshop “Representations
+of Finite Groups”, held in April 2023. How did it happen after so many years?
+The first big push was in 1988, when Berger and Knörr reduced the “only if”
+direction to p -blocks of “quasisimple groups” [1], but it was only verified in 2013
+by Kessar and Malle [18]. For the “if” direction, the process was a bit more
+intricate. After a reduction to simple groups by Navarro and Späth [29], the
+case p = 2 was solved in 2022 [32]. Finally, in [22], the authors gave a complete
+solution for the “if” direction for odd prime numbers, by means of a different
+reduction theorem.
+
+
+                                        12
+  We end this snapshot by listing some of Brauer’s problems that have been
+completely solved, and their solutions.
+
+Problem 2∗ : Dade (1971) [13].               Problem 19: Robinson (1984) [31].
+Problem 3: Pyber (1992) [30].                Problem 22: Landrock (1973) [21].
+Problem 10: Saksonov (1967) [33].            Problem 23: Malle, Navarro,
+Problem 12: Kimmerle, Sandling               Schaeffer Fry, Tiep (2023) [22].
+(1995) [19].                                 Problem 34: Herzog (1968) [16].
+Problem 14: Murray, Sambale                  Problem 35: Bugeaud, Cao,
+(2023) [27].                                 Mignotte (2001) [6].
+
+
+References
+
+ [1] T. R. Berger and R. Knörr, On Brauer’s height 0 conjecture, Nagoya
+     Mathematical Journal 109 (1988), 109–116.
+ [2] R. Brauer, On blocks of characters of groups of finite order, II, Proceedings
+     of the National Academy of Sciences of the United States of America 32
+     (1946), no. 8, 215–219.
+ [3]          , Number theoretical investigations on groups of finite order, Pro-
+       ceedings of the International Symposium on Algebraic Number Theory,
+       Science Council of Japan, 1956, pp. 55–62.
+ [4]          , Representations of finite groups, Lectures in Mathematics, Vol. 1,
+       Wiley, 1963, pp. 133–175.
+ [5] R. Brauer and K. A. Fowler, On groups of even order, Annals of Mathe-
+     matics 62 (1955), no. 3, 565–583.
+ [6] Y. Bugeaud, Z. Cao, and M. Mignotte, On simple K4-groups, Journal of
+     Algebra 241 (2001), no. 2, 658–668.
+ [7] M. Cabanes and B. Späth, The McKay conjecture on character degrees,
+     Annals of Mathematics, to appear.
+ [8] M. Cabanes and B. Späth, Equivariant character correspondences and in-
+     ductive McKay condition for type A, Journal für die Reine und Angewandte
+     Mathematik 2017 (2013), 153–194.
+ [9]         , Inductive McKay condition for finite simple groups of type C,
+       Representation Theory 21 (2016), 61–81.
+[10] J. H. Conway, R. T. Curtis, S. P. Norton, R. A. Parker, and R. A. Wilson,
+     Atlas of finite groups, Oxford University Press, 1985.
+
+
+                                        13
+[11] D. Craven, Representation theory of finite groups: a guidebook, Universitext,
+     Springer, 2019.
+
+[12]          , Searching for the monster in the trees, Snapshots of modern
+       mathematics from Oberwolfach, 03/2022. https://publications.mfo.de/
+       handle/mfo/3935.
+
+[13] E. C. Dade, Deux groupes finis distincts ayant la même algèbre de groupe
+     sur tout corps, Mathematische Zeitschrift 119 (1971), 345–348.
+
+[14] I. Dumanski and V. Kiritchenko, Representations and degenerations,
+     Snapshots of modern mathematics from Oberwolfach, 07/2022. https:
+     //publications.mfo.de/handle/mfo/3984.
+
+[15] E. Giannelli and J. Taylor, Symmetry and characters of finite groups,
+     Snapshots of modern mathematics from Oberwolfach, 05/2016. https:
+     //publications.mfo.de/handle/mfo/460.
+
+[16] M. Herzog, On finite simple groups of order divisible by three primes only,
+     Journal of Algebra 10 (1968), no. 3, 383–388.
+
+[17] I. M. Isaacs, G. Malle, and G. Navarro, A reduction theorem for the McKay
+     conjecture, Inventiones mathematicae 170 (2007), no. 1, 33–101.
+
+[18] R. Kessar and G. Malle, Quasi-isolated blocks and Brauer’s height zero
+     conjecture, Annals of Mathematics 178 (2013), no. 1, 321–384.
+
+[19] W. Kimmerle and R. Sandling, Group-theoretic and group ring-theoretic
+     determination of certain Sylow and Hall subgroups and the resolution of a
+     question of R. Brauer, Journal of Algebra 171 (1995), no. 2, 329–346.
+
+[20] B. Külshammer and G. R. Robinson, Alperin–McKay implies Brauer’s
+     Problem 21, Journal of Algebra 180 (1996), no. 1, 208–210.
+
+[21] P. Landrock, A counterexample to a conjecture on the Cartan invariants
+     of a group algebra, Bulletin of the London Mathematical Society 5 (1973),
+     no. 2, 223–224.
+
+[22] G. Malle, G. Navarro, A. Schaeffer Fry, and P. Tiep, Brauer’s Height Zero
+     Conjecture, Annals of Mathematics 200 (2024), no. 2, 557 – 608.
+
+[23] G. Malle and B. Späth, Characters of odd degree, Annals of Mathematics
+     184 (2016), no. 3, 869–908.
+
+[24] J. McKay, Irreducible representations of odd degree, Journal of Algebra 20
+     (1972), no. 2, 416–418.
+
+
+                                       14
+[25] G. O. Michler, Brauer’s conjectures and the classification of finite simple
+     groups, Representation Theory II Groups and Orders: Proceedings of the
+     Fourth International Conference on Representations of Algebras held in
+     Ottawa, Canada, August 16–25, 1984, Springer, 2006, pp. 129–142.
+[26] A. Moretó, N. Rizo, and A. A. Schaeffer Fry, Brauer’s problem 21 for
+     principal blocks, Transactions of the American Mathematical Society, Series
+     B 12 (2025), 38–64.
+[27] J. Murray and B. Sambale, A solution to Brauer’s Problem 14, Journal of
+     Algebra 621 (2023), 87–91.
+[28] G. Navarro, R. Solomon, and P. Tiep, Abelian Sylow subgroups in a finite
+     group, II, Journal of Algebra 421 (2015), 3–11.
+[29] G. Navarro and B. Späth, On Brauer’s height zero conjecture, Journal of
+     the European Mathematical Society 16 (2014), no. 4, 695–747.
+[30] L. Pyber, Finite groups have many conjugacy classes, Journal of the London
+     Mathematical Society 2 (1992), no. 2, 239–249.
+[31] G. R. Robinson, The number of blocks with a given defect group, Journal
+     of Algebra 84 (1983), no. 2, 493–502.
+[32] L. Ruhstorfer, The Alperin–McKay and Brauer’s height zero conjecture for
+     the prime 2, Annals of Mathematics 201 (2025), no. 2, 379–457.
+[33] A. Saksonov, An answer to a question of R. Brauer, Vesci Akademii Navuk
+     BSSR. Seriya Fiziko-Matematichnykh Navuk 1 (1967), 129–130.
+[34] R. Solomon, A brief history of the classification of the finite simple groups,
+     Bulletin of the American Mathematical Society 38 (2001), no. 3, 315–352.
+[35] B. Späth, The McKay conjecture for exceptional groups and odd primes,
+     Mathematische Zeitschrift 261 (2009), no. 3, 571–595.
+[36]          , Sylow d-tori of classical groups and the McKay conjecture, I,
+       Journal of Algebra 323 (2010), no. 9, 2469–2493.
+[37]          , Inductive McKay condition in defining characteristic, Bulletin of
+       the London Mathematical Society 44 (2012), no. 3, 426–438.
+[38]           , A reduction theorem for the Alperin-McKay conjecture, Journal
+       für die reine und angewandte Mathematik 2013 (2013), no. 680, 153–189.
+[39]           , Extensions of characters in type D and the inductive McKay
+       condition, II, Inventiones mathematicae 242 (2025), no. 1, 45–122.
+
+
+                                        15
+Noelia Rizo is a postdoc at the University of   Connections to other fields
+Valencia, supported by a CDEIGENT grant.        Chemistry and Earth Science, Computer
+                                                Science, Physics
+Mandi Schaeffer Fry is a Professor of
+Mathematics at the University of Denver.        License
+                                                Creative Commons BY-SA 4.0
+Mathematical subjects
+Algebra and Number Theory                       DOI
+                                                10.14760/SNAP-2025-006-EN
+
+
+
+
+Snapshots of modern mathematics from Oberwolfach provide exciting insights into
+current mathematical research. They are written by participants in the scientific
+program of the Mathematisches Forschungsinstitut Oberwolfach (MFO). The
+snapshot project is designed to promote the understanding and appreciation of
+modern mathematics and mathematical research in the interested public worldwide.
+All snapshots are published in cooperation with the IMAGINARY platform and
+can be found on www.imaginary.org/snapshots and on www.mfo.de/snapshots.
+
+ISSN 2626 -1995
+
+
+Junior Editor                                   Mathematisches Forschungsinstitut
+Elisabeth aus dem Siepen                        Oberwolfach gGmbH
+junior- editors@mfo.de                          Schwarzwaldstr. 9 –11
+                                                77709 Oberwolfach
+Senior Editor                                   Germany
+Anja Randecker
+senior- editor@mfo.de                           Director
+                                                Gerhard Huisken
+

@@ -1,0 +1,475 @@
+Snapsho t s o f m o d e r n m athematics                              № 4/2025
+from Ob e r w o l f a c h
+
+
+
+
+                The five Platonic solids and
+              their connection to root systems
+
+
+                                           Sören Böhm
+
+
+
+
+       Platonic solids have fascinated humans for thousands
+       of years. In ancient times, they were associated with
+       the elements fire, air, water, earth, and aether. These
+       solids are completely symmetrical three-dimensional
+       polyhedra. In this snapshot, it is first explained that
+       there can only be five such polyhedra in the three-
+       dimensional space. For this purpose, so-called Schläfli
+       symbols and Coxeter graphs are introduced. More
+       precisely, the (linear) Coxeter graphs correspond to
+       the (linear) Schläfli symbols that, in turn, correspond
+       exactly to the regular convex polyhedra. Through
+       this one-to-one relationship, it is possible to classify
+       the regular convex polytopes in any dimension by
+       exploiting the classification of Coxeter graphs.
+
+1 P r eliminaries
+
+First of all, to get notation and language clear, we introduce basic definitions
+on polytopes. In this snapshot, we focus on two- or three-dimensional (convex)
+polytopes. This section follows the book [3] of H. S. M. Coxeter.
+
+
+                                               1
+                      F i g u r e 1 : A convex pentagon, denoted by {5}.
+
+
+
+1.1 P o l y g o n s
+
+In the following, a two-dimensional polytope, also called polygon or p-gon, is
+a shape obtained by starting with p points in the plane and going from one
+point to the next through straight line segments – eventually ending up at the
+first point again while the line segments never cross. The points and segments
+are called vertices and sides. A polygon separates the plane into two regions:
+the one inside the polygon and the one outside of it. The region inside the
+polygon is called the interior of the polygon. We will focus on the case of convex
+polygons, that is, when any line connecting two points on any two sides of the
+polygons lies in its interior. A polygon is said to be equilateral if all sides have
+the same length, equiangular if all angles have the same magnitude, and regular
+if it is both equilateral and equiangular. We denote a convex regular p-gon with
+the symbol {p}, see Figure 1 for an example. This symbol is called the Schläfli
+symbol of the polygon.
+
+1.2 P o l y h e d r a a n d P l a t o ni c s o l i d s
+
+A polyhedron or three-dimensional polytope may be defined as a finite, con-
+nected set of non-crossing two-dimensional polygons, such that every side of
+each polygon belongs to just one other polygon, providing that the polygons
+surrounding each vertex form a single circuit (see Figure 2). The polygons are
+called faces, and their sides edges. We define the interior of the polyhedron
+as the region inside of it and we say that the polyhedron is convex if any line
+between two points on any two faces lies in its interior. A convex polyhedron is
+said to be regular if its faces are regular two-dimensional polygons of the same
+type, while all vertices are surrounded by the same number of faces. We call
+a regular convex polyhedron a (three-dimensional) Platonic solid. We define
+the Schläfli symbol of the Platonic solid as the pair {p, q} if its faces are p-gons
+and q of them surround each vertex.
+   There is also a notion of n-dimensional polytopes and of a generalized
+Schläfli symbol for the n-dimensional Platonic solids (which are convex regular
+n-dimensional polytopes). For more details, see [2, Section 20].
+
+
+                                                         2
+      Tetrahedron       Cube         Octahedron      Dodecahedron    Icosahedron
+
+
+
+             F i g u r e 2 : The five three-dimensional Platonic solids.
+
+
+2 T h e five Platonic solids in three-dimensional space
+
+In this section, we list the three-dimensional Platonic solids. The main idea of
+the classification is due to the ancient Greek mathematician Euclid and can be
+found, for example, in [2] and [3]. The proof needs only fundamental geometry
+and is easy to understand. The reader is encouraged to read the proof in [2]
+or [3] to complement this snapshot.
+
+Proposition 2.1. There are only five Platonic solids in dimension 3. Concretely
+we have:
+           {3, 3} = tetrahedron                   {5, 3} = dodecahedron
+           {4, 3} = hexahedron or cube            {3, 5} = icosahedron
+           {3, 4} = octahedron
+
+All Schläfli symbols in the list above give rise to one of the polyhedra in Figure 2.
+
+    One can not be sure that, given a Schläfli symbol, the associated polyhedron
+is one in the sense of the definition in Section 1.2. In fact, there is no guarantee
+that in the end, after “gluing” faces, the last faces match and can be “glued”
+together at common edges. However, we can verify that these polyhedra exist
+by giving a concrete description in coordinates as is done in [4, Section 2.10
+and 2.13].
+    Note that there exists a certain symmetry in the Schläfli symbols in Proposi-
+tion 2.1: With {4, 3}, we also have {3, 4}, and with {5, 3}, we also have {3, 5}.
+This is not surprising as for a given convex polyhedron, there is a dual poly-
+hedron which can be obtained by connecting the mid-points of the faces of
+the given polyhedron by an edge whenever the faces are adjacent. This gives
+rise to a new polyhedron inside the other. In other words, the vertices of the
+dual polyhedron are the mid-points of the faces of the given one. If a convex
+polyhedron is regular, so is its dual. Additionally, if {p, q} is the Schläfli symbol
+of a convex regular polyhedron, the dual polyhedron has Schläfli symbol {q, p}.
+For example, the tetrahedron is self-dual, the cube and the octahedron are dual
+
+
+                                         3
+Figu r e 3 : The dual relationship of Platonic solids using the example of the
+           cube and the octahedron.
+
+
+
+to one another, and so are the icosahedron and the dodecahedron, see Figure 3
+for an example.
+   The following example demonstrates another interpretation of the last entry
+in the Schläfli symbol as a rotation order. This example is crucial for the
+connection between Platonic solids and Coxeter graphs, as explained later.
+Example 2.2. Consider the cube {4, 3}. The first entry in the Schläfli symbol
+is the number of vertices of a face, which is a regular 4-gon, that is, a square. Fix
+now an arbitrary vertex S, draw a line LS through this vertex and the center of
+the cube, and rotate the cube about LS such that, after each rotation, the cube
+is in the same position but with a different front face. In other words, after each
+rotation dS about LS , the cube looks the same but the faces are exchanged.
+The rotation dS is a rotation of angle 120◦ or 2π     3 . The second entry of the
+Schläfli symbol is the order of dS , which is the lowest natural number describing
+how often we have to rotate the cube such that each face is again at its starting
+point. Indeed, we have to rotate the cube three times about LS until the front
+face becomes again the front, thus ord(dS ) = 3. Because of the regularity of
+the cube, this number does not depend on the choice of the vertex S.
+   It is left to the reader to check that also for all other Platonic solids listed
+in Proposition 2.1, the second entry of the Schläfli symbol is such a rotation
+number. Note that the first entry of the Schläfli symbol can also be interpreted
+as rotation order, since it is the second entry of the Schläfli symbol of the
+dual polyhedron.
+   In the following definition, we associate a graph to a given Schläfli symbol.
+A graph is a set of points, called vertices, connected by lines, called edges. The
+advantage of this association will become clear later.
+Definition 2.3. Consider a graph whose vertices are three points and connect
+the first to the second and the second to the third by a straight line. This gives
+rise to a graph with three vertices and two edges. Labelling the edges by the
+entries of the Schläfli symbol gives a correspondence between such a graph and
+
+
+                                         4
+the given symbol. The Schläfli symbols {p, q} and {q, p} share the same graph,
+read from the left or right side, that is,
+                                                                              p            q
+                     {p, q} and {q, p}           correspond to                                 .
+Example 2.4. Since Schläfli symbols are associated to Platonic solids, there is
+also a correspondence between Platonic solids and the graphs corresponding to
+the Schläfli symbols:
+
+             tetrahedron                                      3      3          called A3
+             cube and octahedron                              3      4          called B3 or C3
+             icosa- and dodecahedron                          3      5          called H3
+   The nomenclature A3 , B3 , C3 , and H3 is not arbitrary but comes from the
+theory of root systems. More specifically, we associate to each graph a set
+of points in the three-dimensional space, called root system, which yields the
+polyhedron we started with by just linking the points by edges.
+
+
+3 R o ot systems and their Coxeter graphs
+
+In this section, we introduce the root systems mentioned above. For that, we
+follow the book [4] of J. E. Humphreys and refer to it for more details and
+proofs. Root systems are very important objects in many mathematical areas,
+for example in algebra, geometry, and coding theory. They are highly symmetric
+and thus it is no surprise that they occur in the context of Platonic solids. We
+define root systems in complete generality. In particular, we define them in
+the n-dimensional space Rn , which is the space of points or vectors v with n
+coordinates, that is v = (v1 , . . . , vn ).
+
+3.1 Re f l e c t i o n s a n d r o t a t i o n s i n n - d i m e n s i o n a l s p a c e
+
+For a vector α of Rn whose coordinates are all different from zero, we write
+α ∈ Rn \ {0}. Such a vector defines a line Lα through the origin and α and also
+a hyperplane Hα , that is, an (n − 1)-dimensional subspace, which goes through
+the origin and is perpendicular to Lα .
+   A reflection with respect to Hα is defined to be a linear map sα : Rn → Rn
+with the properties:
+1.   sα (n) = −n for all n ∈ Lα ,
+2.   sα (h) = h for all h ∈ Hα , and                                                               (1)
+3.   s2α (v) := sα (sα (v)) = v for all v ∈ Rn .
+     For n = 2, this describes exactly the usual reflection in a line, given by Hα .
+
+
+                                                          5
+                                               sα
+
+                                                         β
+
+                                     sα · sβ
+
+
+                              Lα                               α
+
+                                                        Hβ
+                                                                   sβ
+                                           Hα
+
+
+
+Figu r e 4 : Two reflections sα and sβ and the corresponding rotation sα · sβ
+             for n = 2.
+
+
+   Consider two different vectors α, β ∈ Rn \ {0} with different hyperplanes
+Hα , Hβ and their reflections sα , sβ . The composition of the two maps sα , sβ
+is a new map sα · sβ : Rn → Rn given by sα · sβ (v) := sβ (sα (v)) and may be
+interpreted as a rotation, see Figure 4. The angle of rotation depends on the
+angle between Hα and Hβ . The order of the rotation sα · sβ is defined as the
+lowest natural number k such that (sα · sβ )k (v) = v for all v ∈ Rn .
+
+3.2 R o o t s y s t e m s
+
+We consider now several vectors, here called roots, and their reflections at once.
+Definition 3.1. A root system Φ is a finite set of vectors α ∈ Rn \ {0}, called
+roots, satisfying the following two properties:
+(R1) For each root α ∈ Φ and Lα the line in Rn through the origin and α, we
+     have Φ ∩ Lα = {±α}. That means that there are no other roots in the
+     direction of α than α itself and −α.
+(R2) For each root α ∈ Φ, we have sα (β) ∈ Φ for all β ∈ Φ. That means
+     that reflecting any root with respect to the hyperplane corresponding to
+     another root will again yield a root.
+  As we discussed before, the consecutive application of two reflections sα
+and sβ , denoted by sα · sβ , is a rotation and the set
+
+                            W := {sαi1 · sαi2 · . . . · sαin | αik ∈ Φ}
+
+
+                                                    6
+of all possible combinations of reflections arising from elements of a root system
+is called the Weyl group of Φ.
+
+    For a given root system Φ, we are interested in a minimal subset that contains
+all the information about Φ.
+
+Definition 3.2. A subset ∆ = {α1 , . . . , αr } of a root system Φ is called a
+simple system if
+
+1. every linear combination of elements of Φ can be written uniquely as a sum
+   a1 α1 + . . . + ar αr where a1 , . . . , an are real numbers; we say that ∆ is a
+   vector space basis for the R-span of Φ in Rn , and
+2. each α ∈ Φ can be written as a sum a1 α1 +. . .+ar αr where the a1 , . . . , an are
+   real numbers and all of the same sign (all non-negative or all non-positive).
+
+The elements α1 , . . . , αr of a simple system are called simple roots.
+
+   Note that for a given root system, there is usually more than one possibility
+to choose the simple roots.
+
+Example 3.3. We want to determine the root system associated to the graph C3
+(see Example 2.4). From the graph, we can compute that
+                                  
+                                 1      0     0
+                        ∆=      −1 ,    1  , 0
+                                     0        −1    2
+
+is a possible simple system. This will become clear after the definition of a
+Coxeter graph of a root system. To find the other roots to complete ∆ to a
+root system Φ, we can use the properties (R1) and (R2) in Definition 3.1, for
+instance. By this, we obtain
+                       
+           1       1      1      1        0      0       2      0       0
+Φ = ± −1 , ± 1 , ± 0 , ± 0 , ± 1 , ± 1 , ± 0 , ± 2 , ± 0                      .
+            0       0       −1       1        −1        1       0       0       2
+
+    The root system Φ is pictured in Figure 5 and the choice of simple roots ∆
+is colored red.
+
+     We are now able to define the Coxeter graph of a root system.
+
+Definition 3.4. Let Φ be a root system and let ∆ be a simple system of Φ.
+We define the Coxeter graph of Φ with respect to ∆ as follows:
+   The vertices are given by the elements of ∆. We connect two vertices
+corresponding to the simple roots α, β ∈ ∆ by an edge, if the rotation sα · sβ
+has order at least 3, and we label the edge with this order. Since the order 3
+appears very often, we omit the label in this case.
+
+
+                                          7
+                                                          α2
+
+
+
+
+                                                    α3
+
+                                                               α1
+
+
+
+
+Figu r e 5 : Left: Root system associated to the graph C3 . A possible choice of a
+           simple system is colored red. Right: The octahedron associated to
+           the root system on the left.
+
+
+    Now it shows what the condition (R2) in the definition of a root system
+is useful for: It makes sure that the order of any rotation sα · sβ is a natural
+number. If there is no edge between α and β, we interpret this as that the order
+of sα · sβ is 2. This makes sense since order 1 would imply that the rotation
+is the identity and hence α = ±β. But a rotation of order 2 is a rotation of
+angle 180◦ or π which is a reflection. In other words, α and β are orthogonal.
+    It is an interesting fact that, although the simple system ∆ appears in the
+definition of the Coxeter graph, we actually obtain the same Coxeter graph if
+we use a different simple system. For more details, we refer to [4, Section 1].
+Definition 3.5. We call a root system Φ irreducible if there do not exist two
+disjoint root systems Φ1 , Φ2 such that Φ is the union of Φ1 and Φ2 . We call it
+reducible otherwise.
+   With theory from linear algebra, we could show that irreducibility of root
+systems can be checked by studying the Coxeter graphs, as the following
+proposition details.
+Proposition 3.6. A root system Φ is irreducible if and only if its Coxeter graph
+is connected, that is, if any two vertices of the Coxeter graph are connected by a
+sequence of edges.
+   Moreover, if Φ is reducible and W1 and W2 are the Weyl groups of Φ1
+and Φ2 , the Weyl group W of Φ can be constructed from W1 and W2 , see [4,
+Prop. 2.2]. Thus, to understand a reducible root system, it is enough to know
+the irreducible root systems or the corresponding Coxeter graphs. Coxeter
+graphs can be studied without referring to a root system or a Weyl group like
+
+
+                                        8
+       Type:                     Coxeter graph:
+
+       An (n ≥ 1)                                    ...
+                                                     ...               4
+       Bn (resp. Cn ) (n ≥ 2)
+       Dn (n ≥ 4)                                    ...
+
+
+
+       E6
+
+
+       E7
+
+
+       E8
+       F4                                    4
+
+       H3                            5
+
+       H4                            5
+                                    m
+       I2 (m)
+
+
+Figure 6 : A complete list of all connected Coxeter graphs corresponding to
+            irreducible Weyl groups [4, Section 2.4, Figure 1]. The index in the
+            type symbolizes the dimension of the ambient space.
+
+
+
+Humphreys does in [4, Section 2.3 ff.]. Moreover, Coxeter graphs are classified,
+that is, we know exactly which Coxeter graphs exist. In Figure 6, the reader can
+find a complete list of all connected Coxeter graphs corresponding to irreducible
+Weyl groups.
+   The classification of Weyl groups via Coxeter graphs (Figure 6) shows that
+there are only three possible Coxeter graphs with three vertices: A3 , B3 , and H3 .
+We already know from Example 2.4 that they correspond to the Platonic solids.
+A way to cook up the corresponding polyhedron is by using a “generalized Schläfli
+symbol”, which can be found in [2, Chapter 20]. The graph can be translated
+into a Schläfli symbol, which can then be easily translated into a polyhedron.
+The Weyl group is, by construction, the corresponding symmetry group of
+the polyhedron, that is, the set of all transformations (for example, rotations)
+under which the polyhedron remains the same. Dual polyhedra share the same
+
+
+                                         9
+Coxeter graph, read from the left or right side. Moreover, regular polyhedra
+come from linear Coxeter graphs, that means that all vertices of the graph lie
+on one line and do not branch off. In fact, there is a one-to-one correspondence
+between linear Coxeter graphs and regular polyhedra. Since Coxeter graphs
+are classified (see Figure 6), all regular polyhedra are classified in arbitrary
+dimension. In dimension 2, all Coxeter graphs are of type I2 (m), symbolizing the
+regular m-gon. In dimension 3, we have the connected Coxeter graphs A3 , B3
+(also called C3 ) and H3 , which are the already known Platonic solids from
+Figure 2. In dimension 4, we have the Coxeter graphs A4 , corresponding
+to the 4-dimensional simplex, B4 , corresponding to the hypercube (respective
+dual: 4-orthoplex), F4 , corresponding to the 24-cell, and H4 , corresponding to
+the 120-cell (respective dual: 600-cell). In dimension n ≥ 5, the only linear
+Coxeter graphs are of type An and Bn , which are the n-simplex and the n-cube
+(respective dual: n-orthoplex).
+
+
+4 Outlook and open questions
+
+The Weyl group of a root system that we have seen in Definition 3.1 is an example
+of a “Coxeter group”. In [5], Kazhdan and Lusztig introduce the Kazhdan–Lusztig
+polynomials of a Coxeter group W which consists of a family of polynomials, one
+polynomial for each pair of elements of W . Since then, mathematicians found
+significant applications across various fields of mathematics for Kazhdan–Lusztig
+polynomials but there are also a lot of open problems.
+    For instance, the “Combinatorial Invariance Conjecture” is one of the most
+prominent open problems. An article of Brenti gives in [1, Conjecture 1.4] a
+formulation of this conjecture and presents more open problems. For another
+modern application of root systems, see, for example, the article “The magic
+of 8 and 24” of Okounkov [6] which is a popular science article about the work
+of Maryna Viazovska who won the Fields medal in 2022.
+
+Acknowledgements I sincerely thank the editor for her many helpful sugges-
+tions, thoughtful revisions, and the valuable time she devoted to the manuscript.
+
+
+
+
+                                       10
+R e f e rences
+
+[1] F. Brenti, Some open problems on Coxeter groups and unimodality, Open
+    Problems in Algebraic Combinatorics (C. Berkesch, B. Brubaker, G. Musiker,
+    P. Pylyavskyy, and V. Reiner, eds.), vol. 110, 2024, pp. 23–37.
+[2] J. H. Conway, H. Burgiel, and C. Goodman-Strauss, The symmetries of
+    things, Wellesley, MA: A K Peters, 2008.
+
+[3] H. S. M. Coxeter, Regular polytopes, Methuen & Co., Ltd, 1948.
+[4] J. E. Humphreys, Reflection groups and Coxeter groups, Cambridge Studies
+    in Advanced Mathematics, vol. 29, Cambridge University Press, 1990.
+[5] D. Kazhdan and G. Lusztig, Representations of Coxeter groups and Hecke
+    algebras, Inventiones Mathematicae 53 (1979), 165–184.
+[6] A. Okounkov, The magic of 8 and 24, International Congress of Mathemati-
+    cians 2022, ICM 2022, Helsinki, Finland, virtual, July 6–14, 2022. Volume 1.
+    Prize lectures, European Mathematical Society (EMS), 2023, pp. 492–545.
+
+
+
+
+                                      11
+Sören B ö h m i s a P h D student of Gerhard   Connect i o n s t o o t h e r f i e l d s
+Röhr l e a t R u h r U n i v e rsity Bochum.   Compute r S c i e n c e
+
+Mathe m a t i c a l s u b j e c ts             License
+Algeb r a a n d N u m b e r Theory, Geometry   Creative C o m m o n s B Y - N C - S A 4 . 0
+and T o p o l o g y
+                                               DOI
+                                               10.1476 0 / S N A P - 2 0 2 5 - 0 0 4 - E N
+
+
+
+
+Snapshots of modern mathematics from Oberwolfach provide exciting insights into
+current mathematical research. They are written by participants in the scientific
+program of the Mathematisches Forschungsinstitut Oberwolfach (MFO). The
+snapshot project is designed to promote the understanding and appreciation of
+modern mathematics and mathematical research in the interested public worldwide.
+All snapshots are published in cooperation with the IMAGINARY platform and
+can be found on www.imaginary.org/snapshots and on www.mfo.de/snapshots.
+
+ISSN 2626 -1995
+
+
+Junio r E d i t o r s                          Mathema t i s c h e s F o r s c h u n g s i n s t i t u t
+Miche l a E g i d i , A n j a Randecker        Oberwol f a c h g G m b H
+junio r - ed i t o r s @ m f o . de            Schwarz w a l d s t r . 9 - - 11
+                                               77709 O b e r w o l f a c h
+Senio r E d i t o r                            German y
+Anja R a n d e c k e r
+senio r - ed i t o r @ m f o . d e             Director
+                                               Gerhard H u i s k e n
+

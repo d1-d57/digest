@@ -1,0 +1,180 @@
+Quantum Cryptography Pioneers Win Turing Award | Quanta Magazine
+Home
+Quantum Cryptography Pioneers Win Turing Award
+Comment
+Save Article
+Read Later
+Share
+Facebook
+Copied!
+Copy link
+Email
+Pocket
+Reddit
+Ycombinator
+Comment
+Comments
+Save Article
+Read Later
+Read Later
+quantum information theory
+Quantum Cryptography Pioneers Win Turing Award
+By
+Ben Brubaker
+March 18, 2026
+Charles Bennett and Gilles Brassard were recognized for their foundational work in quantum information science.
+Comment
+Save Article
+Read Later
+Gilles Brassard (left) and Charles Bennett were among the first to link quantum physics to information theory.
+Kristina Armitage/
+Quanta Magazine
+Introduction
+One afternoon in October 1979,
+Gilles Brassard
+was swimming outside a beachfront hotel in San Juan, Puerto Rico, when a stranger swam up to him and changed the course of his career. Without so much as an introduction, the man began describing a way to create currency that couldn’t be forged. The scheme was based on the laws of quantum physics — a subject Brassard, a computer scientist, knew nothing about.
+“I was trapped, so I listened politely,” Brassard said. Doubt soon turned to fascination as he realized that this exotic “quantum money” scheme was actually serious science. That improbable meeting was the beginning of a long and fruitful collaboration between Brassard and his new acquaintance, a physicist named
+Charles Bennett
+. Their work would help launch the booming field of quantum information science, spurring the development of new technology and the discovery of fundamental connections between physics and information.
+Bennett and Brassard have now been named the winners of the
+A.M. Turing Award
+, one of the highest honors in computing, for “their essential role in establishing the foundations of quantum information science and transforming secure communication and computing.” The award comes with a $1 million prize.
+Quantum information science is now home to thousands of active researchers, but until the mid-1990s it was a small community whose insights were often dismissed by outsiders. Bennett and Brassard were among its most vocal early advocates.
+“They helped to set the culture for this group, which was kind of on the fringes of both physics and computer science at the time,” said
+John Preskill
+, a quantum physicist at the California Institute of Technology.
+Their influence on quantum information science was “massive,” said
+Scott Aaronson
+, a computer scientist at the University of Texas, Austin. “They were there since before quantum computing was even a field.”
+A New Kind of Money
+It was no coincidence that Bennett and Brassard found themselves on the same Puerto Rican beach on that day nearly 50 years ago. Both were attending
+a conference on theoretical computer science
+, but the academic trajectories that had brought them there were strikingly different. Brassard had been born in Montreal in 1955. He learned advanced math from his older brother while still in elementary school and started college at age 13. In 1979, when he was just 24, he received his doctorate and joined the faculty of the University of Montreal. He went to the Puerto Rico conference to present results from his graduate research on the mathematical foundations of cryptography.
+A 1994 photo of the six researchers who invented quantum teleportation. Clockwise from top left: Richard Jozsa, William Wootters, Charles Bennett, Asher Peres, Claude Crépeau, Gilles Brassard.
+André Berthiaume
+Bennett’s journey was more circuitous. He was born in New York City in 1943, went to college intending to study biochemistry, and wound up doing graduate research at Harvard University at the intersection of chemistry and physics. All the while, he was growing increasingly interested in finding connections between physics and computation, at a time when the two subjects were considered largely unrelated.
+While Bennett was working toward his doctorate in the late 1960s, his friend Stephen Wiesner would often visit what Bennett called his “communal hippie house” in Boston. On one such visit, Wiesner brought a draft of a paper he’d written about a radically new application of quantum physics: the quantum money scheme with which Bennett would ambush Brassard a decade later.
+Wiesner’s idea was motivated by one of the most important requirements for any form of currency: It should be very difficult to create a convincing counterfeit banknote. It’s not enough to give each bill a unique serial number if anyone can in principle read that number and copy it, so governments resort to sophisticated technology to thwart forgery.
+Wiesner realized that the laws of quantum physics could offer a new solution to the problem of counterfeiters. His scheme exploited a strange feature of quantum measurement: Attempting to measure a particle can disturb it in an inherently unpredictable way, erasing all information about the state it was in before the measurement. You can avoid this disturbance with a judicious choice of measurement, but only if you already have some partial information about the particle’s initial state. Each of Wiesner’s hypothetical quantum banknotes would contain a group of particles in different quantum states. These particles would encode the bits of a unique serial number. A would-be counterfeiter would need to measure every particle in the group without disturbing it to learn that serial number and create a duplicate. With just a few dozen particles, failure would be all but guaranteed. Quantum measurement disturbance, ordinarily a nuisance, would serve as a shield against prying eyes.
+Stephen Wiesner, who devised the first quantum money scheme, in 1970.
+Charles Bennett
+In the early 1970s, Wiesner abruptly abandoned physics research and joined the California counterculture, and
+his revolutionary paper
+remained unpublished for nearly 15 years. (Wiesner later embraced religion, moved to Israel, and became a construction worker. He died
+in 2021
+.) Bennett, meanwhile, eventually landed a job at IBM, where he developed a new theory of
+reversible computation
+. But he couldn’t get Wiesner’s idea out of his mind. He tried to interest other researchers for a decade, to no avail, until he met Brassard in Puerto Rico.
+Quantum Secrets
+As they bobbed in the waves on that fateful day, Brassard pointed out a glaring problem with the quantum money scheme. It would be impossible to counterfeit banknotes, but it would also be difficult to use them, since only the person who created a bill would be able to check that it was valid. Brassard suggested that it might be possible to patch this problem by combining Wiesner’s scheme with techniques from cryptography. By the time the duo returned to shore 10 minutes later, they had settled on the key ideas in what would later become
+their first joint paper
+.
+After that initial encounter, Bennett and Brassard would visit each other occasionally to swap ideas. They could only afford to devote so much time to their shared interest in the obscure subject of quantum information.
+“In those days, it was nobody’s day job,” Bennett said.
+The duo began to wonder whether they could harness quantum measurement disturbance to keep secret messages safe from eavesdroppers. Cryptographers already knew one encryption scheme that was perfectly secure in principle. But it required the sender and receiver, typically called Alice and Bob, to meet in person and choose a long string of random bits to use as a secret encryption key. What’s more, they’d need to use a separate key for each new message. These restrictions were too cumbersome for most applications. More practical
+encryption schemes
+avoided the need for in-person meetings but relied on unproven assumptions about the difficulty of certain math problems.
+In 1983, Bennett and Brassard devised a new quantum approach to private communication. In their scheme, now known as BB84, Alice and Bob would establish a shared secret key by sending and measuring photons, the quantum particles that constitute light, without ever needing to meet in person. They could then use that key to encrypt a message. The method again made use of quantum measurement disturbance: Any eavesdropper who tried to snoop on the quantum transmissions would disrupt them, learning nothing and alerting Alice and Bob to their presence. It also didn’t rely on any mathematical assumptions. Not even an eavesdropper who could magically solve the world’s hardest math problems would learn the secret key.
+Teleporting Forward
+Bennett and Brassard’s
+quantum key distribution paper
+would become one of the most famous works in quantum information science. But at the time, few took notice. So the duo eventually decided to build an experimental demonstration. “I wanted to show that it’s possible, that it’s not just nonsense from a theoretician,” Brassard said.
+With no budget and little experience in experimental physics, Bennett and Brassard’s team had to improvise. At one point Bennett and his colleague John Smolin bought a sheet of black velvet from a fabric store to block out stray light, telling the confused shop clerk that they needed it for quantum cryptography. (Bennett later repurposed the velvet for a hat.) They finally got the experiment working in October 1989 — 10 years to the day after Bennett and Brassard’s first meeting in Puerto Rico. Their apparatus
+demonstrated quantum key distribution
+across a distance of 30 centimeters. More recent demonstrations using satellite links have implemented their method over
+more than 1,000 kilometers
+.
+In 1993, Bennett, Brassard, and four other researchers published
+another iconic paper
+that showed how to use a bizarre quantum phenomenon called entanglement to “teleport” the state of one quantum particle onto another. (Though the name calls to mind Captain Kirk getting beamed up to the Enterprise,
+quantum teleportation
+transmits only information, not matter.) It was one of the first examples of how entanglement could
+serve as a resource
+for information processing.
+By that point, quantum information science was attracting a bit of buzz. It really took off a year later. Digital encryption often relies on the assumption that it’s hard for a computer to break a large number into its prime factors. But in 1994, the applied mathematician Peter Shor
+devised a quantum algorithm
+that could quickly do just that. Shor’s milestone result underscored the importance of quantum encryption methods that didn’t require assumptions about mathematical difficulty.
+“Shor’s algorithm made our idea unavoidable,” Brassard said.
+In the 30 years since Shor’s discovery, interest and investment in quantum information science have skyrocketed. Researchers have
+raced to build powerful quantum computers
+and identified connections to
+seemingly unrelated topics in fundamental physics
+. There’s also been a surge of new interest in quantum cryptography. Until a few years ago, researchers believed that quantum tricks were only useful for a few special cryptographic tasks like key distribution. But a
+recent line of work
+has offered tantalizing hints that the scope of quantum cryptography might be much broader. Bennett and Brassard have followed these new developments with interest.
+“That is a very fascinating idea,” Bennett said. “It might be a way where there’s a quantum rescue from the quantum disaster of Shor’s algorithm.”
+Editor’s note: Scott Aaronson is a member of
+Quanta Magazine
+’s advisory board.
+The Quanta Newsletter
+Get highlights of the most important news delivered to your email inbox
+Email
+Subscribe
+Recent newsletters
+Also in
+Computer Science
+Researchers Reveal the Power of ‘Quantum Proofs’
+computational complexity
+Researchers Reveal the Power of ‘Quantum Proofs’
+By
+Ben Brubaker
+July 6, 2026
+Comment
+Save Article
+Read Later
+Key Chemistry Question Answered, No Quantum Computer Required
+chemistry
+Key Chemistry Question Answered, No Quantum Computer Required
+By
+Kevin Hartnett
+May 29, 2026
+Comment
+Save Article
+Read Later
+How Unknowable Math Can Help Hide Secrets
+cryptography
+How Unknowable Math Can Help Hide Secrets
+By
+Ben Brubaker
+May 11, 2026
+Comment
+Save Article
+Read Later
+Comment on this article
+Quanta Magazine moderates comments to facilitate an informed, substantive, civil conversation. Abusive, profane, self-promotional, misleading, incoherent or off-topic comments will be rejected. Moderators are staffed during regular business hours (New York time) and can only accept comments written in English.
+Show comments
+Next article
+The Math That Explains Why Bell Curves Are Everywhere
+Close
+Log in to Quanta
+Use your social network
+Facebook
+Connect with Facebook
+Connect with Google
+or
+email
+password
+Remember me
+Forgot your password ?
+Don't have an account yet?
+Sign up
+Close
+Forgot your password?
+We’ll email you instructions to reset your password
+email
+Close
+Change your password
+Enter your new password
+Password
+Retype new password
+Close
+Sign Up
+First Name
+Last Name
+Email
+Password
+Retype Password
+Creating an account means you accept Quanta Magazine's
+Terms & Conditions
+and
+Privacy Policy

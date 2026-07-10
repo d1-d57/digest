@@ -1,0 +1,461 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN" "http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg-flat.dtd" >
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+
+<title>Quantum Mechanics of the Inverse Cube Force Law | The n-Category Caf&#xE9;</title>
+
+<meta name="ICBM" content="30.2893, -97.7367" />
+<meta name="DC.title" content="The n-Category Caf&#xE9;" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<style type="text/css" media="all" title="The n-Category Caf&#xE9; Stylesheet">@import url("/category/styles-site.css");</style>
+<link rel="stylesheet" href="/category/print.css" type="text/css" media="print" />
+
+<link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="/category/atom10.xml" />
+<link rel="alternate" type="application/atom+xml" title="Atom 1.0 Comments Feed" href="/category/comments.atom" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="/category/rsd.xml" />
+<link rel="shortcut icon" type="image/x-icon" href="/category/images/favicon.ico" />
+<link rel="icon" type="image/x-icon" href="/category/images/favicon2.ico" />
+<link rel="pgpkey" href="/category/urs.asc" title="Urs Schreiber's PGP Public Key" />
+<link rel="start" href="/category/" title="Home" />
+<link rel="search" href="/cgi-bin/MT-3.0/mt-search.cgi?IncludeBlogs=3&amp;Template=category" title="Search" />
+<link rel="contents" href="/category/archives.html" title="Comprehensive List of Blog Entries" />
+
+
+<link rel="bookmark" href="#content" title="Main Content" />
+<link rel="bookmark" href="#comments" title="Comments" />
+<link rel="bookmark" href="#search" title="Search Box" />
+<link rel="bookmark" href="#related" title="Related entries" />
+<link rel="bookmark" href="#AccessKeyList" title="AccessKeys" />
+<link rel="prev" href="/category/2026/03/geometry_and_the_exceptional_j.html" title="Geometry and the Exceptional Jordan Algebra" />
+<link rel="next" href="/category/2026/06/a_new_blog.html" title="A New Blog" />
+<link rel="up" href="/category/2026/04/" title="April, 2026" />
+
+<script type="text/javascript" src="/category/prototype.js"></script>
+<script type="text/javascript" src="/category/ie.js"></script>
+<script type="text/x-mathjax-config">
+  <!--//--><![CDATA[//><!--
+    MathJax.Hub.Config({
+      MathML: { useMathMLspacing: true },
+      "HTML-CSS": { scale: 90,
+                    noReflows: false,
+                    extensions: ["handle-floats.js"],
+                    linebreaks: { width: "container" }
+       }
+    });
+    MathJax.Hub.Queue( function () {
+       var fos = document.getElementsByTagName('foreignObject');
+       for (var i = 0; i < fos.length; i++) {
+         MathJax.Hub.Typeset(fos[i]);
+       }
+    });
+  //--><!]]>
+</script>
+<script type="text/javascript">
+  <!--//--><![CDATA[//><!--
+  window.addEventListener("DOMContentLoaded", function () {
+    var div = document.createElement('div');
+    var math = document.createElementNS('http://www.w3.org/1998/Math/MathML', 'math');
+    document.body.appendChild(div);
+    div.appendChild(math);
+  // Test for MathML support comparable to WebKit version https://trac.webkit.org/changeset/203640 or higher.
+    div.setAttribute('style', 'font-style: italic');
+    var mathml_unsupported = !(window.getComputedStyle(div.firstChild).getPropertyValue('font-style') === 'normal');
+    div.parentNode.removeChild(div);
+    if (mathml_unsupported) {
+      // MathML does not seem to be supported...
+      var s = document.createElement('script');
+      s.src = "/wiki/MathJax/MathJax.js?config=MML_HTMLorMML-full";
+      document.querySelector('head').appendChild(s);
+    } else {
+      document.head.insertAdjacentHTML("beforeend", '<style>svg[viewBox] {max-width: 100%}</style>');
+    }
+  });
+  //--><!]]>
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="https://golem.ph.utexas.edu/category/2026/04/the_quantum_mechanics_of_the_i.html"
+    trackback:ping="https://golem.ph.utexas.edu/cgi-bin/MT-3.0/dxy-tb.fcgi/3633"
+    dc:title="Quantum Mechanics of the Inverse Cube Force Law"
+    dc:identifier="https://golem.ph.utexas.edu/category/2026/04/the_quantum_mechanics_of_the_i.html"
+    dc:subject="Analysis"
+    dc:description=" In the last episode of my column in Notices of the American Mathematical Society, we looked at a particle moving in an attractive central force whose strength is proportional to the inverse cube of the distance from the origin...."
+    dc:creator="John Baez"
+    dc:date="2026-04-29T23:43:00+00:00" />
+</rdf:RDF>
+-->
+
+
+</head>
+
+<body>
+
+<div class="frame">
+
+<div id="banner">
+<h1><a href="/category/" accesskey="1" title="Jump to the blog main page">The n-Category Caf&#xE9;</a></h1>
+<div class="description">A group blog on math, physics and philosophy</div>
+</div>
+
+
+<h2 class="skip">Skip to the Main Content</h2>
+<div class="skip">
+<a href="#content" accesskey="2">Enough, already! Skip to the content.</a>
+</div>
+<p style="display:none;">
+<strong>Note:</strong>These pages make extensive use of the latest XHTML and CSS <a href="http://www.w3.org">Standards</a>. They ought to look great in any standards-compliant modern browser. Unfortunately, they will probably look horrible in older browsers, like Netscape 4.x and IE 4.x. Moreover, many posts use MathML, which is, currently <em>only</em> supported in Mozilla. My best suggestion (and you will <em>thank</em> me when surfing an ever-increasing number of sites on the web which have been crafted to use the new standards) is to upgrade to the latest version of your browser. If that's not possible, consider moving  to the Standards-compliant and open-source <a href="http://www.mozilla.org">Mozilla</a> browser.
+</p>
+
+
+<div class="blog">
+
+<div><div id='menu'>
+<a href='/category/2026/03/geometry_and_the_exceptional_j.html' accesskey='p'>&#xab; Geometry and the Exceptional Jordan Algebra</a> |
+
+<a href='/category/'>Main</a>
+| <a href='/category/2026/06/a_new_blog.html' accesskey='n'>A New Blog &#xbb;</a>
+
+</div>
+
+<h2 class='date'>April 29, 2026</h2>
+
+<div id='content' class='blogbody'>
+
+<h3 class='title'>Quantum Mechanics of the Inverse Cube Force Law</h3>
+
+<h4 class='posted'>Posted by John Baez</h4>
+
+<div><a href='http://golem.ph.utexas.edu/~distler/blog/mathml.html' onclick='window.open(this.href, &#x27;MathML&#x27;, &#x27;width=310,height=150,scrollbars=no,resizable=yes,status=no&#x27;); return false;' onkeypress='if(window.event.keyCode == 13){window.open(this.href, &#x27;MathML&#x27;, &#x27;width=310,height=150,scrollbars=no,resizable=yes,status=no&#x27;); return false;}'><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p><img width='150' src='http://math.ucr.edu/home/baez/mathematical/hyperbolic_spiral.png' alt='' /></p>
+
+<p>In the <a href='https://golem.ph.utexas.edu/category/2025/11/the_inverse_cube_force_law.html'>last episode</a> of my column in <em>Notices of the American Mathematical Society</em>, we looked at a particle moving in an attractive central force whose strength is proportional to the inverse cube of the distance from the origin.   Among other things, we saw that a particle moving in such a force can spiral in to the origin in a finite time.  But that was classical mechanics.    What about quantum mechanics?    </p>
+
+<p>Here things get more tricky. The uncertainty principle tends to prevent the particle from falling in to the origin. But when the attractive force is strong enough, the particle can still fall in. We can make up a theory where the particle shoots back out, but there are choices involved: we need to say how the particle changes phase when shoots back out. So there is not just a single theory, but many! </p>
+
+
+<div id='more'>
+<div><a href='http://golem.ph.utexas.edu/~distler/blog/mathml.html' onclick='window.open(this.href, &#x27;MathML&#x27;, &#x27;width=310,height=150,scrollbars=no,resizable=yes,status=no&#x27;); return false;' onkeypress='if(window.event.keyCode == 13){window.open(this.href, &#x27;MathML&#x27;, &#x27;width=310,height=150,scrollbars=no,resizable=yes,status=no&#x27;); return false;}'><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>Why does the particle come back out?  There are theories where it does not.  In these theories,  at least those studied so far, time evolution is nonunitary: that is, the probability of finding the particle somewhere or other does not stay equal to <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mn>1</mn></mrow><annotation encoding='application/x-tex'>1</annotation></semantics></math>, because the particle simply disappears when it hits the origin.  Here we focus on theories where time evolution is unitary and the particle comes back out.  Many people have written about these, running into &#x2018;paradoxes&#x2019; when they weren&#x2019;t careful enough.  Only rather recently have things been straightened out.</p>
+
+<p>Let us dig into the details. In quantum mechanics, the Hilbert space of states of a particle in <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msup><mi>&#x211d;</mi> <mn>3</mn></msup></mrow><annotation encoding='application/x-tex'>\mathbb{R}^3</annotation></semantics></math> is <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msup><mi>L</mi> <mn>2</mn></msup><mo stretchy='false'>(</mo><msup><mi>&#x211d;</mi> <mn>3</mn></msup><mo stretchy='false'>)</mo></mrow><annotation encoding='application/x-tex'>L^2(\mathbb{R}^3)</annotation></semantics></math>. In a central force whose strength is proportional to <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mn>1</mn><mo stretchy='false'>/</mo><msup><mi>r</mi> <mn>3</mn></msup></mrow><annotation encoding='application/x-tex'>1/r^3</annotation></semantics></math>, such a particle has a Hamiltonian of this form:</p>
+
+<p><math xmlns="http://www.w3.org/1998/Math/MathML" display='block'><semantics><mrow><mi>H</mi><mo>=</mo><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><msup><mo>&#x2207;</mo> <mn>2</mn></msup><mo>+</mo><mi>c</mi><msup><mi>r</mi> <mrow><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mn>2</mn></mrow></msup></mrow><annotation encoding='application/x-tex'> H = -\nabla^2 + c r^{-2} </annotation></semantics></math></p>
+
+<p>The first term describes the particle&#x2019;s kinetic energy, while the second describes its potential energy: remember, taking the gradient of an inverse square potential gives an inverse cube force. I have set some constants to <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mn>1</mn></mrow><annotation encoding='application/x-tex'>1</annotation></semantics></math> to remove irrelevant clutter, but we need the constant <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>c</mi></mrow><annotation encoding='application/x-tex'>c</annotation></semantics></math> to say how strong the force is. When <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>c</mi><mspace width='0.16667em' /><mi>&lt;</mi><mspace width='0.16667em' /><mn>0</mn></mrow><annotation encoding='application/x-tex'>c \, &amp;lt; \, 0</annotation></semantics></math>, the force is attractive. </p>
+
+<p>In this game, analysis is paramount. We should interpret <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>H</mi></mrow><annotation encoding='application/x-tex'>H</annotation></semantics></math> as a densely defined linear operator on <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msup><mi>L</mi> <mn>2</mn></msup><mo stretchy='false'>(</mo><msup><mi>&#x211d;</mi> <mn>3</mn></msup><mo stretchy='false'>)</mo></mrow><annotation encoding='application/x-tex'>L^2(\mathbb{R}^3)</annotation></semantics></math>. For this, we choose a dense linear subspace <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>D</mi><mo>&#x2282;</mo><msup><mi>L</mi> <mn>2</mn></msup><mo stretchy='false'>(</mo><msup><mi>&#x211d;</mi> <mn>3</mn></msup><mo stretchy='false'>)</mo></mrow><annotation encoding='application/x-tex'>D \subset L^2(\mathbb{R}^3)</annotation></semantics></math> and treat <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>H</mi></mrow><annotation encoding='application/x-tex'>H</annotation></semantics></math> as a linear map from <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>D</mi></mrow><annotation encoding='application/x-tex'>D</annotation></semantics></math> to <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msup><mi>L</mi> <mn>2</mn></msup><mo stretchy='false'>(</mo><msup><mi>&#x211d;</mi> <mn>3</mn></msup><mo stretchy='false'>)</mo></mrow><annotation encoding='application/x-tex'>L^2(\mathbb{R}^3)</annotation></semantics></math>. Different choices of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>D</mi></mrow><annotation encoding='application/x-tex'>D</annotation></semantics></math> correspond to different physical assumptions: for example, assumptions about what happens when the particle falls into the origin.</p>
+
+<p>To get unitary time evolution in quantum mechanics, we need the Hamiltonian to be self-adjoint. But adjoints of densely defined operators are tricky. Let us briefly recall how they work. Given a Hilbert space <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x210b;</mi></mrow><annotation encoding='application/x-tex'>\mathcal{H}</annotation></semantics></math> and a linear operator <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>A</mi></mrow><annotation encoding='application/x-tex'>A</annotation></semantics></math> from a dense linear subspace <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>D</mi><mo stretchy='false'>(</mo><mi>A</mi><mo stretchy='false'>)</mo><mo>&#x2286;</mo><mi>&#x210b;</mi></mrow><annotation encoding='application/x-tex'>D(A) \subseteq \mathcal{H}</annotation></semantics></math> to <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x210b;</mi></mrow><annotation encoding='application/x-tex'>\mathcal{H}</annotation></semantics></math>, we define <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>D</mi><mo stretchy='false'>(</mo><msup><mi>A</mi> <mo>*</mo></msup><mo stretchy='false'>)</mo></mrow><annotation encoding='application/x-tex'>D(A^*)</annotation></semantics></math> to be the set of all <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x3c8;</mi><mo>&#x2208;</mo><mi>&#x210b;</mi></mrow><annotation encoding='application/x-tex'>\psi \in \mathcal{H}</annotation></semantics></math> for which there exist <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x3c8;</mi><mo>&#x2032;</mo><mo>&#x2208;</mo><mi>&#x210b;</mi></mrow><annotation encoding='application/x-tex'>\psi' \in \mathcal{H}</annotation></semantics></math> such that </p>
+
+<p><math xmlns="http://www.w3.org/1998/Math/MathML" display='block'><semantics><mrow><mo stretchy='false'>&#x27e8;</mo><mi>&#x3c8;</mi><mo>&#x2032;</mo><mo>,</mo><mi>&#x3d5;</mi><mo stretchy='false'>&#x27e9;</mo><mo>=</mo><mo stretchy='false'>&#x27e8;</mo><mi>&#x3c8;</mi><mo>,</mo><mi>A</mi><mi>&#x3d5;</mi><mo stretchy='false'>&#x27e9;</mo><mspace width='0.27778em' /><mtext> for all </mtext><mspace width='0.27778em' /><mi>&#x3d5;</mi><mo>&#x2208;</mo><mi>D</mi><mo stretchy='false'>(</mo><mi>A</mi><mo stretchy='false'>)</mo><mo>.</mo></mrow><annotation encoding='application/x-tex'> \langle \psi' , \phi \rangle = \langle \psi, A \phi \rangle \; \text{ for all } \; \phi \in D(A). </annotation></semantics></math></p>
+
+<p>If such a vector <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x3c8;</mi><mo>&#x2032;</mo></mrow><annotation encoding='application/x-tex'>\psi'</annotation></semantics></math> exists, it is unique, and it depends linearly on <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x3c8;</mi></mrow><annotation encoding='application/x-tex'>\psi</annotation></semantics></math>. Thus, for <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x3c8;</mi><mo>&#x2208;</mo><mi>D</mi><mo stretchy='false'>(</mo><mi>A</mi><mo>*</mo><mo stretchy='false'>)</mo></mrow><annotation encoding='application/x-tex'>\psi \in D(A\ast)</annotation></semantics></math> we define <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>A</mi><mo>*</mo><mi>&#x3c8;</mi></mrow><annotation encoding='application/x-tex'>A\ast \psi</annotation></semantics></math> to be the vector <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x3c8;</mi><mo>&#x2032;</mo></mrow><annotation encoding='application/x-tex'>\psi'</annotation></semantics></math> with the above property. The <strong>adjoint</strong> of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>A</mi></mrow><annotation encoding='application/x-tex'>A</annotation></semantics></math> is then the linear operator <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>A</mi><mo>*</mo><mo lspace='0.11111em'>:</mo><mi>D</mi><mo stretchy='false'>(</mo><mi>A</mi><mo>*</mo><mo stretchy='false'>)</mo><mo>&#x2192;</mo><mi>&#x210b;</mi></mrow><annotation encoding='application/x-tex'> A\ast \colon D(A\ast) \to \mathcal{H}</annotation></semantics></math>. We say <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>A</mi></mrow><annotation encoding='application/x-tex'>A</annotation></semantics></math> is <strong>self-adjoint</strong> if <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>A</mi><mo>=</mo><mi>A</mi><mo>*</mo></mrow><annotation encoding='application/x-tex'>A = A\ast</annotation></semantics></math>. We say that <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>A</mi></mrow><annotation encoding='application/x-tex'>A</annotation></semantics></math> is <strong>essentially self-adjoint</strong> if it has a unique extension to a self-adjoint operator. If it does, this extension must be <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>A</mi><mo>*</mo></mrow><annotation encoding='application/x-tex'>A\ast</annotation></semantics></math>.</p>
+
+<p>All this raises the question of whether the Hamiltonian <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>H</mi></mrow><annotation encoding='application/x-tex'>H</annotation></semantics></math> for the inverse cube force law can be made self-adjoint with a suitable choice of domain. It turns out we can always do it, but sometimes in more than one way. There are three regimes:</p>
+
+<ul>
+<li><p><math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>c</mi><mo>&#x2265;</mo><mstyle displaystyle='false'><mfrac><mn>3</mn><mn>4</mn></mfrac></mstyle></mrow><annotation encoding='application/x-tex'>c \ge \tfrac{3}{4}</annotation></semantics></math>. In this case we can start with the domain <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msubsup><mi>C</mi> <mn>0</mn> <mn>&#x221e;</mn></msubsup><mo stretchy='false'>(</mo><msup><mi>&#x211d;</mi> <mn>3</mn></msup><mo>&#x2212;</mo><mo stretchy='false'>{</mo><mn>0</mn><mo stretchy='false'>}</mo><mo stretchy='false'>)</mo></mrow><annotation encoding='application/x-tex'>C_0^\infty(\mathbb{R}^3 - \{0\})</annotation></semantics></math> consisting of smooth functions that are compactly supported on <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msup><mi>&#x211d;</mi> <mn>3</mn></msup></mrow><annotation encoding='application/x-tex'>\mathbb{R}^3</annotation></semantics></math> minus the origin. The operator <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>H</mi></mrow><annotation encoding='application/x-tex'>H</annotation></semantics></math> is unambiguously defined on this domain, and it is essentially self-adjoint.</p></li>
+<li><p><math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mstyle displaystyle='false'><mfrac><mn>1</mn><mn>4</mn></mfrac></mstyle><mo>&#x2264;</mo><mi>c</mi><mspace width='0.16667em' /><mi>&lt;</mi><mspace width='0.16667em' /><mstyle displaystyle='false'><mfrac><mn>3</mn><mn>4</mn></mfrac></mstyle></mrow><annotation encoding='application/x-tex'>-\tfrac{1}{4} \le c \, &amp;lt; \, \tfrac{3}{4}</annotation></semantics></math>. In this case <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>H</mi></mrow><annotation encoding='application/x-tex'>H</annotation></semantics></math> is still well-defined on the domain <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msubsup><mi>C</mi> <mn>0</mn> <mn>&#x221e;</mn></msubsup><mo stretchy='false'>(</mo><msup><mi>&#x211d;</mi> <mn>3</mn></msup><mo>&#x2212;</mo><mo stretchy='false'>{</mo><mn>0</mn><mo stretchy='false'>}</mo><mo stretchy='false'>)</mo></mrow><annotation encoding='application/x-tex'>C_0^\infty(\mathbb{R}^3 - \{0\})</annotation></semantics></math>, but it is <em>not</em> essentially self-adjoint. In fact, it admits more than one self-adjoint extension! However, <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>H</mi></mrow><annotation encoding='application/x-tex'>H</annotation></semantics></math> is <strong>bounded below</strong>: there is a constant <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msub><mi>E</mi> <mn>0</mn></msub></mrow><annotation encoding='application/x-tex'>E_0</annotation></semantics></math> such that
+<math xmlns="http://www.w3.org/1998/Math/MathML" display='block'><semantics><mrow><mo stretchy='false'>&#x27e8;</mo><mi>&#x3c8;</mi><mo>,</mo><mi>H</mi><mi>&#x3c8;</mi><mo stretchy='false'>&#x27e9;</mo><mo>&#x2265;</mo><msub><mi>E</mi> <mn>0</mn></msub><mo stretchy='false'>&#x27e8;</mo><mi>&#x3c8;</mi><mo>,</mo><mi>&#x3c8;</mi><mo stretchy='false'>&#x27e9;</mo></mrow><annotation encoding='application/x-tex'> \langle \psi, H \psi \rangle \ge E_0 \langle \psi, \psi \rangle </annotation></semantics></math>
+for all <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x3c8;</mi><mo>&#x2208;</mo><msubsup><mi>C</mi> <mn>0</mn> <mn>&#x221e;</mn></msubsup><mo stretchy='false'>(</mo><msup><mi>&#x211d;</mi> <mn>3</mn></msup><mo>&#x2212;</mo><mo stretchy='false'>{</mo><mn>0</mn><mo stretchy='false'>}</mo><mo stretchy='false'>)</mo></mrow><annotation encoding='application/x-tex'>\psi \in C_0^\infty(\mathbb{R}^3 - \{0\})</annotation></semantics></math>. Physically, this means that the particle&#x2019;s energy is bounded below by <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msub><mi>E</mi> <mn>0</mn></msub></mrow><annotation encoding='application/x-tex'>E_0</annotation></semantics></math>. Mathematically, this implies that <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>H</mi></mrow><annotation encoding='application/x-tex'>H</annotation></semantics></math> has a canonical choice of self-adjoint extension called the &#x2018;Friedrichs extension&#x2019;, with the smallest possible domain.  But there is another canonical choice, the &#x2018;Krein extension&#x2019;, with the largest possible domain.</p></li>
+<li><p><math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>c</mi><mspace width='0.16667em' /><mi>&lt;</mi><mspace width='0.16667em' /><mo>&#x2212;</mo><mstyle displaystyle='false'><mfrac><mn>1</mn><mn>4</mn></mfrac></mstyle></mrow><annotation encoding='application/x-tex'>c \, &amp;lt; \, -\tfrac{1}{4}</annotation></semantics></math>. In this case <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>H</mi></mrow><annotation encoding='application/x-tex'>H</annotation></semantics></math> is well-defined on the domain <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msubsup><mi>C</mi> <mn>0</mn> <mn>&#x221e;</mn></msubsup><mo stretchy='false'>(</mo><msup><mi>&#x211d;</mi> <mn>3</mn></msup><mo>&#x2212;</mo><mo stretchy='false'>{</mo><mn>0</mn><mo stretchy='false'>}</mo><mo stretchy='false'>)</mo></mrow><annotation encoding='application/x-tex'>C_0^\infty(\mathbb{R}^3 - \{0\})</annotation></semantics></math>, and it has more than one self-adjoint extension, but it is not bounded below. </p></li>
+</ul>
+
+<p>These strange results demand explanation. For example, what is special about <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>c</mi><mo>=</mo><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mstyle displaystyle='false'><mfrac><mn>1</mn><mn>4</mn></mfrac></mstyle></mrow><annotation encoding='application/x-tex'>c =-\tfrac{1}{4}</annotation></semantics></math>? In classical mechanics, the energy of a particle in the inverse cube force ceases to be bounded below as soon as <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>c</mi><mspace width='0.16667em' /><mi>&lt;</mi><mspace width='0.16667em' /><mn>0</mn></mrow><annotation encoding='application/x-tex'>c \, &amp;lt;  \,0</annotation></semantics></math>. Quantum mechanics is different. To get a lot of negative potential energy, the particle&#x2019;s wavefunction must be peaked near the origin, but that gives it kinetic energy. The tradeoff is captured by <strong>Hardy&#x2019;s inequality</strong>. This says that for any <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x3c8;</mi><mo>&#x2208;</mo><msubsup><mi>C</mi> <mn>0</mn> <mn>&#x221e;</mn></msubsup><mo stretchy='false'>(</mo><msup><mi>&#x211d;</mi> <mn>3</mn></msup><mo stretchy='false'>)</mo></mrow><annotation encoding='application/x-tex'>\psi\in C_0^\infty(\mathbb{R}^3)</annotation></semantics></math> we have </p>
+
+<p><math xmlns="http://www.w3.org/1998/Math/MathML" display='block'><semantics><mrow><mo stretchy='false'>&#x27e8;</mo><mi>&#x3c8;</mi><mo>,</mo><mo stretchy='false'>(</mo><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><msup><mo>&#x2207;</mo> <mn>2</mn></msup><mo>&#x2212;</mo><mstyle displaystyle='false'><mfrac><mn>1</mn><mn>4</mn></mfrac></mstyle><msup><mi>r</mi> <mrow><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mn>2</mn></mrow></msup><mo stretchy='false'>)</mo><mi>&#x3c8;</mi><mo stretchy='false'>&#x27e9;</mo><mo>&#x2265;</mo><mn>0</mn><mo>.</mo></mrow><annotation encoding='application/x-tex'> \langle \psi, (-\nabla^2 - \tfrac{1}{4} r^{-2}) \psi \rangle \ge 0 .</annotation></semantics></math></p>
+
+<p>This is why <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>H</mi></mrow><annotation encoding='application/x-tex'>H</annotation></semantics></math> is bounded below when <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>c</mi><mo>&#x2265;</mo><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mstyle displaystyle='false'><mfrac><mn>1</mn><mn>4</mn></mfrac></mstyle></mrow><annotation encoding='application/x-tex'>c \ge -\tfrac{1}{4}</annotation></semantics></math>. </p>
+
+<p>On the other hand, the constant <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mstyle displaystyle='false'><mfrac><mn>1</mn><mn>4</mn></mfrac></mstyle></mrow><annotation encoding='application/x-tex'>\tfrac{1}{4}</annotation></semantics></math> in Hardy&#x2019;s inequality cannot be improved, so if <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>c</mi><mspace width='0.16667em' /><mi>&lt;</mi><mspace width='0.16667em' /><mstyle displaystyle='false'><mfrac><mn>1</mn><mn>4</mn></mfrac></mstyle></mrow><annotation encoding='application/x-tex'>c \, &amp;lt; \, \tfrac{1}{4}</annotation></semantics></math> we can find <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x3c8;</mi></mrow><annotation encoding='application/x-tex'>\psi</annotation></semantics></math> with <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mo stretchy='false'>&#x27e8;</mo><mi>&#x3c8;</mi><mo>,</mo><mi>H</mi><mi>&#x3c8;</mi><mo stretchy='false'>&#x27e9;</mo><mspace width='0.16667em' /><mi>&lt;</mi><mspace width='0.16667em' /><mn>0</mn></mrow><annotation encoding='application/x-tex'> \langle \psi, H \psi \rangle \, &amp;lt; \, 0</annotation></semantics></math>. Then we can use a remarkable property of the <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msup><mi>r</mi> <mrow><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mn>2</mn></mrow></msup></mrow><annotation encoding='application/x-tex'>r^{-2}</annotation></semantics></math> potential to show that <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>H</mi></mrow><annotation encoding='application/x-tex'>H</annotation></semantics></math> is not bounded below. Namely, <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>H</mi></mrow><annotation encoding='application/x-tex'>H</annotation></semantics></math> has a kind of symmetry under dilations. You can guess this by noting that both the Laplacian and <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msup><mi>r</mi> <mrow><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mn>2</mn></mrow></msup></mrow><annotation encoding='application/x-tex'>r^{-2}</annotation></semantics></math> have units of 1/length<math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msup><mrow></mrow> <mn>2</mn></msup></mrow><annotation encoding='application/x-tex'>{}^2</annotation></semantics></math>. Indeed, if you take any smooth function <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x3c8;</mi></mrow><annotation encoding='application/x-tex'>\psi</annotation></semantics></math>, dilate it by a factor of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x3b1;</mi></mrow><annotation encoding='application/x-tex'>\alpha</annotation></semantics></math>, and then apply <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>H</mi></mrow><annotation encoding='application/x-tex'>H</annotation></semantics></math>, you get <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msup><mi>&#x3b1;</mi> <mrow><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mn>2</mn></mrow></msup></mrow><annotation encoding='application/x-tex'>\alpha^{-2}</annotation></semantics></math> times what you get if you do these operations in the other order. This implies that if</p>
+
+<p><math xmlns="http://www.w3.org/1998/Math/MathML" display='block'><semantics><mrow><mo stretchy='false'>&#x27e8;</mo><mi>&#x3c8;</mi><mo>,</mo><mi>H</mi><mi>&#x3c8;</mi><mo stretchy='false'>&#x27e9;</mo><mo>=</mo><mi>E</mi><mo stretchy='false'>&#x27e8;</mo><mi>&#x3c8;</mi><mo>,</mo><mi>&#x3c8;</mi><mo stretchy='false'>&#x27e9;</mo><mo>,</mo></mrow><annotation encoding='application/x-tex'> \langle \psi, H \psi \rangle = E \langle \psi, \psi \rangle ,</annotation></semantics></math></p>
+
+<p>we can dilate <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x3c8;</mi></mrow><annotation encoding='application/x-tex'>\psi</annotation></semantics></math> and get a function obeying the same equation with <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>E</mi></mrow><annotation encoding='application/x-tex'>E</annotation></semantics></math> replaced by <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msup><mi>&#x3b1;</mi> <mrow><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mn>2</mn></mrow></msup><mi>E</mi></mrow><annotation encoding='application/x-tex'>\alpha^{-2} E</annotation></semantics></math>. Thus, as soon as <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>E</mi></mrow><annotation encoding='application/x-tex'>E</annotation></semantics></math> can be negative, it can be made arbitrarily large and negative by choosing <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x3b1;</mi></mrow><annotation encoding='application/x-tex'>\alpha</annotation></semantics></math> to be very small. Thus <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>H</mi></mrow><annotation encoding='application/x-tex'>H</annotation></semantics></math> is not bounded below.</p>
+
+<p>Next, what is special about <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>c</mi><mo>=</mo><mstyle displaystyle='false'><mfrac><mn>3</mn><mn>4</mn></mfrac></mstyle></mrow><annotation encoding='application/x-tex'>c = \tfrac{3}{4}</annotation></semantics></math>? This is more subtle.  For any value of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>c</mi><mo>&#x2208;</mo><mi>&#x211d;</mi></mrow><annotation encoding='application/x-tex'>c \in \mathbb{R}</annotation></semantics></math> we can find spherically symmetric solutions of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mo stretchy='false'>(</mo><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><msup><mo>&#x2207;</mo> <mn>2</mn></msup><mo>+</mo><mi>c</mi><msup><mi>r</mi> <mrow><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mn>2</mn></mrow></msup><mo stretchy='false'>)</mo><mi>&#x3c8;</mi><mo>=</mo><mi>i</mi><mi>&#x3c8;</mi></mrow><annotation encoding='application/x-tex'> ( -\nabla^2 + c r^{-2})\psi = i \psi </annotation></semantics></math> on <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msup><mi>&#x211d;</mi> <mn>3</mn></msup><mo>&#x2212;</mo><mo stretchy='false'>{</mo><mn>0</mn><mo stretchy='false'>}</mo></mrow><annotation encoding='application/x-tex'>\mathbb{R}^3 - \{0\}</annotation></semantics></math> that are nonzero and smooth. When <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>c</mi><mspace width='0.16667em' /><mi>&lt;</mi><mspace width='0.16667em' /><mstyle displaystyle='false'><mfrac><mn>3</mn><mn>4</mn></mfrac></mstyle></mrow><annotation encoding='application/x-tex'>c \, &amp;lt; \, \tfrac{3}{4}</annotation></semantics></math>, and only in this case, some of these solutions <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x3c8;</mi></mrow><annotation encoding='application/x-tex'>\psi</annotation></semantics></math> lie in <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msup><mi>L</mi> <mn>2</mn></msup><mo stretchy='false'>(</mo><msup><mi>&#x211d;</mi> <mn>3</mn></msup><mo stretchy='false'>)</mo></mrow><annotation encoding='application/x-tex'>L^2(\mathbb{R}^3)</annotation></semantics></math>. This dooms the chance of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>H</mi></mrow><annotation encoding='application/x-tex'>H</annotation></semantics></math> being essentially self-adjoint, because it implies <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>H</mi><mo>*</mo><mi>&#x3c8;</mi><mo>=</mo><mi>i</mi><mi>&#x3c8;</mi></mrow><annotation encoding='application/x-tex'>H\ast \psi = i \psi</annotation></semantics></math>. If <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>H</mi></mrow><annotation encoding='application/x-tex'>H</annotation></semantics></math> were essentially self-adjoint <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>H</mi><mo>*</mo></mrow><annotation encoding='application/x-tex'>H\ast</annotation></semantics></math> would be self-adjoint, and it is easy to see that a self-adjoint operator cannot have <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>i</mi></mrow><annotation encoding='application/x-tex'>i</annotation></semantics></math> as an eigenvalue.</p>
+
+<p>When <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>c</mi><mspace width='0.16667em' /><mi>&lt;</mi><mspace width='0.16667em' /><mfrac><mn>3</mn><mn>4</mn></mfrac></mrow><annotation encoding='application/x-tex'>c \, &amp;lt; \, \frac{3}{4}</annotation></semantics></math> the operator <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>H</mi></mrow><annotation encoding='application/x-tex'>H</annotation></semantics></math> has more than one self-adjoint extension from <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msubsup><mi>C</mi> <mn>0</mn> <mn>&#x221e;</mn></msubsup><mo stretchy='false'>(</mo><msup><mi>&#x211d;</mi> <mn>3</mn></msup><mo>&#x2212;</mo><mo stretchy='false'>{</mo><mn>0</mn><mo stretchy='false'>}</mo><mo stretchy='false'>)</mo></mrow><annotation encoding='application/x-tex'>C_0^\infty(\mathbb{R}^3 - \{0\})</annotation></semantics></math> to some larger domain. To classify these we can use separation of variables, writing <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msup><mo>&#x2207;</mo> <mn>2</mn></msup></mrow><annotation encoding='application/x-tex'>\nabla^2</annotation></semantics></math> as a sum of a radial part and an angular part, assuming the angular dependence of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x3c8;</mi></mrow><annotation encoding='application/x-tex'>\psi</annotation></semantics></math> is given by a spherical harmonic <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msub><mi>Y</mi> <mrow><mi>&#x2113;</mi><mi>m</mi></mrow></msub></mrow><annotation encoding='application/x-tex'>Y_{\ell m}</annotation></semantics></math>, and doing a change of variables <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>u</mi><mo>=</mo><mi>&#x3c8;</mi><mo stretchy='false'>/</mo><mi>r</mi></mrow><annotation encoding='application/x-tex'>u = \psi/r</annotation></semantics></math> to reduce <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>H</mi></mrow><annotation encoding='application/x-tex'>H</annotation></semantics></math> to the ordinary differential operator</p>
+
+<p><math xmlns="http://www.w3.org/1998/Math/MathML" display='block'><semantics><mrow><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mfrac><mrow><msup><mi>d</mi> <mn>2</mn></msup></mrow><mrow><mi>d</mi><msup><mi>r</mi> <mn>2</mn></msup></mrow></mfrac><mo>+</mo><mrow><mo>(</mo><mi>c</mi><mo>+</mo><mi>&#x2113;</mi><mo stretchy='false'>(</mo><mi>&#x2113;</mi><mo>+</mo><mn>1</mn><mo stretchy='false'>)</mo><mo>)</mo></mrow><mfrac><mn>1</mn><mrow><msup><mi>r</mi> <mn>2</mn></msup></mrow></mfrac></mrow><annotation encoding='application/x-tex'> - \frac{d^2}{d r^2} + \left(c + \ell(\ell+1)\right) \frac{1}{r^2} </annotation></semantics></math></p>
+
+<p>on the half-line <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mo stretchy='false'>(</mo><mn>0</mn><mo>,</mo><mn>&#x221e;</mn><mo stretchy='false'>)</mo></mrow><annotation encoding='application/x-tex'>(0,\infty)</annotation></semantics></math>. We can completely classify self-adjoint extensions of this differential operators from <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msubsup><mi>C</mi> <mn>0</mn> <mn>&#x221e;</mn></msubsup><mo stretchy='false'>(</mo><mn>0</mn><mo>,</mo><mn>&#x221e;</mn><mo stretchy='false'>)</mo></mrow><annotation encoding='application/x-tex'>C_0^\infty(0,\infty)</annotation></semantics></math> to larger domains; the answer depends on <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>c</mi></mrow><annotation encoding='application/x-tex'>c</annotation></semantics></math> and <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x2113;</mi></mrow><annotation encoding='application/x-tex'>\ell</annotation></semantics></math>.   A choice of self-adjoint extension is a choice of boundary conditions at <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>r</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding='application/x-tex'>r = 0</annotation></semantics></math>, and this says how the phase of an incoming wave changes as it reflects off the origin and bounces back. Finally, we can assemble the results for different spherical harmonics to classify self-adjoint extensions of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>H</mi></mrow><annotation encoding='application/x-tex'>H</annotation></semantics></math>. </p>
+
+<p>There exist many self-adjoint extensions of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>H</mi></mrow><annotation encoding='application/x-tex'>H</annotation></semantics></math> that respect the rotational symmetry of the inverse cube force law, but for <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>c</mi><mspace width='0.16667em' /><mi>&lt;</mi><mspace width='0.16667em' /><mo>&#x2212;</mo><mstyle displaystyle='false'><mfrac><mn>1</mn><mn>4</mn></mfrac></mstyle></mrow><annotation encoding='application/x-tex'>c \, &amp;lt; \, -\tfrac{1}{4}</annotation></semantics></math> the extension must break the dilation symmetry discussed above. This is what physicists call an &#x2018;anomaly&#x2019;: a symmetry of a classical system that fails to be a symmetry of the corresponding quantum system.  Intriguingly, for some even lower values of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>c</mi></mrow><annotation encoding='application/x-tex'>c</annotation></semantics></math> one can choose a self-adjoint extension that is symmetrical under a <em>discrete subgroup</em> of dilations.   Determining precisely which values these are seems to be an open problem.  </p>
+
+<p>To explore this topic thoroughly, I recommend first this:</p>
+
+<ul>
+<li>S. Gopalakrishnan, <em><a href='https://math.ucr.edu/home/baez/gopalkrishnan.pdf'>Self-Adjointness and the Renormalization of Singular Potentials</a></em>, B.A. Thesis, Amherst College, 2006.  </li>
+</ul>
+
+<p>then this:</p>
+
+<ul>
+<li>D. M. Gitman, I. V. Tyutin and B. L. Voronov, <a href='http://arxiv.org/abs/0903.5277'>Self-adjoint extensions and spectral analysis in Calogero problem</a>.   </li>
+</ul>
+
+<p>and finally this:</p>
+
+<ul>
+<li>J. Derezi&#x144;ski and S. Richard, <a href='https://link.springer.com/content/pdf/10.1007/s00023-016-0520-7.pdf'>On Schr&#xf6;dinger operators with inverse square potentials on the half-line</a>, <em>Ann. Henri Poincar&#xe9;</em> <strong>18</strong> (2017), 869&#x2013;928.  </li>
+</ul>
+
+<p>The first is an excellent overview of problems associated to singular potentials, including the inverse cube force. The second delves into self-adjoint extensions of the ordinary differential operators mentioned above, and the third works them out with exquisite thoroughness.</p>
+
+</div>
+
+
+<span class='posted'>Posted at April 29, 2026 11:43 PM UTC
+</span>
+</div>
+
+<p class='trackback-url'>TrackBack URL for this Entry:&#xa0;&#xa0; https://golem.ph.utexas.edu/cgi-bin/MT-3.0/dxy-tb.fcgi/3633</p>
+
+
+<h2 class='comments-head' id='related'>Some Related Entries</h2>
+
+<div id='pane'>
+
+<form method='get' action='/cgi-bin/MT-3.0/mt-search.cgi'>
+<fieldset class='search'>
+  <input type='hidden' name='IncludeBlogs' value='3' />
+  <input type='hidden' name='Template' value='category' />
+  <label for='search' accesskey='4'>Search for other entries:</label><br />
+  <input id='search' name='search' size='25' /><br />
+  <input type='submit' value='Search' />
+</fieldset>
+</form>
+
+
+
+</div>
+
+<ul class='blogbody related'>
+
+   <li><a href='/category/2025/12/logx_c_revisited.html'>log|x| + C revisited</a> &#x2014;
+<i>Dec 03, 2025</i></li>
+   <li><a href='/category/2025/02/universal_characterization_of.html'>A Characterization of Standard Borel Spaces</a> &#x2014;
+<i>Feb 04, 2025</i></li>
+   <li><a href='/category/2023/01/a_curious_integral.html'>A Curious Integral</a> &#x2014;
+<i>Jan 04, 2023</i></li>
+   <li><a href='/category/2021/07/topos_theory_and_measurability.html'>Topos Theory and Measurability</a> &#x2014;
+<i>Jul 28, 2021</i></li>
+   <li><a href='/category/2020/11/the_uniform_measure.html'>The Uniform Measure</a> &#x2014;
+<i>Nov 24, 2020</i></li>
+   <li><a href='/category/2020/11/the_categorical_origins_of_leb_1.html'>The Categorical Origins of Lebesgue Integration, Revisited</a> &#x2014;
+<i>Nov 11, 2020</i></li>
+   <li><a href='/category/2020/09/ricatti_equations_and_the_proj.html'>Riccati Equations and the Projective Line</a> &#x2014;
+<i>Sep 07, 2020</i></li>
+   <li><a href='/category/2019/07/what_is_the_laplace_transform.html'>What is the Laplace Transform?</a> &#x2014;
+<i>Jul 17, 2019</i></li>
+
+</ul>
+</div>
+
+<h2 class="comments-head" id="comments">6 Comments &amp; 0 Trackbacks</h2>
+
+<div class="blogbody">
+
+<div class="comments-body" id="c069212">
+<h3 class="title">Re: Quantum Mechanics of the Inverse Cube Force Law</h3>
+
+<div><div><a href="http://golem.ph.utexas.edu/~distler/blog/mathml.html"><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>The dilation argument for <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>H</mi></mrow><annotation encoding='application/x-tex'>H</annotation></semantics></math> being bounded below is very nice.</p>
+
+<p>The fact that the critical values of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>c</mi></mrow><annotation encoding='application/x-tex'>c</annotation></semantics></math> are <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mn>1</mn><mo stretchy='false'>/</mo><mn>4</mn></mrow><annotation encoding='application/x-tex'>-1/4</annotation></semantics></math> and <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mn>3</mn><mo stretchy='false'>/</mo><mn>4</mn></mrow><annotation encoding='application/x-tex'>3/4</annotation></semantics></math> feels suspiciously simple, for some reason. I would have expected a <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mn>1</mn><mo stretchy='false'>/</mo><mi>e</mi></mrow><annotation encoding='application/x-tex'>1/e</annotation></semantics></math> somewhere in there.</p>
+</div>
+<div class="comments-post">Posted by:
+<a title="https://www.sunclipse.org" href="https://www.sunclipse.org" rel="nofollow">Blake Stacey</a> on June 10, 2026  4:57 AM | <a href="/category/2026/04/the_quantum_mechanics_of_the_i.html#c069212" title="URL for comment by Blake Stacey [June 10, 2026  4:57 AM]">Permalink</a>
+
+| <a href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3635;parent_id=69212" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}" title="Respond to comment by Blake Stacey [June 10, 2026  4:57 AM]">Reply to this</a>
+</div>
+</div>
+
+<div class="comments-nest-box">
+<div class="comments-body" id="c069214">
+<h3 class="title">Re: Quantum Mechanics of the Inverse Cube Force Law</h3>
+
+<div><div><a href="http://golem.ph.utexas.edu/~distler/blog/mathml.html"><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>The numbers that show up are not vastly more complicated than those you&#8217;d see in the spectrum of the hydrogen atom.  But I&#8217;ve been working on this problem more, and beside the &#8216;regime changes&#8217; at <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>c</mi><mo>=</mo><mfrac><mn>3</mn><mn>4</mn></mfrac></mrow><annotation encoding='application/x-tex'>c = \frac{3}{4}</annotation></semantics></math> and <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>c</mi><mo>=</mo><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mstyle displaystyle='false'><mfrac><mn>1</mn><mn>4</mn></mfrac></mstyle></mrow><annotation encoding='application/x-tex'>c = -\tfrac{1}{4}</annotation></semantics></math>, it turns out there are subtler changes that kick in at </p>
+
+<p><math xmlns="http://www.w3.org/1998/Math/MathML" display='block'><semantics><mrow><mi>c</mi><mo>=</mo><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mstyle displaystyle='false'><mfrac><mn>9</mn><mn>4</mn></mfrac></mstyle><mo>,</mo><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mstyle displaystyle='false'><mfrac><mn>25</mn><mn>4</mn></mfrac></mstyle><mo>,</mo><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mstyle displaystyle='false'><mfrac><mn>49</mn><mn>4</mn></mfrac></mstyle><mo>,</mo><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mstyle displaystyle='false'><mfrac><mn>81</mn><mn>4</mn></mfrac></mstyle><mo>,</mo><mi>&#x2026;</mi></mrow><annotation encoding='application/x-tex'>c = -\tfrac{9}{4}, -\tfrac{25}{4}, -\tfrac{49}{4}, - \tfrac{81}{4}, \dots </annotation></semantics></math> </p>
+
+<p>and still subtler ones at </p>
+
+<p><math xmlns="http://www.w3.org/1998/Math/MathML" display='block'><semantics><mrow><mi>c</mi><mo>=</mo><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mstyle displaystyle='false'><mfrac><mn>5</mn><mn>4</mn></mfrac></mstyle><mo>,</mo><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mstyle displaystyle='false'><mfrac><mn>21</mn><mn>4</mn></mfrac></mstyle><mo>,</mo><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mstyle displaystyle='false'><mfrac><mn>45</mn><mn>4</mn></mfrac></mstyle><mo>,</mo><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mstyle displaystyle='false'><mfrac><mn>77</mn><mn>4</mn></mfrac></mstyle><mo>,</mo><mi>&#x2026;</mi></mrow><annotation encoding='application/x-tex'>c = -\tfrac{5}{4}, -\tfrac{21}{4}, -\tfrac{45}{4}, -\tfrac{77}{4}, \dots </annotation></semantics></math>   </p>
+
+<p>The pattern of these numbers is pretty obvious, and it includes the first two, the ones you mentioned.  But the details of what exactly happens at these regime changes leads into some nontrivial number theory!</p>
+
+<p>I&#8217;m happy that the inverse cube force law still has some tricks up its sleeve.</p>
+</div>
+<div class="comments-post">Posted by:
+<a title="http://math.ucr.edu/home/baez/" href="http://math.ucr.edu/home/baez/" rel="nofollow">John Baez</a> on June 10, 2026  6:45 PM | <a href="/category/2026/04/the_quantum_mechanics_of_the_i.html#c069214" title="URL for comment by John Baez [June 10, 2026  6:45 PM]">Permalink</a>
+
+| <a href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3635;parent_id=69214" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}" title="Respond to comment by John Baez [June 10, 2026  6:45 PM]">Reply to this</a>
+</div>
+</div>
+
+<div class="comments-nest-box">
+<div class="comments-body" id="c069218">
+<h3 class="title">Re: Quantum Mechanics of the Inverse Cube Force Law</h3>
+
+<div><div><a href="http://golem.ph.utexas.edu/~distler/blog/mathml.html"><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>Think it&#8217;s worth writing another blog post on the number theory behind the <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>c</mi></mrow><annotation encoding='application/x-tex'>c</annotation></semantics></math> values and how that relates to the quantum inverse cube law. </p>
+</div>
+<div class="comments-post">Posted by:
+Madeleine Birchfield on June 11, 2026 11:01 PM | <a href="/category/2026/04/the_quantum_mechanics_of_the_i.html#c069218" title="URL for comment by Madeleine Birchfield [June 11, 2026 11:01 PM]">Permalink</a>
+
+| <a href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3635;parent_id=69218" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}" title="Respond to comment by Madeleine Birchfield [June 11, 2026 11:01 PM]">Reply to this</a>
+</div>
+</div>
+
+<div class="comments-nest-box">
+
+</div>
+
+<div class="comments-body" id="c069223">
+<h3 class="title">Re: Quantum Mechanics of the Inverse Cube Force Law</h3>
+
+<div><div><a href="http://golem.ph.utexas.edu/~distler/blog/mathml.html"><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>You mean it&#8217;s worth it to you for me to do more work.  <img src='https://math.ucr.edu/home/baez/emoticons/tongue2.gif' alt='' /></p>
+
+<p>It&#8217;s a lot of work, but I may write a paper about it and also blog about it.  It involves solving a sequence of Diophantine equations to find all the values of <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>c</mi></mrow><annotation encoding='application/x-tex'>c</annotation></semantics></math> for which the quantum inverse cube force law has symmetry under a discrete group of dilations.  The equations get harder and harder as <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>c</mi></mrow><annotation encoding='application/x-tex'>c</annotation></semantics></math> decreases.  I&#8217;m at the stage where I used Magma to work out the Mordell&#8211;Weil group of an elliptic curve so I could figure out all the rational solutions of</p>
+
+<p><math xmlns="http://www.w3.org/1998/Math/MathML" display='block'><semantics><mrow><msubsup><mi>a</mi> <mn>0</mn> <mn>2</mn></msubsup><mo>+</mo><msubsup><mi>a</mi> <mn>3</mn> <mn>2</mn></msubsup><mspace width='0.27778em' /><mo>=</mo><mspace width='0.27778em' /><mn>2</mn><msubsup><mi>a</mi> <mn>2</mn> <mn>2</mn></msubsup><mo>,</mo><mspace width='2em' /><mn>2</mn><msubsup><mi>a</mi> <mn>0</mn> <mn>2</mn></msubsup><mo>+</mo><msubsup><mi>a</mi> <mn>2</mn> <mn>2</mn></msubsup><mspace width='0.27778em' /><mo>=</mo><mspace width='0.27778em' /><mn>3</mn><msubsup><mi>a</mi> <mn>1</mn> <mn>2</mn></msubsup><mo>.</mo></mrow><annotation encoding='application/x-tex'> a_0^2 + a_3^2 \;=\; 2 a_2^2,\qquad 2a_0^2 + a_2^2 \;=\; 3 a_1^2. </annotation></semantics></math></p>
+
+<p>This would be easy for some people but not for me.  I don&#8217;t consider the end result important &#8212; there are other things I care about much more &#8212; but I enjoy learning number theory, and it&#8217;s sort of cool how number theory can show up when you pursue a physics puzzle to the very bitter end in an obsessive sort of way.</p>
+
+<p>I recently ran into a paper that seems a bit similar.  Only certain choices of fermions allow for quantum field theories with a specified gauge group (like <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>SU</mi><mo stretchy='false'>(</mo><mn>3</mn><mo stretchy='false'>)</mo><mo>&#xd7;</mo><mi>SU</mi><mo stretchy='false'>(</mo><mn>2</mn><mo stretchy='false'>)</mo><mo>&#xd7;</mo><mtext>U</mtext><mo stretchy='false'>(</mo><mn>1</mn><mo stretchy='false'>)</mo></mrow><annotation encoding='application/x-tex'>SU(3) \times SU(2) \times \text{U}(1)</annotation></semantics></math>) that lack &#8216;anomalies&#8217;.  Finding these choices involves solving Diophantine equations.  Recently some authors dug into this problem to the point where they needed &#8220;the Mordell&#x2013;Weil theorem, Mazur&#x2019;s theorem and the Cremona elliptic curve database which uses Kolyvagin&#x2019;s theorem on the Birch Swinnerton-Dyer conjecture&#8221;:</p>
+
+<ul>
+<li>Yongchao L&#xfc; and Joseph A Minahan, <a href="https://iopscience.iop.org/article/10.1088/1751-8121/ab5ac3">Notes on anomalies, elliptic curves and the BS-D conjecture</a>, 
+<em>Journal of Physics A: Mathematical and Theoretical</em> <strong>53</strong>(2) (2020), 024001.</li>
+</ul>
+
+<p>I suspect the difficulty of the number theory was the main reason this result was considered worth publishing, more than the importance the final result.  That&#8217;s okay.</p>
+</div>
+<div class="comments-post">Posted by:
+<a title="http://math.ucr.edu/home/baez/" href="http://math.ucr.edu/home/baez/" rel="nofollow">John Baez</a> on June 12, 2026  1:09 PM | <a href="/category/2026/04/the_quantum_mechanics_of_the_i.html#c069223" title="URL for comment by John Baez [June 12, 2026  1:09 PM]">Permalink</a>
+
+| <a href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3635;parent_id=69223" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}" title="Respond to comment by John Baez [June 12, 2026  1:09 PM]">Reply to this</a>
+</div>
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="comments-body" id="c069228">
+<h3 class="title">Re: Quantum Mechanics of the Inverse Cube Force Law</h3>
+
+<div><div><a href="http://golem.ph.utexas.edu/~distler/blog/mathml.html"><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>Is there a quantum field theory that gives rise to an inverse cube force the way an inverse square force arises from QED?</p>
+</div>
+<div class="comments-post">Posted by:
+Dan Piponi on June 21, 2026  5:08 PM | <a href="/category/2026/04/the_quantum_mechanics_of_the_i.html#c069228" title="URL for comment by Dan Piponi [June 21, 2026  5:08 PM]">Permalink</a>
+
+| <a href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3635;parent_id=69228" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}" title="Respond to comment by Dan Piponi [June 21, 2026  5:08 PM]">Reply to this</a>
+</div>
+</div>
+
+<div class="comments-nest-box">
+<div class="comments-body" id="c069229">
+<h3 class="title">Re: Quantum Mechanics of the Inverse Cube Force Law</h3>
+
+<div><div><a href="http://golem.ph.utexas.edu/~distler/blog/mathml.html"><img class='mathlogo' src='https://golem.ph.utexas.edu/~distler/blog/images/MathML.png' alt='MathML-enabled post (click for more details).' title='MathML-enabled post (click for details).' /></a></div>
+
+<p>Not that I know of, and I really doubt one exists.   Not in 4d spacetime, that is.  But 5d spacetime is different!</p>
+
+<p>Just as the inverse square force law is geometrically natural and follows from classical electromagnetism when space is 3-dimensional, the inverse cube force law follows from classical electromagnetism when space is 4-dimensional &#8212; so spacetime is 5-dimensional.</p>
+
+<p>Thus at tree level, QED should give an inverse cube law in 5d spacetime.   But I guess it&#8217;s horribly nonrenormalizable, since QED is just &#8216;barely&#8217; renormalizable in 4d spacetime.</p>
+
+<p>Just for the record, let me say how Schr&#xf6;dinger&#8217;s equation with an inverse cube force law works when space is 4-dimensional, so spacetime is 5-dimensional.  Just like one dimension down, it&#8217;s described by this Hamiltonian:</p>
+
+<p><math xmlns="http://www.w3.org/1998/Math/MathML" display='block'><semantics><mrow><mi>H</mi><mo>=</mo><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><msup><mo>&#x2207;</mo> <mn>2</mn></msup><mo>+</mo><mi>c</mi><msup><mi>r</mi> <mrow><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mn>2</mn></mrow></msup></mrow><annotation encoding='application/x-tex'> H = -\nabla^2 + c r^{-2}</annotation></semantics></math></p>
+
+<p>And as before, the behavior of this Hamiltonian depends on <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>c</mi></mrow><annotation encoding='application/x-tex'>c</annotation></semantics></math>.  Here&#8217;s the story this time:</p>
+
+<ul>
+<li><p><math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>c</mi><mo>&#x2265;</mo><mn>0</mn><mo>.</mo></mrow><annotation encoding='application/x-tex'>c \ge 0.</annotation></semantics></math>  In this case <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>H</mi></mrow><annotation encoding='application/x-tex'>H</annotation></semantics></math> is essentially self-adjoint on <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msubsup><mi>C</mi> <mn>0</mn> <mn>&#x221e;</mn></msubsup><mo stretchy='false'>(</mo><msup><mi>&#x211d;</mi> <mn>4</mn></msup><mo>&#x2212;</mo><mo stretchy='false'>{</mo><mn>0</mn><mo stretchy='false'>}</mo><mo stretchy='false'>)</mo><mo>.</mo></mrow><annotation encoding='application/x-tex'>C_0^\infty(\mathbb{R}^4 - \{0\}).</annotation></semantics></math>  So, it admits a unique self-adjoint extension and there&#8217;s no ambiguity about this case.</p></li>
+<li><p><math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>c</mi><mo>&lt;</mo><mn>0</mn><mo>.</mo></mrow><annotation encoding='application/x-tex'>c \lt 0.</annotation></semantics></math>  In this case <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>H</mi></mrow><annotation encoding='application/x-tex'>H</annotation></semantics></math> is not essentially self-adjoint on <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><msubsup><mi>C</mi> <mn>0</mn> <mn>&#x221e;</mn></msubsup><mo stretchy='false'>(</mo><msup><mi>&#x211d;</mi> <mn>4</mn></msup><mo>&#x2212;</mo><mo stretchy='false'>{</mo><mn>0</mn><mo stretchy='false'>}</mo><mo stretchy='false'>)</mo></mrow><annotation encoding='application/x-tex'>C_0^\infty(\mathbb{R}^4 - \{0\})</annotation></semantics></math>.</p></li>
+<li><p><math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>c</mi><mo>&#x2265;</mo><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mn>1</mn><mo>.</mo></mrow><annotation encoding='application/x-tex'>c \ge -1.</annotation></semantics></math>  In this case the expected energy <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mo stretchy='false'>&#x27e8;</mo><mi>&#x3c8;</mi><mo>,</mo><mi>H</mi><mi>&#x3c8;</mi><mo stretchy='false'>&#x27e9;</mo></mrow><annotation encoding='application/x-tex'>\langle \psi, H \psi \rangle</annotation></semantics></math> is bounded below for <math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>&#x3c8;</mi><mo>&#x2208;</mo><msubsup><mi>C</mi> <mn>0</mn> <mn>&#x221e;</mn></msubsup><mo stretchy='false'>(</mo><msup><mi>&#x211d;</mi> <mn>3</mn></msup><mo>&#x2212;</mo><mo stretchy='false'>{</mo><mn>0</mn><mo stretchy='false'>}</mo><mo stretchy='false'>)</mo><mo>.</mo></mrow><annotation encoding='application/x-tex'>\psi \in C_0^\infty(\mathbb{R}^3 - \{0\}).</annotation></semantics></math>   So, there exists a canonical &#8216;best choice&#8217; of self-adjoint extension, called the <a href="https://en.wikipedia.org/wiki/Friedrichs_extension">Friedrichs extension</a>.</p></li>
+<li><p><math xmlns="http://www.w3.org/1998/Math/MathML" display='inline'><semantics><mrow><mi>c</mi><mo>&lt;</mo><mo lspace='0.11111em' rspace='0em'>&#x2212;</mo><mn>1</mn><mo>.</mo></mrow><annotation encoding='application/x-tex'>c \lt-1.</annotation></semantics></math>  In this case the expected energy is not bounded below, so we don&#8217;t have the Friedrichs extension to help us choose which self-adjoint extension is &#8216;best&#8217;.</p></li>
+</ul>
+
+<p>I&#8217;ve been assured these are correct by Barry Simon.</p>
+</div>
+<div class="comments-post">Posted by:
+<a title="http://math.ucr.edu/home/baez/" href="http://math.ucr.edu/home/baez/" rel="nofollow">John Baez</a> on June 22, 2026 11:24 AM | <a href="/category/2026/04/the_quantum_mechanics_of_the_i.html#c069229" title="URL for comment by John Baez [June 22, 2026 11:24 AM]">Permalink</a>
+
+| <a href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3635;parent_id=69229" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}" title="Respond to comment by John Baez [June 22, 2026 11:24 AM]">Reply to this</a>
+</div>
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+</div>
+<p class="newpost"><a class="comments-post" href="/cgi-bin/MT-3.0/sxp-comments.fcgi?entry_id=3635" onclick="OpenComments(this.href); this.blur(); return false;" onkeypress="if(window.event.keyCode == 13){OpenComments(this.href); this.blur(); return false;}">Post a New Comment</a></p>
+
+</div>
+
+<div id="footer">   
+<h2>Access Keys:</h2>
+
+<dl id="AccessKeyList">
+<dt>0</dt><dd><a href="/category/accessibility.html" accesskey="0">Accessibility Statement</a></dd>
+<dt>1</dt><dd>Main Page</dd>
+<dt>2</dt><dd>Skip to Content</dd>
+<dt>3</dt><dd>List of Posts</dd>
+<dt>4</dt><dd>Search</dd>
+<dt>p</dt><dd>Previous (individual/monthly archive page)</dd>
+<dt>n</dt><dd>Next (individual/monthly archive page)</dd>
+</dl>
+<a href="/category/archives.html" accesskey="3"></a>
+</div>
+
+
+</div>
+
+</body>
+</html>

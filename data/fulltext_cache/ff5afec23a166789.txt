@@ -1,0 +1,244 @@
+Equal Temperament (Part 3)
+Say you want to find all the N-tone equal tempered scales that have better fifths than any scale with fewer notes.   Mathematically this means you want to find all fractions that come closer to
+than any fraction with a smaller denominator.
+Let me show you the first 14 fractions like this, and then talk about how you can efficiently find them:
+You get
+some
+of these by taking the continued fraction expansion of
+shown below, and truncating it at some point.
+This method gives you a list of fractions
+1/𝟭 = 1
+1/(𝟭+ 1/𝟭)) = 1/2
+1/(𝟭 + 1/(𝟭 + 1/𝟮)) = 3/5
+1/(𝟭 + 1/(𝟭 + 1/(𝟮 + 1/𝟮)) = 7/12
+1/(𝟭 + 1/(𝟭 + 1/(𝟮 + 1/(𝟮 + 1/𝟯)) = 24/41
+and so on.   These are all closer to
+than any fraction with a smaller denominator.  But this method does not give
+all
+the fractions with that property.   For example, 2/3 and 4/7 are two you don’t get by this method!
+The others show up whenever we end our continued fraction at a number that’s bigger than 1.  The second time this happens is for
+1/(𝟭 + 1/(𝟭 + 1/(𝟮 + 1/𝟮)) = 7/12
+What we do now is look at the previous fraction in the list (3/5) and the one before that (1/2), and write down this funny thing built from those two:
+(3n + 1)/(5n + 2)
+When n = 0 this is 1/2 (already on our list), when n = 1 this is 4/7 (new), and when n = 2 this is 7/12  (already on our list).   We take n from 0 to 2 because we chose to end our continued fraction at 𝟮.
+The number 4/7 is not on our list, so it’s a new candidate for being closer to
+than any fraction with a smaller denominator.  And it is!
+You may get more than one new number using this procedure.  Alas, they aren’t always closer to
+than any fraction with a smaller denominator.   But this procedure does give every fraction with that property.
+Even better, this algorithm is a completely general procedure for finding the best rational approximations to irrational numbers!—where by ‘best’ I mean: closer than any fraction with a smaller denominator.
+Let’s look at this wacky procedure in a more interesting case.  Let’s end our continued fraction where the number in boldface is bigger, like 5.
+This fraction is
+1/(𝟭 + 1/(𝟭 + 1/(𝟮 + 1/(𝟮 + 1/(𝟯 + 1/(𝟭 + 1/𝟱)))))) = 179/306
+We do the same thing as before.  We look at the previous fraction in the list:
+1/(𝟭 + 1/(𝟭 + 1/(𝟮 + 1/(𝟮 + 1/(𝟯 + 1/𝟭))))) = 31/53
+and the one before that:
+1/(𝟭 + 1/(𝟭 + 1/(𝟮 + 1/(𝟮 + 1/𝟯)))) = 24/41
+We use these to write down this funny thing:
+(31n + 24)/(53n + 41)
+Taking n = 0,1,2,3,4,5 this gives 24/41 (on our list), 55/94, 86/147, 117/200, 148/253, and 179/306 (on our list).  We take n from 0 to 5 because we chose to end our continued fraction at the number 𝟱.
+The four fractions not on our list are new candidates to be closer to
+than any fraction with a smaller denominator!   But only the last two of these actually have this good property: 117/200 and 148/253.
+This is not a coincidence.  In general, whenever we get an even number of new candidates this way, the last half have this good property.  The first half do not.
+When we get an odd number of new candidates, it becomes more tricky.  The middle one can go either way—but all those after it are closer to
+than any fraction with a smaller denominator, and none before are.
+There is a rule to decide this tricky middle case, but you’ve probably had enough by now!
+Again: what makes all this stuff worth knowing is that it gives the best rational approximations of
+any
+positive irrational number, not just
+This is relevant to resonance problems like the rings of Saturn, which have gaps at orbital periods that are close to simple rational multiples of the periods of the big moons.  But more importantly, it’s a basic part of number theory.
+There are various places to read more about this stuff.   I haven’t read them yet, I’m ashamed to say!
+But first, some useful buzzwords.
+• The best approximations to an irrational number coming from truncating its continued fraction are called ‘convergents’.
+• The other candidates for best approximations, obtained by the wacky procedure I described, are called ‘semiconvergents’.   These include convergents as a special case.    Here are the first 14 fractions that are closer to
+than any fraction with a smaller denominator:
+9 are convergents, and the rest are only semiconvergents.
+• Given two fractions a/b and c/d their ‘mediant’ is (a + c)/(b + d).   The procedure I described is based on mediants.   Starting from the numbers 0/1 and 1/0 you can build a tree of numbers by taking mediants, called the ‘Stern-Brocot tree’.  It looks like this:
+Here are some books:
+• Khinchin’s
+Continued Fractions
+covers best approximations and semiconvergents carefully, including the delicate middle case.
+• Rockett and Szüsz’s
+Continued Fractions
+goes into the best-approximation theory in lots of detail.
+• If you like the Stern–Brocot tree, you may like to think about how semiconvergents are connected to that.   For this, see Conway and Guy’s
+The Book of Numbers
+, and Graham, Knuth, and Patashnik’s
+Concrete Mathematics
+.  Both these books are packed with fun.
+Or read this:
+• Wikipedia,
+Stern–Brocot tree
+.
+All this from trying to understand equal-tempered scales!
+For more on equal temperament, read these:
+•
+Part 1
+: Some equal-tempered scales with better perfect fifths than all equal-tempered scales with fewer notes: 1-TET, 2-TET, 3-TET, 5-TET, 7-TET, 12-TET, 29-TET, 41-TET and 53-TET.
+•
+Part 2
+: Patterns that emerge when we study which equal-tempered scales have the best perfect fifths, major thirds or minor thirds.
+For more on Pythagorean tuning, read this series:
+•
+Pythagorean tuning
+.
+For more on just intonation, read this series:
+•
+Just intonation
+.
+For more on quarter-comma meantone tuning, read this series:
+•
+Quarter-comma meantone
+.
+For more on well-tempered scales, read this series:
+•
+Well temperaments
+.
+Related
+This entry was posted  on Tuesday, February 24th, 2026 at 3:53 am and is filed under
+mathematics
+,
+music
+.					You can follow any responses to this entry through the
+RSS 2.0
+feed.
+											You can
+leave a response
+, or
+trackback
+from your own site.
+Post navigation
+« Previous Post
+Next Post »
+10 Responses to
+Equal Temperament (Part 3)
+David Duffy
+says:
+24 February, 2026 at 11:33 pm
+The expression for 179/306 has lost a 1+1 ie should be
+1/(1+1/(1+1/(2+1/(2+1/(3+1/(1+1/5)))))))
+Reply
+John Baez
+says:
+25 February, 2026 at 12:21 am
+I don’t see a missing 1 + 1.  My blog article has
+1/(𝟭 + 1/(𝟭 + 1/(𝟮 + 1/(𝟮 + 1/(𝟯 + 1/(𝟭 + 1/𝟱)))))) = 179/306
+while you write
+1/(1+1/(1+1/(2+1/(2+1/(3+1/(1+1/5)))))))
+You have an extra right parentheses, but I don’t see an extra 1 + 1 in yours.
+Reply
+David Duffy
+says:
+25 February, 2026 at 12:27 am
+Oops, I’m the one who lost count transcribing it!
+Reply
+John Baez
+says:
+25 February, 2026 at 12:35 am
+Thanks for checking!  Continued fractions are annoying to read and write!
+Will Cadegan-Schlieper
+says:
+25 February, 2026 at 5:21 am
+For what it’s worth, I think the appearance of the mediant in the continued fraction semiconvergent formula seems a lot less weird when put next to the formula for the convergents themselves, since you can also think of it as replacing the last number with a smaller number.
+More generally, the appearance of continued fractions and similar in approximation by rationals is, at least in my opinion, best explained using hyperbolic geometry and the relationship between the
+triangle tiling and
+. (But then, I might be spoiling future posts on this blog…)
+Reply
+John Baez
+says:
+25 February, 2026 at 6:34 am
+You may be
+inspiring
+future posts on this blog.  I know about the connection between mediants, continued fractions and
+, but there’s a lot I don’t know yet.  An unreliable genie recently told me the following.  Some makes sense to me, some doesn’t.  I’m not sure I’ll dive down this rabbit-hole in this series, but I’d like to check it out and learn more.
+Geodesics and Diophantine approximation
+The starting point is a beautiful geometric reinterpretation of classical Diophantine approximation. The modular surface
+is a hyperbolic orbifold with a single cusp stretching off to
+in the upper half-plane picture. A geodesic on
+is a semicircle (or vertical line) with endpoints on
+, and its image on
+is a geodesic on the modular surface.
+The key geometric fact is:
+how deeply a geodesic penetrates into the cusp of
+is controlled by how well its endpoint(s) on
+can be approximated by rationals.
+Specifically, a geodesic whose endpoint is
+climbs to height
+in the cusp each time
+is a good rational approximation to
+. So:
+• Geodesics that stay relatively low (avoid the cusp) correspond to
+badly approximable
+numbers — those with bounded partial quotients in their continued fraction expansions.
+• The deeper a geodesic ventures into the cusp, the better the corresponding real number can be approximated.
+The
+Markov constant
+(suitably normalized) of a real number
+thus measures the maximum depth to which the corresponding geodesic is forced to enter the cusp, taken over all time.
+The discrete part of the Markov spectrum — the values below 3 — corresponds to the Markov numbers satisfying
+, giving Markov constants
+for each Markov number
+. These have a stunning geometric interpretation due largely to Harvey Cohn and later refined by Caroline Series and others.
+Consider the commutator subgroup
+which is a free group of rank 2 and has index 6 in
+. The quotient
+is a once-punctured torus
+, and the modular surface
+is a
+-quotient of it. The key result:
+The simple closed geodesics on the once-punctured torus
+are in bijection with Markov triples (up to permutation and the tree structure). The length
+of the simple closed geodesic corresponding to Markov number
+satisfies
+, and its Markov constant is
+So, the discrete Markov spectrum
+is
+the length spectrum of simple closed geodesics on
+. The equation
+encodes the combinatorics of how these geodesics sit on the torus — related to how they cross a pants decomposition.
+Reply
+Will Cadegan-Schlieper
+says:
+3 March, 2026 at 1:50 am
+One paper that I remember reading and learning some of this from is this:
+Caroline Series, Continued Fractions and Hyperbolic Geometry, Loughborough LMS Summer School, July 2015
+The relationship of this stuff to the repeating series for quadratic irrationals is also implicit in the first chapter of John H. Conway and Francis Fung’s
+The Sensual Quadratic Form
+(until the extra bit where it’s made explicit).
+Reply
+John Baez
+says:
+5 March, 2026 at 1:25 am
+Thanks, I’ll check this out.  At first I thought “Caroline Series” was part of the title, and I was wondering what a Caroline series was.  No: it’s the author!
+Reply
+suhr
+says:
+14 March, 2026 at 8:54 am
+I want to point you towards some essential concepts which are well known in the Xenharmonic community:
+https://en.xen.wiki/w/MOS_scale
+https://en.xen.wiki/w/Regular_temperaments
+MOS is a scale you get by chaining generators modulo a period (usually an octave) until there’s at most two step sizes in the scale (or equivalently, until you almost close the circle). Pentatonic and diatonic scales are MOS, and so is the 12 tone subset of quarter-comma meantone.
+MOS construction is the Euclidean algorithm in disguise, and by adding more generators you quickly reach a tuning that is very close to an equal temperament. So 31-tet is very close to (extended) quarter-comma meantone, 53-tet is very close to pythagorean tuning, and so on.
+A regular temperament is a way to map n-limit just intonation to a tuning generated by k generators. Rank-2 regular temperaments are closesly related to MOS scales.
+PS: this video if a great illustration of constructing equal temperaments from pure and altered fifths:
+https://www.youtube.com/watch?v=q9maEvJP8Nk
+Reply
+John Baez
+says:
+14 March, 2026 at 11:42 pm
+Thanks!  I will try to learn this stuff.  Indeed I’ve already started, but your comment helps.
+Reply
+You can use Markdown or HTML in your comments.  You can also use LaTeX, like this: $latex E = m c^2 $. The word 'latex' comes right after the first dollar sign, with a space after it.
+Cancel reply
+Your email address will not be published.
+Required fields are marked
+*
+Comment
+*
+Name
+*
+Email
+*
+Website
+Notify me of new comments via email.
+Notify me of new posts via email.
+Δ

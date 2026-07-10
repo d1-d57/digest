@@ -4,9 +4,11 @@
 Идемпотентно: пересобирает БД с нуля."""
 
 import os, sys, csv, json, sqlite3, datetime, re
+from collections import Counter
 import yaml
 import db as DB
 from score import classify_area, score_row, is_junk
+from config import in_window
 import fetch_a, fetch_cd, fetch_quanta, fetch_youtube, fetch_data
 
 RETRIEVED_AT = datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
@@ -44,10 +46,16 @@ def process(rows):
         deduped.append(row)
 
     junk = 0
+    out_window = Counter()
     final = []
     for row in deduped:
         if is_junk(row):
             junk += 1
+            continue
+        # фильтр по скользящему окну (§3 «за окно»); в осн. Bourbaki-сезон 2024-25
+        # (все сессии до 2025-07) и до-оконные книги. Дата null не режется (§2).
+        if row.get("date") and not in_window(row["date"]):
+            out_window[row.get("category","?")] += 1
             continue
         # бэкфилл пустой даты (§гейт: date не-null). Не выкидываем (§2) — берём год
         # из заголовка/notes; для событий ICM 2026 это июль. Помечаем в notes.
@@ -69,7 +77,7 @@ def process(rows):
         row["retrieved_at"] = RETRIEVED_AT
         row.pop("_area_hint", None)
         final.append(row)
-    return final, dup, junk
+    return final, dup, junk, out_window
 
 def write_db(rows):
     if os.path.exists(DB.DB_PATH):
@@ -142,14 +150,13 @@ def main():
     use_cache = "--cached" in sys.argv
     rows, reports = gather(use_cache)
     print(f"\nсырых строк: {len(rows)}")
-    final, dup, junk = process(rows)
-    print(f"после дедупа: -{dup} дублей; junk-дроп: -{junk}; осталось: {len(final)}")
+    final, dup, junk, oow = process(rows)
+    print(f"после дедупа: -{dup} дублей; junk: -{junk}; вне окна: -{sum(oow.values())} {dict(oow)}; осталось: {len(final)}")
     n = write_db(final)
     export(final)
     w, fl = write_sources_yaml(reports)
     print(f"materials.db: {n} строк | sources.yaml: {w} рабочих, {fl} FAILED")
     # быстрая сводка по категориям/разделам
-    from collections import Counter
     print("категории:", dict(Counter(r["category"] for r in final)))
     print("разделов (не-None):", len(set(r["area"] for r in final if r["area"])))
     return n

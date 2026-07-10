@@ -1,0 +1,282 @@
+window:
+  from: '2025-07-01'
+  until: '2026-07-10'
+generated_at: '2026-07-10T04:30:07'
+working_sources:
+- name: Bulletin of the AMS (New Series)
+  category: A
+  mechanism: Crossref /journals/{ISSN}/works
+  issn:
+  - 0273-0979
+  issn_used: 0273-0979
+  note: целиком обзоры + рецензии на книги
+  status: OK
+  kept: 9
+  raw: 9
+- name: Notices of the AMS
+  category: A
+  mechanism: Crossref /journals/{ISSN}/works
+  issn:
+  - 0002-9920
+  - 1088-9477
+  issn_used: 0002-9920
+  note: features + memorials + Short Stories
+  status: OK
+  kept: 161
+  raw: 161
+- name: Russian Mathematical Surveys (УМН)
+  category: A
+  mechanism: Crossref /journals/{ISSN}/works
+  issn:
+  - 0036-0279
+  - 1468-4829
+  issn_used: 0036-0279
+  note: обзоры cover-to-cover
+  status: OK
+  kept: 17
+  raw: 17
+- name: EMS Surveys in Mathematical Sciences
+  category: A
+  mechanism: Crossref /journals/{ISSN}/works
+  issn:
+  - 2308-2151
+  - 2308-216X
+  issn_used: 2308-2151
+  note: обзоры
+  status: OK
+  kept: 17
+  raw: 17
+- name: Bulletin of the London Math. Society
+  category: A
+  mechanism: Crossref /journals/{ISSN}/works
+  issn:
+  - 0024-6093
+  - 1469-2120
+  issn_used: 0024-6093
+  note: фильтр Survey Article среди research
+  status: OK
+  kept: 1
+  raw: 310
+- name: Jahresbericht der DMV
+  category: A
+  mechanism: Crossref /journals/{ISSN}/works
+  issn:
+  - 0012-0456
+  - 1869-7135
+  issn_used: 0012-0456
+  note: обзоры/экспозиция DE/EN
+  status: OK
+  kept: 7
+  raw: 7
+- name: Acta Numerica
+  category: A
+  mechanism: Crossref /journals/{ISSN}/works
+  issn:
+  - 0962-4929
+  - 1474-0508
+  issn_used: 0962-4929
+  note: длинные обзоры по выч. математике
+  status: OK
+  kept: 12
+  raw: 12
+- name: Expositiones Mathematicae
+  category: A
+  mechanism: Crossref /journals/{ISSN}/works
+  issn:
+  - 0723-0869
+  issn_used: 0723-0869
+  note: экспозиция
+  status: OK
+  kept: 75
+  raw: 75
+- name: Japanese J. of Math (3rd ser.)
+  category: A
+  mechanism: Crossref /journals/{ISSN}/works
+  issn:
+  - 0289-2316
+  - 1861-3624
+  issn_used: 0289-2316
+  note: Takagi lectures · обзоры
+  status: OK
+  kept: 2
+  raw: 2
+- name: Terence Tao — What's New
+  category: D
+  mechanism: public-api.wordpress.com/rest/v1.1
+  url: https://public-api.wordpress.com/rest/v1.1/sites/terrytao.wordpress.com/posts/
+  status: OK
+  kept: 31
+  reason: null
+- name: Gil Kalai — Combinatorics
+  category: D
+  mechanism: public-api.wordpress.com/rest/v1.1
+  url: https://public-api.wordpress.com/rest/v1.1/sites/gilkalai.wordpress.com/posts/
+  status: OK
+  kept: 33
+  reason: null
+- name: Timothy Gowers
+  category: D
+  mechanism: public-api.wordpress.com/rest/v1.1
+  url: https://public-api.wordpress.com/rest/v1.1/sites/gowers.wordpress.com/posts/
+  status: OK
+  kept: 3
+  reason: null
+- name: John Baez — Azimuth
+  category: D
+  mechanism: public-api.wordpress.com/rest/v1.1
+  url: https://public-api.wordpress.com/rest/v1.1/sites/johncarlosbaez.wordpress.com/posts/
+  status: OK
+  kept: 72
+  reason: null
+- name: Igor Pak
+  category: D
+  mechanism: public-api.wordpress.com/rest/v1.1
+  url: https://public-api.wordpress.com/rest/v1.1/sites/igorpak.wordpress.com/posts/
+  status: OK
+  kept: 0
+  reason: null
+- name: Jordan Ellenberg — Quomodocumque
+  category: D
+  mechanism: public-api.wordpress.com/rest/v1.1
+  url: https://public-api.wordpress.com/rest/v1.1/sites/quomodocumque.wordpress.com/posts/
+  status: OK
+  kept: 104
+  reason: null
+- name: Persiflage (galoisrepresentations)
+  category: D
+  mechanism: public-api.wordpress.com/rest/v1.1
+  url: https://public-api.wordpress.com/rest/v1.1/sites/galoisrepresentations.wordpress.com/posts/
+  status: OK
+  kept: 0
+  reason: null
+- name: Peter Woit — Not Even Wrong
+  category: D
+  mechanism: RSS/Atom (feedparser)
+  url: https://www.math.columbia.edu/~woit/wordpress/?feed=rss2
+  status: OK_PARTIAL
+  kept: 10
+  reason: частичный охват (RSS)
+- name: Scott Aaronson — Shtetl-Optimized
+  category: D
+  mechanism: RSS/Atom (feedparser)
+  url: https://scottaaronson.blog/?feed=rss2
+  status: OK_PARTIAL
+  kept: 10
+  reason: частичный охват (RSS)
+- name: n-Category Café
+  category: D
+  mechanism: RSS/Atom (feedparser)
+  url: https://golem.ph.utexas.edu/category/atom10.xml
+  status: OK
+  kept: 15
+  reason: null
+- name: plus.maths.org
+  category: C
+  mechanism: RSS/Atom (feedparser)
+  url: https://plus.maths.org/content/rss.xml
+  status: OK_PARTIAL
+  kept: 3
+  reason: частичный охват (RSS)
+- name: AMS Feature Column
+  category: C
+  mechanism: RSS/Atom (feedparser)
+  url: https://blogs.ams.org/featurecolumn/feed/
+  status: OK
+  kept: 10
+  reason: null
+- name: Quanta Magazine
+  category: C
+  mechanism: api.quantamagazine.org/wp/v2/posts + math-фильтр
+  url: https://api.quantamagazine.org/wp/v2/posts
+  status: OK
+  kept: 73
+  reason: wp/v2 OK (174 постов всех тем)
+- name: 3Blue1Brown
+  category: E
+  mechanism: YouTube RSS videos.xml
+  url: https://www.youtube.com/feeds/videos.xml?channel_id=UCYO_jab_esuFRV4b17AJtAw
+  status: OK_PARTIAL
+  kept: 15
+  reason: channel='3Blue1Brown'; RSS усечён ~15 роликов
+- name: Numberphile
+  category: E
+  mechanism: YouTube RSS videos.xml
+  url: https://www.youtube.com/feeds/videos.xml?channel_id=UCoxcjq-8xIDTYp3uz647V5A
+  status: OK_PARTIAL
+  kept: 15
+  reason: channel='Numberphile'; RSS усечён ~15 роликов
+- name: Mathologer
+  category: E
+  mechanism: YouTube RSS videos.xml
+  url: https://www.youtube.com/feeds/videos.xml?channel_id=UC1_uAIS3r8Vu6JjXWvastJg
+  status: OK_PARTIAL
+  kept: 3
+  reason: channel='Mathologer'; RSS усечён ~15 роликов
+- name: Veritasium
+  category: E
+  mechanism: YouTube RSS videos.xml
+  url: https://www.youtube.com/feeds/videos.xml?channel_id=UCHnyfMqiRRG1u-2MsSQLbXA
+  status: OK_PARTIAL
+  kept: 1
+  reason: channel='Veritasium'; RSS усечён ~15 роликов
+- name: Quanta Magazine (YouTube)
+  category: E
+  mechanism: YouTube RSS videos.xml
+  url: https://www.youtube.com/feeds/videos.xml?channel_id=UCTpmmkp1E4nmZqWPS-dl5bg
+  status: OK_PARTIAL
+  kept: 3
+  reason: channel='Quanta Magazine'; RSS усечён ~15 роликов
+- name: Séminaire Bourbaki / ICM 2026 / JMM CEB / Takagi (скрейп, субагент)
+  category: B
+  mechanism: субагент → JSON (скрейп/поиск)
+  url: data/b_venues.json
+  status: OK
+  kept: 58
+  reason: null
+- name: Премии (Abel/Fields/Breakthrough/... — субагент)
+  category: E
+  mechanism: субагент → JSON (скрейп/поиск)
+  url: data/e_prizes.json
+  status: OK
+  kept: 16
+  reason: null
+- name: Книги/юбилеи/интервью (субагент)
+  category: E
+  mechanism: субагент → JSON (скрейп/поиск)
+  url: data/e_people.json
+  status: OK
+  kept: 25
+  reason: null
+FAILED_sources:
+- name: AMS Feature Column — старый RSS (www.ams.org)
+  category: C
+  mechanism: RSS
+  url: https://www.ams.org/rss/featurecolumn.rss
+  status: FAILED
+  kept: 0
+  reason: 404; фид переехал -> используем https://blogs.ams.org/featurecolumn/feed/ (рабочий)
+- name: n-Category Café — старый Atom
+  category: D
+  mechanism: Atom
+  url: https://golem.ph.utexas.edu/category/atom.xml
+  status: FAILED
+  kept: 0
+  reason: 404; рабочий вариант -> .../category/atom10.xml (используем)
+- name: Quanta — api-хост wp/v2
+  category: C
+  mechanism: wp/v2 REST
+  url: https://api.quantamagazine.org/wp/v2/posts
+  status: FAILED
+  kept: 0
+  reason: Cloudflare отдаёт 404/HTML при частых запросах -> используем www.quantamagazine.org/wp-json (рабочий)
+coverage_gaps:
+- 'Arbeitstagung (Бонн): в окне 2025-07…2026-07 редакции НЕТ (последняя — 2023); записей нет, не выдумано.'
+- 'ICM 2026 приглашённые секционные (~180 имён): страница mathunion — JS-SPA, jsonapi закрыт; захвачены только 16 пленарных
+  + примеры имён. Полный список — пробел.'
+- 'Wolf Prize in Mathematics 2026: премия не присуждалась (2025 — ''No award''); запись с null.'
+- 'Fields/Chern/Gauss 2026: объявляются на открытии ICM 23.07.2026 (после окончания окна) — лауреаты null.'
+- 'RSS-усечение: Woit, Aaronson, plus.maths, все YouTube-каналы отдают ~10-25 последних записей — для частых каналов (Numberphile/Veritasium)
+  охват частичный (OK_PARTIAL).'
+- 'MAA Reviews: точные permalink''и рецензий не захвачены (old.maa.org 521, bookstore 403) — url=maa.org/reviews.'
+notes: public-api.wordpress.com — годовой охват блогов; api.quantamagazine.org блокируется Cloudflare, используем www.quantamagazine.org/wp-json;
+  RSS-источники усечены (~10-25 записей) -> помечены OK_PARTIAL.

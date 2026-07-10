@@ -3,6 +3,21 @@
 Карта для человека, не готовая лента: скорим и тегируем, НЕ выкидываем (§2)."""
 
 import re
+import html as _html
+
+# --- нормализация заголовка (чистка сырого MathML/HTML из Crossref) --------
+# Заголовки журналов через Crossref иногда приходят с непроэкранированными
+# MathML/HTML: '<mml:math ...>', '<italic>', '&lt;em&gt;'. Делаем читаемым:
+# unescape entities -> снять теги -> схлопнуть пробелы. Строку НЕ удаляем.
+_TAG = re.compile(r"<[^>]+>")
+def clean_title(title):
+    if not title:
+        return title
+    t = _html.unescape(title)          # &lt;em&gt; -> <em>
+    t = _TAG.sub(" ", t)               # снять <...> (в т.ч. <mml:math ...>)
+    t = _html.unescape(t)              # добить двойное экранирование
+    t = re.sub(r"\s+", " ", t).strip() # схлопнуть переносы/пробелы
+    return t
 
 # --- классификатор раздела по ключевым словам (title+summary) -------------
 AREA_KEYWORDS = [
@@ -110,7 +125,8 @@ ADMIN = re.compile(
     r"^(classified advertising|ams updates|calls? for (nominations|applications|proposals|papers)"
     r"|state of the ams|from the ams|reciprocity agreement|report of the (treasurer|secretary)"
     r"|\d{4} election|election (results|information)|new members of the ams|ams officers"
-    r"|mathematics opportunities|deaths of ams members|in memory of members)\b", re.I)
+    r"|mathematics opportunities|deaths of ams members|in memory of members"
+    r"|editorial board|publisher.s note)\b", re.I)  # +масштхед журналов (ЗАХОД-1)
 
 def is_junk(row):
     title = (row.get("title") or "").strip().lower()

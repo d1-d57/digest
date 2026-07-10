@@ -280,3 +280,15 @@ coverage_gaps:
 - 'MAA Reviews: точные permalink''и рецензий не захвачены (old.maa.org 521, bookstore 403) — url=maa.org/reviews.'
 notes: public-api.wordpress.com — годовой охват блогов; api.quantamagazine.org блокируется Cloudflare, используем www.quantamagazine.org/wp-json;
   RSS-источники усечены (~10-25 записей) -> помечены OK_PARTIAL.
+cleanup_zahod1:
+  date: '2026-07-10'
+  title_normalized: 20
+  note_title: 'clean_title(): unescape HTML-entities + снять <mml:*>/<italic>/<em> + схлопнуть \xa0/переносы. Строки НЕ удалялись,
+    счёт неизменен.'
+  masthead_dropped: 8
+  note_drop: структурный фронт-маттер журнала мимо ADMIN-регэкспа (Editorial Board ×6, Publisher's Note ×2, все — Expositiones
+    Mathematicae). Пустые оболочки без summary, не материалы. Сырьё в data/* не тронуто.
+  count_before: 746
+  count_after: 738
+  kept_note: 'per-source ''kept'' выше = факт на момент сборки (build-time); Expositiones Mathematicae: 75 kept -> 67 в БД
+    после дропа 8 масштхеда.'

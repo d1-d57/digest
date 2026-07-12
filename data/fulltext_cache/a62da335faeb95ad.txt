@@ -1,0 +1,1303 @@
+Images des mathématiques
+      Les maths en mots et en images
+
+
+
+
+               Jacques Istas
+
+
+
+De l’Urtext aux réseaux de
+  neurones : histoires de
+   manuscrits bibliques
+
+
+
+
+                        Images des mathématiques
+IdM
+                          Volume 4 (2026), p. 73–104
+                           doi : 10.60868/bet2-f619
+IdM
+                    Images des mathématiques
+                      Les maths en mots et en images               73
+
+De l’Urtext aux réseaux de
+neurones : histoires de
+manuscrits bibliques
+ Écrit par Jacques Istas
+ Publié le 31 mars 2026
+ doi : 10.60868/bet2-f619 — cc by-nc-nd 4.0
+       — CLOCK ⩾ 30 min — SKIING
+
+    Intelligence artificielle ⋅ Statistiques
+
+
+
+
+          Les humanités numériques désignent l’ensemble des ap-
+          proches et méthodes qui mobilisent les outils de l’informa-
+          tique, des mathématiques et de l’intelligence artificielle au
+          service des sciences humaines et sociales. Dans cet article,
+          nous nous concentrons sur un domaine précis de ce vaste
+          champ : l’étude des manuscrits bibliques et patristiques des
+          premiers siècles.
+
+
+
+
+                     Images des mathématiques — volume 4 (2026)
+74                                                                         J. Istas
+
+
+Plan de l’article
+
+     L’étude des manuscrits bibliques à l’heure numérique . . . . . .           75
+     Phylogénie et stemmatologie : deux cousines . . . . . . . . . . .          87
+     Références . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   99
+
+    Loin de se limiter à la simple numérisation, à la reconnaissance optique
+de caractères (OCR), à la reconnaissance d’écriture manuelle (HTR)
+ou à la constitution de bases de données, les humanités numériques
+constituent un véritable changement de paradigme : les masses de données
+textuelles deviennent un objet quantifiable, modélisable, et susceptible
+d’être exploré avec les méthodes de l’informatique, des mathématiques et
+de l’intelligence artificielle (IA). Dans cet article, nous nous concentrons sur
+un domaine précis de ce vaste champ : l’étude des manuscrits bibliques et
+patristiques⋆ des premiers siècles. Ces corpus, bien antérieurs à l’invention
+de l’imprimerie, sont d’une richesse et d’une complexité exceptionnelles
+et offrent un terrain de jeu privilégié pour interroger la transmission des
+textes anciens, leurs transformations, et les multiples couches de lecture
+qu’ils portent.
+    La section principale a pour ambition de dégager un échantillon des mé-
+thodes et thématiques que les humanités numériques permettent d’aborder,
+au moyen d’exemples volontairement éclectiques. Une section « Stemma-
+tologie » page 90 est spécialement consacrée aux défis de la stemmatologie
+à l’heure numérique, discipline cousine mais beaucoup moins dévelop-
+pée que la phylogénie, dont elle partage les ambitions de reconstruction
+généalogique. Un complément est consacré aux réseaux de neurones
+(introduction, méthodologie et vocabulaire).
+
+BOOK-READER → p. 93 Réseaux de neurones
+
+   Enfin, pour accompagner la lecture, chaque section se conclut par
+une référence En savoir plus, et un glossaire final rassemble les termes
+techniques employés dans le texte : leur première occurrence est signalée
+par un astérisque ⋆ .
+
+BOOK-READER → p. 96 Glossaire
+
+
+
+
+IdM
+De l’Urtext aux réseaux de neurones : histoires de manuscrits bibliques      75
+
+
+L’étude des manuscrits bibliques à l’heure numé-
+rique
+    Cette section se concentre sur l’application concrète des outils et mé-
+thodes numériques à l’étude des manuscrits bibliques et patristiques :
+les exemples présentés illustrent un choix éclectique, sans aucune pré-
+tention à l’exhaustivité, mais visant à montrer la richesse des techniques
+employées ainsi que des apports concrets à l’étude de ces manuscrits tant
+du point de vue des méthodes (algorithmes, forêts aléatoires, réseaux de
+neurones, approches bayésiennes, modélisations probabilistes...) que des
+thématiques abordées : reconstruction d’un texte perdu, identification
+d’une source hypothétique ou de pseudo-auteurs, estimation du nombre
+de copistes, datation de manuscrits, ou encore modélisation de l’évolution
+des variantes au fil du temps.
+
+Édition critique
+Le Nestle-Aland
+    L’édition critique est une discipline issue de la philologie, qui étudie
+l’histoire des textes anciens. Elle désigne une édition savante d’un texte
+ancien (littéraire, philosophique, religieux, ou scientifique) qui cherche à
+établir la version la plus proche possible d’un éventuel Urtext⋆ ou de la
+volonté finale de l’auteur. L’édition critique est généralement accompagnée
+d’un appareil critique. C’est un ensemble de notes qui indiquent toutes les
+variantes⋆ rejetées et précisent quels témoins⋆ les supportent. Il permet au
+lecteur de vérifier les choix de l’éditeur et de reconstruire les autres versions
+du texte. Par analogie avec le traitement du signal, les manuscrits sont les
+données observées, souvent bruitées ou incomplètes ; l’édition critique
+est le modèle reconstruit qui minimise l’erreur par rapport à l’intention
+initiale ; l’appareil critique est la justification détaillée du processus de
+sélection, une preuve de la validité de la solution choisie.
+    Le Novum testamentum graece, plus connu sous le nom de Nestle-Aland
+(NA), est l’édition critique de référence du Nouveau Testament⋆ . Nous
+en sommes depuis 2012 à l’édition 28 [31], et une édition 29 est prévue
+prochainement. Le texte original du Nouveau Testament, écrit en grec
+koinè⋆ , a été perdu. Il existe plusieurs milliers de manuscrits grecs conte-
+nant tout ou partie du Nouveau Testament, des fragments du iie siècle
+jusqu’à l’invention de l’imprimerie, ainsi que des milliers de citations dans
+les écrits des Pères de l’Église⋆ , et des traductions anciennes. Aucun de
+
+
+
+
+                        Images des mathématiques — volume 4 (2026)
+76                                                                   J. Istas
+
+
+ces manuscrits n’est parfaitement identique à un autre, et leur datation
+comporte une marge d’erreur parfois conséquente. Le rôle de l’édition cri-
+tique NA28 est de résoudre ces divergences, appelées variantes textuelles,
+pour reconstituer le texte qui était probablement le plus ancien ou le plus
+proche de l’Urtext.
+
+
+
+
+Figure 1 – NA28 : début de l’Évangile⋆ de Marc. Voir [46] pour le mode
+d’emploi de l’appareil critique.
+
+
+Le CBGM : un algorithme au service de l’édition critique
+    À la 28e édition du NA, un changement majeur a été introduit : l’édition
+critique n’est plus uniquement le fruit du travail d’un groupe d’experts
+humains, mais elle est effectuée par un algorithme supervisé, le coherence-
+based genealogical method (CBGM). Le CBGM est développé par l’Institut für
+neutestamentliche Textforschung, qui dépend de l’université de Münster,
+en Allemagne.
+    Le CBGM est un algorithme supervisé qui étudie la cohérence entre
+variantes et témoins afin d’inférer des relations généalogiques locales
+et d’aider les éditeurs à reconstituer le texte. On commence par colliger
+pour chaque unité textuelle variante toutes les lectures⋆ attestées dans les
+témoins. Pour un endroit donné, on calcule une cohérence entre lectures,
+c’est-à-dire dans quelle mesure deux lectures semblent dériver l’une de
+l’autre (concordance en erreurs, proximité formelle, etc.). Cette étape
+détecte des similarités et des directions possibles de transmissions locales.
+On examine ensuite, pour chaque témoin, la concordance de son comporte-
+ment : deux témoins qui partagent la même série de lectures similaires sont
+dits généalogiquement cohérents. On utilise ces relations pour construire
+
+
+
+
+IdM
+De l’Urtext aux réseaux de neurones : histoires de manuscrits bibliques   77
+
+
+des réseaux de parenté entre lectures et témoins (pas un stemma⋆ unique,
+mais des graphes et des ancêtres potentiels). L’algorithme propose pour
+chaque lecture candidate des lectures-ancêtres potentielles : celles qui
+expliquent le mieux la distribution observée dans la tradition⋆ . Ces propo-
+sitions servent d’indices, pas de décisions finales. Les résultats du CBGM
+ne remplacent pas les experts humains : ceux-ci utilisent les indications du
+CBGM (lectures qui ont le plus de force généalogique, lesquelles semblent
+secondaires ou hasardeuses) pour décider du texte adopté et pour annoter
+l’appareil critique. Le CBGM a ainsi permis de justifier plusieurs chan-
+gements, en particulier dans les épîtres catholiques⋆ , lors du passage au
+NA28.
+Cohérence textuelle
+
+      Rôle du CBGM Visualiser les parentés entre témoins (réseau, pas
+          stemma)
+      Impact du CBGM Meilleure compréhension des mélanges
+
+Direction des variantes
+
+      Rôle du CBGM Déduite de la cohérence locale
+      Impact du CBGM Hypothèses plus transparentes
+
+Jugement final
+
+      Rôle du CBGM Toujours humain, fondé sur cohérence + critique
+          interne
+      Impact du CBGM Adoption du texte le plus cohérent
+
+   En savoir plus : [49].
+
+Identification d’une source perdue
+Problème synoptique
+    Le terme synoptique vient du grec et signifie « vue d’ensemble ». On
+parle des Évangiles de Matthieu, Marc et Luc comme étant les Évangiles
+synoptiques parce que, malgré leurs différences, ils présentent le récit de
+la vie et des enseignements de Jésus avec des séquences narratives, des
+phraséologies et des structures si similaires qu’ils peuvent être disposés en
+colonnes parallèles (une synopse) pour être lus simultanément. L’étude
+comparative des Évangiles synoptiques révèle immédiatement trois types
+de passages :
+
+
+
+
+                       Images des mathématiques — volume 4 (2026)
+78                                                                      J. Istas
+
+
+Triple tradition Les passages qui apparaissent dans trois Évangiles (la
+     majorité des récits de Marc se retrouvent dans Matthieu et Luc).
+Double tradition Les passages qui apparaissent dans Matthieu et Luc,
+    mais sont absents de Marc (principalement des paroles de Jésus).
+Simple tradition Les passages uniques à Matthieu ou uniques à Luc.
+C’est l’existence de ces traditions (surtout la double et la triple) qui pose le
+problème synoptique : comment expliquer ces relations littéraires ? L’un ou
+l’autre des Évangiles ont copié ou utilisé une ou des sources communes.
+    L’ordre de composition et la généalogie des Évangiles ont été oubliés
+très tôt dans l’histoire du christianisme : au ive siècle, Augustin d’Hippone
+pense que l’Évangile de Matthieu a été écrit en premier, que Marc s’est
+inspiré de Matthieu, et que Luc s’est inspiré à la fois de Matthieu et de
+Marc [2]. Cette hypothèse est maintenant abandonnée, même si les bibles
+actuelles rangent toujours les Évangiles synoptiques dans l’ordre Matthieu,
+Marc, Luc. En 1835 et 1838, Karl Lachmann et Christian Gottlob Wilke
+proposent la priorité de Marc [25, 51]. En 1838, dans [50], Christian
+Hermann Weiße formalise l’hypothèse des deux sources :
+  — la priorité de Marc : Marc est le plus ancien des Évangiles synop-
+    tiques ;
+  — l’existence d’une seconde source commune, perdue, appelée la
+    Source Q 1, qui contiendrait essentiellement des paroles de Jésus.
+Aujourd’hui, le consensus académique considère la priorité de Marc
+comme acquise. L’existence de la source Q est assez largement admise,
+au point qu’il existe même une édition critique de Q [38] ! Néanmoins
+(voir figure 2), une autre hypothèse, niant l’existence de cette source Q,
+continue d’être défendue [19].
+    En guise de conclusion, notons que ce problème synoptique n’est pas
+spécifique aux Évangiles : en raison de la redondance de certaines sourates,
+il existe un problème synoptique interne au Coran [14].
+
+Une source et des forêts
+    Nous allons maintenant confirmer l’existence de Q en utilisant la sty-
+lométrie et les forêts aléatoires. La stylométrie (voir par exemple [42])
+est une analyse quantitative des styles d’écriture qui vise à identifier des
+caractéristiques stylistiques d’un texte pour déterminer des similarités,
+
+     1. De l’allemand Quelle, signifiant « source ».
+
+
+
+
+IdM
+De l’Urtext aux réseaux de neurones : histoires de manuscrits bibliques                  79
+
+
+
+
+        Figure 2 – Mc : Marc ; Lc : Luc ; Mt : Matthieu ; Q : source Q.
+
+
+différences ou origines. Elle utilise des mesures linguistiques et grammati-
+cales, par exemple la fréquence des mots fonctionnels, la longueur des
+phrases, le temps des verbes, la ponctuation 2, etc., afin de capturer le style
+propre à un auteur ou à une source écrite.
+    Les méthodes statistiques classiques en stylométrie sont limitées dans
+leur capacité à gérer un grand nombre de caractéristiques stylistiques. Dans
+le cas du problème synoptique, les études stylométriques précédentes ne
+travaillaient qu’avec cinq ou six caractéristiques stylométriques choisies
+un peu arbitrairement. Ces contraintes empêchent d’utiliser pleinement la
+richesse des données stylistiques disponibles.
+    L’intelligence artificielle, en particulier les méthodes d’apprentissage
+statistiques comme les forêts aléatoires (voir par exemple [18]), permet
+de travailler avec un très grand nombre de caractéristiques stylistiques
+simultanément. Dans l’étude [21] sur le problème synoptique, ce sont une
+centaine de caractéristiques stylométriques qui ont été utilisées.
+    Le test statistique empirique utilisé repose sur l’idée d’un test à deux
+échantillons via un classifieur d’apprentissage automatique. Le principe est
+le suivant : si on prend deux ensembles de textes (par exemple des textes
+tirés de deux sources différentes), on entraîne un classifieur à prédire
+de quel ensemble provient chaque texte basé sur ses caractéristiques
+stylistiques. Si le classifieur réussit mieux que le hasard (au-dessus de
+50 %), cela signifie que les deux ensembles diffèrent stylistiquement, donc
+viennent probablement de sources différentes.
+    Ce test à deux échantillons a permis de tester des hypothèses sur les
+
+    2. Il n’y a pas de ponctuation en grec koinè mais des mots courts comme και qui indiquent
+les relations logiques (opposition, suite, explication) entre les phrases.
+
+
+
+
+                           Images des mathématiques — volume 4 (2026)
+80                                                                      J. Istas
+
+
+relations textuelles entre Luc, Matthieu et Marc, en particulier l’hypothèse
+de l’existence de Q. Les résultats montrent que :
+  — il existe une forte différence de style entre les matériaux de double
+    et de triple tradition dans Luc. Cette disparité de style soutient
+    fortement l’hypothèse selon laquelle Luc a puisé son matériel à partir
+    de deux sources distinctes pour la double et la triple tradition, ce qui
+    est en accord avec l’hypothèse des deux sources ;
+  — la double tradition est principalement composée de paroles de Jésus,
+    tandis que la triple tradition contient davantage de récits. La diffé-
+    rence stylistique entre les matériaux, même après avoir tenu compte
+    du genre, est confirmée.
+     En savoir plus : [21].
+
+Pseudo-auteurs⋆
+    Il faut commencer par souligner que la notion d’auteur dans l’Antiquité
+est très éloignée de notre conception moderne de propriété intellectuelle.
+Pour des figures majeures comme Jean Chrysostome ou Augustin d’Hip-
+pone, de nombreux écrits étaient faussement attribués. C’est cette tradition
+de fausse attribution (ou pseudonymie) qui a donné naissance à des
+corpus entiers comme le corpus pseudo-chrysostomien, comprenant de
+nombreuses œuvres (plus d’un millier !) dont les véritables auteurs restent
+inconnus.
+    Jean Chrysostome (ive-ve siècle) a vécu dans l’actuelle Turquie (An-
+tioche, Constantinople) et est mort près de Comona après deux exils
+forcés et difficiles. Il est un des Pères de l’Église parmi les plus prolifiques
+[24]. Son œuvre, écrite en grec, comporte principalement des genres
+théologiques et chrétiens tels qu’homélies et traités.
+    L’approche de [9] pour identifier d’éventuels textes faussement attri-
+bués à Jean Chrysostome repose sur :
+  — une utilisation de la stylométrie (comme dans la section « Identifica-
+    tion d’une source perdue » page 77) ;
+  — l’utilisation de réseaux de neurones siamois [7] ;
+  — l’utilisation de distances qui servent de métrique pour évaluer la
+    similarité ou la dissimilarité entre des textes.
+    L’étude de [9] est entièrement automatisée, elle ne nécessite pas de lire
+et de comprendre l’immense œuvre de Jean Chrysostome. Néanmoins,
+
+
+
+
+IdM
+De l’Urtext aux réseaux de neurones : histoires de manuscrits bibliques   81
+
+
+
+
+Figure 3 – Réseau de neurones siamois (figure extraite de [9]), voir la fin
+du complément Réseaux de neurones page 93 pour des explications.
+
+
+
+
+                       Images des mathématiques — volume 4 (2026)
+82                                                                      J. Istas
+
+
+elle confirme, à deux exceptions près, les travaux précédents [47] : il existe
+une vingtaine d’auteurs derrière les textes attribués à Jean Chrysostome.
+    En savoir plus : [9].
+
+Combien de copistes ?
+Manuscrits de Qumrân
+    Les manuscrits de Qumrân (ou manuscrits de la mer Morte) sont
+une collection de milliers de fragments de textes juifs anciens, considé-
+rés comme l’une des découvertes archéologiques les plus importantes
+du xxe siècle. Ces manuscrits ont été trouvés à partir de 1947 dans des
+grottes situées près du site de Qumrân au nord-ouest de la mer Morte.
+Ils sont principalement écrits en hébreu, mais aussi en araméen et, dans
+une moindre mesure, en grec. Les supports sont des peaux d’animaux
+(chèvres, moutons et vaches) et les encres sont minérales [1]. La datation
+au carbone 14 des supports donne une fourchette large : entre le iiie siècle
+av. J.-C. et le ier siècle [6]. Le corpus comprend des copies de presque
+tous les livres de la Bible hébraïque, ainsi que de nombreux textes non
+bibliques [4]. Ce sont les plus anciens manuscrits connus de la Bible hé-
+braïque. Parmi les documents les mieux conservés figure le Grand Rouleau
+d’Ésaïe⋆ .
+    On ignore encore qui a rédigé ces manuscrits, pour quels publics ils
+étaient destinés, pourquoi ils ont été cachés, et à quelles dates ils l’ont été.
+
+Paléographie numérique
+    Le Grand Rouleau d’Ésaïe (1QIsaa) est une des pièces majeures des
+manuscrits de Qumrân. Il mesure un peu plus de 7 m de long pour une
+largeur d’environ 25 cm. On ne sait à peu près rien de solide sur les copistes
+des manuscrits de Qumrân. Les paléographes⋆ se sont posé la question
+du nombre de copistes ayant participé à l’écriture de 1QIsaa. L’étude [34]
+a répondu à cette question. La démarche suivie est longue et technique.
+Nous pouvons la résumer grossièrement comme suit :
+  — une première étape de pré-traitement de l’image, afin de séparer
+    clairement les lettres du support ;
+  — une extraction de (parfois micro-)caractéristiques d’écriture, en par-
+    ticulier sur la lettre ℵ qui apparaît près de cinq mille fois dans 1QIsaa.
+    Ces extractions sont basées sur des techniques de reconnaissance de
+    formes et de réseaux neuronaux qui ne peuvent être effectuées par
+    un expert humain ;
+
+
+
+
+IdM
+De l’Urtext aux réseaux de neurones : histoires de manuscrits bibliques    83
+
+
+  — une analyse avec des méthodes statistiques classiques.
+Une dernière étape permet à un paléographe humain de vérifier si les
+résultats lui semblent cohérents. La conclusion est qu’il y a eu deux copistes
+dans 1QIsaa et que le changement a eu lieu entre les colonnes 27 et 28
+(voir frontispice).
+   En savoir plus : [34].
+
+Datation de manuscrits
+    Un article récent [35] a relancé la question de la datation des manus-
+crits, écrits en araméen ou hébreu, issus des grottes de Qumrân et de sites
+proches (Masada, Murabbaat et Nahal Hever). Il s’agit d’une approche
+interdisciplinaire dont un des objectifs est de passer outre la subjectivité
+des datations par la paléographie classique (humaine !). Une datation
+classique au carbone 14 est d’abord utilisée sur certains manuscrits. Ensuite
+intervient une approche IA. Enoch est un réseau de neurones dédié à la
+prédiction de la date des manuscrits à partir de l’analyse du style d’écri-
+ture. Il est nommé Enoch en hommage au patriarche biblique éponyme et
+au pseudépigraphe apocryphe appelé Livre d’Hénoch. Le réseau n’utilise
+que les manuscrits précédemment datés au carbone 14 comme données
+d’entraînement : ces fragments servent de corpus principal. L’entraînement
+repose sur des techniques de reconnaissance de formes manuscrites (ex-
+traction de vecteurs de caractéristiques liés au tracé des lettres). Le modèle
+utilise ensuite une régression bayésienne sur les vecteurs de styles : la
+sortie n’est pas une date unique, mais une distribution de probabilités issue
+des résultats au carbone 14. La validation se fait par validation croisée (on
+retire un manuscrit du corpus d’entraînement pour vérifier la robustesse
+du modèle sur cet échantillon) ainsi que par tests croisés, avec un taux de
+correspondance élevé entre les prédictions d’Enoch et les distributions de
+probabilités au carbone 14. Le modèle est ensuite testé sur des manuscrits
+non datés.
+  — L’article [35] conduit à une réévaluation des datations classiques des
+    manuscrits : ceux-ci seraient en général plus anciens que ce que l’on
+    pensait jusqu’à présent (voir figure 4 page suivante). En particulier,
+    le manuscrit du livre de Daniel⋆ serait contemporain de sa rédaction :
+    c’est la première fois que l’on disposerait d’un manuscrit de la Bible
+    hébraïque contemporain de sa rédaction.
+  — Les écrits de la mer Morte étaient traditionnellement séparés en
+    périodes hasmonéennes et hérodiennes. L’article [35] montre que les
+
+
+
+
+                       Images des mathématiques — volume 4 (2026)
+84                                                                       J. Istas
+
+
+       écritures hasmonéennes et hérodiennes n’étaient pas en transition à
+       partir du milieu du ier siècle av. J.-C., mais qu’elles coexistaient à une
+       date plus ancienne.
+  — Il était admis que l’expansion du royaume hasmonéen à partir du
+    milieu du iie siècle av. J.-C. a provoqué une augmentation de l’alpha-
+    bétisation et a donné une impulsion à la culture scribale. Cependant,
+    les résultats de [35] attestent de la copie de multiples manuscrits
+    littéraires avant cette période.
+  — Enfin, l’article [35] ouvre la voie à une réévaluation des modèles
+    historiques classiques sur la diffusion des idées et la formation du
+    judaïsme et du christianisme ; en particulier, ces manuscrits seraient
+    bien antérieurs au christianisme.
+
+
+
+
+Figure 4 – Vue d’ensemble des différentes méthodes de datation d’après
+[35].
+
+     En savoir plus : [35].
+
+Transmission des manuscrits, entre hasard et conflit
+Le début de l’Évangile de Marc
+    L’Évangile de Marc commence par Ἀρχὴ τοῦ εὐαγγελίου Ἰησοῦ Χριστοῦ
+[υἱοῦ θεοῦ] (« Commencement de l’Évangile de Jésus-Christ, Fils de Dieu »)
+
+
+
+
+IdM
+De l’Urtext aux réseaux de neurones : histoires de manuscrits bibliques    85
+
+
+(figure 1 page 76). [υἱοῦ θεοῦ] (« Fils de Dieu ») est entre crochets, ce qui
+indique des variantes textuelles. En effet, plusieurs sources diffèrent [44] ;
+par exemple :
+  — Irénée de Lyon cite Marc 1:1 [29]. Plusieurs manuscrits (grec ou
+    traduction latine) ne mentionnent pas υἱοῦ θεοῦ.
+  — Origène cite Marc 1:1 [33]. Les manuscrits grecs ne mentionnent pas
+    υἱοῦ θεοῦ.
+  — Le Codex⋆ Sinaiticus (ive siècle) ne mentionne pas ΥΙΟΥ ΘΕΟΥ. On
+    note néanmoins une correction ultérieure (figure 5) avec le nomina
+    sacra⋆ ΥΥ ΘΥ inséré entre les deux premières lignes.
+  — Le Codex Coridethianus (ixe siècle) omet ΥΙΟΥ ΘΕΟΥ (figure 6).
+
+
+
+
+             Figure 5 – Marc 1:1 dans le Codex Sinaiticus [36].
+
+
+
+
+           Figure 6 – Marc 1:1 dans le Codex Coridethianus [10].
+
+   Il existe encore d’autres manuscrits omettant υἱοῦ θεοῦ en arménien,
+géorgien, grec ou syriaque. Ces manuscrits sont certes minoritaires mais
+trop nombreux pour être le fruit d’une simple erreur de copistes.
+
+Un modèle de copiste aléatoire
+    Un débat qui occupe les chrétiens des premiers siècles concerne le
+statut de Jésus : homme, Dieu, les deux... Les adoptionnistes considèrent
+que Jésus est né homme, avec un père et une mère humains, et qu’il a
+
+
+
+
+                       Images des mathématiques — volume 4 (2026)
+86                                                                     J. Istas
+
+
+ensuite été adopté en tant que Fils de Dieu, en général lors de son baptême
+par Jean le Baptiste. Le mouvement adoptionniste est attesté très tôt puis
+disparaît avant une résurgence locale en Espagne au viiie siècle. Dans
+une optique adoptionniste, une question centrale est de savoir quand,
+dans les Évangiles, Jésus est déclaré pour la première fois Fils de Dieu. La
+version de Marc 1:1 incluant « Fils de Dieu » est un mauvais point pour les
+adoptionnistes.
+    L’idée de Bart D. Ehrman est qu’il a existé des conflits entre groupes
+chrétiens, en particulier entre adoptionnistes et anti-adoptionnistes [15].
+Ces conflits se matérialisaient de plusieurs sortes, y compris sous la forme
+de ré-écriture des textes bibliques. L’histoire (le texte) est écrite par les
+vainqueurs : les adoptionnistes ont perdu et le texte long de Marc 1:1 a
+progressivement dominé.
+    La question qui nous occupe n’est pas de savoir quel était le texte
+original, renvoyant à [48] pour un état des lieux. Nous partons de la
+situation des premiers siècles : il existe une variante minoritaire et la
+controverse adoptionniste est en train de s’éteindre. Est-il raisonnable
+de supposer un conflit de long terme sur une vaste zone géographique
+entre copistes adoptionnistes et anti-adoptionnistes et qui aurait duré
+au moins jusqu’au ixe siècle ? La référence [22] propose un modèle de
+contamination⋆ aléatoire. La contamination choisie est la plus simple :
+le copiste a accès à deux sources. Au lieu d’attribuer aux copistes une
+théologie précise et un comportement conflictuel, le copiste est indécis et
+agit de la façon suivante face à deux variantes 𝐴 et 𝐵 :
+  — s’il lit 𝐴 et 𝐴, il copie 𝐴 ;
+  — s’il lit 𝐵 et 𝐵, il copie 𝐵 ;
+  — s’il lit 𝐴 et 𝐵, il copie 𝐴 avec probabilité 1/2 et 𝐵 avec probabilité 1/2.
+Dans le cas de Marc 1:1, 𝐴 représente Ἀρχὴ τοῦ εὐαγγελίου Ἰησοῦ Χριστοῦ
+et 𝐵 représente Ἀρχὴ τοῦ εὐαγγελίου Ἰησοῦ Χριστοῦ υἱοῦ θεοῦ.
+    Pour simplifier, on suppose qu’il existe un nombre fixe 𝑁 de manuscrits
+copiés à chaque génération. Il y a au début 𝑋0 manuscrits avec la variante 𝐴
+et 𝑁 − 𝑋0 avec la variante 𝐵. Le nombre 𝑋𝑛+1 de 𝐴 à la génération 𝑛 + 1 est
+dérivé de la génération 𝑛 par un échantillonnage binomial avec remise de 𝑁
+manuscrits, où la proportion de variants 𝐴 est 𝑋𝑛 /𝑁. La suite aléatoire
+(𝑋𝑛 ) prend ses valeurs dans l’ensemble {0, 1, … , 𝑁}. La loi de la variable
+aléatoire 𝑋𝑛+1 ne dépend que de la génération précédente : on dit que (𝑋𝑛 )
+est une chaîne de Markov [17]. Les deux états 0 et 𝑁 sont dits absorbants :
+lorsqu’une variante a disparu une fois, elle ne peut plus réapparaître par
+
+
+
+
+IdM
+De l’Urtext aux réseaux de neurones : histoires de manuscrits bibliques    87
+
+
+la suite. Les états {1, 2, … , 𝑁 − 1} peuvent communiquer avec tous les états
+{0, 1, … , 𝑁}. La chaîne va évoluer dans l’ensemble {1, 2, … , 𝑁 − 1} avant
+de tomber dans un des deux états 0 ou 𝑁 : la disparition d’une variante
+n’a pas nécessité de conflits ; seul le hasard s’est chargé d’éliminer une des
+deux variantes. Bien sûr, c’est la variante minoritaire au départ qui a le
+plus de chances de disparaître. On peut calculer cette probabilité : la suite
+(𝑋𝑛 ) est ce qu’on appelle une martingale et une application du théorème
+d’arrêt pour les martingales nous dit que 𝐴 va disparaître avec probabilité
+1 − 𝑋0 /𝑁 et 𝐵 avec probabilité 𝑋0 /𝑁.
+     Nous retrouvons dans la transmission d’un manuscrit un phénomène
+connu en génétique : la dérive génétique [52] qui conduit une petite
+population isolée à perdre sa variabilité. Un phénomène similaire de
+dérive des textes est mis en évidence par ce modèle.
+     En savoir plus : [22].
+
+
+Phylogénie et stemmatologie : deux cousines
+    Après avoir exploré la diversité des outils numériques applicables
+aux manuscrits, nous pouvons aborder une convergence méthodologique
+de la transmission des textes : la rencontre entre l’étude de l’évolution
+biologique et celle des traditions textuelles. Cette section explore les liens
+entre la phylogénie, qui reconstitue l’arbre du vivant, et la stemmatologie,
+qui cherche à établir la généalogie des textes.
+    Bien que ces disciplines appartiennent à des champs de recherche dis-
+tincts, elles partagent un socle commun. En effet, la transmission d’un texte
+par des copistes successifs, avec ses erreurs et ses corrections, présente des
+analogies frappantes avec la transmission du patrimoine génétique et ses
+mutations. Nous allons esquisser dans cette section les parentés méthodo-
+logiques ainsi que les différences, dont certaines sont irréductibles.
+
+Phylogénie
+   La phylogénie a pour objectif fondamental de reconstruire l’arbre
+du vivant, c’est-à-dire de retracer les liens de parenté entre les espèces
+actuelles et disparues. Dès 1837, Darwin proposa une première ébauche
+de cet arbre (figure 7 page suivante).
+   Au cœur de cette représentation se trouve le concept de LUCA (last
+universal common ancestor), baptisé ainsi en 1996 à la Fondation des Treilles
+[16], le premier ancêtre commun à toutes les formes de vie connues, dont
+
+
+
+
+                       Images des mathématiques — volume 4 (2026)
+88                                                                    J. Istas
+
+
+
+
+      Figure 7 – Carnet B de Darwin : croquis de l’arbre de vie [12].
+
+
+descendent les trois grands domaines du vivant : les bactéries, les archées et
+les eucaryotes. Un arbre phylogénétique est une représentation graphique
+des relations évolutives entre organismes. Sa construction repose sur la
+comparaison de caractères homologues, qu’ils soient morphologiques,
+anatomiques, moléculaires ou génétiques. À partir de ces caractères, on
+infère des relations de parenté : les organismes partageant le plus de
+similitudes héritées d’un ancêtre commun sont regroupés au sein d’un
+même clade. L’objectif est de reconstruire, à partir des données observables,
+l’histoire évolutive la plus probable.
+    La phylogénie (voir par exemple [28]) repose sur plusieurs hypothèses
+standard, qui sont parfois admises par souci de simplification mais qui
+restent sujettes à caution.
+  — Principe de parcimonie : la meilleure hypothèse évolutive est celle
+    qui requiert le plus petit nombre de changements, autrement dit
+    l’explication la plus simple.
+  — Existence d’un ancêtre commun : toutes les espèces partagent un
+    ancêtre commun.
+  — Évolution par branches : la diversification résulte de bifurcations
+    successives, chaque branche évoluant indépendamment après la
+
+
+
+
+IdM
+De l’Urtext aux réseaux de neurones : histoires de manuscrits bibliques   89
+
+
+      séparation.
+  — Indépendance des caractères et évolution non corrélée : cette hy-
+    pothèse stipule que différents caractères (par exemple, des traits
+    morphologiques, des séquences d’ADN) évoluent indépendamment
+    les uns des autres.
+
+
+
+
+                 Figure 8 – Page d’accueil de BEAST [3].
+
+    L’avènement de la biologie moléculaire a profondément transformé
+la phylogénie. L’analyse de l’ADN et des protéines permet désormais de
+comparer directement les séquences génétiques entre organismes, offrant
+une approche bien supérieure à celle des seuls caractères morphologiques.
+Cette approche repose sur plusieurs hypothèses classiques :
+  — existence d’une horloge moléculaire, postulant que les mutations
+    ont lieu à un rythme à peu près constant au cours du temps ;
+  — stabilité relative des taux de mutation des nucléotides ;
+  — ancêtre commun dont les séquences ont divergé progressivement au
+    fil de l’évolution.
+   Les approches algorithmiques pour la phylogénie comprennent :
+  — les méthodes de distance – telles que neighbor joining (NJ) ou un-
+    weighted pair group method with arithmetic mean (UPGMA) – ;
+  — les approches bayésiennes – du type Markov chain Monte Carlo (MCMC)
+    – qui se sont imposées via des logiciels comme BEAST (figure 8).
+   Sans rentrer dans les détails, nous pouvons faire quelques remarques :
+  — plusieurs algorithmes de reconstruction produisent des arbres sans
+    racines alors que l’ancêtre commun existe ;
+  — l’indépendance entre caractères est très souvent remise en cause ;
+
+
+
+
+                       Images des mathématiques — volume 4 (2026)
+90                                                                      J. Istas
+
+
+  — la notion d’horloge moléculaire, popularisée par Kimura, est de plus
+    en plus remise en question.
+    Nous terminons cette section par quelques mots concernant l’intelli-
+gence artificielle. Malgré les progrès fulgurants de l’intelligence artificielle
+dans de nombreux domaines scientifiques, son application à la phylogénie
+reste pour l’instant encore limitée (figure 9).
+
+
+
+
+                                Figure 9 – D’après [41].
+
+
+Stemmatologie
+    La stemmatologie [39] est la discipline qui cherche à reconstruire
+les relations généalogiques entre les différents manuscrits d’une œuvre :
+son objectif central est de cartographier l’histoire et la transmission des
+variantes textuelles au sein d’une tradition manuscrite. Le résultat de cette
+démarche est le stemma codicum, souvent abrégé en stemma, un graphe 3 qui
+schématise les liens généalogiques entre témoins. Les principes fondateurs
+de la stemmatologie sont posés au xixe siècle par Lachmann (1793-1851) et
+Bédier (1864-1938). Le stemma le plus anciennement documenté concerne
+la loi de Vestrogothie (figure 10), quatre ans avant que Darwin n’embarque
+sur le Beagle.
+    Si la stemmatologie classique a connu un véritable essor grâce aux
+progrès de la critique textuelle, le développement de la stemmatologie
+numérique reste limité.
+
+Les défis de la stemmatologie à l’heure du numérique
+   La stemmatologie numérique est nettement moins développée que sa
+cousine la phylogénie numérique. La première raison est prosaïque : les
+moyens humains et financiers investis en stemmatologie sont beaucoup,
+     3. Rien ne prouve qu’il s’agisse d’un arbre.
+
+
+
+
+IdM
+De l’Urtext aux réseaux de neurones : histoires de manuscrits bibliques   91
+
+
+
+
+Figure 10 – Plus ancien stemma imprimé connu (loi de Vestrogothie –
+Westgöta-lagen) d’après [11].
+
+
+
+
+                       Images des mathématiques — volume 4 (2026)
+92                                                                   J. Istas
+
+
+beaucoup moins importants qu’en phylogénie ! Mais ce n’est pas la seule
+raison et nous allons faire un résumé comparatif des difficultés liées à la
+stemmatologie :
+  — ancêtre commun versus Urtext. En phylogénie, l’existence de LUCA
+    est acquise [32, 45], alors que l’existence d’un Urtext n’est pas garan-
+    tie ;
+  — unicité du code génétique versus plusieurs langues. Le code géné-
+    tique est unique pour l’ensemble du monde vivant alors que des
+    témoins peuvent comporter de nombreuses langues ;
+  — arbre versus graphe. En dehors de cas particuliers (transferts hori-
+    zontaux de gènes), la généalogie du vivant est un arbre, alors que
+    même sur des exemples simples (figure 2 page 79), les relations
+    généalogiques des témoins sont un graphe ;
+  — horloge moléculaire vs taux d’erreur des copistes. Le taux d’erreurs
+    dans l’ADN est relativement constant au cours du temps. Il n’existe
+    rien de similaire pour les copistes ;
+  — taille de l’alphabet. Les « alphabets » des nucléotides ou des acides
+    aminés sont plus petits que les alphabets latin, grec, hébreu (en
+    tenant compte des majuscules, ponctuations...) ;
+  — accumulation de données versus données fixes. Le nombre de ma-
+    nuscrits est fixe alors qu’il est aisé de collecter davantage de données
+    en phylogénie, sauf dans quelques domaines particuliers comme la
+    paléo-phylogénie ;
+  — substitution versus erreurs de copistes. En phylogénie, les substitu-
+    tions sont aléatoires. Les erreurs de copistes peuvent être acciden-
+    telles ou intentionnelles ;
+  — ancêtres perdus. Les espèces manquantes sont en général des an-
+    cêtres, ce qui n’est pas toujours le cas en stemmatologie (voir l’exemple
+    du livre de Daniel dans la section « Datation de manuscrits » page 83) ;
+  — données complètes. En phylogénie, les données manquantes sont
+    rares. En stemmatologie, les manuscrits comportent des trous ou
+    des sections manquantes ;
+  — effets des mutations/délétions/insertions. Les mutations/délétions/in-
+    sertions génétiques ne se voient que si elles empêchent l’individu de
+    survivre ; une erreur de copiste, accidentelle ou intentionnelle, altère
+    le sens du texte.
+     En savoir plus : [23].
+
+
+
+
+IdM
+De l’Urtext aux réseaux de neurones : histoires de manuscrits bibliques       93
+
+
+Compléments
+
+Réseaux de neurones
+Inspiration biologique
+    Le cerveau humain est composé de plus de 80 milliards de cellules
+spécialisées : les neurones. Chaque neurone reçoit des signaux électriques
+via ses dendrites. Si la somme de ces signaux dépasse un certain seuil, le
+neurone s’active et transmet une impulsion électrique le long de son axone
+vers d’autres neurones. C’est cette capacité de transmission et d’inhibition
+qui constitue la base du traitement de l’information biologique.
+De la logique à l’apprentissage
+    Warren S. McCulloch et Walter Pitts ont proposé en 1943 le premier
+modèle mathématique de neurone formel [30]. Ils y décrivent une unité
+binaire pouvant soit s’activer, soit rester inactive : la sortie prend la valeur 0
+ou 1 selon que la somme pondérée de ses entrées dépasse ou non un
+certain seuil. Il est alors possible de réaliser les opérations de base (et, ou,
+non) qui constituent les fondements de la logique.
+    Frank Rosenblatt introduit ensuite le perceptron [40], un neurone
+formel capable d’ajuster automatiquement ses poids de connexion à partir
+d’exemples, afin d’apprendre une tâche de classification binaire linéai-
+rement séparable. Ce mécanisme d’adaptation confère au perceptron de
+Rosenblatt le statut de premier modèle d’apprentissage supervisé. Enfin,
+la combinaison de neurones permet d’étendre ces capacités aux classi-
+fications non linéaires, ce qui conduit aux théorèmes d’approximation
+universelle.
+Théorèmes d’approximation universelle
+    Commençons par une version géométrique du théorème d’approxi-
+mation universelle (dans R2 ) : ce théorème nous dit que tout ensemble
+« raisonnable » du plan peut être reconnu avec une précision arbitraire par
+un réseau de neurones suffisamment grand. Soyons un peu plus précis.
+    Les neurones formels permettent de réaliser les opérations logiques de
+base et de séparer R2 en deux demi-plans. On dit ensuite qu’un ensemble 𝐴
+du plan est réalisable par un réseau de neurones si le réseau permet de
+calculer la fonction indicatrice de 𝐴. Le réseau joue alors le rôle d’un
+classificateur : il décide si un point appartient ou non à 𝐴.
+    En combinant les opérations logiques et les demi-plans, on montre
+que les polygones sont réalisables. En particulier, un polygone convexe à
+
+
+
+
+                        Images des mathématiques — volume 4 (2026)
+94                                                                  J. Istas
+
+
+𝑛 côtés est réalisable avec 𝑛 + 1 neurones. Tout ensemble du plan délimité
+par une courbe de Jordan peut être approché avec une précision arbitraire
+par des polygones, donc approché avec une précision arbitraire par un
+réseau de neurones. Avec une approche similaire, on peut montrer que
+toute fonction continue réelle définie sur un intervalle [𝑎, 𝑏] peut être
+approchée avec une précision arbitraire par un réseau de neurones : on
+commence par montrer qu’une fonction indicatrice est réalisable, puis que
+les fonctions en escalier sont réalisables.
+    Ce théorème d’approximation est un résultat d’existence. Il ne donne
+aucune méthode constructive pour déterminer le nombre optimal de
+neurones, l’architecture du réseau, les poids à utiliser...
+Réseaux de neurones et convolution (CNN)
+    On peut construire des réseaux de neurones formels, constitués de
+couches successives de neurones élémentaires interconnectés. Chaque
+connexion est associée à un poids synaptique, ajusté lors de la phase d’ap-
+prentissage. Le choix de l’architecture du réseau, c’est-à-dire la manière
+dont les neurones sont interconnectés, constitue une question cruciale
+pour la performance du modèle.
+    Le convolutional neural network (CNN) est un type particulier de réseau
+de neurones, conçu pour le traitement de données structurées localement,
+notamment les images. Il apprend automatiquement des représentations
+hiérarchiques des motifs visuels (bords, textures, formes, objets) grâce à
+l’utilisation de couches de convolution. Le terme convolution provient de
+l’opération mathématique appliquée entre les filtres et les régions locales
+de l’image en entrée.
+    Les CNN constituent aujourd’hui une architecture de référence en
+vision par ordinateur [27], en particulier dans les domaines de la classifi-
+cation d’images et de la reconnaissance automatique de l’écriture.
+Apprentissage et évaluation
+  L’apprentissage d’un réseau de neurones se décompose traditionnelle-
+ment en trois phases distinctes :
+  — ensemble d’entraînement : données labellisées utilisées pour ajuster
+    les poids du modèle via un algorithme d’optimisation ;
+  — ensemble de validation : données intermédiaires pour ajuster les
+    hyperparamètres (par exemple le nombre de couches) et surveiller
+    le surapprentissage pendant l’entraînement ;
+  — ensemble de test : données inédites réservées à l’évaluation finale de
+
+
+
+
+IdM
+De l’Urtext aux réseaux de neurones : histoires de manuscrits bibliques    95
+
+
+      la généralisation du modèle.
+    Même sur l’ensemble d’entraînement, une erreur résiduelle persiste en
+raison de la capacité finie du modèle. Le principal risque est le surappren-
+tissage : le modèle mémorise les exemples d’entraînement au détriment de
+sa performance sur des données nouvelles.
+La descente de gradient
+    L’entraînement d’un réseau de neurones consiste à minimiser une fonc-
+tion de perte qui quantifie l’erreur commise sur l’ensemble d’entraînement.
+Ce problème d’optimisation est en général non convexe : le paysage de la
+fonction de perte peut comporter de nombreux minima locaux et points
+selles.
+    Le calcul des gradients des paramètres du réseau s’effectue grâce à
+l’algorithme de rétropropagation du gradient, tandis que leur mise à jour
+repose sur des variantes de la descente de gradient, notamment la descente
+de gradient stochastique. L’objectif de l’entraînement n’est pas d’atteindre
+le minimum global de la fonction de perte, mais plutôt un minimum local
+qui assure de bonnes performances sur des données nouvelles.
+Réseau de neurones siamois
+    Un réseau de neurones siamois est une architecture constituée de deux
+sous-réseaux identiques (poids partagés) qui transforment respectivement
+deux entrées en vecteurs de caractéristiques, puis calculent une mesure de
+similarité entre ces vecteurs (distance euclidienne, similarité cosinus...).
+Historiquement, ces réseaux ont été introduits au début des années 1990
+pour la vérification de signatures manuscrites, l’objectif étant de déterminer
+si deux échantillons proviennent de la même personne.
+Retour sur la figure 3 page 81
+  — Input layer : couche d’entrée recevant les caractéristiques du texte
+    (fréquences de mots, 𝑛-grammes, etc.).
+  — Embedding text : espace de projection de dimension réduite dans
+    lequel les vecteurs d’entrée sont transformés en représentations
+    continues.
+  — Batch norm (normalisation par lots) : technique qui stabilise et accé-
+    lère l’apprentissage en normalisant les activations d’une couche.
+  — Dropout : technique de régularisation contre le surapprentissage,
+    consistant à mettre aléatoirement à zéro une fraction des neurones
+    pendant l’entraînement.
+
+
+
+
+                       Images des mathématiques — volume 4 (2026)
+96                                                                     J. Istas
+
+
+  — Linear : couche linéaire classique effectuant une combinaison affine
+    𝑦 = 𝑊𝑥+𝑏 pour agréger l’information issue des couches précédentes.
+  — SNR distance et SNR loss (signal-to-noise ratio) : métrique et fonction
+    de perte basées sur un ratio signal/bruit, utilisées pour rapprocher
+    les représentations de textes d’un même auteur et éloigner celles de
+    textes d’auteurs différents.
+
+     En savoir plus : [5, 20].
+                                                                 ARROW-UP page 74
+
+
+Glossaire
+Codex (pl. codices) Le terme « codex » désigne un manuscrit ancien
+constitué de feuilles reliées ensemble, formant un livre. Cette forme rem-
+place progressivement le rouleau. Le codex est ainsi considéré comme
+l’ancêtre du livre moderne.
+Contamination Le mot contamination est issu du latin chrétien conta-
+minatio. La contamination indique qu’un texte peut combiner plusieurs
+sources :
+  — exemplaires multiples : les copistes peuvent avoir accès à plus d’une
+    copie ;
+  — des notes marginales et interlinéaires peuvent être incorporées dans
+    le corps principal du texte ;
+  — il y a eu intervention éditoriale délibérée : correction et « améliora-
+    tions » d’un texte ;
+  — contamination par la mémoire ;
+  — conflation : combinaison délibérée de leçons de différents manuscrits
+    pour créer un « meilleur texte ».
+Daniel Prophète et sage, Daniel est le personnage principal du livre de
+Daniel, écrit en hébreu et en araméen, l’un des livres prophétiques de la
+Bible hébraïque (Ancien Testament pour les chrétiens).
+Épîtres catholiques Les épîtres catholiques désignent un ensemble de
+sept livres du Nouveau Testament. Dans ce contexte, l’adjectif « catholique »
+ne se réfère pas à la confession de l’Église catholique romaine, mais doit
+être pris dans son sens étymologique grec signifiant « universel » ou « qui
+s’adresse à tous ».
+
+
+
+
+IdM
+De l’Urtext aux réseaux de neurones : histoires de manuscrits bibliques       97
+
+
+Ésaïe Le livre d’Ésaïe (ou Isaïe) est l’un des livres prophétiques de la
+Bible hébraïque (Ancien Testament pour les chrétiens). Ésaïe est considéré
+comme l’un des quatre grands prophètes, avec Daniel, Ézéchiel et Jérémie.
+Évangiles Le mot évangile vient du grec et signifie littéralement « bonne
+nouvelle ». Dans le contexte chrétien, il désigne les écrits qui racontent la
+vie, le ministère, la mort et la résurrection de Jésus. Les quatre Évangiles dits
+canoniques (Marc, Matthieu, Luc et Jean) sont reconnus comme inspirés
+et faisant autorité par la grande majorité des traditions chrétiennes. Il
+existe d’autres Évangiles, dits apocryphes. Ils ont souvent été jugés tardifs,
+hérétiques, ou manquant d’autorité apostolique, et n’ont pas été retenus,
+même si certains (Protoévangile de Jacques, Évangile de l’enfance de
+Thomas...) ont eu une influence importante.
+Grec koinè Le grec koinè est la forme de grec parlée et écrite dans l’An-
+tiquité hellénistique et romaine, du ive siècle av. J.-C. jusqu’au ive siècle.
+C’était la lingua franca du bassin méditerranéen après les conquêtes
+d’Alexandre le Grand. Le Nouveau Testament a été entièrement rédigé en
+grec koinè.
+Lecture Une lecture désigne l’une des formes possibles d’un passage
+donné dans un texte transmis par plusieurs manuscrits. Les différentes
+lectures correspondent aux variantes textuelles recueillies lors de la colla-
+tion des témoins ; elles peuvent résulter d’erreurs de copie, de corrections
+volontaires ou de réécritures.
+Nomina sacra Terme latin signifiant « nom sacré », désignant une tradi-
+tion des manuscrits grecs anciens où certains noms divins ou titres sacrés
+étaient abrégés par contraction et marqués d’un trait suscrit. Ainsi « Fils
+de Dieu » s’écrit en génitif ΥΥ ΘΥ.
+Nouveau Testament Le Nouveau Testament est la seconde partie de
+la Bible chrétienne, faisant suite à la Bible hébraïque, que les chrétiens
+appellent Ancien Testament. Il s’agit d’un corpus de 27 écrits canoniques
+(reconnus par les principales Églises chrétiennes) rédigés en grec koinè
+entre le milieu du ier siècle et le début du iie siècle. Ces textes sont centrés
+sur la vie et l’enseignement de Jésus, ainsi que sur le début et la diffusion
+du christianisme primitif par ses premiers disciples.
+Paléographie La paléographie est la discipline qui a pour objet l’étude
+des écritures anciennes, manuscrites. Elle englobe le déchiffrement des écri-
+tures, l’étude de leur évolution dans le temps et l’espace et l’identification
+et la datation des documents.
+
+
+
+
+                        Images des mathématiques — volume 4 (2026)
+98                                                                     J. Istas
+
+
+Patristique   Relatif aux Pères de l’Église.
+Pères de l’Église Les Pères de l’Église désignent un groupe d’auteurs
+chrétiens influents, théologiens et penseurs, dont les écrits et les ensei-
+gnements ont grandement contribué à définir la doctrine et les pratiques
+chrétiennes des premiers siècles (du ier au viiie siècle). Même s’il n’y a
+pas de listes officielles des Pères de l’Église, Augustin d’Hippone, Jean
+Chrysostome et Irénée de Lyon sont généralement considérés comme Pères
+de l’Église. Origène a un statut ambigu.
+Pseudo-auteur Un pseudo-auteur est l’auteur supposé d’un texte auquel
+celui-ci est attribué de manière erronée, intentionnellement ou non. Il
+s’agit souvent d’un nom prestigieux (auteur célèbre, figure d’autorité,
+personnage ancien) utilisé pour donner plus de poids au texte. Un pseu-
+dépigraphe est un texte dont le titre ou l’inscription (l’épigraphe) attribue
+faussement l’œuvre à un pseudo-auteur.
+Stemma (pl. stemmata) Un stemma codicum, souvent abrégé en stemma,
+est un arbre ou graphe généalogique des manuscrits d’un même texte,
+représentant de manière schématique les relations de filiation entre copies
+manuscrites. Son objectif est de représenter graphiquement les liens d’as-
+cendance et de descendance, en montrant comment les différents témoins
+se rattachent à des intermédiaires perdus (hyparchétypes) ou à l’archétype
+du texte.
+Témoins Les témoins désignent l’ensemble des sources matérielles qui at-
+testent de l’existence et du contenu d’un texte. Pour le Nouveau Testament,
+les témoins sont classés en plusieurs catégories et incluent :
+  — les manuscrits grecs (papyrus, onciaux, minuscules) ;
+  — les versions anciennes (traductions dans d’autres langues, comme le
+    copte, le latin, le syriaque) ;
+  — les citations faites par les Pères de l’Église.
+Chaque témoin transmet un texte qui contient potentiellement des erreurs
+ou des variantes par rapport à l’Urtext.
+Tradition La tradition désigne l’ensemble des témoins d’un texte (ma-
+nuscrits, versions, traductions, adaptations...) ainsi que les variantes qu’ils
+véhiculent, résultant du processus de transmission depuis le texte initial
+jusqu’à l’époque actuelle. Elle englobe les copies directes ou indirectes et
+permet d’étudier l’évolution du texte, ses contaminations possibles et sa
+circulation au fil de l’histoire.
+
+
+
+
+IdM
+De l’Urtext aux réseaux de neurones : histoires de manuscrits bibliques        99
+
+
+Urtext L’Urtext (mot allemand signifiant « texte d’origine ») est le nom
+donné au texte initial d’un ouvrage, tel qu’il a été écrit par son ou ses
+auteurs. Pour les textes de l’Antiquité, et notamment pour le Nouveau
+Testament, l’Urtext n’existe plus physiquement. C’est un texte hypothétique
+et reconstruit que l’édition critique cherche à rétablir en remontant, à
+travers les générations de copies, jusqu’à la version la plus ancienne et
+la plus fidèle possible. L’idée que les manuscrits de la Bible hébraïque
+remontent à un archétype commun perdu (l’Urtext) a d’abord été théorisée
+par Paul de Lagarde au xixe siècle [26]. Cette question de l’existence ou
+non d’un Urtext est fondamentale dans une perspective théologique, car
+elle impacte directement la notion d’inspiration et de fiabilité des textes
+religieux. Actuellement, l’idée que certains textes ou parties de textes
+n’auraient pas d’Urtext s’est développée : voir [37] pour la Bible hébraïque
+et [8, 13] pour le Coran. Exprimée en vocabulaire mathématique, la quête
+de l’Urtext est un problème mal posé : ni l’existence ni l’unicité ne sont
+garanties.
+Variantes Les variantes (ou variantes textuelles) sont les différences de
+lecture observées lorsqu’on compare plusieurs témoins du même texte.
+Elles peuvent être mineures (une faute d’orthographe, l’omission d’un
+article) ou majeures (l’ajout, la suppression ou le remplacement d’un mot,
+voire d’un passage entier).
+                                                                   ARROW-UP page 74
+
+
+
+Références
+ [1] Sarit Anava et al. « Illuminating genetic mysteries of the Dead Sea
+     Scrolls ». Cell 181 (6 2020), p. 1218-1231. doi : 10.1016/j.cell.202
+     0.04.046.
+ [2]   Aurelius Augustinus. De consensu evangelistarum. Vol. XXXIV. Patro-
+       logia Latina. Paris : J.-P. Migne (éd.), 400.
+ [3] BEAST Community. BEAST Software – Bayesian Evolutionary Analysis
+     Sampling Trees. https://beast.community/.
+ [4] Katell Berthelot, Michael Langlois et Thierry Legrand, éd. La
+     Bibliothèque de Qumrân – texte original, traduction et notes. Paris :
+     éditions du Cerf, 2008.
+
+
+
+
+                       Images des mathématiques — volume 4 (2026)
+100                                                                      J. Istas
+
+
+ [5]   Arnaud Bodin et François Recher. Deepmath – Mathématiques (simples)
+       des réseaux de neurones (pas trop compliqués). http://exo7.emath.f
+       r/cours/livre-deepmath.pdf. 2022.
+ [6]   Georges Bonani, Susan Ivy, Willy Wölfli, Magen Broshi, Israel Carmi
+       et John Strugnell. « Radiocarbon dating of fourteen Dead Sea
+       scrolls ». Radiocarbon 34.3 (1992), p. 843-849.
+ [7]   Jane Bromley, Isabelle Guyon, Yann Le Cun, Eduard Säckinger et
+       Roopak Shah. « Signature verification using a “Siamese” time delay
+       neural network ». Dans : Advances in Neural Information Processing
+       Systems 6 (NIPS 1993). Morgan Kaufmann, 1994, p. 737-744.
+ [8]   Daniel Alan Brubaker. Corrections in Early Qurʾān Manuscripts :
+       Twenty Examples. Lovettsville : Think and Tell Press, 2019.
+ [9]   Thibault Clérice et Alix Glaise. « Twenty-One* Pseudo-Chrysostoms
+       and more : authorship verification in the patristic world ». Dans :
+       Computational Humanities Research Conference 2023. 2023.
+[10]   Codex Coridethianus (Θ/038). https : / / manuscripts . csntm . or
+       g/manuscript/Group/GA_038_digital. Manuscrit conservé au
+       Korneli Kekelidze Georgian National Centre of Manuscripts, Tbilissi
+       (Gr. 28). Manuscrit grec oncial, ixe siècle.
+[11]   Hans Samuel Collin et Carl J. Schlyter. Westgöta-lagen. Vol. I. Haeg-
+       ström, 1827.
+[12]   Charles Darwin. Notebook B. https://cudl.lib.cam.ac.uk/. 1837.
+[13]   François Déroche. Le Coran, une histoire plurielle. Essai sur la formation
+       du texte coranique. Paris : Seuil, 2019.
+[14]   Guillaume Dye. « Concepts and methods in the study of the Qurʾān ».
+       Religions 12.8 (2021), p. 599. doi : 10.3390/rel12080599.
+[15]   Bart D. Ehrman. The Orthodox Corruption of Scripture : The Effect
+       of Early Christological Controversies on the Text of the New Testament.
+       Updated ed. Oxford : Oxford University Press, 2011.
+[16] Patrick Forterre, Simonetta Gribaldo et Céline Brochier. « Luca :
+     à la recherche du plus proche ancêtre commun universel ». M/S :
+     médecine sciences 21.10 (2005), p. 860-865.
+[17]   Philippe Gay. « Markov et la Belle au bois dormant ». Images des
+       mathématiques (2014). doi : 10.60868/htm2-kn56.
+
+
+
+
+IdM
+De l’Urtext aux réseaux de neurones : histoires de manuscrits bibliques   101
+
+
+[18] Robin Genuer et Jean-Michel Poggi. Les Forêts aléatoires avec R.
+     Presses universitaires de Rennes, 2019.
+[19]   Mark S. Goodacre. The Case Against Q : Studies in Markan Priority
+       and the Synoptic Problem. Harrisburg, PA : Trinity Press International,
+       2002. isbn : 978-1563383342.
+[20] Ian Goodfellow, Yoshua Bengio et Aaron Courville. Deep Learning.
+     http://www.deeplearningbook.org. MIT Press, 2016.
+[21]   Sophie Robert Hayek, Jacques Istas et Frédérique Rey. « Unraveling
+       the Synoptic puzzle : stylometric insights into Luke’s potential use
+       of Matthew ». Dans : Computational Humanities Research Conference
+       (CHR). 2023.
+[22] Jacques Istas. « Can manuscript contamination result in the elimi-
+     nation of variants ? » Soumis pour publication. 2025.
+[23]   Jacques Istas. « Exploring phylogenetic models for stemmatology
+       applications ». Dans : Current Trends in Phylogeny and Computational
+       Stemmatology. Sous la dir. de Sophie Robert. Digital Biblical Studies.
+       À paraître. Leiden : Brill.
+[24]   Jean Chrysostome. Œuvres complètes d’après toutes les éditions faites
+       jusqu’à ce jour. Sous la dir. d’Abbé J. Bareille. Trad. par Bareille,
+       Abbé J. Texte grec et traduction française en regard. Paris : librairie
+       de Louis Vivès, 1873.
+[25]   Karl Lachmann. « De ordine narrationum in evangeliis synopticis ».
+       Theologische Studien und Kritiken 8.3 (1835), p. 570-590.
+[26]   Paul de Lagarde. Anmerkungen zur griechischen Übersetzung der
+       Proverbien. Nachdruck der Ausgabe von 1863. Hansebooks, 1863.
+[27] Yann Le Cun, Yoshua Bengio et Geoffrey Hinton. « Deep learning ».
+     Nature 521 (2015), p. 436-444. doi : https://doi.org/10.1038/na
+     ture14539.
+[28]   Philippe Lemey, Marco Salemi et Anne-Mieke Vandamme. The Phylo-
+       genetic Handbook : A Practical Approach to Phylogenetic Analysis and
+       Hypothesis Testing. Cambridge University Press, 2009.
+[29]   Irénée de Lyon. Contre les hérésies. Sous la dir. d’Adelin Rousseau et
+       Louis Doutreleau. Sources chrétiennes. Paris : Cerf, 1974.
+[30]   Warren S. McCulloch et Walter Pitts. « A logical calculus of the
+       ideas immanent in nervous activity ». The Bulletin of Mathematical
+       Biophysics 5.4 (1943), p. 115-133.
+
+
+
+
+                       Images des mathématiques — volume 4 (2026)
+102                                                                    J. Istas
+
+
+[31]   Eberhard Nestle, Kurt Aland, Barbara Aland et al., éd. Novum
+       testamentum graece. 28e éd. Deutsche Bibelgesellschaft, 2012.
+[32]   Leonardo de Oliveira Martins et David Posada. « Proving universal
+       common ancestry with similar sequences ». Trends in Evolutionary
+       Biology 4.1 (2012).
+[33]   Origène. Contre Celse. Tome I (Livres I et II). Sous la dir. de Mar-
+       cel Borret. Introduction, texte critique, traduction et notes par
+       Marcel Borret. Sources chrétiennes 132. Cerf, 1967.
+[34]   Mladen Popović, Maruf A. Dhali et Lambert Schomaker. « Artificial
+       intelligence-based writer identification generates new evidence for
+       the unknown scribes of the Dead Sea Scrolls exemplified by the
+       Great Isaiah Scroll (1QIsaa) ». PLOS One 16.4 (2021). doi : 10.1371
+       /journal.pone.0249769.
+[35]   Mladen Popović, Maruf A. Dhali, Lambert Schomaker, Johannes Van
+       der Plicht, Kaare Lund Rasmussen, Jacopo La Nasa, Ilaria Degano,
+       Maria Perla Colombini et Eibert Tigchelaar. « Dating ancient ma-
+       nuscripts using radiocarbon and AI-based writing style analysis ».
+       PLOS One 20.6 (2025).
+[36]   The Codex Sinaiticus Project. Codex Sinaiticus (ℵ) : The World’s
+       Oldest Bible. http://www.codexsinaiticus.org. 2009.
+[37]   Frédérique Rey et Stefan Schorch. Urtext, Archetype, Fluidity or Tex-
+       tual Convergence. The Quest for the Texts of the Hebrew Bible. Contribu-
+       tions to Biblical Exegesis & Theology. À paraître. Peeters Publishers.
+[38]   James M. Robinson, Paul Hoffmann et John S. Kloppenborg, éd.
+       The Critical Edition of Q : a Synopsis Including the Gospels of Matthew
+       and Luke, Mark and Thomas. Hermeneia – a critical and historical
+       commentary on the Bible. Fortress Press, Peeters Publishers, 2000.
+       isbn : 978-0800631499.
+[39]   Philipp Roelli, éd. Handbook of Stemmatology : History, Methodology,
+       Digital Approaches. De Gruyter, 2020. doi : 10.1515/9783110684384.
+[40]   Frank Rosenblatt. « The perceptron : a probabilistic model for
+       information storage and organization in the brain ». Psychological
+       Review 65.6 (1958), p. 386.
+
+
+
+
+IdM
+De l’Urtext aux réseaux de neurones : histoires de manuscrits bibliques     103
+
+
+[41]   Nicolae Sapoval, Amirali Aghazadeh, Michael G. Nute et al. « Cur-
+       rent progress and open challenges for applying deep learning across
+       the biosciences ». Nature Communications 13.1 (2022), p. 1728. doi :
+       https://doi.org/10.1038/s41467-022-29268-7.
+
+[42]   Jacques Savoy. Machine Learning Methods for Stylometry : Authorship
+       Attribution and Author Profiling. Springer Nature, 2020. isbn : 978-3-
+       030-53360-1. doi : 10.1007/978-3-030-53360-1.
+[43]   Digital Dead Sea Scrolls. Israel Museum, Jerusalem. http://dss.co
+       llections.imj.org.il/.
+
+[44]   Jan Slomp. « Are the words “Son of God” in Mark 1.1 original ? »
+       The Bible Translator 28.1 (1977), p. 143-150. doi : 10.1177/02600935
+       770280010.
+
+[45]   Douglas L. Theobald. « A formal test of the theory of universal
+       common ancestry ». Nature 465.7295 (2010), p. 219-222. doi : 10.10
+       38/nature09014.
+
+[46]   David Trobisch. A User’s Guide to the Nestle-Aland 28 Greek New
+       Testament. Vol. IX. Text-Critical Studies. Society of Biblical Literature
+       (SBL) Press, 2013. doi : 10.2307/j.ctt5vjz3r.
+[47] Sever J. Voicu. « Une nomenclature pour les anonymes du corpus
+     pseudo-chrysostomien ». Byzantion 51.1 (1981), p. 297-305. url :
+     http://www.jstor.org/stable/44170685.
+
+[48]   Tommy Wasserman. « The “Son of God” was in the beginning (Mark
+       1:1) ». Journal of Theological Studies 62.1 (2011), p. 20-50.
+[49]   Tommy Wasserman et Peter J. Gurry. A New Approach to Textual
+       Criticism : An Introduction to the Coherence-Based Genealogical Me-
+       thod (CBGM). Vol. X. Text-Critical Studies. Atlanta, GA : Deutsche
+       Bibelgesellschaft, 2017. isbn : 978-1628371994.
+[50] Christian Hermann Weiße. Die evangelische Geschichte, kritisch und
+     philosophisch bearbeitet. Breitkopf und Härtel, 1838.
+[51]   Christian Gottlob Wilke. Der Urevangelist, oder exegetisch kritische
+       Untersuchung über das Verwandtschaftsverhältniss der drei ersten Evan-
+       gelien. Gerhard Fleischer, 1838.
+[52]   Sewall Wright. « Evolution in Mendelian populations ». Genetics
+       16.2 (1931), p. 97-159. doi : 10.1093/genetics/16.2.97.
+
+
+
+
+                       Images des mathématiques — volume 4 (2026)
+104                                                              J. Istas
+
+
+Crédits
+Frontispice : Colonnes 28, 27, 26 et 25 de 1QIsaa [43].
+
+
+Remerciements
+   L’auteur et la rédaction d’Images des mathématiques remercient Avner
+Bar-Hen, Emmanuel Bénéfice, Émeric Bouin, Mathieu Istas et Baptiste
+Mélès pour leurs relectures et suggestions.
+
+
+
+
+                            Jacques Istas
+                            Professeur – Université Grenoble Alpes.
+
+
+
+
+   Article édité par Aurélien Alvarez.
+
+
+
+
+IdM
+

@@ -1,0 +1,953 @@
+﻿(Intro Music Starts)
+
+SH - Hello everyone, I am Sam Hansen 
+
+
+SH - And I’m Sadie Witkowski.
+
+
+SH - And you are listening to Carry the Two, a podcast from the Institute for Mathematical and Statistical Innovation aka IMSI.
+
+
+SH - The podcast where Sam and I talk about the real world applications of mathematical and statistical research.
+
+
+(Intro music ends)
+
+
+SH - Hello Sadie, and even more importantly, hello listeners!
+
+
+SH - 100%, hope all of you listeners are having a great day and enjoying our emerging technologies season of Carry the Two!
+
+
+SH - I certainly hope so, because I have another emerging technology that relies on mathematics and statistics to share today
+
+
+SW - And what is it this time?
+
+
+SH - Materials Science!
+
+
+DP - As the name says, it is the science of designing and understanding materials. 
+
+
+SH - That is Danny Perez
+
+
+DP - I'm a staff scientist at Los Alamos National Lab in New Mexico, and I work on computational material science.
+
+
+SW - I am guessing that materials science is one of those names that sounds super straightforward, but is really incredibly complex
+
+
+SH - Did you speak to Danny too?
+
+
+DP - So that sounds simple at first sight, but in practice, what makes it really challenging is that many applications require materials that have a wide range of different properties at the same time.
+ 
+SH - For example
+
+
+DP - So if you build a plane, you want something very lightweight, very flexible, that doesn't corrode, that's easy to machine, that's cheap. So it's the union of all of these requirements that we place on materials that makes it really challenging.
+
+
+SW - But how come you are calling this an emerging technology. It seems to me that determining the right material for something goes all the way back to the original tool makers
+
+
+SH - That is very fair, and while Danny did not go that far back when I was talking to him he did differentiate between the traditional and the emerging materials science techniques
+
+
+DP - The traditional way of designing materials was to start with a material that we knew performed well for some set of properties and then tweak it slightly to make it better.
+
+
+SH - A great example of this is steel, which we learned to make from iron and carbon, but then we wanted it to have other properties like being stainless, which required some chromium, or heating treating which requires the steel to be annealed, quenched, and tempered.
+
+
+SW - Ok, so materials science has traditionally been very experimental and incremental
+
+
+SH - Exactly, but now we live in the world of computation and data which has really changed the face of materials science and allowed them to enter a new phase
+
+
+DP - It relies on the fact that nowadays the community assembled really, really large databases of quantum calculations that predict the properties of different materials.
+
+
+SH - And by using these large databases along with computational techniques like machine learning materials scientists are now able to do things they never expected
+
+
+DP - So we're entering this new era where we can design surprising new materials that were not
+obvious at all to begin with
+
+
+SH - Or, as Danny poetically said
+
+
+DP - To really search for new islands of performance that were not known before.
+
+
+SW - Ok, I am trying to wrap my head around computers designing materials here. How does that work, do they just identify the specific chemical blend and then mix it up with robots?
+
+
+SH - Only in Danny’s dreams
+
+
+DP - I'm a hardcore computational person. I wish we could do everything on the computer. In reality, what we tend to do is to identify kind of more or less coarse region in the space of materials that we think are very promising. And then the proof is in the pudding. So some experimentalists will come and synthesize the material and figure out the details that we cannot figure out computationally.
+
+
+SW - So the computational materials scientists are just sort of pointing at some potential materials and then the experimentalists have to do the hard work of actually synthesizing them?
+
+
+SH - Well, given the amount of potential materials that the computational folks are starting with I don’t exactly think it is fair to refer to the synthesizing as the hard part
+
+
+DP - Our role is really to narrow down from basically infinite space of materials to something that's much more manageable and that we can start looking at in more details.
+
+
+SW - Fair, I may not have been given those computations enough credit. Are there some examples of materials this computational approach has helped design
+
+
+SH - There are a lot of examples, some of the most well known ones were from the Materials Project at Lawrence Berkley National Labs. A project that was started to look for new battery related materials and have now created a huge open access database of nearly 35,000 molecules and over 130,000 inorganic compounds. Then there is Danny’s work that is related to our last emerging technology
+
+
+SW - Oh, he works in fusion
+
+
+SH - In his way
+
+
+DP - So as you can imagine, having a star in a tin can is really demanding on the materials. So we're trying to find new alloys that would maintain their properties at very high temperature under irradiation that comes out of the reactor and under exposure from hydrogen and helium.
+
+
+SW - And what do those alloys look like?
+
+
+SH - Not like anything I have heard of before
+
+
+DP - So we're exploring a class of materials that's called high entropy alloys. So it's a new class of alloy where you have many elements in very high concentrations compared to the usual alloys, which is mostly one matrix with a few other things peppered in at small concentrations. And we're navigating this constraint space that I was talking about in order to find materials that could really sustain operation of the reactor for a very long time.
+
+
+SW - And he is doing this all using databases and computers?
+
+SH - Don’t forget mathematics and statistics!
+
+
+SW - Of course, of course. I was taking that as assumed
+
+
+SH - And you know what happens when you assume. You make a…
+
+
+SW - I know, I know. But if we are not taking it as assumed could you share a bit about what type of mathematics is being used in computational materials science
+
+
+SH - I thought you’d never ask. A lot of it comes down to an important fact about materials
+
+
+DP - So what's very unique in material that I hinted to at the beginning is that materials are really multi-scale. The properties of the atoms themselves matter, but the properties of how they arrange at many different scales, the kind of defects that are there, and how these defects interact with each other is very important.
+
+
+SH - And this means
+
+
+DP - So there is no single method where we can simulate the whole physics of the material in full resolution on the time and size scales that we need.
+
+
+SH - Which is why they work a lot with multi-scale models, which can simulate the materials at these different time and size levels
+
+
+DP - We basically start from quantum mechanics of electrons around nuclei, and then scale this up to classical simulations of how atoms interact with each other, and then gradually move up into differential equations to describe how the material evolves at the engineering scales.
+
+
+SH - As well as 
+
+
+DP - Translating these theories into numerical schemes that we can actually deploy on large computers to carry out the simulations.
+
+
+SW - Of course, because as we have already learned talking about fusion a lot of the math in physics needs to be discretized in order to be in a version that the computer can understand. So, that is the math they use. What about the stats?
+
+
+SH - Well to start with
+
+
+DP - So we need tools like statistical mechanics, for example, to understand how a very large ensemble of atoms will interact with each other.
+
+
+SH - And then there is the massive statistical power of machine learning, which is incredibly important for materials science because
+
+
+DP - So experiments are very expensive. Quantum calculations are getting cheaper and cheaper. So we have to find ways to combine all of the information that we have available in a way that lets us explore these large spaces at the smallest overall cost.
+
+
+SH - All to meet a huge goal
+
+
+DP - So the goal is to decrease the time it takes to design a new material from something like 10 or 20 years, which is the standard now, to something that's much, much, much shorter.
+
+
+SW - And Danny thinks this is possible?
+
+
+SH - That is definitely the impression he gave me. He also wanted to make sure we knew it was not just the math or the stats or computation or data that caused this acceleration. It was people
+
+
+DP - I think what made this AI or machine learning revolution possible is that people came together and standardized the way they do things. So they agree on... on how to carry out the quantum calculations and what settings to use to converge these calculations and to document all of the metadata that comes with the calculations so that if I get a chunk of data, I know where it comes from. And I know if it's compatible with some other bit of data that I might have received from somewhere else.
+
+
+SW - It is always people, I am really happy Danny reminded us of that. Without people doing this foundational math and stats, experimental and computational, and data and metadata work none of these technologies would be emerging at all 
+
+
+SH - Exactly, which is why it is so amazing that materials scientists are all working together to make the information from the experiments and computations legible 
+
+
+DP - So this is really a community effort of coming up with standardized ways of doing things that people agree on. And there's not a unique standard. There's a few different standards out there. But so long as we know exactly where the data is coming from, then we can work with it.
+
+
+SH - Of course, there are times when using and standardizing and documenting still is not quite enough  
+
+
+LW - I have helped people reproduce my own work before, and it has been far more painful than I would have thought.
+
+
+SW - And who was this?
+
+
+LW - I'm Logan Ward. I'm a PhD computational scientist.
+
+
+SH - And before we go deeper into Logan’s story, let’s hear what reproducibility means to him
+
+
+LW - Reproducibility to me is the ability to have somebody be able to read my paper and then
+actually do what I did to pick up that torch and run with it. That's often hard to do.
+
+
+SW - You can say that again!
+
+
+SH - Is there a story from your time in neuroscience you would like share with the class Sadie
+
+
+SW - Oh man, I’ve heard all sorts of horror stories of people stalling out on their degrees because they were trying to reproduce an effect that wasn’t actually real. For example, verbal overshadowing seems to be a statistical fluke and not a real phenomenon. Something one of my fellow students wishes they knew before they sunk years into research that never showed an effect….
+
+
+SH - Logan had just as hard of a time, that started with a colleague using some of his work in their research
+
+
+LW - The paper we were looking at was one that I wrote while a PhD student, published in 2016. And a couple years later was talking with one of my colleagues who was using that paper. And he was using one of the charts I made as sort of a benchmark.
+
+
+SH - So far so good, using a chart from a previous article is a totally reasonable place to start some science. But then
+
+
+LW -Could he go to that table and find the same materials, or at least take those materials and get the same predicted performance? And he couldn't.
+
+
+SH - Which of course made Logan’s collaborator wonder
+
+
+LW -Is this a me problem? Or is this a Logan problem? It ended up being a Logan Problem. And that was, well, shocking isn't quite the right word. I was a young scientist at the time, so I know how difficult it is to kind of do something and especially do it in the same way that somebody else did. But it was more informative. It really kind of sent me like, oh, shoot, I thought I did a good job here and I did not.
+
+
+SH - This really hits hard too since reproducibility in materials science should, theoretically, have fewer barriers than other sciences as so much is computation, mathematics, and statistics
+
+
+LW - So it's not like astronomy or, let's say, studies involving humans where you're looking at events that happen exactly once in history. We don't have that limitation. That in fact kind of makes reproducibility paramount. There's no reason you can't do this again.
+
+
+SW - Did Logan have ideas as to why they had such an issue reproducing the results from the chart?
+
+
+SH - He did
+
+
+LW -I put my data in figures because that makes it visually appealing and easy to understand. But in order to make that figure, I've taken that data in a nice numeric form and turned it into a bunch of pixels that represent it. It can't go backwards to the original data.
+
+
+SW - Ok, but both of us have taught many a mathematician and computational scientist about the importance of figures when it comes to communicating their research. Have we made a mistake?
+
+
+SH - Not at all, it is just a great reminder about what scientific articles really are. Especially in fields where a lot of calculation and computation are used. There is even a famous quote about this from Jonathan B. Buckheit and David L. Donoho “An article about computational science in a scientific publication is not the scholarship itself, it is merely advertising the scholarship.” Or as Logan much more succinctly put it
+
+
+LW -You need to publish something besides your paper and to make it reproducible.
+
+
+SH - Which led to a new way of thinking about publishing for Logan. Instead of just publishing an article with words and figures, he has come to believe that researchers should Publish Everything
+
+
+LW - The importance of publishing everything really highlights to me that a paper alone doesn't give me all the data I need to be able to do that study again or ideally build off of it.
+
+
+SW - All this just because he and a colleague were unable to match results in a chart?
+
+
+SH - Pretty much
+
+
+LW - Being unable to reproduce one of my own tables with a colleague together really kind of set the ball moving for me.
+
+
+SW - And where did that ball move to?
+
+
+SH - Just down the road to the Argonne National Labs where Logan, among many other projects, began to work with the Materials Data Facility
+
+
+LW - What the Materials Data Facility does is it allows you to publish the original data from
+your study in its original form.
+
+
+SW - So he really did lean into the publish everything ideal, but why does there need to be a separate place to publish data? Why not publish it with the articles?
+
+
+SH - That does seem like it would a reasonable idea, but it is just not what journals are set up to do
+
+
+LW - The primary product that a publisher really specializes in is that text document and not necessarily hosting that large amount of data.
+
+
+SH - And while there are other research data repositories like Zenodo, Dryad, and Figshare there are good reasons that materials science wanted their own
+
+
+LW - Materials Data Facility happens to have an emphasis to make sure you can describe materials data in a way that makes it accessible to other material scientists for one. And two, we allow for publication of particularly large datasets.
+
+
+SH - The MDF is also set up so that researchers can easily update the data and its accompanying metadata, and can include other resources that will help people understand the datasets. Plus, you can have faith in the computational infrastructure too
+
+
+LW - All of it's kept version controlled. It's kept on servers, I believe, at the NCSA computing facility at the University of Illinois. So it's maintained by a very professional group there. And yeah, all of that ensures that your data is kept cleanly and available, even if you forget about it.
+
+
+SW - That is great to hear. The stereotype of nerds not showering might be fiction, but data hygiene is very real! I have had to dig so deep into some researcher’s personal websites look for their data only to find a dead link
+
+
+SH - Yeah, having that maintenance burden shifted from researchers to professionals is such a huge benefit of storing data in places like the MDF. There is one other benefit that makes the former librarian in me very happy
+
+
+SW - What is that?
+
+
+SH - By setting up a centralized repository for this type of data, the Materials Data Facility makes it a lot easier for researchers around the world to find the data they need to do their science
+
+
+SW - Totally, even if they aren’t interested in replicating someone else’s research there is probably something useful for their own work materials scientists could find in the MDF. So, what sorts of data could researchers hope to find?
+
+
+LW - These are everything and all that need to be available for that study to be improved upon or accessed. And that means catching a very broad base of data. Could be outputs from a computational code, it could be outputs from sensors at the advanced photon source or a microscope, all kinds of many things.
+
+
+SW - Ok, so a whole lot of stuff can be stored in the MDF
+
+
+SH - Definitely, but it does all have a big thing in common. It is all measurements and results. Or in other words the inputs and outputs for the computations
+
+
+SW - That is true, and that leaves us quite a far distance from the publish everything ideal 
+
+
+SH - Exactly, because everything definitely includes the parts that are doing the computation. For some parts of the computation, primarily the code itself, Logan finds version control services like GitHub or GitLab to work great so instead of working on something to help manage the code the next tool that Logan and I spoke about, Foundry,  works to help connect the code and the research data together
+
+
+LW - So what Foundry does is it builds the top of the materials data facility such that you can take those data sets and Foundry sort of facilitates that connection between data of a particular kind that we have on the Materials Data facility and analysis tools that work with that specific class of data.
+
+
+SW - WOW! Being able to directly connect your code to the data without having to download and store it yourself sounds like a dream
+
+
+SH - I know, right? It also means that if the original researchers update their dataset in the Materials Data Facility those changes would propagate to people using it in their work too
+
+
+SW - A data pipeline that keeps itself updated? Now that is definitely a way to help reproducibility. But does it get us to the Publish Everything?
+
+
+SH - Not yet, there is one last type of data that materials scientists rely on that Logan and his collaborators have helped to surface
+
+
+LW - So, Garden’s another tool that we built alongside the Materials Data facility to handle another particular kind of data, machine learning model files.
+
+
+SW - Ahhh, Danny did mention earlier how important machine learning has become for materials science
+
+
+SH - And there are a couple of good reasons why these model files are better off in a different repository than the measurements and result data. The first is
+
+
+LW - In a machine learning model, file in itself is really primarily used not necessarily to look at the inside of it like you might with a training set, but to execute it and make it make new predictions.
+ 
+SH - And the second
+
+
+LW - So what Garden does is allow you to turn those machine learning model weights into a functional tool that you can interact with to make new predictions.
+
+
+SW - So Garden is not just a place to publish the models, it is also a place to run them?
+
+
+SH - Not just that, part of the Garden publication process also creates an easy way for other researchers to interact with and use them without having to go digging through the original code. In other words
+
+
+LW - And that's just another way of taking what could be static archival data just published on the Material Data facility or attached in the supplementary information of a paper, and putting it in kind of exactly the way it needs to be for someone to build off of your science.
+
+
+SW - And that’s everything isn’t it? Everything is now published, and in the way that is most useful when it comes to other researchers and reproducibility
+
+
+SH - Ummmmmm
+
+
+SW - Ok Sam, clearly there is something else
+
+
+SH - Well, you are right that with the Materials Data Facility and Foundry and Garden and other services like Git for code the ecosystem for publishing everything is definitely there
+
+
+SW -Buuuuut
+
+
+SH - But, an ecosystem is only going to thrive if it’s used
+
+
+SW - Ahh, and we both know that ‘If we build it they will come’ only works for baseball fields in Iowa
+
+
+SH - Yeah, and sometimes not even then. That is why I asked Logan what he thinks researchers need to do in order to be ready to take part in this Publish Everything world
+
+
+LW  - I would find a way of making your research journal itself.
+
+
+SW - Sort of like keeping good notes in your lab notebook but for computational work like coding?
+
+
+SH - That is in fact just the analogy that Logan used. This is one way Logan described doing this self journaling research
+
+
+LW - That looks like tools like Git version control. I can make sure that I write my software in small, easy steps such that each of those steps can be described with a sentence or two and gradually that builds up a narrative. Those individual sentences become longer paragraphs of commit messages that tell me where I started and where I'm going.
+
+
+SH - This is another
+
+
+LW - Get really good at writing Jupyter notebooks in a way that feel like they're an actual paper. Then I'll go through and make sure that as I'm doing the work for me to figure it out, I'm basically writing it for somebody else.
+
+
+SH - It also means making sure you are questioning yourself and your code from the beginning
+
+
+LW - So when I'm writing that software, if ever there's something I'm in doubt, like did I add these numbers correctly or did I order this for loop with the right termination condition? I never want to worry about that on a later date, so I make sure to write tests for all my software.
+
+
+SH - And Logan says if you do version control, descriptive Jupyter notebooks, and tests then
+
+
+LW - You do all those three together, you've already got, at the end of the day, a publishable set of code that you can send along with your paper later, and you won't have to go back and redo it.
+
+
+SW - That is all code though, what does Logan suggest on the data side of things?
+
+
+LW - So with datasets particular, I've got a routine. Every time someone sends me a new data set, I put it in a folder, I label the folder with the date that I could put it, I put a text file in there that says where I got it from, and then I never touch it again.
+
+
+SH - The only thing that Logan may modify is to add more detail about things he found to that text file. Oh, and Logan did also mention the importance of the data folders to be sortable which gives me a moment to mention my favorite way of writing dates, the international date standard as set by ISO, the internationals standard organization, which is year year year year-month month-day day, also known as ISO-8601
+
+
+SW - I am usually all for random facts Sam, but why are you sharing this
+
+
+SH - First because it is the only date standard that is fully sortable for all dates in the common era and two because I am a huge nerd who happens to have a favorite date standard
+
+
+SW - (laughs) Yes you are in fact a huge nerd
+
+
+SH - And proud of it too. But back to Logan, while data will often need to be transformed during analyses 
+
+
+LW - Any analyses that say tweak that data set, put that in code that gets recorded such that you always can go from that gold data that you were given to your end result. without losing track of any manual edits that were made to it. And that way, conveniently, if you've also kind of done your work well in describing the data initially, you can go through and publish it somewhere like the Materials Data Facility, and that data should be usable by somebody else.
+
+
+SH - If there is one bit of advice about reproducibility from Logan that I really want everyone to internalize it is this
+
+
+LW - Don’t trust luck
+
+
+SH - Which is why
+
+
+LW - So that sort of reproducibility is part of my daily habits.
+
+
+SW - Now that is good advice
+
+
+SH - Hard to think of much better advice for upcoming statisticians, mathematicians, and scientists
+
+
+SW - I mean befriend and support your administrative staff is right up there
+
+
+SH - Ok, it’s even harder to think of much better advice than that
+
+
+SW - Well there is also…
+
+
+SH - Save it for your new show Sadie “Better advice for upcoming statisticians, mathematicians, and scientists”, because Logan still has something else to say
+
+
+LW - Yeah, the one thing I will emphasize is all of these are still tools that are growing
+
+
+SH - And growing means that they both want you to use the tools if they make sense for you and that they looking for
+
+
+LW - Feature requests, suggestions, ideas.
+
+
+SH - Which you can share with them in a few different ways
+
+
+LW - We have a Slack channel, their GitHub issues, their email address is around if that's your preferred way, and they will love complaints. So long as you say them nicely, I'm sure they will love to work with you and help turn these tools into something that everybody else gets some use out of because that’s what we’re here for.
+
+
+SW - I love it when people welcome complaints
+
+
+SH - You just like to complain
+
+
+SW - Never said I didn’t, speaking of complaints didn’t you tell me earlier we would have three guests today?
+
+
+SH - I did, and you will hear from our third and final guest just as soon as I tell our listeners about another amazing show from the University of Chicago Podcast Network
+
+
+SW - Ok, I guess I can wait a little bit longer
+
+
+ 
+[ad music]
+
+
+SH -  If you're getting a lot out of the research that we discuss on this show, there's another University of Chicago podcast network show that you should check out. It's called Capital-isn't. This podcast uses the latest economic thinking to zero in on the ways that capitalism is, and more often isn't, working today. From the morality of a wealth tax, to how to reboot healthcare, to who really benefits from ESG, capital-isn't clearly explains how capitalism can go wrong and what we can do about it. Listen to capitalism, part of the University of Chicago Podcast Network.
+
+
+[end ad music]
+
+
+
+
+SH - So Sadie, we just spent a while talking about reproducibility in materials science. Now I want to talk about bias
+
+
+SW - What, like people who prefer materials made of real wood instead of plywood because they think it is classier?
+
+
+SH - That definitely is a materials bias, but not quite what I meant. How about I let our guest define it instead
+
+
+JHS - Conscious or unconscious decisions that have been made that determine how things are going to be categorized, described, and, again, how we decide whether or not we've been successful in our decided outcomes.
+
+
+SH - I will let our guest introduce himself as well
+
+
+JHS - My name is Jason Hattrick-Simpers. I'm a professor of material science and engineering at the University of Toronto and a research scientist at Natural Resources Canada, CMAT Materials.
+
+
+SH - When Jason is thinking about bias in materials science research he sees 5 different axes along which bias can be seen. 
+
+
+SW - And he already shared a couple of them, how things are described and categorized and how to measure if an outcome is successful. What are the others?
+
+
+SH - Well the description and categorization is actually two, as it related to both the inputs and the outputs of the research. The fourth axis is another that ties to input
+
+
+JHS - There is the bias in where we decide to look for data.
+
+
+SW - Oh, so if you decide to make your own measurements or rely on measurements that you find in, say, the materials data facility?
+
+
+SH - Or measurements that are provided by a for profit collaborator. The other axis is related to the research itself
+
+
+JHS - There is the bias of how we decide to conduct the experiment to answer our question.
+
+
+SW - Because of course there are always many different experimental techniques
+
+
+SH - Not to mention how many machine learning models and computational algorithms available these days. 
+
+
+SW - So why does Jason think it is so important to consider these axes of bias?
+
+
+SH - Because as much as we like to act like mathematics and statistics and science are these bastions of objectivity how we are positioned in the field, how we were trained, the articles we read, and so much more can all impact the decisions we make like how we do things such as looking for data, how we describe data, and what we decide a successful outcome is. In material science for example
+
+
+JHS - How you decide to describe those materials is often very much a function of which of the multiple camps in materials machine learning you belong to. Do you use the magpie/map miner features? Do you create your own set of features? Are you a graph neural net person? Are you using pymatgen to generate structural features?
+
+
+SH - Which has downstream effects too
+
+
+SW - Like what?
+
+
+SH - Well these features, once they are described, are what create the distribution of data that encompass the training set for a machine learning model. And as Jason says
+
+
+JHS - Particularly in material science where we don't care. Is that a picture of a cat? I've seen a million pictures of a cat that could be a cat. Right? We're looking for things that are extraordinary. We want, we want things to break trends. Those are out of distribution predictions.
+
+
+SW - Ok, I sort of think I got it but can we say have an example to help clarify this idea of bias in out of distribution prediction
+
+
+SH - Your wish is my command
+
+
+JHS - So one of the questions that one has is what's out of distribution? Do I need to have, for instance, from the periodic table, do I need to have examples of every element in order to be able to predict that element?
+
+
+SW - Oh, that’s fascinating. Especially since Dmitri Mendeleev managed to use his newly described periodic table to predict the existence of scandium, gallium, technetium, and germanium just because there were gaps in the table where they should appear
+
+
+SH - Except now instead of a visual table based on very specific measures like the number of electron shells or characteristics of the outer shell, it is materials scientists pumping data measurements into a machine learning model and seeing if it can use tools like linear algebra, graph theory, and statistics to train itself to identify missing materials
+
+
+JHS - Using a bunch of open data sets, materials project being one of them, and a bunch of different models from feature based models to graph neural networks across all different types of representations and learning tasks, we sort of asked a very simple question, which is: So, I remove Iron and all iron containing compounds from the periodic table, train on everything else that's in the data set, and then reliably predict that.
+
+
+SW - And does it?
+
+
+SH - Well, what do you think?
+
+
+SW - I think it probably gets us in the ballpark, but I wouldn’t build a submarine based on just this calculation
+
+
+SH - Not being sure puts you in good company so are the rooms of materials scientists that Jason asks
+
+
+JHS - The rooms are generally split. It's about 50/50, people who say you can or you cannot.
+
+
+SW - So, who is right?
+
+
+JHS - What we found in our particular study is more or less across the board for the entire periodic table, it doesn't matter. You can remove an element, you can remove an entire period, you can remove an entire column. Doesn't matter. Rows and columns are irrelevant.
+
+
+SW - Whoa, so these machine learning models can predict out of distribution incredibly well then
+
+
+SH - Wellllll
+
+
+JHS - Except for a couple. Oxygen, fluorine, and hydrogen are special, somehow.
+
+
+SH - And this exposes a couple of biases according to Jason, the first having to do with the benchmarks that are used to rate how effective materials science machine learning models are at prediction. Just a note that Jason’s answer mentions the r-squared score, which measures the fit of the model to the data and the closer to 1 the closer to 100% fit
+
+
+JHS - And they're all getting these R squared scores that are now 0.995. You know, we're in the 3rd or 4th decimal point trying to improve things. But none of them are able to predict if you remove fluorine. Right? So, on the one hand, the bias is the benchmark, how we decide whether or not a model is generalizable or not.
+
+
+SW - Yeah, a benchmark probably should not rate a model so high if removing a single element breaks it
+
+
+SH - My thoughts exactly, the second bias is not quite so obvious
+
+
+JHS - So, this is a point of some contention, even with my postdocs and friends, is I think that it also points to a deficiency and a bias in the way we describe the materials that doesn't capture what is special about oxygen, fluorine, and hydrogen in some way.
+
+
+SH - For Jason it is just the most reasonable conclusion 
+
+
+JHS - It doesn't work for these things. Why? The models themselves should be fine. Right? It's us and the way we've chosen to describe the materials that is most likely the culprit.
+
+
+SW - Wow, so in what other places in materials science machine learning has Jason identified potential biases?
+
+
+SH - Well, I am going to answer your question with a question? How much data should you use when training a machine learning model?
+
+
+SW - This one I know! ALL THE DATA!
+
+
+SH - That was my answer too! Jason decided to check to see if that was true
+
+
+JHS - You can look at a large data set and for a particular task, ask the question, how much of those 100,000 or 1,000,000 compounds did I actually need to be able to generate a good and reliable model?
+
+
+SH - What he found was surprising to say the least
+
+
+JHS - We've done that for, again, a bunch of different open datasets, a bunch of different learning tasks, and generally speaking, the answer is we only need between, like, five and maybe 30 percent of the overall data in order to generate a good reproducible model.
+
+
+SW - So, we were biased?
+
+
+SH - Yes, we had both bought into the predominant narrative that for machine learning more data is better. Then again we are not the ones making these models so us being biased in this way doesn’t have that much of an impact
+
+
+SW - But what if the people who are building the models also have this bias?
+
+
+SH - That is where the impact can get expensive. Training on larger datasets takes more compute time, which takes more energy and more cooling, which requires more electricity and generates greenhouse gases, and so on down the line
+
+
+SW - Does Jason have any idea how this bias came to be?
+
+
+SH - He does, and it is likely the most common culprit in all of humanity when it comes to making us believe things that are not true
+
+
+JHS - I think that what that speaks to more broadly is you win through excessive big data through sheer luck in sampling.
+
+
+SH - To be slightly more specific
+
+
+JHS - So, this idea of this big, big, big, big, big data is just a, if we sample randomly in our search space enough, even things that were originally out of the distribution, we will eventually find some subset of instances for that'll give us our model just enough to overfit.
+
+
+SH - But one of the best things about recognizing a bias is that once you see it you can overcome it. In this case Jason believes that material scientists, and probably other people doing machine learning, can start to train models on much smaller and more curated datasets which will be faster and cheaper and then add in supplementary data points for where the models test to be weak
+
+
+JHS - What we've found, typically speaking, is like, even for something like fluorine or hydrogen, you don't predict it well, fine. Find 10 points that you predict really poorly for those and add them to the training data and your model is going to get a lot better.
+
+
+SW - Cheaper and faster model training sign me up! Or at least put me down for being in favor, I still am not planning on training my own
+
+
+SH - What, you’re not planning on quitting podcasting to become a materials scientist? Even after hearing all the cool things our guests have shared?
+
+
+SW - Ummm, no
+
+
+SH - Well maybe after this last story from Jason. It involves batteries and donuts
+
+
+SW - Ok, that does get my attention
+
+
+SH - This time around Jason and his team were working with an industry partner in the battery world
+
+
+JHS - They do a very specific thing, which is they turn salty water into battery grade lithium carbonate. That's their jam.
+
+
+SH - And this company was asking for
+
+
+JHS - What are the processing parameters and brines that get us to happy lithium carbonate?
+
+
+SW - So, how did the two groups work together?
+
+
+SH - Well, the industry partner provided their battery grade lithium expertise and Jason and his team provided the machine learning expertise
+
+
+JHS - The first thing you do is you talk to the experts and you define a set of parameters, right? They want a cold reactor, they want a hot reactor, they want a temperature difference between the two of them, and the chemists had their sort of special space, their preferred values, cold reactor should be as cold as possible, hot as hot as possible, and we roll.
+
+
+SH - And roll they did, for 6 months, with no lithium made at all
+
+
+JHS - At the time I had this fantastic graduate student working with me, Shayan Mousavi, who was just really grinding at not just building the models, but then using interpretability metrics to try to understand what the models we're seeing and doing his best to try to identify where is that sweet spot.
+
+
+SH - And that sweet spot was not the as cold as possible ideal the industry chemists wanted
+
+
+JHS - What the models were telling us was that when the cold reactor got warmer, we were getting closer to our spec.
+
+
+SH - But it doesn’t really matter because after 6 months with no results it was conscious uncoupling time. Or it should have been
+
+
+JHS - We have this thing, right? Maybe if we get the temperature up. Chemists there, like, no, again, violates thermodynamics. This is not the thing that we are going to do. And I am just, we're done. So you know what? I will bet you a donut. One more week, we're going to make this work together. I'll bet you a donut that this works. Let's raise that temperature up to what Shayan says is going to be an appropriate temperature and let's just give it a shot.
+
+
+SW - AND?
+
+
+SH - And what?
+
+
+SW - Who won the donut?
+
+
+SH - Exactly who you think
+
+
+JHS - One week later we meet and it worked.
+
+
+SW - Wooooo! So, the bias this time was in how to do the experiment?
+
+
+SH - Yeah, the industry chemists had been trained that lithium was made in a particular way and didn’t see how the model could possibly be right
+
+
+JHS -  It did so because the models pushed against the bias of the experts that said that this will never work. And we were in a position where, first of all, we were ready to call it quits, but we had some trust for one another as well. We tried it, right? The model pushed us in a direction where we wouldn't have normally gone and we were successful and we were successful for the entire year after that making battery grade spec lithium carbonate.
+
+
+SW - Cool, but now that that is out of the way can you please answer the big question?
+
+
+SH - Huh?
+
+
+SW - The DONUTS!
+
+
+Sh - Oh yeah
+
+
+JHS  - The really cool thing is nine o'clock in the morning, the next day after our meeting, I found a bag of a half a dozen donuts flowing in overnight from Vancouver to my office in Toronto hanging on my doorknob.
+
+
+SH - And the best part
+
+
+JHS - They were good donuts.
+
+
+SW - Yeah! Maybe I will think about moving to materials science, but only for the donuts
+
+
+SH - Watch out, don’t develop a bias that all materials science work gets paid in donuts from this one story
+
+
+SW - (laughs) Fair, fair. But speaking of bias did Jason have anything to say more generally about how mathematicians, scientists, and statisticians should be thinking about bias?
+
+
+SH - He did
+
+
+JHS - From the standpoint of scientists, right, it's just a matter of us understanding that these biases exist, doing our best to firstly document them. Who did this? Who decided on these sets of labels? What was the algorithm used, right? Create that data and metadata trail that allows people to come in after the fact and be able to maybe impose their own biases or de-bias.
+
+
+SH - And also understanding how these biases creep into the models and algorithmic tools they create
+
+
+JHS - A lot of people see AI as a lens to the future, but it's not, right? The AI is doing nothing more than creating a statistical averaging, a statistical regression on your past. And so every poorly labeled data set, every uninformative feature you've added to it or bad feature or noise, that just gets carried along and amplified. And it's literally what comes out on the other side. That's what you're staring at.
+
+
+SW - Oh, AI is just a statistical regression on your past. I like that a lot!
+
+
+SH - Me too, it is something that I want more than just scientists to internalize. Just like I would love everyone to internalize this too
+
+
+JHS - No individual paper, no matter how flashy or awesome, is the end of the story. We're still learning about what's going on. That's just how science works. Every hypothesis, every experiment that confirms it is one experiment away from having it rejected. And that's cool until we find a community consensus around what is the best set of rules that are tilde ground truth for today. And then we keep asking more questions.
+
+
+SW - So true, math and stats and science are always growing, always changing. Tomorrow is nothing more than a chance to learn yet another cool bit of it
+
+
+SH - AND?
+
+
+SW - And what?
+
+
+SH - And a chance to have some more tasty donuts
+
+
+SW - (laughs) Always
+
+
+(Outro Music Starts)
+
+
+
+
+SH - Don’t forget to check out our show notes in the podcast description for more Danny, Logan, and Jason, including links to their work we discussed on this episode
+
+
+SH - And if you like the show, give us a review on apple podcast or spotify or wherever you listen. By rating and reviewing the show, you really help us spread the word about Carry the Two so that other listeners can discover us.
+
+
+SH - And for more on the math research being shared at IMSI, be sure to check us out online at our homepage: IMSI dot institute. We’re also on twitter at IMSI underscore institute, as well as instagram at IMSI dot institute! That’s IMSI, spelled I M S I.
+
+
+SH - And do you have a burning math question? Maybe you have an idea for a story on how mathematics and statistics connect with the world around us. Send us an email with your idea!
+
+
+SH - You can send your feedback, ideas, and more to sam AT IMSI dot institute. That’s S A M at I M S I dot institute.
+
+
+SH - We’d also like to thank Blue Dot Sessions for the music we use in Carry the Two.
+
+
+SH - Lastly, Carry the Two is made possible by the Institute for Mathematical and Statistical Innovation, located on the gorgeous campus of the University of Chicago. We are supported by the US National Science Foundation and the University of Chicago.
+
+
+SW: So it does make grammatical sense
+
+
+SH: Yeah, but it’s not right. Uh (laughs)
+
+
+SW: My allies tin and chromium
+
+
+SH: Wow, wow. I was just out of breath by the end of that (laughs)
+
+
+SW: Yeah, I think you forgot to breath, want to try that one again? (laughs)
+
+
+SW: A data pape pape-line? No
+
+
+SH: (Laughs)
+
+
+SH: Also, don’t crack your fingers when you have a very high amount of gain on your mic because you can hear it
+
+
+SW: Laughs
+
+
+SH: Unintelligible frog like noise
+
+
+SW: What are you laughing at (laughs)
+
+
+SH: Listen to capitalizzz, listen to capitalism (laughs)
+
+
+SW: DSo we like to act or just do we not like to read lines (laughs)
+
+
+SH: That is not making the outtakes
+
+
+SW: No, please don’t include that (laughs)
+
+
+SW: It’s all Sam (laughs)
+
+
+SW: (Vocalizing music) Just kidding

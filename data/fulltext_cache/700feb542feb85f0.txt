@@ -1,0 +1,536 @@
+ Images des mathématiques
+       Les maths en mots et en images
+
+
+
+
+                Andrés Navas
+
+
+
+Mon cher chiffre 9 et quelques
+      pépites autour
+
+
+
+
+                        Images des mathématiques
+ IdM
+                          Volume 3 (2025), p. 117–127
+                           doi : 10.60868/kbhn-wp14
+IdM
+                   Images des mathématiques
+                     Les maths en mots et en images             117
+
+Mon cher chiffre 9 et quelques
+pépites autour
+ Écrit par Andrés Navas
+ Publié le 24 novembre 2025
+ doi : 10.60868/kbhn-wp14 — cc by-nc-nd 4.0
+       — 15 min ⩽ CLOCK ⩽ 30 min — SKIING
+
+    Théorie des nombres
+
+
+
+
+         Notre système de numération étant en base 10, on oublie
+         parfois l’importance du chiffre 9. Pourtant, il joue un rôle
+         capital pour l’écriture décimale des nombres. Dans cet ar-
+         ticle, on propose de montrer pourquoi il y a autant de 9 dans
+         (le dénominateur de) l’écriture en fraction des nombres
+         périodiques et semi-périodiques, et cela par un argument
+         très peu connu (non, ce n’est pas l’argument standard des
+         séries). Le but est de vous convaincre que cette écriture
+         devient évidente si l’on apprend par cœur une table de divi-
+         sion très particulière. Sur le chemin, on trouvera quelques
+         pépites vraiment intéressantes.
+
+
+
+
+                    Images des mathématiques — volume 3 (2025)
+118                                                                               A. Navas
+
+
+Le nombre 0, 999…
+   Commençons par l’égalité 0, 999… = 1 entre le nombre décimal pério-
+dique 0, 999… et l’unité. Certes, il s’agit d’une égalité un peu controversée.
+Voici un argument pour la démontrer 1 sans faire appel à des calculs.
+Démonstration (0, 999… = 1). 0, 999… n’est certainement pas plus grand
+que 1. S’il était plus petit, alors il y aurait des nombres strictement entre
+les deux (leur moyenne, par exemple). Or, il est clair qu’on ne peut rien
+placer entre eux : si 𝑥 < 1 est plus grand que ou égal à 0, 999…, alors son
+premier chiffre décimal doit être 9, le deuxième 9 aussi, et ainsi de suite.
+Donc, 𝑥 = 0, 999…                                                          SQUARE
+    Pourquoi l’expression 0, 999… nous dérange autant ? C’est peut-être
+parce qu’on ne la voit jamais apparaître comme résultat d’une division. En
+effet, si c’était le cas, les nombres divisés devraient être égaux (puisque
+0, 999… = 1). Mais pour des nombres égaux, notre algorithme de division
+donne le résultat 1, et non 0, 999…
+    Et si cet argument ne vous convainc toujours pas, voici un argument
+plus terre-à-terre. Supposons que le processus de division entre deux
+nombres (entiers et positifs) 𝑁 et 𝑀 donne 0, 999… comme résultat. Alors
+il devrait être de la forme suivante :
+
+  — Puisque le résultat commence par 0, le nombre 𝑁 est strictement
+    inférieur à 𝑀, et la division commence par :
+
+                  𝑁     𝑀
+                𝑁0      0,
+
+       Notez que ce qui est écrit sous la forme 𝑁0 n’est que la concaténation
+       des chiffres de 𝑁 avec un 0 à la fin, et correspond donc à 10 × 𝑁 (dix
+       fois 𝑁).
+
+    1. On peut critiquer cet argument en disant qu’on est en train de démontrer une égalité
+entre des nombres réels sans disposer d’une définition claire de cet ensemble de nombres. Il
+y a deux constructions formelles des nombres réels très connues : celle avec les coupures de
+Dedekind et celle par complétion de l’ensemble des suites de Cauchy proposée par Cantor.
+Cependant, il est beaucoup moins connu que l’on peut bel et bien construire les nombres réels
+à partir des expressions décimales. Une telle construction remonte aux travaux de Simon
+Stevin vers la fin du xvie siècle ; voir par exemple [1] et [4] pour un survol sur différentes
+constructions. Dans une telle construction, l’égalité 0, 999… = 1 fait partie de la définition.
+
+
+
+
+IdM
+Mon cher chiffre 9 et quelques pépites autour                               119
+
+
+  — Puisque le premier chiffre décimal du résultat est 9, le pas suivant est :
+
+              𝑁                  𝑀
+                      10 × 𝑁     0, 9
+                       9×𝑀
+              10(10𝑁 − 9𝑀)
+
+  — L’étape suivante est :
+
+              𝑁                          𝑀
+                               10 × 𝑁    0, 99
+                                9×𝑀
+                      10(10𝑁 − 9𝑀)
+                                9×𝑀
+                  2
+              10 𝑁 − 10 × 9𝑀 − 9𝑀
+
+  — Enfin, on s’aperçoit rapidement que pour continuer à n’obtenir que
+    des chiffres 9 lors de la division, pour tout entier positif 𝑘, l’expression
+
+            10𝑘 𝑁 − 9𝑀 × (10𝑘−1 + 10𝑘−2 + ⋯ + 10 + 1)
+
+      doit être strictement positive. Or, cette expression est égale à 10𝑘 𝑁 −
+      (10𝑘 − 1)𝑀. Donc, pour tout 𝑘 > 0 :
+
+            𝑁   10𝑘 − 1     1
+              >      𝑘
+                        =1− 𝑘
+            𝑀     10       10
+      Cependant, cela est faux dès que 10𝑘 > 𝑀/(𝑀 − 𝑁).
+   En d’autres termes, pour le processus de division de 𝑁 par 𝑀, on ne
+peut pas commencer par obtenir une quantité de chiffres 9 consécutifs
+supérieure à log10 (𝑀/(𝑀 − 𝑁)).
+Remarque 1. On a utilisé ci-dessus l’égalité :
+
+      9 × (10𝑘−1 + 10𝑘−2 + ⋯ + 10 + 1) = 10𝑘 − 1
+
+Voici une manière de la constater sans faire aucun calcul : la somme à
+gauche correspond à 9 + 90 + 900 + ⋯ + 9 × 10𝑘−1 , donc un nombre
+composé de 𝑘 chiffres 9. Si l’on rajoute 1, on obtient évidemment 100…0
+(avec 𝑘 zéros), c’est-à-dire 10𝑘 .
+
+
+
+
+                        Images des mathématiques — volume 3 (2025)
+120                                                                      A. Navas
+
+
+Une table de division
+      Il est clair que :
+
+        0, 999… = 0, 111… + 0, 111… + ⋯ + 0, 111…          (9 fois)
+
+C’est-à-dire, 1 = 0, 999… = 9 × 0, 111… Si l’on divise par 9, on obtient :
+         1
+           = 0, 111…
+         9
+      Il est clair aussi que :
+
+        0, 999… = 0, 010101… + 0, 010101… + ⋯ + 0, 010101…            (99 fois)
+
+Donc, 1 = 0, 999… = 99 × 0, 010101… En divisant par 99, on obtient :
+          1
+            = 0, 010101…
+         99
+      Enfin, le lecteur aura bien vu apparaître la « table de division » suivante :
+
+                                        1
+                       0, 111…    =
+                                        9
+                                        1
+                  0, 010101…      =
+                                        99
+                                         1
+              0, 001001001…       =
+                                        999
+                                          1
+          0, 000100010001…        =
+                                        9999
+... et ainsi de suite. Certes, on peut aussi aboutir à cette table par divi-
+sion directe en regardant ce qu’il se passe. Faites l’exercice : c’est très
+pédagogique.
+
+
+Une pépite
+      Et si l’on divise 1 par 11, 101, 1001, 10001... ? Regardez ce qu’il se passe :
+
+             1
+                   =       0, 090909…
+            11
+            1
+                   =       0, 009900990099…
+           101
+            1
+                   =       0, 000999000999000999…
+          1001
+
+
+
+
+IdM
+Mon cher chiffre 9 et quelques pépites autour                              121
+
+
+Pourquoi ? Voici un calcul explicatif :
+
+       1       999         999
+          =            =                =       999 × 0, 000001000001000001…
+     1001   1001 × 999   999999
+                                        =       0, 000999000999000999…
+
+
+Les décimales périodiques
+     Maintenant, multiplions chacune des égalités associées à 1/9, 1/99,
+1/999, etc., par des nombres qui ne sont pas plus grands que le dénomina-
+teur de la fraction correspondante, et voyons ce qu’il se passe. Par exemple,
+si l’on multiplie la deuxième d’entre elles par 47, on obtient :
+       47
+          = 47 × 0, 010101… = 0, 474747…
+       99
+De la même manière :
+       158
+           = 158 × 0, 001001001… = 0, 158158158…
+       999
+Le lecteur aura bien vu apparaître la fameuse « règle de passage de déci-
+males périodiques à une fraction » : on divise le nombre entier correspon-
+dant à la période par un nombre composé d’autant de chiffres 9 que de
+chiffres de la période.
+    Certes, on aboutit au même résultat par la méthode plus canonique qui
+consiste à « déplacer la période par multiplication par une puissance de 10
+et puis prendre la différence ». Par exemple, pour 𝑥 = 0, 434343…, on a :
+
+        100𝑥   = 43, 43434343…
+           𝑥   = 0, 43434343…
+donc
+
+       99𝑥 = 100𝑥 − 𝑥 = 43
+
+et finalement, 𝑥 = 43/99. Une méthode un peu plus élaborée (mais tout à
+fait équivalente à la précédente) consiste à penser un nombre périodique
+comme la somme d’une série géométrique. Cependant, la méthode basée
+sur la « table de division par des 9 » a l’avantage de rendre la transformation
+évidente. Le seul prix à payer, c’est que l’on doit intérioriser cette table...
+Mais en fait, des tables de calcul, on en a déjà dans la tête (en commençant
+par les tables de multiplication).
+
+
+
+
+                        Images des mathématiques — volume 3 (2025)
+122                                                                    A. Navas
+
+
+Exercice. En observant les égalités ci-dessous, développez un argument
+alternatif pour établir la règle de passage de décimales périodiques à
+une fraction :
+                           43     43    99
+            0, 43    =         =     ×
+                          100     99 100
+                           4343      4343    9999     43 × 101    9999
+          0, 4343    =            =       ×        =            ×
+                          10 000     9999 10 000      99 × 101 10 000
+                          43     9999
+                     =        ×
+                          99 10 000
+                           434 343     434 343    999 999
+       0, 434343     =               =          ×
+                          1 000 000    999 999 1 000 000
+                          43 × 10 101     999 999    43     999 999
+                     =                 ×          =     ×
+                          99 × 10 101 1 000 000      99 1 000 000
+
+(Notez que la toute dernière fraction à droite dans chaque ligne se rap-
+proche de plus en plus de 1.)
+    Dans la suite, nous adopterons une notation plus standard du type
+0, 527… = 0, 527 pour des décimales périodiques et semi-périodiques.
+
+
+Une infinité de pépites
+    Le nombre décimal 0, 012345679 est très particulier (notez qu’il manque
+le 8). Si l’on exécute le procédé plus haut et puis qu’on simplifie, on obtient :
+
+                         012345679    1   1
+      0, 012345679 =               =    = 2
+                         999999999   81  9
+Cet exemple n’est que le premier de toute une famille :
+
+                                                                   1
+       0, 0001020304050607080910111213…95969799             =
+                                                                  992
+                                                                    1
+                           0, 000001002…995996997999        =
+                                                                  9992
+Il y a plusieurs manières de se convaincre de ces égalités. Comme nous
+verrons plus bas, elles découlent par exemple des égalités :
+
+                    12345679 × 9    =   111111111     (9 chiffres 1)
+          010203…969799 × 99        =   010101…01      (99 termes 01)
+ 001002003…996997999 × 999          =   001001001…001       (999 termes 001)
+
+
+
+
+IdM
+Mon cher chiffre 9 et quelques pépites autour                           123
+
+
+(Notez que ne manquent que le 8, le 98, le 998, etc.) Pour montrer, par
+exemple, la deuxième égalité, calculez :
+        010203…969799 × 99     = 010203…969799 × (100 − 1)
+                               = 010203…96979900 − 01020304…969799
+et puis faites la différence. La généralisation n’est pas très compliquée.
+    Maintenant, considérons la deuxième égalité plus haut écrite sous
+la forme :
+        1    00010203…969799
+           =
+       99        010101…01
+et multiplions les termes des deux côtés par 1/99. Nous obtenons alors,
+comme annoncé :
+      1     00010203…969799
+        2
+          =                    = 0, 000102030405060708091011…95969799
+     99         999999…99
+Exercice. Trouvez les expressions en nombres décimaux périodiques des
+fractions précédentes à partir des séries infinies, comme par exemple :
+                                           2
+         1       1     1       1
+           2
+             =(     +     2
+                            +      + ⋯) = ?
+        99      100   100     1003
+
+
+Les décimaux semi-périodiques
+    La méthode présentée plus haut permet aussi d’obtenir les expres-
+sions en forme de fraction des nombres décimaux semi-périodiques, mais
+ceci après une manipulation algébrique. Par exemple, pour 𝑥 = 2, 734, on a :
+
+                          27 0, 34   1                 1       34
+    𝑥    =   2, 7 + 0, 034 =  +    =    [27 + 0, 34] =    [27 + ]
+                          10    10   10                10      99
+              1 27 × 99 + 34
+         =      [            ]
+             10      99
+donc
+                 1 27 × (100 − 1) + 34    1 27 × 100 + 34 − 27
+        𝑥    =      [                  ]=    [                 ]
+                 10          99           10        99
+                 1 2734 − 27    2707
+             =                =
+                 10   99         990
+    Encore une fois, on voit apparaître la règle classique de transformation
+d’un nombre décimal semi-périodique en une fraction, qui peut aussi être
+retrouvée à l’aide des autres méthodes esquissées ci-dessus.
+
+
+
+
+                        Images des mathématiques — volume 3 (2025)
+124                                                                A. Navas
+
+
+Une dernière pépite décimale
+    Au début du xixe siècle, le mathématicien français Étienne Midy observa
+(et prouva) une propriété surprenante des expressions périodiques de
+nombreuses fractions. Dans un cas particulier, celle-ci énonce ce qui suit :
+Proposition 2
+Si 𝑝 est un nombre premier tel que 1/𝑝 a une expression périodique de longueur
+paire 2ℓ, alors, pour chaque 0 < 𝑞 < 𝑝, l’expression décimale de 𝑞/𝑝 est de la
+       𝑞
+forme = 0, 𝑎1 𝑎2 … 𝑎2ℓ et satisfait 𝑎1 + 𝑎ℓ+1 = 𝑎2 + 𝑎ℓ+2 = ⋯ = 𝑎ℓ + 𝑎2ℓ = 9.
+       𝑝
+
+    Bien sûr, quand on travaille avec un décimal périodique, on fait toujours
+référence à sa période minimale. Ceci dit, voyons deux exemples du
+théorème ci-dessus qui, à eux seuls, sont des pépites :
+
+                 1
+                   = 0, 142857         1+8=4+5=2+7
+                 7
+       1
+         = 0, 0588235294117647         0+9=5+4=8+1=⋯=2+7
+      17
+
+Quelques éclaircissements sont nécessaires. Premièrement, il n’est pas
+difficile de prouver que, pour tout nombre premier 𝑝 distinct de 2 et 5,
+l’expression décimale de 𝑞/𝑝 est périodique pour tout 𝑞 < 𝑝 (voir l’exercice
+ci-dessous). De plus, la longueur de cette période ne dépend pas de 𝑞.
+Dans de nombreux cas, cette période a une longueur paire, bien que ce
+ne soit pas toujours le cas (cela ne se produit pas pour 𝑝 égal à 3, 31 ou
+37, par exemple). Ce qui est surprenant, c’est que lorsque cette longueur
+est paire, la moitié de la période donne l’information complète de l’autre
+moitié, car, selon le théorème de Midy, les nombres formés par les deux
+moitiés doivent avoir pour somme 99…9 = 10ℓ − 1.
+    Le joli résultat ci-dessus est passé un peu inaperçu par la communauté,
+au point d’être redécouvert par de nombreuses personnes par la suite. Plus
+intéressant encore, il a été généralisé et étendu dans différentes directions.
+En particulier, la preuve ci-dessous s’applique également lorsque 𝑝 est
+la puissance d’un nombre premier distinct de 2 et 5 (par exemple, elle
+fonctionne pour 121), ou lorsque 𝑝 est relativement premier par rapport
+à 2, 5 et 10ℓ − 1 (par exemple, elle fonctionne pour 77, mais pas pour 803).
+Le point crucial est le comportement de la divisibilité des puissances de 10
+par rapport au dénominateur 𝑝. Bien interprété, il existe des versions du
+théorème qui s’appliquent à tout nombre périodique. Plus d’informations
+à ce sujet peuvent être trouvées dans [2, 3].
+
+IdM
+Mon cher chiffre 9 et quelques pépites autour                                      125
+
+
+Une preuve rapide du théorème de Midy
+   Si nous désignons par 𝑁 (resp. 𝑁)      ̂ le nombre obtenu par concaténation
+des chiffres 𝑎1 , 𝑎2 , … , 𝑎2ℓ (resp. 𝑎ℓ+1 , … , 𝑎2ℓ , 𝑎1 , … , 𝑎ℓ ), alors :
+      𝑞                    𝑎1 𝑎2 … 𝑎2ℓ    𝑁
+        = 0, 𝑎1 𝑎2 … 𝑎2ℓ =             = 2ℓ
+      𝑝                      99…9       10 − 1
+Par suite, 𝑞(102ℓ − 1) = 𝑁𝑝. Comme 𝑞 < 𝑝, le premier 𝑝 doit diviser
+102ℓ − 1 = (10ℓ − 1)(10ℓ + 1). Ci-dessous, nous prouverons que 𝑝 ne divise
+pas 10ℓ − 1. En admettant cela, nous avons « (10ℓ + 1)/𝑝 est un entier »,
+donc il en est de même pour :
+
+          𝑁              𝑞(10ℓ + 1)  𝑞 10ℓ 𝑞
+                   =                = +
+        10ℓ − 1              𝑝       𝑝  𝑝
+                   =     0, 𝑎1 𝑎2 … 𝑎2ℓ + 𝑎1 𝑎2 … 𝑎ℓ , 𝑎ℓ+1 𝑎ℓ+2 … 𝑎2ℓ 𝑎1 𝑎2 …𝑎ℓ
+
+Or, la dernière somme correspond à un nombre entier plus :
+                                                           𝑁    𝑁̂   𝑁 + 𝑁̂
+      0, 𝑎1 𝑎2 … 𝑎2ℓ + 0, 𝑎ℓ+1 𝑎ℓ+2 … 𝑎2ℓ 𝑎1 𝑎2 … 𝑎ℓ =       +     =
+                                                         99…9 99…9   99…9
+Donc, 𝑁 + 𝑁̂ est un multiple de 99…9 = 102ℓ − 1. Puisque 𝑁 et 𝑁̂ sont
+(strictement positifs et) plus petits que 99…9, la seule possibilité est 𝑁+𝑁̂ =
+99…9, ce qui conduit rapidement aux égalités annoncées par Midy :
+      𝑎1 + 𝑎ℓ+1 = 𝑎2 + 𝑎ℓ+2 = ⋯ = 𝑎ℓ + 𝑎2ℓ = 9
+    Il ne reste plus qu’à prouver que 𝑝 ne divise pas 10ℓ − 1. Procédons par
+contradiction : si (10ℓ −1)/𝑝 était égal à un entier 𝑟, alors 1/𝑝 = 𝑟/(10ℓ −1) =
+𝑟 × 0, 00…01 (avec ℓ − 1 zéros). Cependant, cette dernière expression est
+périodique de longueur ℓ (car 𝑟 < 10ℓ − 1), ce qui contredit le fait que la
+période de 1/𝑝 est 2ℓ.
+Exercice. Prouvez qu’une fraction réduite 𝑎/𝑏 a une expression décimale
+périodique si et seulement si 𝑏 est relativement premier avec 10.
+Exercice. Montrez qu’un nombre naturel a un multiple de la forme 99…9
+si et seulement s’il est relativement premier avec 10.
+
+
+Encore une pépite pour conclure
+   Voici une autre propriété des nombres 9, 99, 999, etc., un peu décon-
+nectée des précédentes, mais très étonnante. Elle est bien connue pour le
+
+
+
+
+                         Images des mathématiques — volume 3 (2025)
+126                                                                       A. Navas
+
+
+nombre 9 : si l’on note 𝑆(𝑛) la somme des chiffres du nombre 𝑛, alors on a :
+        𝑆(9 × 1)   =    𝑆(9)     = 9
+        𝑆(9 × 2)   =    𝑆(18)    = 1+8
+                          ⋮
+        𝑆(9 × 9)   =    𝑆(81)    =    8+1
+Mais il se trouve qu’on a aussi :
+  𝑆(99 × 1) =       𝑆(99 × 2) = ⋯ =           𝑆(99 × 99)  = 𝑆(99 × 100)
+ 𝑆(999 × 1) =       𝑆(999 × 2) = ⋯ =         𝑆(999 × 999) = 𝑆(999 × 1000)
+De plus, ces nombres sont les seuls qui satisfont les égalités :
+       𝑆(𝑛 × 1) = 𝑆(𝑛 × 2) = ⋯ = 𝑆(𝑛 × 𝑛) = 𝑆(𝑛 × (𝑛 + 1))
+Essayez de montrer tout ça : c’est vraiment joli ! Il faut dire que j’ai appris
+cette propriété en feuilletant de vieilles listes de problèmes d’olympiades
+de mathématiques il y a bien longtemps. En effet, c’était le problème 2 de
+l’olympiade nationale de Hongrie de 1989. J’ignore si cela était connu avant.
+Problème 3
+Quelles sont les valeurs possibles de 𝑆(9𝑘 ) ? Autrement dit, quelles valeurs peuvent
+prendre les sommes des chiffres des puissances de 9 ? Une question analogue peut
+être posée pour les puissances de 11 : quelles valeurs peuvent prendre les sommes
+alternées des chiffres de 11𝑘 ? Rappelons que la somme alternée des chiffres de 𝑛
+est la somme du chiffre des unités de 𝑛 moins le chiffre des dizaines de 𝑛 plus le
+chiffre des centaines de 𝑛 moins…
+Exercice. Énoncez et démontrez des affirmations analogues à celles de cet
+article pour des bases numériques autres que 10.
+
+
+Références
+ [1] Nicolas Fardin et Liangpan Li. « Real numbers as infinite decimals ».
+     The Mathematics Enthusiast 18.1-2 (2021), p. 21-38. doi : 10.54870/1
+     551-3440.1511.
+ [2]   Joseph Lewittes. « An extension of hyperbolic geometry and Julia’s
+       theorem ». Duke Mathematical Journal 35.4 (2007), p. 1-11. doi : 10.1
+       215/s0012-7094-68-03582-5.
+ [3] Maurice Shrader-Frechette. « Complementary Rational Numbers ».
+     Mathematics Magazine 51.2 (1978), p. 90-98. doi : 10.1080/0025570
+     x.1978.11976686.
+
+
+
+
+IdM
+Mon cher chiffre 9 et quelques pépites autour                                           127
+
+
+ [4] Ittay Weiss. « The real numbers – A survey of constructions ». Rocky
+     Mountain Journal of Mathematics 45.3 (2015), p. 737-762. doi : 10.12
+     16/rmj-2015-45-3-737.
+
+
+Remerciements
+   Merci à Hélène Eynard-Bontemps pour ses corrections, Sebastián Bar-
+bieri, Patrick Popescu-Pampu, Nicolás Piña, Gleen Foos, Carlos Collao,
+Mario Ponce, Hugo Carols et José Hernández pour leurs remarques. Merci
+également à Shalom Eliahou, aux relecteurs Frédéric Millet et Jean-Romain
+Heu, ainsi qu’à Verena Rodríguez pour sa superbe illustration en frontis-
+pice de cet article 2.
+
+
+
+                                   Andrés Navas
+                                   Professeur – Universidad de Santiago de
+                                   Chile.
+
+
+
+
+    Article édité par Shalom Eliahou.
+
+
+
+
+   2. Cet article a été financé par le projet DICYT 042532NF− REG de l’université de Santiago
+du Chili.
+
+
+
+
+                            Images des mathématiques — volume 3 (2025)
+

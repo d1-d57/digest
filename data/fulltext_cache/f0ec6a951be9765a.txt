@@ -1,0 +1,497 @@
+ Are there non-trivial theorems about all finitely generated groups?
+ Tom Hutchcroft
+
+
+
+
+ We discuss several interpretations and potential counterexamples            The resulting graph metric on G is called a word metric. Although
+ to the meta-mathematical question in the title of the paper, focus-         different Cayley graphs of G need not be isomorphic, they are
+ sing on geometric group theory and probability on groups.                   always bi-Lipschitz equivalent in the sense that for any two such
+                                                                             metrics there exist positive constants c and C such that cd 2 (x, y) ≤
+                                                                             d 1 (x, y) ≤ C d2 (x, y). (This is analogous to how all norms on ℝd
+     I shall not today attempt further to define the kinds of                are equivalent.) As such, one can always consider a ﬁnitely gener-
+     material I understand to be embraced within that shorthand              ated group as a “geometric” object up to bi-Lipschitz equivalence.
+     description, and perhaps I could never succeed in intelligibly          In fact, one typically works with a larger family of equivalences
+     doing so. But I know it when I see it, and the motion picture           known as quasi-isometries (in which one also allows distances to
+     involved in this case is not that.                                      be distorted by additive constants), which has the advantage that
+        Jacobellis v. Ohio, 378 U.S., p. 197 (Stewart, J., concurring)       ﬁnitely generated groups are quasi-isometric to their ﬁnite-index
+                                                                             subgroups and ℤd is quasi-isometric to ℝd . Flipping this perspect-
+                                                                             ive on its head (and slightly extending the scope of geometric
+ 1      Thesis                                                               group theory from ﬁnitely generated groups to compactly gen-
+                                                                             erated, locally compact groups), one can alternatively think of
+ The goal of this article is to give a light-hearted and, hopefully,         geometric group theory as a language for the study of arbitrary
+ thought-provoking critique of the following famous aphorism:                “homogeneous” geometric spaces, a subject that is of obvious
+                                                                             interest to geometers and which one need not be an algebraist
+“Theorem”. If a property is satisfied by all finitely generated              to appreciate or contribute to. (It is obligatory here to mention
+groups, then it must be satisfied for trivial reasons.                       the bridge between these two perspectives provided by the Švarc–
+                                                                             Milnor lemma, a.k.a. the fundamental observation of geometric
+     This “theorem” is often attributed1 to Gromov, the father of            group theory, which states that if a group acts properly discon-
+ the ﬁeld known as geometric group theory, who may have in-                  tinuously and cocompactly on a proper length space (X, d), then
+ tended it as a joke. In geometric group theory, one seeks to                G is ﬁnitely generated and its Cayley graphs are quasi-isometric
+ understand groups as geometric objects, starting with the ob-               to X.)
+ servation that if G is a group with ﬁnite generating set S (meaning
+ that G does not have any strict subgroups containing S), then G
+ acts by isometries on its Cayley graph Cay(G, S), the graph with            Is the “theorem” not obviously false?
+ vertex set G and where two vertices x and y are connected by an             Leaving aside the question of how to deﬁne “trivial,” the ﬁrst reac-
+ edge if x = ys or x = ys −1 for some s ∈ S. (Technically this deﬁnes        tion of a certain kind of mathematician upon reading the above
+ the right Cayley graph, on which G acts by left multiplication.)            “theorem” will be to point out various obvious “counterexamples,”
+                                                                             perhaps starting with a “property of a group” deﬁned through some
+                                                                             irrelevant but true and diﬃcult-to-prove assertion; at least one of
+1 Ghys and de la Harpe [22] write “On attribue à M. Gromov l’affirmation     “The Riemann hypothesis is true” or “The Riemann hypothesis is
+  suivant laquelle un théorème valable pour tous les groupes ne peut etre
+                                                                             false” will do. A more charitably minded mathematician might con-
+  que trivial ou sans importance,” which is of course a slightly different
+                                                                             tend that one is obviously not supposed to consider “properties”
+  statement. Interpreters of this quote should bear in mind that geometric
+  group theorists will often leave the words “ﬁnitely generated” implicit    of a group deﬁned via such irrelevancies (that in this example do
+  and talk simply of “groups,” especially in oral communication with         not even reference the group), but instead point out “counter-
+  colleagues.                                                                examples” that involve either conditional statements (“if P then Q”)
+
+
+ EMS MAGAZINE 139 (2026) — DOI 10.4171/MAG/295                                                                                                   5
+ or dichotomies (“P or Q”), an important example being Gromov’s                For both questions, it will be interesting to examine not just the-
+ theorem:                                                                      orems that apply to all ﬁnitely generated groups, but also those
+                                                                               applying to very large classes of such groups, such as all infinite
+ If G has polynomial volume growth, then it is virtually nilpotent.
+                                                                               ﬁnitely generated groups. For the ﬁrst question, I hope to con-
+ which is certainly a non-trivial statement concerning all ﬁnitely             vince the reader that there are unambiguous counterexamples
+ generated groups. (Here a group is said to have polynomial volume             to the theorem that are of genuine mathematical interest and
+ growth if the radius-r balls of one – and hence all – of its Cayley           do not involve any “cheating” via irrelevant or conditional state-
+ graphs have cardinality at most (1 + r)C for some constant C, and             ments as above. For the second, the answer is more complicated:
+ is said to be virtually nilpotent if it has a nilpotent subgroup of ﬁnite     while the implicit advice of the “theorem” does usefully guard
+ index.) This is of course just one particularly prominent example             against certain naïve mathematical endeavours, it may also lead
+ among countless others of a theorem stating that one property of              to an excessively pessimistic outlook that I hope to offer some
+ a ﬁnitely generated group implies another, and since many of these            respite from.
+ theorems are clearly non-trivial (and pas sans importance), we
+ should be careful to exclude such conditional statements from the
+ “theorem.” There are also important, non-trivial theorems showing            Dreams or nightmares?
+ that some complicated data associated to a group is equivalent               I was motivated to write this article partly by an interesting cul-
+ to some other complicated data,2 or similarly that one quantity              tural difference5 I have observed between probabilists and group
+ associated to a group is always bounded by another quantity,3                theorists regarding problems at the intersection of their interests:
+ which do not always “feel like” “counterexamples” to the “the-               Many of the problems probabilists ﬁnd most interesting about
+ orem” even though they do arguably pertain to a “property” of all            “probability on groups” concern very large classes of (ﬁnitely
+ ﬁnitely generated groups. (What is a property?) Similarly, there are         generated) groups, such as all inﬁnite groups, all non-amenable
+ e.g., several important theorems in percolation theory that hold on          groups, all groups of at least quadratic growth, etc. Two prominent
+ general transitive graphs (e.g., the sharpness of the phase transition       open problems of this ﬂavour are the Benjamini–Schramm con-
+ and the mean-ﬁeld lower bound on the critical volume tail [1]), but          jecture [4], which asserts that percolation on any non-amenable
+ which “feel like” properties of percolation rather than properties           Cayley graph has a non-trivial phase in which there are inﬁnitely
+ of the group and which I do not personally ﬁnd compelling as                 many inﬁnite clusters, and the Liouville stability problem, which
+ “counterexamples” to the “theorem.” (There are other theorems                asks whether the Liouville property (all bounded harmonic func-
+ from percolation that do “feel like counterexamples” to me, which            tions are constant) is independent of the choice of generating
+ I discuss below.)                                                            set for all ﬁnitely generated groups; experts strongly believe the
+      It is not the intention of this article to develop a logical frame-     Benjamini–Schramm conjecture to be true (see [28, 29, 53] for par-
+ work specifying precise constraints to be placed on what “prop-              tial results), while there is less consensus on the Liouville stability
+ erties” the “theorem” applies to (if such a thing is even possible4).        problem.
+ Instead, I want to ask:                                                           Two further important open problems coming internally from
+   • What interesting examples are there, if any, of “counter-                within group theory that involve putative properties of all ﬁnitely
+      examples” to the “theorem,” that is, non-trivial properties that        generated groups include the question whether all ﬁnitely gener-
+      hold for all ﬁnitely generated groups?                                  ated groups are sofic [33] and Gaboriau’s problems of ﬁxed price
+   • What is the value of the “theorem” as advice – that is, as a rule        and cost vs. Betti number [21]. For the ﬁrst of these problems, it
+      of thumb cautioning mathematicians not to waste their time              is widely believed that non-soﬁc groups exist, and preprints have
+      working at an overly great level of generality in a way that is         recently appeared arguing that the closely related Connes embed-
+      unlikely to lead to interesting results?                                ding conjecture and Aldous–Lyons conjecture are false [6, 7, 32].
+                                                                              (Interestingly, the methods of these papers are non-constructive
+                                                                              and do not yield explicit counterexamples.) There is less consensus
+2 A favourite example of mine from GGT being Olshanskii’s characterisa-       regarding Gaboriau’s problems.
+  tion of metrics arising on G from word metrics on larger groups H via
+  embeddings G ↪ H [49, 50], up to bi-Lipschitz equivalence, as exactly the
+  left-invariant metrics of at most exponential volume growth.
+3 This includes the various inequalities relating the volume growth, iso-
+  perimetry, heat-kernel decay, entropy, and rate of escape of the random
+  walk as surveyed in [63]. Many of these relationships hold for arbitrary    5 This difference appears to be orthogonal to other well-noted cultural
+  bounded-degree graphs and are not really speciﬁc to groups.                   differences between “analysts” and “algebraists” pertaining to, say, the
+4 Philosophers have attempted to solve similar problems using so-called         two cultures of mathematics [23] and the manner in which they eat corn
+  relevance logics (a.k.a. relevant logics) [45].                               on the cob [60].
+
+
+ 6                                                                                                                                 EMS MAGAZINE 139 (2026)
+     Regarding problems like this, I have often found probabilists          virtually Abelian groups (or, more generally, all groups with an ele-
+more likely to believe in positive solutions6 while among group             ment of inﬁnite order) via an elementary argument in the earlier
+theorists there is a strong tendency, informed in part by the above         work [56], while for groups that are not virtually Abelian the authors
+“theorem,” to expect counterexamples to exist to any suﬃciently             use a probabilistic construction relying on a theorem of Tointon
+general conjecture that has resisted serious attempts at proof for          characterising virtually Abelian groups in terms of commuting prob-
+any length of time. This intuition is hard-won, and stems in part           abilities of random walks [61]. In the latter case the authors show
+from important negative results obtained via the construction of            the stronger result that the group has a Cayley graph with no
+pathological examples including Grigorchuk’s groups of intermedi-           automorphisms other than the group itself; this is not true for
+ate volume growth [24] and Gromov–Osajda monsters [52]; see                 inﬁnite7 Abelian groups, which always have an additional x ↦ −x
+also, e.g., [9, 19, 50, 51] for further examples. On the other hand,        symmetry.
+while there is undoubtedly a degree of naïvety behind the prob-
+abilist’s attitude to these questions, it has also led to a number of
+signiﬁcant results over the years including, e.g., the solutions to the     Diffusive lower bounds on the random walk
+Choquet–Deny problem [20], the pc < 1 problem [12, 17], and the             Our next proposed “counterexample” has the caveat that it applies
+many important results proven about percolation on non-amenable             only to infinite ﬁnitely generated groups. Recall that the simple
+groups by subsets of Benjamini, Lyons, Peres, and Schramm in the            random walk on a Cayley graph (or any other graph) is a random
+late 1990s [3, 40, 44]. My opinion is that optimism and pessimism           process which, at each time step, jumps to a uniform random
+are both valuable and that mathematicians should endeavour not              neighbour of its current position independently of everything it has
+to neglect either point of view.                                            done previously. One of the most basic questions one can ask about
+                                                                            random walk is its rate of escape, i.e., the large-n asymptotics of the
+                                                                            typical distance travelled by the random walk in n steps. This typical
+ 2      Antithesis                                                          distance is of order √n on inﬁnite Abelian groups as a consequence
+                                                                            of the central limit theorem, and is of order n on the k-regular tree
+ We now discuss various possible “counterexamples” to the “the-             for k ≥ 3. (It is a major open problem whether the rate of escape
+ orem,” i.e., interesting, non-conditional statements applying to           can depend on the choice of generating set for general ﬁnitely
+ all ﬁnitely generated groups whose only known proofs are non-              generated groups.)
+ trivial. The examples we give are highly biased towards my own                 It is now known that the rate of escape for the random walk on
+ research interests at the intersection of geometric group theory           an inﬁnite, ﬁnitely generated group can be essentially any function
+ and probability.                                                           between √n and n [9]. On the other hand, it is not possible for
+                                                                            the rate of escape to be slower than √n, in contrast to random
+                                                                            walk on fractals (more accurately “pre-fractals,” like the graphical
+ Cayley graphs with few automorphisms                                       Sierpiński gasket) that often have rate-of-escape of order n β for
+ Let us begin with the following theorem of Leemann and de la               β < 1/2 [36]. The following theorem appeared in the work of Lee
+ Salle [38, 39], which has the advantage that its statement is very         and Peres [37] (which also establishes stronger results of the same
+ clean and easy to appreciate. Every ﬁnitely generated group acts           form), but existed previously as folklore and is sometimes attributed
+ by automorphisms on each of its Cayley graphs, but these Cayley            to Virág. Here we write (Xn )n ≥ 0 for the random walk started at
+ graphs may have many further automorphisms. For example, the               the identity and write |Xn | for the distance between Xn and the
+ four-regular tree (which is a Cayley graph of the free group on two        identity.
+ generators) has uncountably many automorphisms.
+                                                                            Theorem 2.2. Let G be a finitely generated group with symmetric
+ Theorem 2.1. Every finitely generated group has a Cayley graph             generating set S, and consider the simple random walk on the
+ with countable automorphism group.                                         Cayley graph Cay(G, S). If G is infinite, then there exists a constant
+                                                                            c such that
+     The proof of this theorem proceeds by case analysis accord-
+                                                                                                        𝔼|Xn |2 ≥ cn
+ ing to whether or not the group is virtually Abelian (i.e., has an
+ Abelian subgroup of ﬁnite index): The theorem was proven for               for every n ≥ 0.
+
+
+6 For example, the probabilists David Aldous and Russ Lyons are some of
+  the only mathematicians to have publicly supported the conjecture that
+  all groups are soﬁc, motivated by their more general conjecture about    7 This is needed to rule out groups of the form (ℤ/2ℤ)n , where the map
+  unimodular random graphs [2].                                              x ↦ −x is just the identity.
+
+
+ EMS MAGAZINE 139 (2026)                                                                                                                         7
+     Geometric purists can expunge all reference to probability from            Coarse regular variation of the inverse growth
+ this theorem by reformulating it in terms of solutions to the heat             I next give a “counterexample” that, while more technical than
+ equation. See also [30,63] for further results and conjectures related         my other examples, has the strongest credentials of non-triviality
+ to this theorem. The proof of this theorem relies on a case analysis           in that its proof relies on some of the deepest work in geometric
+ according to whether or not the group is amenable. When the                    group theory: Gromov’s theorem [25], Pansu’s theorem [55], and
+ group is non-amenable, the stronger statement 𝔼|Xn |2 ≥ cn 2 holds             Hrushovski’s theorem [27]. It is also arguably the more “purely
+ as a trivial consequence of Kesten’s theorem (which states that                geometric” of my proposed counterexamples. Recall that a function
+ a group is non-amenable if and only if the random walk return                  f ∶ (0, ∞) → ℝ is said to be regularly varying if f(x) > 0 for all
+ probabilities decay exponentially). On the other hand, it is a (very)          suﬃciently large x and the limit
+ special case of a theorem of Mok, Korevaar, and Schoen [35, 46]
+                                                                                                                   f(λx)
+ that if G is amenable (or, more generally, does not have Kazhdan’s                                          lim
+                                                                                                             x→∞    f(x)
+ property (T)), then it admits a non-trivial equivariant harmonic
+ embedding into Hilbert space Ψ ∶ G → ℍ. In this case the image                 is well deﬁned for each λ > 0. The ﬁrst basic theorem about reg-
+ Ψ(Xn ) is a (possibly inﬁnite-dimensional) martingale and one has              ularly varying functions is that (subject to very mild additional
+                                       n                                        regularity assumptions such as measurability or Baire measurability
+     𝔼|Xn |2 ≥ c1 𝔼‖Ψ(Xn )‖2 = c1 𝔼 ∑ ‖Ψ(Xn ) − Ψ(Xn − 1 )‖2 = c2 n             that certainly hold for the piecewise-continuous functions we con-
+                                      i=1
+                                                                                sider), this convergence must hold uniformly for compact sets of λ
+ by equivariance of the embedding and orthogonality of martingale               in (0, ∞) and that there must exist a real number α, known as the
+ increments.8 This theorem is related to the fact that every inﬁnite            index of regular variation, such that
+ Cayley graph admits a harmonic function of at most linear growth,
+                                                                                                                f(λx)
+ another “counterexample” to the “theorem” that plays an import-                                          lim         = λα
+                                                                                                         x→∞     f(x)
+ ant role in Kleiner’s proof of Gromov’s theorem [34] and can be
+ proven via a similar case analysis.                                            for every λ > 0. Note that regular variation is a ﬁrst-order asymp-
+                                                                                totic property, in the sense that if f(x) ∼ g(x) and f is regularly
+                                                                                varying, then g is regularly varying of the same index as f. Regularly
+ The Burnside problem                                                           varying functions of index 0 are known as slowly varying func-
+ I now describe a purely algebraic counterexample to the “theorem”              tions and include functions such as log(1 + x), log(1 + log(1 +
+ pointed out to me on MathOverﬂow by Moishe Kohan. The Burn-                    x)), exp[√log x ], and so on. Regularly varying functions were in-
+ side problem asks for each integer n, must every ﬁnitely generated             troduced by Karamata in the 1930s with the goal of producing
+ group G such that g n = id for every g ∈ G be ﬁnite? An inﬁnite                a uniﬁed framework for Abelian and Tauberian theorems (i.e., con-
+ ﬁnitely generated group with this property is called a Burnside                ditions under which the ﬁrst-order asymptotics of a function and
+ group of exponent n. The problem was solved for large, odd n                   its Laplace transform or a sequence and its generating function
+ in a breakthrough 1968 work of Novikov and Adian [48], who                     determine one another), and are now a standard part of the lan-
+ proved that there exist Burnside groups of exponent n for each                 guage in many ﬁelds of pure mathematics with an emphasis on
+ odd n > 4381. While this is not a counterexample to the “theorem”              asymptotic analysis, including, e.g., probability theory and analytic
+ since it concerns speciﬁc groups, it is also known that Burnside               number theory; see, e.g., [5] for an introduction.
+ groups of exponent 1, 2, 3, 4, and 6 do not exist, with the cases                   Regular variation is one of several natural regularity properties
+ n = 4, 6 being non-trivial theorems of Sanov and Hall [26, 57]. This           for functions of (sub)polynomial growth; for increasing functions,
+ yields purely algebraic properties (e.g., “there exists g ∈ G such             a much weaker but still useful property is the doubling property
+ that g 6 ≠ id”) that are true for all infinite ﬁnitely generated groups
+                                                                                                       f(λx)
+ for non-trivial reasons. The cases n = 5, 7 of the Burnside problem                         lim sup         <∞        for each λ > 1.
+                                                                                              x→∞       f(x)
+ remain open (among other small values).
+                                                                                In geometric group theory, regularity properties like doubling or
+                                                                                regular variation often arise as hypotheses in theorems relating
+                                                                                the asymptotics of one quantity to another, such as in the relation-
+                                                                                ship between random-walk return probabilities and the spectral
+                                                                                proﬁle [10], or the relation between the isoperimetric proﬁles of
+8 Russ Lyons has pointed out to us that an alternative simpler proof of this
+                                                                                two groups and their wreath product [18]. Moreover, it is com-
+  theorem is presented in [42, Section 13.9] that may make the theorem
+  too easy to count as a “counterexample” to the “theorem,” depending           mon to consider a rather loose notion of asymptotic equivalence
+  on what one considers “trivial.” This proof still relies on a case analysis   between monotone functions, where if f and g are increasing we
+  according to whether or not the group is amenable.                            say that f ≃ g if there exist positive constants c and C such that
+
+
+ 8                                                                                                                                EMS MAGAZINE 139 (2026)
+cg(cx) ≤ f(x) ≤ C g(C x) for all suﬃciently large x. This is natural,     which is more than suﬃcient for regular variation (with index 1/d).
+since many functions associated to a ﬁnitely generated group, such        What if G has superpolynomial growth? It is a consequence of
+as the volume growth and the isoperimetric proﬁle (deﬁned below)          a deep theorem of Hrushovski [27] that if G has superpolynomial
+are well deﬁned (i.e., independently of the choice of ﬁnite generat-      volume growth then
+ing set) modulo this notion of asymptotic equivalence. However,
+                                                                                                       Gr(2r)
+when working at a high level of generality one often comes to real-                                           →∞
+                                                                                                       Gr(r)
+ise that this notion of equivalence is not very useful for functions
+not known to satisfy at least some weak form of regularity such           as r → ∞ (the theorem of [27] states more generally that
+as doubling. These issues came to a head for me in my paper [30],         limn → ∞ |A2n |/|An | = ∞ for any exhaustion of G by ﬁnite sets
+where I was able to prove a conjecture of Lyons, Peres, Sun, and          (An )n ≥ 1 ). This is easily seen to imply that the inverse function
+Zheng [43] only for groups whose isoperimetric profile                    Gr−1 (x) is coarsely slowly varying (that is, ≃-equivalent to a slowly
+                                                                          varying function).
+                                  |∂W|
+               Ψ(n) ∶= min{            ∶ W ⊆ G, |W| ≤ n}
+                                   |W|
+
+is coarsely regularly varying, that is, equivalent to a regularly vary-   Theorems for “most” infinite finitely generated groups
+ing function under the equivalence relation ≃. (Here ∂W denotes           There are several important theorems concerning not quite all
+the set of edges of the Cayley graph with one endpoint in W and           inﬁnite ﬁnitely generated groups, but instead all inﬁnite ﬁnitely
+the other in G ∖ W.) I conjecture, but have so far been unable            generated groups that are not virtually ℤ. While such theorems
+to prove, that this is always the case, for every inﬁnite ﬁnitely         are arguably not true “counterexamples” to the “theorem,” they
+generated group.                                                          are similar in spirit in that they establish non-trivial theorems con-
+    I am now ready to state my next proposed “counterexample.”            cerning very large classes of groups. One example is the “pc < 1”
+In an underhanded effort to make the theorem I am about to state          problem of Benjamini and Schramm [4], which asked whether an
+apply to all ﬁnitely generated groups rather than merely all infinite     inﬁnite, ﬁnitely generated group has a percolation phase trans-
+ﬁnitely generated groups, I will depart from the standard conven-         ition if and only if it is not virtually ℤ. This problem was solved
+tions by saying that a function f ∶ (0, ∞) → [0, ∞] is regularly          by Duminil-Copin, Goswami, Raouﬁ, Severo, and Yadin [13], who
+varying if it either takes values in (0, ∞) and is regularly varying in   proved that pc < 1 for every bounded-degree graph satisfying
+the usual sense or satisﬁes f(x) ≡ 0 or f(x) ≡ ∞ for all suﬃciently       a (4 + ε)-dimensional isoperimetric inequality; the remaining cases
+large x, in which case we say f is regularly varying of index −∞          have polynomial growth so that they are virtually nilpotent via
+or +∞ as appropriate. We write Gr(r) for the number of group              Gromov’s theorem and can be treated via classical methods. (E.g.,
+elements of word length at most r.                                        using the fact they contain subgraphs quasi-isometric to ℤ2 .) The
+                                                                          proof of the high-dimensional case of the theorem relied on a highly
+Theorem 2.3. Let G be a group with finite generating set S. Then          non-trivial comparison theorem relating percolation with another
+the inverse growth function Gr−1 (x) ∶= inf{r ≥ 0 ∶ Gr(r) ≥ x} is         more complicated model deﬁned in terms of the Gaussian free
+coarsely regularly varying.                                               ﬁeld. A new and much simpler proof of the theorem, still relying on
+                                                                          a case analysis between low- and high-dimensional examples, was
+     Many groups have isoperimetric proﬁle of the same order as the       recently given by Easo, Severo, and Tassion [17]; this new proof
+reciprocal of the inverse growth, with a one-sided bound always           also establishes the purely geometric fact that an inﬁnite ﬁnitely
+holding by a theorem of Coulhon and Saloff-Coste [11], so that            generated group has the exponential cut sets property if and only
+this theorem supports my conjecture that the isoperimetric proﬁle         if it is not virtually ℤ. Another important example in the same
+is always coarsely regularly varying.                                     vein is Varopoulos’s theorem [62], which states that the random
+                                                                          walk on an inﬁnite, ﬁnitely generated group is recurrent (returns
+Proof of Theorem 2.3. If G is ﬁnite, then Gr−1 (x) = ∞ for all x >        to the identity inﬁnitely often) if and only if the group is virtually ℤ
+|G|, so that Gr−1 (x) is regularly varying of inﬁnite index. If G has     or ℤ2 , which again can be deduced as a consequence of Gromov’s
+polynomial volume growth, it follows from Gromov’s theorem [25]           theorem.
+that G is virtually nilpotent and hence, by a theorem of Pansu [55],
+that there exist a constant A > 0 and an integer d ≥ 1 such that
+                                                                          Theorems requiring uniform control of all groups
+                          Gr(r) ∼ Ar d    as r → ∞
+                                                                          Let us close this section by mentioning that there has recently
+and hence that                                                            been signiﬁcant progress made on theorems concerning uniform
+                                                                          properties of all ﬁnitely generated groups (or all inﬁnite ﬁnitely
+                  Gr−1 (x) ∼ (x/A)1/d        as x → ∞,                    generated groups, or all inﬁnite ﬁnitely generated groups that are
+
+
+EMS MAGAZINE 139 (2026)                                                                                                                         9
+ not virtually ℤ, etc.), with constants that are either universal or          my MathOverﬂow post and apologise that I did not have space
+ depend only on, say, the size of the generating set. The problem             to include all of them. I thank Russ Lyons, Nicolas Monod, Matt
+ of proving uniform theorems like this is often closely related to the        Tointon, and Wes Wrigley for helpful comments on a draft.
+ problem of proving theorems about finite groups, where one is typ-
+ ically forced to work with families of ﬁnite groups in order to make
+ meaningful statements about asymptotic properties. Signiﬁcant                References
+ results in this direction include ﬁnitary versions include pc < 1 the-
+ orems for ﬁnite transitive graphs [31], “gap at 1” theorems for the           [1] M. Aizenman and D. J. Barsky, Sharpness of the phase transition in
+ critical probability on inﬁnite vertex transitive graphs [31, 41, 54],            percolation models. Comm. Math. Phys. 108, 489–526 (1987)
+ and ﬁnite-graph versions of Varopoulos’s theorem [58]. Many of                [2] D. Aldous and R. Lyons, Processes on unimodular random networks.
+ these results rely on a structure vs. expansion dichotomy using the               Electron. J. Probab. 12, article no. 54, 1454–1508 (2007)
+ finitary structure theorem of Breuillard, Green and Tao [8] (a deep           [3] I. Benjamini, R. Lyons, Y. Peres and O. Schramm, Critical percolation
+ and powerful strengthening of the theorems of Gromov [25] and                     on any nonamenable group has no inﬁnite clusters. Ann. Probab.
+                                                                                   27, 1347–1356 (1999)
+ Hrushovski [27] stating roughly that Hrushovski’s theorem holds
+ uniformly over all ﬁnitely generated groups) and its extension to             [4] I. Benjamini and O. Schramm, Percolation beyond ℤd , many
+                                                                                   questions and a few answers. Electron. Comm. Probab. 1, article
+ transitive graphs due to Tessera and Tointon [59]. Using this ﬁnit-
+                                                                                   no. 8, 71–82 (1996)
+ ary structure theory, one can attempt to treat “high-dimensional”
+                                                                               [5] N. H. Bingham, C. M. Goldie and J. L. Teugels, Regular vari-
+ and “low-dimensional” cases separately and “patch the analysis
+                                                                                   ation. Encyclopedia Math. Appl. 27, Cambridge University Press,
+ together” on scales in which the dimension switches from high
+                                                                                   Cambridge (1989)
+ to low (if such scales exist). Our recent proof of Schramm’s loc-
+                                                                               [6] L. Bowen, M. Chapman, A. Lubotzky and T. Vidick, The Aldous–
+ ality conjecture with Easo [15] and Easo’s extension of this result
+                                                                                   Lyons conjecture I: Subgroup tests. arXiv:2408.00110v1 (2024)
+ to ﬁnite graphs [14] also rely heavily on these ideas, including in
+                                                                               [7] L. Bowen, M. Chapman and T. Vidick, The Aldous–Lyons
+ particular a ﬁnitary version of the fact that groups of polynomial
+                                                                                   conjecture II: Undecidability. arXiv:2501.00173v1 (2024)
+ growth are ﬁnitely presented [16].
+                                                                               [8] E. Breuillard, B. Green and T. Tao, The structure of approximate
+                                                                                   groups. Publ. Math. Inst. Hautes Études Sci. 116, 115–221 (2012)
+                                                                               [9] J. Brieussel and T. Zheng, Speed of random walks, isoperimetry and
+ 3      Synthesis
+                                                                                   compression of ﬁnitely generated groups. Ann. of Math. (2) 193,
+                                                                                   1–105 (2021)
+ A unifying feature of many of the examples considered in the
+                                                                              [10] T. Coulhon and A. Grigor’yan, On-diagonal lower bounds for heat
+ previous section is that the proofs involve some kind of case analysis.           kernels and Markov chains. Duke Math. J. 89, 133–199 (1997)
+ As such, one might propose the following modiﬁcation to our
+                                                                              [11] T. Coulhon and L. Saloff-Coste, Isopérimétrie pour les groupes et les
+ “theorem”:                                                                        variétés. Rev. Mat. Iberoamericana 9, 293–314 (1993)
+                                                                              [12] H. Duminil-Copin, S. Goswami and A. Raouﬁ, Exponential decay
+“Theorem*”. If a property is satisfied by all finitely generated                   of truncated correlations for the Ising model in any dimension for
+groups for the same reason, then this reason must be trivial.                      all but the critical temperature. Comm. Math. Phys. 374, 891–921
+                                                                                   (2020)
+     Again I do not really claim this “theorem” is “true” in any precise      [13] H. Duminil-Copin, S. Goswami, A. Raouﬁ, F. Severo and A. Yadin,
+ mathematical sense,9 merely that it is more true than the original                Existence of phase transition for percolation using the Gaussian free
+ “theorem.”                                                                        ﬁeld. Duke Math. J. 169, 3539–3563 (2020)
+                                                                              [14] P. Easo, Sharpness and locality for percolation on ﬁnite transitive
+                                                                                   graphs. Geom. Funct. Anal. 35, 1526–1586 (2025)
+ Acknowledgements. The work was supported by NSF grant DMS-                   [15] P. Easo and T. Hutchcroft, The critical percolation probability is local.
+ 1928930 and a Packard Fellowship in Science and Engineering.                      arXiv:2310.10983v1 (2023)
+ I thank everyone who suggested counterexamples in response to                [16] P. Easo and T. Hutchcroft, Uniform ﬁnite presentation for groups of
+                                                                                   polynomial growth. Discrete Anal. article no. 1 (2025)
+                                                                              [17] P. Easo, F. Severo and V. Tassion, Counting minimal cutsets and
+9 Wes Wrigley has pointed out to me that intuitionistic logic [47] does not
+                                                                                   pc < 1. Forum Math. Pi 13, article no. e23 (2025)
+  allow for proofs by case analysis, so that one could perhaps interpret
+ “Theorem*” in intuitionistic terms. I am too ignorant of intuitionism        [18] A. Erschler, On isoperimetric proﬁles of ﬁnitely generated groups.
+  to make an informed comment on this, but would prefer to keep                    Geom. Dedicata 100, 157–171 (2003)
+  the “theorem” both vague and within the framework of standard               [19] A. Erschler, Piecewise automatic groups. Duke Math. J. 134,
+  mathematics (at the cost of making it likely to be false!).                      591–613 (2006)
+
+
+ 10                                                                                                                                  EMS MAGAZINE 139 (2026)
+[20] J. Frisch, Y. Hartman, O. Tamuz and P. Vahidi Ferdowsi, Choquet–        [41] R. Lyons, A. Mann, R. Tessera and M. Tointon, Explicit universal
+     Deny groups and the inﬁnite conjugacy class property. Ann. of                minimal constants for polynomial growth of groups. J. Group
+     Math. (2) 190, 307–320 (2019)                                                Theory 26, 29–53 (2023)
+[21] D. Gaboriau, What is … cost? Notices Amer. Math. Soc. 57,               [42] R. Lyons and Y. Peres, Probability on trees and networks. Camb.
+     1295–1296 (2010)                                                             Ser. Stat. Probab. Math. 42, Cambridge University Press, New York
+                                                                                  (2016)
+[22] É. Ghys and P. de la Harpe (eds.), Sur les groupes hyperboliques
+     d’après Mikhael Gromov. Progr. Math. 83, Birkhäuser Boston,             [43] R. Lyons, Y. Peres, X. Sun and T. Zheng, Occupation measure of
+     Boston, MA (1990)                                                            random walks and wired spanning forests in balls of Cayley graphs.
+                                                                                  Ann. Fac. Sci. Toulouse Math. (6) 29, 97–109 (2020)
+[23] W. T. Gowers, The two cultures of mathematics. In Mathematics:
+     frontiers and perspectives, Amer. Math. Soc., Providence, RI, 65–78     [44] R. Lyons and O. Schramm, Indistinguishability of percolation
+     (2000)                                                                       clusters. Ann. Probab. 27, 1809–1836 (1999)
+
+[24] R. I. Grigorchuk, Degrees of growth of ﬁnitely generated groups         [45] E. Mares, Relevance logic. In The Stanford Encyclopedia of Philo-
+     and the theory of invariant means. (in Russian) Izv. Akad. Nauk SSSR         sophy (E. N. Zalta and U. Nodelman, eds.), Metaphysics Research
+     Ser. Mat. 48, 939–985 (1984). English translation: Math. USSR-Izv.           Lab, Stanford University (2024)
+     25 259–300 (1985)                                                       [46] N. Mok, Harmonic forms with values in locally constant Hilbert
+                                                                                  bundles. In Proc. Conf. in Honor of J.-P. Kahane (Orsay, 1993),
+[25] M. Gromov, Groups of polynomial growth and expanding maps.
+                                                                                  J. Fourier Anal. Appl. (Spec. Iss.), 433–453 (1995)
+     Inst. Hautes Études Sci. Publ. Math. 53, 53–73 (1981)
+                                                                             [47] J. Moschovakis, Intuitionistic logic. In The Stanford Encyclopedia
+[26] M. Hall, Jr., Solution of the Burnside problem for exponent 6. Proc.
+                                                                                  of Philosophy (E. N. Zalta and U. Nodelman, eds.), Metaphysics
+     Nat. Acad. Sci. U.S.A. 43, 751–753 (1957)
+                                                                                  Research Lab, Stanford University (2024)
+[27] E. Hrushovski, Stable group theory and approximate subgroups.
+                                                                             [48] P. S. Novikov and S. I. Adjan, Inﬁnite periodic groups. I. (in Russian)
+     J. Amer. Math. Soc. 25, 189–243 (2012)
+                                                                                  Izv. Akad. Nauk SSSR Ser. Mat. 32, 212–244 (1968). English
+[28] T. Hutchcroft, Percolation on hyperbolic graphs. Geom. Funct. Anal.          translation: Math. USSR-Izv. 2 209–236 (1968)
+     29, 766–810 (2019)                                                      [49] A. Yu. Ol’shanskii, Distortion functions for subgroups. In Geometric
+[29] T. Hutchcroft, Nonuniqueness and mean-ﬁeld criticality for percol-           group theory down under (Canberra, 1996), pp.281–291, de
+     ation on nonunimodular transitive graphs. J. Amer. Math. Soc. 33,            Gruyter, Berlin (1999)
+     1101–1165 (2020)                                                        [50] A. Yu. Ol’shanskii and D. V. Osin, A quasi-isometric embedding
+[30] T. Hutchcroft, Small-ball estimates for random walks on groups.              theorem for groups. Duke Math. J. 162, 1621–1648 (2013)
+     arXiv:2406.17587v1 (2024)                                               [51] A. Yu. Ol’shanskii, D. V. Osin and M. V. Sapir, Lacunary hyperbolic
+[31] T. Hutchcroft and M. Tointon, Non-triviality of the phase transition         groups. Geom. Topol. 13, 2051–2140 (2009)
+     for percolation on ﬁnite transitive graphs. J. Eur. Math. Soc. (JEMS)   [52] D. Osajda, Small cancellation labellings of some inﬁnite graphs and
+     27, 4283–4346 (2025)                                                         applications. Acta Math. 225, 159–191 (2020)
+[32] Z. Ji, A. Natarajan, T. Vidick, J. Wright and H. Yuen, MIP∗ = RE.       [53] I. Pak and T. Smirnova-Nagnibeda, On non-uniqueness of per-
+     Commun. ACM 64, 131–138 (2021)                                               colation on nonamenable Cayley graphs. C. R. Acad. Sci. Paris
+                                                                                  Sér. I Math. 330, 495–500 (2000)
+[33] K. Juschenko, Sofic groups. Unpublished lecture notes https://
+     web.ma.utexas.edu/users/juschenko/files/soficgroups.pdf                 [54] C. Panagiotis and F. Severo, Gap at 1 for the percolation threshold
+                                                                                  of Cayley graphs. Ann. Inst. Henri Poincaré Probab. Stat. 59,
+[34] B. Kleiner, A new proof of Gromov’s theorem on groups of
+                                                                                  1248–1258 (2023)
+     polynomial growth. J. Amer. Math. Soc. 23, 815–829 (2010)
+                                                                             [55] P. Pansu, Croissance des boules et des géodésiques fermées dans les
+[35] N. J. Korevaar and R. M. Schoen, Global existence theorems for
+                                                                                  nilvariétés. Ergodic Theory Dynam. Systems 3, 415–445 (1983)
+     harmonic maps to non-locally compact spaces. Comm. Anal. Geom.
+     5, 333–387 (1997)                                                       [56] M. de la Salle and R. Tessera, Characterizing a vertex-transitive
+                                                                                  graph by a large ball. J. Topol. 12, 705–743 (2019)
+[36] T. Kumagai, Random walks on disordered media and their scaling
+                                                                             [57] I. N. Sanov, Solution of Burnside’s problem for exponent 4. (in Rus-
+     limits. Lecture Notes in Math. 2101, Springer, Cham (2014)
+                                                                                  sian) Leningrad State Univ. Annals [Uchenye Zapiski] Math. Ser. 10,
+[37] J. R. Lee and Y. Peres, Harmonic maps on amenable groups and                 166–170 (1940)
+     a diffusive lower bound for random walks. Ann. Probab. 41,
+                                                                             [58] R. Tessera and M. Tointon, Sharp relations between volume growth,
+     3392–3419 (2013)
+                                                                                  isoperimetry and escape probability in vertex-transitive graphs.
+[38] P.-H. Leemann and M. de la Salle, Cayley graphs with few                     arXiv:2001.01467v2 ([v1] 2020, [v2] 2024)
+     automorphisms. J. Algebraic Combin. 53, 1117–1146 (2021)
+                                                                             [59] R. Tessera and M. C. H. Tointon, A ﬁnitary structure theorem for
+[39] P.-H. Leemann and M. de la Salle, Cayley graphs with few auto-               vertex-transitive graphs of polynomial growth. Combinatorica 41,
+     morphisms: the case of inﬁnite groups. Ann. H. Lebesgue 5, 73–92             263–298 (2021)
+     (2022)                                                                  [60] B. Tilly, Analysis vs algebra predicts eating corn? (2010) https://
+[40] R. Lyons, Phase transitions on nonamenable graphs. J. Math. Phys.            bentilly.blogspot.com/2010/08/analysis-vs-algebra-predicts-
+     41, 1099–1126 (2000)                                                         eating.html (accessed 16 April 2025)
+
+
+EMS MAGAZINE 139 (2026)                                                                                                                                 11
+[61] M. C. H. Tointon, Commuting probabilities of inﬁnite groups.
+     J. Lond. Math. Soc. (2) 101, 1280–1297 (2020)
+[62] N. T. Varopoulos, Théorie du potentiel sur des groupes et des
+     variétés. C. R. Acad. Sci. Paris Sér. I Math. 302, 203–205 (1986)
+                                                                            Groups, Geometry, and Dynamics
+[63] T. Zheng, Asymptotic behaviors of random walks on countable
+     groups. In Proc. Int. Cong. Math. 2022, Vol. 4, pp. 3340–3365, EMS
+     Press, Berlin (2023)
+
+
+
+
+Tom Hutchcroft is the Gordon and Betty Moore Professor of Mathematics
+at the California Institute of Technology. Prior to coming to Caltech, he
+received his undergraduate degree from the University of Cambridge and
+his PhD from the University of British Columbia under the supervision
+of Asaf Nachmias and Omer Angel. His work spans a range of topics in                                                      All issues of Volume 19
+probability, group theory, and mathematical physics. He received the EMS                                                  (2025) are accessible as
+                                                                                                                          open access under EMS
+Prize in 2024.
+                                                                                                                          Press’ Subscribe to Open
+t.hutchcroft@caltech.edu                                                                                                  programme.
+
+                                                                                                                          ems.press/ggd
+
+                                                                            Groups, Geometry, and Dynamics is devoted to publica-
+                                                                            tion of research articles that focus on groups or group
+                                                                            actions as well as articles in other areas of mathematics
+                                                                            in which groups or group actions are used as a main
+                                                                            tool. The journal covers all topics of modern group the-
+                                                                            ory with preference given to geometric, asymptotic and
+                                                                            combinatorial group theory, dynamics of group actions,
+                                                                            probabilistic and analytical methods, interaction with
+                                                                            ergodic theory and operator algebras, and other related
+                                                                            fields.
+
+                                                                            Topics covered include: geometric, asymptotic, and
+                                                                            ­combinatorial group theory; probabilities on groups;
+                                                                             computational aspects and complexity; harmonic and
+                                                                             functional analysis on groups, free probability; ergodic
+                                                                             theory of group actions; cohomology of groups and
+                                                                             exotic cohomologies; groups and low-dimensional topol-
+                                                                             ogy; group actions on trees, buildings, rooted trees.
+
+
+                                                                            Editor-in-Chief
+                                                                            Nicolas Monod (École Polytechnique Fédérale
+                                                                            de Lausanne)
+                                                                            Managing Editor
+                                                                            Tatiana Smirnova-Nagnibeda (Université de Genève)
+
+                                                                            For more details visit ems.press/ggd
+
+                                                                            EMS Press is an imprint of the European Mathe-
+                                                                            matical Society – EMS – Publishing House GmbH
+                                                                            Straße des 17. Juni 136 | 10623 Berlin | Germany
+                                                                            https://ems.press | subscriptions@ems.press
+
+
+
+
+                                                                                                                                            ADVERTISEMENT
+
+
+12                                                                                                                                  EMS MAGAZINE 139 (2026)
+

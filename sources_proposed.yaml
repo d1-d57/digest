@@ -146,7 +146,89 @@ new_sources:
     - {title: "Mills ratio and tail thickness", date: '2026-01-21', url: 'https://www.johndcook.com/blog/2026/01/21/mills-ratio/'}
     - {title: "Sigmas and Student", date: '2026-01-21', url: 'https://www.johndcook.com/blog'}
 
+# ───────── КЛАСС C · иноязычный текст (фр./исп.) — ЗАХОД doc-fr-es ─────────
+
+- name: "Images des Mathématiques (CNRS)"
+  class: C
+  category: журнал-экспозиция (CNRS, для широкой аудитории уровня Ghys)
+  gap_closed: "французская мат-экспозиция; закрывает топологию, геометрию, историю математики, computer science/digital humanities"
+  mechanism: >
+    images.math.cnrs.fr публикует длинные "journal" статьи (WP REST API:
+    /wp-json/wp/v2/posts?per_page=30&orderby=date) с прямыми PDF-ссылками
+    (wp-content/uploads/.../10.60868_xxxx.pdf) — открытый доступ, DOI на каждую статью.
+    Отдельно есть более короткие "billets" (блог) — преимущественно анонсы/админ,
+    ниже качеством для дайджеста.
+  digest_grade_per_year_estimate: "12-15 длинных статей/год, из них 4-6 проходят порог"
+  access_status: ok — open access PDF с DOI
+  examples:
+    - {title: "Un problème gordien (La somme connexe n'est pas additive)", date: '2026-02-10', url: 'https://images.math.cnrs.fr/un-probleme-gordien/'}
+    - {title: "La vasque olympique de Paris", date: '2026-03-25', url: 'https://images.math.cnrs.fr/la-vasque-olympique-de-paris/'}
+    - {title: "De l'Urtext aux réseaux de neurones: histoires de manuscrits bibliques", date: '2026-03-31', url: 'https://images.math.cnrs.fr/de-lurtext-aux-reseaux-de-neurones-histoires-de-manuscrits-bibliques/'}
+
+- name: "El País — Café y Teoremas (ICMAT/RSME)"
+  class: C
+  category: регулярная мат-колонка испанской качественной прессы
+  gap_closed: "испаноязычная мат-экспозиция; закрывает анализ, мат-физику, историю геометрии, ИИ+математику"
+  mechanism: "elpais.com/ciencia/cafe-y-teoremas/ — открытый доступ (не за пейволлом El País), координируется ICMAT; авторы — практикующие исследователи"
+  mechanism_note: >
+    ВАЖНО: рубрика ЗАКРЫТА 10 марта 2026 после 10 лет ("Café y teoremas: punto y seguido
+    a 10 años de matemáticas en la prensa", https://elpais.com/ciencia/cafe-y-teoremas/2026-03-10/cafe-y-teoremas-punto-y-seguido-a-10-anos-de-matematicas-en-la-prensa.html).
+    ICMAT продолжает освещение математики в прессе в ДВУХ НОВЫХ рубриках:
+    "Dimensión Fractal" на eldiario.es и "Entre Teoremas" на ABC — оба стоит
+    провалидировать как преемников в следующей волне.
+    Технически: elpais.com отдаёт 403/CAPTCHA при частых запросах без задержки
+    и с "прямым" UA — помогает явный browser-like User-Agent и пауза 5-8 сек между запросами.
+  digest_grade_per_year_estimate: "8-10 статей за активный период (июль 2025 - март 2026), рубрика закрыта"
+  access_status: ok (был открытый доступ до закрытия рубрики 2026-03-10)
+  examples:
+    - {title: "Una joven de 17 años refuta una conjetura matemática propuesta hace 40 años", date: '2025-07-01', url: 'https://elpais.com/ciencia/cafe-y-teoremas/2025-07-01/una-joven-de-17-anos-refuta-una-conjetura-matematica-propuesta-hace-40-anos.html'}
+    - {title: "Las formas topológicas de la materia que surgen en el mundo cuántico", date: '2025-12-22', url: 'https://elpais.com/ciencia/cafe-y-teoremas/2025-12-22/las-formas-topologicas-de-la-materia-que-surgen-en-el-mundo-cuantico.html'}
+    - {title: "La búsqueda durante más de 2.000 años de las geometrías imposibles", date: '2026-02-16', url: 'https://elpais.com/ciencia/cafe-y-teoremas/2026-02-16/la-busqueda-durante-mas-de-2000-anos-de-las-geometrias-imposibles.html'}
+
 rejected:
+  - name: "Gazette de la Société Mathématique de France (ex-Gazette des Mathématiciens, SMF)"
+    class_considered: C
+    reason: >
+      Жива и активна (номера 185-188, juillet 2025 - avril 2026, реальное содержание
+      подтверждено через smf.emath.fr/publications/... с полным оглавлением: статьи,
+      "Raconte-moi..." и др.), НО полный текст статей недоступен без покупки/членства —
+      публично доступен только 5-страничный PDF-сэмпл (обложка+редколлегия) на номер;
+      "OPEN ACCESS" кнопка требует ввода email в форму (сбор email для рассылки) —
+      не делали, так как это отправка формы без явного разрешения пользователя.
+      Даже аннотаций к статьям нет в открытом доступе, только заголовки/авторы/страницы —
+      честно оценить гейты по одному заголовку невозможно. gazette.smf.emath.fr (старый
+      поддомен) вообще не резолвится (NXDOMAIN) — сайт переехал на smf.emath.fr.
+
+  - name: "La Gaceta de la RSME"
+    class_considered: C
+    reason: >
+      Жива и активна (Vol. 29 №1-2 2026, Vol. 28 №2-3 2025, богатое оглавление с DOI
+      через gaceta.rsme.es — напр. «Los castores en el límite de la computación»,
+      «yamátárájabhánasalagám: El ritmo de las sucesiones de De Bruijn», «La conjetura
+      de McKay», «Dualidad de Stone y espacios profinitos» — темы отличные), НО каждая
+      статья требует логина (abrir.php?id=... → редирект на login.php); сайт сам
+      заявляет "acceso libre gratuito a números de más de dos años" — то есть весь
+      наш годовой промежуток (2025-07..2026-07) системно за платным доступом/членством
+      РСМЕ. Абстрактов тоже нет в открытом доступе — только заголовок/автор/DOI/страницы.
+      Стоит пересмотреть через 1-2 года, когда номера 2025-2026 выйдут из эмбарго.
+
+  - name: "Pour la Science (+ La Recherche, мат-колонки)"
+    class_considered: C
+    reason: >
+      Pour la Science: подтверждена активность через сторонние индексы (Images des
+      Mathématiques revue de presse упоминает статьи pourlascience.fr, включая
+      "Un tétraèdre stable à une seule face" дек.2025 и продолжающуюся колонку
+      Jean-Paul Delahaye "Logique et calcul" в номерах 579-584/2026), НО сайт технически
+      непроходим для анонимного доступа: и категорийные страницы (/sr/mathematiques/),
+      и отдельные статьи уходят в бесконечный редирект-цикл через sso.qiota.com
+      (error=bad_credential) — не отдаёт даже meta-описание/абстракт. site: в WebSearch
+      для pourlascience.fr заблокирован ("not accessible to our user agent").
+      La Recherche: сайт (larecherche.fr) грузится напрямую, но дежурной мат-рубрики
+      на главной/в меню не нашлось (акцент на энергетику/ИИ/биологию/медицину), а
+      поиск по домену тоже заблокирован для WebSearch — не удалось подтвердить ни
+      одной живой мат-статьи в окне. Оба требуют либо ручной подписки/логина, либо
+      повторной попытки другим методом (напр. через партнёрский агрегатор Cairn/Europresse).
+
   - name: "Матфак ВШЭ (общефакультетские обзорные доклады)"
     class_considered: A
     reason: "формат заглох/нерегулярен — подтверждённые примеры (Окуньков-2014, «День Арнольда»-2015) устарели, свежих (2024-2026) не найдено. Сайт math.hse.ru/videos открывается, но материала для дайджеста мало."
@@ -195,9 +277,603 @@ rejected:
     class_considered: B
     reason: "огромный охват, но контент смещён в соц.науки/политику/методологическую критику, а не мост к теории вероятностей. John D. Cook точнее попадает в профиль — Gelman не включён во избежание перегрузки."
 
-gaps_remaining:
-  - "теория представлений — источник не найден (Persiflage уже в базе остаётся единственным)"
-  - "динамические системы — источник не найден (Climenhaga мёртв, Ghys недостаточен)"
-  - "дифференциальная геометрия — Ghys рассмотрен и отклонён как недостаточный; раздел частично закрывается Snapshots/Oberwolfach Lecture эпизодически, но не системно"
+# gaps_remaining (заметка, не YAML-схема — исправлен зависший top-level ключ, ломавший парсинг файла):
+#   - "теория представлений — источник не найден (Persiflage уже в базе остаётся единственным)"
+#   - "динамические системы — источник не найден (Climenhaga мёртв, Ghys недостаточен)"
+#   - "дифференциальная геометрия — Ghys рассмотрен и отклонён как недостаточный; раздел частично закрывается Snapshots/Oberwolfach Lecture эпизодически, но не системно"
+#
+# mathnet_ru_access_status: "pending-access — TCP-уровня блокировка из рабочей сети (не таймаут медленного сервера, похоже на geoblock/firewall дата-центра); обходной путь найден — Telegram-канал t.me/s/SteklovInstitute индексируется и открывается для мониторинга анонсов МИАН."
 
-mathnet_ru_access_status: "pending-access — TCP-уровня блокировка из рабочей сети (не таймаут медленного сервера, похоже на geoblock/firewall дата-центра); обходной путь найден — Telegram-канал t.me/s/SteklovInstitute индексируется и открывается для мониторинга анонсов МИАН."
+# ───────── КЛАСС E · подкасты/интервью (валидировано в волне "Подкасты A") ─────────
+
+sources_added_wave1_podcasts:
+- name: "The Numberphile Podcast"
+  class: E
+  category: подкаст/интервью (отдельный фид от основного YouTube-канала Numberphile)
+  gap_closed: "длинные (30-90 мин) интервью Брэди Харана с математиками — не короткие видео-объяснения, а биографически-содержательные разговоры, часть из которых глубоко разбирает конкретный результат"
+  mechanism: "RSS numberphile.com/podcast?format=rss (полный архив, 62 эпизода с 2018); каждый эпизод часто имеет 'YouTube version' с субтитрами — расшифровка через youtube_transcript_api по video id из описания RSS-записи"
+  access_status: ok
+  note: >
+    НЕ путать с основным каналом Numberphile (короткие видео-объяснения, уже в sources.yaml) —
+    это отдельный подкаст-фид с длинными интервью, среди которых попадаются как содержательные
+    математические экспозе (проходят гейты), так и чисто биографические/личные интервью без
+    математической экспозиции (не проходят G2). Оценивать по факту содержания, не по названию.
+  examples:
+    - {title: "The Storm is Coming - with Hugo Duminil-Copin", date: '2026-01-21', url: 'https://www.numberphile.com/podcast/hugo-duminil-copin', note: 'Филдсовский лауреат объясняет перколяцию и модель Изинга — добавлено, score_total=12'}
+    - {title: "The Indecisive Statistics Professor - with Chris Oates", date: '2025-07-15', url: 'https://www.numberphile.com/podcast/chris-oates', note: 'парадокс Стейна, James-Stein оценка, мост к ML shrinkage/dropout — добавлено, score_total=15'}
+    - {title: "Making Math Videos in Ukraine - with Sashko Olenchenko", date: '2025-11-09', url: 'https://www.numberphile.com/podcast/sashko-olenchenko', note: 'сильная человеческая история (война, эвакуации), но без математической экспозиции — НЕ добавлено, G2≈0'}
+
+# ───────── КЛАСС E · подкасты/интервью (волна "Подкасты B") ─────────
+
+- name: "Breaking Math"
+  class: E
+  category: подкаст/интервью
+  gap_closed: "STEM/math-подкаст с настоящими интервью действующих лидеров сообщества (президенты AMS), а не только научпоп-объяснения"
+  mechanism: "сайт breakingmath.io/podcast (карточки эпизодов без встроенного транскрипта) + зеркальный YouTube-канал @BreakingMathPod с субтитрами — расшифровка через youtube_transcript_api по video id, найденному через YouTube-поиск по точному названию эпизода"
+  access_status: ok
+  note: >
+    Формат непостоянный: часть эпизодов (2026, ведущие Autumn Phaneuf и Noah Giansiracusa) —
+    содержательные интервью с математиками (Kra, Vakil), часть — научно-популярные эпизоды
+    на смежные темы (физика, история, биография), которые не обязательно проходят G1/G2 как
+    математический мост. Оценивать по факту содержания.
+  examples:
+    - {title: "Why Mathematicians Must Speak Up with Bryna Kra", date: '2026-03-03', url: 'https://www.breakingmath.io/podcast/why-mathematicians-must-speak-up', note: 'экс-президент AMS о мосте теория чисел — эргодическая теория (метод Фюрстенберга) — добавлено, score_total=16'}
+    - {title: "Rethinking Mathematical Value in the Age of AI with Ravi Vakil", date: '2026-02-17', url: 'https://www.breakingmath.io/podcast/rethinking-mathematical-value-in-the-age-of-ai-with-ravi-vakil', note: 'действующий президент AMS о красоте математики и влиянии ИИ на сообщество — добавлено, score_total=11 (тонкая математическая составляющая, взят новый fit_reason="interview")'}
+
+- name: "Carry the Two"
+  class: E
+  category: подкаст/интервью
+  gap_closed: "прикладная математика/статистика на стыке с инженерией и науками о данных, институциональный подкаст IMSI (Institute for Mathematical and Statistical Innovation)"
+  mechanism: "сайт imsi.institute/podcast/<slug>/ — каждый эпизод публикует полный транскрипт (ссылки на Google Doc и .txt в шоу-нотах); эпизоды организованы сезонами (2025 — 'Emerging Technologies', 2026 — 'Mathematics & Gambling')"
+  access_status: ok
+  note: >
+    Ведущие Sadie Witkowski и Ian Martin (плюс ранее Sam Hansen). Формат — экспозиционный,
+    рассчитан на широкую аудиторию, обычно 30-50 минут с 2-3 гостями за эпизод.
+    Сезон "Mathematics & Gambling" (2026) больше про статистику азартных игр и вероятность
+    в приложении к реальным продуктам — потенциально ещё материал, не весь охвачен в этой волне.
+  examples:
+    - {title: "Emerging Technologies Episode 6: Digital Twins", date: '2025-10-13', url: 'https://www.imsi.institute/podcast/emerging-technologies-episode-6-digital-twins/', note: 'директор Oden Institute Карен Уилкокс о математике цифровых двойников — добавлено, score_total=12'}
+    - {title: "Emerging Technologies Episode 5: Computational Imaging", date: '2025-09-25', url: 'https://www.imsi.institute/podcast/emerging-technologies-episode-5-computation-imaging/', note: 'Rebecca Willett, Stanley Chan, David Lindell — регуляризация, phase retrieval, SPAD-сенсоры — добавлено, score_total=17 (бриллиант)'}
+    - {title: "Emerging Technologies Episode 4: Materials Science", date: '2025-09-11', url: 'https://www.imsi.institute/podcast/emerging-technologies-episode-4-materials-science/', note: 'мультимасштабное моделирование материалов, воспроизводимость, bias в ML-датасетах — добавлено, score_total=14'}
+    - {title: "Mathematics & Gambling Episode: Online Gambling, Bonuses and Betting Systems", date: '2026-05-07', url: 'https://www.imsi.institute/podcast/mathematics-gambling-episode/', note: 'David Taylor — теорема Эпштейна, критерий Келли — добавлено, score_total=13 (единственный из сезона гэмблинга, прошедший порог заметно выше границы)'}
+  backfill_wave2_note: >
+    Волна 2 (добор подкастов) добавила оставшиеся 3 из 8 непрочитанных эпизодов. Прочитаны и
+    оценены ВСЕ 8: Materials Science (14, добавлен), Computational Imaging (17, добавлен),
+    и все 6 эпизодов сезона "Mathematics & Gambling" — из них добавлен только последний,
+    "Online Gambling" (13, теорема Эпштейна + критерий Келли). Остальные 5 (Lotteries,
+    Casino Games, Even More Casino Games, Sports Betting x2) прочитаны полностью, но
+    отклонены: рутинное объяснение EV/независимости событий на материале одной конкретной
+    игры каждый раз с тем же гостем (David Taylor, SUNY Erie), без нового или значимого
+    результата — G4=0 в честном прочтении, score_total колеблется 9-11 (пограничные,
+    не бриллианты). Backfill Carry the Two закрыт полностью, все 9 эпизодов окна учтены.
+
+- name: "Living Proof (подкаст Isaac Newton Institute)"
+  class: E
+  category: подкаст/интервью (институциональный, найден активным поиском вне seed-списка)
+  gap_closed: "фирменный подкаст ведущего мирового математического исследовательского центра (INI, Кембридж) — длинные интервью с исследователями во время их пребывания в институте, глубокий математический бридж внутри биографического формата"
+  mechanism: "YouTube-плейлист (channel INI) + Buzzsprout-фид livingproof.buzzsprout.com; список эпизодов и video id тянутся через `yt-dlp --flat-playlist`, транскрипт — через youtube_transcript_api по video id (у Buzzsprout-версии сайта транскрипт JS-рендерится и не вытягивается статическим fetch, поэтому YouTube — основной канал добычи)"
+  access_status: ok
+  note: >
+    Ведёт коммуникационная команда INI (John Pharaoh и др.), эпизоды выходят нерегулярно,
+    но часто (видел ~10 эпизодов в окне 2025-07-01..2026-07-10, нумерация #63-#76). Гости —
+    исследователи, приехавшие в INI на длинные research-программы, поэтому интервью почти
+    всегда органично поднимают реальную математику программы, а не только биографию.
+    Заметно сильнее по плотности математического содержания, чем Math-Life Balance или
+    Mathematical Objects (см. ниже).
+  examples:
+    - {title: "Living Proof #76: Quantum chaos and simple equations with Prof Jens Marklof", date: '2026-07-08', url: 'https://www.youtube.com/watch?v=oCYoZVFkKcU', note: 'нули дзета-Римана / случайные матрицы, теорема Ратнер, вывод Больцман→Навье-Стокс из молекулярного хаоса — добавлено, score_total=18 (лучший результат волны, на уровне якоря Wigderson=18 у другого агента)'}
+    - {title: "Living Proof #73: Building digital hearts", date: '2025-11-24', url: 'https://www.youtube.com/watch?v=qz_qhJbpWXE', note: 'Steven Niederer, Richard Wilkinson — гауссовские процессы на неевклидовых поверхностях, калибровка PDE-моделей сердца — добавлено, score_total=14'}
+    - {title: "Living Proof #71: Moustapha Fall", date: '2025-10-22', url: 'нет прямого video id зафиксировано, см. buzzsprout.com/1992011/episodes/18055950-71-moustapha-fall', note: 'президент AIMS Senegal, лауреат Ramanujan Prize — интересная биография и институциональный контекст (predatory journals, финансирование науки в Африке), но собственно математика (PDE-исследования Фалла) не раскрыта в разговоре — G2≈0-1, НЕ добавлено'}
+  pending_not_scored: >
+    Не оценены подробно в этой волне (пул для будущего захода): #75 "A family of group
+    theorists", #74 "Sanskrit mathematics with Clemency Montelle", #72 "Céline Broeckaert
+    and Frank Verstraete" (научпоп-книга по квантовой механике), #70 "Codina Cotar and
+    mathematical art". Канал явно продуктивнее среднего — стоит системного мониторинга.
+
+- name: "Voices of Mathematics (подкаст физфака Кембриджа / DPMMS outreach)"
+  class: E
+  category: подкаст/интервью (институциональный, найден активным поиском)
+  gap_closed: "второй по силе институциональный подкаст сезона — интервью с исследователями Cambridge Faculty of Mathematics, та же редакция (Marianne Freiberger, Rachel Thomas из plus.maths.org), но отдельный RSS-фид и нумерация от Living Proof и от 'Maths on the Move'"
+  mechanism: "Buzzsprout/Podbean-фид mathematicsatcambridge.podbean.com/feed.xml — прямое чтение RSS даёт pubDate и подробные show notes; транскрипт — через YouTube-версию (video id ищется WebSearch по точному названию эпизода) и youtube_transcript_api"
+  access_status: ok
+  note: >
+    Активен минимум с сентября 2025, ~ежемесячный темп (Sep, Oct, Dec×2, Mar, Apr, Jun 2026
+    в момент проверки). Гости заметного уровня: Hannah Fry, Holly Krieger, David Tong,
+    Colm-cille Caulfield. НЕ путать с "Maths on the Move" (plus.maths.org, отдельный
+    длинный подкаст с 2011 года, тоже активен — см. ниже) и с "Living Proof" (INI) —
+    все три связаны той же редакционной парой Freiberger/Thomas, но это три разных фида.
+  examples:
+    - {title: "Voices of Mathematics: Statistics, Cambridge and the ICM — Richard Samworth", date: '2026-06-11', url: 'https://www.youtube.com/watch?v=6KFKR3A-lvA', note: 'непараметрическая log-concave статистика, регрессия без гауссовости ошибок (за пределами теоремы Гаусса-Маркова) — добавлено, score_total=14'}
+  adjacent_not_used: >
+    "Maths on the Move" (plus.maths.org, podbean-фид plusmathsorg.podbean.com, отдельная
+    от Living Proof нумерация) — тоже валидный живой источник, эпизод "Postcard from Oslo:
+    Masaki Kashiwara and the 2025 Abel Prize" (реценизия/бридж по D-модулям и алгебраическому
+    анализу, G4=3 за Abel Prize) прочитан и оценён (score_total=14), но НЕ добавлен —
+    дата публикации 2025-06-04, на месяц раньше начала окна 2025-07-01. Резерв на будущий
+    заход: эпизоды "Richard Samworth: The ICM 2026" (нативный, не Voices of Mathematics),
+    "Topological Data Analysis with Michael Hill", "David Tong and 100 Years of Quantum
+    Mechanics" не оценены подробно, но по темам выглядят перспективно.
+
+- name: "Math-Life Balance"
+  class: E
+  category: подкаст/интервью (найден активным поиском, не из seed-списка)
+  gap_closed: "личные, неформальные интервью с ведущими математиками (не только популяризаторами) о пути в математику и жизни вокруг неё — жанр, которого не было в базе"
+  mechanism: "YouTube-канал @math-life-balance (78 видео, ведёт Мура Якерсон, CNRS/Jussieu) + подкаст-версия на Spotify/Apple; расшифровка через youtube_transcript_api по video id (ищется через YouTube-поиск по точному названию видео, так как канал не даёт стабильный порядок в фиде)"
+  access_status: ok
+  note: >
+    Гости уровня Дениса Гайцгори (доказательство геом. Ленглендса), Дэвида Кажда, Петра Шольце,
+    Стивена Строгаца. Жанр смещён к личному/биографическому (G2 часто ниже, чем в
+    Numberphile Podcast или Breaking Math), но встречаются содержательные экспозиционные куски.
+    Активна, минимум 1 видео/неделю. Достойна системного мониторинга в будущих волнах —
+    из непроверенных в этой волне: интервью с Peter Scholze, David Kazhdan, Olga Paris-Romaskevich.
+  examples:
+    - {title: "Interview with Steven Strogatz", date: '2026-02-02', url: 'https://www.youtube.com/watch?v=Gx8FBKVRdR8', note: 'математика вымирания языков (Nature) + циркадные ритмы — добавлено, score_total=16'}
+    - {title: "Interview with Dennis Gaitsgory", date: '2026-01-23', url: 'https://www.youtube.com/watch?v=FsJvpDnx4Vs', note: 'личное интервью соавтора доказательства геом. Ленглендса — добавлено, score_total=12, fit_reason="people"'}
+
+rejected_this_wave:
+  - name: "Relatively Prime (Samuel Hansen)"
+    class_considered: E
+    reason: >
+      Фактически мёртв: последний полноценный эпизод — 2020 год, далее 4-летний необъявленный
+      хиатус. В 2025 было только одно 'RelPrime Seminar' (25.03.2025, до начала окна) —
+      мета-разговор о финансировании математики, не эпизод в привычном формате. За окно
+      2025-07-01..2026-07-10 — ноль новых эпизодов. НЕ бэкфиллено, честно отклонён по свежести.
+  - name: "My Favorite Theorem (Kevin Knudson & Evelyn Lamb)"
+    class_considered: E
+    reason: "подкаст официально завершён 21.05.2025 (последний, 95-й эпизод — прощальный); эта дата ещё до начала окна 2025-07-01, за окно — ноль эпизодов."
+  - name: "The Cartesian Cafe (Timothy Nguyen)"
+    class_considered: E
+    reason: "уже рассмотрен и отклонён в предыдущей волне (см. запись id=e93a37fb9ee493a4, keep=0, fit_reason=personal); подтверждено повторно — с дек. 2024 не выходило новых интервью-эпизодов до эпизода 21.08.2025, который остаётся единственным в окне и уже отклонён как личный/непрофильный."
+  - name: "Chalkdust / Talkdust (Chalkdust magazine podcast)"
+    class_considered: E
+    reason: "Talkdust (chalkdustmagazine.com/podcast) мёртв с 2019 (4 эпизода, последний апрель 2019) — ноль активности в окне. Одноимённый 'Chalk Dust' на chalkdust.media — активный (Season 2, эпизоды до июня 2026), но это отдельный проект про педагогику школьного преподавания математики (классный менеджмент, 'knowledge-rich classroom'), не про математический контент как таковой — не math-бридж, скорее образование/методика. Не бэкфиллено ни в одну сторону."
+  - name: "Strongly Connected Components (Samuel Hansen, ACMEScience)"
+    class_considered: E
+    reason: "мёртв — последняя активность подтверждена в диапазоне 2010-2015, RSS-фид не отдаёт валидные записи. Не бэкфиллено."
+  - name: "Wrong, But Useful (Flying Colours Maths)"
+    class_considered: E
+    reason: "завершён на 80-м эпизоде, задолго до начала окна. Не бэкфиллено."
+  - name: "Sum of All Parts (Joel Werner, ABC RN)"
+    class_considered: E
+    reason: "завершён около 2020 года (49 эпизодов), новых эпизодов в окне 2025-07-01..2026-07-10 не найдено. Не бэкфиллено."
+  - name: "Taking Maths Further (Peter Rowlett, Katie Steckles)"
+    class_considered: E
+    reason: "сайт takingmathsfurther.com не резолвится (DNS-ошибка на момент проверки); WebSearch не дал списка эпизодов за окно — статус жизни подкаста не подтверждён. Оставлено как pending, не бэкфиллено (не хватило времени добраться до альтернативного зеркала/RSS)."
+  - name: "Opinionated History of Mathematics (Viktor Blåsjö)"
+    class_considered: E
+    reason: "частично жив — эпизод 'Death of Archimedes' датирован 15.07.2025, попадает в окно, у подкаста есть собственные текстовые транскрипты на сайте (intellectualmathematics.com). Но не хватило времени дочитать полный список эпизодов за окно и оценить контент по рубрике — оставлено как перспективный pending для следующего захода, а не отклонено по существу."
+  - name: "Mathematical Objects (Katie Steckles, Peter Rowlett, The Aperiodical)"
+    class_considered: E
+    reason: >
+      Жив и активен (Season 9, ~2 эпизода/месяц, YouTube-транскрипты доступны через
+      youtube_transcript_api). Прочитаны два эпизода: "3D wooden puzzle with Grant
+      Sanderson" (ноя 2025) — приятная, но content-light беседа про краснодеревное
+      мастерство головоломок, минимум собственно математики (G1=1,G2=1,G3=3,G4=1 →
+      score_total=10, ровно на границе); "A Norbert Wiener Story" (фев 2026) — фольклор
+      про рассеянных профессоров (Винер, фон Нейман, Эрдёш), почти без математического
+      содержания (G2≈0-1, score_total≈7, НЕ проходит). Формат подкаста тяготеет к
+      культуре/юмору математического сообщества, а не к математическому мосту — не
+      бэкфиллено в этой волне, но не мёртв, можно вернуться с более удачной выборкой
+      эпизодов (например про сами объекты с более явной геометрией/комбинаторикой).
+
+
+
+# ───────── КЛАСС C · иноязычный текст DE/IT/NL/ZH (волна "Иноязычный текст") ─────────
+
+sources_added_wave1_de_it_nl_zh:
+- name: "MaddMaths!"
+  class: C
+  category: сайт популяризации математики (Италия, SIMAI)
+  gap_closed: "живой, активный итальянский научпоп-хаб математики — 258 постов в 2025; мост между логикой/CS/ИИ и практикой математики, интервью с исследователями"
+  mechanism: "maddmaths.simai.eu — постоянные permalink на каждую статью, HTML открыт полностью (не PDF, не paywall); категории divulgazione/ricerca/persone/didattica"
+  access_status: ok
+  examples:
+    - {title: "Cosa sono i proof assistants (e perché sono importanti)", date: '2026-07-07', url: 'https://maddmaths.simai.eu/ailaxmaddmaths/cosa-sono-i-proof-assistants-e-perche-sono-importanti/', note: 'добавлено, score_total=12'}
+    - {title: "Matematica e Intelligenza Artificiale: una nuova collaborazione (secondo Terence Tao)", date: '2026-06-18', url: 'https://maddmaths.simai.eu/divulgazione/matematica-e-intelligenza-artificiale-una-nuova-collaborazione-secondo-terence-tao/', note: 'добавлено, score_total=12'}
+    - {title: "Premio Bartolozzi 2025: Intervista alla vincitrice Mikaela Iacobelli", date: '2026-06-12', url: 'https://maddmaths.simai.eu/persone/premio-bartolozzi/', note: 'добавлено, score_total=11, fit_reason=people'}
+
+rejected_this_wave_c:
+  - name: "Mitteilungen der DMV"
+    class_considered: C
+    reason: >
+      Жива и активна (De Gruyter Brill, том 33-34, 2025-2026, кварталы), реальный
+      научпоп-контент (Newton-Verfahren в векторных расслоениях, IMO-отчёты и т.д.),
+      НО комплексно paywall: постатейная покупка ~30 EUR или институциональный доступ;
+      проверено несколько DOI (dmvm-2025-0055, dmvm-2024-0084) напрямую и через r.jina.ai —
+      ни одной статьи с полностью открытым текстом не нашлось, даже с пометкой
+      "licenseType=limitedFree" (это про PDF-покупку, не открытый доступ). Честно отклонён —
+      нет добываемого моста (G5).
+  - name: "Spektrum der Wissenschaft (мат-раздел)"
+    class_considered: C
+    reason: >
+      Жив и активен (spektrum.de/mathematik, несколько статей в неделю: Navier-Stokes/ИИ,
+      origami-тор, Matching-в-NC, опровержение гипотезы Эрдёша ИИ и т.д.), НО все проверенные
+      математические статьи (4+, включая новостные) закрыты пейволлом "Spektrum+" сразу после
+      вводного абзаца — честно оценить G2/G3 по полному тексту невозможно. Отдельно: сайт
+      публикует немецкие переводы статей Quanta Magazine (индекс
+      spektrum.de/index/quanta-magazine-auf-deutsch) — это дублирует уже отдельно
+      каталогизированный источник Quanta Magazine (англ.), не является самостоятельным
+      немецким контентом, поэтому не рассматривалось как источник добавлений.
+  - name: "Nieuw Archief voor Wiskunde"
+    class_considered: C
+    reason: >
+      Жив и активен (KWG, том 27, кварталы 2025-2026), НО основные исследовательские/
+      экспозиционные статьи номера доступны только членам KWG. Публично доступен только
+      "preview"-PDF на номер (kwg.nl/naw/nummers/) — фактически включает Redactioneel,
+      Agenda, Nieuws и 1-2 личные колонки, но НЕ флагманскую статью номера (проверено на
+      двух номерах: 2026-1 "From local to global: sheaf theory..." и 2026-2 "Topological
+      Data Analysis" — обе упомянуты в редакционной колонке, но их текста в preview НЕТ).
+      Единственный содержательный кусок, прошедший из бесплатного превью — новостная
+      заметка о частичном опровержении проблемы 367 Эрдёша (добавлена, id=a6d410a0f0ac7a0b,
+      score_total=10, погранично). Основной жанр (длинные экспозиционные статьи) остаётся
+      недоступным для честной оценки по полному тексту.
+  - name: "数学文化 (Mathematical Culture)"
+    class_considered: C
+    reason: >
+      Жив и активен (Global Science Press, Vol. 17 No. 2 вышел 2026-06-12, богатое
+      оглавление с аннотациями — напр. "卷积：从掷骰子到人工智能的数学之旅" про свёртку от
+      игральных костей до ИИ, "无线通信中的数学" про математику беспроводной связи).
+      Проверено через полноценный браузер (global-sci.com/mc/article/view/24354): доступ
+      к полному тексту (25 стр.) требует покупки — CNY 24/статья или CNY 50/номер
+      ("混合出版" / hybrid publishing). Открытых аннотаций достаточно для скрининга, но
+      недостаточно для честной оценки G2/G3 по полному тексту согласно методике. Честно
+      отклонён — нет добываемого бесплатного моста.
+  - name: "返朴 (Fanpu)"
+    class_considered: C
+    reason: >
+      Не найдено стабильного самостоятельного веб-сайта: 返朴 существует прежде всего как
+      WeChat-паблик-аккаунт (公众号, суб-бренд 科普中国, соредакторы Вэнь Сяоган и Янь Нин),
+      без собственного постоянного домена. Проверены возможные зеркала — thepaper.cn/user_4191240
+      (только навигация, статей не отдано), m.163.com (тот же паблик-аккаунт, устаревшая
+      статичная страница) — ни на одном не нашлось листинга статей с постоянными URL.
+      Без стабильных permalink'ов источник не проходит G5 (добываемость) в принципе —
+      честно отклонён без глубокого погружения, по инструкции не тратить время на
+      малодобываемые китайские источники.
+
+gaps_remaining_c:
+  - "Немецкий, итальянский, нидерландский и китайский иноязычный ТЕКСТ математического научпопа
+    оказался системно paywalled/members-only на уровне флагманских журналов (DMV, Spektrum,
+    NAW, 数学文化) — везде реальный, живой контент, но добываемость (G5) низкая. Единственный
+    полностью открытый источник в этой волне — MaddMaths! (Италия)."
+
+# ───────── КЛАСС B · лауреатские каналы + институциональные архивы с транскриптом (волна "лауреаты-архивы") ─────────
+
+sources_added_wave1_laureate_archives:
+- name: "Terence Tao — YouTube (личный канал @TerenceTao27)"
+  class: B
+  category: личный лекционный/демонстрационный канал действующего математика
+  gap_closed: "личный канал математика уровня Borcherds, активен в окне"
+  mechanism: "channel_id UCCGfqB7qtWIktmPyf5UMcbw; RSS https://www.youtube.com/feeds/videos.xml?channel_id=UCCGfqB7qtWIktmPyf5UMcbw ; транскрипт — auto-caption через yt-dlp с --extractor-args youtube:player_client=android (обычный requests/youtube_transcript_api заблокирован по IP; android-клиент yt-dlp обходит блок)"
+  access_status: ok
+  examples:
+    - {title: "Golfing and stylistically aligning a proof using Claude Code", date: '2026-05-23', url: 'https://www.youtube.com/watch?v=l3SCK6V-BFw', note: 'добавлено, score_total=10'}
+    - {title: "Formalizing a proof in Lean using Claude Code", date: '2026-03-08', url: 'https://www.youtube.com/watch?v=JHEO7cplfk8', note: 'добавлено, score_total=10'}
+  note: >
+    Канал крайне нерегулярный (после серии видео 2024 года — почти год тишины, затем 2 видео
+    в 2025-2026 про ИИ-агентов и формализацию в Lean). За пределами окна там же полные курсы
+    (теория чисел, эллиптические функции и т.д.), но они не обновлялись с июля 2024.
+
+- name: "Isaac Newton Institute — INI Seminar Room 1 / 2 (YouTube)"
+  class: B
+  category: институциональный видеоархив семинаров/воркшопов, с транскриптом
+  gap_closed: "Isaac Newton Institute (Кембридж) — оговорено в задании явно"
+  mechanism: "два канала-комнаты: INI Seminar Room 1 (channel_id UCGc4QqRcj5ApgXYhVkhaRpw) и INI Seminar Room 2 (channel_id UC-iCnlplSUpJDMWacrYnOqg); RSS videos.xml по каждому; транскрипт — как выше, android-клиент yt-dlp"
+  access_status: ok
+  examples:
+    - {title: "Tim Gowers — Towards a database of motivated proofs", date: '2026-04-07', url: 'https://www.youtube.com/watch?v=lHztxKIH-W4', note: 'добавлено, score_total=17 (бриллиант)'}
+    - {title: "Holly Krieger — Arithmetic aspects of algebraic dynamical systems (survey talk)", date: '2026-07-07', url: 'https://www.youtube.com/watch?v=mkCutOfXqho', note: 'добавлено, score_total=12'}
+  note: >
+    Обе комнаты активны почти ежедневно, но содержание сильно зависит от текущей программы:
+    в момент проверки Room 1 была занята воркшопом по causal inference (статистика/ML, не
+    добавляли), Room 2 — воркшопом по комплексной динамике (откуда и взят пример Krieger).
+    Гауэрсовский доклад найден не через RSS "последних 15", а через отдельный поиск — стоит
+    иметь в виду, что окно RSS короткое и часть архива по факту недоступна без прямого URL.
+
+- name: "IHÉS — YouTube"
+  class: B
+  category: институциональный видеоархив, с транскриптом
+  gap_closed: "IHÉS — оговорено в задании явно"
+  mechanism: "channel_id UC4R1IsRVKs_qlWKTm9pT82Q (@IHES); RSS videos.xml; транскрипт как выше"
+  access_status: ok
+  examples:
+    - {title: "Edward Lockhart (Google DeepMind) — Why AI Needs Formal Mathematics", date: '2026-06-12', url: 'https://www.youtube.com/watch?v=XRTmhpOW1WA', note: 'добавлено, score_total=17 (бриллиант)'}
+  note: >
+    Текущее окно фида (июнь-июль 2026) сильно смещено в теоретическую физику/космологию;
+    чисто математический контент (например, доклады Ana Caraiani и Johannes Anschütz по
+    p-адической геометрии, ноябрь 2025) в фиде тоже есть, но не проверен на транскрипт.
+
+- name: "Simons Center for Geometry and Physics — YouTube"
+  class: B
+  category: институциональный видеоархив, с транскриптом
+  gap_closed: "Simons-семейство — оговорено в задании явно"
+  mechanism: "channel_id UC6pOFUNZzTMxqFKaRR53WvQ (@simonscenter); RSS videos.xml; транскрипт как выше"
+  access_status: ok
+  examples:
+    - {title: "Avi Wigderson — The Value of Errors in Proofs", date: '2025-11-19', url: 'https://www.youtube.com/watch?v=me9-fo1y4Lw', note: 'добавлено, score_total=18 (бриллиант, лучший результат волны)'}
+    - {title: "Persi Diaconis — Random Walk on the Random Graph", date: '2026-03-26', url: 'https://www.youtube.com/watch?v=Ri8J1zM4bNM', note: 'не добавлено — у видео нет auto-caption ни при одной попытке'}
+  note: >
+    Соседние Simons Foundation (главный канал, @SimonsFoundation) и Simons Institute for
+    Theory of Computing (Berkeley, @SimonsInstitute) тоже активны и математически релевантны,
+    но: у Simons Foundation попавшиеся видео либо не имели caption, либо оказывались
+    короткими промо-тизерами (например Yu Deng про 6-ю проблему Гильберта — только 124 слова
+    расшифровки, не полноценная лекция); Simons Institute (Berkeley) в момент проверки был
+    занят воркшопом на стыке когнитивистики и теории обучения, не строго математика. Оставлены
+    как резерв на будущие заходы.
+
+- name: "ICTP Mathematics — YouTube (Basic Notions Seminar и др.)"
+  class: B
+  category: институциональный видеоархив, с транскриптом
+  gap_closed: "ICTP — оговорено в задании явно"
+  mechanism: "channel_id UC-akozxNLMPcMcs0qVvS1VQ (математический канал ICTP, отдельный от общего @ICTPvideos); RSS videos.xml; транскрипт как выше"
+  access_status: ok
+  examples:
+    - {title: "Apoorva Khare — Polymath 14: From Word Games to an Analysis Definition of Obedient Groups", date: '2026-05-25', url: 'https://www.youtube.com/watch?v=sUaHniAI3dU', note: 'добавлено, score_total=15 (бриллиант)'}
+  note: "Формат 'Basic Notions Seminar' специально рассчитан на широкую аудиторию ICTP вне узкого подполя — структурно хорошо подходит под G3."
+
+- name: "Quanta Magazine — Q&A (жанровый тег quantamagazine.org/qa/, отдельно от обзорных статей)"
+  class: E
+  category: текстовое интервью в качественной научпоп-прессе
+  gap_closed: "заход волны 2 — 'текстовые интервью с крупными математиками в качественной прессе'"
+  mechanism: "quantamagazine.org/qa/ — отдельная лента жанра Q&A (не путать с общим тегом /tag/mathematics/); в базе уже много обычных Quanta-статей, но именно интервью-жанр не был отдельно пройден. За окно 2025-07-01…2026-07-10 на ленте 9 материалов, из них 4 — с математиками (не физиками/биологами/лингвистами)."
+  access_status: ok, открытый доступ без пейволла
+  examples:
+    - {title: "Why the Key to a Mathematical Life Is Collaboration", subject: "Fan Chung", date: '2025-07-28', url: 'https://www.quantamagazine.org/why-the-key-to-a-mathematical-life-is-collaboration-20250728/', note: 'добавлено, score_total=13'}
+    - {title: "To Have Machines Make Math Proofs, Turn Them Into a Puzzle", subject: "Marijn Heule", date: '2025-11-10', url: 'https://www.quantamagazine.org/to-have-machines-make-math-proofs-turn-them-into-a-puzzle-20251110/', note: 'добавлено, score_total=14'}
+    - {title: "A New Complexity Theory for the Quantum Age", subject: "Henry Yuen", date: '2026-02-17', url: 'https://www.quantamagazine.org/a-new-complexity-theory-for-the-quantum-age-20260217/', note: 'добавлено, score_total=15 (бриллиант)'}
+    - {title: "How Writing Changes Mathematical Thought", subject: "David E. Dunning", date: '2026-03-25', url: 'https://www.quantamagazine.org/how-writing-changes-mathematical-thought-20260325/', note: 'добавлено, score_total=17 (бриллиант)'}
+  note: >
+    Остальные 5 Q&A за окно — с физиками/нейроучёными/ML-исследователями (Carlo Rovelli, Astrid
+    Eichhorn, Karen Lloyd, Naomi Saphra, Ev Fedorenko), вне кластера "математики". Также найден
+    Q&A с David Bessis ("Mathematical Thinking Isn't What You Think It Is") — но он от
+    2024-11-18, до окна, не взят. Резерв на следующий заход: проверять /qa/ на новые записи по
+    датам.
+
+sources_rejected_b_archives:
+  - name: "Richard Borcherds — YouTube (личный канал)"
+    class_considered: B
+    reason: "правильный текущий handle найден — @richarde.borcherds7998 (channel_id UCIyDqfi_cbkp-RU20aBF-MQ), канал жив, НЕ 404. Но по RSS последняя загрузка — 2024-07-16, ноль активности в окне 2025-07-01…2026-07-10. Отклонён как неактивный, не бэкфиллено."
+
+  - name: "Timothy Gowers — YouTube (личный канал @wtgowers, channel_id UCQwRDS6_J4OY4FohFvee5PQ)"
+    class_considered: B
+    reason: "канал жив и активен в окне (IMO2025 разборы задач в июле 2025, 'A problem about finite Abelian groups'), формально проходит критерий валидации. Но по содержанию — это видео 'мыслю вслух над конкретной задачей' (олимпиадная/учебниковая), узкоспециальные, рутинные: score_total≈4-6 на всех проверенных, ниже порога. Курсы 'Entropie et combinatoire' и 'La philosophie de la pratique des mathématiques' (2025-2026) оказались НЕ на этом канале, а на канале Коллеж де Франс; отдельная лекция 'Towards a database of motivated proofs' — на канале INI (учтена там)."
+
+  - name: "N J Wildberger — Insights into Mathematics (YouTube, channel_id UCXl0Zbk8_rvjyLwAR-Xh9pQ)"
+    class_considered: B
+    reason: "канал очень активен в окне (ежемесячные выпуски серии 'Sociology and Pure Maths', включая 'AI and Mathematics Research' 2026-06-30), содержательно похож на профиль Borcherds. Но ни на одном из 8 проверенных недавних видео нет auto-caption (canale отключил/не генерируются) — при любой попытке через yt-dlp/timedtext получаем пустой результат. Транскрипт недобываем → не берём, честно pending."
+
+  - name: "Robert Ghrist — Prof Ghrist Math (YouTube, channel_id UC5N5pRddyicAX1QJyJjIIdg)"
+    class_considered: B
+    reason: "канал активен в окне, но весь свежий контент (февраль 2026) — серия YouTube Shorts 'PARADOXICAL' (визуальные геометрические иллюзии, не лекции). Полнокурсовой контент (CalcGREEN) не обновлялся с мая 2024. Не тот формат/глубина."
+
+  - name: "Kevin Buzzard — Xena Project (YouTube, channel_id UCtdYf-CsDI215SqaQ3XYx1A)"
+    class_considered: B
+    reason: "мёртв с 2023-05-29 — не проходит по свежести. Живые лекции Баззарда за 2025-2026 разбросаны по чужим институциональным каналам (см. пример IHÉS-упоминания в докладе Lockhart)."
+
+  - name: "Edward Frenkel — AfterMath (YouTube, channel_id UCpF6IVIBI-UpR2taxmogj0A)"
+    class_considered: B
+    reason: "активен в окне, но формат — подкаст/интервью с философско-эзотерическим уклоном (юнгианские архетипы, коллективное бессознательное), а не математическая лекция; рискует пересекаться с кластером 'подкасты' другого агента волны. Не включён."
+
+  - name: "IAS School of Mathematics (видео-семинары, отдельно от IAS Public Lecture)"
+    class_considered: B
+    reason: "канал @videosfromIAS (channel_id UC8aRaZ6_0weiS50pvCmo0pw) активен, School of Math публикует исследовательские семинары еженедельно. Проблема: подавляющее большинство роликов НЕ имеет auto-caption (english); из ~7 проверенных транскрипт добыт только для 2 (Adamou/Tamo — algebraic expander codes, score≈6; Milojević — random geometric graphs, score≈8), оба ниже порога 10 (узкоспециальные исследовательские доклады). Канал числится валидированным по активности, но пока не дал ни одной строки — резерв для следующего захода с другой выборкой докладов."
+
+  - name: "BIMSA — YouTube (channel_id UCiot6Jdkl9pVnSPOiC7qkuw)"
+    class_considered: B
+    reason: "канал активен в окне (~2-3 доклада в месяц, включая Albert Schwarz, Yuval Peres, Michael Pevzner). Но ни на одном из 6 проверенных роликов нет auto-caption на английском (похоже, платформа/загрузка не генерирует ASR для этого канала системно). Транскрипт недобываем → не берём."
+
+  - name: "CIRM (Centre International de Rencontres Mathématiques) — CARMIN-AV / carmin.tv"
+    class_considered: B
+    reason: "не YouTube — собственная видеотека carmin.tv/en/instituts/cirm, активна и подтверждена в окне (напр. Benjamin Howard, 'Arithmetic cycles and L-functions', июль 2026). Но на самой странице видео нет ни транскрипта, ни субтитров — только плеер с кнопкой скачивания. Транскрипт принципиально недобываем через доступные инструменты → не берём."
+
+sources_checked_interview_cluster_empty:
+  - name: "Simons Foundation — текстовые профили учёных (simonsfoundation.org, вне подкаста Joy of Why)"
+    class_considered: E
+    reason: "Проверено целенаправленно (задание явно просило смотреть не только подкаст). За окно нашлись только грантовые новости, анонсы программ и списки лауреатов (Simons Fellows, ICM 2026 delegation) — не найдено ни одного текстового Q&A/профиля конкретного математика в духе 'учёный объясняет свою работу'. Резерв на будущее: возможно, профили публикуются под другими URL-паттернами (не проиндексированы поиском)."
+
+  - name: "IAS — 'Ideas' magazine / profile-интервью (ias.edu)"
+    class_considered: E
+    reason: "ias.edu/ideas отдаёт HTTP 403 при прямом заходе (защита от ботов). Поиском найдены только общие новостные страницы и видеосерия 'Paths to Math' (это видео, не текст — пересекается с кластером видео другого агента). Текстовых Q&A-интервью с математиками за окно не подтверждено. Резерв: нужен заход через браузер с реальным User-Agent, не WebFetch."
+
+  - name: "Nautilus (nautil.us) — математические интервью/профили"
+    class_considered: E
+    reason: "Проверены topics/math/ и точечные находки (Eugenia Cheng Q&A, Mandelbrot реконструкция) — обе оказались вне окна (2023 и раньше). За 2025-07-01…2026-07-10 не нашли ни одного нового интервью-профиля математика (текущие математические статьи на сайте — обзорные, не Q&A-формат)."
+
+  - name: "New Scientist — интервью с математиками"
+    class_considered: E
+    reason: "Поиск не дал ни одной конкретной ссылки на интервью-формат с математиком за окно (в отличие от их обычных научпоп-статей). Не проверялось напрямую через сайт из-за пейволла New Scientist — резерв на заход с доступом к архиву."
+
+  - name: "The Guardian — интервью с математиками"
+    class_considered: E
+    reason: "Целевые поиски (в т.ч. вокруг Abel Prize 2026 — Герд Фальтингс) не дали текстового интервью именно The Guardian за окно. Основное освещение премии — заметки без интервью-формата (abelprize.no, Max-Planck, plus.maths.org) и видеоинтервью (YouTube, вне текстового кластера)."
+
+  - name: "Clay Mathematics Institute — 'in conversation' / profile-интервью (claymath.org)"
+    class_considered: E
+    reason: "На сайте не нашлось отдельной рубрики интервью-профилей — есть новостные заметки о премиях/лекциях (Millennium Prize Lecture Series, Clay Research Conference), но не Q&A-жанр. Резерв: возможно, стоит смотреть архив news/ по годам вручную, а не через общий поиск."
+
+  - name: "Scientific American — Hannah Cairo Q&A (повторный профиль той же истории, что уже в базе)"
+    class_considered: E
+    reason: "Найдено отдельное Q&A (Emma R. Hasson, 2025-08-04, 'How Teen Mathematician Hannah Cairo Disproved a Major Conjecture in Harmonic Analysis') — формально проходит (score_total≈11), но математического контента мало (в основном про идентичность и рабочий процесс), и в базе уже есть профиль Quanta про тот же результат того же человека (f8356b2df57b6c00). Сознательно не добавлено — пограничный балл 10-12 и дублирующий сюжет, приоритет отдан находкам с score>=13."
+
+sources_institutional_archives_wave3:
+  - name: "Fields Institute — YouTube (channel_id UCSzx-qTK2639JBWgrb6mTmw)"
+    class: B
+    category: институциональный видеоархив, с транскриптом
+    gap_closed: "Fields Institute — оговорено в задании явно"
+    mechanism: "yt-dlp --extractor-args youtube:player_client=android; live-captions доступны на англ. Основной поток канала — узкие исследовательские воркшопы (десятки роликов/неделю, названия вроде 'Quantum Optimal Transport Lecture 03'), но внутри есть кураторская подсерия Distinguished/Coxeter Lecture Series, которую надо искать через --flat-playlist по @FieldsInstitute/videos (RSS отдаёт только последние 15) и грепать по 'Distinguished|Coxeter|Public Lecture'."
+    access_status: ok
+    examples:
+      - {title: "Coxeter Lecture Series — Mihalis Dafermos: The Mathematics of Black Holes, Lecture I (Black Hole Basics)", date: '2026-05-27', url: 'https://www.youtube.com/watch?v=89JkHCVZ2kU', note: 'добавлено, score_total=13'}
+      - {title: "Distinguished Lecture Series — Sunčica Čanić: moving boundary problems (fluid-structure interaction, bioartificial pancreas)", date: '2026-06', url: 'https://www.youtube.com/watch?v=YCq8IJw9KiM', note: 'не добавлено — несмотря на анонс "on the light side", содержание сразу уходит в специализированную PDE-литературу (existence theory), низкий G3'}
+    note: "Coxeter Lectures II-III того же цикла Дафермоса (Kerr stability, extremal Kerr moduli space) не дочитаны полностью — по словам самого лектора уходят в специализацию, вероятно ниже порога; резерв для перепроверки."
+
+  - name: "Bernoulli Center EPFL — YouTube (channel_id UCO60DrAzEcS5ql9_e8hhEmQ)"
+    class: B
+    category: институциональный видеоархив, с транскриптом
+    gap_closed: "Bernoulli Center — оговорено в задании явно"
+    mechanism: "yt-dlp --extractor-args youtube:player_client=android; канал малоактивен (единицы роликов в год), но именно в окне ровно 2 ролика — оба с ежегодной Journée Georges de Rham 2026 (4 июня), оба с англ. auto-caption."
+    access_status: ok
+    examples:
+      - {title: "Hong Wang — Kakeya sets in R^3", date: '2026-06-04', url: 'https://www.youtube.com/watch?v=X1ClWD8xLX4', note: 'добавлено, score_total=13 (рассказ о собственном прорывном доказательстве гипотезы Какейи в R^3 с Джошем Залем)'}
+      - {title: "Emmanuel Candès — What Statistics and AI Offer Each Other?", date: '2026-06-04', url: 'https://www.youtube.com/watch?v=D7pu2I-RtVw', note: 'добавлено, score_total=12'}
+    note: "Канал крайне малоактивен вне Journée Georges de Rham — на следующий заход имеет смысл проверять именно это ежегодное мероприятие (обычно начало июня), а не сам канал."
+
+  - name: "BIMSA — YouTube (channel_id UCiot6Jdkl9pVnSPOiC7qkuw) — ПЕРЕОТКРЫТО"
+    class: B
+    category: институциональный видеоархив, с транскриптом
+    gap_closed: "BIMSA — предыдущая волна отклонила как 'транскрипт недобываем', перепроверено по заданию"
+    mechanism: "ИСПРАВЛЕНИЕ методической ошибки предыдущей волны: обычный --list-subs без extractor-args действительно показывает лишь пустой список для некоторых клиентов, но yt-dlp --extractor-args youtube:player_client=android достаёт auto-caption (en) без проблем на всех 5+ проверенных роликах. Канал живой и активный (2-3 доклада/месяц), это BIMSA 'member seminar' (внутренний, но публично выложенный) и отдельные коллоквиумы."
+    access_status: ok
+    examples:
+      - {title: "Yuval Peres — Laplacian Growth: Sandpiles, Rotor-Routers and Their Scaling Limits (BIMSA member seminar)", date: '2026-03-19', url: 'https://www.youtube.com/watch?v=sjSNh7nqWdM', note: 'добавлено, score_total=15 (бриллиант)'}
+      - {title: "Sergei Nechaev — Fractal Brownian Motion Meets Topology", date: '2026-03-19', url: 'https://www.youtube.com/watch?v=GATu8FDBoqo', note: 'добавлено, score_total=14'}
+      - {title: "Su Gao — Descriptive Set Theory as a Complexity Theory (BIMSA colloquium)", date: '2026-03-19', url: 'https://www.youtube.com/watch?v=RXvtZNELQbc', note: 'не добавлено — читается с историческим колоритом (Урысон), но плотная техническая нотация (борелевская иерархия) держит G3 низким, около порога, не прошло'}
+    note: "Важная поправка к прошлой волне: BIMSA НЕ следует отклонять по недобываемости транскрипта — она добывается стандартным android-client методом. Канал стоит проверять на будущих заходах регулярно."
+
+  - name: "CIRM (Centre International de Rencontres Mathématiques) — YouTube (channel_id UCFqg88K7NWY2xjWB6CeRyAw, user/CIRMchannel) — ПЕРЕОТКРЫТО как канал, но контент отклонён"
+    class_considered: B
+    reason: "ИСПРАВЛЕНИЕ методической ошибки предыдущей волны: carmin.tv действительно без транскрипта, НО те же лекции параллельно выложены на YouTube-канале CIRM с auto-caption (проверено yt-dlp android-client — работает). Однако весь контент в окне — это многочасовые исследовательские курсы по арифметической геометрии для специалистов (Ben Howard 'Arithmetic cycles and L-functions', Jan Vonk 'Singular moduli for real quadratic fields', Vincent Pilloni/George Boxer 'p-adic Eichler-Shimura theory', Alice Pozzi 'geometry of eigenvarieties') — проверен разбор Ben Howard Lecture 1, начинается сразу с 'the origin... everybody should know it' про Kudla program, узкоспециальный. 'Interview at CIRM' ролики — на французском (вне кластера этого агента, франко-испанский добор — отдельный агент волны). Ни один ролик не прошёл бы G1/G3."
+    note: "Канал технически теперь доступен для будущих заходов, но нужно ловить окна публичных лекций/интервью на английском, а не исследовательские курсы (сейчас все свежие загрузки — курсы)."
+
+  - name: "IAS School of Mathematics — YouTube (channel_id UC8aRaZ6_0weiS50pvCmo0pw, @videosfromIAS) — доразведка"
+    class: B
+    category: институциональный видеоархив, с транскриптом
+    gap_closed: "IAS School of Mathematics — перепроверка на новые ролики за окно, как оговорено в задании"
+    mechanism: "yt-dlp --extractor-args youtube:player_client=android; помимо узких исследовательских семинаров канал регулярно публикует широкоформатные события — 'Institute Instances' (короткие 1-2-мин попики, слишком коротки для оценки) и полноформатные публичные дискуссии/панели."
+    access_status: ok
+    examples:
+      - {title: "Mathematical Folklore: A Public Conversation (Akshay Venkatesh, Karen Uhlenbeck, Govind Menon, Alma Steingart, вёл David Nirenberg)", date: '2026-06-09', url: 'https://www.youtube.com/watch?v=UrxVG-UEG74', note: 'добавлено, score_total=17 (бриллиант) — итоговая панель годового семинара IAS о чтении исторических математических текстов'}
+    note: "Institute Instances (напр. 'What is Ergodic Theory?', 'From Random Walks to Neural Networks') — формат 60-90 секунд, технически с caption, но заведомо недостаточно контента для оценки по рубрике; не читались содержательно, не оценивались."
+
+sources_rejected_b_archives_wave3:
+  - name: "MSRI / SLMath — видео-архив (Vimeo: vmath = 'Lecture Archive', mathmoves = 'Public Video')"
+    class_considered: B
+    reason: "Оригинальный YouTube-канал (UCj8bVrwNrIGAQlC_xceQaPA) мёртв с 2020 года. Всё текущее видео перенесено на два Vimeo-канала: vmath (активный архив семинарских записей, но названия обезличены — 'July 9 - Lecture A' и т.п., то есть узкотехнические workshop-доклады) и mathmoves (публичные ролики, но это Mathical Book Prize/readathon для детей и разовый 'Math Lovers Forum' с космологом — не математика). Критично: Vimeo-видео у SLMath требуют логина ('The web client only works when logged-in') — yt-dlp не может достать субтитры без учётных данных ни у одного проверенного ролика. Транскрипт принципиально недобываем текущими средствами → отклонено."
+
+  - name: "Perimeter Institute — Public Lecture Series (YouTube UCpHvNclapYpq8b0ZnGRoMeg, PIRSA c04001)"
+    class_considered: B
+    reason: "Канал живой и очень активный, транскрипты технически добываемы. Но весь список публичных лекций в окне 2025-2026 (Katie Mack, Savas Dimopoulos, Andrew Pontzen, Netta Engelhardt, Niayesh Afshordi, Carlo Rovelli и др.) — чистая физика/космология без математического содержания уровня, нужного для этой базы (ровно оговорённое в задании исключение 'если математически значимо, не чистая физика'). Ни одна лекция не квалифицируется как математическая — отклонено полностью, не оценивалось построчно."
+
+sources_added_wave2b_channels_and_ems:
+  - name: "EMS Magazine (бывший EMS Newsletter), ems.press/journals/mag = euromathsoc.org/magazine"
+    class_considered: C
+    status: "ДОБАВЛЕНО — валидный источник"
+    mechanism: "Журнал открытого доступа (CC BY 4.0), квартальный (март/июнь/сентябрь/декабрь). Список статей выпуска — WebFetch на https://ems.press/journals/mag/issues/<id>; полный текст — PDF по ссылке 'Download article (PDF)' на странице https://euromathsoc.org/magazine/articles/<DOI-номер>, паттерн ems.press/content/serial-article-files/<fileId>?nt=1, извлекается через pdftotext -layout."
+    window_coverage: "No. 138 (2025, содержит номера DOI .../270-.../292) и No. 139 (2026, .../295-.../301) — оба полностью в окне 2025-07-01…2026-07-10."
+    examples:
+      - {title: "Interview with Sir John Kingman", authors: "Ana Isabel Mendes, Martin Raussen", date: "2025-09", url: "https://euromathsoc.org/magazine/articles/280", note: "добавлено, score_total=17 (бриллиант)"}
+      - {title: "Obituary of Peter Lax", authors: "Constantine M. Dafermos", date: "2026-05", url: "https://euromathsoc.org/magazine/articles/301", note: "добавлено, score_total=17 (бриллиант)"}
+      - {title: "Traces and trajectories: in memory of Edi Zehnder", authors: "Paul Biran, Felix Schlenk", date: "2025-09", url: "https://euromathsoc.org/magazine/articles/285", note: "добавлено, score_total=15 (бриллиант)"}
+      - {title: "Sergey P. Novikov (1938–2024)", authors: "Iskander A. Taimanov", date: "2025-09", url: "https://euromathsoc.org/magazine/articles/276", note: "добавлено, score_total=14"}
+      - {title: "Are there non-trivial theorems about all finitely generated groups?", authors: "Tom Hutchcroft", date: "2026-05", url: "https://euromathsoc.org/magazine/articles/295", note: "добавлено, score_total=12"}
+    not_added_examples:
+      - {title: "Side by side: interview with Cristiana De Filippis and Tuomo Kuusi", authors: "Raffaella Mulas", date: "2025-09", url: "https://euromathsoc.org/magazine/articles/275", note: "прочитано целиком; забавное, но легковесное интервью (в основном личное общение, шутки, минимум математики) — оценка на грани порога (≈10), сознательно не добавлено в пользу более content-heavy находок"}
+      - {title: "Cycles and expansion in graphs", authors: "Richard Montgomery", date: "2025-09", url: "https://euromathsoc.org/magazine/articles/287", note: "хорошо написанный обзор, но узкоспециальный (экстремальная теория графов/расширители) — score_total≈9, ниже порога"}
+    note: "Отличный источник для категории C: короткие (2-12 стр.) содержательные интервью, некрологи крупных фигур и эссе, почти всегда открытый доступ. Рекомендуется регулярно проверять новые выпуски (следующий ожидается ~сентябрь 2026)."
+
+  - name: "John Baez — личный канал YouTube (channel_id UCy9yxdnj0yfOiMWvMa47PNw, он же handle @johncarlosbaez_edinburgh), серия 'Edinburgh Explorations'"
+    class_considered: B
+    status: "ДОБАВЛЕНО — валидный источник, найден в ходе широкого поиска (не входил в исходный список кандидатов)"
+    mechanism: "После переезда в Эдинбург (School of Mathematics + School of Physics and Astronomy) Баэз ведёт на своём личном канале серию интервью с математиками/физиками ('Edinburgh Explorations') и авторский лекционный цикл 'Standard Model'. Активен в окне: минимум 9 новых видео 2025-10…2026-07. Автосубтитры есть на всех проверенных видео (youtube_transcript_api сработал напрямую, без обхода блокировок); внимание — автосубтитры иногда искажают 'John Baez' как 'John Vise'/'John Bes' фонетически."
+    examples:
+      - {title: "Jonathan Hickman on the Kakeya Conjecture", date: "2026-05-31", url: "https://www.youtube.com/watch?v=6FvNAZ4JFiI", note: "добавлено, score_total=18 (бриллиант) — интервью о недавнем (2025) доказательстве 3-мерной гипотезы Какейя"}
+      - {title: "Standard Model 2: The Big Ideas", date: "2025-11-03", url: "https://www.youtube.com/watch?v=tGCUjsF7Dgg", note: "добавлено, score_total=14"}
+      - {title: "The Standard Model Gauge Group From Octonions", date: "2026-06-26", url: "https://www.youtube.com/watch?v=ulIeYBgBtaQ", note: "добавлено, score_total=11 — авторский исследовательский доклад, узкоспециальный (G3=1), но яркий мост алгебра/физика"}
+    not_added_examples:
+      - {title: "Latham Boyle on How the Universe Keeps Getting Simpler as We Go Back in Time", date: "2026-06-14", url: "https://www.youtube.com/watch?v=-6lorzBqqxI", note: "прочитано; содержательное интервью про CPT-симметричную космологию, но почти полностью физика/космология без существенной математической составляющей — вне фокуса математического дайджеста, не добавлено"}
+      - {title: "Clark Barwick on Topological Quantum Field Theory and the Langlands Program", date: "2026-06-13", url: "https://www.youtube.com/watch?v=t3xkf-hqG2Q", note: "доступный фрагмент транскрипта короткий (~4 тыс. знаков, похоже на обрезанный клип) и крайне технический (TQFT, geometric Langlands) без разъяснения с нуля — не добавлено"}
+    note: "Сильная находка волны 2: единственный из ~12 проверенных личных каналов математиков, оказавшийся живым, содержательным и добываемым. Рекомендуется для регулярного мониторинга."
+
+sources_rejected_b_wave2_personal_channels:
+  - name: "Alex Kontorovich — личный канал YouTube (channel_id UCMI1E-H6bJ3lG2576ENBo1g)"
+    class_considered: B
+    reason: "Канал живой и очень активен в окне, но весь контент 2025-2026 — это записи одного учебного курса 'Introduction to Formal Real Analysis' (Rutgers, лекции 12-25, формализация в Lean), без единого экспозиционного/попгулярного видео. Публичная лекция 'The Shape of Math to Come' (про ИИ и математику), которую можно было принять за его материал, на самом деле размещена на институциональном канале Harvard CMSA, не на личном канале Конторовича — вне границ этого кластера."
+  - name: "Po-Shen Loh — 'Daily Challenge with Po-Shen Loh' / 'LIVE by Po-Shen Loh' (YouTube)"
+    class_considered: B
+    reason: "Канал очень активен в окне (еженедельные стримы), но весь контент — разбор олимпиадных задач Math Kangaroo для школьников 3-8 классов (LIVE Solve). Формат и уровень откровенно ученический, не проходит по G3/G1 для аудитории дайджеста — 'слишком базовый'."
+  - name: "Emily Riehl — личный канал YouTube (channel_id UC4G75e4FP4JjSkN2aIqC1zw)"
+    class_considered: B
+    reason: "Канал существует, но фактически мёртв — всего 2 видео, последнее от 2020-05-18. Вся её актуальная публичная активность (интервью Math Inc, Natural Philosophy Symposium, HoTTEST Summer School) размещена на чужих институциональных каналах, не на личном."
+  - name: "Federico Ardila — личный канал YouTube (channel_id UCWwECTsgjp_S-c73pO2c4gQ)"
+    class_considered: B
+    reason: "Канал мёртв с 2013 года (последняя загрузка — лекция курса Enumerative Combinatorics, 2013-12-13). Нет активности в окне."
+  - name: "Nathan Dunfield — личный канал YouTube ('user/NathanDunfield')"
+    class_considered: B
+    reason: "Канал содержит только 6 старых видео — туториалы по программе SnapPy (топология 3-многообразий), без дат в окне и без экспозиционного контента. Актуальные доклады Данфилда (BIRS 2025 и др.) размещены на чужих институциональных каналах."
+  - name: "Marcus du Sautoy — личный канал YouTube (channel_id UC9KMu7w8w7gRZoLq8YlKTJw)"
+    class_considered: B
+    reason: "Канал существовал и был содержательным (серия 'Around the World in 80 Games'), но не обновлялся с 2024-03-14 — мёртв в окне 2025-07-01…2026-07-10."
+  - name: "Holly Krieger, Persi Diaconis — личных каналов не существует"
+    class_considered: B
+    reason: "Обе фигуры активно появляются на чужих каналах (Numberphile, институциональные лекции), но не ведут собственного YouTube-канала. У Диакониса на YouTube есть однофамильный канал 'Persi' (channel_id UCFEQQafgVkbC5ICTsjVbFHQ) — при проверке оказался каналом польского диджея, не имеющим отношения к математику."
+
+# ───────── ЗАХОД: испано-французский текстовый кластер (волна 2) ─────────
+
+sources_added_wave2_es_fr:
+- name: "Dimensión Fractal (eldiario.es, ICMAT)"
+  class: C
+  category: газетная научпоп-колонка (преемница Café y Teoremas)
+  gap_closed: "испанская мат-колонка ICMAT после закрытия Café y Teoremas в El País (10.03.2026); те же авторы/координатор (Ágata Timón García-Longoria, UCMAT)"
+  mechanism: "индекс https://www.eldiario.es/sociedad/dimension-fractal/ — прямой WebFetch работает без проблем, пейволла нет; запущена 14.12.2025, публикуется ~раз в месяц"
+  digest_grade_per_year_estimate: "5-8 (из ~7-10 статей/год)"
+  access_status: ok
+  examples:
+    - {title: "El hermano mayor del teorema de Pitágoras que cambió nuestra forma de entender el mundo", date: "2026-03-13", url: "https://www.eldiario.es/sociedad/hermano-mayor-teorema-pitagoras-cambio-forma-entender-mundo_1_13062307.html", score_total: 17}
+    - {title: "Los extraños números que podrían modelar el espacio-tiempo a escalas diminutas", date: "2026-04-25", url: "https://www.eldiario.es/sociedad/extranos-numeros-modelar-espacio-tiempo-escalas-diminutas_1_13103855.html", score_total: 15}
+  note: "7 статей проверены и оценены, все добавлены (score_total 10-17), id в materials.db, retrieved_at=2026-07-10."
+
+- name: "Entre Teoremas (ABC, ICMAT)"
+  class: C
+  category: газетная научпоп-колонка (сестринская колонка Dimensión Fractal)
+  gap_closed: "та же миссия ICMAT, но в газете ABC; запущена 19.12.2025"
+  mechanism: "прямой WebFetch на abc.es СИСТЕМАТИЧЕСКИ падает ('Claude Code is unable to fetch from www.abc.es') — стандартный поисковый индекс abc.es тоже почти не содержит этих статей напрямую (только через ICMAT-упоминания). РАБОЧИЙ ОБХОД: r.jina.ai/https://www.abc.es/... — читает статьи полностью, пейволла на найденных статьях НЕ обнаружено. Список статей нашёлся через листинг https://www.abc.es/noticias/matematicas/ (и pagina-2.html) — там же перемешаны административные/новостные заметки, не относящиеся к колонке; авторство и подпись секции ('Entre teoremas es una sección de matemáticas...') — надёжный маркер принадлежности."
+  digest_grade_per_year_estimate: "3-5 (из ~7-8 статей/год; часть — рутинные темы вроде лотереи, ниже порога)"
+  access_status: ok (через r.jina.ai reader-proxy; прямой WebFetch не работает)
+  examples:
+    - {title: "El paseo imposible que hizo surgir nuestras redes sociales", date: "2026-04-25", url: "https://www.abc.es/ciencia/paseo-imposible-hizo-surgir-redes-sociales-20260420000817-nt.html", score_total: 17}
+    - {title: "Gerd Faltings, 'Nobel de las matemáticas'...", date: "2026-03-19", url: "https://www.abc.es/ciencia/gerd-faltings-nobel-matematicas-desentranar-ecuaciones-inquietaban-20260319120424-nt.html", score_total: 13}
+  note: "4 статьи проверены, 3 добавлены, 1 (лотерейный дебют колонки от 19.12.2025) отклонена — score_total=7, рутинная тема ниже порога."
+
+- name: "Pour la Science"
+  class: C
+  category: научпоп-журнал (французский аналог Scientific American)
+  gap_closed: "французский научпоп высокого уровня по математике; ранее числился заблокированным из-за SSO-редиректа bad_credential на прямых запросах"
+  mechanism: >
+    ПОВТОРНАЯ ПРОВЕРКА ДРУГИМ МЕТОДОМ — успешно. Прямой WebFetch на pourlascience.fr по-прежнему падает
+    ('Claude Code is unable to fetch from www.pourlascience.fr'), это подтверждает прежний блокер.
+    Но r.jina.ai/https://www.pourlascience.fr/... ОБХОДИТ SSO-редирект и отдаёт контент. Раздел
+    https://www.pourlascience.fr/maths/ — листинг активен (еженедельно-раз в 2 недели новые статьи).
+    ВАЖНАЯ ОГОВОРКА: журнал в основном платный — из 6 проверенных статей 2 оказались пейволлом (~10% текста,
+    например "La distance de Wasserstein...", "Indécidabilité et physique..." Jean-Paul Delahaye), но 4 открылись
+    ПОЛНОСТЬЮ без пейволла (интервью с Юго Дюмениль-Копеном, о Фрэнке Мерле, о полимино, об ИИ/Эрдёше) —
+    похоже, часть материалов (особенно новостные заметки rubrique "sd/mathematiques" и "sr/logique-calcul")
+    в открытом доступе, а колонки/интервью в "sr/lequation" чаще платные. Стоит проверять каждую статью отдельно.
+  digest_grade_per_year_estimate: "8-15 (из ~25-30 статей/год в разделе maths, если считать долю открытых ~60%)"
+  access_status: ok (частично — см. оговорку; через r.jina.ai reader-proxy, прямой WebFetch не работает)
+  examples:
+    - {title: "Hugo Duminil-Copin : « Le modèle d'Ising inspire toujours la recherche en probabilités et en physique »", date: "2026-05-13", url: "https://www.pourlascience.fr/sd/mathematiques/hugo-duminil-copin-le-modele-d-ising-inspire-toujours-la-recherche-en-probabilites-et-en-physique-29178.php", score_total: 15}
+    - {title: "Frank Merle remporte le prix Breakthrough de mathématiques...", date: "2026-04-21", score_total: 15}
+    - {title: "L'IA réalise une avancée reconnue en mathématiques...", date: "2026-06-09", score_total: 15}
+  note: "6 статей проверены (4 полных, 2 пейволл-обрезка), 4 добавлены. La Recherche (сестринский журнал того же издателя) отдельно не проверен по времени — поисковый индекс site: не даёт результатов, требует отдельного захода тем же методом (r.jina.ai) в следующий раз."
+
+- name: "CNRS Le Journal — рубрика Mathématiques"
+  class: C
+  category: официальный научпоп-журнал французского CNRS
+  gap_closed: "НОВЫЙ источник вне seed-списка — качественная французская научпоп-площадка, не найденная предыдущими волнами; открытый доступ без исключений, активна (несколько статей/месяц)"
+  mechanism: "https://lejournal.cnrs.fr/mathematiques — прямой WebFetch работает нормально, без пейволла и без блокеров"
+  digest_grade_per_year_estimate: "6-10"
+  access_status: ok
+  examples:
+    - {title: "Les maths ont des oreilles", date: "2026-02-06", url: "https://lejournal.cnrs.fr/articles/les-maths-ont-des-oreilles", score_total: 16}
+    - {title: "Sophie Germain : les maths en Révolution", date: "2026-03-31", url: "https://lejournal.cnrs.fr/articles/sophie-germain-les-maths-en-revolution", score_total: 11}
+    - {title: "Les maths à la plage", date: "2026-07-01", url: "https://lejournal.cnrs.fr/articles/les-maths-a-la-plage", score_total: 11}
+  note: "3 статьи проверены и добавлены (из ~6 просмотренных в листинге; 'Jeux vidéo: les maths sous toutes les surfaces' и 'Inventer une mathématicienne au cinéma' не проверялись по времени — резерв на будущее)."
+
+- name: "DivulgaMAT (divulgamat.net) — ОТКЛОНЁН, домен захвачен"
+  class: C
+  category: испанская университетская научпоп-площадка (RSME)
+  reason: "ПОДТВЕРЖДЁННЫЙ БЛОКЕР: divulgamat.net (и /divulgamat15/) делает 301-редирект на casinosinlicenciaespanola.es — домен захвачен/перепродан под гэмблинг-сайт без испанской лицензии. Оригинальный портал RSME мёртв. НЕ переходить по этому редиректу ни в каком виде (небезопасно/нерелевантно). Окончательный отказ, не пытаться заново тем же URL."
+
+- name: "Quadrature (revue) — ОТКЛОНЁН, платный/угасший"
+  class: C
+  category: французский рекреационно-математический журнал
+  reason: "Оригинальный Quadrature (EDP Sciences) прекратил выпуск на номере 77 в 2010 году; сайт quadrature-journal.org — архив без свободного доступа (требует логин/покупку). Есть современный тёзка/преемник под маркой RMS-math.com (номер 139, янв-март 2026), но это бумажный подписной журнал для преподавателей без обнаруженного открытого веб-архива статей — как и Gazette SMF, не стоит тратить время без предварительной проверки открытого доступа. Pending-access, не приоритет."

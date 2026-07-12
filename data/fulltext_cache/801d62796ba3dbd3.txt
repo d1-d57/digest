@@ -1,0 +1,401 @@
+Images des mathématiques
+      Les maths en mots et en images
+
+
+
+
+                Hoel Queffelec
+
+
+
+       Un problème gordien
+       La somme connexe n’est pas additive
+
+
+
+
+                            Images des mathématiques
+IdM
+                               Volume 4 (2026), p. 17–24
+                              doi : 10.60868/527b-1r72
+IdM
+                      Images des mathématiques
+                        Les maths en mots et en images                        17
+
+Un problème gordien
+La somme connexe n’est pas additive
+  Écrit par Hoel Queffelec
+  Publié le 10 février 2026
+  doi : 10.60868/527b-1r72 — cc by-nc-nd 4.0
+         — CLOCK ⩽ 15 min — SKIING
+
+
+     Nœud
+
+
+
+
+            Un résultat inattendu a secoué les théoriciens des nœuds à
+            l’été 2025 : c’est l’occasion de découvrir la notion de somme
+            connexe et de nombre gordien, avant de présenter le surpre-
+            nant résultat de Mark Brittenham et Susan Hermiller.
+
+
+
+Plan de l’article
+  Qu’est-ce qu’un nœud ? . . . . . . . . . . . . . . . . . . . . . . . .      18
+  La somme de deux nœuds . . . . . . . . . . . . . . . . . . . . . .          19
+  Le nombre gordien . . . . . . . . . . . . . . . . . . . . . . . . . .       21
+  Une inégalité . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   22
+  Références . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    23
+
+
+
+
+                       Images des mathématiques — volume 4 (2026)
+18                                                              H. Queffelec
+
+
+Qu’est-ce qu’un nœud ?
+
+   La théorie des nœuds est la branche des mathématiques qui s’intéresse
+aux nœuds. Un nœud mathématique, c’est à peu près la même chose qu’un
+nœud dans la vraie vie : une ficelle entortillée. La seule différence est qu’en
+maths, on recolle les deux bouts, pour obtenir quelque chose comme les
+exemples de la figure 1.
+
+
+
+
+     Un nœud trivial               Un nœud de trèfle       Un nœud de huit
+
+
+                            Figure 1 – Quelques nœuds.
+
+
+    Les habituées et habitués d’Images des mathématiques connaissent bien
+ces objets, voir par exemple [2-5] pour n’en citer que quelques-uns. Rap-
+pelons simplement qu’un nœud, qui vit en dimension 3 (deux morceaux
+de la ficelle peuvent passer l’un au-dessus de l’autre), peut se représenter
+par un diagramme en dimension 2. Si l’on imagine tenir le nœud sous
+une lampe, le diagramme est ce que dessine l’ombre projetée sur le sol,
+sauf qu’on garde aussi en mémoire à chaque croisement quel brin passait
+au-dessus. Par contre, un même nœud peut se représenter de plusieurs
+manières. La figure 2 présente plusieurs diagrammes équivalents du même
+nœud (trivial).
+    On sait depuis longtemps que tous les nœuds ne sont malgré tout pas
+les mêmes : on ne peut pas dénouer un nœud de trèfle 1 ou un nœud de
+huit – et c’est une bonne nouvelle pour les grimpeurs !
+
+
+     1. Voir notamment [2] pour une preuve élémentaire.
+
+
+
+
+IdM
+Un problème gordien                                                        19
+
+
+
+
+Figure 2 – Plusieurs diagrammes pour un même nœud (ici, le nœud
+trivial).
+
+
+La somme de deux nœuds
+   Si l’on cherche à étudier les nœuds, une bonne approche, qui s’inspire
+d’une méthode éprouvée pour les nombres entiers, consiste à les décom-
+poser en petits morceaux élémentaires (les nombres premiers). Pour bien
+comprendre, commençons par faire le processus inverse. Partons de deux
+nœuds, par exemple le nœud de trèfle, qu’on notera ici 𝑁1 , et le nœud de
+huit, noté 𝑁2 :
+
+
+
+
+      𝑁1 =                            et   𝑁2 =
+
+
+
+
+et collons-les comme suit :
+
+
+
+
+   On note le résultat 𝑁1 ♯𝑁2 , qu’on lit somme connexe de 𝑁1 et 𝑁2 . Ce n’est
+
+
+
+
+                      Images des mathématiques — volume 4 (2026)
+20                                                                          H. Queffelec
+
+
+pas très compliqué de voir que le processus ne dépend pas du point de
+recollement choisi ni de l’ordre 2. Remarquons que faire la somme connexe
+avec un nœud trivial ne change rien.
+    Maintenant, si l’on part d’un nœud quelconque, on peut se demander
+si ce nœud peut se décomposer comme une somme connexe de nœuds
+plus simples. On introduit ainsi naturellement :
+  — les nœuds premiers : ce sont ceux qu’on ne peut pas couper en deux
+    nœuds non triviaux. En d’autres termes, ce sont les briques élémen-
+    taires : on n’arrive pas à les construire en assemblant d’autres nœuds
+    plus petits. La figure 3 montre par exemple les nœuds premiers à
+    moins de sept croisements ;
+  — la décomposition en nœuds premiers de tout nœud, dont on sait
+    montrer qu’elle est unique 3. N’importe quel nœud 𝑁 peut s’écrire
+    sous une forme 𝑁 = 𝑁1 ♯𝑁2 ♯ ⋯ ♯𝑁𝑘 , où chaque terme est un nœud
+    premier.
+
+
+
+
+Figure 3 – Nœuds premiers à moins de sept croisements, à symétrie près.
+
+   2. Il suffit de rétrécir beaucoup l’un des nœuds et de le faire ensuite glisser le long de
+l’autre.
+   3. L’unicité n’est pas extrêmement compliquée, mais la preuve prend quand même
+plusieurs pages dans les livres de théorie des nœuds.
+
+
+
+
+IdM
+Un problème gordien                                                                     21
+
+
+    On peut faire l’analogie avec les nombres entiers et la multiplication :
+  — les nombres premiers sont ceux qu’on ne peut pas réaliser comme
+    produits de deux nombres différents de 1. Par exemple, 7 est premier,
+    mais 6 = 2 × 3 ne l’est pas ;
+  — un nombre quelconque s’écrit de manière unique comme produit de
+    nombres premiers : 2025 = 3 × 3 × 3 × 3 × 5 × 5.
+
+
+Le nombre gordien
+    Regardons maintenant une autre notion de complexité pour les nœuds.
+Le nombre du dénouement, ou nombre gordien, est un grand favori des
+mathématiciennes et mathématiciens. Pour un nœud 𝑁, notons-le 𝑢(𝑁). Il
+se définit comme le nombre minimum de croisements à changer dans un
+diagramme du nœud pour obtenir le nœud trivial. En d’autres termes, pour
+chaque diagramme possible pour le même nœud, on regarde combien
+de croisements il faut modifier, et l’on prend le minimum de tous ces
+nombres-là. Et changer un croisement, c’est échanger les rôles du brin qui
+passe dessus et de celui qui passe dessous :
+
+
+
+
+    Par exemple, si l’on reprend le diagramme compliqué (le plus à droite)
+qu’on avait dans la figure 2 page 19 pour le nœud trivial, on voit qu’il est
+relié au diagramme du nœud de trèfle par un changement de croisement.
+On trouve donc que le nombre gordien du nœud de trèfle est au plus 1, et
+comme ce n’est pas 0 puisque le trèfle n’est pas le nœud trivial, on a :
+
+        ⎛
+        ⎜              ⎞
+                       ⎟
+       𝑢⎜
+        ⎜
+        ⎜
+                       ⎟
+                       ⎟
+                       ⎟ =1
+        ⎜              ⎟
+        ⎝              ⎠
+Cet invariant 4 est en général affreusement compliqué à calculer, puisqu’il
+faudrait pouvoir tester tous les croisements de tous les diagrammes, mais
+   4. Un invariant est une quantité (un nombre, ou des choses plus compliquées comme un
+polynôme, voire d’autres concepts mathématiques que je ne nommerai pas) qu’on associe
+à chaque nœud. On parle d’invariant parce qu’on les calcule souvent à partir d’un certain
+diagramme du nœud, mais on veut que le résultat ne dépende que du nœud sous-jacent,
+et pas du diagramme choisi pour le représenter. Disposer d’un invariant est très pratique
+pour s’assurer que des nœuds sont différents. En effet, si l’on prend deux diagrammes, qu’on
+
+
+
+
+                           Images des mathématiques — volume 4 (2026)
+22                                                                          H. Queffelec
+
+
+il est apprécié par son côté intuitif : puisqu’on s’est interdit de couper un
+morceau du nœud pour en laisser passer un autre, on aimerait bien savoir
+combien d’opérations interdites sont nécessaires pour dénouer un nœud
+donné. C’est exactement ce que mesure le nombre gordien.
+
+
+
+Une inégalité
+   Pour revenir à la somme connexe, si l’on colle ensemble deux nœuds
+𝑁1 et 𝑁2 , il est assez clair qu’on a l’inégalité suivante :
+
+       𝑢(𝑁1 ♯𝑁2 ) ⩽ 𝑢(𝑁1 ) + 𝑢(𝑁2 )
+
+En effet, il suffit de faire les changements de chaque côté.
+    On a très envie de penser qu’il s’agit en fait d’une égalité. Cela revien-
+drait à dire que l’union disjointe de deux nœuds doit être aussi compliquée
+que la somme des complexités de chacun des nœuds. Cette question appa-
+raît par exemple sous le numéro 1.69(B) dans la célèbre liste des problèmes
+de Robion Kirby – un grand nom de la topologie algébrique qui a compilé
+dans les années 90 une liste de questions ouvertes qui fait référence 5.
+
+Une inégalité stricte
+   Si vous avez un tambour à disposition, c’est le moment de vous en
+servir : le suspense va être levé... et la réponse est non ! Cette découverte
+de Mark Brittenham et Susan Hermiller en juin 2025 a fait beaucoup de
+bruit 6. Dans [1], ils ont en effet montré que :
+
+
+        ⎛
+        ⎜                       ⎞
+                                ⎟               ⎛
+                                                ⎜                         ⎞
+                                                                          ⎟
+        ⎜
+        ⎜                       ⎟
+                                ⎟               ⎜
+                                                ⎜                         ⎟
+                                                                          ⎟
+        ⎜                       ⎟               ⎜                         ⎟
+       𝑢⎜
+        ⎜
+        ⎜
+                                ⎟
+                                ⎟
+                                ⎟ =3       et 𝑢 ⎜
+                                                ⎜
+                                                ⎜
+                                                                          ⎟
+                                                                          ⎟
+                                                                          ⎟ =3
+        ⎜
+        ⎜                       ⎟
+                                ⎟               ⎜
+                                                ⎜                         ⎟
+                                                                          ⎟
+        ⎜
+        ⎜                       ⎟
+                                ⎟               ⎜
+                                                ⎜                         ⎟
+                                                                          ⎟
+        ⎝                       ⎠               ⎝                         ⎠
+
+calcule leur invariant associé et qu’on obtient deux valeurs différentes, on peut être sûr que
+les deux nœuds correspondants sont bien différents. Le grand problème de la théorie des
+nœuds est qu’on n’a pas encore inventé un invariant qui soit raisonnablement calculable et
+qui permette à coup sûr de distinguer tous les nœuds. L’article [2] donne plus de détails et
+propose de calculer un premier invariant simple.
+    5. Cette liste est par exemple disponible ici sur le site de Daniel Ruberman.
+    6. Je recommande d’ailleurs de regarder la vidéo de Mickaël Launay disponible ici.
+
+
+
+
+IdM
+Un problème gordien                                                       23
+
+
+alors que :
+
+       ⎛
+       ⎜                                      ⎞
+                                              ⎟
+       ⎜
+       ⎜                                      ⎟
+                                              ⎟
+       ⎜                                      ⎟
+      𝑢⎜
+       ⎜
+       ⎜
+                                              ⎟
+                                              ⎟
+                                              ⎟ ⩽5
+       ⎜
+       ⎜                                      ⎟
+                                              ⎟
+       ⎜
+       ⎜                                      ⎟
+                                              ⎟
+       ⎝                                      ⎠
+Or 5 < 3 + 3 ! Ce résultat va à l’encontre de l’intuition géométrique.
+    Si trouver ce contre-exemple relève du tour de force, vérifier ces as-
+sertions n’est pas forcément très compliqué, et l’article explique pas à
+pas comment dénouer la somme connexe en ne faisant que cinq chan-
+gements de croisements. Ça demande un peu trop de manipulations de
+diagrammes pour pouvoir être reproduit ici, mais le processus est très
+visuel et demande juste quelques capacités de visualisation. Par contre, on
+ne sait semble-t-il pas encore montrer que le nombre gordien de la somme
+connexe est exactement 5, et pas moins. Pour ça, il faudrait montrer qu’il
+n’y a aucun moyen de se ramener au nœud trivial en changeant quatre
+croisements ou moins.
+    Concernant la découverte de ce contre-exemple, il peut par contre
+être intéressant de signaler que le travail de Mark Brittenham et Susan
+Hermiller est basé sur une recherche informatique, qui consistait à produire
+un ensemble de nœuds engendrés aléatoirement (suivant un schéma
+assez complexe, il ne s’agit pas d’un pur hasard !) et à les comparer à des
+nœuds connus en espérant trouver des comportements inattendus. Le
+comportement inattendu devant alors être la marque d’un contre-exemple
+pour la question 1.69(B) ou pour la question suivante dans la liste de Kirby,
+numérotée 1.69(C) (𝑢 est-il invariant sous mutation ?).
+    Ce qui est chouette, c’est que cette réponse négative à une conjecture
+sur laquelle bon nombre de collègues auraient parié relance encore plus
+l’intérêt pour le nombre du dénouement. D’une question résolue, Mark
+Brittenham et Susan Hermiller prennent le temps de dégager quatre
+questions ouvertes... Affaire à suivre, donc !
+
+
+Références
+ [1] Mark Brittenham et Susan Hermiller. « Unknotting number is
+     not additive under connected sum » (2025). Prépublication. url :
+     https://arxiv.org/abs/2506.24088.
+
+
+
+
+                       Images des mathématiques — volume 4 (2026)
+24                                                           H. Queffelec
+
+
+ [2]    Thibault Godin et Hoel Queffelec. « Une famille infinie de nœuds
+        (I) ». Images des mathématiques (2020). doi : 10.60868/hqtb-nc72.
+ [3]    Thibault Godin et Hoel Queffelec. « Une famille infinie de nœuds
+        (II) ». Images des mathématiques (2020). doi : 10.60868/ktz5-gx52.
+ [4]    Julien Marché. « Triangulations : de la terre au nœud de trèfle ».
+        Images des mathématiques (2009). doi : 10.60868/6ypc-mc83.
+ [5]    Rémi Molinier. « Crochet, objets mathématiques et surfaces de
+        Seifert ». Images des mathématiques (2018). doi : 10.60868/9gfp-pj8
+        5.
+
+
+Crédits
+Figure 3 : Image adaptée de Jkasd.
+
+
+Remerciements
+   L’auteur et la rédaction d’Images des mathématiques remercient Aurélien
+Alvarez, Clément Caubel, Alice Cleynen, Rémi Coulon, Jimmy Dillies,
+Karim Drifi, Pierre-Antoine Guihéneuf, Marc Rakotomalala et Claire We-
+nandy pour leurs commentaires et leurs encouragements, ainsi que les
+secrétaires de rédaction Carole Gaboriau et Maï Sauvageot pour leur travail
+de mise en page.
+
+
+
+                             Hoel Queffelec
+                             Chargé de recherche CNRS –
+                             France-Australia Mathematical Sciences and
+                             Interactions.
+
+
+
+
+     Article édité par Pierre-Antoine Guihéneuf.
+
+
+
+
+IdM
+

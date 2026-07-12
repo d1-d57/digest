@@ -1,0 +1,1033 @@
+ Images des mathématiques
+       Les maths en mots et en images
+
+
+
+
+                Pierre Pansu
+
+
+
+La vasque olympique de Paris
+
+
+
+
+                         Images des mathématiques
+ IdM
+                            Volume 4 (2026), p. 45–71
+                           doi : 10.60868/zqga-0q15
+IdM
+                      Images des mathématiques
+                        Les maths en mots et en images                       45
+
+La vasque olympique de Paris
+  Écrit par Pierre Pansu
+  Publié le 25 mars 2026
+  doi : 10.60868/zqga-0q15 — cc by-nc-nd 4.0
+         — CLOCK ⩾ 30 min — SKIING
+
+     Géométrie
+
+
+
+
+Plan de l’article
+  Été 2024 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   46
+  Des étudiantes et des étudiants au travail . . . . . . . . . . . . .       47
+  Intermède : périmètre, aire et rayon inscrit dans le plan . . . . .        50
+  Résilles planes et cylindriques . . . . . . . . . . . . . . . . . . . .    51
+  Intervention de la géométrie sphérique . . . . . . . . . . . . . . .       54
+  Usage des développements limités . . . . . . . . . . . . . . . . .         56
+  Débat contradictoire . . . . . . . . . . . . . . . . . . . . . . . . .     58
+  Une question ouverte . . . . . . . . . . . . . . . . . . . . . . . . .     61
+  À votre tour . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   64
+
+
+
+
+                       Images des mathématiques — volume 4 (2026)
+46                                                                   P. Pansu
+
+
+Été 2024
+    – Ça y est, j’ai réservé, on va pouvoir aller voir la vasque avec Flo.
+    Nous voilà à pied d’œuvre, dans le jardin des Tuileries. Pour l’empêcher
+de s’envoler, le gros ballon rempli d’hélium est enfermé dans une sorte de
+filet, serré autour de l’équateur.
+    – Un filet ? Non, ça fait plutôt penser à une résille qu’on se met sur la
+tête pour maintenir les cheveux.
+    La résille est rattachée au sol par huit cordages de plus de soixante
+mètres fixés à l’équateur, qui passent dans huit winches fixés sur des
+constructions en béton. C’est du solide.
+    – Elle est super, on y retourne ce soir pour la voir en l’air ? Pas besoin
+de réserver.
+
+
+
+
+                     Figure 1 – La vasque olympique.
+
+
+
+
+IdM
+La vasque olympique de Paris                                                           47
+
+
+    On ne peut pas s’approcher, c’est la bousculade devant les grilles.
+La foule est fébrile, car on n’est jamais sûr que la vasque va monter, ça
+dépend de la météo. Ah ! Ça commence ! C’est curieux, cet objet de haute
+technologie est actionné de façon entièrement manuelle : un technicien
+vient fixer un par un à la nacelle des haubans qui pendent de l’équateur.
+Quand il est l’heure pour la vasque de s’élever dans le ciel, huit techniciens
+se postent aux winches et déroulent simultanément les cordages.
+    – Ça fait une sacrée longueur de corde, 8 fois 60 m de cordage, ça fait
+près de 500 m.
+    – Sans compter les cordes sur le ballon.
+    – Tu veux dire, les haubans qui soutiennent la nacelle ? Ils doivent faire
+dans les 15 m chacun, et il y en a une bonne quarantaine, ça fait au moins
+600 m.
+    – Non je pensais à celles qui sont sur le dessus et autour du ballon, la
+résille, quoi. On les voit mal d’en bas, mais j’ai l’impression qu’il y en a un
+paquet. La résille semble diviser une bonne partie de la sphère en losanges
+très étroits (plus des triangles le long de l’équateur), on ne peut pas y
+faire passer un ballon de foot (diamètre de 22 cm 1 ). Pas de risque que le
+ballon d’hélium de 22 m de diamètre passe au travers !
+Problème 1
+Quelle longueur de corde y a-t-il sur le dessus du ballon, au-dessus de l’équateur ?
+Quelques centaines de mètres ? Davantage ?
+
+
+Des étudiantes et des étudiants au travail
+    J’ai posé la question à l’atelier MATh.en.JEANS de la faculté des sciences
+d’Orsay ; ses conclusions seront publiées sur le site de l’association.
+    Cela soulève une question mathématique que je ne sais pas résoudre.
+Avant de l’expliquer, je vous fais un résumé du document de l’atelier.
+J’emprunte des figures réalisées par Li You et Deniz. Dans ma question,
+j’introduisais un biais (sur lequel on reviendra plus tard), je traduisais
+ainsi la clause du ballon de foot : la résille empêche de faire un trou dans
+l’hémisphère de la taille d’un ballon de foot. Géométriquement, tout point
+de l’hémisphère se trouve à une distance d’au plus 11 cm d’un bout de
+corde de la résille.
+    Il faut modéliser mathématiquement la résille qu’on voit sur la photo.
+Li You a proposé de procéder comme suit. On place des points le long d’un
+   1. Valeur numérique estimée en comptant les losanges sur la photo de la figure 1.
+
+
+
+
+                          Images des mathématiques — volume 4 (2026)
+48                                                                  P. Pansu
+
+
+méridien, espacés de 11 cm. On fait passer une famille de plans verticaux
+parallèles par ces points. Ils coupent la sphère selon des cercles de même
+axe (figure 2).
+
+
+
+
+            Figure 2 – Les parallèles, construction complète.
+
+    On effectue une rotation de 45° autour du diamètre horizontal, parallèle
+aux cercles, dans un sens puis dans l’autre. La réunion des deux familles
+de cercles, situés dans des plans perpendiculaires, découpe la sphère en
+sortes de losanges (plus des triangles le long de l’équateur) qui satisfont à
+la clause du ballon de foot (figure 3).
+
+
+
+
+                  Figure 3 – Deux familles de parallèles.
+
+    On ne garde de ce motif que la partie située au-dessus de l’équateur,
+c’est-à-dire dans l’hémisphère nord (figure 4).
+
+
+
+
+IdM
+La vasque olympique de Paris                                               49
+
+
+
+
+  Figure 4 – On ne garde que la partie située dans l’hémisphère nord.
+
+
+     On ajoute l’équateur. Li You a calculé la longueur de la résille obtenue,
+il a trouvé 7044 m environ. Bien plus que les haubans ou les cordages !
+     – C’est étrange, faut-il vraiment autant de longueur de corde pour
+coiffer la moitié du ballon ? Ne pourrait-on pas faire mieux ?
+     Oui, si l’on s’en tient à la seule clause du ballon de foot, une seule
+des deux familles de cercles ci-dessus suffit, ce qui divise la longueur
+par 2. C’est là que Deniz a remarqué que le problème posé ne suppose pas
+la résille d’un seul tenant ; si l’on sème suffisamment de cordelettes très
+courtes mais disjointes à la surface de l’hémisphère (figure 5), la clause
+du ballon de foot est satisfaite, avec une longueur de corde qui peut être
+rendue arbitrairement petite.
+
+
+
+
+                        Figure 5 – Les cordelettes.
+
+
+
+
+                       Images des mathématiques — volume 4 (2026)
+50                                                                              P. Pansu
+
+
+   Il faut donc introduire des clauses supplémentaires 2. Dans un pre-
+mier temps, l’atelier a choisi de limiter à des triangles et des losanges
+(sphériques) les formes des mailles. Le problème posé devient :
+Problème 2
+La résille divise l’hémisphère, de rayon 𝑅 = 11 m , en triangles sphériques ou en
+losanges sphériques, dont le cercle inscrit a un rayon au plus 𝑟0 = 11 cm. Donner
+une borne inférieure à la longueur totale de la résille.
+    La géométrie sphérique, c’est compliqué. Et si, à titre d’échauffement,
+on commençait par étudier l’analogue plan du problème ? On cherche à
+couvrir une région plane donnée avec une résille formée de triangles ou
+de losanges dont les rayons des cercles inscrits sont inférieurs à 𝑟0 .
+
+
+Intermède : périmètre, aire et rayon inscrit dans le
+plan
+Problème 3
+Dans le plan, parmi tous les triangles circonscrits 3 à un cercle de rayon r donné,
+lequel a le plus petit périmètre ?
+  La réponse de Deniz est le triangle équilatéral. Elle a trouvé deux dé-
+monstrations de ce théorème. Les idées sont exposées dans le complément :
+BOOK-READER → p. 65 Minimiser le périmètre ou l’aire d’un polygone circonscrit à un
+cercle
+
+Problème 4
+Dans le plan, parmi tous les triangles circonscrits à un cercle de rayon 𝑟 donné,
+lequel a la plus petite aire ?
+    La réponse est la même : le triangle équilatéral. En effet, à rayon inscrit
+fixé, aire et périmètre sont proportionnels. Si 𝑟 est le rayon du cercle inscrit,
+alors 𝐴 = 12 𝑟𝑃. Voici un argument géométrique très court !
+    On s’appuie sur la figure 6, où l’on voit trois triangles de même hauteur 𝑟
+et dont les bases sont les côtés 𝑎, 𝑏 et 𝑐. L’aire du grand triangle est donc :
+             1     1    1    1              1
+       𝐴=      𝑟𝑎 + 𝑟𝑏 + 𝑟𝑐 = 𝑟(𝑎 + 𝑏 + 𝑐) = 𝑟𝑃
+             2     2    2    2              2
+
+  2. Cet incident est assez typique du déroulement d’un atelier MATh.en.JEANS. Le sujet
+apporté par le chercheur était mal posé, ce sont les élèves qui le remettent sur les rails.
+  3. Un triangle est circonscrit à un cercle si ses trois côtés sont tangents au cercle.
+
+
+
+
+IdM
+La vasque olympique de Paris                                                   51
+
+
+
+
+                 Figure 6 – Cercle inscrit dans un triangle plan.
+
+
+    Le même raisonnement montre que l’aire et le périmètre d’un polygone
+circonscrit à un cercle (c’est le cas d’un losange) sont proportionnels. Par
+conséquent, parmi tous les polygones à 𝑛 côtés circonscrits à un même
+cercle, le polygone régulier a le plus petit périmètre et la plus petite aire.
+
+
+Résilles planes et cylindriques
+    Revenons à notre problème : une région du plan étant donnée (un
+parallélogramme, par exemple), il s’agit de la recouvrir d’une résille dont
+les mailles sont des triangles ou des losanges dont le rayon du cercle inscrit
+est au plus une quantité 𝑟0 , en utilisant le moins de corde possible.
+    L’égalité 𝐴 = 12 𝑟𝑃 a fait tilt au sein de l’atelier : si les mailles sont des
+triangles ou des losanges de rayons inscrits inférieurs ou égaux à 𝑟0 , leurs
+périmètres satisfont :
+
+           2
+      𝑃⩾      𝐴                                                               (1)
+           𝑟0
+
+Ce qui nous intéresse, c’est la somme des périmètres 𝑃total . Elle satisfait
+donc :
+                 2
+      𝑃total ⩾     𝐴                                                          (2)
+                 𝑟0 total
+
+Or, la somme des aires, c’est l’aire de la région à recouvrir. Pour minorer la
+longueur 𝐿 de corde nécessaire, il reste à observer que quand on additionne
+les périmètres des mailles, chaque côté est compté deux fois, sauf ceux qui
+sont sur le bord (voir un exemple sur la figure 7 page suivante). D’où la
+
+
+
+
+                            Images des mathématiques — volume 4 (2026)
+52                                                                       P. Pansu
+
+
+relation 2𝐿 = 𝑃total + 𝐿bord et, en utilisant l’inégalité 2, la minoration :
+
+           1          1
+      𝐿⩾      𝐴total + 𝐿bord
+           𝑟0         2
+
+Le même raisonnement s’applique plus généralement aux résilles dont les
+mailles sont des polygones circonscrits à des cercles.
+    Voici un exemple de résille sur un parallélogramme 4 qui réalise le cas
+d’égalité : tous les losanges ont le même rayon inscrit 𝑟0 (figure 7). Si l’on
+referme le parallélogramme en un cylindre (figure 8), la résille réalise
+encore le cas d’égalité.
+
+
+
+
+Figure 7 – Résille de losanges sur un parallélogramme plan. Chaque côté
+interne appartient à deux mailles, chaque côté du bord à une seule maille.
+
+
+
+
+           Figure 8 – La même résille enroulée sur un cylindre.
+
+   4. Remarquez que seuls des parallélogrammes particuliers peuvent être remplis de
+losanges. Lesquels ?
+
+
+
+
+IdM
+La vasque olympique de Paris                                               53
+
+
+    Ce cylindre fait penser à un carton à chapeau, au fond duquel on peut
+placer l’hémisphère, tangent au cylindre le long de son bord, voir la figure 9
+réalisée par Deniz. L’hémisphère est en rouge, le cylindre en bleu et la
+résille, formée de triangles, en jaune.
+
+
+
+
+                Figure 9 – Le cylindre tangent à l’hémisphère.
+
+
+    Ajustons la hauteur du cylindre de sorte que son aire soit égale à celle
+de l’hémisphère. La hauteur est exactement le rayon de l’hémisphère, en
+vertu du théorème d’Archimède :
+
+BOOK-READER → p. 66 Le théorème d’Archimède
+
+    On peut considérer que le cylindre (privé de son bord supérieur) est
+une approximation grossière de l’hémisphère. Ce qui donnerait la borne
+inférieure approximative
+
+            1        1
+       𝐿⩾      2𝜋𝑅2 + 2𝜋𝑅 = 6946 m
+            𝑟0       2
+
+pour la longueur d’une résille, car 𝑅 = 11 m et 𝑟0 = 0,11 m. Mais ce n’est
+pas satisfaisant pour des mathématiciens en herbe. Deniz a donc étudié la
+trigonométrie sphérique.
+
+
+
+
+                           Images des mathématiques — volume 4 (2026)
+54                                                                 P. Pansu
+
+
+Intervention de la géométrie sphérique
+    Un grand cercle sur une sphère, c’est l’intersection de la sphère avec
+un plan passant par le centre. Sur la sphère, ce sont les grands cercles qui
+tiennent lieu de droites. En effet, le plus court chemin entre deux points
+de la sphère est un arc de grand cercle. La longueur d’un arc de grand
+cercle est égale au produit du rayon de la sphère par l’angle au centre
+sous-tendant cet arc. L’angle de deux grands cercles, par définition, est
+l’angle entre les plans qui les contiennent (angle de leurs intersections
+avec un plan qui leur est perpendiculaire, voir figure 10).
+
+
+
+
+                      Figure 10 – Un triangle sphérique.
+
+   Comme en géométrie plane, sur une sphère de rayon donné, à dépla-
+cement près, un triangle possède trois degrés de liberté. Par conséquent,
+toutes les grandeurs associées à un triangle (trois longueurs de côté, trois
+angles, aire) s’expriment en fonction de trois d’entre elles (bien choisies).
+Cela se traduit par des formules de trigonométrie sphérique.
+BOOK-READER → p. 66 Rudiments de trigonométrie sphérique
+   Ce qui nous arrangerait, c’est que l’inégalité 1 entre l’aire 𝐴, le péri-
+mètre 𝑃 et le rayon du cercle inscrit 𝑟 reste vraie en géométrie sphérique.
+Autrement dit, que la quantité 𝑄 = 2𝐴/𝑟𝑃 soit inférieure ou égale à 1, pour
+
+
+
+
+IdM
+La vasque olympique de Paris                                              55
+
+
+tout triangle. Appelons-la quotient épicyclisopérimétrique du triangle.
+   Deniz a calculé ce quotient pour les triangles qui ont deux angles droits
+(appelés demi-fuseaux, voir figure 11).
+
+
+
+
+                         Figure 11 – Demi-fuseau.
+
+
+
+
+     Figure 12 – Quotient épicyclisopérimétrique d’un demi-fuseau.
+
+
+    Si l’on place le sommet au pôle nord, les deux autres sommets sont
+le long de l’équateur. Soit 𝛼 l’angle au pôle. Le périmètre vaut (𝛼 + 𝜋)𝑅.
+L’aire vaut 𝛼𝑅2 . Deniz a trouvé l’expression suivante pour le rayon du
+cercle inscrit : 𝑅𝑟 = Arctan(sin(𝛼/2)). Le quotient épicyclisopérimétrique
+
+
+
+
+                       Images des mathématiques — volume 4 (2026)
+56                                                                          P. Pansu
+
+
+d’un demi-fuseau, donné par
+
+                       2𝛼
+       𝑄=
+             Arctan(sin(𝛼/2))(𝛼 + 𝜋)
+
+est représenté sur la figure 12 page précédente. On voit à l’œil nu que
+𝑄 > 1. On vérifie que la limite lorsque 𝛼 tend vers 0 ou 𝜋 est 𝜋4 > 1. Il n’y
+a aucun doute, les choses se passent à l’inverse de ce qui nous arrangerait.
+BOOK-READER → p. 67 Le paradoxe des demi-fuseaux
+
+
+
+Usage des développements limités
+  Les triangles qui nous intéressent ont un rayon inscrit inférieur à 11 cm.
+Comme l’écrivent Li You et Deniz dans leur conclusion :
+
+         Ils sont tout petits comparés à notre sphère géante de diamètre 22 m !
+     On a ainsi conjecturé que notre inégalité euclidienne 𝑄 ⩽ 1 était presque
+     vraie pour ces petits polygones, et que la minoration était toujours valable,
+     à une faible erreur près. Pour mieux comprendre cette conjecture, vous
+     pouvez imaginer que vous dessinez un polygone à la main sur le sol
+     (figure 14). Même si la terre est approximativement en forme de sphère,
+     le polygone que vous avez dessiné respecte les propriétés de la géométrie
+     euclidienne, comme ceux formés par la résille sur la vasque olympique !
+
+
+
+
+                Figure 13 – Les angles cardinaux d’un triangle.
+
+    Tout petits ? Pas tous. Les demi-fuseaux de rayon inscrit inférieur à
+11 cm sont très minces, mais très longs : deux de leurs côtés mesurent
+un quart de méridien, soit environ 17 m. Toutefois, l’un de leurs angles
+
+
+
+
+IdM
+La vasque olympique de Paris                                                 57
+
+
+cardinaux (définis sur la figure 13 : ce sont les angles lus au centre du
+cercle inscrit dans le triangle) est très proche d’un angle droit.
+
+
+
+
+                Figure 14 – Archimède dessinant sur le sol.
+
+
+Problème 5
+Est-ce qu’en introduisant une clause supplémentaire sur les angles cardinaux, on
+peut montrer que le quotient épicyclisopérimétrique reste proche de 1 ?
+    C’est sur cette question que se termine le document rédigé par l’ate-
+lier. Voici des éléments de réponse. Pour un triangle sphérique d’angles
+cardinaux 𝛼, 𝛽 et 𝛾 :
+
+                 1      Σ(3)    𝑟
+      𝑄−1∼         (1 +      ) ( )2
+                12      Σ(1) 𝑅
+
+où l’on a noté Σ(1) = tan(𝛼)+tan(𝛽)+tan(𝛾) et Σ(3) = tan(𝛼)3 +tan(𝛽)3 +
+tan(𝛾)3 . Ici, la notation ∼ signifie que le quotient
+
+             𝑄−1
+       1      Σ(3)     𝑟 2
+      12 (1 + Σ(1) ) ( 𝑅 )
+
+
+
+
+                        Images des mathématiques — volume 4 (2026)
+58                                                                     P. Pansu
+
+
+tend vers 1 lorsque 𝑅𝑟 tend vers 0. Ce résultat est obtenu par un calcul de
+développement limité. Les ennuis commencent si l’un des angles cardinaux,
+disons 𝛼, est proche de 90°, car dans ce cas, le ratio Σ(3)/Σ(1) est proche
+de tan(𝛼)2 , qui est très grand, et l’on soupçonne que 𝑄 − 1 n’est proche
+                     𝑟 2
+    1
+de 12 (1 + Σ(3)                        𝑟
+            Σ(1) ) ( 𝑅 ) que lorsque 𝑅 est très petit, et l’on ne pourrait pas
+conclure pour 0,11
+                11 .
+   En revanche, si l’on borne les angles cardinaux, par exemple en suppo-
+sant qu’ils sont inférieurs à 80°, il reste un espoir de majorer le quotient
+épicyclisopérimétrique. Ici, 𝑟/𝑅 = 1/100, on néglige le reste qui est en 10−8 .
+Voir pour cela le complément :
+BOOK-READER → p. 69 Développements limités
+   Le terme Σ(3)/Σ(1) étant inférieur à tan(80𝜋/180)2 < 35, on s’attend
+à une majoration du quotient épicyclisopérimétrique en :
+                  1
+       𝑄<1+          (1 + 35)10−4 = 1,0003
+                  12
+De facto, l’inégalité suivante est vraie : si 𝑅𝑟 ⩽ 100
+                                                    1
+                                                       et 𝛼, 𝛽, 𝛾 ⩽ 80°, alors :
+       𝑄 ⩽ 1,0016
+    On trouvera la démonstration, indépendante de tout développement
+limité, de cette inégalité sur ce lien.
+    Reprenant le raisonnement fait dans le plan, on peut affirmer que, sur
+l’hémisphère, une résille dont les mailles sont des triangles de rayons
+inscrits inférieurs à 11 cm et dont les angles cardinaux sont inférieurs à
+80° a une longueur au moins égale à la valeur trouvée dans le cylindre, à
+0,16 % près, c’est-à-dire :
+        6946
+              = 6934 m
+       1,0016
+Le raisonnement s’applique plus généralement aux résilles dont les mailles
+sont des polygones sphériques circonscrits à des cercles (c’est-à-dire tels
+qu’il existe un cercle tangent à tous les côtés du polygone), les losanges
+par exemple. Il semble très dur de battre le modèle de Li You, qui atteint
+cette borne à 1,5 % près.
+
+
+Débat contradictoire
+   – Ça alors ! Il faudrait vraiment poser 7 km de corde sur le ballon ? J’y
+crois pas, à ton histoire. D’ailleurs, quand tu parles de faire un trou dans
+
+
+
+
+IdM
+La vasque olympique de Paris                                                                 59
+
+
+le gros ballon d’hélium de la taille d’un ballon de foot, tu n’y es pas. Pour
+qu’un ballon de foot ne puisse pas passer à travers les mailles d’un filet, il
+suffit 5 que le périmètre de chaque maille soit inférieur à la circonférence
+de l’équateur d’un ballon de foot, soit 69,11 cm.
+
+
+
+
+                     Figure 15 – Le ballon passe-t-il à travers ?
+
+   – D’accord, je veux bien adopter cette version de la clause. Nous voilà
+aux prises avec une nouvelle question.
+Problème 6
+La résille divise l’hémisphère, de rayon 𝑅 = 11 m, en polygones sphériques de
+périmètres au plus 𝑝0 = 69,11 cm. Donner une borne inférieure à la longueur
+totale de la résille.
+    Cette question, qui est difficile même en géométrie plane, renvoie à
+un problème différent de celui impliquant le rayon du cercle inscrit : à
+périmètre et nombre de côtés constants, maximiser l’aire d’un polygone.
+Dans le plan, la solution est un polygone régulier, c’est le théorème iso-
+périmétrique (j’ignore s’il en est de même sur la sphère). Donc, dans le
+plan, si l’on ajoute à la clause du ballon de foot modifiée l’hypothèse que
+les mailles ont au plus six côtés, on peut tirer parti du fait que chaque
+maille entoure une aire au plus égale à celle de l’hexagone régulier de
+même périmètre. On en déduit une inégalité sur la longueur des résilles
+
+   5. C’est vrai, on en a tous fait l’expérience, mais cela cache un joli résultat mathématique
+qui appartient à la théorie du calcul des variations : la condition est nécessaire et suffisante.
+
+
+
+
+                             Images des mathématiques — volume 4 (2026)
+60                                                                  P. Pansu
+
+
+qui satisfont à ces deux clauses :
+
+             4√3       1
+       𝐿⩾        𝐴    + 𝐿
+              𝑝0 total 2 bord
+
+Un énoncé et une démonstration détaillée sont donnés dans le complément :
+BOOK-READER → p. 70 Résilles planes pour buts de foot
+    Existe-t-il des résilles posées sur des parallélogrammes ou des cylindres
+réalisant l’égalité ? Non, car les hexagones réguliers remplissent mal les
+parallélogrammes ou même les cylindres, à cause du bord. Il faut faire un
+effort d’imagination supplémentaire pour s’affranchir des effets de bord et
+visualiser des résilles optimales. Refermons un cylindre en amenant un
+bord sur l’autre. On obtient ce qu’on appelle un tore.
+    Partant du plan couvert de la résille en nid d’abeilles (une sorte de
+papier peint infini), on peut enrouler le plan en un tore portant lui aussi
+une résille en hexagones réguliers : il suffit de découper un rectangle dans
+le papier peint (figure 16) et de mettre bout à bout les côtés opposés.
+
+
+
+
+                  Figure 16 – Nid d’abeilles sur un tore à plat.
+
+   Le résultat a un peu la dégaine du tore de la figure 17. Cette résille a
+une longueur minimale parmi toutes celles posées sur le même tore dont
+
+
+
+
+IdM
+La vasque olympique de Paris                                                      61
+
+
+les mailles sont des hexagones de périmètres au plus égaux à celui des
+loges des abeilles.
+
+
+
+
+            Figure 17 – Nid d’abeilles sur un tore dans l’espace.
+
+    Pour un tore de même aire 760,2 m2 que l’hémisphère et des loges de
+périmètre ≈ 60,11 cm, la résille a une longueur de 7621 m environ.
+    – Tu vois, c’est encore plus long avec ta clause du ballon de foot modifiée.
+Je te mets au défi de décrire une résille couvrant l’hémisphère dont les
+mailles ont au plus 6 côtés et qui fasse moins de 7621 m.
+
+
+Une question ouverte
+    – C’est tout de même beau, cette vasque lumineuse qui s’élève silen-
+cieusement dans le ciel de la nuit parisienne.
+    – C’est vrai, on a passé une bonne soirée, mais il est temps d’aller faire
+dodo.
+    Toutefois, une question continue de me tourner dans la tête, éloignant
+le sommeil.
+Problème 7
+Le quotient épicyclisopérimétrique des triangles sphériques, à notre grande décep-
+tion, n’est pas toujours inférieur à 1. Peut-on affirmer qu’il est toujours supérieur
+à 1?
+
+
+
+
+                         Images des mathématiques — volume 4 (2026)
+62                                                                   P. Pansu
+
+
+
+
+                       Figure 18 – Vasque nocturne.
+
+
+   L’argument très court qui montre que 2𝐴
+                                         𝑟𝑃 = 1 pour les triangles du plan
+ramène l’étude du quotient épicyclisopérimétrique à celle de la quantité
+(quotient épicyclisopérimétrique réduit)
+              𝐴
+      𝑄′ = 1     ′
+            2 𝑥𝑥
+
+pour un triangle rectangle dont les côtés de l’angle droit sont de longueurs 𝑥
+et 𝑥′ . En effet, le cercle inscrit divise un triangle sphérique en 6 triangles
+rectangles (sphériques) dont les angles sont les angles cardinaux, et un
+côté a pour longueur le rayon du cercle inscrit (figure 19). Si les quotients
+épicyclisopérimétriques réduits satisfont 𝑄′𝑖 = 1𝐴𝑟𝑥𝑖 ⩾ 1, alors chacune des
+                                                  2   𝑖
+
+6 aires est minorée par 12 𝑟𝑥𝑖 , où 𝑥 est une longueur de (demi-)côté. En
+additionnant, il vient, pour l’aire totale du triangle :
+
+           1 6      1
+      𝐴⩾    𝑟 ∑ 𝑥𝑖 = 𝑟𝑃
+           2 𝑖=1    2
+
+soit 𝑄 ⩾ 1.
+    Je préfère utiliser comme coordonnées 𝑥 et l’angle 𝑦 opposé à 𝑥′ plutôt
+que 𝑥′ . Voici le graphe de la fonction (𝑥, 𝑦) ↦ 𝑄′ (𝑥, 𝑦) − 1, lorsque 𝑦
+appartient à [0, 𝜋2 ] et 𝑥 appartient à [0, 𝜋].
+
+
+
+
+IdM
+La vasque olympique de Paris                                             63
+
+
+
+
+Figure 19 – Angles cardinaux d’un triangle sphérique : ils sont lus au
+centre du cercle inscrit dans le triangle.
+
+
+
+
+  Figure 20 – Variation du quotient épicyclisopérimétrique réduit 𝑄′ .
+
+
+
+
+                      Images des mathématiques — volume 4 (2026)
+64                                                                   P. Pansu
+
+
+   On voit clairement que 𝑄′ − 1 est toujours positif, et s’annule seulement
+en (0, 0). Il semble même que 𝑄′ soit une fonction croissante de l’angle. Je
+ne sais pas le démontrer. Lecteur, viens à mon secours, que je retrouve
+enfin le sommeil !
+
+
+
+
+À votre tour
+
+    Un grand merci à l’atelier MATh.en.JEANS de la faculté des sciences
+d’Orsay, notamment à Deniz Demirer et Li You Toh, qui ont fait un bel
+exposé et rédigé un article dont je recommande la lecture, à William Belloc
+et Isaac Da Costa Teixeira pour leurs contributions ponctuelles, à Victorin
+Brunel pour la figure 17 page 61.
+
+    Le protocole MATh.en.JEANS permet à des élèves de collège et de lycée
+de vivre pendant une année ce que vivent les chercheurs : patauger sur un
+sujet brumeux, en suivant des pistes incertaines, discuter, expérimenter,
+découvrir, démontrer, expliquer, présenter un exposé à un congrès, rédiger
+un article qui paraîtra dans une revue spécialisée. Le tout sous la conduite
+d’enseignants et avec l’aide d’une chercheuse ou d’un chercheur. Je ne
+peux qu’encourager mes collègues du monde de la recherche à tenter
+l’aventure, la demande est forte 6.
+
+    L’association MATh.en.JEANS accepte aussi des écoles primaires et
+des ateliers dans le supérieur. Actuellement, l’atelier de la faculté des
+sciences d’Orsay est le seul de son espèce. Il aimerait pouvoir se jumeler
+avec un autre, c’est-à-dire partager ses sujets avec des étudiants proches ou
+distants, échanger les résultats obtenus et faire des exposés communs lors
+des congrès MATh.en.JEANS. Je lance donc un appel aux enseignantes-
+chercheuses et enseignants-chercheurs qui souhaiteraient faire faire des
+maths buissonnières à leurs étudiantes et étudiants de première année de
+licence.
+
+
+
+   6. Voir la page https://www.mathenjeans.fr/page- des- chercheurs et écrire à
+contact@mathenjeans.fr.
+
+
+
+
+IdM
+La vasque olympique de Paris                                                      65
+
+
+Compléments
+
+Minimiser le périmètre ou l’aire d’un polygone circonscrit à
+un cercle
+    Voici les deux solutions de Deniz au problème de l’intermède de la
+section « Intermède : périmètre, aire et rayon inscrit dans le plan » page 50.
+Proposition 8
+Soit 𝒞 un cercle dans le plan euclidien. Parmi tous les polygones à 𝑛 côtés circons-
+crits à 𝒞 (c’est-à-dire dont tous les côtés sont tangents à 𝒞), le polygone régulier a
+le plus petit périmètre.
+    Traitons le cas du triangle, 𝑛 = 3. Les points de tangence du cercle
+inscrit avec les côtés et les sommets déterminent trois angles 𝛼, 𝛽, 𝛾 qu’on
+a baptisés plus haut (figure 13 page 56) angles cardinaux du triangle.
+    Leur somme vaut 𝜋, et inversement, trois nombres strictement positifs
+dont la somme vaut 𝜋 sont toujours les angles cardinaux d’un triangle
+circonscrit à un cercle de rayon 𝑟, unique à déplacement près. Le périmètre
+est donné par la formule :
+
+      𝑃 = 2𝑟(tan(𝛼) + tan(𝛽) + tan(𝛾))
+
+Le premier argument de Deniz repose sur l’inégalité suivante :
+
+      tan(𝑎 + 𝑥) + tan(𝑎 − 𝑥) ⩾ 2 tan(𝑎)
+
+On gagne donc à remplacer deux angles par leur moyenne. En faisant cela
+alternativement avec les deux premiers et les deux derniers, on construit
+deux suites qui satisfont une relation de récurrence linéaire. En utilisant les
+connaissances d’Isaac en algèbre linéaire, Deniz démontre que les suites
+convergent vers la même valeur. C’est donc le triangle dont les trois angles
+cardinaux sont égaux qui minimise le périmètre.
+    Cet argument s’applique à tous les polygones circonscrits à un cercle
+(c’est-à-dire dont tous les côtés sont tangents au cercle ; c’est le cas des
+losanges) et montre que, parmi tous les polygones à 𝑛 côtés circonscrits à
+un même cercle, c’est le polygone régulier qui a le plus petit périmètre.
+    Le second argument de Deniz repose sur l’identité (qu’elle a décou-
+verte)
+
+      𝛼 + 𝛽 + 𝛾 = 𝜋 ⇒ tan(𝛼) + tan(𝛽) + tan(𝛾) = tan(𝛼) tan(𝛽) tan(𝛾)
+
+
+
+
+                         Images des mathématiques — volume 4 (2026)
+66                                                                         P. Pansu
+
+
+et l’inégalité entre la moyenne arithmétique et la moyenne géométrique.
+                                                                        ARROW-UP page 50
+
+
+Le théorème d’Archimède
+    On a fait usage à la section « Résilles planes et cylindriques » page 51
+de la propriété remarquable suivante.
+Théorème 9 (Archimède)
+Soit une sphère tangente à un cylindre le long d’un grand cercle. Coupons la
+sphère et le cylindre par deux plans parallèles au grand cercle. Les tranches de
+sphère et de cylindre comprises entre les deux plans ont des aires égales (figure 21).
+
+
+
+
+                    Figure 21 – Le théorème d’Archimède.
+
+    En particulier, un hémisphère et le cylindre de même hauteur qui
+lui est circonscrit ont même aire. Plus généralement, c’est le théorème
+d’Archimède qui garantit que la projection de Lambert et ses variantes, les
+projections cylindriques équivalentes, préservent les aires. Elles donnent des
+planisphères intéressants, où les aires relatives des pays sont représentées
+correctement, malgré une très forte distorsion des régions polaires. Le
+lecteur curieux de cartographie devrait apprécier cette conférence de
+Patrick Popescu-Pampu.
+                                                                        ARROW-UP page 53
+
+
+Rudiments de trigonométrie sphérique
+   Les formules familières dans les triangles plans ont un analogue sur
+une sphère de rayon 𝑅. Les notations sont inscrites sur la figure 10 page 54.
+
+
+
+
+IdM
+La vasque olympique de Paris                                                  67
+
+
+   La loi des sinus :
+      sin(𝛼)   sin(𝛽)
+             =
+         𝑎        𝑏
+devient :
+      sin(𝛼)      sin(𝛽)
+                =
+      sin( 𝑅𝑎 )   sin( 𝑅𝑏 )
+
+Pour les triangles rectangles, le théorème de Pythagore 𝑐2 = 𝑎2 +𝑏2 devient
+la relation des cosinus :
+          𝑐        𝑎      𝑏
+      cos( ) = cos( ) cos( )
+          𝑅        𝑅      𝑅
+Il y a aussi une relation duale des cosinus :
+
+                          𝑏
+      cos(𝛽) = sin(𝛼) cos( )
+                          𝑅
+Quant à l’aire d’un triangle sphérique, elle est donnée par le théorème de
+Girard :
+      𝐴
+         =𝛼+𝛽+𝛾−𝜋
+      𝑅2
+
+                                                                  ARROW-UP page 54
+
+Le paradoxe des demi-fuseaux
+    Les demi-fuseaux ont fait leur apparition à la section « Intervention de la
+géométrie sphérique » page 54. Un demi-fuseau, c’est un triangle sphérique
+possédant deux angles droits, comme le triangle 𝐴𝐵𝐶 de la figure 11 page 55.
+Le nom provient du fait qu’en mettant bout à bout deux demi-fuseaux, on
+obtient un fuseau horaire.
+    William a remarqué qu’une bande étroite sur la sphère est presque
+isométrique à une bande plane. Cette propriété est d’ailleurs à la base
+du procédé utilisé à la Renaissance pour fabriquer en série des globes
+terrestres. On imprimait des fuseaux étroits sur du papier, puis on les
+découpait et on les collait sur une boule en bois, voir figure 22 page
+suivante.
+    On devrait s’attendre à ce que le quotient épicyclisopérimétrique d’un
+demi-fuseau tende vers 1 lorsque son angle 𝛼 tend vers 0. Il n’en est rien,
+car les demi-fuseaux, une fois étalés sur le plan, ne sont pas proches de
+
+
+
+
+                         Images des mathématiques — volume 4 (2026)
+68                                                   P. Pansu
+
+
+
+
+      Figure 22 – Fuseaux pour un globe terrestre.
+
+
+
+
+IdM
+La vasque olympique de Paris                                                 69
+
+
+triangles, ils sont arrondis (comme le graphe de la fonction sinus sur
+[0, 𝜋2 ]), leur aire est franchement plus grande que celle du triangle plan
+de mêmes sommets, pour un périmètre voisin, d’où le facteur 𝜋4 .
+                                                                 ARROW-UP page 56
+
+Développements limités
+    La notion de développement limité a fait surface à la section « Usage des
+développements limités » page 56. L’idée consiste à remplacer des fonctions
+compliquées (comme cos, arccos...) par des fonctions plus simples (des
+polynômes), en faisant une erreur sur laquelle on dit un peu, assez pour
+démontrer des limites, mais pas suffisamment pour établir des inégalités.
+    Par exemple, il est d’usage d’approximer le sinus d’un petit angle par
+sa mesure exprimée en radians, sin(𝑥) ∼ 𝑥. Le développement limité de
+la fonction sinus en 0 donne un peu plus d’informations. La notation
+sin(𝑥) = 𝑥 + 𝑜(𝑥) signifie que l’erreur 𝑜(𝑥) commise satisfait :
+
+         𝑥 − sin(𝑥)
+      lim           =0
+     𝑥→0      𝑥
+
+La forme plus forte sin(𝑥) = 𝑥 + 𝑂(𝑥3 ) signifie que 𝑥−sin(𝑥)
+                                                        𝑥3
+                                                              est borné au
+voisinage de 0, ce qui nous permet de deviner le bon ordre de grandeur de
+l’erreur. Par exemple, le développement limité complet obtenu dans la
+section « Usage des développements limités » page 56 est :
+
+                1      Σ(3)    𝑟 2      𝑟 4
+     𝑄=1+         (1 +      ) ( ) + 𝑂 (( ) )
+               12      Σ(1)    𝑅        𝑅
+
+ce qui permet de négliger le dernier terme, dont l’ordre de grandeur est
+10−8 . Malheureusement, même la forme sin(𝑥) = 𝑥 + 𝑂(𝑥3 ) ne permet
+pas d’encadrer la fonction sinus. L’encadrement
+
+        1
+     𝑥 − 𝑥3 ⩽ sin(𝑥) ⩽ 𝑥
+        6
+vrai pour tout 𝑥 ⩾ 0, ne résulte pas du développement limité. Or c’est de
+tels encadrements dont les étudiantes et étudiants ont besoin à la section
+« Usage des développements limités » page 56, quand ils écrivent « à une
+faible erreur près ».
+    À la faculté des sciences d’Orsay, les développements limités appa-
+raissent au second semestre de la première année. Pour les étudiantes et
+étudiants de l’atelier MATh.en.JEANS, il s’agit donc d’une connaissance
+
+
+
+
+                       Images des mathématiques — volume 4 (2026)
+70                                                                          P. Pansu
+
+
+toute fraîche. Ils n’ont pas eu le temps d’acquérir la dextérité nécessaire
+pour de longs calculs 7.
+                                                                         ARROW-UP page 58
+
+Résilles planes pour buts de foot
+    On démontre ici l’inégalité sur la longueur des résilles planes adap-
+tées pour servir de filets pour buts de foot (voir « Débat contradictoire »
+page 58).
+Proposition 10
+Soit une résille plane qui satisfait aux clauses suivantes :
+     1. La résille recouvre un domaine plan d’aire 𝐴total et de longueur du bord
+        𝐿bord .
+     2. Chaque maille de la résille est un polygone à au plus 6 côtés.
+     3. Chaque maille de la résille a un périmètre au plus égal à 𝑝0 .
+Alors la longueur totale 𝐿 de la résille satisfait :
+
+             4√3       1
+        𝐿⩾       𝐴    + 𝐿
+              𝑝0 total 2 bord
+
+     Sachant que pour un polygone régulier plan à 𝑛 côtés :
+
+              1        𝜋
+        𝐴=      cotan ( ) 𝑃2
+             4𝑛        𝑛
+le théorème isopérimétrique affirme que pour tout polygone plan à 𝑛 côtés :
+
+              1        𝜋
+        𝐴⩽      cotan ( ) 𝑃2
+             4𝑛        𝑛
+          1
+La suite 4𝑛 cotan( 𝜋𝑛 ) étant croissante, si le nombre de côtés 𝑛 ⩽ 6, on peut
+affirmer que :
+
+            √3
+        𝐴⩽⎛
+          ⎜ ⎞  ⎟ 𝑃2
+          ⎝ 24 ⎠
+Si, en outre, le périmètre 𝑃 du polygone est ⩽ 𝑝0 , il vient :
+
+            √3
+        𝐴⩽⎛
+          ⎜ ⎞  ⎟ 𝑝0 𝑃
+          ⎝ 24 ⎠
+  7. Il s’agit à nouveau d’un incident typique dans le déroulement d’un atelier
+MATh.en.JEANS : le chercheur a mal évalué les connaissances des élèves.
+
+
+
+
+IdM
+La vasque olympique de Paris                                                       71
+
+
+Pour la résille complète, l’aire couverte et le périmètre total satisfont :
+
+                    √3
+         𝐴total ⩽ ⎛
+                  ⎜ ⎞  ⎟ 𝑝0 𝑃total
+                  ⎝ 24 ⎠
+En tenant compte du bord, la longueur totale de corde satisfait :
+
+         2𝐿 = 𝑃total + 𝐿bord
+
+d’où :
+
+              4√3       1
+         𝐿⩾       𝐴    + 𝐿
+               𝑝0 total 2 bord
+
+avec égalité si les mailles sont des hexagones réguliers.
+                                                                       ARROW-UP page 60
+
+
+
+Crédits
+Figure 17 : Victorin Brunel.
+
+
+Remerciements
+    L’auteur tient à remercier chaleureusement Pierre-Antoine Guihéneuf,
+les relecteurs Charles Favre et Didier Roche, ainsi que toute l’équipe
+d’Images des mathématiques pour la mise au point de ce texte.
+
+
+
+
+                                     Pierre Pansu
+                                     Professeur émérite – Université Paris-Saclay.
+
+
+
+
+   Article édité par Pierre-Antoine Guihéneuf.
+
+
+
+
+                           Images des mathématiques — volume 4 (2026)
+

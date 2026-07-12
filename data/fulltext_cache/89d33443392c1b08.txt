@@ -1,0 +1,976 @@
+﻿(Intro Music Starts)
+
+SH: Hello everyone, I am Sam Hansen 
+
+
+SW: And I’m Sadie Witkowski.
+
+
+SH: And you are listening to Carry the Two, a podcast from the Institute for Mathematical and Statistical Innovation aka IMSI.
+
+
+SW: This is the podcast where Sam and I talk about the real world applications of mathematical and statistical research.
+
+
+(Intro music ends)
+
+
+SH: Here we are back again,  back again Sadie
+
+
+SW: Back and ready for yet another emerging technology episode Sam!
+
+
+SH: Good, because we have a great one this time. It ties together everything from astronomy to medicine, The Matrix to our phones, and light to  darkness. But at its heart it is all about taking in data from a wide range of sensors and making it legible to humans
+
+
+RW:  No one can look at the raw data and do anything meaningful with it. We really need a computer to take that data and form an image that a human can interpret and extract knowledge from. And so that process is computational imaging.
+
+
+SH: That was Rebecca Willett
+
+
+RW: The Worah Family Professor of Statistics and Computer Science in the Wallman Society of Fellows at the University of Chicago.
+
+
+SW: And Rebecca works in Computational Imaging?
+
+
+SH: As well as many other areas including the mathematical and statistical foundations of machine learning which will come up later
+
+
+SW: Exciting, I can’t wait. But first I am guessing we are going to take a dive into just what computational imaging is?
+
+
+SH: How about we start with imaging itself, on its own, first?
+
+
+SW: You know what, that does sound reasonable
+
+
+SH: Great. So, imaging works by capturing the light from what we are trying to image
+SW: Ah, and initially we did this with film and now we are using digital sensors of some sort?
+
+
+SH: Exactly, as Rebecca explained to me
+
+
+RW: Each measurement would correspond to how much light is coming from each particular location in space. So like, how bright is the red light and the green light and the blue light at each individual pixel?
+
+
+SH: But since these are indirect measurements of the brightness there could be issues with them
+
+
+RW: So they could be contaminated by blur, for instance.
+
+
+SH: Or even
+
+
+RW: In astronomy with telescopes, the thing that we want to make an image of can be distorted by things like dark matter.
+
+
+SW: Oh wow, I had no idea dark matter could cause that to happen
+
+
+SH: Neither did I, and that isn’t the only issue that can affect things like telescopes, but I am getting ahead of myself
+
+
+SW: Yeah, no spoilers Sam
+
+
+SH: Sorry, sorry I’ll keep it spoiler free from now on. Rebecca did want us to know that this Red, Green, Blue paradigm is only for standard commercial cameras and in the scientific world they could be dealing with multispectral imaging 
+
+
+RW: We might get measurements or care about information about how much light there is at much finer different wavelengths. So maybe even hundreds or thousands of different wavelengths of light.
+
+
+SW: That is a whole lot more than just three colors, like a mantis shrimps worth of colors
+
+
+SH: A what now?
+
+
+SW: Mantis shrimp are a crustacean that is famous for their ability to see a truly amazing spread of different light wavelengths
+
+
+SH: Gotcha, but let’s stick with human technology for now
+
+
+SW: Ok (said in a grudging manner), but maybe we could learn something from the mantis shrimp! . . . 
+
+
+SH: Perhaps, perhaps we could Sadie, but trust me - I will make today’s conversation worth your while. In fact let’s start with some technology in your pocket right now and which our audience is probably using to listen to us 
+
+
+RW: But I want to emphasize even with modern phone cameras, there's a lot of computational imaging actually happening under the hood that's really invisible to you and me.
+
+
+SW: Beyond the obvious of translating the measurements taken by the digital sensors into an image, what sort of computations are our phones doing?
+
+
+RW: There's been a lot of careful engineering and work being done to make sure that those cameras are as compact as possible.
+
+
+SH: And this engineering has led to some issues as far as imaging is concerned
+
+
+RW: That does introduce all different kinds of distortions due to, say, the lens design. And so computational imaging is being used to undo that distortion.
+
+
+SH: And that is not it, there is also how our phones , and other modern digital cameras handle low lighting
+
+
+RW: Back when I was a kid, if you took a picture where there was very little light, the resulting image was extremely grainy looking. But now with modern computational imaging methods, we can take images in low light and get very high quality images coming out due to the use of different computational and mathematical methods.
+
+
+SW: For sure, even over the last few years of phones it is really noticeable how much better they are at taking photos at night
+
+
+SH: I know, I recently upgraded after having a phone for like 7 years and I had to get used to the idea that I could now actual take photos at night thanks to the more advanced processing capabilities the new phone had
+
+
+SW: Speaking of those capabilities, and I know this is usually your role, but can we please talk about the math and stats that power them?
+
+
+SH: Oh, I am sorry. I am really failing at my job today. Let’s, let’s start with how computational imaging has traditionally functioned
+
+
+RW: The classical methods would exploit the fact that for most images that you and I would look at, they have some common features. For instance, they've got smooth surfaces that are separated by smooth boundaries. And so even if the raw data looks really grainy, we can infer that perhaps the true image that we care about is not grainy and that a smoother version would be more accurate of a representation of the true scene.
+
+
+SH: So they leverage these common features and
+
+
+RW: We can use a combination of statistical models of the graininess or noise in the image that we collect and mathematical models of the kind of geometry or structure of the image that we care about, like smoothness of various types, in order to computationally search for an image that's a good fit to both, that is a good fit to the data in a statistical sense, and which is a good fit to what we know about the geometry of images that we typically see.
+
+
+SH: In other words
+
+
+RW: Nominally, what we want to do is we want to search over all possible images to find the one where if we send it through this model of how our measurement system works is a good fit to what we actually observe.
+
+
+SW: But what if there are a bunch of different possible images that fit the observations
+
+
+SH: Now you are the one spoiling things
+
+
+RW: We have to deal with a problem that within the mathematical community is called ill-posedness of the problem.
+
+
+SH: Which is the technical way of saying what you just said Sadie, that the problem may not have a unique solution. For computational imaging this means
+
+
+RW: If we just go for the absolute best fit, it might not be something that is accurate. It might be overfitting to the noise or to errors in the data.
+
+
+SW: That sounds like an absolute nightmare to handle, and if hosting this show for all these years has taught me anything I know that this means there is some math and or stats coming
+
+
+SH: Well, let me prove you right
+
+
+RW: We use a mathematical technique called regularization.
+
+
+SW: I knew it!
+
+
+SH: And yeah you did, and regularization relies on the fact that in most computational imaging tasks the types of images being created are predictable ahead of time
+
+
+RW: With regularization, I'm saying when I look at all the images that are a good fit to my data, I want to choose the one of those images that is the most regular, that is the most smoothness or which is most consistent with my prior understanding of what images should look like.
+
+
+SH: Not that it is easy to create these regularizers, it is a really active area of research. 
+
+
+RW: I want to construct a mathematical model of the geometry that I think should be present in images. And those tools are very powerful. It led to a lot of deep mathematics and interesting insights.
+
+
+SW: I noticed a bit of a past tense shift in Rebecca’s answer there, has there been a shift in how this regularization is being handled?
+
+
+SH: Good ear, there has been and like so many times before this season it is time to start to talk about the impact of machine learning
+
+
+RW: In the field of machine learning and AI, we have huge collections of different images. And so instead of us writing down a mathematical model of the geometry of images, can we use machine learning to extract a model of the geometry automatically?
+
+
+SH: And with well curated datasets these machine learning regularizers outperform most simple mathematical ones, but
+
+
+RW: The real question is, how is this going to work in the wild, right?
+
+
+SW: That is always the question
+
+
+SH: And it is not the only one, there is another very important question that Rebecca shared
+
+
+RW: How much training data do I need and how diverse does it need to be?
+
+
+SW: I know the quantity of training data is always important, but why the focus on diversity?
+
+
+RW: Because if my training data is all a bunch of medical images and it all corresponds to images of healthy people, then is using a regularizer that's learned from those healthy images, going to make it so that when I try to reconstruct an image of someone who's not healthy, who maybe has a tumor or lesion, is that tumor or lesion going to get erased, regularized out?
+
+
+SW: Oooh, of course. It is the out of distribution prediction question all over again
+
+
+SH: Exactly, and while with the mathematical models it was possible to determine what sort of images would be preferred it is much harder with the machine learning regularizers and
+
+
+RW: This is not about doing good searches for images of cats on the internet where a mistake has a very low cost. And so we really need to understand what the failure modes are. We need to give people guidance about how much data they should plan on using to train these different AI systems and how they can evaluate and test these systems to ensure that they're going to be robust to errors or so that people can trust them.
+
+
+SW: Trusting my phone camera I can take or leave personally, but phones are being used more and more for reporting and I would like to be able to trust that and I definitely want to be able to trust my medical imaging!
+
+
+SH: Not to mention the imaging used in construction and engineering! 
+
+
+SW: Ahhhhhh, I hadn’t even thought of those. So what are they doing in order to figure out how to make these systems trustworthy?
+
+
+SH: One of the main approaches is using benchmarks against shared datasets
+
+
+RW: We've got the same training data set and the same test data set that everyone working in an area will use. And this is helpful because now we can do side by side comparisons of different approaches. And as a community, we get a sense of what makes a bigger or smaller impact on performance.
+
+
+SH: Though, these benchmark tests have those same out of distribution, or distribution drift, issues we mentioned before, which can mean they may not be as useful a measure as hoped for
+
+
+RW: So if we only rely on empirical measures of how well we do on a curated training and test set, on a benchmark dataset, we really risk missing challenges that will arise when these systems are deployed. And that's why understanding the mathematical foundations is really important. It's going to capture potential challenges and pitfalls that we might miss if we only rely on benchmarks.
+
+
+SH: And in order to really get to trustworthy algorithmic computational imaging tools Rebecca thinks that a paradigm shift needs to happen
+
+
+RW: I think that we should have more value placed on creative out there ideas that really shift us away from everybody doing exactly the same kind of approach.
+
+
+SW: Can’t argue with that
+
+
+SH: Definitely not. And speaking of shifting I would like us to talk about an application computational imaging next, but don’t worry we will hear from Rebecca again before the end of the episode
+
+
+SW: Ok, so what is the application?
+
+
+SH: Well I have two to share, but I wanted to let you decide which we should go with first. Do you want to hear about how math, stats, and computation can help us image things at really short time scales or really long distances first?
+
+
+SW: Hmmmm, let’s go with distances!
+
+
+SH: In that case let me introduce you too
+
+
+SC: I'm Stanley Chan. I'm a professor at Purdue University.
+
+
+SH: Stanley works in computational imaging and optics. In particular 
+
+
+SC: We work on imaging for very long distance.
+
+
+SW: And what are the particular issues that this distance brings up?
+
+
+SC: Because our atmosphere is not vacuum, we have air flowing, you will be impact substantially by the flowing air
+
+
+SW: Of course, pesky atmosphere! Sure it makes it possible to live but is it worth it if our imaging is impacted
+
+
+SH: (sarcastic) Ha Ha Ha . Joking aside, the atmosphere does really make a difference
+
+
+SC: Ideally, in vacuum, that means in space, light will travel through a straight line.
+
+
+SH: While in an atmosphere
+
+
+SC: Because of the changing air, the light wouldn't travel in a straight line.
+
+
+SH: To put it more scientifically
+
+
+SC: Because the atmosphere is always changing, we have hot air, we have cold air, and so the refractive index will change in space and in time.
+
+
+SW: Oh! This is like a thermoclime you sometimes see when scuba diving! It’s this rapid transition in water temperature over just a few feet of depth that you can actually visually see as a shimmer where the light bends around it.
+
+
+SH: Oh, that’s so cool. If I ever get the chance to go scuba diving I really I hope I see one
+
+
+SW: Physically uncomfortable but beautiful to see (laughs)
+SH: (Laughs) So, the  refractive index here means the speed of light in the atmosphere versus the speed of light in a vacuum. And refractive index directly impacts the wave function that we can use to describe light
+
+
+SC: For any wave function that is an amplitude, that's also a phase, the phase will lead or the phase will lag. So going forward, going backward, depending on the refractive index.
+
+
+SW: And what does this phase lag mean for imaging
+
+
+SH: Well for moment to moment observation it means the light is dancing around and shifting and when you measure these observations for an image
+
+
+SC: Then all these jittering things will accumulate. That will give you the blur.
+
+
+SH: In other words if you were imaging something very far away
+
+
+SC: It just affects your perception a lot. You cannot tell, okay, is it a car?Is it a person? What is the words on the license plate of the car?
+
+
+SH: In fact, if you have ever spent some time in a desert your eyes may have had this exact same issue
+
+
+SC: Who drove in Nevada or Utah before, where you are in the desert, hot air, you should have good experience of those, right? So we're talking about those kind of distortions.
+
+
+SW: I know exactly what he is talking about, that sort of heat blur and haze that makes the road ahead look all wibblily-wobbily and lead to the oasis mirage effect
+
+
+SH: And do you know where mirages are not welcome?
+
+
+SW: I mean I don’t think anyone really wants to see a mirage, but I’ll bite. Where are mirages not welcome?
+
+
+SH: Astronomy
+
+
+SC: So you look at a star, you know it is a star, it's a bright star, and you start to take a picture of those, and you measure the phase. Now, if there is no distortion, everything should be perfect. But if there is any distortion, you can use a device called the Wavefront Sensor.
+
+
+SW: And so how does this wavefront sensor help
+
+
+SH: Well it detects the phase and then using a technique called adaptive optics deformable mirrors can be shifted around to cancel out the phase delays making the image clear
+
+
+SW: I believe you, but I am not quite following, how is it that mirrors can cancel out phase delays?
+
+
+SH: Let’s try this, have you ever been to an optometrist?
+
+
+SW: Yeah
+
+SH: So you know all those measurements they take?
+
+SC: Basically, what they're measuring is the phase delay of your human lens. And they say, oh yeah, your lens is causing so much delay along this angle and then so much along that angle. Then when they prescribe the glass, they will pre-compensate the light for the distortions.
+
+
+SH: And adaptive optics works the same way
+
+
+SC: The deformable mirror actually works in a very similar way. You use a wavefront sensor or use our algorithm, you can measure the face and then you use the deformable mirror to pre-compensate the phase.
+
+
+SW: That’s really cool, and it would mean that ground based telescopes that have to see through the atmosphere and can use stars to measure phase delays are in good shape but it doesn’t exactly solve the: is it a car, or is it a person conundrum does it?
+
+
+SH: Sadly, no
+
+
+SC: For ground-to-ground applications, this technique would be a lot harder because why would somebody put a reference point next to a target?
+
+
+SH: And it is not just the lack of a reference point. Wavefront sensors and deformable mirrors can cancel out distortions, and ground to ground long distance imaging requires speed
+
+
+SW: So we know how to take a blurry image quickly or a clear image slowly
+
+
+SH: Yep
+
+
+SW: Well that is just great
+
+
+SH: Well if you were in this situation what question would you ask
+
+
+SW: Is there any way to take a blurry image, and make it clear?
+
+
+SH: And that is why you have a PhD
+
+
+SW: No other reason 
+
+
+SC: What you can do is you have to take a picture. And from the picture, you need to estimate the phase because now you can measure. So the estimation process is called a phase retrieval.
+
+
+SW: And this is nice and easy right?
+
+
+SH: Hahahaha, you know better than that. From how Rebecca described imaging earlier, we know that what a picture gives us is the intensity of the light. And, just a second are you ready for some mathy talk
+
+
+SW: Always
+
+
+SH: Good. So this intensity can be thought of as the amplitude of a complex number. In other words if you take a coordinate grid where x-axis are the real numbers and the y-axis are  imaginary numbers. The amplitude if how far from the origin, or the 0,0 point, the complex number is
+
+
+SW: Ok, so like a two dimensional absolute value
+
+
+SH: Exactly. But while the absolute value of x equaling 5 means x is either positive or negative 5, the amplitude of a complex number being 1 only means that the complex number is one of an infinite number that lie on a circle of radius one around the origin
+
+
+SW: And finding out which one of the numbers it is, is the phase retrieval problem
+
+
+SH: Yeah
+
+
+SC: And what I want is the phase, which is the angle.
+
+
+SW: But how do they narrow down to one answer if there are an infinity of possibilities?
+
+
+SH: Similarly to how Rebecca did, by using the fact that image data is not totally random
+
+
+SC: Then the problem will actually be possible because we know images, they are not random combination of values, right? There's an edge, there is a corner, there’s a tree, there's a flower, and they have structures.
+
+
+SH: And this means that the values of neighboring pixels are not independent of each other, instead they are correlated
+
+
+SC: So when pixels, they are correlated, then I can use the neighboring information to do the inference.
+
+
+SH: Of course just because it is possible doesn’t mean that it is easy
+
+
+SC: We have been trying to solve the phase retrieval problem following the literature by designing neural networks. And we have a poor student, graduate student, who have been working on this problem for a long, long time, training big and small, giant neural networks with all kinds of architectures, with tons of millions of image examples. He cannot solve the problem.
+
+
+SW: Well that certainly sounds frustrating
+
+
+SH: I know, but thankfully they eventually figured out what one of their main issues was. And it was a surprising one
+
+
+SC: We found that when you have a circular lens, solving the phase retrieval problem is very hard.
+
+
+SW: The shape of the lens?
+
+
+SH: It surprised me too, but once Stanley started to explain it all clicked
+
+
+SC: You rotate a circle, you get the same thing. And this creates what we call the ambiguity.
+
+
+SW: Huh, why does that matter?
+
+
+SH: Well it comes down to machine learning algorithms not really knowing things like we know things
+
+
+SC: So an example would be, I give the neural network x squared. I ask, "Hey, tell me whether the solution is square root of x or minus square root of x." Now the neural network wouldn't know whether it should take the positive side and the negative side. And so when you present the training pair. it will start become very puzzled. It will just jump up and down. And this is what we observe. It's oscillating. It never converges. It just never, never, ever give you what you want.
+
+
+SW: Oh yeah. I guess a machine learning system would have a hard time telling the difference between a circle and itself rotated a bit and wouldn’t know which to choose. And with this problem it wouldn’t just be two options it’s bouncing between either
+
+
+SH: Which is why they decided to make a change
+
+
+SC: We say, hey, we should give away the circle. The circle is really causing a lot of trouble. So we propose to do a triangle, a pentagon, anything that is asymmetrical.
+
+
+SW: And did that help? Actually wait a second. How did they go from circular lenses to triangular ones? How do you even machine a triangular lens?
+
+
+SH: Very easily it turns out
+
+
+SC: You take a piece of paper, you cut a triangle, put it on top of it. That's it.
+
+
+SW: Hahaha (Surprised) Really, that’s it?
+
+
+SH: I am still getting over it myself
+
+
+SW: Ok, back to my earlier question, did it help?
+
+
+SC: That helps us narrow down the solution space from infinitely many solutions down to just a unique solution.
+
+
+SH: Or in other words saying it helped might just be an understatement, so with a non-circular lens their machine learning networks are very happy but there is still something else that Stanley was hoping for
+
+
+SC: Then we ask, can we make it small? Can we make the network small, make it fast so that we can operate in real time?
+
+
+SW: Stanely doesn’t aim low does he
+
+
+SH: Definitely not. 
+
+
+SC: And so what we did is that we say maybe we just need a simple representation for both the points-spread function and also the phase.
+
+
+SH: Where the point spread function is another way of saying the observed pattern, aka the input to the neural network. So they decided to see if they could handle it like we handle things like image compression
+
+
+SW: I am sorry, but image compression?
+
+
+SH: Oh yeah, I should explain. So you know those letters after the dot in image file names?
+
+
+SW: Like png, jpg, bmp, tiff?
+
+
+SH: Exactly. Each of those is a different image compression, file compression type
+
+
+SC: For those of you who are familiar with JPEG compression, you throw away 80% of the signals and keep 20%, you can still see a pretty good image.
+
+
+SW: Ah, so they were trying to come up with a way of representing the observed image input and the phase output in a compressed way
+
+
+SC: And all of a sudden, if you think in this way, the input points per function can be 100 by 100 pixels. So that would be easily 100,000 pixels. pixel values, but by using the representation, we may only need 100 coefficients. Similarly, for the phase, you may need 100,000 values, but now you only need maybe 30 coefficients.
+
+
+SH: And once they had these compressed representations
+
+
+SC: When we did the training, it turns out that the operation is very, very fast.
+
+
+SH: And while his system is not quite ready for prime time yet, Stanley thinks that once it can be implemented it can be a real game changer for resolution, speed, and cost of long distance imaging
+
+
+SC: So I can implement it on a telescope to replace the wavefront sensor with a much faster operating speed. It would be much lower cost because I do not need to spend $10,000 to buy the wavefront sensor. I just need to use an algorithm to recover. And I can also track much faster objects instead of a stationary planet.
+
+
+SW: I am sure a lot of astronomers will be happy to not have a $10,000 sensor to buy
+
+
+SH: Right? And Stanley is such a nice person that he was having none of it when I suggested that he could use turning circular lens into asymmetric ones as a capitalistic opportunity
+
+
+SH: (On interview tape) So if it's $10,000 for a Wavefront sensor, what are you going to charge for the little 3D printed triangles, like $500, $600? That seems like a great cost savings.
+
+
+SC: It could be in the order of 10 bucks  or even less.
+
+
+SW: He is really leaving money on the table
+
+
+SH: I know!
+
+
+SW: So that is long distance computational imaging, is it time now for short time scales?
+
+
+SH: Right after this message from the University of Chicago podcast network it is
+
+
+(ad music starts)
+
+
+If you’re tired of hearing the same stories about climate and energy, there’s a new UCPN podcast that you should check out. It’s called Shocked. Each episode, you’ll hear journalist Amy Harder, and economist Michael Greenstone, share new ways of thinking about climate change and cutting-edge solutions… like changing the earth’s atmosphere, making batteries out of sodium and using AI to predict the weather. To listen to Shocked, search for “Shocked” in your podcast app. That’s. Shocked.
+
+
+(ad music ends)
+
+
+DL: From the exasecond scale down to the attosecond scale, it's basically all the timescales that we've managed to observe as humans.
+
+
+SW: Who is this throwing around these types of seconds I have never heard about before?
+
+
+DL: I'm David Lindell. I'm an assistant professor at the University of Toronto in the Department of Computer Science. 
+
+
+SH: David does research on computational imaging and computer vision, in particular focusing on imaging across time scales. We started by talking about standard cameras like the ones in our phones
+
+
+DL: These cameras would operate and allow you to freeze motion at timescales of a fraction of a second, maybe a hundredth of a second, perhaps a thousandth of a second.
+
+
+SH: Though we do have consumer access to cameras that shoot at much shorter time scales too 
+
+
+DL: You can buy off-the-shelf high-end, high-speed cameras that can capture a scene at perhaps a million frames per second. And that's fast enough to capture, for example, a speeding bullet traveling through a scene.
+
+
+SH: And scientists, they have access to even shorter ones
+
+
+DL: And so there are specialized techniques that allow you to push to billions or trillions, or even quadrillions effectively quadrillions of frames per second, but they operate on a completely different paradigm.
+
+
+SH: And finally thanks to the work of Pierre Agostini, Ferenc Krausz, Annez L’Huillier, and their teams 
+
+
+DL: We have now developed attosecond lasers. The Nobel Prize in Physics was awarded for this invention a couple of years ago. And they can actually use this to probe the dynamics of electrons moving around molecules at attosecond time periods.
+
+
+SW: Ok, wait a minute, what is an attosecond
+
+
+SH: An attosecond is 10^-18 of a second. And since the universe is less than 10^18 seconds old, there are more attoseconds in a single second as there have been seconds since the start of the universe
+
+
+SW: Wow, so what you are saying is unfathomably short
+
+
+SH: Yeah. And so from the unfathomably short lets go to the unfathomably long
+
+
+DL: For example, I've seen images where scientists are trying to monitor the behavior of glaciers that are moving at glacially slow paces, and that the change in the position of how these glaciers are structured happens over many years. So you can actually see time lapses over decades.
+
+
+SH: But decades is not unfathomable yet, so let’s keep going
+
+
+DL: And then if you move to more unconventional techniques, like the James Webb Space Telescope or the Hubble Space Telescope, and you look far out into space, you can basically capture events that have happened from close to the present time, all the way back 13 billion years near the formation of the universe.
+
+
+SH: Which is not a full exasecond, which is 10^18 seconds, but we can round up
+
+
+SW: Yep, that is unfathomable. And yet you are telling me we have imaged at both scales?
+
+
+SH: We have, though as you can expect it requires a lot of cool science and math and stats to accomplish
+
+
+SW: I bet, and I am guessing that David is working on the forefront of that cool science and math and stats?
+
+
+SH: He is, in particular with really short time scale imaging. Before we get to that we should start with how high speed imaging first took off.
+
+
+DL: The modern paradigm of high-speed imaging was really pioneered by Doc Edgerton, who was a professor at MIT and one of the fundamental innovators of high-speed imaging.
+
+
+SH: And Doc Edgerton’s paradigm used two main principles
+
+
+DL: And the first is the use of a high-speed flash, like a strobe light.
+
+
+SH: As well as
+
+
+DL: The second principle is synchronization of that high-speed flash or strobe light to a scene or to the camera that you're using to image.
+
+
+SH: And David shared an example of how Doc Edgerton applied these two principles to achieve high speed images
+
+
+DL:  He shows a fan that's spinning around at high speed. If you take an image of this fan with a conventional camera, it would be blurred out. The fan would be moving during the exposure time. You get a blurry image. But if you apply Edgerton's two principles, a high-speed flash, like a strobe light, and you synchronize that flash to the revolutions of the fan, so it flashes on, and the fan is in a certain position, and it's revolution. And then the strobe light turns off. And then when it flashes on again, the fan is at the same position. You just flash the strobe light like that. Actually, with your own eyes, you'll see the fan blade frozen in position. And now it becomes very easy to capture a high speed image. You simply just expose your sensor to that scene, and it will collect photons from that fan that's frozen in position. And you can leave the exposure open as long as you'd like to collect enough photons to form a clean image.
+
+
+SH: These principles can also be extended to video as well as still images
+
+
+DL: If you want to capture a video sequence of this fan spinning, all you have to do is slightly delay the strobe light sequence so that it captures the fan in a slightly different position. Then if you delay it a bit more, the fan moves a bit more. And in this way, you can basically assemble an entire sequence of images. that would result in a nice video of this fan moving very slowly over time.
+
+
+SW: Anyone who has ever watched people dance, or has danced themselves, under a strobe light can totally picture how this is done
+
+
+SH: That’s exactly how I was imagining it too. And over time lasers started to replace strobes until
+
+
+DL: In practice, we can image things that are much faster than fans. We can even image light itself moving.
+
+
+SW: Incredible, but I sense that David is working on something even cooler?
+
+
+SH: He is, and it has a cool name too
+
+
+DL: A single photon avalanche diode is a type of light sensing device type of sensor that measures light by triggering every time a photon, a single photon, is detected.
+
+
+SH: So while the pixels in conventional sensors are like buckets that collect light intensity while exposed David prefers a different analogy for these single photon avalanche diode or SPADs 
+
+
+DL: This pixel is more like a mouse trap. A photon can come in and it has a chance, with some relatively high probability, to trigger that trap. And that results in an avalanche of current produced by this device that can be detected by ultrafast timing circuitry. the output of this device, you then get a timestamp of when that photon arrived.
+
+
+SW: These diodes sound cool, but how does one go from detecting a photon to the measure of the amount of light needed for imaging?
+
+
+DL: Is there a way to relate the time at which individual photons are arriving to the underlying intensity of the scene? So, this is exactly what we've been working on in our group at the University of Toronto.
+
+
+SW: Hahaha, of course they are
+
+
+SH: Not only that, they got results
+
+
+DL: We discovered that there is a very interesting connection between the time stamps of the incident photons that you detect with the spad array and the underlying intensity of light that's incident onto the sensor.
+
+
+SH: And this brings us to some really fun math. Let’s start with how high speed imaging has traditionally been thought of in a mathematical sense
+
+
+DL: The conventional view of high-speed videography is that you've got some light that's incident on your sensor. And you can think of this as a continuous time varying function of the incident intensity of light.
+
+
+SH: Which mathematically means 
+
+
+DL: So there's some continuous function that describes the amount of light coming out to my sensor, and my high speed camera just samples this function.
+
+
+SH: So for faster images
+
+
+DL: If I want to push to higher speeds, I can just sample this continuous function at a higher and a higher rate.
+
+
+SH: Except when pushed to a short enough time scale this breaks down
+
+
+DL: The reason for that is that light is not continuous. It's made up of individual particles called photons that are arriving onto the sensor discreetly, stochastically and asynchronously.
+
+
+SH: And if we stick with the pixel sensor bucket analogy we can also think of light at these really high speeds as a faucet that is leaking
+
+
+DL: And that leaky faucet will, if you put a bucket under it, you might fill a bucket of water every hour. So there's some average amount of flow coming out of this faucet that you can characterize. But the individual water droplets are coming down randomly at different times, and they're coming down one at a time.
+
+
+SH: Which brings us back to the SPAD, because unlike the conventional sensors they will capture those water droplets and the exact time they arrived and David and his team found that by analyzing these statistically they found out
+
+
+DL: There's a connection between the discrete world of individual photons that are arriving and the continuous world of what I'll call time the varying incident flux or the intensity of light.
+
+
+SW: And this connection allows them to use the SPADs to create images
+
+
+SH: After using some stochastic calculus and fourier analysis and statistics they did. And after they did they realized that it allowed them to do something that traditional high speed imaging never did
+
+
+DL: Edgerton's principle is really a double-edged sword. It allows you to freeze a particular phenomenon in time, but you can't really freeze multiple things moving at different speeds together.
+
+
+SH: Or in other words if you wanted to capture both a spinning fan and the propagation of light through the same scene you couldn’t using standard techniques. But that is no longer a limitation
+
+
+DL: We simply use a SPAD and at every point in the scene we collect photon time stamps, we
+reconstruct the continuous time varying flux at that point, and we get flux functions for point in the scene, which you can think of as like a 3D function of the time varying flux. We get over the two spatial dimensions of the scene and then over time
+
+
+SH: To put it a different way
+
+
+DL: This is a video. A continuous video that you can play back at any speed. So that is what we can capture using a combination of very precise photon time stamping enabled by SPADs and the computational algorithms we developed that allow you to map from photon time stamps to time varying flux.
+
+
+SW: That I want to see
+
+
+SH: And I am going to share an example with you soon. But first I got a question, do you remember The Matrix?
+
+
+SW: Keanu Reeves, Human Batteries, Virtual Reality accessible through landlines? Yeah, I remember the matrix
+
+
+SH: And do you remember bullet time?
+
+
+SW: The slow motion effect where it looks like Neo or an Agent can dodge bullets? Come on, you know I remember that too
+
+
+SH: Ok, ok. In order to create those shots the Wachowski’s had to work with their visual effects crew to create a 121 high speed camera system that shot from all angles and then used frames from individual cameras to create the effect
+
+
+SW: So what does this have to do with David and his SPADs?
+
+
+DL: And we wondered if we could take this type of sequence and increase the speed of it by a factor of millions. So not like a bullet time effect, but like a light speed bullet effect.
+
+
+SH: Which they did 
+
+
+DL: We built a setup where you have a SPAD camera on a gantry, and you can capture a pulse of light illuminating a scene from one viewpoint, move the SPAD camera, capture it that same sequence from another viewpoint, we basically just repeat the illumination of the scene in exactly the same way for every viewpoint. We can artificially create the same sort of sequence that as was done in this VFX shot in The Matrix.
+
+
+SH: What they did was take a known image of light refracting through a bottle from Andreas Velten and collaborators in Ramesh Raskar’s lab at MIT and imaged it using their SPAD array and the video is spectacular. I mean look at this from the recording of the talk David gave at IMSI
+
+
+SW: Oh my gosh, that’s so trippy! It’s almost spooky that you can see both the light and all the reflections and such (Please react to the video starting at 23:58 https://www.imsi.institute/videos/imaging-anytime-anywhere-capturing-dynamic-scenes-from-seconds-to-picoseconds/ )
+
+
+SH: I know this is an audio program so let me have David describe it
+
+
+DL: With this bullet time light speed effect, you can actually move the camera around the coke bottle and see the light. propagating through it refracting out of the plastic scattering around from any viewpoint
+
+
+SW: Those words do not start to do it justice
+
+
+SH: I know. I really think everyone should check out his talk at IMSI website, i m s i dot institute, where you can see that specific video starting at 23:58 minutes in. But you should really watch the whole thing as it is filled with similarly spectacular high speed videos
+
+
+SW: Yes, they definitely should. I mean I know I am going to watch the whole thing.
+
+
+SH: And also, I will make sure to link it in our show notes and just I really want people to watch it. It is great. All of that said,  It is worth remembering that this work of David and his collaborators is really bleeding edge. As he says
+
+
+DL: I think our work opens up a whole unknown frontier of imaging on this point.
+
+
+SH: And he has no idea where it is going. 
+
+
+DL: I'm hoping to be surprised and I'm hoping there's some unexpected things that we can discover by just taking our cameras in this technique and capturing some things with it.
+
+
+SH: Not that he doesn’t have ideas
+
+
+DL: I want to do this experiment where you just point one of our cameras out at the city skyline and you see what's happening at different timescales.
+
+
+SW: Huh, what does that mean
+
+
+SH: Here is how David described it to me
+
+
+DL: My office view in Toronto, you can see the CN Tower, and there's a light that flashes about every three seconds. And then you have cars that are moving down the streets that you can see that happens at faster rates. Maybe there's a self-driving car with a LIDAR system that's shooting out laser pulses that you could detect. You could see the lights coming on and off in the towers during the day and night cycles. So there's actually a huge range of time scales just out there. And it would be so interesting to see what we can capture simultaneously in the wild
+
+
+SW: Oooooh, yeah. I want him to have done that yesterday
+
+
+SH: Me too! And with that, let’s end this episode of Carry the Two
+
+
+SW: (Interrupting somewhere around end this episode) I am sorry, but I was promised a more Rebecca a while ago
+
+
+SH: Thank you for reminding me. I did want to bring her back to wrap us with a discussion about how this works happens in the first place
+
+
+RW: Everything that I've been describing is research that's been funded by federal research organizations like the National Science Foundation or the National Institutes for Health or the Department of Defense Research Arms.
+
+
+SW: Just like how this podcast is made possible through the support of the US National Science Foundation too
+
+
+SH: And there are even benefits to this funding beyond just everyone getting a chance to listen to this awesome podcast
+
+
+RW: This has had an enormous positive impact not only on the research community, but on technologies that we see being used in our everyday lives, in our phone cameras, when we go to the hospital and get imaging done, helping preserve our national security.
+
+
+SW: 100%, our world is so much better thanks to all the research that is made possible through public funding
+
+
+SH: And I thank all the tax payers across the world that have made it possible for countries like the US and Canada to have helped fund the research we shared today and will share in the future. That said, I want to give Rebecca the last word today
+
+
+RW: I think that the problems we're discussing are very intellectually engaging and exciting and fun to work on. But I also think that they are legitimately having a positive impact on people's lives and that those are taxpayer dollars that are really well spent and well invested. And it's been a pleasure to be able to contribute to that.
+
+
+(outro music)
+
+
+SH: Don’t forget to check out our show notes in the podcast description for more Rebecca, Stanley, and David, including links to their talks they each gave at IMSI, the work that we discussed on today’s episode
+
+
+SW: And if you like the show, give us a review on apple podcast or spotify or wherever you listen. By rating and reviewing the show, you really help us spread the word about Carry the Two so that other listeners can discover us.
+
+
+SH: And for more on the math research being shared at IMSI, be sure to check us out online at our homepage: IMSI dot institute. We’re also on Bluesky at IMSI dot institute, as well as instagram at IMSI dot institute! That’s IMSI, spelled I M S I.
+
+
+SW: And do you have a burning math question? Maybe you have an idea for a story on how mathematics and statistics connect with the world around us. Send us an email with your idea!
+
+
+SH: You can send your feedback, ideas, and more to sam AT IMSI dot institute. That’s S A M at I M S I dot institute.
+
+
+SW: We’d also like to thank Blue Dot Sessions for the music we use in Carry the Two.
+
+
+SH: Lastly, Carry the Two is made possible by the Institute for Mathematical and Statistical Innovation, located on the gorgeous campus of the University of Chicago. We are supported by the US National Science Foundation and the University of Chicago. 
+
+
+SH: (Indistinct Sound)
+
+
+SW: (Laughs)
+
+
+SW: Thank you so much for saying that to me, I will not be sharing that
+
+
+SH: What am I, Warren G? Am I trying to regulate?
+
+
+SW: Laughs
+
+
+SW: Sorry, I thought that was… I’m going to precompensate your face ok
+
+
+SH: Laughs
+
+
+SH: It needs compensation
+
+
+SW: Laughs
+
+
+SW: I got friends at low distances (laughs)
+
+
+SH: Physicists would pick me up on that
+
+
+SW: Laughs
+
+
+SW: (singing to the tune of paralyzer) I’m not regulized, but I’ll see (speaking normally) I just have paralyzer stuck in my head

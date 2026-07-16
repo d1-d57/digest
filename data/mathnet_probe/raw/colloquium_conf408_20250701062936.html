@@ -1,0 +1,2959 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=Windows-1251'>
+<META NAME='keywords' CONTENT='
+	Общероссийский математический портал, 
+	математическая жизнь в России,
+	российские периодические издания в области математических наук,
+	электронный документооборот,
+	база данных Математические журналы,
+	ведущие журналы ОМН РАН,
+	Математический институт им. В. А. Стеклова РАН,
+	Отделение математических наук РАН,
+	All-Russian Mathematical Portal,
+	mathematical life in Russia,
+	Russian periodical editions in Mathematics,
+	Steklov Mathematical Institute RAS,
+	Branch of Mathematical Sciences, Russian Academy of Sciences
+	'>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX", "output/CommonHTML", "output/HTML-CSS","output/SVG", "output/PreviewHTML"],
+      tex2jax: {
+          inlineMath: [ ['$','$'] ],
+          displayMath: [ ['$$','$$'] ],
+          processEscapes: true
+          },
+
+
+      "HTML-CSS": {
+      	imageFont: null,
+        webFont: "STIX-Web",
+        availableFonts: ["TeX"],    // Or: ["STIX"], to allow local // ["TeX"]
+        preferredFont: ["TeX"]    // Or: "STIX", to allow local     // ["TeX"]
+      },
+
+      //"SVG": {
+      //  font: "STIX-Web"
+      //},
+
+      TeX: { 
+      	equationNumbers: { autoNumber: "AMS" },
+      	extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"],
+
+      	Macros:	{
+      		le: ['\\leqslant'],
+      		ge: ['\\geqslant'],
+      		textup: ['\\text'],
+      		Box: ['\\unicode{x25A1}'],
+      		}
+      }
+
+    });
+
+    MathJax.Hub.Register.StartupHook('TeX Jax Ready', function () {
+       MathJax.InputJax.TeX.prefilterHooks.Add(function (data) {
+         data.math=data.math.replace(/\mathbb\{1\}/g,'unicode{x1D7D9}');
+         data.math=data.math.replace(/\mathbb\{2\}/g,'unicode{x1D7DA}');
+       });
+    });
+
+
+  </script>
+  
+  <script type="text/javascript" src="/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_HTML"></script>
+  
+
+<link title="Семинары" rel="alternate" type="application/rss+xml" href="/rss/rssSeminars.phtml?confid=408&option_lang=rus">
+
+	<title>Общеинститутский семинар &laquo;Коллоквиум МИАН&raquo;</title>
+	<link rel="canonical" href="https://www.mathnet.ru//conf408" />
+	<link href='/css/mathnet.css?v=1.13' rel='stylesheet' type='text/css'>
+	<link href='/css/webcard.css' rel='stylesheet' type='text/css'>
+
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
+
+ 	</head>
+	<body class='mainInfo' >
+
+	<table border=0 width=100% cellspacing=0 cellpadding=0><tr><td><table
+        border=0 width=100% cellspacing=0 cellpadding=0>
+	<tr class=topPic>
+		
+	<td style="
+		background-image: url('/gifs/__mathnetru.jpg'); 
+		background-repeat:no-repeat; 
+		background-position: center center; 
+		text-align: center;
+		vertical-align: bottom;
+		font-family: 'Source Sans Pro', sans-serif;
+		font-size: 22pt;
+		padding-bottom:5px;
+		">
+	Семинары
+	</td>
+		</tr>
+	</table>
+
+
+
+		<table border=0 width=100% cellspacing=0 cellpadding=0>
+	<tr  >
+	
+	<td style='width:10%' valign=middle align=left class=fon13>
+		<nobr>
+		<a class=r1 href=/php/conference.phtml?confid=408&option_lang=&option_lang=rus>RUS</a>&nbsp;
+	    	<a class=r1 href=/php/conference.phtml?confid=408&option_lang=&option_lang=eng>ENG</a></nobr>
+	    	</nobr>
+			</td>
+	<td style='width:10%' align=left class=fon13>
+	<nobr>
+	<a title='Главная страница' href=/?option_lang=rus><img src=/images/home2.gif border=0></a>
+	<a title='Мобильная версия' href=http://m.mathnet.ru/php/conference.phtml?confid=408&option_lang=><img src=/images/mobile.gif border=0></a>
+	&nbsp;&nbsp;
+	<a title='Telegram' href='https://t.me/MathNetRu'><img src=/images/64px-Telegram_logo.svg.png height=20 vspace=2 border=0></a>
+	<!--<a title='Twitter' href='https://twitter.com/MathNetRu'><img src=/images/Twitter_Social_Icon_Circle_Color.png  height=20 vspace=2  border=0></a>-->
+	<a title='YouTube' href='https://www.youtube.com/channel/UC_fq8SDW37l86fdJxlprL1A'><img src=/images/youtube_social_circle_red.png vspace=2 height=20 border=0></a>
+	</nobr>
+
+	</td>
+
+	<td style='width:60%' class=fon13 align=center>
+	<nobr>
+		<a class=r1 href=/ej.phtml?option_lang=rus>ЖУРНАЛЫ</a>
+		&nbsp;	
+		<a class=r1 href=/php/person.phtml?option_lang=rus>ПЕРСОНАЛИИ</a>
+		&nbsp;
+		<a class=r1 href=/php/organisation.phtml?option_lang=rus>ОРГАНИЗАЦИИ</a>
+		&nbsp;
+		<a class=r1 href=/php/conference.phtml?option_lang=rus>КОНФЕРЕНЦИИ</a>
+		&nbsp;
+		<a class=r1 href=/php/seminars.phtml?option_lang=rus>СЕМИНАРЫ</a>
+		&nbsp;
+		<a class=r1 href=/php/presentation.phtml?option_lang=rus>ВИДЕОТЕКА</a>
+		&nbsp;
+		<a class=r1 href=/poffice/mirefmodule.phtml?wshow=mirefmodule&option_lang=rus>ПАКЕТ AMSBIB</a>
+
+	</nobr>
+	</td>
+
+	<td style='width:20%' class=fon13>&nbsp;</td>
+	
+	</tr>
+	</table>
+
+	<noscript>
+	<div style='margin: 10px; padding: 10px; text-align: center; border: 1px solid #A91818; background-color: lightyellow'>
+	<b>JavaScript is disabled in your browser. Please switch it on to enable full functionality of the website</b>
+	</div>
+	</noscript>
+
+
+
+	<script language="JavaScript" src="/js/func_string.js?v=8.3"></script>
+<script language="JavaScript" src="/js/phpjs.js?v=1"></script>
+<link rel="STYLESHEET" type="text/css" href="/css/calendar.css">
+<script language=JavaScript>
+var EDIT_DISABLED_BOOL;
+var CALENDAR_LANG;
+</script>
+ 
+
+	
+<script language=JavaScript src=/js/func_dates.js?v=1></script>  <script language=JavaScript src="/js/libmenu.js?v=3"></script>
+	<script language=JavaScript src="/js/md5.js"></script>
+	<script language=JavaScript src="/js/prototype.js?v=1"></script>
+        <script language=JavaScript src="/js/func_controls.js?v=3"></script>
+		<table cellspacing=0 cellpadding=6 border=0 width=100% align=center>
+        <tr>
+          <td valign=top>
+        <p align=center><b><font size=+1>Общеинститутский семинар &laquo;Коллоквиум МИАН&raquo;</font></b><br>(конференц-зал МИАН (ул. Губкина, 8), г.&nbsp;Москва)</p><table border=0 class=Card cellspacing=0 cellpadding=2 align=center width=90%>
+		<tr>
+		<td>	
+	<link rel="stylesheet" href="/gallerific/css/mainphotoonly800x400.css?v=03011023" type="text/css" />
+	<script type="text/javascript" src="/gallerific/js/jquery-1.3.2.js"></script>
+	<script type="text/javascript" src="/gallerific/js/jquery.galleriffic.js"></script>
+	<script type="text/javascript" src="/gallerific/js/jquery.opacityrollover.js"></script>
+
+	<script type="text/javascript">
+		document.write('<style>.noscript { display: none; }</style>');
+	</script>
+
+	<div align="center">
+	   <div id="page" class="page">
+	
+   		<div id="container">
+
+		   <div id="gallery" class="content">
+			<div class="slideshow-container">
+				<div id="loading" class="loader"></div>
+				<div id="slideshow" class="slideshow"></div>
+			</div>
+			<div id="controls" class="controls"></div>
+			<!--<div id="caption" class="caption-container"></div>-->
+		   </div>
+
+		   <div id="thumbs" class="navigation">
+		   <ul class="thumbs noscript">
+		   	<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/064_40208.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/064s_40208.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/063_39381.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/063s_39381.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/062_38593.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/062s_38593.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/061_38141.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/061s_38141.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/059_26597.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/059s_26597.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/058_25985.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/058s_25985.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/057_25757.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/057s_25757.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/057_25294.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/057s_25294.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/056_24792.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/056s_24792.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/055_24599.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/055s_24599.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/054_24491.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/054s_24491.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/053_23929.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/053s_23929.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/052_23454.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/052s_23454.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/051_23174-4.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/051s_23174-4.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/050_23082.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/050s_23082.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/049_22609.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/049s_22609.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/048_21713.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/048s_21713.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/047_21392.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/047s_21392.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/046_20786.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/046s_20786.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/045_20135.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/045s_20135.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/044_19865.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/044s_19865.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/043_19763.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/043s_19763.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/041_19306.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/041s_19306.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/041_18911.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/041s_18911.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/040_18036.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/040s_18036.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/039_17779.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/039s_17779.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/038_17476.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/038s_17476.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/037_17311.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/037s_17311.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/036_17011.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/036s_17011.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/035_16612.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/035s_16612.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/034_16408.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/034s_16408.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/033_16264.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/033s_16264.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/032_15655.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/032s_15655.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/031_15305.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/031s_15305.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/030_14836.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/030s_14836.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/029_14565.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/029s_14565.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/028_14301.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/028s_14301.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/027_14111.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/027s_14111.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/026_13851.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/026s_13851.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/025_13600.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/025s_13600.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/024_13367.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/024s_13367.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/023_13246.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/023s_13246.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/022_12816.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/022s_12816.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/021_12530.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/021s_12530.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/020_12258.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/020s_12258.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/019_11903.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/019s_11903.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/018_11416.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/018s_11416.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/017_10994.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/017s_10994.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/016_10823.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/016s_10823.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/015_10545.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/015s_10545.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/014_10355.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/014s_10355.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/013_9520.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/013s_9520.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/012_9236.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/012s_9236.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/011_DSC3050.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/011s_DSC3050.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/010_DSC2972.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/010s_DSC2972.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/009_DSC2941.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/009s_DSC2941.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/008_DSC2914.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/008s_DSC2914.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/007_DSC1298.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/007s_DSC1298.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/006_130905.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/006s_130905.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/005_130606.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/005s_130606.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/004_130523.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/004s_130523.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/003_130404.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/003s_130404.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/002_130228.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/002s_130228.jpg"/></a>
+				</li>
+				<li>
+			<a class="thumb" href="/ConfLogos/408/photogallery/001_130207.jpg" title=''>
+			<img class="thumb" src="/ConfLogos/408/photogallery/001s_130207.jpg"/></a>
+				</li>
+				   </ul>
+		   </div>
+
+		   <div style="clear: both;"></div>
+
+ 		</div>
+	   </div>
+	</div>
+
+	<script type="text/javascript" src="/gallerific/js/mainphotoonly800x400.js?v=03112023"></script>
+	<p align=justify>По решению коллектива молодых ученых и специалистов МИАН с&nbsp;2013&nbsp;года начинает работу новый общеинститутский семинар &laquo;Коллоквиум МИАН&raquo;. Его цель &mdash; дать участникам общее представление о различных направлениях математики, а также теоретической физики. Планируется, что доклады будут вестись на как можно более простом и общедоступном языке и не будут предполагать от слушателей специальных предварительных знаний. При этом в докладах будут объясняться основные понятия излагаемой теории, ключевые принципы, идеи доказательств, а главное, будет показываться ее красота. Также особое внимание планируется обращать на связи с другими областями. Среди прочих докладов на семинаре ожидаются выступления молодых сотрудников МИАН, посвященные обзору одной из представленных в институте областей.</p><p align=justify>Место и время проведения семинара:
+конференц-зал МИАН на 9 этаже в первый четверг каждого месяца с 16.00 до 17.30 
+(в отдельных случаях возможны сдвиги на соседние четверги). После семинара планируется чай.</p><p align=justify>Заседания Коллоквиума транслируются 
+в прямом эфире. Ссылки на трансляцию в YouTube публикуются на страницах докладов.</p><p align=justify>Видеозаписи докладов доступны в Видеотеке портала Math-Net.Ru, а также на <a class=SLink href=http://www.youtube.com/playlist?list=PLUbD59ZHv1GS8qT_cVfbw-8-H7YbvlIrr>YouTube</a>.</p><p align=justify><b class=red> Финансовая поддержка.</b> Семинар проводится при финансовой поддержке Минобрнауки России (грант на создание и развитие МЦМУ МИАН, соглашение № 075-15-2019-1614).</p>	<table border=0 class=Card cellspacing=0 cellpadding=2>
+		<tr>
+	<td valign=center align=right class=red>E-mail:</td>
+	<td valign=center colspan=1><script language="JavaScript">document.write(decode_email('DMEBCAHEGJHEGMGFDNCHEFCNGNGBGJGMDKCAGDGPGMGMGPHBEAGNGJCOHCGBHDCOHCHFCHCAGDGMGBHDHDDNFDEMGJGOGLCAEIFCEFEGDNCCGNGBGJGMHEGPDKGDGPGMGMGPHBEAGNGJCOHCGBHDCOHCHFCCDOGDGPGMGMGPHBEAGNGJCOHCGBHDCOHCHFDMCPEBDO'));</script><noscript>email</noscript></td>
+	</td>
+	</tr>
+		</table>
+		
+		<p class=sem>
+		<span class=red><img src=/images/ar3.gif border=0><b><a title="" class=SLink target=_blank href='https://www.mi.ras.ru/index.php?c=fullsizephotogallery&id=COLLOQUIUM'>Фотогалерея</a></b></span>
+		</p>
+			
+		<p class=sem>
+		<span class=red><img src=/images/ar3.gif border=0><b><a class=SLink href="/ConfLogos/408/poster2-1.pdf">Постер</a></b></span>
+		</p>
+			<p class=sem>
+				<span class=red><img src=/images/ar3.gif border=0><b>Бюро семинара</b></span>
+					<br><a class=SLink href=/php/person.phtml?option_lang=rus&personid=9066>Буфетов Александр Игоревич</a> 
+			<br><a class=SLink href=/php/person.phtml?option_lang=rus&personid=20601>Быков Дмитрий Владимирович</a> 
+			<br><a class=SLink href=/php/person.phtml?option_lang=rus&personid=13368>Гайфуллин Александр Александрович</a> 
+			<br><a class=SLink href=/php/person.phtml?option_lang=rus&personid=18422>Горчинский Сергей Олегович</a> 
+			<br><a class=SLink href=/php/person.phtml?option_lang=rus&personid=47204>Подольский Владимир Владимирович</a> 
+			<br><a class=SLink href=/php/person.phtml?option_lang=rus&personid=31114>Трушечкин Антон Сергеевич</a> 
+			<br><a class=SLink href=/php/person.phtml?option_lang=rus&personid=19623>Шрамов Константин Александрович</a> 
+			<br><br>
+				<p class=sem>
+				<span class=red><img src=/images/ar3.gif border=0><b>Руководитель семинара</b></span>
+					<br><a class=SLink href=/php/person.phtml?option_lang=rus&personid=18422>Горчинский Сергей Олегович</a> 
+			<br><br>
+		<p class=sem>
+		<span class=red><img src=/images/ar3.gif border=0><b>Организации</b></span>
+			<br><a class=SLink href='/php/organisation.phtml?option_lang=rus&orgid=748'>Математический институт им.&nbsp;В.А.&nbsp;Стеклова Российской академии наук, г.&nbsp;Москва</a>	<br><a class=SLink href='/php/organisation.phtml?option_lang=rus&orgid=12661'>Математический центр мирового уровня &laquo;Математический институт им. В.А. Стеклова Российской академии наук&raquo; (МЦМУ МИАН)</a>	</td>
+	</tr>
+		</table>
+		<a name=PRELIST></a>
+
+	<script language='JavaScript'>
+
+	var confSections=new Object();
+
+	function showCollapsedConfSection(confsectionid){
+		//return false;
+
+		for(cf=0;cf<confSections[confsectionid].length;cf++){
+			obj1=document.getElementById('row1'+confSections[confsectionid][cf]);
+			obj2=document.getElementById('row2'+confSections[confsectionid][cf]);
+			obj3=document.getElementById('row3'+confSections[confsectionid][cf]);
+
+			if(!obj1){return false;}
+			
+			if(obj1.style.display==''){
+				obj1.style.display='none';
+				if(obj2){obj2.style.display='none';}
+				if(obj3){obj3.style.display='none';}
+			}
+			else{
+				obj1.style.display='';
+				if(obj2){obj2.style.display='';}
+				if(obj3){obj3.style.display='';}
+			}	
+		}
+
+		obj4=document.getElementById('switchCollapseSectionPlus'+confsectionid);
+		obj5=document.getElementById('switchCollapseSectionMinus'+confsectionid);
+		
+		
+		if(obj4.style.display==''){
+			obj4.style.display='none';
+			obj5.style.display='';
+		}
+		else{
+			obj4.style.display='';
+			obj5.style.display='none';
+		}
+
+		
+	}
+	</script>
+
+
+
+	<table border=0 cellspacing=0 cellpadding=2 width=99% id='presentationresultsID'>
+
+		<tr>
+			<td><a name=1></a><br></td>
+			</tr>
+			<tr>
+			<td colspan=3><b><i>Общеинститутский семинар &laquo;Коллоквиум МИАН&raquo;, г.&nbsp;Москва</i></b></td>
+			</tr>
+				<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr><nobr>5 октября 2023 г.</nobr> (чт)</nobr></i></b></td>
+			</tr>
+				
+			<tr id='row340208' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row140208' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>1.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present40208'>Дифференциальная геометрия и суперсимметричная квантовая механика</a><br>А.&nbsp;В.&nbsp;Смилга<br><i><nobr><nobr>5 октября 2023 г.</nobr></nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=40208'>Дифференциальная геометрия и суперсимметричная квантовая механика</a><br>А.&nbsp;В.&nbsp;Смилга<br><i><nobr><nobr>5 октября 2023 г.</nobr></nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=40208'><img border=0 title="А.&nbsp;В.&nbsp;Смилга" ALT="А.&nbsp;В.&nbsp;Смилга"  vspace=5 hspace=5 align=center src=/PresentLogos/40208/40208s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row240208' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=40208'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr><nobr>19 июня 2023 г.</nobr> (пн)</nobr></i></b></td>
+			</tr>
+				
+			<tr id='row339381' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row139381' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>2.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present39381'>Статистика неразложимых компонент в больших тензорных степенях представлений</a><br>Н.&nbsp;Решетихин<br><i><nobr><nobr>19 июня 2023 г.</nobr></nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=39381'>Статистика неразложимых компонент в больших тензорных степенях представлений</a><br>Н.&nbsp;Решетихин<br><i><nobr><nobr>19 июня 2023 г.</nobr></nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=39381'><img border=0 title="Н.&nbsp;Решетихин" ALT="Н.&nbsp;Решетихин"  vspace=5 hspace=5 align=center src=/PresentLogos/39381/39381s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row239381' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=39381'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr><nobr>11 мая 2023 г.</nobr> (чт)</nobr></i></b></td>
+			</tr>
+				
+			<tr id='row339018' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row139018' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>3.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present39018'>Аналитическое продолжение функции Лауричеллы и конформное отображение многоугольников</a><br>С.&nbsp;И.&nbsp;Безродных<br><i><nobr><nobr>11 мая 2023 г.</nobr></nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=39018'>Аналитическое продолжение функции Лауричеллы и конформное отображение многоугольников</a><br>С.&nbsp;И.&nbsp;Безродных<br><i><nobr><nobr>11 мая 2023 г.</nobr></nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=39018'><img border=0 title="С.&nbsp;И.&nbsp;Безродных" ALT="С.&nbsp;И.&nbsp;Безродных"  vspace=5 hspace=5 align=center src=/PresentLogos/39018/39018ss.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row239018' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=39018'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr><nobr>6 апреля 2023 г.</nobr> (чт)</nobr></i></b></td>
+			</tr>
+				
+			<tr id='row338593' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row138593' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>4.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present38593'>О случайных матрицах, тензорах и их приложениях</a><br>П.&nbsp;А.&nbsp;Яськов<br><i><nobr><nobr>6 апреля 2023 г.</nobr></nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=38593'>О случайных матрицах, тензорах и их приложениях</a><br>П.&nbsp;А.&nbsp;Яськов<br><i><nobr><nobr>6 апреля 2023 г.</nobr></nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=38593'><img border=0 title="П.&nbsp;А.&nbsp;Яськов" ALT="П.&nbsp;А.&nbsp;Яськов"  vspace=5 hspace=5 align=center src=/PresentLogos/38593/38593s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row238593' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=38593'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr><nobr>2 марта 2023 г.</nobr> (чт)</nobr></i></b></td>
+			</tr>
+				
+			<tr id='row338141' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row138141' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>5.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present38141'>Интегрируемые системы взаимодействующих волчков и R-матричные тождества</a><br>А.&nbsp;В.&nbsp;Зотов<br><i><nobr><nobr>2 марта 2023 г.</nobr></nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=38141'>Интегрируемые системы взаимодействующих волчков и R-матричные тождества</a><br>А.&nbsp;В.&nbsp;Зотов<br><i><nobr><nobr>2 марта 2023 г.</nobr></nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=38141'><img border=0 title="А.&nbsp;В.&nbsp;Зотов" ALT="А.&nbsp;В.&nbsp;Зотов"  vspace=5 hspace=5 align=center src=/PresentLogos/38141/38141s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row238141' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=38141'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr><nobr>2 февраля 2023 г.</nobr> (чт)</nobr></i></b></td>
+			</tr>
+				
+			<tr id='row337889' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row137889' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>6.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present37889'>О задаче дискретизации интегральных норм по значениям в точках</a><br>Е.&nbsp;Д.&nbsp;Косов<br><i><nobr><nobr>2 февраля 2023 г.</nobr></nobr> 15:15</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=37889'>О задаче дискретизации интегральных норм по значениям в точках</a><br>Е.&nbsp;Д.&nbsp;Косов<br><i><nobr><nobr>2 февраля 2023 г.</nobr></nobr> 15:15</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=37889'><img border=0 title="Е.&nbsp;Д.&nbsp;Косов" ALT="Е.&nbsp;Д.&nbsp;Косов"  vspace=5 hspace=5 align=center src=/PresentLogos/37889/37889s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row237889' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=37889'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>5 марта 2020 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row326597' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row126597' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>7.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present26597'>О параметре стохастичности квадратичных вычетов</a><br>М.&nbsp;Р.&nbsp;Габдуллин<br><i><nobr>5 марта 2020 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=26597'>О параметре стохастичности квадратичных вычетов</a><br>М.&nbsp;Р.&nbsp;Габдуллин<br><i><nobr>5 марта 2020 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=26597'><img border=0 title="М.&nbsp;Р.&nbsp;Габдуллин" ALT="М.&nbsp;Р.&nbsp;Габдуллин"  vspace=5 hspace=5 align=center src=/PresentLogos/26597/26597s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row226597' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=26597'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>5 декабря 2019 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row325985' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row125985' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>8.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present25985'>Статистические задачи оценки многообразий для предсказательного моделирования</a><br>Е.&nbsp;В.&nbsp;Бурнаев<br><i><nobr>5 декабря 2019 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=25985'>Статистические задачи оценки многообразий для предсказательного моделирования</a><br>Е.&nbsp;В.&nbsp;Бурнаев<br><i><nobr>5 декабря 2019 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=25985'><img border=0 title="Е.&nbsp;В.&nbsp;Бурнаев" ALT="Е.&nbsp;В.&nbsp;Бурнаев"  vspace=5 hspace=5 align=center src=/PresentLogos/25985/259851s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row225985' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=25985'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr><nobr>14 ноября 2019 г.</nobr> (чт)</nobr></i></b></td>
+			</tr>
+				
+			<tr id='row325757' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row125757' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>9.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present25757'>О математических методах расчета финансовых контрактов</a><br>А.&nbsp;В.&nbsp;Мельников<br><i><nobr><nobr>14 ноября 2019 г.</nobr></nobr> 15:30</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=25757'>О математических методах расчета финансовых контрактов</a><br>А.&nbsp;В.&nbsp;Мельников<br><i><nobr><nobr>14 ноября 2019 г.</nobr></nobr> 15:30</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=25757'><img border=0 title="А.&nbsp;В.&nbsp;Мельников" ALT="А.&nbsp;В.&nbsp;Мельников"  vspace=5 hspace=5 align=center src=/PresentLogos/25757/25757s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row225757' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=25757'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>3 октября 2019 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row325294' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row125294' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>10.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present25294'>From Feynman integrals to Kloosterman sums</a><br>J.&nbsp;Fres&aacute;n<br><i><nobr>3 октября 2019 г.</nobr> 16:30</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=25294'>From Feynman integrals to Kloosterman sums</a><br>J.&nbsp;Fres&aacute;n<br><i><nobr>3 октября 2019 г.</nobr> 16:30</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=25294'><img border=0 title="J.&nbsp;Fres&aacute;n" ALT="J.&nbsp;Fres&aacute;n"  vspace=5 hspace=5 align=center src=/PresentLogos/25294/25294s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row225294' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=25294'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr><nobr>5 сентября 2019 г.</nobr> (чт)</nobr></i></b></td>
+			</tr>
+				
+			<tr id='row324792' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row124792' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>11.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present24792'>Проблема рациональности алгебраических многообразий</a><br>Ю.&nbsp;Г.&nbsp;Прохоров<br><i><nobr><nobr>5 сентября 2019 г.</nobr></nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=24792'>Проблема рациональности алгебраических многообразий</a><br>Ю.&nbsp;Г.&nbsp;Прохоров<br><i><nobr><nobr>5 сентября 2019 г.</nobr></nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=24792'><img border=0 title="Ю.&nbsp;Г.&nbsp;Прохоров" ALT="Ю.&nbsp;Г.&nbsp;Прохоров"  vspace=5 hspace=5 align=center src=/PresentLogos/24792/24792s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row224792' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=24792'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>13 июня 2019 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row324599' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row124599' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>12.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present24599'>Одновременное сжатие</a><br>В.&nbsp;Ю.&nbsp;Протасов<br><i><nobr>13 июня 2019 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=24599'>Одновременное сжатие</a><br>В.&nbsp;Ю.&nbsp;Протасов<br><i><nobr>13 июня 2019 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=24599'><img border=0 title="В.&nbsp;Ю.&nbsp;Протасов" ALT="В.&nbsp;Ю.&nbsp;Протасов"  vspace=5 hspace=5 align=center src=/PresentLogos/24599/24599s-20-2.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row224599' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=24599'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>23 мая 2019 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row324491' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row124491' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>13.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present24491'>Алгоритмическая статистика</a><br>Н.&nbsp;К.&nbsp;Верещагин<br><i><nobr>23 мая 2019 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=24491'>Алгоритмическая статистика</a><br>Н.&nbsp;К.&nbsp;Верещагин<br><i><nobr>23 мая 2019 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=24491'><img border=0 title="Н.&nbsp;К.&nbsp;Верещагин" ALT="Н.&nbsp;К.&nbsp;Верещагин"  vspace=5 hspace=5 align=center src=/PresentLogos/24491/24491s-2.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row224491' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=24491'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>4 апреля 2019 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row323929' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row123929' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>14.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present23929'>Выпуклая тригонометрия</a><br>Л.&nbsp;В.&nbsp;Локуциевский<br><i><nobr>4 апреля 2019 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=23929'>Выпуклая тригонометрия</a><br>Л.&nbsp;В.&nbsp;Локуциевский<br><i><nobr>4 апреля 2019 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=23929'><img border=0 title="Л.&nbsp;В.&nbsp;Локуциевский" ALT="Л.&nbsp;В.&nbsp;Локуциевский"  vspace=5 hspace=5 align=center src=/PresentLogos/23929/23929s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row223929' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=23929'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>7 марта 2019 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row323454' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row123454' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>15.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present23454'>Инварианты комплексов Морса, персистентные гомологии, и анализ данных</a><br>С.&nbsp;А.&nbsp;Баранников<br><i><nobr>7 марта 2019 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=23454'>Инварианты комплексов Морса, персистентные гомологии, и анализ данных</a><br>С.&nbsp;А.&nbsp;Баранников<br><i><nobr>7 марта 2019 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=23454'><img border=0 title="С.&nbsp;А.&nbsp;Баранников" ALT="С.&nbsp;А.&nbsp;Баранников"  vspace=5 hspace=5 align=center src=/PresentLogos/23454/23454s-5.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row223454' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=23454'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>7 февраля 2019 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row323174' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row123174' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>16.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present23174'>Последовательности кривых и башни функциональных полей 
+над конечными полями и их приложения</a><br>А.&nbsp;И.&nbsp;Зайцев<br><i><nobr>7 февраля 2019 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=23174'>Последовательности кривых и башни функциональных полей 
+над конечными полями и их приложения</a><br>А.&nbsp;И.&nbsp;Зайцев<br><i><nobr>7 февраля 2019 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=23174'><img border=0 title="А.&nbsp;И.&nbsp;Зайцев" ALT="А.&nbsp;И.&nbsp;Зайцев"  vspace=5 hspace=5 align=center src=/PresentLogos/23174/23174s-4-2.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row223174' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=23174'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>16 января 2019 г.</nobr> (ср)</i></b></td>
+			</tr>
+				
+			<tr id='row323082' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row123082' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>17.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present23082'>Теория струн и интегрируемость</a><br>К.&nbsp;Л.&nbsp;Зарембо<br><i><nobr>16 января 2019 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=23082'>Теория струн и интегрируемость</a><br>К.&nbsp;Л.&nbsp;Зарембо<br><i><nobr>16 января 2019 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=23082'><img border=0 title="К.&nbsp;Л.&nbsp;Зарембо" ALT="К.&nbsp;Л.&nbsp;Зарембо"  vspace=5 hspace=5 align=center src=/PresentLogos/23082/23082s_.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row223082' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=23082'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr><nobr>22 ноября 2018 г.</nobr> (чт)</nobr></i></b></td>
+			</tr>
+				
+			<tr id='row322609' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row122609' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>18.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present22609'>Тёмная сторона Вселенной</a><br>С.&nbsp;В.&nbsp;Кетов<br><i><nobr><nobr>22 ноября 2018 г.</nobr></nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=22609'>Тёмная сторона Вселенной</a><br>С.&nbsp;В.&nbsp;Кетов<br><i><nobr><nobr>22 ноября 2018 г.</nobr></nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=22609'><img border=0 title="С.&nbsp;В.&nbsp;Кетов" ALT="С.&nbsp;В.&nbsp;Кетов"  vspace=5 hspace=5 align=center src=/PresentLogos/22609/22609s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row222609' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=22609'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>4 октября 2018 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row321713' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row121713' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>19.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present21713'>Аномальная статистика экстремальных случайных процессов</a><br>С.&nbsp;К.&nbsp;Нечаев<br><i><nobr>4 октября 2018 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=21713'>Аномальная статистика экстремальных случайных процессов</a><br>С.&nbsp;К.&nbsp;Нечаев<br><i><nobr>4 октября 2018 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=21713'><img border=0 title="С.&nbsp;К.&nbsp;Нечаев" ALT="С.&nbsp;К.&nbsp;Нечаев"  vspace=5 hspace=5 align=center src=/PresentLogos/21713/21713s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row221713' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=21713'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>6 сентября 2018 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row321392' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row121392' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>20.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present21392'>Motives and Periods</a><br>P.&nbsp;Jossen<br><i><nobr>6 сентября 2018 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=21392'>Motives and Periods</a><br>P.&nbsp;Jossen<br><i><nobr>6 сентября 2018 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=21392'><img border=0 title="P.&nbsp;Jossen" ALT="P.&nbsp;Jossen"  vspace=5 hspace=5 align=center src=/PresentLogos/21392/21392s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row221392' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=21392'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>6 июня 2018 г.</nobr> (ср)</i></b></td>
+			</tr>
+				
+			<tr id='row320786' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row120786' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>21.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present20786'>Spaces with Ricci curvature bounded from below: state of the art and 
+future challenges</a><br>Nicola Gigli<br><i><nobr>6 июня 2018 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=20786'>Spaces with Ricci curvature bounded from below: state of the art and 
+future challenges</a><br>Nicola Gigli<br><i><nobr>6 июня 2018 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=20786'><img border=0 title="Nicola Gigli" ALT="Nicola Gigli"  vspace=5 hspace=5 align=center src=/PresentLogos/20786/20786s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row220786' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=20786'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>10 мая 2018 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row320135' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row120135' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>22.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present20135'>Стойкость квантового распределения ключей и сопутствующие проблемы</a><br>Д.&nbsp;А.&nbsp;Кронберг<br><i><nobr>10 мая 2018 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=20135'>Стойкость квантового распределения ключей и сопутствующие проблемы</a><br>Д.&nbsp;А.&nbsp;Кронберг<br><i><nobr>10 мая 2018 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=20135'><img border=0 title="Д.&nbsp;А.&nbsp;Кронберг" ALT="Д.&nbsp;А.&nbsp;Кронберг"  vspace=5 hspace=5 align=center src=/PresentLogos/20135/20135s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row220135' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=20135'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>5 апреля 2018 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row319865' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row119865' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>23.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present19865'>Быстро осциллирующие управления</a><br>А.&nbsp;А.&nbsp;Аграчев<br><i><nobr>5 апреля 2018 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=19865'>Быстро осциллирующие управления</a><br>А.&nbsp;А.&nbsp;Аграчев<br><i><nobr>5 апреля 2018 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=19865'><img border=0 title="А.&nbsp;А.&nbsp;Аграчев" ALT="А.&nbsp;А.&nbsp;Аграчев"  vspace=5 hspace=5 align=center src=/PresentLogos/19865/19865s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row219865' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=19865'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>29 марта 2018 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row319763' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row119763' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>24.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present19763'>Геометризация и интегрируемость</a><br>А.&nbsp;П.&nbsp;Веселов<br><i><nobr>29 марта 2018 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=19763'>Геометризация и интегрируемость</a><br>А.&nbsp;П.&nbsp;Веселов<br><i><nobr>29 марта 2018 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=19763'><img border=0 title="А.&nbsp;П.&nbsp;Веселов" ALT="А.&nbsp;П.&nbsp;Веселов"  vspace=5 hspace=5 align=center src=/PresentLogos/19763/19763i.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row219763' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=19763'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>8 февраля 2018 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row319306' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row119306' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>25.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present19306'>Проблемы в физике частиц</a><br>Дмитрий Горбунов<br><i><nobr>8 февраля 2018 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=19306'>Проблемы в физике частиц</a><br>Дмитрий Горбунов<br><i><nobr>8 февраля 2018 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=19306'><img border=0 title="Дмитрий Горбунов" ALT="Дмитрий Горбунов"  vspace=5 hspace=5 align=center src=/PresentLogos/19306/19306s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row219306' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=19306'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>5 декабря 2017 г.</nobr> (вт)</i></b></td>
+			</tr>
+				
+			<tr id='row318911' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row118911' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>26.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present18911'>The volume functional for lagrangian submanifolds</a><br>Richard Schoen<br><i><nobr>5 декабря 2017 г.</nobr> 15:00</i>, г.&nbsp;Москва, Совместное заседание Коллоквиума МИАН, семинара отдела алгебры и отдела алгебраической геометрии и Коллоквиума Международной лаборатории зеркальной симметрии и автоморфных форм НИУ  ВШЭ
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=18911'>The volume functional for lagrangian submanifolds</a><br>Richard Schoen<br><i><nobr>5 декабря 2017 г.</nobr> 15:00</i>, г.&nbsp;Москва, Совместное заседание Коллоквиума МИАН, семинара отдела алгебры и отдела алгебраической геометрии и Коллоквиума Международной лаборатории зеркальной симметрии и автоморфных форм НИУ  ВШЭ-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=18911'><img border=0 title="Richard Schoen" ALT="Richard Schoen"  vspace=5 hspace=5 align=center src=/PresentLogos/18911/18911s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row218911' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=18911'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>2 ноября 2017 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row318426' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row118426' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>27.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present18426'>Аменабельность конечно порожденных  групп</a><br>Т.&nbsp;В.&nbsp;Нагнибеда<br><i><nobr>2 ноября 2017 г.</nobr> 16:00</i>, г.&nbsp;Москва, ул. Губкина, д. 8, 7 этаж, аудитория 727 (конференц-зал ИВМ РАН)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=18426'>Аменабельность конечно порожденных  групп</a><br>Т.&nbsp;В.&nbsp;Нагнибеда<br><i><nobr>2 ноября 2017 г.</nobr> 16:00</i>, г.&nbsp;Москва, ул. Губкина, д. 8, 7 этаж, аудитория 727 (конференц-зал ИВМ РАН)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=18426'><img border=0 title="Т.&nbsp;В.&nbsp;Нагнибеда" ALT="Т.&nbsp;В.&nbsp;Нагнибеда"  vspace=5 hspace=5 align=center src=/PresentLogos/18426/18426.gif></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row218426' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=18426'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>6 октября 2017 г.</nobr> (пт)</i></b></td>
+			</tr>
+				
+			<tr id='row318036' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row118036' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>28.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present18036'>Rational points on algebraic varieties</a><br>J.-L.&nbsp;Colliot-Th&eacute;l&egrave;ne<br><i><nobr>6 октября 2017 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=18036'>Rational points on algebraic varieties</a><br>J.-L.&nbsp;Colliot-Th&eacute;l&egrave;ne<br><i><nobr>6 октября 2017 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=18036'><img border=0 title="J.-L.&nbsp;Colliot-Th&eacute;l&egrave;ne" ALT="J.-L.&nbsp;Colliot-Th&eacute;l&egrave;ne"  vspace=5 hspace=5 align=center src=/PresentLogos/18036/18036s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row218036' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=18036'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>7 сентября 2017 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row317779' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row117779' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>29.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present17779'>Логика биномиального случайного графа</a><br>М.&nbsp;Е.&nbsp;Жуковский<br><i><nobr>7 сентября 2017 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=17779'>Логика биномиального случайного графа</a><br>М.&nbsp;Е.&nbsp;Жуковский<br><i><nobr>7 сентября 2017 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=17779'><img border=0 title="М.&nbsp;Е.&nbsp;Жуковский" ALT="М.&nbsp;Е.&nbsp;Жуковский"  vspace=5 hspace=5 align=center src=/PresentLogos/17779/17779s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row217779' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=17779'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>31 мая 2017 г.</nobr> (ср)</i></b></td>
+			</tr>
+				
+			<tr id='row317476' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row117476' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>30.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present17476'>Вынужденные колебания и управление перевернутым маятником</a><br>И.&nbsp;Ю.&nbsp;Полехин<br><i><nobr>31 мая 2017 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=17476'>Вынужденные колебания и управление перевернутым маятником</a><br>И.&nbsp;Ю.&nbsp;Полехин<br><i><nobr>31 мая 2017 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=17476'><img border=0 title="И.&nbsp;Ю.&nbsp;Полехин" ALT="И.&nbsp;Ю.&nbsp;Полехин"  vspace=5 hspace=5 align=center src=/PresentLogos/17476/17476s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row217476' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=17476'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>11 мая 2017 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row317311' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row117311' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>31.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present17311'>Как компьютер научили играть в го?</a><br>А.&nbsp;С.&nbsp;Трушечкин<br><i><nobr>11 мая 2017 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=17311'>Как компьютер научили играть в го?</a><br>А.&nbsp;С.&nbsp;Трушечкин<br><i><nobr>11 мая 2017 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=17311'><img border=0 title="А.&nbsp;С.&nbsp;Трушечкин" ALT="А.&nbsp;С.&nbsp;Трушечкин"  vspace=5 hspace=5 align=center src=/PresentLogos/17311/17311s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row217311' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=17311'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>6 апреля 2017 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row317011' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row117011' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>32.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present17011'>Гипотеза Хорна и правило Литтлвуда&ndash;Ричардсона</a><br>Е.&nbsp;Ю.&nbsp;Смирнов<br><i><nobr>6 апреля 2017 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=17011'>Гипотеза Хорна и правило Литтлвуда&ndash;Ричардсона</a><br>Е.&nbsp;Ю.&nbsp;Смирнов<br><i><nobr>6 апреля 2017 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=17011'><img border=0 title="Е.&nbsp;Ю.&nbsp;Смирнов" ALT="Е.&nbsp;Ю.&nbsp;Смирнов"  vspace=5 hspace=5 align=center src=/PresentLogos/17011/17011s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row217011' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=17011'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>2 марта 2017 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row316612' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row116612' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>33.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present16612'>Глобальная теория бифуркаций векторных полей на двумерной сфере</a><br>Ю.&nbsp;С.&nbsp;Ильяшенко<br><i><nobr>2 марта 2017 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал ИВМ РАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=16612'>Глобальная теория бифуркаций векторных полей на двумерной сфере</a><br>Ю.&nbsp;С.&nbsp;Ильяшенко<br><i><nobr>2 марта 2017 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал ИВМ РАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=16612'><img border=0 title="Ю.&nbsp;С.&nbsp;Ильяшенко" ALT="Ю.&nbsp;С.&nbsp;Ильяшенко"  vspace=5 hspace=5 align=center src=/PresentLogos/16612/16612s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row216612' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=16612'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>9 февраля 2017 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row316408' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row116408' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>34.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present16408'>Прямоугольный формализм в теории узлов</a><br>И.&nbsp;А.&nbsp;Дынников<br><i><nobr>9 февраля 2017 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=16408'>Прямоугольный формализм в теории узлов</a><br>И.&nbsp;А.&nbsp;Дынников<br><i><nobr>9 февраля 2017 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=16408'><img border=0 title="И.&nbsp;А.&nbsp;Дынников" ALT="И.&nbsp;А.&nbsp;Дынников"  vspace=5 hspace=5 align=center src=/PresentLogos/16408/16408s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row216408' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=16408'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>12 января 2017 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row316264' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row116264' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>35.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present16264'>Субриманова геометрия: кратчайшие, сферы, множества разреза</a><br>Ю.&nbsp;Л.&nbsp;Сачков<br><i><nobr>12 января 2017 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=16264'>Субриманова геометрия: кратчайшие, сферы, множества разреза</a><br>Ю.&nbsp;Л.&nbsp;Сачков<br><i><nobr>12 января 2017 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=16264'><img border=0 title="Ю.&nbsp;Л.&nbsp;Сачков" ALT="Ю.&nbsp;Л.&nbsp;Сачков"  vspace=5 hspace=5 align=center src=/PresentLogos/16264/16264s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row216264' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=16264'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>1 декабря 2016 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row315655' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row115655' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>36.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present15655'>Простые вопросы про расположения точек на многомерных сфере и кубе, на которые мы не знаем ответов</a><br>Г.&nbsp;А.&nbsp;Кабатянский<br><i><nobr>1 декабря 2016 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=15655'>Простые вопросы про расположения точек на многомерных сфере и кубе, на которые мы не знаем ответов</a><br>Г.&nbsp;А.&nbsp;Кабатянский<br><i><nobr>1 декабря 2016 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=15655'><img border=0 title="Г.&nbsp;А.&nbsp;Кабатянский" ALT="Г.&nbsp;А.&nbsp;Кабатянский"  vspace=5 hspace=5 align=center src=/PresentLogos/15655/15655s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row215655' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=15655'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>3 ноября 2016 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row315305' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row115305' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>37.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present15305'>Topology of real algebraic three-dimensional manifolds</a><br>Fr&eacute;d&eacute;ric Mangolte<br><i><nobr>3 ноября 2016 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=15305'>Topology of real algebraic three-dimensional manifolds</a><br>Fr&eacute;d&eacute;ric Mangolte<br><i><nobr>3 ноября 2016 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=15305'><img border=0 title="Fr&eacute;d&eacute;ric Mangolte" ALT="Fr&eacute;d&eacute;ric Mangolte"  vspace=5 hspace=5 align=center src=/PresentLogos/15305/15305s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row215305' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=15305'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>29 сентября 2016 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row314836' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row114836' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>38.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present14836'>Проблема Стеклова и оценки на непрерывном спектре</a><br>А.&nbsp;И.&nbsp;Аптекарев<br><i><nobr>29 сентября 2016 г.</nobr> 17:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=14836'>Проблема Стеклова и оценки на непрерывном спектре</a><br>А.&nbsp;И.&nbsp;Аптекарев<br><i><nobr>29 сентября 2016 г.</nobr> 17:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=14836'><img border=0 title="А.&nbsp;И.&nbsp;Аптекарев" ALT="А.&nbsp;И.&nbsp;Аптекарев"  vspace=5 hspace=5 align=center src=/PresentLogos/14836/14836s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row214836' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=14836'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>1 сентября 2016 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row314565' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row114565' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>39.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present14565'>Функциональная предельная теорема для детерминантного синус-процесса</a><br>А.&nbsp;В.&nbsp;Дымов<br><i><nobr>1 сентября 2016 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=14565'>Функциональная предельная теорема для детерминантного синус-процесса</a><br>А.&nbsp;В.&nbsp;Дымов<br><i><nobr>1 сентября 2016 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=14565'><img border=0 title="А.&nbsp;В.&nbsp;Дымов" ALT="А.&nbsp;В.&nbsp;Дымов"  vspace=5 hspace=5 align=center src=/PresentLogos/14565/14565s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row214565' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=14565'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>2 июня 2016 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row314301' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row114301' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>40.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present14301'>Адиабатический предел в уравнениях теории поля</a><br>А.&nbsp;Г.&nbsp;Сергеев<br><i><nobr>2 июня 2016 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=14301'>Адиабатический предел в уравнениях теории поля</a><br>А.&nbsp;Г.&nbsp;Сергеев<br><i><nobr>2 июня 2016 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=14301'><img border=0 title="А.&nbsp;Г.&nbsp;Сергеев" ALT="А.&nbsp;Г.&nbsp;Сергеев"  vspace=5 hspace=5 align=center src=/PresentLogos/14301/14301s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row214301' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=14301'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>12 мая 2016 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row314111' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row114111' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>41.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present14111'>Что такое сверточные нейронные сети</a><br>В.&nbsp;С.&nbsp;Лемпицкий<br><i><nobr>12 мая 2016 г.</nobr> 18:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=14111'>Что такое сверточные нейронные сети</a><br>В.&nbsp;С.&nbsp;Лемпицкий<br><i><nobr>12 мая 2016 г.</nobr> 18:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=14111'><img border=0 title="В.&nbsp;С.&nbsp;Лемпицкий" ALT="В.&nbsp;С.&nbsp;Лемпицкий"  vspace=5 hspace=5 align=center src=/PresentLogos/14111/14111s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row214111' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=14111'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>7 апреля 2016 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row313851' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row113851' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>42.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present13851'>Следы весовых пространств Соболева и пространства переменной гладкости</a><br>А.&nbsp;И.&nbsp;Тюленев<br><i><nobr>7 апреля 2016 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=13851'>Следы весовых пространств Соболева и пространства переменной гладкости</a><br>А.&nbsp;И.&nbsp;Тюленев<br><i><nobr>7 апреля 2016 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=13851'><img border=0 title="А.&nbsp;И.&nbsp;Тюленев" ALT="А.&nbsp;И.&nbsp;Тюленев"  vspace=5 hspace=5 align=center src=/PresentLogos/13851/13851s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row213851' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=13851'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>3 марта 2016 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row313600' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row113600' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>43.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present13600'>Уравнения Эйнштейна и гравитационные волны</a><br>И.&nbsp;В.&nbsp;Волович<br><i><nobr>3 марта 2016 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=13600'>Уравнения Эйнштейна и гравитационные волны</a><br>И.&nbsp;В.&nbsp;Волович<br><i><nobr>3 марта 2016 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=13600'><img border=0 title="И.&nbsp;В.&nbsp;Волович" ALT="И.&nbsp;В.&nbsp;Волович"  vspace=5 hspace=5 align=center src=/PresentLogos/13600/13600s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row213600' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=13600'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>4 февраля 2016 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row313367' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row113367' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>44.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present13367'>Диаграммы Браттели, локально-полупростые алгебры: теорема де Финетти, граф Юнга, случайные блуждания по градуированным графам</a><br>П.&nbsp;П.&nbsp;Никитин<br><i><nobr>4 февраля 2016 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=13367'>Диаграммы Браттели, локально-полупростые алгебры: теорема де Финетти, граф Юнга, случайные блуждания по градуированным графам</a><br>П.&nbsp;П.&nbsp;Никитин<br><i><nobr>4 февраля 2016 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=13367'><img border=0 title="П.&nbsp;П.&nbsp;Никитин" ALT="П.&nbsp;П.&nbsp;Никитин"  vspace=5 hspace=5 align=center src=/PresentLogos/13367/13367s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row213367' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=13367'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>25 декабря 2015 г.</nobr> (пт)</i></b></td>
+			</tr>
+				
+			<tr id='row313246' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row113246' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>45.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present13246'>Непрерывная комбинаторика</a><br>А.&nbsp;А.&nbsp;Разборов<br><i><nobr>25 декабря 2015 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=13246'>Непрерывная комбинаторика</a><br>А.&nbsp;А.&nbsp;Разборов<br><i><nobr>25 декабря 2015 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=13246'><img border=0 title="А.&nbsp;А.&nbsp;Разборов" ALT="А.&nbsp;А.&nbsp;Разборов"  vspace=5 hspace=5 align=center src=/PresentLogos/13246/13246s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row213246' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=13246'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>5 ноября 2015 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row312816' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row112816' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>46.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present12816'>Колмогоровские поперечники классов гладких функций и конечномерных множеств</a><br>Ю.&nbsp;В.&nbsp;Малыхин<br><i><nobr>5 ноября 2015 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=12816'>Колмогоровские поперечники классов гладких функций и конечномерных множеств</a><br>Ю.&nbsp;В.&nbsp;Малыхин<br><i><nobr>5 ноября 2015 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=12816'><img border=0 title="Ю.&nbsp;В.&nbsp;Малыхин" ALT="Ю.&nbsp;В.&nbsp;Малыхин"  vspace=5 hspace=5 align=center src=/PresentLogos/12816/12816s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row212816' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=12816'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>1 октября 2015 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row312530' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row112530' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>47.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present12530'>Некоммутативная алгебраическая геометрия: от математики к физике и обратно</a><br>Д.&nbsp;О.&nbsp;Орлов<br><i><nobr>1 октября 2015 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=12530'>Некоммутативная алгебраическая геометрия: от математики к физике и обратно</a><br>Д.&nbsp;О.&nbsp;Орлов<br><i><nobr>1 октября 2015 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=12530'><img border=0 title="Д.&nbsp;О.&nbsp;Орлов" ALT="Д.&nbsp;О.&nbsp;Орлов"  vspace=5 hspace=5 align=center src=/PresentLogos/12530/12530s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row212530' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=12530'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>3 сентября 2015 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row312258' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row112258' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>48.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present12258'>Экстремальная комбинаторика и случайные графы</a><br>А.&nbsp;М.&nbsp;Райгородский<br><i><nobr>3 сентября 2015 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=12258'>Экстремальная комбинаторика и случайные графы</a><br>А.&nbsp;М.&nbsp;Райгородский<br><i><nobr>3 сентября 2015 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=12258'><img border=0 title="А.&nbsp;М.&nbsp;Райгородский" ALT="А.&nbsp;М.&nbsp;Райгородский"  vspace=5 hspace=5 align=center src=/PresentLogos/12258/12258s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row212258' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=12258'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>25 июня 2015 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row311903' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row111903' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>49.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present11903'>Метод ренормгруппы в гидродинамике</a><br>Я.&nbsp;Г.&nbsp;Синай<br><i><nobr>25 июня 2015 г.</nobr> 14:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=11903'>Метод ренормгруппы в гидродинамике</a><br>Я.&nbsp;Г.&nbsp;Синай<br><i><nobr>25 июня 2015 г.</nobr> 14:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=11903'><img border=0 title="Я.&nbsp;Г.&nbsp;Синай" ALT="Я.&nbsp;Г.&nbsp;Синай"  vspace=5 hspace=5 align=center src=/PresentLogos/11903/11903s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row211903' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=11903'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>14 мая 2015 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row311416' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row111416' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>50.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present11416'>Криптография как источник математических задач</a><br>А.&nbsp;М.&nbsp;Зубков<br><i><nobr>14 мая 2015 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=11416'>Криптография как источник математических задач</a><br>А.&nbsp;М.&nbsp;Зубков<br><i><nobr>14 мая 2015 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=11416'><img border=0 title="А.&nbsp;М.&nbsp;Зубков" ALT="А.&nbsp;М.&nbsp;Зубков"  vspace=5 hspace=5 align=center src=/PresentLogos/11416/11416s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row211416' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=11416'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>2 апреля 2015 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row311187' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row111187' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>51.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present11187'>Приближение булевых функций многочленами</a><br>В.&nbsp;В.&nbsp;Подольский<br><i><nobr>2 апреля 2015 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=11187'>Приближение булевых функций многочленами</a><br>В.&nbsp;В.&nbsp;Подольский<br><i><nobr>2 апреля 2015 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=11187'><img border=0 title="В.&nbsp;В.&nbsp;Подольский" ALT="В.&nbsp;В.&nbsp;Подольский"  vspace=5 hspace=5 align=center src=/PresentLogos/11187/11187s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row211187' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=11187'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>5 марта 2015 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row310994' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row110994' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>52.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present10994'>О некоторых приложениях геометрии конечномерных выпуклых тел</a><br>Б.&nbsp;С.&nbsp;Кашин<br><i><nobr>5 марта 2015 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=10994'>О некоторых приложениях геометрии конечномерных выпуклых тел</a><br>Б.&nbsp;С.&nbsp;Кашин<br><i><nobr>5 марта 2015 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=10994'><img border=0 title="Б.&nbsp;С.&nbsp;Кашин" ALT="Б.&nbsp;С.&nbsp;Кашин"  vspace=5 hspace=5 align=center src=/PresentLogos/10994/135_DSC5739.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row210994' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=10994'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>5 февраля 2015 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row310823' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row110823' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>53.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present10823'>Математические вопросы неравновесия статистической механики</a><br>В.&nbsp;В.&nbsp;Козлов<br><i><nobr>5 февраля 2015 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=10823'>Математические вопросы неравновесия статистической механики</a><br>В.&nbsp;В.&nbsp;Козлов<br><i><nobr>5 февраля 2015 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=10823'><img border=0 title="В.&nbsp;В.&nbsp;Козлов" ALT="В.&nbsp;В.&nbsp;Козлов"  vspace=5 hspace=5 align=center src=/PresentLogos/10823/180.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row210823' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=10823'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>15 января 2015 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row310765' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row110765' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>54.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present10765'>Асимптотика представлений классических групп Ли и вероятностные задачи</a><br>Алексей&nbsp;И.&nbsp;Буфетов<br><i><nobr>15 января 2015 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=10765'>Асимптотика представлений классических групп Ли и вероятностные задачи</a><br>Алексей&nbsp;И.&nbsp;Буфетов<br><i><nobr>15 января 2015 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=10765'><img border=0 title="Алексей&nbsp;И.&nbsp;Буфетов" ALT="Алексей&nbsp;И.&nbsp;Буфетов"  vspace=5 hspace=5 align=center src=/PresentLogos/10765/10765.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row210765' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=10765'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>4 декабря 2014 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row310545' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row110545' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>55.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present10545'>Основные теоремы теории игр</a><br>А.&nbsp;В.&nbsp;Савватеев<br><i><nobr>4 декабря 2014 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=10545'>Основные теоремы теории игр</a><br>А.&nbsp;В.&nbsp;Савватеев<br><i><nobr>4 декабря 2014 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=10545'><img border=0 title="А.&nbsp;В.&nbsp;Савватеев" ALT="А.&nbsp;В.&nbsp;Савватеев"  vspace=5 hspace=5 align=center src=/PresentLogos/10545/10545s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row210545' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=10545'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>6 ноября 2014 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row310355' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row110355' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>56.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present10355'>Случайность в вероятности</a><br>А.&nbsp;Н.&nbsp;Ширяев<br><i><nobr>6 ноября 2014 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=10355'>Случайность в вероятности</a><br>А.&nbsp;Н.&nbsp;Ширяев<br><i><nobr>6 ноября 2014 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=10355'><img border=0 title="А.&nbsp;Н.&nbsp;Ширяев" ALT="А.&nbsp;Н.&nbsp;Ширяев"  vspace=5 hspace=5 align=center src=/PresentLogos/10355/10355s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row210355' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=10355'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>2 октября 2014 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row39780' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row19780' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>57.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present9780'>What is the Minimal Model Program?</a><br>Vladimir Lazi&cacute;<br><i><nobr>2 октября 2014 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=9780'>What is the Minimal Model Program?</a><br>Vladimir Lazi&cacute;<br><i><nobr>2 октября 2014 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=9780'><img border=0 title="Vladimir Lazi&cacute;" ALT="Vladimir Lazi&cacute;"  vspace=5 hspace=5 align=center src=/PresentLogos/9780/9780s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row29780' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=9780'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>4 сентября 2014 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row39520' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row19520' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>58.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present9520'>Арифметическая геометрия, скрытая в графах на поверхностях</a><br>Г.&nbsp;Б.&nbsp;Шабат<br><i><nobr>4 сентября 2014 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=9520'>Арифметическая геометрия, скрытая в графах на поверхностях</a><br>Г.&nbsp;Б.&nbsp;Шабат<br><i><nobr>4 сентября 2014 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=9520'><img border=0 title="Г.&nbsp;Б.&nbsp;Шабат" ALT="Г.&nbsp;Б.&nbsp;Шабат"  vspace=5 hspace=5 align=center src=/PresentLogos/9520/9520s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row29520' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=9520'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>5 июня 2014 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row39236' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row19236' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>59.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present9236'>Категориальные грамматики Ламбека</a><br>Степан Кузнецов<br><i><nobr>5 июня 2014 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=9236'>Категориальные грамматики Ламбека</a><br>Степан Кузнецов<br><i><nobr>5 июня 2014 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=9236'><img border=0 title="Степан Кузнецов" ALT="Степан Кузнецов"  vspace=5 hspace=5 align=center src=/PresentLogos/9236/9236s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row29236' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=9236'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>22 мая 2014 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row39139' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row19139' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>60.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present9139'>Hypersurfaces with vanishing Hessian</a><br>Francesco Russo<br><i><nobr>22 мая 2014 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=9139'>Hypersurfaces with vanishing Hessian</a><br>Francesco Russo<br><i><nobr>22 мая 2014 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=9139'><img border=0 title="Francesco Russo" ALT="Francesco Russo"  vspace=5 hspace=5 align=center src=/PresentLogos/9139/9139s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row29139' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=9139'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>3 апреля 2014 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row38712' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row18712' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>61.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present8712'>Вероятность классическая, вероятность квантовая</a><br>А.&nbsp;С.&nbsp;Холево<br><i><nobr>3 апреля 2014 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=8712'>Вероятность классическая, вероятность квантовая</a><br>А.&nbsp;С.&nbsp;Холево<br><i><nobr>3 апреля 2014 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=8712'><img border=0 title="А.&nbsp;С.&nbsp;Холево" ALT="А.&nbsp;С.&nbsp;Холево"  vspace=5 hspace=5 align=center src=/PresentLogos/8712/8712.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row28712' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=8712'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>13 марта 2014 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row38566' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row18566' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>62.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present8566'>Дифференциал Лейбница</a><br>Е.&nbsp;В.&nbsp;Щепин<br><i><nobr>13 марта 2014 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=8566'>Дифференциал Лейбница</a><br>Е.&nbsp;В.&nbsp;Щепин<br><i><nobr>13 марта 2014 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=8566'><img border=0 title="Е.&nbsp;В.&nbsp;Щепин" ALT="Е.&nbsp;В.&nbsp;Щепин"  vspace=5 hspace=5 align=center src=/PresentLogos/8566/140313.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row28566' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=8566'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>6 февраля 2014 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row38386' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row18386' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>63.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present8386'>Краткий обзор тауберовых теорем для обобщенных функций</a><br>Ю.&nbsp;Н.&nbsp;Дрожжинов<br><i><nobr>6 февраля 2014 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=8386'>Краткий обзор тауберовых теорем для обобщенных функций</a><br>Ю.&nbsp;Н.&nbsp;Дрожжинов<br><i><nobr>6 февраля 2014 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=8386'><img border=0 title="Ю.&nbsp;Н.&nbsp;Дрожжинов" ALT="Ю.&nbsp;Н.&nbsp;Дрожжинов"  vspace=5 hspace=5 align=center src=/PresentLogos/8386/8386_DSC2941.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row28386' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=8386'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>23 января 2014 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row38336' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row18336' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>64.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present8336'>Детерминантные точечные случайные поля</a><br>Александр Буфетов<br><i><nobr>23 января 2014 г.</nobr> 14:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=8336'>Детерминантные точечные случайные поля</a><br>Александр Буфетов<br><i><nobr>23 января 2014 г.</nobr> 14:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=8336'><img border=0 title="Александр Буфетов" ALT="Александр Буфетов"  vspace=5 hspace=5 align=center src=/PresentLogos/8336/8336_DSC2914.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row28336' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=8336'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>5 декабря 2013 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row38113' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row18113' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>65.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present8113'>Доказуемо рекурсивные функции</a><br>Л.&nbsp;Д.&nbsp;Беклемишев<br><i><nobr>5 декабря 2013 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=8113'>Доказуемо рекурсивные функции</a><br>Л.&nbsp;Д.&nbsp;Беклемишев<br><i><nobr>5 декабря 2013 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=8113'><img border=0 title="Л.&nbsp;Д.&nbsp;Беклемишев" ALT="Л.&nbsp;Д.&nbsp;Беклемишев"  vspace=5 hspace=5 align=center src=/PresentLogos/8113/8113s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row28113' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=8113'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>7 ноября 2013 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row37927' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row17927' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>66.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present7927'>Эргодические теоремы для групповых действий</a><br>А.&nbsp;В.&nbsp;Клименко<br><i><nobr>7 ноября 2013 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=7927'>Эргодические теоремы для групповых действий</a><br>А.&nbsp;В.&nbsp;Клименко<br><i><nobr>7 ноября 2013 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=7927'><img border=0 title="А.&nbsp;В.&nbsp;Клименко" ALT="А.&nbsp;В.&nbsp;Клименко"  vspace=5 hspace=5 align=center src=/PresentLogos/7927/7927s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row27927' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=7927'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>3 октября 2013 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row37663' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row17663' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>67.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present7663'>Множество Мандельброта и его кубический аналог</a><br>В.&nbsp;А.&nbsp;Тиморин<br><i><nobr>3 октября 2013 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=7663'>Множество Мандельброта и его кубический аналог</a><br>В.&nbsp;А.&nbsp;Тиморин<br><i><nobr>3 октября 2013 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=7663'><img border=0 title="В.&nbsp;А.&nbsp;Тиморин" ALT="В.&nbsp;А.&nbsp;Тиморин"  vspace=5 hspace=5 align=center src=/PresentLogos/7663/7663_2.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row27663' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=7663'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>5 сентября 2013 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row37448' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row17448' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>68.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present7448'>Квантовая теория поля и физика элементарных частиц</a><br>Д.&nbsp;В.&nbsp;Быков<br><i><nobr>5 сентября 2013 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=7448'>Квантовая теория поля и физика элементарных частиц</a><br>Д.&nbsp;В.&nbsp;Быков<br><i><nobr>5 сентября 2013 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=7448'><img border=0 title="Д.&nbsp;В.&nbsp;Быков" ALT="Д.&nbsp;В.&nbsp;Быков"  vspace=5 hspace=5 align=center src=/PresentLogos/7448/7448_DSC0982_135x180.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row27448' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=7448'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>6 июня 2013 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row36904' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row16904' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>69.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present6904'>Марковские цепи в симуляциях</a><br>П.&nbsp;А.&nbsp;Яськов<br><i><nobr>6 июня 2013 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=6904'>Марковские цепи в симуляциях</a><br>П.&nbsp;А.&nbsp;Яськов<br><i><nobr>6 июня 2013 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row26904' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=6904'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>23 мая 2013 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row36823' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row16823' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>70.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present6823'>Математика квантовой механики</a><br>А.&nbsp;С.&nbsp;Трушечкин<br><i><nobr>23 мая 2013 г.</nobr> 16:15</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=6823'>Математика квантовой механики</a><br>А.&nbsp;С.&nbsp;Трушечкин<br><i><nobr>23 мая 2013 г.</nobr> 16:15</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=6823'><img border=0 title="А.&nbsp;С.&nbsp;Трушечкин" ALT="А.&nbsp;С.&nbsp;Трушечкин"  vspace=5 hspace=5 align=center src=/PresentLogos/6823/6823s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row26823' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=6823'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>4 апреля 2013 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row36494' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row16494' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>71.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present6494'>Характеристические классы</a><br>А.&nbsp;А.&nbsp;Гайфуллин<br><i><nobr>4 апреля 2013 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=6494'>Характеристические классы</a><br>А.&nbsp;А.&nbsp;Гайфуллин<br><i><nobr>4 апреля 2013 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=6494'><img border=0 title="А.&nbsp;А.&nbsp;Гайфуллин" ALT="А.&nbsp;А.&nbsp;Гайфуллин"  vspace=5 hspace=5 align=center src=/PresentLogos/6494/6494s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row26494' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=6494'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>28 февраля 2013 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row36213' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row16213' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>72.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present6213'>Гипотеза Зарембы</a><br>Д.&nbsp;А.&nbsp;Фроленков<br><i><nobr>28 февраля 2013 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=6213'>Гипотеза Зарембы</a><br>Д.&nbsp;А.&nbsp;Фроленков<br><i><nobr>28 февраля 2013 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=6213'><img border=0 title="Д.&nbsp;А.&nbsp;Фроленков" ALT="Д.&nbsp;А.&nbsp;Фроленков"  vspace=5 hspace=5 align=center src=/PresentLogos/6213/135_DSC7301.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row26213' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=6213'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+			<td><br></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan=2><b><i><nobr>7 февраля 2013 г.</nobr> (чт)</i></b></td>
+			</tr>
+				
+			<tr id='row36125' style='display: '>
+			<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+			</tr>
+				
+		<tr bgcolor=#ededed id='row16125' style='display: '>
+		<td width=5% rowspan=2 align=right valign=top>73.</td>
+		<td valign=top colspan=2>
+		<a class=SLink href='/rus/present6125'>Адели</a><br>С.&nbsp;О.&nbsp;Горчинский<br><i><nobr>7 февраля 2013 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)
+		<!--<a class=SLink href='/php/seminars.phtml?option_lang=rus&presentid=6125'>Адели</a><br>С.&nbsp;О.&nbsp;Горчинский<br><i><nobr>7 февраля 2013 г.</nobr> 16:00</i>, г.&nbsp;Москва, конференц-зал МИАН (ул. Губкина, 8)-->
+		</td>
+		<td rowspan=2 valign=bottom align=center width=190>
+			
+			<a href='/php/seminars.phtml?option_lang=rus&presentid=6125'><img border=0 title="С.&nbsp;О.&nbsp;Горчинский" ALT="С.&nbsp;О.&nbsp;Горчинский"  vspace=5 hspace=5 align=center src=/PresentLogos/6125/6125s.jpg></a>	
+		</td>
+		</tr>
+			
+		<tr bgcolor=#ededed id='row26125' style='display: '>
+		<td valign=bottom>
+		&nbsp;&nbsp;<a href='/php/presentation.phtml?option_lang=rus&presentid=6125'><img src="/refsvg/pics/camera00_2.svg" height='35px' align=absmiddle border=0 style='margin-bottom: 10px; margin-right: 5px'></a>	
+		</td>
+		<td class=fix align=right valign=bottom>
+			
+		</td>
+		</tr>
+			<tr>
+	<td class=divd colspan=4><img src=/gifs/1pts.gif height=1></td>
+	</tr>
+		</table>
+		</td>
+	</tr>	
+	</table>
+        	<table border=0 width=100% cellspacing=0 cellpadding=0>
+	<tr class=man1>
+	<td width=70%>&nbsp;</td>
+	<td width=30% valign=bottom><img src=/images/man1.jpg align=left>
+	</td>
+	</tr>
+	</table>
+		<DIV class=mian>
+	<TABLE width=100% class=mian cellSpacing=0 cellPadding=10 border=0 align="center">
+	<TR>
+
+	<td width=20% align=left>
+	<img src=/gifs/ar4.gif border=0>&nbsp;
+	Обратная связь:<br>
+	<script language="JavaScript">document.write(decode_email('DMEBCAHEGJHEGMGFDNCHEFCNGNGBGJGMDKCAGNGBHEGICNGOGFHEDCDADCDFFPDADHEAGNGJCNHCGBHDCOHCHFCHCAGDGMGBHDHDDNFDEMGJGOGLCAEIFCEFEGDNCCGNGBGJGMHEGPDKGNGBHEGICNGOGFHEDCDADCDFFPDADHEAGNGJCNHCGBHDCOHCHFCCDOGNGBHEGICNGOGFHEDCDADCDFFPDADHEAGNGJCNHCGBHDCOHCHFDMCPEBDO'));</script><noscript>email</noscript>
+	</td>
+
+	<td valign=center width=30%  align=center>
+	<img src=/gifs/ar4.gif border=0>&nbsp;<a class=SLink href=/php/agreement.phtml?option_lang=rus>Пользовательское соглашение</a>
+	</td>
+
+	<td valign=center width=20%  align=center>
+	<img src=/gifs/ar4.gif border=0>&nbsp;<a class=SLink href=/php/registration.phtml?option_lang=rus>Регистрация посетителей портала</a></td>
+
+	<td valign=center width=20%  align=center>
+	<img src=/gifs/ar4.gif border=0>&nbsp;<a class=SLink href=/supplement/logo_mathnet.zip>Логотипы</a></td>
+
+
+
+	<td align=left width=28%>
+	<nobr>&copy; <A class=SLink title="Математический институт им. В. А. Стеклова РАН" href="http://www.mi-ras.ru" target=_blank>
+	Математический институт им. В. А. Стеклова РАН</A>,&nbsp;2025</nobr>
+	<!--
+	<br>
+	<nobr>&copy; <A class=SLink title="Российская академия наук, Отделение математических наук" href="http://omn.ras.ru" target=_blank>
+	Российская академия наук, Отделение математических наук</A>,&nbsp;2025</nobr>
+	-->
+	</td>
+	</tr>
+	</TABLE>
+	</DIV>
+	<br><br>
+
+	
+		<script src="https://www.google-analytics.com/urchin.js" type="text/javascript">
+		</script>
+		<script type="text/javascript">
+		_uacct = "UA-3038033-1";
+		urchinTracker();
+		</script>
+		
+</body>
+
+</html>

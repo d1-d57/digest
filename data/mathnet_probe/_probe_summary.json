@@ -1,0 +1,29 @@
+{
+  "zahod": "ZAHOD-5 mathnet razblokirovka",
+  "lever_used": "3 — Wayback (web.archive.org), id_-плейбек архивных копий mathnet.ru",
+  "levers_failed": {
+    "1_requests_live": "TCP:443 не устанавливается (connect=0); ICMP 3/3, порт 80 RST; контроли crossref/archive.org = 200. Капчи нет — до HTTP не доходит.",
+    "2_oai_pmh": "тот же хост -> та же стена (connect=0 на обоих кандидат-эндпоинтах)"
+  },
+  "freshness_caveat": "данные — на дату снапшота, не на сегодня",
+  "checks": {
+    "colloquium": {
+      "records": 73,
+      "empty_fields": 0,
+      "raw": "data/mathnet_probe/raw/colloquium_conf408_20250701062936.html",
+      "newest_talk": "2023-10-05",
+      "oldest_talk": "2013-02-07"
+    },
+    "umn_issue": {
+      "issue": "УМН, 2025, том 80, выпуск 6(486)",
+      "records": 13,
+      "raw": "data/mathnet_probe/raw/umn_currentissue_20260114101928.html"
+    },
+    "umn_paper": {
+      "abstract_chars": 560,
+      "pdf": "https://www.mathnet.ru/php/getFT.phtml?jrnid=rm&paperid=10293&what=fullt&option_lang=rus",
+      "raw": "data/mathnet_probe/raw/umn_paper_10293_20251204010148.html"
+    }
+  },
+  "failures": []
+}

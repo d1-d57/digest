@@ -39,7 +39,7 @@
 """
 
 import warnings; warnings.filterwarnings("ignore")
-import json, os, re, sys, time
+import argparse, json, os, re, sys, time
 
 import requests
 from bs4 import BeautifulSoup
@@ -57,8 +57,10 @@ H["Accept-Language"] = "ru,en;q=0.8"            # §3: как велено ры�
 PAUSE = 2.0                                     # §2: вежливость к web.archive.org (≥1–2 с)
 
 # --- закреплённые снапшоты (найдены через CDX; проверены на проигрываемость) ------------------
-COLLOQ = ("colloquium_conf408", "20250701062936",
-          "https://www.mathnet.ru/conf408")
+# ZAHOD-6: конф408 «Коллоквиум МИАН» мёртв с 2023 — перенацелено на живой confid=142
+# «Математика и её приложения» (аналитик ЗАХОД-6, проверено CDX 16.07.2026).
+COLLOQ = ("colloquium_conf142", "20251114111128",
+          "https://www.mathnet.ru/php/conference.phtml?option_lang=rus&eventID=9&confid=142")
 UMN_ISSUE = ("umn_currentissue", "20260114101928",
              "https://www.mathnet.ru/php/currentissue.phtml?jrnid=rm&option_lang=rus")
 UMN_PAPER = ("umn_paper_10293", "20251204010148",
@@ -86,6 +88,26 @@ def wb_get(timestamp, original, tries=5):
         except requests.RequestException as e:
             print(f"      {type(e).__name__} -> backoff"); time.sleep(6 * (k + 1))
     return None, None
+
+
+def live_get(original, tries=3):
+    """ZAHOD-6 §3-Г: прямой ход в mathnet вместо Wayback. Транспорт НЕ проверен —
+    ЗАХОД-5 установил, что 443/mathnet.ru глушится анти-DDoS-стеной под тем же VPN,
+    из-под которого работает Claude; годится только для российского окна владельца."""
+    for k in range(tries):
+        try:
+            r = requests.get(original, headers=H, timeout=(20, 60))
+            if r.status_code in (429, 502, 503, 504):
+                print(f"      mathnet {r.status_code} -> backoff"); time.sleep(6 * (k + 1)); continue
+            return r, r.content.decode("windows-1251", errors="replace")
+        except requests.RequestException as e:
+            print(f"      {type(e).__name__} -> backoff"); time.sleep(6 * (k + 1))
+    return None, None
+
+
+def fetch(ts, original, live=False):
+    """Единая точка входа: Wayback по умолчанию, --live -> live_get(). Оба ведут в один parse_*."""
+    return live_get(original) if live else wb_get(ts, original)
 
 
 def check_real(label, txt, must_have, min_cyr=500):
@@ -219,14 +241,21 @@ def save_raw(label, timestamp, txt):
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--live", action="store_true",
+                         help="ZAHOD-6 §3-Г: ходить напрямую в mathnet вместо Wayback "
+                              "(транспорт не проверен под VPN-стеной — только для российского окна)")
+    args = parser.parse_args()
+
     os.makedirs(RAW, exist_ok=True)
     verdicts, failures = {}, []
 
-    # ---------- 1. Коллоквиум МИАН ----------
+    # ---------- 1. Коллоквиум МИАН, confid=142 «Математика и её приложения» ----------
     label, ts, orig = COLLOQ
-    print(f"[1/3] Коллоквиум МИАН  <- Wayback {ts}  {orig}")
-    r, txt = wb_get(ts, orig)
-    probs = check_real(label, txt, must_have=["Коллоквиум МИАН"])
+    lever = "live" if args.live else "wayback"
+    print(f"[1/3] Коллоквиум МИАН confid=142  <- {lever} {'' if args.live else ts}  {orig}")
+    r, txt = fetch(ts, orig, args.live)
+    probs = check_real(label, txt, must_have=["Математика и ее приложения"])
     talks = parse_colloquium(txt) if not probs else []
     empty = [t for t in talks if not (t["title"] and t["speaker"] and t["date_raw"])]
     if probs or len(talks) < 10 or empty:
@@ -234,7 +263,7 @@ def main():
     else:
         raw_path = save_raw(label, ts, txt)
         with open(os.path.join(OUT, "colloquium_mian.json"), "w", encoding="utf-8") as f:
-            json.dump({"source_url": orig, "wayback_timestamp": ts, "lever": "wayback",
+            json.dump({"source_url": orig, "wayback_timestamp": ts, "lever": lever,
                        "count": len(talks), "talks": talks}, f, ensure_ascii=False, indent=2)
         verdicts["colloquium"] = {"records": len(talks), "empty_fields": len(empty), "raw": raw_path,
                                   "newest_talk": talks[0]["date"], "oldest_talk": talks[-1]["date"]}
@@ -243,8 +272,8 @@ def main():
 
     # ---------- 2. УМН — последний выпуск ----------
     label, ts, orig = UMN_ISSUE
-    print(f"[2/3] УМН, последний выпуск  <- Wayback {ts}  {orig}")
-    r, txt = wb_get(ts, orig)
+    print(f"[2/3] УМН, последний выпуск  <- {'live' if args.live else 'Wayback ' + ts}  {orig}")
+    r, txt = fetch(ts, orig, args.live)
     probs = check_real(label, txt, must_have=["Успехи математических наук"])
     arts = parse_umn_issue(txt) if not probs else []
     m = re.search(r"<title>(.*?)</title>", txt or "", re.S | re.I)
@@ -255,7 +284,7 @@ def main():
     else:
         raw_path = save_raw(label, ts, txt)
         with open(os.path.join(OUT, "umn_last_issue.json"), "w", encoding="utf-8") as f:
-            json.dump({"source_url": orig, "wayback_timestamp": ts, "lever": "wayback",
+            json.dump({"source_url": orig, "wayback_timestamp": ts, "lever": lever,
                        "issue": issue_title, "count": len(arts), "articles": arts},
                       f, ensure_ascii=False, indent=2)
         verdicts["umn_issue"] = {"issue": issue_title, "records": len(arts), "raw": raw_path}
@@ -264,8 +293,8 @@ def main():
 
     # ---------- 3. УМН — страница статьи (аннотация + PDF: чего нет в Crossref) ----------
     label, ts, orig = UMN_PAPER
-    print(f"[3/3] УМН, страница статьи  <- Wayback {ts}  {orig}")
-    r, txt = wb_get(ts, orig)
+    print(f"[3/3] УМН, страница статьи  <- {'live' if args.live else 'Wayback ' + ts}  {orig}")
+    r, txt = fetch(ts, orig, args.live)
     probs = check_real(label, txt, must_have=["Аннотация"])
     paper = parse_umn_paper(txt) if not probs else {}
     if probs or not paper.get("abstract_ru") or not paper.get("pdf_url"):
@@ -273,7 +302,7 @@ def main():
     else:
         raw_path = save_raw(label, ts, txt)
         with open(os.path.join(OUT, "umn_paper_sample.json"), "w", encoding="utf-8") as f:
-            json.dump({"source_url": orig, "wayback_timestamp": ts, "lever": "wayback",
+            json.dump({"source_url": orig, "wayback_timestamp": ts, "lever": lever,
                        "paper": paper}, f, ensure_ascii=False, indent=2)
         verdicts["umn_paper"] = {"abstract_chars": len(paper["abstract_ru"]), "pdf": paper["pdf_url"],
                                  "raw": raw_path}
@@ -281,8 +310,8 @@ def main():
 
     # ---------- итог ----------
     summary = {
-        "zahod": "ZAHOD-5 mathnet razblokirovka",
-        "lever_used": "3 — Wayback (web.archive.org), id_-плейбек архивных копий mathnet.ru",
+        "zahod": "ZAHOD-6 mian colloquium confid=142 (перенацелено с мёртвого confid=408, ЗАХОД-5)",
+        "lever_used": "live" if args.live else "3 — Wayback (web.archive.org), id_-плейбек архивных копий mathnet.ru",
         "levers_failed": {
             "1_requests_live": "TCP:443 не устанавливается (connect=0); ICMP 3/3, порт 80 RST; "
                                "контроли crossref/archive.org = 200. Капчи нет — до HTTP не доходит.",

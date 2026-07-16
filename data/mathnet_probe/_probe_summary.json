@@ -1,6 +1,6 @@
 {
-  "zahod": "ZAHOD-5 mathnet razblokirovka",
-  "lever_used": "3 — Wayback (web.archive.org), id_-плейбек архивных копий mathnet.ru",
+  "zahod": "ZAHOD-6 mian colloquium confid=142 (перенацелено с мёртвого confid=408, ЗАХОД-5)",
+  "lever_used": "live",
   "levers_failed": {
     "1_requests_live": "TCP:443 не устанавливается (connect=0); ICMP 3/3, порт 80 RST; контроли crossref/archive.org = 200. Капчи нет — до HTTP не доходит.",
     "2_oai_pmh": "тот же хост -> та же стена (connect=0 на обоих кандидат-эндпоинтах)"
@@ -8,15 +8,15 @@
   "freshness_caveat": "данные — на дату снапшота, не на сегодня",
   "checks": {
     "colloquium": {
-      "records": 73,
+      "records": 260,
       "empty_fields": 0,
-      "raw": "data/mathnet_probe/raw/colloquium_conf408_20250701062936.html",
-      "newest_talk": "2023-10-05",
-      "oldest_talk": "2013-02-07"
+      "raw": "data/mathnet_probe/raw/colloquium_conf142_20251114111128.html",
+      "newest_talk": "2026-06-25",
+      "oldest_talk": "2001-01-16"
     },
     "umn_issue": {
-      "issue": "УМН, 2025, том 80, выпуск 6(486)",
-      "records": 13,
+      "issue": "УМН, 2026, том 81, выпуск 3(489)",
+      "records": 10,
       "raw": "data/mathnet_probe/raw/umn_currentissue_20260114101928.html"
     },
     "umn_paper": {

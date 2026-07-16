@@ -1,0 +1,1906 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<head>
+<link rel=\"icon\" href=\"/favicon.ico\" type=\"image/x-icon\">
+<link rel=\"shortcut icon\" href=\"/favicon.ico\" type=\"image/x-icon\">
+
+<script language="JavaScript" src="/js/func_string.js?v=8.7"></script>
+<script language="JavaScript" src="/js/phpjs.js?v=1"></script>
+<link rel="STYLESHEET" type="text/css" href="/css/calendar.css">
+<script language=JavaScript>
+var EDIT_DISABLED_BOOL;
+var CALENDAR_LANG;
+</script>
+ 
+
+	
+<script language=JavaScript src=/js/func_dates.js?v=1></script><meta http-equiv="Content-Type" content="text/html; charset=Windows-1251"/>
+  
+
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+          inlineMath: [ ['$','$'] ],
+          displayMath: [ ['$$','$$'] ],
+          processEscapes: true
+          },
+      "HTML-CSS": { availableFonts: ["TeX"] }
+      });
+  </script>
+  <script type="text/javascript" src="https://www.mathnet.ru/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_HTML"></script>
+  
+<meta content="Математический, институт, В.А. Стеклов, РАН, Российская академия наук, математика, современная, сотрудники" name="keywords" />
+
+<title>Семинары МИАН</title>
+
+
+
+                                                            
+<link rel="stylesheet" type="text/css" href="cs/mian.css?v=3" media='screen,projection'/>
+<link rel="stylesheet" type="text/css" href="cs/mianprint.css" media='print'/>
+<script language="JavaScript" type="text/javascript" src="cs/mian0.js"></script>
+
+</head>
+
+
+
+
+<body marginwidth="0" marginheight="0"							
+class=""
+>				
+
+<table cellpadding="0" cellspacing="0" border=0>
+<!--
+<table 
+:class="spClassObj"
+cellpadding="0" cellspacing="0" border=0>
+-->
+<tr class='webpageheader'>
+<td colspan="4">		
+ <table border="0" cellpadding="0" cellspacing="0" width="100%">  <!-- Шапка -->
+  <tr>
+   <td>
+   <!-- Шапка -->
+
+
+
+
+  <table border="0" cellpadding="0" cellspacing="0" width="100%"  
+  class="sp-options-tm "
+  >
+  <tr>
+  
+       <td 
+       style=""
+       
+       >
+       
+       
+       <a href="index.php" 
+        title="Математический институт им. В. А. Стеклова"><img 
+         src="cs/i/spacer.gif" width="400" height="88"
+         border="0" alt="На главную страницу"
+       /></a></td>
+
+       
+       <td
+       style="display: none;"
+       
+       >
+       
+     <div style="display: flex; flex-flow: row wrap; gap: 15px; padding-left: 5px;
+     font-size: 18px;
+     "
+     >
+
+        <div
+     style="display: flex; flex-flow: row wrap; gap: 5px;
+     align-items: flex-end;
+     "
+     >
+        <div>
+        Шрифт:         </div>
+        <a
+        title="Размер шрифта: 16"
+        href="switch.php?fontsize=16&goto=%2Findex.php%3Fc%3Dseminars"
+        class="sp-options-tm--o sp--font-size-16 
+        active"
+        ><span>A</span>					
+        </a>			
+        <a
+        title="Размер шрифта: 20"
+        href="switch.php?fontsize=20&goto=%2Findex.php%3Fc%3Dseminars"
+        class="sp-options-tm--o sp--font-size-20 
+        "
+        ><span>A</span>				  
+        </a>
+        <a
+        title="Размер шрифта: 24"
+        href="switch.php?fontsize=24&goto=%2Findex.php%3Fc%3Dseminars"
+        class="sp-options-tm--o sp--font-size-24
+        "
+        ><span>A</span>			 
+        </a>
+     </div>
+     
+       <div
+     style="display: flex; flex-flow: row wrap; gap: 5px;
+     align-items: flex-end;
+     "
+     >
+        <div>
+        Цвет:         </div>
+        <a
+        title="Черным по белому"
+        href="switch.php?color=white&goto=%2Findex.php%3Fc%3Dseminars"
+        class="sp-options-tm--o sp--bg-white
+        active"
+        ><span>A</span>
+        </a>
+        <a
+        title="Белым по черному"
+        href="switch.php?color=black&goto=%2Findex.php%3Fc%3Dseminars"
+        class="sp-options-tm--o sp--bg-black
+        "
+        ><span>A</span>
+        </a>     
+        <a
+        title="Синий"
+        href="switch.php?color=blue&goto=%2Findex.php%3Fc%3Dseminars"
+        class="sp-options-tm--o sp--bg-blue
+        "
+        ><span>A</span>
+        </a>
+     </div>
+      
+      
+       <div
+     style="display: flex; flex-flow: row wrap; gap: 5px;
+     align-items: flex-end;
+     "
+     >
+        <div>
+        Изображения:         </div>
+        <a
+        title="Изображения включены"
+        href="switch.php?imgmode=on&goto=%2Findex.php%3Fc%3Dseminars"
+        class="sp-options-tm--o 
+        active"
+        ><img
+         width="24" height="30" src="i/image.svg"
+          alt="Special mode" border="0" vspace="1" />				
+        </a>								
+        <a
+        title="Изображения черно-белые"
+        href="switch.php?imgmode=bw&goto=%2Findex.php%3Fc%3Dseminars"
+        class="sp-options-tm--o 
+        "
+        ><img
+         width="24" height="30" src="i/circle-half.svg"
+          alt="Special mode" border="0" vspace="1" />
+        </a>
+        <a
+        title="Изображения отключены"
+        href="switch.php?imgmode=off&goto=%2Findex.php%3Fc%3Dseminars"
+        class="sp-options-tm--o  
+        "
+        ><img
+         width="24" height="30" src="i/x-square.svg"
+          alt="Special mode" border="0" vspace="1" />
+        </a>
+     </div>     
+
+     
+     </div>
+       
+       </td>
+                
+       
+
+       <td class="tm2" align="right" valign="top">
+       
+       <table border="0" cellpadding="5" cellspacing="0"><tr>
+       <!--
+       <td align="right" class="tm2">
+         <a href="index.php?c=seminars&mode=sp&color=white&fontsize=24"
+          title="Clear mode" >
+	  Clear mode</a><br
+         /><a href="index.php?c=seminars&mode=sp&color=white&fontsize=24"
+          title="Special режим" ><img
+          width="22" height="22" src="i/eye.svg"
+          alt="Special mode" 
+	  border="0" vspace="1" /></a></td>
+       --> 		
+       <td align="right" class="tm2"
+	title="Адаптированная версия сайта">									
+        
+
+
+
+         <a
+         href="switch.php?mode=sp&goto=%2Findex.php%3Fc%3Dseminars"
+          ></a><br
+         /><a 
+         href="switch.php?mode=sp&goto=%2Findex.php%3Fc%3Dseminars"
+          ><img
+         width="30" height="30" src="i/eye.svg"
+          alt="Адаптированная версия сайта" 
+          border="0" vspace="1" /></a></td>
+                                 
+         <td align="center" class="tm2" valign="middle">
+         <br/>
+	 <a title="Youtube" target="_blank" href="http://www.youtube.com/SteklovMathInstitute"><img align="absmiddle" border="0" src="/social/YoutubeLogo.svg" height="30px" style='margin-left:5px'/></a>
+	 <a title="Telegram" target="_blank" href="https://t.me/SteklovInstitute"><img align="absmiddle" border="0" src="/social/TelegramLogo.svg" height="30px" style='margin-left:5px'/></a>
+	 <a title="VK" target="_blank" href="https://vk.com/steklovmathinstitute"><img align="absmiddle" border="0" src="/social/VKLogo.svg" height="30px" style='margin-left:5px'/></a>
+	 <a title="OK" target="_blank" href="https://ok.ru/group/70000004443853"><img align="absmiddle" border="0" src="/social/OKLogo.svg" height="30px" style='margin-left:5px'/></a>
+	 </td>
+
+       <td style='width:50px'>&nbsp;</td>
+       
+       <td align="right" class="tm2">
+              <a
+              href="index.php"
+              title="На главную страницу">На&nbsp;главную
+              страницу</a>
+              <br />
+
+              <a href="index.php"
+          title="На главную страницу" ><img
+          src="/social/MianLogo.svg?v=1" height="28px"
+          alt="На главную страницу" border="0" vspace="1" /></a>
+       </td>
+
+
+       <td align="right" class="tm2">
+          
+           <a href="index.php?c=seminars&l=1"
+           title="English page" >English page</a>
+           <br/>
+          
+
+          <a href="index.php?c=seminars&l=1"
+          title="English page" t><img
+          src="/social/EngLogo.svg" height="28px"
+          alt="English page" border="0" vspace="2" /></a></td></tr></table></td></tr></table></td>
+  </tr>
+  <tr class="topmenu">            <!-- верхнее меню -->
+   <td class="tm1" align="right">
+    <a class="me"  href="http://simc.mi-ras.ru" title="Математический центр мирового уровня Математический институт им. В.А. Стеклова Российской академии наук">МЦМУ МИАН</a>
+    | 
+    <a class="me"  href="http://minobrnauki.gov.ru" title="Министерство науки и высшего образования Российской Федерации">Минобрнауки</a>
+    | 
+    <!--
+    <a class="me"  href="http://fano.gov.ru" title="Федеральное агентство научных организаций">ФАНО России</a>
+    | 
+    -->
+    <a class="me" href="http://www.ras.ru" title="Российская академия наук">РАН</a>
+    |
+    <a class="me" href="https://math.ras.ru/" title="Отделение математических наук Российской академии наук">ОМН РАН</a>
+    |
+    <a class="me"
+     href="http://www.mathnet.ru"
+     title="Общероссийский математический портал">Math-Net.Ru</a> 
+<!--| <a class="me"
+     href="http://www.mathtree.ru"
+     title="MathTree - каталог ссылок на математические Интернет-ресурсы">MathTree</a> -->
+| <a class="me"
+     href="http://mms.mathnet.ru"
+     title="Московское математическое общество">ММО</a> 
+     
+<!--| <a class="me"
+     href="http://apps.webofknowledge.com"
+     title="Web of Science">Web of Science</a> 
+-->     
+| <a class="me"
+     href="http://www.scopus.com"
+     title="Scopus">Scopus</a> 
+     
+     | <a class="me"
+     href="https://mathscinet.ams.org/mathscinet"
+     title="MathSciNet &ndash; Mathematical Reviews on the Web">MathSciNet</a> | <a class="me"
+     href="http://zbmath.org"
+     title="zbMATH">zbMATH</a> | <a class="me"
+         href="https://mail.mi-ras.ru"
+         title="Web-mail">Проверка почты</a> | <a class="me"
+         href="http://support.mi-ras.ru"
+         title="Справка">Справка</a>&nbsp;</td>
+  </tr>                                        <!-- Конец верхнего меню -->
+ </table><br></td>
+</tr>
+
+<tr>
+<td class='webpageleftcol'>&nbsp;&nbsp;&nbsp;</td>
+<td class='webpageleftcol sp-b-right-333' class="t1" valign="top">
+  <table width="180" border="0" cellpadding="0" cellspacing="0">
+
+      <tr><td class="lm"><img src="cs/i/circ.gif" border="0"
+         alt="" />&nbsp;<a class="me" href="index.php?c=about"
+          title="Об институте">Об институте</a></td>
+      </tr>          
+      <tr>
+        <td><img src="cs/i/line6.gif" alt=""
+         border="0" /></td>
+      </tr>
+      <!--
+      <tr><td class="lm"><img src="cs/i/circ.gif" border="0"
+         alt="" />&nbsp;<a class="me" style='color: darkred' href="index.php?c=att2017"
+          title="Аттестация сотрудников">Аттестация сотрудников</a></td>
+      </tr>          
+      <tr>
+        <td><img src="cs/i/line6.gif" alt=""
+         border="0" /></td>
+      </tr>
+      -->
+      <tr><td class="lm"><img src="cs/i/circ.gif" border="0"
+         alt="" />&nbsp;<a class="me" href="index.php?c=science"
+          title="Научная деятельность">Научная деятельность</a></td>
+      </tr>          
+      <tr>
+        <td><img src="cs/i/line6.gif" alt=""
+         border="0" /></td>
+      </tr>
+
+      <tr><td class="lm"><img src="cs/i/circ.gif" border="0"
+             alt="" />&nbsp;<a class="me" href="index.php?c=mianpubs"
+             title="Публикации">Публикации</a></td>
+      </tr>
+
+      <tr>
+        <td><img src="cs/i/line6.gif" alt=""
+         border="0" /></td>
+      </tr>
+      <tr><td class="lm"><img src="cs/i/circ.gif" border="0"
+             alt="" />&nbsp;<a class="me" href="index.php?c=affiliation"
+             title="Публикации">Правила оформления научных работ</a></td>
+      </tr>
+
+      <tr>
+        <td><img src="cs/i/line6.gif" alt=""
+         border="0" /></td>
+      </tr>
+      <tr><td class="lm"><img src="cs/i/circ.gif" border="0"
+         alt="" />&nbsp;<a class="me" href="index.php?c=admin"
+          title="Администрация">Администрация</a></td>
+      </tr>          
+      <tr>
+        <td><img src="cs/i/line6.gif" alt=""
+         border="0" /></td>
+      </tr>
+
+      <tr><td class="lm"><img src="cs/i/circ.gif" border="0"
+         alt="" />&nbsp;<a class="me" href="index.php?c=uch"
+          title="Ученый совет">Ученый совет</a></td>
+      </tr>          
+      <tr>
+        <td><img src="cs/i/line6.gif" alt=""
+         border="0" /></td>
+      </tr>
+
+      <tr><td class="lm"><img src="cs/i/circ.gif" border="0"
+         alt="" />&nbsp;<a class="me" href="index.php?c=dissov"
+          title="Диссертационные советы">Диссертационные советы</a></td>
+      </tr>          
+      <tr>
+        <td><img src="cs/i/line6.gif" alt=""
+         border="0" /></td>
+      </tr>
+
+      <tr><td class="lm"><img src="cs/i/circ.gif" border="0"
+         alt="" />&nbsp;<a class="me" href="index.php?c=deps"
+          title="Отделы">Отделы</a></td>
+      </tr>          
+      <tr>
+        <td><img src="cs/i/line6.gif" alt=""
+         border="0" /></td>
+      </tr>
+      <tr><form name="sel_staff" action="index.php?c=staff" method="POST">
+      <td class="lm"><img src="cs/i/circ.gif" border="0" alt="" />
+<script language="JavaScript">
+function SubmitForm(selectBox) {
+	if((selectBox.value == "none")) 
+		return false;
+	else
+	{
+		self.location.href = "index.php?c=staff"+"#_"+selectBox.value;
+//		document.sel_staff.submit();
+	}
+}
+</script>
+<a class="me" href="index.php?c=staff" title="Сотрудники">Сотрудники</a>&nbsp;
+<select name="select_staff" onChange="SubmitForm(this);">
+<option value="none">&nbsp;</option>
+<option value="192">&nbsp;А</option>
+<option value="193">&nbsp;Б</option>
+<option value="194">&nbsp;В</option><option
+value="195">&nbsp;Г</option><option
+value="196">&nbsp;Д</option><option
+value="197">&nbsp;Е</option><option
+value="198">&nbsp;Ж</option><option
+value="199">&nbsp;З</option><option
+value="200">&nbsp;И</option><option
+value="202">&nbsp;К</option><option
+value="203">&nbsp;Л</option><option
+value="204">&nbsp;М</option><option
+value="205">&nbsp;Н</option><option
+value="206">&nbsp;О</option><option
+value="207">&nbsp;П</option><option
+value="208">&nbsp;Р</option><option
+value="209">&nbsp;С</option><option
+value="210">&nbsp;Т</option><option
+value="211">&nbsp;У</option><option
+value="212">&nbsp;Ф</option><option
+value="213">&nbsp;Х</option><option
+value="214">&nbsp;Ц</option><option
+value="215">&nbsp;Ч</option><option
+value="216">&nbsp;Ш</option><option
+value="217">&nbsp;Щ</option><option
+value="223">&nbsp;Я</option>
+</select>
+</td>
+</form>
+      </tr>
+
+      <tr>
+        <td><img src="cs/i/line6.gif" alt=""
+         border="0" /></td>
+      </tr>
+      <tr><td class="lm"><img src="cs/i/circ.gif" border="0"
+             alt="" />&nbsp;<a class="me" href="index.php?c=aspirant"
+             title="Аспирантура">Аспирантура</a></td>
+      </tr>
+
+      <tr>
+        <td><img src="cs/i/line6.gif" alt=""
+         border="0" /></td>
+      </tr>
+      <tr><td class="lm"><img src="cs/i/circ.gif" border="0"
+             alt="" />&nbsp;<a class="me" href="index.php?c=noc"
+             title="Научно-образовательный центр">Научно-образовательный центр</a></td>
+      </tr>
+
+      <tr>
+        <td><img src="cs/i/line6.gif" alt=""
+         border="0" /></td>
+      </tr>
+      <tr><td class="lm"><img src="cs/i/circ.gif" border="0"
+             alt="" />&nbsp;<a class="me" href="index.php?c=chairmfti"
+             title="Базовая кафедра МИАН в Московском физико-техническом институте Методы современной математики">Базовая кафедра МФТИ</a></td>
+      </tr>
+
+
+
+      <tr>
+        <td><img src="cs/i/line6.gif" alt=""
+         border="0" /></td>
+      </tr>
+
+      <tr><td class="lm"><img src="cs/i/circ.gif" border="0"
+             alt="" />&nbsp;<a class="me" target=_blank href="https://cs.hse.ru/mian"
+             title="Базовая кафедра МИАН на факультете компьютерных наук Высшей школы экономики">Базовая кафедра ФКН&nbsp;ВШЭ</a></td>
+      </tr>
+
+
+
+      <tr>
+        <td><img src="cs/i/line6.gif" alt=""
+         border="0" /></td>
+      </tr>
+
+      <tr><td class="lm"><img src="cs/i/circ.gif" border="0"
+           alt="" />&nbsp;<a class="me"
+           href="index.php?c=cys"
+           title="Совет молодых ученых">Совет молодых ученых</a></td>
+      </tr>
+
+      <tr>
+        <td><img src="cs/i/line6.gif" alt=""
+         border="0" /></td>
+      </tr>
+
+      <!--
+      <tr><td class="lm"><img src="cs/i/circ.gif" border="0"
+           alt="" />&nbsp;<a class="me"
+           href="index.php?c=profkom"
+           title="Профком МИАН">Профком МИАН</a></td>
+      </tr>
+
+      <tr>
+        <td><img src="cs/i/line6.gif" alt=""
+         border="0" /></td>
+      </tr>
+      -->
+
+      <tr><td class="lm"><img src="cs/i/circ.gif" border="0"
+           alt="" />&nbsp;<a class="me"
+           href="index.php?c=seminars"
+           title="Семинары">Семинары</a></td>
+      </tr>
+
+      <tr>
+        <td><img src="cs/i/line6.gif" alt=""
+         border="0" /></td>
+      </tr>
+      <tr><td class="lm"><img src="cs/i/circ.gif" border="0"
+             alt="" />&nbsp;<a class="me" href="index.php?c=conf"
+             title="Конференции">Конференции</a></td>
+      </tr>
+      <tr>
+        <td><img src="cs/i/line6.gif" alt=""
+         border="0" /></td>
+      </tr>
+      <tr><td class="lm"><img src="cs/i/circ.gif" border="0"
+           alt="" />&nbsp;<a class="me"
+           href="index.php?c=meropriyat"
+           title="Мероприятия">Мероприятия</a></td>
+      </tr>
+      <tr>
+        <td><img src="cs/i/line6.gif" alt=""
+         border="0" /></td>
+      </tr>
+      <tr><td class="lm"><img src="cs/i/circ.gif" border="0"
+           alt="" />&nbsp;<a class="me"
+           href="index.php?c=publisher"
+           title="Издания МИАН">Издания МИАН</a></td>
+      </tr>
+      <tr>
+        <td><img src="cs/i/line6.gif" alt=""
+         border="0" /></td>
+      </tr>
+
+      <tr><td class="lm"><img src="cs/i/circ.gif" border="0"
+           alt="" />&nbsp;<a class="me"
+           href="index.php?c=inmemoria"
+           title="In memoriam">In memoriam</a></td>
+      </tr>
+      <tr>
+        <td><img src="cs/i/line6.gif" alt=""
+         border="0" /></td>
+      </tr>
+
+      <tr><td class="lm"><img src="cs/i/circ.gif" border="0"
+           alt="" />&nbsp;<a class="me"
+           href="index.php?c=photogallery"
+           title="Фотогалерея МИАН">Фотогалерея МИАН</a></td>
+      </tr>
+      <tr>
+        <td><img src="cs/i/line6.gif" alt=""
+         border="0" /></td>
+      </tr>
+
+      <tr><td class="lm"><img src="cs/i/circ.gif" border="0"
+           alt="" />&nbsp;<a class="me"
+           href="index.php?c=museum"
+           title="Музей МИАН">Музей МИАН</a></td>
+      </tr>
+
+      <tr>
+        <td><img src="cs/i/line6.gif" alt=""
+         border="0" /></td>
+      </tr>
+
+      <tr><td class="lm"><img src="cs/i/circ.gif" border="0"
+           alt="" />&nbsp;<a class="me"
+           href="index.php?c=documents"
+           title="Документы">Документы</a></td>
+      </tr>
+
+      <tr>
+        <td><img src="cs/i/line6.gif" alt=""
+         border="0" /></td>
+      </tr>
+
+      <tr><td class="lm"><img src="cs/i/circ.gif" border="0"
+           alt="" />&nbsp;<a class="me"
+           href="index.php?c=miandetails"
+           title="Реквизиты МИАН">Реквизиты МИАН</a></td>
+      </tr>
+      <tr>
+        <td><img src="cs/i/line6.gif" alt=""
+         border="0" /></td>
+      </tr>
+
+      <tr><td class="lm"><img src="cs/i/circ.gif" border="0"
+           alt="" />&nbsp;<a class="me"
+           href="index.php?c=ustav"
+           title="Устав МИАН">Устав МИАН</a></td>
+      </tr>
+      <tr>
+        <td><img src="cs/i/line6.gif" alt=""
+         border="0" /></td>
+      </tr>
+
+      <tr><td class="lm"><img src="cs/i/circ.gif" border="0"
+             alt="" />&nbsp;<a class="me" href="index.php?c=library" 
+             title="Библиотека">Библиотека</a></td>
+      </tr>     
+      <tr>
+        <td><img src="cs/i/line6.gif" alt=""
+         border="0" /></td>
+      </tr>
+
+      <tr><td class="lm"><img src="cs/i/circ.gif" border="0"
+             alt="" />&nbsp;<a class="me" href="index.php?c=antikorr" 
+             title="Противодействие коррупции">Противодействие коррупции</a></td>
+      </tr>  
+      <tr>
+        <td><img src="cs/i/line6.gif" alt=""
+         border="0" /></td>
+      </tr>
+      <!--
+      <tr><td class="lm"><img src="cs/i/circ.gif" border="0"
+             alt="" />&nbsp;<a class="me" href="/news/16/Spravochnik_160609.pdf" 
+             title="Телефонный справочник" target="_blank">Телефонный справочник</a></td>
+      </tr>          
+      
+      <tr>
+        <td><img src="cs/i/line6.gif" alt=""
+         border="0" /></td>
+      </tr>
+      -->
+      <!--
+      <tr><td class="lm"><img src="cs/i/circ.gif" border="0"
+             alt="" />&nbsp;<a class="me" href="index.php?c=att" 
+             title="Аттестация">Аттестация</a></td>
+      </tr>          
+      <tr>
+        <td><img src="cs/i/line6.gif" alt=""
+         border="0" /></td>
+      </tr>
+
+      -->
+            </table><br />                                 <!-- Конец левого меню -->
+
+ <!--
+ <div align=center style="width:90%; font-size: 80%; border:1px solid #dedede; padding: 5px">
+ <nobr>
+ <a title='Youtube: МИАН' href="http://www.youtube.com/SteklovMathInstitute"><img src="/i/youtube-61x23.png" align=absmiddle border=0></a>
+ </nobr>
+ </div>
+ <br/>
+ -->
+
+ <table border="0" width="180" cellpadding="0" cellspacing="0"> <!-- Адрес -->
+  <tr>
+   <td class="lefth" height="26">&nbsp;&nbsp;&nbsp;&nbsp;Адрес&nbsp;института</td>
+  </tr>
+  <tr>
+   <td class="leftb"><b>Адрес</b>: Россия, 119333, 
+        Москва, ул. Губкина, д. 8
+        <br/><b>Тел.</b>: +7(495)&nbsp;984&nbsp;81&nbsp;41
+        <!--<br/><b>Факс</b>: +7(495)&nbsp;984&nbsp;81&nbsp;39-->
+        <br/><b>Сайт</b>: <a href="http://www.mi-ras.ru">www.mi-ras.ru</a>
+        <br/><b>E-mail</b>: 
+     <a href="mailto:steklov@mi-ras.ru">steklov@mi-ras.ru</a><br
+/><br
+/><img src="i/close.gif"
+          alt="" border="0" /><a href="http://maps.google.ru/maps?hl=ru&ie=UTF8&ll=55.694803,37.564702&spn=0.003459,0.011222&z=17"
+title="Посмотреть карту"
+target="_blank">Посмотреть карту</a><br
+/><img src="i/close.gif"
+          alt="" border="0" /><a href="index.php?c=map"
+title="Схема проезда">Схема проезда</a><br /><br /></td>
+  </tr>
+  </table> <!-- Конец адреса -->
+
+<!--
+<a target=_new href="https://icm2022.org/">
+<img border=0 style="textalign:center; padding-top: 10px" src="/icm/icm_800x1200_eng.jpg" width="160" align="center" title="The International Congress of Mathematicians (ICM) 2022. St. Petersburg">
+</a>
+-->
+<!--
+<a target=_new href="https://www.minobrnauki.gov.ru/god-nauki">
+<img border=0 style="textalign:center; padding-top: 10px" src="/images/god-nauki_300250.png" width="160" align="center" title="2021 год объявлен в России Годом науки и технологий"/
+</a>
+-->
+
+</td>
+<td>&nbsp;&nbsp;&nbsp;</td>
+
+
+
+
+<td class="t2">
+<table border="0" width="90%"  cellpadding="3" cellspacing="1">
+<tr>
+<td valign="middle"><h3>Семинары МИАН</h3></td>
+</tr>
+ <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=9&confid=142&option_lang=rus'><b>Общеинститутский семинар &laquo;Математика и ее приложения&raquo; Математического института им.&nbsp;В.А.&nbsp;Стеклова Российской академии наук</b></a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Руководители семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/4406'>Ю.&nbsp;С.&nbsp;Осипов</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/8433'>В.&nbsp;В.&nbsp;Козлов</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/8846'>И.&nbsp;В.&nbsp;Волович</a>; Секретарь семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/11785'>С.&nbsp;В.&nbsp;Козырев</a>
+         </div>
+          <div class="video">
+          <nobr><img src="/i/close.gif" align=absmiddle /> <i>конференц-зал МИАН (ул. Губкина, 8)</i></nobr>
+          </div>
+           <div class="video">
+           <img src="/i/close.gif" align=absmiddle />
+           <a href="http://www.mi.ras.ru/index.php?c=fullsizephotogallery&id=OIS0411">Фотогалерея</a>
+           </div>
+            
+         </td>
+	 </tr>
+
+
+
+
+	 <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=9&confid=408&option_lang=rus'><b>Общеинститутский семинар &laquo;Коллоквиум МИАН&raquo;</b></a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Бюро семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/9066'>А.&nbsp;И.&nbsp;Буфетов</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/20601'>Д.&nbsp;В.&nbsp;Быков</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/13368'>А.&nbsp;А.&nbsp;Гайфуллин</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/18422'>С.&nbsp;О.&nbsp;Горчинский</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/47204'>В.&nbsp;В.&nbsp;Подольский</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/31114'>А.&nbsp;С.&nbsp;Трушечкин</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/19623'>К.&nbsp;А.&nbsp;Шрамов</a>; Руководитель семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/18422'>С.&nbsp;О.&nbsp;Горчинский</a>
+         </div>
+          <div class="video">
+          <nobr><img src="/i/close.gif" align=absmiddle /> <i>конференц-зал МИАН (ул. Губкина, 8)</i></nobr>
+          </div>
+           <div class="video">
+           <img src="/i/close.gif" align=absmiddle />
+           <a href="http://www.mi.ras.ru/index.php?c=fullsizephotogallery&id=COLLOQUIUM">Фотогалерея</a>
+           </div>
+            
+         </td>
+	 </tr>
+
+
+
+
+	 <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=9&confid=2678&option_lang=rus'><b>Коллоквиум МИАН-ПОМИ</b></a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Организаторы: <a class=SLink href='http://www.mathnet.ru/rus/person/18422'>С.&nbsp;О.&nbsp;Горчинский</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/34864'>Д.&nbsp;Н.&nbsp;Запорожец</a>
+         </div>
+          <div class="video">
+          <nobr><img src="/i/close.gif" align=absmiddle /> <i>Москва, Санкт-Петербург</i></nobr>
+          </div>
+           
+         </td>
+	 </tr>
+
+
+
+
+	 <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=9&confid=2004&option_lang=rus'><b>Семинар &laquo;Математические задачи в индустрии&raquo;</b></a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Бюро семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/8514'>И.&nbsp;В.&nbsp;Аржанцев</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/17809'>Л.&nbsp;Д.&nbsp;Беклемишев</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/9162'>В.&nbsp;М.&nbsp;Бухштабер</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/8601'>А.&nbsp;М.&nbsp;Райгородский</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/8652'>А.&nbsp;Н.&nbsp;Соболевский</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/8450'>Д.&nbsp;А.&nbsp;Шмелькин</a>
+         </div>
+          <div class="video">
+          <nobr><img src="/i/close.gif" align=absmiddle /> <i>МИАН, ауд.&nbsp;110 (ул. Губкина,&nbsp;8) + Zoom</i></nobr>
+          </div>
+           
+         </td>
+	 </tr>
+
+
+
+
+	 
+         <tr><td><hr width=80% size=1px color=#eaeaea /></td></tr>
+
+         <tr>
+ 	 <td class=y-bl valign=top>
+         <b>Отдел алгебры</b>
+         </td>
+         </tr>
+          <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=9&confid=314&option_lang=rus'>Семинар отдела алгебры и отдела алгебраической геометрии (семинар И.&nbsp;Р.&nbsp;Шафаревича)</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Руководители семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/11896'>Д.&nbsp;О.&nbsp;Орлов</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/18422'>С.&nbsp;О.&nbsp;Горчинский</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/19549'>Д.&nbsp;Б.&nbsp;Каледин</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/18588'>А.&nbsp;Г.&nbsp;Кузнецов</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/8935'>В.&nbsp;Л.&nbsp;Попов</a>
+         </div>
+          <div class="video">
+          <nobr><img src="/i/close.gif" align=absmiddle /> <i>МИАН, комн. 104 (ул. Губкина, 8) + online</i></nobr>
+          </div>
+           
+         </td>
+	 </tr>
+
+
+
+
+	 <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=9&confid=1801&option_lang=rus'>Beijing–Moscow Mathematics Colloquium</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Организаторы: <a class=SLink href='http://www.mathnet.ru/rus/person/157505'>Huijun&nbsp;Fan</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/18422'>С.&nbsp;О.&nbsp;Горчинский</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/163209'>J.&nbsp;Liu</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/163497'>Y.&nbsp;Liu</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/8521'>Д.&nbsp;В.&nbsp;Осипов</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/75486'>Ye&nbsp;Tian</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/8428'>А.&nbsp;А.&nbsp;Тужилин</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/157697'>Yu.&nbsp;Yang</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/162613'>P.&nbsp;Zhang</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/8910'>А.&nbsp;Б.&nbsp;Жеглов</a>
+         </div>
+          <div class="video">
+          <nobr><img src="/i/close.gif" align=absmiddle /> <i>online</i></nobr>
+          </div>
+           
+         </td>
+	 </tr>
+
+
+
+
+	 <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=9&confid=2679&option_lang=rus'>Sino-Russian Student Mathematical Seminar</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Организаторы: <a class=SLink href='http://www.mathnet.ru/rus/person/213357'>Dayue&nbsp;Chen</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/235818'>J.&nbsp;Ding</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/235819'>R.&nbsp;Liu</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/18422'>С.&nbsp;О.&nbsp;Горчинский</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/8879'>М.&nbsp;А.&nbsp;Королёв</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/77424'>Т.&nbsp;Р.&nbsp;Насыбуллов</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/113623'>Е.&nbsp;И.&nbsp;Прокопенко</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/17822'>Ю.&nbsp;Л.&nbsp;Трахинин</a>
+         </div>
+          
+         </td>
+	 </tr>
+
+
+
+
+	 <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=9&confid=932&option_lang=rus'>Семинар по арифметической геометрии</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Руководители семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/18422'>С.&nbsp;О.&nbsp;Горчинский</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/8521'>Д.&nbsp;В.&nbsp;Осипов</a>
+         </div>
+          <div class="video">
+          <nobr><img src="/i/close.gif" align=absmiddle /> <i>МИАН, комн.&nbsp;303 (ул. Губкина,&nbsp;8)</i></nobr>
+          </div>
+           
+         </td>
+	 </tr>
+
+
+
+
+	 <tr>
+ 	 <td class=y-bl valign=top><br></td>
+         </tr>
+          <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=9&confid=123&option_lang=rus'>Семинар отдела алгебры</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Руководители семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/8828'>И.&nbsp;Р.&nbsp;Шафаревич</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/11177'>А.&nbsp;Н.&nbsp;Паршин</a>
+         </div>
+          
+         </td>
+	 </tr>
+
+
+
+
+	 <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=9&confid=125&option_lang=rus'>Семинар по арифметической алгебраической геометрии</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Руководитель семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/11177'>А.&nbsp;Н.&nbsp;Паршин</a>
+         </div>
+          
+         </td>
+	 </tr>
+
+
+
+
+	 
+         <tr><td><hr width=80% size=1px color=#eaeaea /></td></tr>
+
+         <tr>
+ 	 <td class=y-bl valign=top>
+         <b>Отдел алгебраической геометрии</b>
+         </td>
+         </tr>
+          <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=9&confid=314&option_lang=rus'>Семинар отдела алгебры и отдела алгебраической геометрии (семинар И.&nbsp;Р.&nbsp;Шафаревича)</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Руководители семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/11896'>Д.&nbsp;О.&nbsp;Орлов</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/18422'>С.&nbsp;О.&nbsp;Горчинский</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/19549'>Д.&nbsp;Б.&nbsp;Каледин</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/18588'>А.&nbsp;Г.&nbsp;Кузнецов</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/8935'>В.&nbsp;Л.&nbsp;Попов</a>
+         </div>
+          <div class="video">
+          <nobr><img src="/i/close.gif" align=absmiddle /> <i>МИАН, комн. 104 (ул. Губкина, 8) + online</i></nobr>
+          </div>
+           
+         </td>
+	 </tr>
+
+
+
+
+	 <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=9&confid=152&option_lang=rus'>Гомологические методы в алгебраической геометрии</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Руководители семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/14927'>А.&nbsp;И.&nbsp;Бондал</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/19549'>Д.&nbsp;Б.&nbsp;Каледин</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/18588'>А.&nbsp;Г.&nbsp;Кузнецов</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/11896'>Д.&nbsp;О.&nbsp;Орлов</a>
+         </div>
+          <div class="video">
+          <nobr><img src="/i/close.gif" align=absmiddle /> <i>МИАН, комн.&nbsp;540 (ул.&nbsp;Губкина,&nbsp;8)</i></nobr>
+          </div>
+           
+         </td>
+	 </tr>
+
+
+
+
+	 <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=12&confid=134&option_lang=rus'>Семинар им.&nbsp;В.&nbsp;А.&nbsp;Исковских</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Руководители семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/8352'>Ю.&nbsp;Г.&nbsp;Прохоров</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/17338'>В.&nbsp;В.&nbsp;Пржиялковский</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/11896'>Д.&nbsp;О.&nbsp;Орлов</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/19623'>К.&nbsp;А.&nbsp;Шрамов</a>
+         </div>
+          <div class="video">
+          <nobr><img src="/i/close.gif" align=absmiddle /> <i>МИАН, комн.&nbsp;530 (ул. Губкина,&nbsp;8)</i></nobr>
+          </div>
+           
+         </td>
+	 </tr>
+
+
+
+
+	 <tr>
+ 	 <td class=y-bl valign=top><br></td>
+         </tr>
+          <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=9&confid=124&option_lang=rus'>Семинар по геометрии алгебраических многообразий</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Руководители семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/19549'>Д.&nbsp;Б.&nbsp;Каледин</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/18588'>А.&nbsp;Г.&nbsp;Кузнецов</a>
+         </div>
+          
+         </td>
+	 </tr>
+
+
+
+
+	 <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=9&confid=126&option_lang=rus'>Семинар А.&nbsp;Бондала</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Руководитель семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/14927'>А.&nbsp;И.&nbsp;Бондал</a>
+         </div>
+          
+         </td>
+	 </tr>
+
+
+
+
+	 
+         <tr><td><hr width=80% size=1px color=#eaeaea /></td></tr>
+
+         <tr>
+ 	 <td class=y-bl valign=top>
+         <b>Отдел математической логики</b>
+         </td>
+         </tr>
+          <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=12&confid=294&option_lang=rus'>&laquo;Алгоритмические вопросы алгебры и логики&raquo;&nbsp;(семинар С.И.Адяна)</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Руководители семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/17809'>Л.&nbsp;Д.&nbsp;Беклемишев</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/8818'>И.&nbsp;Г.&nbsp;Лысёнок</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/19667'>А.&nbsp;Л.&nbsp;Семёнов</a>
+         </div>
+          <div class="video">
+          <nobr><img src="/i/close.gif" align=absmiddle /> <i>Математический институт им.В.А.Стеклова РАН</i></nobr>
+          </div>
+           
+         </td>
+	 </tr>
+
+
+
+
+	 <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=9&confid=1547&option_lang=rus'>Геометрическая теория групп</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Руководители семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/8818'>И.&nbsp;Г.&nbsp;Лысёнок</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/20324'>А.&nbsp;Л.&nbsp;Таламбуца</a>
+         </div>
+          <div class="video">
+          <nobr><img src="/i/close.gif" align=absmiddle /> <i>МИАН, ул. Губкина, 8, ауд. 530</i></nobr>
+          </div>
+           
+         </td>
+	 </tr>
+
+
+
+
+	 <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=9&confid=876&option_lang=rus'>Семинары отдела математической логики &quot;Теория доказательств&quot; и &quot;Logic Online Seminar&quot;</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Руководитель семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/17809'>Л.&nbsp;Д.&nbsp;Беклемишев</a>
+         </div>
+          <div class="video">
+          <nobr><img src="/i/close.gif" align=absmiddle /> <i>МИАН (ул. Губкина, 8), ауд. 313 + онлайн</i></nobr>
+          </div>
+           
+         </td>
+	 </tr>
+
+
+
+
+	 
+         <tr><td><hr width=80% size=1px color=#eaeaea /></td></tr>
+
+         <tr>
+ 	 <td class=y-bl valign=top>
+         <b>Отдел геометрии и топологии</b>
+         </td>
+         </tr>
+          <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=9&confid=135&option_lang=rus'>Семинар отдела геометрии и топологии МИАН &laquo;Геометрия, топология и математическая физика&raquo;  (семинар С.&nbsp;П.&nbsp;Новикова)</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Руководители семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/9162'>В.&nbsp;М.&nbsp;Бухштабер</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/13368'>А.&nbsp;А.&nbsp;Гайфуллин</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/8488'>И.&nbsp;А.&nbsp;Тайманов</a>
+         </div>
+          <div class="video">
+          <nobr><img src="/i/close.gif" align=absmiddle /> <i>МИАН, МГУ</i></nobr>
+          </div>
+           <div class="video">
+           <img src="/i/close.gif" align=absmiddle />
+           <a href="http://www.mi.ras.ru/index.php?c=fullsizephotogallery&id=12Novikov_1">Фотогалерея</a>
+           </div>
+            
+         </td>
+	 </tr>
+
+
+
+
+	 <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=9&confid=192&option_lang=rus'>Семинар по геометрической топологии</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Руководитель семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/9152'>С.&nbsp;А.&nbsp;Мелихов</a>
+         </div>
+          <div class="video">
+          <nobr><img src="/i/close.gif" align=absmiddle /> <i>МИАН, комн.&nbsp;430 (ул. Губкина,&nbsp;8)</i></nobr>
+          </div>
+           
+         </td>
+	 </tr>
+
+
+
+
+	 <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=9&confid=2309&option_lang=rus'>Семинар &quot;Маломерная топология&quot;</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Руководители семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/8990'>И.&nbsp;А.&nbsp;Дынников</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/48064'>М.&nbsp;В.&nbsp;Прасолов</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/72637'>В.&nbsp;А.&nbsp;Шастин</a>
+         </div>
+          <div class="video">
+          <nobr><img src="/i/close.gif" align=absmiddle /> <i>МИАН, комн.&nbsp;530 (ул. Губкина,&nbsp;8)</i></nobr>
+          </div>
+           
+         </td>
+	 </tr>
+
+
+
+
+	 <tr>
+ 	 <td class=y-bl valign=top><br></td>
+         </tr>
+          <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=16&confid=194&option_lang=rus'>Римановы поверхности, алгебры Ли и математическая физика</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Руководители семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/8969'>С.&nbsp;М.&nbsp;Натанзон</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/9009'>О.&nbsp;В.&nbsp;Шварцман</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/9016'>О.&nbsp;К.&nbsp;Шейнман</a>
+         </div>
+          
+         </td>
+	 </tr>
+
+
+
+
+	 
+         <tr><td><hr width=80% size=1px color=#eaeaea /></td></tr>
+
+         <tr>
+ 	 <td class=y-bl valign=top>
+         <b>Отдел теории чисел</b>
+         </td>
+         </tr>
+          <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=9&confid=1687&option_lang=rus'>Нерегулярный семинар по теории чисел</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Руководитель семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/56684'>Д.&nbsp;А.&nbsp;Фроленков</a>
+         </div>
+          <div class="video">
+          <nobr><img src="/i/close.gif" align=absmiddle /> <i>МИАН (ул. Губкина, 8)</i></nobr>
+          </div>
+           
+         </td>
+	 </tr>
+
+
+
+
+	 <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=9&confid=215&option_lang=rus'>Современные проблемы теории чисел</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Руководители семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/8491'>С.&nbsp;В.&nbsp;Конягин</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/8879'>М.&nbsp;А.&nbsp;Королёв</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/12163'>И.&nbsp;Д.&nbsp;Шкредов</a>; Секретарь семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/56684'>Д.&nbsp;А.&nbsp;Фроленков</a>
+         </div>
+          <div class="video">
+          <nobr><img src="/i/close.gif" align=absmiddle /> <i>МИАН, комн.&nbsp;530 (ул. Губкина,&nbsp;8)</i></nobr>
+          </div>
+           
+         </td>
+	 </tr>
+
+
+
+
+	 
+         <tr><td><hr width=80% size=1px color=#eaeaea /></td></tr>
+
+         <tr>
+ 	 <td class=y-bl valign=top>
+         <b>Отдел теории функций</b>
+         </td>
+         </tr>
+          <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=9&confid=137&option_lang=rus'>Семинар по теории функций многих действительных переменных и ее приложениям к&nbsp;задачам математической физики (Семинар Никольского)</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Руководитель семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/8745'>О.&nbsp;В.&nbsp;Бесов</a>
+         </div>
+          <div class="video">
+          <nobr><img src="/i/close.gif" align=absmiddle /> <i>МИАН, комн. 313 (ул. Губкина, 8)</i></nobr>
+          </div>
+           
+         </td>
+	 </tr>
+
+
+
+
+	 <tr>
+ 	 <td class=y-bl valign=top><br></td>
+         </tr>
+          <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=9&confid=258&option_lang=rus'>Семинар по теории приближений</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Руководитель семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/8389'>С.&nbsp;А.&nbsp;Теляковский</a>
+         </div>
+          
+         </td>
+	 </tr>
+
+
+
+
+	 
+         <tr><td><hr width=80% size=1px color=#eaeaea /></td></tr>
+
+         <tr>
+ 	 <td class=y-bl valign=top>
+         <b>Отдел комплексного анализа</b>
+         </td>
+         </tr>
+          <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=9&confid=138&option_lang=rus'>Семинар по комплексному анализу (Семинар Гончара)</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Руководители семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/14610'>Е.&nbsp;М.&nbsp;Чирка</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/8657'>А.&nbsp;И.&nbsp;Аптекарев</a>; Ученый секретарь семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/8653'>С.&nbsp;П.&nbsp;Суетин</a>; Постоянные участники семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/8688'>А.&nbsp;Б.&nbsp;Богатырёв</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/8633'>В.&nbsp;И.&nbsp;Буслаев</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/12022'>В.&nbsp;В.&nbsp;Горяйнов</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/36637'>А.&nbsp;В.&nbsp;Дьяченко</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/32150'>А.&nbsp;В.&nbsp;Комлов</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/15258'>Н.&nbsp;Г.&nbsp;Кружилин</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/20204'>М.&nbsp;А.&nbsp;Лапик</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/144967'>И.&nbsp;А.&nbsp;Лопатин</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/12473'>В.&nbsp;Г.&nbsp;Лысов</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/8909'>С.&nbsp;Ю.&nbsp;Немировский</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/38060'>Р.&nbsp;В.&nbsp;Пальвелев</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/8351'>П.&nbsp;В.&nbsp;Парамонов</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/13528'>А.&nbsp;Г.&nbsp;Сергеев</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/138555'>М.&nbsp;А.&nbsp;Степанова</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/8649'>К.&nbsp;Ю.&nbsp;Федоровский</a>
+         </div>
+          <div class="video">
+          <nobr><img src="/i/close.gif" align=absmiddle /> <i>МИАН, комн. 411 (ул. Губкина, 8)</i></nobr>
+          </div>
+           
+         </td>
+	 </tr>
+
+
+
+
+	 <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=12&confid=213&option_lang=rus'>Семинар по многомерному комплексному анализу (Семинар Витушкина)</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Руководители семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/11099'>В.&nbsp;К.&nbsp;Белошапка</a>; : <a class=SLink href='http://www.mathnet.ru/rus/person/8792'>А.&nbsp;В.&nbsp;Домрин</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/15258'>Н.&nbsp;Г.&nbsp;Кружилин</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/8909'>С.&nbsp;Ю.&nbsp;Немировский</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/13528'>А.&nbsp;Г.&nbsp;Сергеев</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/14610'>Е.&nbsp;М.&nbsp;Чирка</a>
+         </div>
+          <div class="video">
+          <nobr><img src="/i/close.gif" align=absmiddle /> <i>МГУ, ауд.&nbsp;12-06</i></nobr>
+          </div>
+           
+         </td>
+	 </tr>
+
+
+
+
+	 <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=9&confid=219&option_lang=rus'>Комплексные задачи математической физики</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Руководители семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/13528'>А.&nbsp;Г.&nbsp;Сергеев</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/8792'>А.&nbsp;В.&nbsp;Домрин</a>
+         </div>
+          <div class="video">
+          <nobr><img src="/i/close.gif" align=absmiddle /> <i>МИАН, комн.&nbsp;430 (ул.&nbsp;Губкина,&nbsp;8)</i></nobr>
+          </div>
+           
+         </td>
+	 </tr>
+
+
+
+
+	 
+         <tr><td><hr width=80% size=1px color=#eaeaea /></td></tr>
+
+         <tr>
+ 	 <td class=y-bl valign=top>
+         <b>Отдел дифференциальных уравнений</b>
+         </td>
+         </tr>
+          <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=9&confid=128&option_lang=rus'>Семинар «Оптимальное управление и динамические системы»</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Руководители семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/8838'>С.&nbsp;М.&nbsp;Асеев</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/15609'>Ю.&nbsp;С.&nbsp;Ильяшенко</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/27986'>Л.&nbsp;В.&nbsp;Локуциевский</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/17868'>М.&nbsp;С.&nbsp;Никольский</a>
+         </div>
+          <div class="video">
+          <nobr><img src="/i/close.gif" align=absmiddle /> <i>МИАН, комн.&nbsp;430 (ул. Губкина, 8)</i></nobr>
+          </div>
+           
+         </td>
+	 </tr>
+
+
+
+
+	 <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=12&confid=1048&option_lang=rus'>Геометрическая теория оптимального управления</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Руководители семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/18815'>А.&nbsp;В.&nbsp;Дмитрук</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/8494'>М.&nbsp;И.&nbsp;Зеликин</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/27986'>Л.&nbsp;В.&nbsp;Локуциевский</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/13588'>Ю.&nbsp;Л.&nbsp;Сачков</a>
+         </div>
+          <div class="video">
+          <nobr><img src="/i/close.gif" align=absmiddle /> <i>online</i></nobr>
+          </div>
+           
+         </td>
+	 </tr>
+
+
+
+
+	 <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=9&confid=617&option_lang=rus'>Проблемы математической теории управления</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Руководители семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/8838'>С.&nbsp;М.&nbsp;Асеев</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/17868'>М.&nbsp;С.&nbsp;Никольский</a>
+         </div>
+          <div class="video">
+          <nobr><img src="/i/close.gif" align=absmiddle /> <i>МИАН, комн. 430 (ул. Губкина, 8)</i></nobr>
+          </div>
+           
+         </td>
+	 </tr>
+
+
+
+
+	 <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=9&confid=677&option_lang=rus'>Семинар по аналитической теории дифференциальных уравнений</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Руководители семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/15607'>В.&nbsp;П.&nbsp;Лексин</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/31910'>А.&nbsp;В.&nbsp;Клименко</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/14020'>Р.&nbsp;Р.&nbsp;Гонцов</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/18550'>И.&nbsp;В.&nbsp;Вьюгин</a>
+         </div>
+          <div class="video">
+          <nobr><img src="/i/close.gif" align=absmiddle /> <i>МИАН, комн.&nbsp;440 (ул. Губкина, 8)</i></nobr>
+          </div>
+           
+         </td>
+	 </tr>
+
+
+
+
+	 
+         <tr><td><hr width=80% size=1px color=#eaeaea /></td></tr>
+
+         <tr>
+ 	 <td class=y-bl valign=top>
+         <b>Отдел математической физики</b>
+         </td>
+         </tr>
+          <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=9&confid=129&option_lang=rus'>Семинар отдела математической физики МИАН</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Руководитель семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/8846'>И.&nbsp;В.&nbsp;Волович</a>; Секретарь семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/11785'>С.&nbsp;В.&nbsp;Козырев</a>
+         </div>
+          <div class="video">
+          <nobr><img src="/i/close.gif" align=absmiddle /> <i>МИАН, комн.&nbsp;430 (ул. Губкина, 8)</i></nobr>
+          </div>
+           
+         </td>
+	 </tr>
+
+
+
+
+	 <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=9&confid=219&option_lang=rus'>Комплексные задачи математической физики</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Руководители семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/13528'>А.&nbsp;Г.&nbsp;Сергеев</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/8792'>А.&nbsp;В.&nbsp;Домрин</a>
+         </div>
+          <div class="video">
+          <nobr><img src="/i/close.gif" align=absmiddle /> <i>МИАН, комн.&nbsp;430 (ул.&nbsp;Губкина,&nbsp;8)</i></nobr>
+          </div>
+           
+         </td>
+	 </tr>
+
+
+
+
+	 <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=9&confid=766&option_lang=rus'>Рабочее совещание  &laquo;Математические вопросы квантовой теории наносистем и фотосинтеза&raquo;</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Организаторы: <a class=SLink href='http://www.mathnet.ru/rus/person/8846'>И.&nbsp;В.&nbsp;Волович</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/11785'>С.&nbsp;В.&nbsp;Козырев</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/31114'>А.&nbsp;С.&nbsp;Трушечкин</a>
+         </div>
+          <div class="video">
+          <nobr><img src="/i/close.gif" align=absmiddle /> <i>МИАН, ул. Губкина, д. 8, ауд. 430</i></nobr>
+          </div>
+           
+         </td>
+	 </tr>
+
+
+
+
+	 <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=9&confid=1253&option_lang=rus'>Семинар В.П.&nbsp;Михайлова</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Руководитель семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/8284'>А.&nbsp;К.&nbsp;Гущин</a>; Секретарь семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/17604'>В.&nbsp;В.&nbsp;Жаринов</a>
+         </div>
+          <div class="video">
+          <nobr><img src="/i/close.gif" align=absmiddle /> <i>МИАН, комн. 430 (ул. Губкина, 8)</i></nobr>
+          </div>
+           
+         </td>
+	 </tr>
+
+
+
+
+	 
+         <tr><td><hr width=80% size=1px color=#eaeaea /></td></tr>
+
+         <tr>
+ 	 <td class=y-bl valign=top>
+         <b>Отдел теоретической физики</b>
+         </td>
+         </tr>
+          <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=9&confid=130&option_lang=rus'>Семинар отдела теоретической физики МИАН</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Руководитель семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/18676'>Н.&nbsp;А.&nbsp;Славнов</a>; Секретарь семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/20736'>А.&nbsp;В.&nbsp;Зотов</a>
+         </div>
+          <div class="video">
+          <nobr><img src="/i/close.gif" align=absmiddle /> <i>МИАН, комн.&nbsp;313 (ул. Губкина, 8)</i></nobr>
+          </div>
+           
+         </td>
+	 </tr>
+
+
+
+
+	 <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=9&confid=997&option_lang=rus'>International workshop &quot;Holography for NICA&quot;</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Руководитель семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/18687'>И.&nbsp;Я.&nbsp;Арефьева</a>
+         </div>
+          <div class="video">
+          <nobr><img src="/i/close.gif" align=absmiddle /> <i>Steklov Mathematical Institute of Russian Academy of Sciences</i></nobr>
+          </div>
+           
+         </td>
+	 </tr>
+
+
+
+
+	 <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=9&confid=1927&option_lang=rus'>Quantum Gravity and All of That</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Организаторы: <a class=SLink href='http://www.mathnet.ru/rus/person/169864'>L.&nbsp;Buoninfante</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/18687'>И.&nbsp;Я.&nbsp;Арефьева</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/22262'>А.&nbsp;С.&nbsp;Кошелев</a>; Программный комитет: <a class=SLink href='http://www.mathnet.ru/rus/person/169866'>R.&nbsp;Brandenberger</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/170223'>A.&nbsp;Dabholkar</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/169867'>N.&nbsp;Engelhardt</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/170343'>J.&nbsp;Gates</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/170225'>J.&nbsp;Murugan</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/225553'>N.&nbsp;Obers</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/170226'>F.&nbsp;Quevedo</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/170227'>E.&nbsp;Rabinovici</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/170228'>A.&nbsp;Sen</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/170229'>L.&nbsp;Susskind</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/170344'>M.&nbsp;Yamaguchi</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/75115'>Г.&nbsp;Венециано</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/146554'>Я.&nbsp;Вербааршот</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/8846'>И.&nbsp;В.&nbsp;Волович</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/151610'>Э.&nbsp;Киритсис</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/144971'>И.&nbsp;Р.&nbsp;Клебанов</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/151606'>Р.&nbsp;Майерс</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/169871'>Х.&nbsp;Малдасена</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/151609'>Я.&nbsp;Сонненшейн</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/50885'>А.&nbsp;А.&nbsp;Старобинский</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/64432'>Герард&nbsp;'т&nbsp;Хоофт</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/63946'>М.&nbsp;Энно</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/151608'>И.&nbsp;Эрдменгер</a>; Ученые секретари: <a class=SLink href='http://www.mathnet.ru/rus/person/169873'>S.&nbsp;Kumar</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/92144'>Д.&nbsp;С.&nbsp;Агеев</a>
+         </div>
+          <div class="video">
+          <nobr><img src="/i/close.gif" align=absmiddle /> <i>online</i></nobr>
+          </div>
+           
+         </td>
+	 </tr>
+
+
+
+
+	 
+         <tr><td><hr width=80% size=1px color=#eaeaea /></td></tr>
+
+         <tr>
+ 	 <td class=y-bl valign=top>
+         <b>Отдел механики</b>
+         </td>
+         </tr>
+          <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=12&confid=1386&option_lang=rus'>Гамильтоновы системы и статистическая механика</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Руководитель семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/22874'>С.&nbsp;В.&nbsp;Болотин</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/8433'>В.&nbsp;В.&nbsp;Козлов</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/9248'>Д.&nbsp;В.&nbsp;Трещев</a>
+         </div>
+          <div class="video">
+          <nobr><img src="/i/close.gif" align=absmiddle /> <i>МГУ, механико-математический факультет, ауд. 1402</i></nobr>
+          </div>
+           
+         </td>
+	 </tr>
+
+
+
+
+	 <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=9&confid=1791&option_lang=rus'>Динамические системы и математическая физика</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Руководитель семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/32257'>А.&nbsp;В.&nbsp;Дымов</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/9248'>Д.&nbsp;В.&nbsp;Трещев</a>
+         </div>
+          <div class="video">
+          <nobr><img src="/i/close.gif" align=absmiddle /> <i>МИАН, ул. Губкина, д. 8, ауд. 313</i></nobr>
+          </div>
+           
+         </td>
+	 </tr>
+
+
+
+
+	 <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=9&confid=1832&option_lang=rus'>Динамические системы и уравнения с частными производными</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Руководители семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/32257'>А.&nbsp;В.&nbsp;Дымов</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/19490'>С.&nbsp;Б.&nbsp;Куксин</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/9248'>Д.&nbsp;В.&nbsp;Трещев</a>
+         </div>
+          <div class="video">
+          <nobr><img src="/i/close.gif" align=absmiddle /> <i>Совместный онлайн семинар МИАН и Paris 7 Diderot</i></nobr>
+          </div>
+           
+         </td>
+	 </tr>
+
+
+
+
+	 <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=9&confid=837&option_lang=rus'>Семинар отдела механики</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Руководители семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/8433'>В.&nbsp;В.&nbsp;Козлов</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/9114'>А.&nbsp;Г.&nbsp;Куликовский</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/22874'>С.&nbsp;В.&nbsp;Болотин</a>
+         </div>
+          <div class="video">
+          <nobr><img src="/i/close.gif" align=absmiddle /> <i>МИАН, комн.&nbsp;530 (ул.&nbsp;Губкина,&nbsp;8)</i></nobr>
+          </div>
+           
+         </td>
+	 </tr>
+
+
+
+
+	 
+         <tr><td><hr width=80% size=1px color=#eaeaea /></td></tr>
+
+         <tr>
+ 	 <td class=y-bl valign=top>
+         <b>Отдел теории вероятностей и математической статистики</b>
+         </td>
+         </tr>
+          <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=12&confid=133&option_lang=rus'>Большой семинар кафедры теории вероятностей МГУ</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Руководитель семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/9196'>А.&nbsp;Н.&nbsp;Ширяев</a>; Координатор семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/8988'>Е.&nbsp;Б.&nbsp;Яровая</a>; Ученый секретарь: <a class=SLink href='http://www.mathnet.ru/rus/person/166016'>В.А.&nbsp;Куценко</a>
+         </div>
+          <div class="video">
+          <nobr><img src="/i/close.gif" align=absmiddle /> <i>ГЗ МГУ, ауд. 12-24</i></nobr>
+          </div>
+           
+         </td>
+	 </tr>
+
+
+
+
+	 <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=9&confid=132&option_lang=rus'>Семинар отдела теории вероятностей и математической статистики МИАН</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Руководители семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/9196'>А.&nbsp;Н.&nbsp;Ширяев</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/8777'>А.&nbsp;С.&nbsp;Холево</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/17972'>А.&nbsp;А.&nbsp;Гущин</a>
+         </div>
+          <div class="video">
+          <nobr><img src="/i/close.gif" align=absmiddle /> <i>МИАН, комн.&nbsp;415 (ул. Губкина, 8)</i></nobr>
+          </div>
+           
+         </td>
+	 </tr>
+
+
+
+
+	 <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=9&confid=136&option_lang=rus'>Семинар &laquo;Квантовая вероятность, статистика, информация&raquo;</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Руководитель семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/8777'>А.&nbsp;С.&nbsp;Холево</a>
+         </div>
+          <div class="video">
+          <nobr><img src="/i/close.gif" align=absmiddle /> <i>online</i></nobr>
+          </div>
+           
+         </td>
+	 </tr>
+
+
+
+
+	 
+         <tr><td><hr width=80% size=1px color=#eaeaea /></td></tr>
+
+         <tr>
+ 	 <td class=y-bl valign=top>
+         <b>Отдел дискретной математики</b>
+         </td>
+         </tr>
+          <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=9&confid=127&option_lang=rus'>Семинар отдела дискретной математики МИАН</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Руководитель семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/20403'>В.&nbsp;А.&nbsp;Ватутин</a>
+         </div>
+          <div class="video">
+          <nobr><img src="/i/close.gif" align=absmiddle /> <i>МИАН, комн.&nbsp;511 (ул. Губкина, 8)</i></nobr>
+          </div>
+           
+         </td>
+	 </tr>
+
+
+
+
+	 
+         <tr><td><hr width=80% size=1px color=#eaeaea /></td></tr>
+
+         <tr>
+ 	 <td class=y-bl valign=top>
+         <b>Отдел математических методов квантовых технологий</b>
+         </td>
+         </tr>
+          <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=9&confid=1775&option_lang=rus'>Семинар отдела математических методов квантовых
+технологий МИАН</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Руководитель семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/17991'>А.&nbsp;Н.&nbsp;Печень</a>
+         </div>
+          <div class="video">
+          <nobr><img src="/i/close.gif" align=absmiddle /> <i>МИАН, ул. Губкина, д. 8</i></nobr>
+          </div>
+           
+         </td>
+	 </tr>
+
+
+
+
+	 <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=9&confid=2523&option_lang=rus'>Семинар по квантовой оптике и смежным вопросам</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Руководители семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/86793'>Р.&nbsp;Сингх</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/76513'>А.&nbsp;Е.&nbsp;Теретёнков</a>
+         </div>
+          <div class="video">
+          <nobr><img src="/i/close.gif" align=absmiddle /> <i>online</i></nobr>
+          </div>
+           
+         </td>
+	 </tr>
+
+
+
+
+	 <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=9&confid=2350&option_lang=rus'>Подслушивающие действия в квантовой криптографии и сопутствующие
+математические задачи</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Организационный комитет: <a class=SLink href='http://www.mathnet.ru/rus/person/164271'>А.&nbsp;В.&nbsp;Козубов</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/57447'>Д.&nbsp;А.&nbsp;Кронберг</a>
+         </div>
+          <div class="video">
+          <nobr><img src="/i/close.gif" align=absmiddle /> <i>МИАН (ул.&nbsp;Губкина, 8)</i></nobr>
+          </div>
+           
+         </td>
+	 </tr>
+
+
+
+
+	 
+         <tr><td><hr width=80% size=1px color=#eaeaea /></td></tr>
+
+         <tr>
+ 	 <td class=y-bl valign=top>
+         <b>Отдел математических основ искусственного интеллекта</b>
+         </td>
+         </tr>
+          <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=9&confid=2402&option_lang=rus'>Семинар &laquo;Математические основы искусственного интеллекта&raquo;</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Бюро семинара: <a class=SLink href='http://www.mathnet.ru/rus/person/42687'>А.&nbsp;И.&nbsp;Аветисян</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/8657'>А.&nbsp;И.&nbsp;Аптекарев</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/18031'>Б.&nbsp;С.&nbsp;Кашин</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/18590'>В.&nbsp;Н.&nbsp;Темляков</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/8538'>Е.&nbsp;Е.&nbsp;Тыртышников</a>; Организационный комитет: <a class=SLink href='http://www.mathnet.ru/rus/person/18590'>В.&nbsp;Н.&nbsp;Темляков</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/31976'>П.&nbsp;А.&nbsp;Яськов</a>
+         </div>
+          <div class="video">
+          <nobr><img src="/i/close.gif" align=absmiddle /> <i>МИАН, ул. Губкина, д. 8, конференц-зал, 9 этаж + Контур Толк</i></nobr>
+          </div>
+           <div class="video">
+           <img src="/i/close.gif" align=absmiddle />
+           <a href="http://https://www.mi-ras.ru/index.php?c=fullsizephotogallery&id=MFAI2402">Фотогалерея</a>
+           </div>
+            
+         </td>
+	 </tr>
+
+
+
+
+	 
+         <tr><td><hr width=80% size=1px color=#eaeaea /></td></tr>
+
+         <tr>
+ 	 <td class=y-bl valign=top>
+         <b>Отдел компьютерных сетей и информационных технологий</b>
+         </td>
+         </tr>
+          <tr>
+ 	 <td class=y-bl valign=top class='sem'>
+         <img src='i/close4.gif' alt='' border='0' />
+	 <a class=SLink href='http://www.mathnet.ru/php/conference.phtml?eventID=9&confid=796&option_lang=rus'>Семинары отдела компьютерных сетей и информационных технологий</a>
+
+        <div class="video">
+        <img src="/i/close.gif" align=absmiddle /> 
+         Организаторы: <a class=SLink href='http://www.mathnet.ru/rus/person/18136'>О.&nbsp;Г.&nbsp;Мисюрина</a>; <a class=SLink href='http://www.mathnet.ru/rus/person/18133'>Д.&nbsp;Е.&nbsp;Чебуков</a>
+         </div>
+          <div class="video">
+          <nobr><img src="/i/close.gif" align=absmiddle /> <i>МИАН, ул. Губкина, д. 8</i></nobr>
+          </div>
+           
+         </td>
+	 </tr>
+
+
+
+
+	</table>
+</td></tr>
+<tr class='webpagefooter'>
+   <td class="bot" colspan="4"><a href="index.php"
+          title="На главную страницу" 
+          class="sp-denote-title"
+          ><!--<a
+              href="index.html"
+              title="На главную страницу" target="_top">На главную
+           страницу</a>&nbsp;&nbsp;&nbsp;--><img
+          src="/social/MianLogo.svg?v=1" style="height:28px;padding: 5px 5px 5px 5px"
+          alt="На главную страницу"  border="0" vspace="1"
+          /></a><br /><img
+          class="hide-on-sp--"
+          src="cs/i/line_d1.jpg"
+          alt="" /><br />&copy;&nbsp;Математический
+         институт
+         им.&nbsp;В.А.&nbsp;Стеклова Российской академии наук,&nbsp;2004&ndash;2026
+<br/>Разработка и дизайн: 
+<a href="/index.php?c=show_dep&id=13"
+        title="Отдел компьютерных сетей и информационных технологий">Отдел
+        КС&nbsp;и&nbsp;ИТ</a></td>
+</tr>
+</table>
+
+
+
+
+
+<!--</div>--><!-- id=app -->
+
+<!-- end google-analytics -->
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write("\<script src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'>\<\/script>" );
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-3038033-6");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+
+<!-- end google-analytics -->
+
+<script>
+window.onload = function() 
+{ document.getElementById("hideAll").style.display = "none"; }
+</script>
+
+
+</body>
+</html>
+

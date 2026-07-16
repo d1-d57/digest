@@ -1,0 +1,16 @@
+[1/3] Коллоквиум МИАН confid=142  <- live   https://www.mathnet.ru/php/conference.phtml?option_lang=rus&eventID=9&confid=142
+      проверка «контент настоящий»: кириллицы=62751, ОК
+      -> 260 докладов, пустых полей 0, свежайший 2026-06-25
+[2/3] УМН, последний выпуск  <- live  https://www.mathnet.ru/php/currentissue.phtml?jrnid=rm&option_lang=rus
+      проверка «контент настоящий»: кириллицы=2428, ОК
+      -> УМН, 2026, том 81, выпуск 3(489): 10 статей
+[3/3] УМН, страница статьи  <- live  https://www.mathnet.ru/php/archive.phtml?wshow=paper&jrnid=rm&paperid=10293&option_lang=rus
+      проверка «контент настоящий»: кириллицы=2767, ОК
+      -> аннотация 560 симв., PDF: PDF полного текста (831 kB)
+
+======================================================================
+ВЕРДИКТ: выемка удалась. Рычаг 3 (Wayback) даёт настоящий контент mathnet.
+  colloquium: {'records': 260, 'empty_fields': 0, 'raw': 'data/mathnet_probe/raw/colloquium_conf142_20251114111128.html', 'newest_talk': '2026-06-25', 'oldest_talk': '2001-01-16'}
+  umn_issue: {'issue': 'УМН, 2026, том 81, выпуск 3(489)', 'records': 10, 'raw': 'data/mathnet_probe/raw/umn_currentissue_20260114101928.html'}
+  umn_paper: {'abstract_chars': 560, 'pdf': 'https://www.mathnet.ru/php/getFT.phtml?jrnid=rm&paperid=10293&what=fullt&option_lang=rus', 'raw': 'data/mathnet_probe/raw/umn_paper_10293_20251204010148.html'}
+Файлы -> data/mathnet_probe/

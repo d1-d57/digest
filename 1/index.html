@@ -1,0 +1,229 @@
+<!-- СГЕНЕРИРОВАНО ИЗ vypusk.md ГЕНЕРАТОРОМ build_vypusk.py — РУКАМИ НЕ ПРАВИТЬ. Правь markdown-источник, пересобирай (0 токенов). -->
+
+<!doctype html><html lang=ru><head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>MATEMDIGEST · выпуск №1</title>
+<link rel=preconnect href="https://fonts.googleapis.com"><link rel=preconnect href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Forum&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel=stylesheet>
+<style>*{box-sizing:border-box}
+:root{--bg:#14110d;--ink:#ece3d2;--mut:#a89c86;--faint:#6b6252;--line:rgba(236,227,210,.13);--gold:#cea24a;--gold2:#e6c26f;--teal:#6fae9f}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Golos Text',system-ui,sans-serif;
+ font-size:clamp(18px,1.32vw,29px);line-height:1.55;
+ background-image:radial-gradient(900px 500px at 15% -8%,rgba(206,162,74,.12),transparent 60%),radial-gradient(800px 600px at 100% 4%,rgba(111,174,159,.07),transparent 55%);-webkit-font-smoothing:antialiased}
+.wrap{width:min(1780px,93vw);margin:0 auto;padding:clamp(30px,3.2vw,64px) 0 110px}
+.kick{font-family:'JetBrains Mono',monospace;font-size:.66em;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+h1{font-family:'Forum',serif;font-weight:400;font-size:clamp(40px,5.4vw,104px);margin:0 0 20px;line-height:1.03;overflow-wrap:break-word}
+.intro{color:var(--mut);margin:0 0 .34em;font-size:1.1em;line-height:1.5}
+.intro:last-of-type{margin-bottom:0}
+.intro a,.blurb a,.labout a{color:var(--gold2);text-decoration:none;border-bottom:1px solid rgba(206,162,74,.35)}
+.intro a:hover,.blurb a:hover,.labout a:hover{color:var(--gold);border-bottom-color:var(--gold)}
+.note{display:flex;gap:.6em;align-items:baseline;margin-top:22px;color:var(--faint);font-size:.75em;line-height:1.45}
+.note .sign{color:var(--gold);font-size:1.15em;line-height:1}
+.author{font-family:'JetBrains Mono',monospace;font-size:.8em;letter-spacing:.05em;color:var(--mut);margin-top:20px}
+.author a{color:var(--gold);text-decoration:none}.author a:hover{text-decoration:underline}
+.rubric{font-family:'JetBrains Mono',monospace;font-size:.72em;letter-spacing:.24em;text-transform:uppercase;color:var(--gold2);margin:clamp(34px,3vw,56px) 0 22px;padding-top:16px;border-top:1px solid rgba(206,162,74,.3)}
+.rule{height:1px;background:var(--line);margin:clamp(24px,2vw,38px) 0}
+.item{padding:2px 0}
+.side{margin-bottom:16px}
+.meta{display:flex;gap:10px;align-items:center;margin-bottom:10px;flex-wrap:wrap}
+.kind{font-family:'JetBrains Mono',monospace;font-size:.62em;letter-spacing:.1em;text-transform:uppercase;color:var(--bg);background:var(--gold);border-radius:5px;padding:5px 11px;font-weight:700;text-decoration:none;display:inline-block}
+a.kind:hover{background:var(--gold2)}
+.date{font-family:'JetBrains Mono',monospace;font-size:.62em;color:var(--faint);margin-left:auto}
+.title{font-family:'Forum',serif;font-weight:400;font-size:clamp(32px,2.9vw,58px);line-height:1.06;margin:0 0 10px}
+.by{font-size:.82em;color:var(--mut);margin:0;line-height:1.45}
+.prof{display:block;width:fit-content;margin-top:12px;font-size:.8em;color:var(--teal);text-decoration:none;border:1px solid rgba(111,174,159,.4);border-radius:7px;padding:7px 13px;line-height:1.3}
+.prof:hover{color:var(--bg);background:var(--teal);border-color:var(--teal)}
+.blurb{margin:0 0 .38em;color:#ded4c2}
+.blurb:last-child{margin-bottom:0}
+.blurb .m{font-family:'JetBrains Mono',monospace;font-size:.92em}
+.blurb sup,.blurb sub{font-size:.72em}
+.more{font-family:'JetBrains Mono',monospace;font-size:.7em;color:var(--gold);text-decoration:none;letter-spacing:.02em}
+.more:hover{color:var(--gold2);text-decoration:underline}
+.links{margin:clamp(26px,2.2vw,44px) 0 4px;padding:clamp(18px,1.5vw,32px) clamp(20px,1.6vw,34px);border:1px solid var(--line);border-radius:10px;background:rgba(236,227,210,.03)}
+.lhead{font-family:'JetBrains Mono',monospace;font-size:.62em;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);margin-bottom:18px}
+.lnk{margin:0 0 20px;line-height:1.45}
+.lnk:last-child{margin-bottom:0}
+.labout{color:var(--mut);font-size:.92em;margin-bottom:2px}
+.lnk a{color:var(--gold2);text-decoration:none;border-bottom:1px solid rgba(206,162,74,.35)}
+.lnk a:hover{color:var(--gold);border-bottom-color:var(--gold)}
+.dots{position:fixed;right:clamp(10px,2vw,30px);top:50%;transform:translateY(-50%);display:none;flex-direction:column;gap:15px;z-index:9}
+.dots a{position:relative;width:9px;height:9px;border-radius:50%;background:rgba(236,227,210,.22);transition:background .18s,transform .18s}
+.dots a:hover{background:var(--gold);transform:scale(1.35)}
+.dots a::after{content:attr(data-t);position:absolute;right:20px;top:50%;transform:translateY(-50%);
+ white-space:nowrap;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.04em;color:var(--ink);
+ background:rgba(20,17,13,.94);border:1px solid var(--line);border-radius:6px;padding:5px 10px;opacity:0;pointer-events:none;transition:opacity .18s}
+.dots a:hover::after{opacity:1}
+@media (min-width:1080px){
+ .wrap{padding-right:clamp(26px,2.4vw,52px)}
+ .dots{display:flex}
+ .item{display:grid;grid-template-columns:minmax(240px,23%) minmax(0,1fr);column-gap:clamp(28px,2.4vw,52px)}
+ .side{grid-column:1;margin-bottom:0;position:sticky;top:30px;align-self:start}
+ .body{grid-column:2}
+}
+.foot{margin-top:clamp(40px,3.4vw,64px);padding-top:22px;border-top:1px solid var(--line)}
+.foot .author{margin-top:0;white-space:nowrap}</style></head><body><div class=wrap>
+<div class=kick>25 ИЮЛЯ 2026</div>
+<h1>Награды конгресса математиков 2026</h1>
+<p class=intro>Двадцать третьего июля на конгрессе математиков в Филадельфии раздали награды: четыре Филдсовские медали, медаль Абакуса, премию Гаусса, медаль Черна и премию Лилавати. Филдсовскую вручают с 1936 года — ей в этом году девяносто</p>
+<p class=intro>На конгрессе про каждую из этих работ рассказывают отдельно — и сами лауреаты, и <a href="https://www.youtube.com/watch?v=h6dfwILeoIg" target="_blank" rel="noopener">признанные специалисты, разбирающие их результаты</a>; тексты докладов выйдут в сборнике только в 2027 году</p>
+<p class=intro>Я собрал уже вышедшие тексты, в которых объясняется, чем занимаются лауреаты. К каждому — короткий рассказ и два-три материала: от изложения для широкой математической аудитории до обзоров для специалистов</p>
+<div class=note><span class=sign>&#9651;</span><span>Рассказы о работах лауреатов написал Claude Opus по источникам, на которые ссылается. Там могут быть ошибки</span></div>
+<div class=author>Ваня Яковлев · <a href="https://t.me/turings_crossword" target=_blank rel=noopener>«Кроссворд Тьюринга»</a></div>
+<div class=rubric>Филдсовская медаль</div>
+<article class=item id=p1>
+<div class=side>
+<div class=meta><span class=kind>ФИЛДСОВСКАЯ МЕДАЛЬ</span></div>
+<h2 class=title>Хун Ван</h2>
+<div class=by>гармонический анализ · геометрическая теория меры · комбинаторика</div>
+<a class=prof href="https://www.quantamagazine.org/hong-wang-wins-2026-fields-medal-the-third-woman-ever-20260723/" target=_blank rel=noopener>Портрет в Quanta →</a>
+<a class=prof href="https://www.youtube.com/watch?v=mTPyjR3qmTA" target=_blank rel=noopener>Видеовизитка Simons Foundation →</a>
+<a class=prof href="https://www.mathunion.org/imu-awards/fields-medal/fields-medals-2026" target=_blank rel=noopener>Страница награды →</a>
+</div><div class=body>
+<p class=blurb>Множество Какейи содержит единичный отрезок в каждом направлении. Безикович век назад показал, что площадь у такого множества может быть нулевой, и это долго выглядело курьёзом. Потом выяснилось, что от этого курьёза зависит весь анализ Фурье: чем тоньше бывают такие множества, тем слабее оценки для преобразования Фурье, а через них — и для волнового уравнения с уравнением Шрёдингера</p>
+<p class=blurb>Гипотеза Какейи утверждает, что в трёхмерном пространстве размерность у такого множества всё-таки полная. Полвека к ней подбирались по сотым долям. В феврале 2025-го Хун Ван и Джошуа Заль её закрыли на ста тридцати страницах, научившись управлять тем, как плотно пучки тонких трубок могут лежать друг в друге</p>
+<p class=blurb>Другое направление её работы — задача Фалконера о множествах расстояний и проективная теория; сюжет тот же, только там от геометрии направлений зависят другие оценки</p>
+<p class=blurb>Ван стала третьей женщиной с Филдсовской медалью за девяносто лет</p>
+<div class=links><div class=lhead>Что почитать и посмотреть</div>
+<div class=lnk><div class=labout>Большая статья в Quanta без единой формулы: откуда взялась задача, почему её считали безнадёжной и что придумали Ван и Заль</div><a href="https://www.quantamagazine.org/once-in-a-century-proof-settles-maths-kakeya-conjecture-20250314/" target=_blank rel=noopener>«Once in a Century» Proof Settles Math&#x27;s Kakeya Conjecture</a></div>
+<div class=lnk><div class=labout>Десять страниц с картинками из просветительской серии института в Обервольфахе — рассчитано на студента</div><a href="https://publications.mfo.de/bitstream/handle/mfo/4426/snapshot-2026-008.pdf" target=_blank rel=noopener>The Kakeya conjecture</a></div>
+<div class=lnk><div class=labout>Изложение доказательства для семинара Бурбаки: тридцать пять страниц, все идеи проговорены, техника опущена</div><a href="https://www.bourbaki.fr/TEXTES/Exp1251-Guth.pdf" target=_blank rel=noopener>The Kakeya conjecture in R³, after Hong Wang and Joshua Zahl</a></div>
+</div>
+</div></article>
+<div class=rule></div>
+<article class=item id=p2>
+<div class=side>
+<div class=meta><span class=kind>ФИЛДСОВСКАЯ МЕДАЛЬ</span></div>
+<h2 class=title>Юй Дэн</h2>
+<div class=by>уравнения в частных производных · вероятность · матфизика</div>
+<a class=prof href="https://www.quantamagazine.org/yu-deng-wins-the-fields-medal-2026-for-his-work-on-the-random-data-problem-20260723/" target=_blank rel=noopener>Портрет в Quanta →</a>
+<a class=prof href="https://www.youtube.com/watch?v=ERemSkQtoDk" target=_blank rel=noopener>Видеовизитка Simons Foundation →</a>
+<a class=prof href="https://www.mathunion.org/imu-awards/fields-medal/fields-medals-2026" target=_blank rel=noopener>Страница награды →</a>
+</div><div class=body>
+<p class=blurb>Шестая проблема Гильберта состоит в том, чтобы вывести уравнения сплошной среды из механики частиц. Математически это предельная теорема: динамика N упругих шариков обратима, а уравнение Больцмана, к которому она должна сходиться при большом N, необратимо. Значит, надо понять, откуда необратимость берётся в пределе</p>
+<p class=blurb>Ланфорд в 1975 году доказал сходимость, но лишь на время порядка длины свободного пробега: дальше учесть повторные столкновения не удавалось. Юй Дэн вместе с Захером Хани и Сяо Ма научился их учитывать, и ограничения на время не осталось — вывод верен, пока у самого уравнения Больцмана есть гладкое решение. Из него дальше получаются уравнения Эйлера и Навье — Стокса</p>
+<p class=blurb>На том же приёме держатся ещё две области, которыми он занимается: вывод волнового кинетического уравнения в теории волновой турбулентности и теория случайных начальных данных в дисперсионных уравнениях, где вместо худшего случая изучают типичный</p>
+<div class=links><div class=lhead>Что почитать и посмотреть</div>
+<div class=lnk><div class=labout>Репортаж в Quanta о том, как из обратимых столкновений получается необратимое время. Читается без подготовки</div><a href="https://www.quantamagazine.org/epic-effort-to-ground-physics-in-math-opens-up-the-secrets-of-time-20250611/" target=_blank rel=noopener>Epic Effort to Ground Physics in Math Opens Up the Secrets of Time</a></div>
+<div class=lnk><div class=labout>Разбор для семинара Бурбаки, по-французски: что доказал Ланфорд и что именно к этому добавили Дэн, Хани и Ма</div><a href="https://www.bourbaki.fr/TEXTES/Exp1247-Gallagher.pdf" target=_blank rel=noopener>Dérivation de l&#x27;équation de Boltzmann en temps long</a></div>
+<div class=lnk><div class=labout>Три лекции, где Дэн сам разбирает доказательство — подробно и для тех, кто в теме</div><a href="https://www.youtube.com/watch?v=9FwlXxdSKgE" target=_blank rel=noopener>Long time derivation of Boltzmann equation from hard sphere dynamics</a></div>
+</div>
+</div></article>
+<div class=rule></div>
+<article class=item id=p3>
+<div class=side>
+<div class=meta><span class=kind>ФИЛДСОВСКАЯ МЕДАЛЬ</span></div>
+<h2 class=title>Яков Цимерман</h2>
+<div class=by>теория чисел · алгебраическая геометрия · теория моделей</div>
+<a class=prof href="https://www.quantamagazine.org/jacob-tsimerman-wins-2026-fields-medal-for-andre-oort-conjecture-proof-20260723/" target=_blank rel=noopener>Портрет в Quanta →</a>
+<a class=prof href="https://www.youtube.com/watch?v=TAh5tZ8QAzQ" target=_blank rel=noopener>Видеовизитка Simons Foundation →</a>
+<a class=prof href="https://www.mathunion.org/imu-awards/fields-medal/fields-medals-2026" target=_blank rel=noopener>Страница награды →</a>
+</div><div class=body>
+<p class=blurb>Многообразие Шимуры — пространство модулей: точка на нём есть эллиптическая кривая, абелево многообразие или похожий объект вместе с дополнительной структурой. Среди этих точек выделены специальные — те, где у объекта необычно большое кольцо эндоморфизмов; классический пример — кривые с комплексным умножением</p>
+<p class=blurb>Гипотеза Андре — Оорта утверждает, что специальные точки не скапливаются без причины: если в подмногообразии они лежат плотно по Зарисскому, само подмногообразие специально</p>
+<p class=blurb>Доказательство строится на переводе между двумя описаниями одного пространства — алгебраическим и трансцендентным, через униформизацию. Ключ дала о-минимальность: класс достаточно правильно устроенных множеств, в котором запрещены патологии вроде графика функции sin(1/x). В таком классе у трансцендентного множества не бывает слишком много рациональных точек, если внутри него нет алгебраической кривой</p>
+<p class=blurb>Цимерман с соавторами довёл эту программу до полного доказательства в 2021 году, а тем же инструментом получил гипотезу Гриффитса об образах отображений периодов и алгебраичность локусов Ходжа</p>
+<div class=links><div class=lhead>Что почитать и посмотреть</div>
+<div class=lnk><div class=labout>Статья в Quanta о самом доказательстве, вышла сразу после него. Без формул</div><a href="https://www.quantamagazine.org/mathematicians-prove-30-year-old-andre-oort-conjecture-20220203/" target=_blank rel=noopener>Mathematicians Prove 30-Year-Old André-Oort Conjecture</a></div>
+<div class=lnk><div class=labout>Семистраничный обзор, написанный самим Цимерманом для журнала Американского математического общества: весь каркас доказательства с определениями</div><a href="https://www.ams.org/journals/notices/202410/rnoti-p1307.pdf" target=_blank rel=noopener>The André-Oort Conjecture</a></div>
+<div class=lnk><div class=labout>Доклад в семинаре Бурбаки о том, как о-минимальность вошла в теорию Ходжа. По-французски, для тех, кто в теме</div><a href="https://www.bourbaki.fr/TEXTES/Exp1170-Fresan.pdf" target=_blank rel=noopener>Théorie de Hodge et o-minimalité</a></div>
+</div>
+</div></article>
+<div class=rule></div>
+<article class=item id=p4>
+<div class=side>
+<div class=meta><span class=kind>ФИЛДСОВСКАЯ МЕДАЛЬ</span></div>
+<h2 class=title>Джон Пардон</h2>
+<div class=by>симплектическая геометрия · топология · матфизика</div>
+<a class=prof href="https://www.quantamagazine.org/john-pardon-wins-the-2026-fields-medal-for-work-in-symplectic-geometry-20260723/" target=_blank rel=noopener>Портрет в Quanta →</a>
+<a class=prof href="https://www.youtube.com/watch?v=E4KP07YL0Js" target=_blank rel=noopener>Видеовизитка Simons Foundation →</a>
+<a class=prof href="https://www.mathunion.org/imu-awards/fields-medal/fields-medals-2026" target=_blank rel=noopener>Страница награды →</a>
+</div><div class=body>
+<p class=blurb>Симплектическая геометрия выросла из гамильтоновой механики, и её инварианты устроены как счёт: сколько псевдоголоморфных кривых заданного типа лежит внутри многообразия. Беда в том, что считать не получается: пространства таких кривых не гладкие, размерность скачет, и наивный счёт не определён</p>
+<p class=blurb>Полтора десятка лет в области сосуществовало несколько конкурирующих способов обойти это, каждый со своими оговорками. Пардон ещё в диссертации построил общую конструкцию виртуальных фундаментальных циклов, которая делает счёт законным раз и навсегда, и на этом фундаменте закрыл несколько давних задач — в том числе гипотезу MNOP о том, что два разных способа считать кривые на трёхмерных многообразиях Калаби — Яу, из теории Громова — Виттена и из теории Дональдсона — Томаса, дают одно и то же</p>
+<p class=blurb>Обе теории пришли из физики струн; совпадение означает, что за ними стоит один объект</p>
+<p class=blurb>Первую работу Пардон написал школьником, а в аспирантуре успел закрыть частный случай пятой проблемы Гильберта</p>
+<div class=links><div class=lhead>Что почитать и посмотреть</div>
+<div class=lnk><div class=labout>Разбор его работ для широкой публики в кембриджском журнале Plus: от многообразий до совпадения двух способов считать кривые</div><a href="https://plus.maths.org/icm-2026-fm-3" target=_blank rel=noopener>The Fields Medals 2026: John Pardon</a></div>
+<div class=lnk><div class=labout>Часовой доклад Ивана Смита, где коллега по области обзорно излагает всё, что сделал Пардон</div><a href="https://www.claymath.org/lectures/the-work-of-john-pardon/" target=_blank rel=noopener>The work of John Pardon</a></div>
+<div class=lnk><div class=labout>Собственные лекционные заметки Пардона: неформальные по тону, но полностью технические</div><a href="https://web.math.princeton.edu/~jpardon/holomorphiccurves.pdf" target=_blank rel=noopener>Pseudo-holomorphic curves and virtual fundamental cycles</a></div>
+</div>
+</div></article>
+<div class=rubric>Остальные награды конгресса</div>
+<article class=item id=p5>
+<div class=side>
+<div class=meta><span class=kind>МЕДАЛЬ АБАКУСА</span></div>
+<h2 class=title>Шаян Овейс Гаран</h2>
+<div class=by>теоретическая информатика · комбинаторика · вероятность</div>
+<a class=prof href="https://www.quantamagazine.org/shayan-oveis-gharan-wins-2026-imu-abacus-medal-20260723/" target=_blank rel=noopener>Портрет в Quanta →</a>
+<a class=prof href="https://www.youtube.com/watch?v=ycN287XCSBM" target=_blank rel=noopener>Видеовизитка Simons Foundation →</a>
+<a class=prof href="https://www.mathunion.org/imu-awards/imu-abacus-medal" target=_blank rel=noopener>Страница награды →</a>
+</div><div class=body>
+<p class=blurb>Медаль Абакуса — награда конгресса за теоретическую информатику. В этом году её дали за продвижение в задаче коммивояжёра</p>
+<p class=blurb>Оптимальный маршрут коммивояжёра быстро не находится, поэтому его ищут приближённо, и с 1976 года лучшей оставалась гарантия Кристофидеса — Сердюкова: маршрут не длиннее полутора оптимумов</p>
+<p class=blurb>Сорок четыре года её не удавалось сдвинуть даже на ε, и Овейс Гаран с Карлином и Кляйном сдвинули ровно на ε — порядка десяти в минус тридцать шестой степени. Величина смешная, факт принципиальный: барьер оказался преодолимым</p>
+<p class=blurb>Сдвинули не алгоритмическим трюком, а инструментами из других разделов: случайные остовные деревья, вещественно устойчивые и логарифмически вогнутые многочлены, спектральная теория графов. Та же техника логарифмической вогнутости потом дала цепочку результатов о выборке из матроидов — редкий случай, когда инструмент, придуманный под одну задачу, оказывается общим</p>
+<div class=links><div class=lhead>Что почитать и посмотреть</div>
+<div class=lnk><div class=labout>Подробный рассказ в Quanta о том, как удалось сдвинуть сорокалетний рекорд. Без технических деталей</div><a href="https://www.quantamagazine.org/computer-scientists-break-traveling-salesperson-record-20201008/" target=_blank rel=noopener>Computer Scientists Break Traveling Salesperson Record</a></div>
+<div class=lnk><div class=labout>Лекция в Принстонском институте перспективных исследований про тот самый инструмент, уже как общую теорию</div><a href="https://www.ias.edu/video/log-concave-polynomials-theory-and-applications" target=_blank rel=noopener>Log-concave polynomials in theory and applications</a></div>
+</div>
+</div></article>
+<div class=rule></div>
+<article class=item id=p6>
+<div class=side>
+<div class=meta><span class=kind>ПРЕМИЯ ГАУССА</span></div>
+<h2 class=title>Юрий Нестеров</h2>
+<div class=by>выпуклая оптимизация · численные методы · машинное обучение</div>
+<a class=prof href="https://www.youtube.com/watch?v=5L-ZQuSmQOM" target=_blank rel=noopener>Видеовизитка Simons Foundation →</a>
+<a class=prof href="https://www.mathunion.org/imu-awards/carl-friedrich-gauss-prize/carl-friedrich-gauss-prize-2026" target=_blank rel=noopener>Страница награды →</a>
+</div><div class=body>
+<p class=blurb>Премию Гаусса дают за математику, которая ушла за пределы математики, и здесь это буквально: ускоренный градиентный метод Нестерова работает внутри почти любого обучения нейросети</p>
+<p class=blurb>Обычный градиентный спуск сходится со скоростью 1/k. В 1983 году Нестеров показал, что если шаг делать не из текущей точки, а из точки, сдвинутой вперёд по инерции, скорость становится 1/k². И что лучше уже нельзя: этот метод упирается в нижнюю оценку сложности, полученную Немировским и Юдиным, то есть оптимален. Работа вышла в Москве и на Западе долго оставалась почти незамеченной</p>
+<p class=blurb>Второе направление его работы важнее для самой математики: вместе с Аркадием Немировским Нестеров построил теорию самосогласованных барьеров, из которой методы внутренней точки получились не набором трюков, а единой конструкцией, и выпуклая оптимизация целиком перешла в разряд практически решаемых задач</p>
+<div class=links><div class=lhead>Что почитать и посмотреть</div>
+<div class=lnk><div class=labout>Четыре страницы про Нестерова и его методы, написанные Математическим союзом для неспециалиста</div><a href="https://www.mathunion.org/fileadmin/documents/2026-07/article-gauss-final.pdf" target=_blank rel=noopener>2026 Gauss Prize: Yurii Nesterov</a></div>
+<div class=lnk><div class=labout>Интерактивный разбор ускорения: параметры можно крутить прямо в браузере и смотреть, как метод себя ведёт</div><a href="https://distill.pub/2017/momentum/" target=_blank rel=noopener>Why Momentum Really Works</a></div>
+<div class=lnk><div class=labout>Обзорный доклад Александра Гасникова по-русски: что сделал Нестеров и что из этого выросло</div><a href="https://www.youtube.com/watch?v=AjQ3F0dm5ks" target=_blank rel=noopener>Метод Нестерова и его влияние на развитие подходов к задачам оптимизации</a></div>
+</div>
+</div></article>
+<div class=rule></div>
+<article class=item id=p7>
+<div class=side>
+<div class=meta><span class=kind>МЕДАЛЬ ЧЕРНА</span></div>
+<h2 class=title>Грэм Сигал</h2>
+<div class=by>топология · матфизика · теория категорий</div>
+<a class=prof href="https://www.youtube.com/watch?v=q2pXCsvI4fU" target=_blank rel=noopener>Видеовизитка Simons Foundation →</a>
+<a class=prof href="https://www.mathunion.org/imu-awards/chern-medal-award/chern-medal-award-2026" target=_blank rel=noopener>Страница награды →</a>
+</div><div class=body>
+<p class=blurb>Медаль Черна — за вклад всей жизни. Сигал из тех математиков, чьи работы не столько решают отдельные задачи, сколько проясняют устройство целых областей</p>
+<p class=blurb>В шестидесятые он показал, как категорию превратить в пространство, и построил классифицирующие пространства, а в семидесятые — Γ-пространства. На этом языке потом выросли алгебраическая K-теория Квиллена и теория бесконечнократных пространств петель. Вместе с Атьёй доказал теорему о пополнении, связавшую кольцо представлений группы с K-теорией её классифицирующего пространства</p>
+<p class=blurb>Но чаще всего вспоминают другое: в 1988-м он написал «Определение конформной теории поля» — работу, ценность которой не в результате, а в самом определении. До неё квантовая теория поля была для математика набором рецептов; Сигал предложил смотреть на неё как на функтор из категории кобордизмов, и после этого про неё стало возможно доказывать теоремы. Из этого выросла вся современная топологическая теория поля</p>
+<div class=links><div class=lhead>Что почитать и посмотреть</div>
+<div class=lnk><div class=labout>Разговор, в котором Сигал сам рассказывает, зачем понадобилось определять квантовую теорию поля</div><a href="https://plus.maths.org/chern-medal-2026-chat-x" target=_blank rel=noopener>The Chern Medal 2026: A conversation with Graeme Segal</a></div>
+<div class=lnk><div class=labout>Шесть лекций Сигала в институте Планка о трёх ролях теории поля. Для математика, готового слушать про физику</div><a href="https://www.mpim-bonn.mpg.de/node/3372/abstracts" target=_blank rel=noopener>Three roles of quantum field theory</a></div>
+<div class=lnk><div class=labout>Его собственный доклад в семинаре Бурбаки об эллиптических когомологиях — пятнадцать страниц</div><a href="https://www.numdam.org/item/SB_1987-1988__30__187_0.pdf" target=_blank rel=noopener>Elliptic cohomology</a></div>
+</div>
+</div></article>
+<div class=rule></div>
+<article class=item id=p8>
+<div class=side>
+<div class=meta><span class=kind>ПРЕМИЯ ЛИЛАВАТИ</span></div>
+<h2 class=title>Ханна Фрай</h2>
+<div class=by>популяризация математики · данные · вероятность</div>
+<a class=prof href="https://www.youtube.com/watch?v=8RVyU8CLqlA" target=_blank rel=noopener>Видеовизитка Simons Foundation →</a>
+<a class=prof href="https://www.mathunion.org/imu-awards/leelavati-prize/leelavati-prize-2026" target=_blank rel=noopener>Страница награды →</a>
+</div><div class=body>
+<p class=blurb>Премия Лилавати — единственная награда конгресса не за математические результаты, а за их объяснение</p>
+<p class=blurb>Фрай ведёт эту работу во всех форматах сразу: книги («Hello World» — о том, где алгоритмам стоит доверять, а где нет), Рождественские лекции Королевского института, документальные фильмы Би-би-си, подкасты, выпуски Numberphile</p>
+<p class=blurb>Её сильная сторона — вероятность и статистика в местах, где ошибаться больно: скрининг рака, распознавание лиц, эпидемии. Про свой собственный онкодиагноз она сделала фильм, в котором разбирает статистику скрининга</p>
+<p class=blurb>С 2025 года она первый профессор общественного понимания математики в Кембридже</p>
+<div class=links><div class=lhead>Что почитать и посмотреть</div>
+<div class=lnk><div class=labout>Разговор о том, как заставить людей интересоваться математикой. Там же — история про теорему Байеса и сто свёртков</div><a href="https://plus.maths.org/leelavati-prize-2026-conversation-withhannah-fry" target=_blank rel=noopener>The Leelavati Prize 2026: A conversation with Hannah Fry</a></div>
+<div class=lnk><div class=labout>Рождественские лекции Королевского института 2019 года: три часа про то, как данные и вероятность обманывают интуицию</div><a href="https://www.rigb.org/about-secrets-and-lies" target=_blank rel=noopener>Secrets and Lies</a></div>
+<div class=lnk><div class=labout>Короткие видео на десять-пятнадцать минут — самый лёгкий вход</div><a href="https://www.numberphile.com/videos/category/Hannah+Fry" target=_blank rel=noopener>Выпуски Ханны Фрай на Numberphile</a></div>
+</div>
+</div></article>
+<div class=foot><div class=author>Ваня Яковлев · <a href="https://t.me/turings_crossword" target=_blank rel=noopener>«Кроссворд Тьюринга»</a></div></div>
+</div>
+<nav class=dots><a href="#p1" data-t="Хун Ван"></a><a href="#p2" data-t="Юй Дэн"></a><a href="#p3" data-t="Яков Цимерман"></a><a href="#p4" data-t="Джон Пардон"></a><a href="#p5" data-t="Шаян Овейс Гаран"></a><a href="#p6" data-t="Юрий Нестеров"></a><a href="#p7" data-t="Грэм Сигал"></a><a href="#p8" data-t="Ханна Фрай"></a></nav>
+</body></html>

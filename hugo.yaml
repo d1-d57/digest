@@ -1,0 +1,9 @@
+baseURL: "https://d1-d57.github.io/digest/"
+locale: ru
+title: MATEMDIGEST
+
+# Ни тегов, ни рубрик, ни ленты — сайт это список выпусков и сами выпуски.
+disableKinds: ["taxonomy", "term", "rss"]
+
+# Готовые выпуски лежат в static/<номер>/index.html и копируются на сайт
+# ДОСЛОВНО, теми же адресами. Список на титульной — из data/vypuski.yaml.

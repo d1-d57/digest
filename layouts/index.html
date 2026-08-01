@@ -1,0 +1,18 @@
+{{ define "main" }}
+<div class=kick>{{ .Params.kick }}</div>
+<h1>{{ .Site.Title }}</h1>
+<p class=intro>{{ .Params.intro }}</p>
+<div class=author>Ваня Яковлев · <a href="https://t.me/turings_crossword" target=_blank rel=noopener>«Кроссворд Тьюринга»</a></div>
+
+<div class=list>
+{{ range hugo.Data.vypuski }}
+<div class=row>
+  <div class=num>Выпуск {{ .nomer }} · {{ .data }}</div>
+  <div>
+    <h2><a href="{{ .ssylka | relURL }}">{{ .zagolovok }}</a></h2>
+    <p>{{ .opisanie }}</p>
+  </div>
+</div>
+{{ end }}
+</div>
+{{ end }}

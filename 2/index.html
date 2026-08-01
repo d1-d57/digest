@@ -1,0 +1,175 @@
+<!-- СГЕНЕРИРОВАНО ИЗ vypusk.md ГЕНЕРАТОРОМ build_vypusk.py — РУКАМИ НЕ ПРАВИТЬ. Правь markdown-источник, пересобирай (0 токенов). -->
+
+<!doctype html><html lang=ru><head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>MATEMDIGEST · выпуск №2</title>
+<link rel=preconnect href="https://fonts.googleapis.com"><link rel=preconnect href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Forum&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel=stylesheet>
+<link rel=stylesheet href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin=anonymous><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin=anonymous></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin=anonymous onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],throwOnError:false})"></script>
+<style>*{box-sizing:border-box}
+:root{--bg:#14110d;--ink:#ece3d2;--mut:#a89c86;--faint:#6b6252;--line:rgba(236,227,210,.13);--gold:#cea24a;--gold2:#e6c26f;--teal:#6fae9f}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Golos Text',system-ui,sans-serif;
+ font-size:clamp(18px,1.32vw,29px);line-height:1.55;
+ background-image:radial-gradient(900px 500px at 15% -8%,rgba(206,162,74,.12),transparent 60%),radial-gradient(800px 600px at 100% 4%,rgba(111,174,159,.07),transparent 55%);-webkit-font-smoothing:antialiased}
+.wrap{width:min(1780px,93vw);margin:0 auto;padding:clamp(30px,3.2vw,64px) 0 110px}
+.kick{font-family:'JetBrains Mono',monospace;font-size:.66em;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+h1{font-family:'Forum',serif;font-weight:400;font-size:clamp(40px,5.4vw,104px);margin:0 0 20px;line-height:1.03;overflow-wrap:break-word}
+.intro{color:var(--mut);margin:0 0 .34em;font-size:1.1em;line-height:1.5}
+.intro:last-of-type{margin-bottom:0}
+.intro a,.blurb a,.labout a{color:var(--gold2);text-decoration:none;border-bottom:1px solid rgba(206,162,74,.35)}
+.intro a:hover,.blurb a:hover,.labout a:hover{color:var(--gold);border-bottom-color:var(--gold)}
+.note{display:flex;gap:.6em;align-items:baseline;margin-top:22px;color:var(--faint);font-size:.75em;line-height:1.45}
+.note .sign{color:var(--gold);font-size:1.15em;line-height:1}
+.author{font-family:'JetBrains Mono',monospace;font-size:.8em;letter-spacing:.05em;color:var(--mut);margin-top:20px}
+.author a{color:var(--gold);text-decoration:none}.author a:hover{text-decoration:underline}
+.rubric{font-family:'JetBrains Mono',monospace;font-size:.72em;letter-spacing:.24em;text-transform:uppercase;color:var(--gold2);margin:clamp(34px,3vw,56px) 0 22px;padding-top:16px;border-top:1px solid rgba(206,162,74,.3)}
+.rule{height:1px;background:var(--line);margin:clamp(24px,2vw,38px) 0}
+.item{padding:2px 0}
+.side{margin-bottom:16px}
+.meta{display:flex;gap:10px;align-items:center;margin-bottom:10px;flex-wrap:wrap}
+.kind{font-family:'JetBrains Mono',monospace;font-size:.62em;letter-spacing:.1em;text-transform:uppercase;color:var(--bg);background:var(--gold);border-radius:5px;padding:5px 11px;font-weight:700;text-decoration:none;display:inline-block}
+a.kind:hover{background:var(--gold2)}
+.date{font-family:'JetBrains Mono',monospace;font-size:.62em;color:var(--faint);margin-left:auto}
+.title{font-family:'Forum',serif;font-weight:400;font-size:clamp(32px,2.9vw,58px);line-height:1.06;margin:0 0 10px}
+.by{font-size:.82em;color:var(--mut);margin:0;line-height:1.45}
+.prof{display:block;width:fit-content;margin-top:12px;font-size:.8em;color:var(--teal);text-decoration:none;border:1px solid rgba(111,174,159,.4);border-radius:7px;padding:7px 13px;line-height:1.3}
+.prof:hover{color:var(--bg);background:var(--teal);border-color:var(--teal)}
+.blurb{margin:0 0 .38em;color:#ded4c2}
+.blurb:last-child{margin-bottom:0}
+.blurb .m{font-family:'JetBrains Mono',monospace;font-size:.92em}
+.disp{margin:clamp(26px,2.1vw,44px) 0;text-align:center;line-height:1.5;color:var(--gold2);
+ overflow-x:auto;overflow-y:hidden}
+.katex{font-size:1.02em}
+.disp .katex{font-size:1.34em}
+.blurb .katex,.intro .katex{color:var(--ink)}
+.blurb sup,.blurb sub{font-size:.72em}
+.more{font-family:'JetBrains Mono',monospace;font-size:.7em;color:var(--gold);text-decoration:none;letter-spacing:.02em}
+.more:hover{color:var(--gold2);text-decoration:underline}
+.links{margin:clamp(26px,2.2vw,44px) 0 4px;padding:clamp(18px,1.5vw,32px) clamp(20px,1.6vw,34px);border:1px solid var(--line);border-radius:10px;background:rgba(236,227,210,.03)}
+.lhead{font-family:'JetBrains Mono',monospace;font-size:.62em;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);margin-bottom:18px}
+.lnk{margin:0 0 20px;line-height:1.45}
+.lnk:last-child{margin-bottom:0}
+.labout{color:var(--mut);font-size:.92em;margin-bottom:2px}
+.lnk a{color:var(--gold2);text-decoration:none;border-bottom:1px solid rgba(206,162,74,.35)}
+.lnk a:hover{color:var(--gold);border-bottom-color:var(--gold)}
+.dots{position:fixed;right:clamp(10px,2vw,30px);top:50%;transform:translateY(-50%);display:none;flex-direction:column;gap:15px;z-index:9}
+.dots a{position:relative;width:9px;height:9px;border-radius:50%;background:rgba(236,227,210,.22);transition:background .18s,transform .18s}
+.dots a:hover{background:var(--gold);transform:scale(1.35)}
+.dots a::after{content:attr(data-t);position:absolute;right:20px;top:50%;transform:translateY(-50%);
+ white-space:nowrap;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.04em;color:var(--ink);
+ background:rgba(20,17,13,.94);border:1px solid var(--line);border-radius:6px;padding:5px 10px;opacity:0;pointer-events:none;transition:opacity .18s}
+.dots a:hover::after{opacity:1}
+@media (min-width:1080px){
+ .wrap{padding-right:clamp(26px,2.4vw,52px)}
+ .dots{display:flex}
+ .item{display:grid;grid-template-columns:minmax(240px,23%) minmax(0,1fr);column-gap:clamp(28px,2.4vw,52px)}
+ .side{grid-column:1;margin-bottom:0;position:sticky;top:30px;align-self:start}
+ .body{grid-column:2}
+}
+.foot{margin-top:clamp(40px,3.4vw,64px);padding-top:22px;border-top:1px solid var(--line)}
+.foot .author{margin-top:0;white-space:nowrap}</style></head><body><div class=wrap>
+<div class=kick>1 АВГУСТА 2026</div>
+<h1>Гипотеза якобиана оказалась неверной</h1>
+<p class=intro>Девятнадцатого июля гипотезу якобиана опровергли — контрпримером из трёх многочленов, который проверяется за полминуты. Гипотеза утверждала, что полиномиальное отображение $\mathbb{C}^n \to \mathbb{C}^n$ с постоянным ненулевым якобианом обратимо, причём обратное тоже полиномиально. Формулировку понимает первокурсник, а стояла она с 1939 года; Смейл в 1998-м поставил её шестнадцатой в списке задач нового века</p>
+<p class=intro>Шесть шагов: откуда она взялась, что за ней стояло, как её штурмовали, как сломали, как поняли и что дальше</p>
+<div class=note><span class=sign>&#9651;</span><span>Тексты написал Claude Opus по источникам, на которые ссылается. Там могут быть ошибки</span></div>
+<div class=author>Ваня Яковлев · <a href="https://t.me/turings_crossword" target=_blank rel=noopener>«Кроссворд Тьюринга»</a></div>
+<div class=rubric>1 · Постановка</div>
+<article class=item id=p1>
+<div class=side>
+<h2 class=title>Задача, которую понимает первокурсник</h2>
+<div class=by>алгебраическая геометрия · история</div>
+</div><div class=body>
+<p class=blurb>Одна сторона доказывается в две строки: у обратимого полиномиального отображения якобиан по цепному правилу — ненулевая константа. Гипотеза утверждала обратное, и вот оно не поддавалось ничему</p>
+<p class=blurb>Двумерный случай сформулировал Краус в 1884 году, общий — Келлер в 1939-м. Абхьянкар потом рекламировал её именно так: понятна каждому, кто знает производную, и не решается. Отсюда то, что ван ден Эссен в обзоре называет кладбищем — поток ложных доказательств, которые приходилось разбирать годами</p>
+<p class=blurb>Сигналы, что гипотеза скорее ложна, копились. В характеристике $p$ она ложна тривиально: у отображения $x - x^p$ производная равна единице. Пинчук в 1994-м построил вещественный контрпример на плоскости — правда, к более сильной версии, где якобиан лишь не обращается в ноль</p>
+<div class=links><div class=lhead>Что почитать и посмотреть</div>
+<div class=lnk><div class=labout>Обзор Арно ван ден Эссена, двадцать пять страниц: что известно, что доказано неправильно и почему сам автор в гипотезу не верил. Лучший вход в тему</div><a href="https://www.emis.de/journals/SC/1997/2/pdf/smf_sem-cong_2_55-81.pdf" target=_blank rel=noopener>Polynomial automorphisms and the Jacobian conjecture</a></div>
+<div class=lnk><div class=labout>Классика Хаймана Басса, Эдвина Коннелла и Дэвида Райта в Bulletin AMS, 1982: постановка, история и сведение общего случая к кубическому. Открытый доступ</div><a href="https://projecteuclid.org/journals/bulletin-of-the-american-mathematical-society-new-series/volume-7/issue-2/The-Jacobian-conjecture--Reduction-of-degree-and-formal-expansion/bams/1183549636.pdf" target=_blank rel=noopener>The Jacobian conjecture: reduction of degree and formal expansion of the inverse</a></div>
+<div class=lnk><div class=labout>Пост Дэвида Спейера в Secret Blogging Seminar, 2009: какие подходы выглядят убедительно и почему каждый разваливается. Читается легче обзоров</div><a href="https://sbseminar.wordpress.com/2009/05/27/how-not-to-prove-the-jacobian-conjecture/" target=_blank rel=noopener>How not to prove the Jacobian conjecture</a></div>
+</div>
+</div></article>
+<div class=rubric>2 · Что стояло за ней</div>
+<article class=item id=p2>
+<div class=side>
+<h2 class=title>Алгебра Вейля и жёсткость фазового пространства</h2>
+<div class=by>алгебра · матфизика</div>
+</div><div class=body>
+<p class=blurb>Сама по себе задача про многочлены на список Смейла не тянула бы. Дело в том, что это самая элементарная проекция утверждения, которое в других освещениях выглядит совершенно иначе</p>
+<p class=blurb>Второе освещение — алгебра Вейля $A_n$: операторы умножения на $x_i$ и дифференцирования $\partial_i$ со всеми соотношениями между ними,</p>
+<p class=disp>$$A_n=\mathbb{C}\langle x_1,\dots,x_n,\partial_1,\dots,\partial_n\rangle,\qquad [\partial_i,x_j]=\delta_{ij},\quad [x_i,x_j]=[\partial_i,\partial_j]=0$$</p>
+<p class=blurb>то есть с каноническим коммутационным соотношением квантовой механики. Диксмье в 1968 году спросил, всякий ли её эндоморфизм является автоморфизмом. Инъективность тут бесплатна, поскольку алгебра проста; весь вопрос в том, вкладывается ли она в себя собственным образом. Третье освещение — то же самое про алгебру Пуассона, классический предел второго</p>
+<p class=blurb>Смысл всех трёх один: фазовое пространство жёсткое, собственного самовложения у него нет. Эквивалентность доказана — со сдвигом размерности, поэтому её называют стабильной: половину получили Басс, Коннелл и Райт в 1982-м, вторую — Цутимото в 2005-м и независимо Алексей Канель-Белов с Максимом Концевичем в 2007-м, редукцией в конечную характеристику</p>
+<p class=blurb>Ради чего всё это, видно из гипотезы Концевича: группа автоморфизмов алгебры Вейля канонически изоморфна группе полиномиальных симплектоморфизмов. Деформационное квантование сохраняет группу симметрий — у классики и у кванта она одна. Гипотеза якобиана была единственным входом в этот сюжет, объяснимым на матанализе</p>
+<div class=links><div class=lhead>Что почитать и посмотреть</div>
+<div class=lnk><div class=labout>Работа Алексея Канеля-Белова и Максима Концевича, где сформулирована гипотеза про группу автоморфизмов алгебры Вейля и группу симплектоморфизмов — самое интересное, что стояло за якобианом</div><a href="https://arxiv.org/abs/math/0512169" target=_blank rel=noopener>Automorphisms of the Weyl algebra</a></div>
+<div class=lnk><div class=labout>Заметка Владимира Бавулы и Виктора Левандовского: что такое алгебра Вейля, шесть проблем Диксмье и статус каждой. Вход для тех, кто пришёл со стороны многочленов</div><a href="https://arxiv.org/pdf/1812.00042" target=_blank rel=noopener>A Remark on the Dixmier Conjecture</a></div>
+</div>
+</div></article>
+<div class=rubric>3 · Штурм</div>
+<article class=item id=p3>
+<div class=side>
+<h2 class=title>Две оси: степень многочленов и число листов</h2>
+<div class=by>алгебраическая геометрия · топология</div>
+</div><div class=body>
+<p class=blurb>Штурмовали по двум осям, и обе важны, потому что контрпример прошёл между ними. Первая — степень многочленов: Басс, Коннелл и Райт свели общий случай к кубическому, а на плоскости гипотезу проверяли перебором степеней. Вторая — число листов, то есть сколько прообразов у общей точки; на плоскости гипотеза равносильна тому, что лист один. Оревков в 1986 году закрыл случай трёх листов, Домрина с Оревковым в конце девяностых — четырёх</p>
+<p class=blurb>Это линия школы Витушкина, и у самого Витушкина есть заметка на пять страниц, которую стоит открыть ради одной детали. В ней четыре явных необратимых отображения плоскости с постоянным якобианом, и у рабочего примера якобиан равен $-2$ — как у контрпримера двадцать семь лет спустя. Разница в том, что у Витушкина в формулах стоит знаменатель: отображения рациональные, не полиномиальные. Разреши деление — и необратимость при постоянном якобиане получается легко. Трудность была ровно в знаменателе</p>
+<div class=links><div class=lhead>Что почитать и посмотреть</div>
+<div class=lnk><div class=labout>Степан Оревков, Изв. АН СССР, 1986: якобиан трёхлистного полиномиального отображения плоскости не может быть постоянным. Десять страниц</div><a href="https://www.math.univ-toulouse.fr/~orevkov/jc86.pdf" target=_blank rel=noopener>On three-sheeted polynomial mappings of C²</a></div>
+<div class=lnk><div class=labout>Анна Домрина и Степан Оревков, «Математические заметки», 1998 — следующий шаг той же программы, случай неприводимой кривой ветвления</div><a href="https://www.math.univ-toulouse.fr/~orevkov/do.pdf" target=_blank rel=noopener>On four-sheeted polynomial mappings of C². I</a></div>
+<div class=lnk><div class=labout>Анатолий Витушкин, «Математические заметки», 1999. Пять страниц: раздутия, оценка якобиана в картах и те самые четыре рациональных примера</div><a href="https://www.mathnet.ru/rus/mzm1169" target=_blank rel=noopener>Вычисление якобиана рационального преобразования C² и некоторые приложения</a></div>
+</div>
+</div></article>
+<div class=rubric>4 · Контрпример</div>
+<article class=item id=p4>
+<div class=side>
+<h2 class=title>Как её сломали</h2>
+<div class=by>алгебраическая геометрия · computer science</div>
+</div><div class=body>
+<p class=blurb>Девятнадцатого июля Левент Альпёге выложил в X три многочлена и строчку без заглавных букв: «hello there the jacobian conjecture is false thanx». Задачу подкинул Акил Матью, вычислительную работу делала языковая модель Claude Fable — по словам Альпёге, во время финала чемпионата мира. Если обозначить $u = 1 + xy$, отображение записывается в строку:</p>
+<p class=disp>$$F(x,y,z) = \big(\ u^3 z + y^2 u(4+3xy),\ \ y + 3x u^2 z + 3x y^2 (4+3xy),\ \ 2x - 3x^2 y - x^3 z\ \big)$$</p>
+<p class=blurb>Якобиан равен $-2$ в каждой точке, но инъективности нет — три разные точки идут в один образ:</p>
+<p class=disp>$$F(0,0,-1/4)\ =\ F(1,-3/2,13/2)\ =\ F(-1,3/2,13/2)\ =\ (-1/4,\,0,\,0)$$</p>
+<p class=blurb>Больше ничего не нужно: первое означает, что гипотеза применима, второе — что вывод из неё неверен. Отсюда и скорость, с которой контрпример приняли: доказательство надо рецензировать, контрпример достаточно подставить. К утру его проверили руками десятки людей и формализовали в Lean</p>
+<p class=blurb>Стоит заметить, где он лёг относительно осей штурма. Степени координат — семь, шесть и четыре, выше всего, что проверялось перебором. Листов три, а трёхлистного контрпримера на плоскости не бывает по теореме Оревкова. При одном и том же числе листов размерность два запрещает, а размерность три разрешает: граница проходит буквально здесь</p>
+<div class=links><div class=lhead>Что почитать и посмотреть</div>
+<div class=lnk><div class=labout>Первоисточник: три строки формулы, три точки-свидетеля и благодарности. Больше в посте ничего нет</div><a href="https://x.com/__alpoge__/status/2079028340955197566" target=_blank rel=noopener>Пост Левента Альпёге</a></div>
+<div class=lnk><div class=labout>Разбор Алексиса Галлахера с интерактивными картинками: почему листов ровно три, куда они убегают и как проверить всё самому за тридцать секунд</div><a href="https://jacobianfun.org/jacobian-explained" target=_blank rel=noopener>The Jacobian counterexample, explained</a></div>
+<div class=lnk><div class=labout>Кевин Баззард в блоге Xena про два месяца, за которые машины опровергли гипотезу Эрдёша, вопрос Гротендика и якобиан. Его вывод: понять пример машина за людей не может, и работа начинается заново</div><a href="https://xenaproject.wordpress.com/2026/07/20/human-mathematicians-are-being-outcounterexampled/" target=_blank rel=noopener>Human mathematicians are being outcounterexampled</a></div>
+</div>
+</div></article>
+<div class=rubric>5 · Объяснение</div>
+<article class=item id=p5>
+<div class=side>
+<h2 class=title>Как поняли, откуда он берётся</h2>
+<div class=by>алгебраическая геометрия</div>
+</div><div class=body>
+<p class=blurb>Проверка занимает полминуты, но формула выглядит чудом: у отображения седьмой степени якобиан должен иметь степень до восемнадцати, то есть занулить надо больше тысячи коэффициентов при ста двадцати степенях свободы. Перебором такое не находят — значит, за формулой что-то стоит</p>
+<p class=blurb>Стоит вот что. Возьмём отображение «добавить точку к паре»:</p>
+<p class=disp>$$\pi:\ \mathbb{P}^1 \times \mathrm{Sym}^2\mathbb{P}^1 \ \to\ \mathrm{Sym}^3\mathbb{P}^1, \qquad (p,\{q,r\}) \mapsto \{p,q,r\}$$</p>
+<p class=blurb>Слева кубика с отмеченным корнем, справа та же кубика без отметки. Забываем отметку — получается трёхлистное отображение: отметить можно любой из трёх корней. Ветвление ровно там, где отмечаемая точка совпадает с корнем пары; это дивизор, и его вырезают из источника</p>
+<p class=blurb>Дальше всё складывается само. Оставшееся неразветвлено, то есть этально, то есть якобиан нигде не ноль. А необращающийся в ноль многочлен на аффинном пространстве обратим в кольце многочленов — значит, константа. Постоянство якобиана оказывается не подгонкой коэффициентов, а следствием того, что ветвление удалили. Тут же видно, почему нет биекции: дивизор убрали из источника, а его образ в цели остался, поэтому над общей точкой листы по-прежнему сходятся втроём</p>
+<p class=blurb>Про это Алексей Бондал читал лекцию на летней школе «Современная математика» двадцать седьмого июля, через неделю после поста Альпёге. Терренс Тао в те же дни пришёл к той же картине с другой стороны, через умножение многочленов и результант, и намеренно перевёл всё на язык анализа — оговорившись, что одно место, выбор гиперплоскости, объяснить геометрически он не может</p>
+<div class=links><div class=lhead>Что почитать и посмотреть</div>
+<div class=lnk><div class=labout>Лекция Алексея Бондала на XXV Летней школе «Современная математика», 27 июля, полтора часа. Школа для старшеклассников и студентов, но лекция трудная и идёт быстро: нужна алгебраическая геометрия, а к концу и теория категорий</div><a href="https://www.mathnet.ru/rus/present51003" target=_blank rel=noopener>Контрпример к гипотезе якобиана</a></div>
+<div class=lnk><div class=labout>Терренс Тао в блоге What&#x27;s new проходит тот же путь с нуля, но через результанты и асимптотику вместо алгебраической геометрии — по его словам, чтобы свести число чудес к минимуму</div><a href="https://terrytao.wordpress.com/2026/07/21/a-digestion-of-the-jacobian-conjecture-counterexample/" target=_blank rel=noopener>A digestion of the Jacobian conjecture counterexample</a></div>
+</div>
+</div></article>
+<div class=rubric>6 · Что дальше</div>
+<article class=item id=p6>
+<div class=side>
+<h2 class=title>Перспективы задачи</h2>
+<div class=by>алгебра · алгебраическая геометрия</div>
+</div><div class=body>
+<p class=blurb>Обычно контрпример закрывает область. Здесь наоборот: пока гипотеза стояла, три её лица были одним вопросом, теперь общая форма пала, а остальные независимы. Стабильные формулировки Диксмье и Пуассона упали вместе с якобианом. По отдельности стоят первая проблема Диксмье — про алгебру Вейля от одной переменной — и гипотеза Концевича про группы автоморфизмов, которая из Диксмье не следует</p>
+<p class=blurb>Соседние утверждения посыпались быстро: Гоу Мэн и Лян Ян за две недели вывели из контрпримера опровержение гипотезы Гессе в пяти переменных. В обоих семействах нерешёнными остались ровно два утверждения — двумерный якобиан и четырёхмерный Гессе, причём из второго следует первое. Двумерный случай, с которого всё началось в 1884 году, так и стоит, и вопрос теперь не «верно ли», а где и почему проходит граница между размерностями два и три</p>
+<div class=links><div class=lhead>Что почитать и посмотреть</div>
+<div class=lnk><div class=labout>Александр Жеглов, препринт с октября 2024-го, к январю 2026-го дописанный с двадцати пяти страниц до семидесяти восьми: доказательство первой проблемы Диксмье — той самой, которая теперь стоит отдельно от якобиана</div><a href="https://arxiv.org/abs/2410.06959" target=_blank rel=noopener>The Conjecture of Dixmier for the first Weyl algebra is true</a></div>
+<div class=lnk><div class=labout>Десять страниц Гоу Мэна и Ляна Яна: как из контрпримера Альпёге получается опровержение гипотезы Гессе и что после этого остаётся открытым</div><a href="https://arxiv.org/abs/2607.22198" target=_blank rel=noopener>A five-variable counterexample to the Hessian conjecture</a></div>
+</div>
+</div></article>
+<div class=foot><div class=author>Ваня Яковлев · <a href="https://t.me/turings_crossword" target=_blank rel=noopener>«Кроссворд Тьюринга»</a></div></div>
+</div>
+<nav class=dots><a href="#p1" data-t="Задача, которую понимает первокурсник"></a><a href="#p2" data-t="Алгебра Вейля и жёсткость фазового пространства"></a><a href="#p3" data-t="Две оси: степень многочленов и число листов"></a><a href="#p4" data-t="Как её сломали"></a><a href="#p5" data-t="Как поняли, откуда он берётся"></a><a href="#p6" data-t="Перспективы задачи"></a></nav>
+</body></html>

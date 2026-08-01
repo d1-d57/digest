@@ -5,6 +5,7 @@
 <title>MATEMDIGEST · выпуск №1</title>
 <link rel=preconnect href="https://fonts.googleapis.com"><link rel=preconnect href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Forum&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel=stylesheet>
+<link rel=stylesheet href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin=anonymous><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin=anonymous></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin=anonymous onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],throwOnError:false})"></script>
 <style>*{box-sizing:border-box}
 :root{--bg:#14110d;--ink:#ece3d2;--mut:#a89c86;--faint:#6b6252;--line:rgba(236,227,210,.13);--gold:#cea24a;--gold2:#e6c26f;--teal:#6fae9f}
 html{scroll-behavior:smooth}
@@ -37,6 +38,11 @@ a.kind:hover{background:var(--gold2)}
 .blurb{margin:0 0 .38em;color:#ded4c2}
 .blurb:last-child{margin-bottom:0}
 .blurb .m{font-family:'JetBrains Mono',monospace;font-size:.92em}
+.disp{margin:clamp(26px,2.1vw,44px) 0;text-align:center;line-height:1.5;color:var(--gold2);
+ overflow-x:auto;overflow-y:hidden}
+.katex{font-size:1.02em}
+.disp .katex{font-size:1.34em}
+.blurb .katex,.intro .katex{color:var(--ink)}
 .blurb sup,.blurb sub{font-size:.72em}
 .more{font-family:'JetBrains Mono',monospace;font-size:.7em;color:var(--gold);text-decoration:none;letter-spacing:.02em}
 .more:hover{color:var(--gold2);text-decoration:underline}
@@ -82,7 +88,7 @@ a.kind:hover{background:var(--gold2)}
 </div><div class=body>
 <p class=blurb>Множество Какейи содержит единичный отрезок любого направления. Безикович век назад показал, что такое множество может иметь нулевую меру: на плоскости он построил его явно, той же конструкцией оно получается и в пространстве. Долго это выглядело курьёзом</p>
 <p class=blurb>Потом выяснилось, что от курьёза зависит весь анализ Фурье: чем тоньше бывают такие множества, тем слабее оценки для преобразования Фурье, а через них — и для волнового уравнения с уравнением Шрёдингера</p>
-<p class=blurb>Гипотеза Какейи говорит, что даже множества нулевой меры велики в другом смысле: их хаусдорфова размерность максимальна — в R^n равна n. Мера нулевая, размерность полная. Утверждение одно и то же во всех размерностях</p>
+<p class=blurb>Гипотеза Какейи утверждает, что даже множества нулевой меры велики в другом смысле: их хаусдорфова размерность максимальна — в R^n равна n. Мера нулевая, размерность полная. Утверждение одно и то же во всех размерностях</p>
 <p class=blurb>На плоскости его доказали ещё в семидесятые. Трёхмерный случай оказался несравнимо труднее и полвека считался почти безнадёжным — пока в феврале 2025-го Хун Ван и Джошуа Заль его не закрыли, научившись управлять тем, как плотно пучки тонких трубок могут лежать друг в друге. В размерностях от четырёх гипотеза открыта</p>
 <p class=blurb>Другие её работы — задача Фалконера о множествах расстояний, гипотеза о локальном сглаживании, гипотеза Фюрстенберга; сюжет тот же, только там от геометрии направлений зависят другие оценки</p>
 <p class=blurb>Ван стала третьей женщиной с Филдсовской медалью за девяносто лет</p>
@@ -165,7 +171,7 @@ a.kind:hover{background:var(--gold2)}
 <p class=blurb>Медаль Абакуса — награда конгресса за теоретическую информатику. В этом году её дали за то, что анализ алгоритмов удалось перенести в геометрию многочленов: из этой техники выросли и рекорд в задаче коммивояжёра, и результаты о выборке остовных деревьев и баз матроидов</p>
 <p class=blurb>Оптимальный маршрут коммивояжёра быстро найти, скорее всего, невозможно, поэтому его ищут приближённо, и с 1976 года лучшей оставалась гарантия Кристофидеса — Сердюкова: маршрут не длиннее полутора оптимумов</p>
 <p class=blurb>Сорок четыре года её не удавалось сдвинуть даже на ε, и Овейс Гаран с Анной Карлин и Натаном Кляйном сдвинул ровно на ε — порядка десяти в минус тридцать шестой степени. Величина смешная, факт принципиальный: барьер оказался преодолимым</p>
-<p class=blurb>Сдвинули не алгоритмическим трюком, а инструментами из других разделов: случайными остовными деревьями и вещественно устойчивыми многочленами. Ещё раньше та же линия дала логарифмически вогнутые многочлены и цепочку результатов о выборке из матроидов — редкий случай, когда инструмент оказывается общим далеко за пределами задачи, под которую придуман</p>
+<p class=blurb>Сдвинули не алгоритмическим трюком, а инструментами из других разделов: случайными остовными деревьями и вещественно устойчивыми многочленами. Ещё раньше на том же подходе выросли логарифмически вогнутые многочлены и цепочку результатов о выборке из матроидов — редкий случай, когда инструмент оказывается общим далеко за пределами задачи, под которую придуман</p>
 <div class=links><div class=lhead>Что почитать и посмотреть</div>
 <div class=lnk><div class=labout>Подробный рассказ в Quanta о том, как удалось сдвинуть сорокалетний рекорд. Без технических деталей</div><a href="https://www.quantamagazine.org/computer-scientists-break-traveling-salesperson-record-20201008/" target=_blank rel=noopener>Computer Scientists Break Traveling Salesperson Record</a></div>
 <div class=lnk><div class=labout>Лекция в Принстонском институте перспективных исследований про тот самый инструмент, уже как общую теорию</div><a href="https://www.ias.edu/video/log-concave-polynomials-theory-and-applications" target=_blank rel=noopener>Log-concave polynomials in theory and applications</a></div>
@@ -185,7 +191,7 @@ a.kind:hover{background:var(--gold2)}
 <p class=blurb>Второе направление его работы важнее для самой математики: вместе с Аркадием Немировским Нестеров построил теорию самосогласованных барьеров, из которой методы внутренней точки получились не набором трюков, а единой конструкцией, и огромный класс выпуклых задач перешёл в разряд практически решаемых</p>
 <div class=links><div class=lhead>Что почитать и посмотреть</div>
 <div class=lnk><div class=labout>Четыре страницы про Нестерова и его методы, написанные Математическим союзом для неспециалиста</div><a href="https://www.mathunion.org/fileadmin/documents/2026-07/article-gauss-final.pdf" target=_blank rel=noopener>2026 Gauss Prize: Yurii Nesterov</a></div>
-<div class=lnk><div class=labout>Интерактивный разбор ускорения: параметры можно крутить прямо в браузере и смотреть, как метод себя ведёт</div><a href="https://distill.pub/2017/momentum/" target=_blank rel=noopener>Why Momentum Really Works</a></div>
+<div class=lnk><div class=labout>Интерактивный разбор ускорения от Габриэля Го в Distill: параметры можно крутить прямо в браузере и смотреть, как метод себя ведёт</div><a href="https://distill.pub/2017/momentum/" target=_blank rel=noopener>Why Momentum Really Works</a></div>
 <div class=lnk><div class=labout>Обзорный доклад Александра Гасникова по-русски: что сделал Нестеров и что из этого выросло</div><a href="https://www.youtube.com/watch?v=AjQ3F0dm5ks" target=_blank rel=noopener>Метод Нестерова и его влияние на развитие подходов к задачам оптимизации</a></div>
 </div>
 </div></article>

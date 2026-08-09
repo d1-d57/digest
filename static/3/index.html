@@ -1,0 +1,152 @@
+<!-- СГЕНЕРИРОВАНО ИЗ vypusk.md ГЕНЕРАТОРОМ build_vypusk.py — РУКАМИ НЕ ПРАВИТЬ. Правь markdown-источник, пересобирай (0 токенов). -->
+
+<!doctype html><html lang=ru><head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>MATEMDIGEST · выпуск №3</title>
+<link rel=preconnect href="https://fonts.googleapis.com"><link rel=preconnect href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Forum&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel=stylesheet>
+<link rel=stylesheet href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin=anonymous><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin=anonymous></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin=anonymous onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],throwOnError:false})"></script>
+<style>*{box-sizing:border-box}
+:root{--bg:#14110d;--ink:#ece3d2;--mut:#a89c86;--faint:#6b6252;--line:rgba(236,227,210,.13);--gold:#cea24a;--gold2:#e6c26f;--teal:#6fae9f}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Golos Text',system-ui,sans-serif;
+ font-size:clamp(18px,1.32vw,29px);line-height:1.55;
+ background-image:radial-gradient(900px 500px at 15% -8%,rgba(206,162,74,.12),transparent 60%),radial-gradient(800px 600px at 100% 4%,rgba(111,174,159,.07),transparent 55%);-webkit-font-smoothing:antialiased}
+.wrap{width:min(1780px,93vw);margin:0 auto;padding:clamp(30px,3.2vw,64px) 0 110px}
+.kick{font-family:'JetBrains Mono',monospace;font-size:.66em;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+h1{font-family:'Forum',serif;font-weight:400;font-size:clamp(40px,5.4vw,104px);margin:0 0 20px;line-height:1.03;overflow-wrap:break-word}
+.intro{color:var(--mut);margin:0 0 .34em;font-size:1.1em;line-height:1.5}
+.intro:last-of-type{margin-bottom:0}
+.intro a,.blurb a,.labout a{color:var(--gold2);text-decoration:none;border-bottom:1px solid rgba(206,162,74,.35)}
+.intro a:hover,.blurb a:hover,.labout a:hover{color:var(--gold);border-bottom-color:var(--gold)}
+.note{display:flex;gap:.6em;align-items:baseline;margin-top:22px;color:var(--faint);font-size:.75em;line-height:1.45}
+.note .sign{color:var(--gold);font-size:1.15em;line-height:1}
+.author{font-family:'JetBrains Mono',monospace;font-size:.8em;letter-spacing:.05em;color:var(--mut);margin-top:20px}
+.author a{color:var(--gold);text-decoration:none}.author a:hover{text-decoration:underline}
+.rubric{font-family:'JetBrains Mono',monospace;font-size:.72em;letter-spacing:.24em;text-transform:uppercase;color:var(--gold2);margin:clamp(34px,3vw,56px) 0 22px;padding-top:16px;border-top:1px solid rgba(206,162,74,.3)}
+.rule{height:1px;background:var(--line);margin:clamp(24px,2vw,38px) 0}
+.item{padding:2px 0}
+.side{margin-bottom:16px}
+.meta{display:flex;gap:10px;align-items:center;margin-bottom:10px;flex-wrap:wrap}
+.kind{font-family:'JetBrains Mono',monospace;font-size:.62em;letter-spacing:.1em;text-transform:uppercase;color:var(--bg);background:var(--gold);border-radius:5px;padding:5px 11px;font-weight:700;text-decoration:none;display:inline-block}
+a.kind:hover{background:var(--gold2)}
+.date{font-family:'JetBrains Mono',monospace;font-size:.62em;color:var(--faint);margin-left:auto}
+/* Длинный термин в заголовке («аппроксимируемость») переполняет колонку и
+   налезает на текст. Переносы по слогам + разрыв слова как крайняя мера. */
+.title{font-family:'Forum',serif;font-weight:400;font-size:clamp(30px,2.55vw,50px);line-height:1.1;margin:0 0 12px;
+ hyphens:auto;-webkit-hyphens:auto;overflow-wrap:break-word}
+.by{font-size:.82em;color:var(--mut);margin:0;line-height:1.45}
+.prof{display:block;width:fit-content;margin-top:12px;font-size:.8em;color:var(--teal);text-decoration:none;border:1px solid rgba(111,174,159,.4);border-radius:7px;padding:7px 13px;line-height:1.3}
+.prof:hover{color:var(--bg);background:var(--teal);border-color:var(--teal)}
+.blurb{margin:0 0 .38em;color:#ded4c2}
+.blist{margin:.5em 0 .5em;padding:0;list-style:none;color:#ded4c2}
+.blist li{margin:0 0 .5em;padding-left:1.15em;position:relative}
+.blist li:last-child{margin-bottom:0}
+.blist li:before{content:'—';position:absolute;left:0;color:var(--gold2)}
+.blurb:last-child{margin-bottom:0}
+.blurb .m{font-family:'JetBrains Mono',monospace;font-size:.92em}
+.disp{margin:clamp(26px,2.1vw,44px) 0;text-align:center;line-height:1.5;color:var(--gold2);
+ overflow-x:auto;overflow-y:hidden}
+.katex{font-size:1.02em}
+.disp .katex{font-size:1.34em}
+.blurb .katex,.intro .katex{color:var(--ink)}
+.blurb sup,.blurb sub{font-size:.72em}
+.more{font-family:'JetBrains Mono',monospace;font-size:.7em;color:var(--gold);text-decoration:none;letter-spacing:.02em}
+.more:hover{color:var(--gold2);text-decoration:underline}
+.links{margin:clamp(26px,2.2vw,44px) 0 4px;padding:clamp(18px,1.5vw,32px) clamp(20px,1.6vw,34px);border:1px solid var(--line);border-radius:10px;background:rgba(236,227,210,.03)}
+.lhead{font-family:'JetBrains Mono',monospace;font-size:.62em;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);margin-bottom:18px}
+.lnk{margin:0 0 20px;line-height:1.45}
+.lnk:last-child{margin-bottom:0}
+.labout{color:var(--mut);font-size:.92em;margin-bottom:2px}
+.lnk a{color:var(--gold2);text-decoration:none;border-bottom:1px solid rgba(206,162,74,.35)}
+.lnk a:hover{color:var(--gold);border-bottom-color:var(--gold)}
+.dots{position:fixed;right:clamp(10px,2vw,30px);top:50%;transform:translateY(-50%);display:none;flex-direction:column;gap:15px;z-index:9}
+.dots a{position:relative;width:9px;height:9px;border-radius:50%;background:rgba(236,227,210,.22);transition:background .18s,transform .18s}
+.dots a:hover{background:var(--gold);transform:scale(1.35)}
+.dots a::after{content:attr(data-t);position:absolute;right:20px;top:50%;transform:translateY(-50%);
+ white-space:nowrap;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.04em;color:var(--ink);
+ background:rgba(20,17,13,.94);border:1px solid var(--line);border-radius:6px;padding:5px 10px;opacity:0;pointer-events:none;transition:opacity .18s}
+.dots a:hover::after{opacity:1}
+@media (min-width:1080px){
+ .wrap{padding-right:clamp(26px,2.4vw,52px)}
+ .dots{display:flex}
+ .item{display:grid;grid-template-columns:minmax(240px,23%) minmax(0,1fr);column-gap:clamp(28px,2.4vw,52px)}
+ .side{grid-column:1;margin-bottom:0;position:sticky;top:30px;align-self:start}
+ .body{grid-column:2}
+}
+.foot{margin-top:clamp(40px,3.4vw,64px);padding-top:22px;border-top:1px solid var(--line)}
+.foot .author{margin-top:0;white-space:nowrap}</style></head><body><div class=wrap>
+<div class=kick>8 АВГУСТА 2026</div>
+<h1>Построена группа, которую нельзя приблизить конечными</h1>
+<p class=intro>Первого августа OpenAI опубликовала десять результатов, полученных, по заявлению компании, её моделью; третьим пунктом там стоит конструкция несофической группы. Через двое суток Франческо Фурнье-Фачо из Кембриджа выложил вторую конструкцию — на четырёх страницах и другим путём</p>
+<p class=intro>Софичность — из самых слабых способов сказать, что бесконечную группу можно приближать конечными, и вопрос, всякая ли группа софична, стоял с 1999 года. А есть известный афоризм самого Громова: нетривиальных теорем, верных для всех конечно порождённых групп, не бывает, — и «всякая группа софична» была бы именно такой теоремой</p>
+<p class=intro>Четыре шага: зачем бесконечную группу приближают конечными, что придумал Громов, что повисло на его определении и почему двадцать семь лет из класса не получалось выйти</p>
+<div class=note><span class=sign>&#9651;</span><span>Тексты написал Claude Opus по источникам, на которые ссылается. Там могут быть ошибки</span></div>
+<div class=author>Ваня Яковлев · <a href="https://t.me/turings_crossword" target=_blank rel=noopener>«Кроссворд Тьюринга»</a></div>
+<div class=rubric>1 · Конечное</div>
+<article class=item id=p1>
+<div class=side>
+<h2 class=title>Финитная аппроксимируемость и аменабельность</h2>
+<div class=by>геометрическая теория групп</div>
+</div><div class=body>
+<p class=blurb>Дискретные группы приходят из разных мест: группы Галуа расширений, фундаментальные группы, группы монодромии, кристаллографические группы, группы кос, решётки в группах Ли. Когда группу описывают образующими и соотношениями, по такой записи не видно ничего — ни тривиальна ли она, ни конечен ли порядок элемента. Ден в 1911 году, разбирая узлы и поверхности, выделил три вопроса, которые с тех пор и задают: тривиален ли элемент, сопряжены ли два элемента, изоморфны ли две группы</p>
+<p class=blurb>Пока группа конечна, любой такой вопрос — конечный перебор по таблице умножения. Бесконечную таблицу не выпишешь, и почти вся техника сводится к тому, чтобы заменить группу конечными данными. Классических способов два:</p>
+<ul class=blist><li><strong>Финитная аппроксимируемость.</strong> Группа финитно аппроксимируема, если её элементы различаются конечными факторгруппами: для любого $g \ne 1$ есть гомоморфизм в конечную группу с неединичным образом $g$. Польза видна сразу: по алгоритму Маккинси у конечно представимой финитно аппроксимируемой группы разрешима проблема слов. Класс широкий — по теореме Мальцева финитно аппроксимируема всякая конечно порождённая линейная группа над полем</li><li><strong>Аменабельность.</strong> Группа аменабельна, если на всех её подмножествах определена инвариантная конечно-аддитивная вероятностная мера. Равносильная форма, критерий Фёльнера: найдутся конечные множества, которые почти не сдвигаются, — умножение на заранее выбранный элемент меняет сколь угодно малую долю их точек. Польза геометрическая: по альтернативе Тарского неаменабельность равносильна тому, что группу можно разрезать на конечное число кусков и сдвигами собрать из них две её копии. Ровно так устроен парадокс Банаха — Тарского: группа вращений содержит свободную подгруппу, а свободная группа так разрезается</li></ul>
+<p class=blurb>Свойства независимы, и вместе они закрывают почти всё, что встречается математику вне теории групп. Свободная группа неаменабельна — на ней и построены парадоксальные разбиения, — но финитно аппроксимируема: она вкладывается в $\mathrm{GL}_2(\mathbb{Z})$, и хватает теоремы Мальцева. Разрешимая группа, наоборот, аменабельна. Рамка при этом всё время одна: конечно порождённые, в крайнем случае счётные группы, — группы Ли и группы диффеоморфизмов в неё не попадают</p>
+<p class=blurb>Работают оба свойства одинаково. Для конечной группы нужное утверждение обычно тривиально, а приближение конечными переносит его на бесконечную. Дальше всё зависит от того, насколько слабым можно сделать это приближение</p>
+<div class=links><div class=lhead>Что почитать и посмотреть</div>
+<div class=lnk><div class=labout>Обзор Туллио Чеккерини-Сильберштейна, Ростислава Григорчука и Пьера де ла Арпа: инвариантное среднее, альтернатива Тарского и критерий Фёльнера — сразу для псевдогрупп, группы частным случаем</div><a href="https://www.unige.ch/~laharpe/articles/18-CGH.pdf" target=_blank rel=noopener>Amenability and paradoxical decompositions for pseudogroups and for discrete metric spaces</a></div>
+</div>
+</div></article>
+<div class=rubric>2 · Софичность</div>
+<article class=item id=p2>
+<div class=side>
+<h2 class=title>Приближение, которому разрешили ошибаться</h2>
+<div class=by>символическая динамика</div>
+</div><div class=body>
+<p class=blurb>В 1999 году Громов разбирал задачу о клеточных автоматах. Раскраска группы $G$ конечным алфавитом $A$ — это функция $G \to A$; клеточный автомат переводит раскраски в раскраски по локальному правилу, где новое состояние клетки определяется состояниями её соседей. «Жизнь» Конвея — автомат на $\mathbb{Z}^2$, но решётку можно заменить любой группой. Гипотеза Готтшалька утверждает, что инъективный клеточный автомат сюръективен. Для конечной группы раскрасок конечное число, и это школьный аргумент про инъекцию конечного множества в себя</p>
+<p class=blurb>Громов понял, что для переноса на бесконечную группу не нужно ни финитной аппроксимируемости, ни аменабельности: гомоморфизмы в конечные группы можно не искать вовсе, хватит приближённого гомоморфизма в группу перестановок</p>
+<p class=blurb>Мера приближения — нормированное расстояние Хэмминга на симметрической группе $S_n$: для перестановок $\pi$ и $\tau$ величина $d(\pi,\tau)$ есть доля точек $i$, в которых $\pi(i) \ne \tau(i)$. У совпадающих перестановок она нулевая, у расходящихся всюду — единица</p>
+<p class=blurb>Группа $G$ софична, если для любого конечного $F \subset G$ и любой точности $\varepsilon$ найдутся $n$ и отображение $\sigma\colon G \to S_n$, для которого</p>
+<p class=disp>$$d\big(\sigma(gh),\,\sigma(g)\sigma(h)\big) \lt \varepsilon, \qquad d\big(\sigma(g),\,\sigma(h)\big) \gt 1-\varepsilon$$</p>
+<p class=blurb>— первое при всех $g,h \in F$, второе при всех различных $g,h \in F$. То есть произведение переходит в перестановку, близкую к произведению перестановок, а разные элементы $F$ — в перестановки, расходящиеся почти всюду</p>
+<p class=blurb>Уберём оба «почти»: потребуем $d\big(\sigma(gh),\sigma(g)\sigma(h)\big) = 0$ и $d\big(\sigma(g),\sigma(h)\big) = 1$. Первое означает, что на $F$ отображение $\sigma$ — гомоморфизм. Второе строго сильнее инъективности: перестановки $\sigma(g)$ и $\sigma(h)$ расходятся не где-то, а в каждой точке, то есть $\sigma(g)^{-1}\sigma(h)$ идёт без неподвижных точек. Ровно так конечная группа действует на себе умножением, и точная версия равносильна вложению куска $F$ в конечную группу: в одну сторону левые сдвиги, в другую — конечность $S_n$. Заменим вдобавок конечное $F$ на всё $G$ — останется просто «$G$ конечна»</p>
+<p class=blurb>Название дал Вайс в 2000 году, от ивритского סופי — «конечный»; русского названия у свойства нет. Оба классических свойства попадают внутрь класса: аменабельные и финитно аппроксимируемые группы софичны. Точная версия тоже давно названа: в 1997-м, двумя годами раньше Громова, Вершик и Гордон выделили класс LEF-групп, где каждый конечный кусок таблицы умножения вкладывается в конечную группу без всякой ошибки. Два «почти» не бесплатны: по теореме Вершика и Гордона конечно представимая LEF-группа финитно аппроксимируема, поэтому бесконечная простая конечно представимая группа — скажем, группа Томпсона $V$ — из класса LEF выпадает</p>
+<div class=links><div class=lhead>Что почитать и посмотреть</div>
+<div class=lnk><div class=labout>Работа Михаила Громова 1999 года, откуда всё пошло; самого слова «sofic» в ней ещё нет</div><a href="https://www.ihes.fr/~gromov/wp-content/uploads/2018/08/13103.pdf" target=_blank rel=noopener>Endomorphisms of symbolic algebraic varieties</a></div>
+<div class=lnk><div class=labout>Обзор Владимира Пестова, Bulletin of Symbolic Logic 2008, двадцать восемь страниц: обе мотивации сразу — Готтшальк для софических групп, гипотеза вложения Конна для гиперлинейных</div><a href="https://arxiv.org/abs/0804.3968" target=_blank rel=noopener>Hyperlinear and sofic groups: a brief guide</a></div>
+</div>
+</div></article>
+<div class=rubric>3 · Богатство</div>
+<article class=item id=p3>
+<div class=side>
+<h2 class=title>Что повисло на одном условии</h2>
+<div class=by>теория групп</div>
+</div><div class=body>
+<p class=blurb>Список утверждений, доказанных для софических групп и открытых в общем случае, набирался четверть века:</p>
+<ul class=blist><li><strong>гипотеза Готтшалька</strong> — для софических групп её доказали Громов и Вайс;</li><li><strong>гипотеза Капланского о прямой конечности</strong>: в групповом кольце $k[G]$ из $ab=1$ следует $ba=1$ — Элек и Сабо, они же детерминантная гипотеза Люка;</li><li><strong>энтропия действий</strong>: в 2010 году Боуэн определил её для действий счётных софических групп — там, где до того её умели строить только для аменабельных;</li><li><strong>инвариантные случайные подгруппы</strong>: приближается ли конечными всякая случайная подгруппа, распределение которой не меняется при сопряжении</li></ul>
+<p class=blurb>Обе гипотезы, Капланского и Готтшалька, формулируются в одну строку. Доказаны они только для софических групп, и другого подхода, кроме приближения конечными, к ним не нашли. Отсюда ставка: ответ «да» на вопрос «всякая ли группа софична» закрыл бы обе разом</p>
+<p class=blurb>Фурнье-Фачо оговаривает отдельно: никто, по его мнению, не предполагал, что софичны все группы, — уже с того момента, как Вайс дал название, ждали, что несофическая группа найдётся</p>
+<p class=blurb>Положительных теорем к тому времени набралось много: софична подгруппа софической группы, софично прямое и свободное произведение софических, софичны их прямые и обратные пределы, софично расширение софической группы аменабельной. Отрицательной не было ни одной — не было условия, при котором группа заведомо несофична. А софичность есть свойство существования: чтобы её опровергнуть, надо закрыть сразу все приближения</p>
+</div></article>
+<div class=rubric>4 · Как сломали</div>
+<article class=item id=p4>
+<div class=side>
+<h2 class=title>Две стороны: вероятностная и конструктивная</h2>
+<div class=by>теория сложности</div>
+</div><div class=body>
+<p class=blurb>Поиск несофической группы неожиданно оказался связан с теорией вероятностей. Гипотеза Олдоса — Лайонса утверждает, что всякий бесконечный случайный граф, при техническом условии унимодулярности, приближается конечными графами; для свободной группы это ровно вопрос об инвариантных случайных подгруппах из прошлого блока. Боуэн, Чапман, Любоцкий и Видик опровергли её в 2024–2025 годах инструментом из теории сложности: построили систему доказательств по образцу нелокальных игр и свели к ней проблему остановки, переработав технику из MIP* = RE. Графа при этом не предъявили</p>
+<p class=blurb>Подход OpenAI, наоборот, вполне конструктивен: группа выписана — это группа обратимых элементов бинарной алгебры Ливитта. Держится конструкция на критерии, где сходятся два противоположных свойства:</p>
+<ul class=blist><li><strong>свойство (T) Каждана</strong> — жёсткость: в унитарных представлениях группы почти инвариантные векторы бывают только рядом с настоящими инвариантными;</li><li><strong>LEF</strong> — приближение конечными кусками таблицы умножения без всякой ошибки</li></ul>
+<p class=blurb>Критерий утверждает: если внутри группы нужным образом уложены подгруппа со свойством (T) и подгруппа, не являющаяся LEF, софической такая группа быть не может. Lean-сертификат публичен, но независимого математического разбора пока нет</p>
+<p class=blurb>Через двое суток Фурнье-Фачо предъявил вторую такую группу — тем же критерием, но собранную иначе и вдобавок без кручения. Это и есть главный итог: двадцать семь лет мешало отсутствие критерия, а как только он появился, вторая группа нашлась почти сразу и из других кирпичей. Дело было не в редкости таких групп, а в том, что их нечем было опознать</p>
+<div class=links><div class=lhead>Что почитать и посмотреть</div>
+<div class=lnk><div class=labout>Доклад Михаэля Чапмана в IAS, 7 октября 2024, по совместной работе с Льюисом Боуэном, Алексом Любоцким и Томасом Видиком; в аннотации он оговаривает, что специальной подготовки не предполагается. На следующий день вторая часть, «Subgroup Tests and Tailored Non-local Games»</div><a href="https://www.ias.edu/video/subgroup-tests-and-aldous-lyons-conjecture" target=_blank rel=noopener>Subgroup Tests and the Aldous--Lyons Conjecture</a></div>
+<div class=lnk><div class=labout>Анонс OpenAI от 1 августа, первоисточник: оттуда ведут ссылки на препринт, на разбор хода рассуждений и на Lean-сертификаты</div><a href="https://openai.com/index/ten-advances-in-mathematics/" target=_blank rel=noopener>Ten advances in mathematics and theoretical computer science</a></div>
+<div class=lnk><div class=labout>Заметка Франческо Фурнье-Фачо, четыре страницы: вторая конструкция и попутно две оговорки — о том, что в анонсе названо гипотезой, и о том, что там названо отсутствием прогресса</div><a href="https://arxiv.org/abs/2608.02025" target=_blank rel=noopener>A torsion-free non-sofic group</a></div>
+</div>
+</div></article>
+<div class=foot><div class=author>Ваня Яковлев · <a href="https://t.me/turings_crossword" target=_blank rel=noopener>«Кроссворд Тьюринга»</a></div></div>
+</div>
+<nav class=dots><a href="#p1" data-t="Финитная аппроксимируемость и аменабельность"></a><a href="#p2" data-t="Приближение, которому разрешили ошибаться"></a><a href="#p3" data-t="Что повисло на одном условии"></a><a href="#p4" data-t="Две стороны: вероятностная и конструктивная"></a></nav>
+</body></html>

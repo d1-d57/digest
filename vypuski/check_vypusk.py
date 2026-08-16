@@ -136,6 +136,57 @@ def vidimaya_proza(body):
     return razdely
 
 
+# 🔴 Допуск к корпусной норме. Разброс между выпусками настоящий — 1514 знаков на
+# раздел в выпуске 02 против 2090 в 03, — и норма, требующая попасть в точку,
+# краснела бы на здоровой работе. Двадцать процентов взяты решением владельца
+# 16.08 («на 15 %, например, 20 %») и подлежат пересчёту, когда корпус вырастет:
+# на двух выпусках дисперсию не оценивают, её оценивают на пяти.
+DOPUSK = 0.20
+KORPUS_MIN = 2          # меньше двух выпусков — нормы нет, и это говорится вслух
+
+
+def korpusnaya_norma(papka):
+    """Норма объёма, посчитанная ПО КОРПУСУ принятых выпусков, а не вписанная руками.
+
+    Возвращает (норма_знаков, таблица, беда). Норма — это
+    `среднее на раздел × число разделов этого выпуска + среднее лида`.
+
+    Почему на раздел, а лид отдельно: лид по К1 — три абзаца независимо от того,
+    сколько в выпуске разделов, и амортизировать его по разделам значит завышать
+    норму тем выпускам, у которых разделов больше. Выпуск 4 с семью разделами
+    получил бы прибавку просто за то, что он длиннее.
+
+    🔴 Старые выпуски при этом НЕ редактируются: они читаются как есть, и
+    формула сама пересчитывается, когда корпус растёт. Выпуски без разделов
+    (`# N · Имя`) в корпус не идут — это другой формат, а не маленький выпуск.
+    """
+    tek = papka.resolve()
+    tabl, na_razdel, lidy = [], [], []
+    for f in sorted(papka.parent.glob('*/vypusk.md')):
+        if f.parent.resolve() == tek:
+            continue
+        try:
+            _, b = split_frontmatter(f.read_text(encoding='utf-8'))
+        except Exception:
+            continue
+        d = vidimaya_proza(b)
+        lid = d.pop('лид', 0)
+        if len(d) < 2:
+            continue
+        per = sum(d.values()) / len(d)
+        tabl.append((f.parent.name, lid, sum(d.values()), len(d), per))
+        na_razdel.append(per)
+        lidy.append(lid)
+    if len(na_razdel) < KORPUS_MIN:
+        return None, tabl, (f'в корпусе {len(na_razdel)} выпуск(ов) с разделами, '
+                            f'нужно хотя бы {KORPUS_MIN} — норма не считается')
+    _, b = split_frontmatter(Path(tek / 'vypusk.md').read_text(encoding='utf-8'))
+    n_tek = len([k for k in vidimaya_proza(b) if k != 'лид'])
+    sr = sum(na_razdel) / len(na_razdel)
+    sr_lid = sum(lidy) / len(lidy)
+    return round(sr * n_tek + sr_lid), tabl, None
+
+
 def byudzhety_raskladki(papka):
     """(потолок, {номер раздела: бюджет}) из RASKLADKA.md, либо (None, {}, причина)."""
     f = papka / 'RASKLADKA.md'
@@ -190,6 +241,30 @@ def gejt_obyoma(papka, body, errs, warns):
 
     fakt = vidimaya_proza(body)
     vsego = sum(fakt.values())
+
+    # --- корпусная норма: потолок раскладки сам обязан быть в её пределах -----
+    norma, tabl, net_normy = korpusnaya_norma(papka)
+    if tabl:
+        print('К5 · корпус принятых выпусков (старые не редактируются, читаются как есть):')
+        print(f'   {"выпуск":26}{"лид":>7}{"разделы":>9}{"n":>4}{"на раздел":>11}')
+        for imya, lid, raz, n, per in tabl:
+            print(f'   {imya:26}{lid:>7}{raz:>9}{n:>4}{per:>11.0f}')
+    if net_normy:
+        warns.append(f'[К5 норма] {net_normy} — проверен только потолок раскладки')
+        print()
+    else:
+        predel = round(norma * (1 + DOPUSK))
+        print(f'   норма по корпусу: {norma} знаков · допуск +{DOPUSK:.0%} → предел {predel}\n')
+        if potolok > predel:
+            errs.append(f'[К5 норма] потолок раскладки {potolok} выше корпусной нормы '
+                        f'{norma} с допуском (+{DOPUSK:.0%} → {predel}). Потолок назначается '
+                        f'не свободно: он обязан держаться корпуса, иначе выпуск растёт '
+                        f'тем, что сам себе разрешает расти')
+        if vsego > predel:
+            errs.append(f'[К5 норма] проза {vsego} знаков при корпусной норме {norma} '
+                        f'(+{100 * vsego / norma - 100:.0f} %, предел с допуском {predel}) — '
+                        f'выпуск вышел за корпус, а не за собственный потолок')
+
     print(f'К5 · объём видимой прозы: {vsego} знаков при потолке {potolok} '
           f'({100 * vsego / potolok - 100:+.0f} %)')
     for n in sorted(fakt, key=lambda k: (k != 'лид', k)):

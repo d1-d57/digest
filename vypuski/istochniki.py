@@ -73,7 +73,7 @@ def main(name):
     proverki.avtomark(d, 'istochniki',
                       'числа выписываемых утверждений найдены в своих разделах, ссылки без дублей, '
                       'число ссылок совпадает с раскладкой')
-    return proverki.gate(d, 2)
+    return proverki.gate(d, 'tekst')
 
 
 if __name__ == '__main__':

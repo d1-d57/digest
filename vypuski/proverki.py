@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Реестр обязательных проверок выпуска и журнал их прогонов.
 
-    python3 proverki.py spisok  <папка> --faza N       что обязано быть проведено
+    python3 proverki.py spisok  <папка> --faza <имя>   что обязано быть проведено
     python3 proverki.py mark    <папка> <имя> --sled "…" [--verdikt зелёный|красный]
-    python3 proverki.py gate    <папка> --faza N       всё ли проведено, и по текущей ли версии
+    python3 proverki.py gate    <папка> --faza <имя>   всё ли проведено, и по текущей ли версии
+    python3 proverki.py fazy                           порядок фаз конвейера
 
 Зачем это существует. Исполнитель не врёт про проделанную работу — он ЗАБЫВАЕТ под
 длинной инструкцией. Поэтому память о проверках вынесена из головы в файл, а сам
@@ -11,9 +12,22 @@
 обнуляет её, и гейт краснеет. Без этого «я прогнал русский редактор» означает
 «прогнал когда-то, возможно, по другой редакции текста».
 
-Журнал — `<папка>/.proverki.json`. Гейт зовётся из check_raskladka.py (фаза 1) и
-check_vypusk.py (фаза 2); скрипты отмечаются в нём сами, ручные проверки и
-верификаторы отмечаются командой `mark` со следом.
+СОСТАВ И ПОРЯДОК ФАЗ ЖИВУТ ЗДЕСЬ, а не в прозе протокола. Причина — та же, по которой
+здесь живёт журнал: порядок, вынесенный из текста в код, единственный не зависит от
+того, что исполнитель вспомнит. `docs/PROTOKOL-VYPUSKA.md` на этот словарь ссылается и
+его не дублирует; расхождение чинится правкой протокола, а не кода.
+
+ФАЗЫ НАЗВАНЫ ИМЕНАМИ, А НЕ НОМЕРАМИ (решение владельца 16.08). Номер съезжает в тот
+день, когда между двумя фазами вставляют третью, и съезжает молча: гейт продолжает
+работать, проверяя не ту фазу.
+
+ПОРЯДОК ponyatnost → stil ВЫВЕДЕН ИЗ ХЕША, а не выбран. Всё, что МЕНЯЕТ содержание,
+идёт раньше того, что содержание менять не имеет права: ponyatnost дописывает
+определения, stil не имеет права трогать смысл. Обратный порядок физически не
+работает — каждая правка понятности обнуляла бы стилевую отметку.
+
+Журнал — `<папка>/.proverki.json`. Гейт зовётся из check_*.py; скрипты отмечаются в нём
+сами, ручные проверки и верификаторы отмечаются командой `mark` со следом.
 """
 import argparse
 import hashlib
@@ -22,29 +36,75 @@ import sys
 from datetime import date
 from pathlib import Path
 
+# Порядок фаз конвейера. Фаза не стартует, пока предыдущая не принята строкой
+# `ПРИНЯТО <имя>:` в своём артефакте приёмки.
+PORYADOK = ['razvedka', 'raskladka', 'karta', 'tekst', 'ponyatnost', 'stil']
+
+FAZA_IMYA = {
+    'razvedka':  'разведка — всё математическое содержание темы',
+    'raskladka': 'раскладка — разделы, утверждения, бюджеты',
+    'karta':     'карта — блоки, опоры, места ввода понятий',
+    'tekst':     'текст — проза по блокам',
+    'ponyatnost': 'понятность — понятие введено там, где употреблено',
+    'stil':      'стиль — регистр и идиома; содержание не трогается',
+}
+
+# где лежит строка `ПРИНЯТО <имя>:` этой фазы.
+# У `razvedka` приёмки нет: она вне протокола, это вход.
+PRIYOMKA = {
+    'raskladka':  'RASKLADKA.md',
+    'karta':      'PONYATIYA.md',
+    'tekst':      'OTCHET.md',
+    'ponyatnost': 'PONYATIYA.md',
+    'stil':       'OTCHET.md',
+}
+
 # имя · чем проводится · какой файл проверяет
-# Проверки разделены по приоритету (решение владельца 16.08): ДО показа владельцу
-# закрывается стиль — плохой стиль обесценивает показ; терминология и сверка
-# источников доделываются ПОСЛЕ, они показу не мешают.
 REESTR = {
-    1: [
-        ('check_raskladka',        'скрипт',   'RASKLADKA.md'),
-        ('verifikator-raskladki',  'субагент', 'RASKLADKA.md'),
+    'razvedka': [],          # носителей нет, объявленная слепая зона: docs/fazy/razvedka.md
+    'raskladka': [
+        ('check_raskladka',           'скрипт',   'RASKLADKA.md'),
+        ('verifikator-raskladki',     'субагент', 'RASKLADKA.md'),
     ],
-    2: [
-        ('check_vypusk',              'скрипт',   'vypusk.md'),
+    'karta': [
         ('bloki',                     'скрипт',   'vypusk.md'),
-        ('russian-editor',            'скилл',    'vypusk.md'),
+        ('verifikator-karty',         'субагент', 'vypusk.md'),
+    ],
+    'tekst': [
+        ('check_vypusk',              'скрипт',   'vypusk.md'),
+        ('istochniki',                'скрипт',   'vypusk.md'),
         ('verifikator-teksta',        'субагент', 'vypusk.md'),
     ],
-    3: [
-        ('istochniki',                'скрипт',   'vypusk.md'),
+    'ponyatnost': [
+        ('check_ponyatiya',           'скрипт',   'vypusk.md'),
+        ('verifikator-ponyatnosti',   'субагент', 'vypusk.md'),
+    ],
+    'stil': [
+        # check_ponyatiya стоит здесь НАРОЧНО, вторым домом: стилевая правка меняет файл,
+        # хеш расходится, и порядок ввода понятий приходится перегнать по НОВОЙ редакции.
+        # Скрипт дёшев, перегон бесплатен. Верификатор понятности сюда НЕ дублируется —
+        # он дорог, и требовать его после каждой запятой значит не гонять его вовсе.
+        ('check_ponyatiya',           'скрипт',   'vypusk.md'),
+        ('check_vypusk',              'скрипт',   'vypusk.md'),
+        ('check_stil',                'скрипт',   'vypusk.md'),
         ('math-russian-terminology',  'скилл',    'vypusk.md'),
+        ('russian-editor',            'скилл',    'vypusk.md'),
+        ('verifikator-stilya',        'субагент', 'vypusk.md'),
     ],
 }
-FAZA_IMYA = {1: 'раскладка', 2: 'стиль — до показа владельцу', 3: 'сверка — после показа'}
 
-VERDIKTNYE = {'verifikator-raskladki', 'verifikator-teksta'}
+VERDIKTNYE = {'verifikator-raskladki', 'verifikator-karty', 'verifikator-teksta',
+              'verifikator-ponyatnosti', 'verifikator-stilya'}
+
+# ⚠ ОБЪЯВЛЕННАЯ СЛЕПАЯ ЗОНА. Главное правило фазы `stil` — «здесь не меняется
+# содержание» — машинного носителя НЕ имеет и иметь не может: отличить стилевую правку
+# от смысловой машине нечем. Первая редакция сравнивала хеш с зафиксированным на выходе
+# `ponyatnost` и краснела — но краснела она на ЛЮБОЙ правке, то есть на всякой законной
+# работе фазы. Гейт, красный при здоровой работе, отключают целиком, и вместе с ним
+# отключается всё остальное. Механизм снят намеренно.
+# Что осталось: обнуление по хешу гонит заново дешёвый check_ponyatiya (он в реестре
+# выше), а смысловую правку под видом стилевой ловит только владелец на показе.
+# [ДОЛГ: docs/DOLGI.md#Д22]
 
 
 def sha(p: Path) -> str:
@@ -92,9 +152,35 @@ def avtomark(papka, imya: str, sled: str):
     zapisat(d, j)
 
 
-def gate(d: Path, faza: int, tiho=False):
+def prinyata(d: Path, faza: str) -> bool:
+    """Принята ли фаза — строкой `ПРИНЯТО <имя>:` в её артефакте приёмки (Н4)."""
+    f = d / PRIYOMKA.get(faza, '')
+    if faza not in PRIYOMKA or not f.exists():
+        return False
+    return any(l.startswith(f'ПРИНЯТО {faza}:') for l in f.read_text(encoding='utf-8').split('\n'))
+
+
+def gate(d: Path, faza: str, tiho=False):
+    if faza not in REESTR:
+        print(f'✗ нет такой фазы: {faza}. Известные по порядку: {" → ".join(PORYADOK)}')
+        return 1
     j, bed = zhurnal(d), []
     stroki = []
+
+    # предыдущая фаза обязана быть принята: фаза судит работу предыдущей, а не свою
+    i = PORYADOK.index(faza)
+    if i > 0:
+        pred = PORYADOK[i - 1]
+        if pred not in PRIYOMKA:
+            # ⚠ У `razvedka` приёмки нет, и потому вход `raskladka` не проверяется НИЧЕМ.
+            # Молчать об этом нельзя: молчание неотличимо от проверенного входа.
+            stroki.append(f'   ⚠ вход: у предыдущей фазы «{pred}» приёмки нет вовсе — '
+                          f'вход этой фазы не проверяется ничем [ДОЛГ: docs/DOLGI.md#Д23]')
+        elif not prinyata(d, pred):
+            stroki.append(f'   ✗ вход: предыдущая фаза «{pred}» не принята — нет строки '
+                          f'`ПРИНЯТО {pred}:` в {PRIYOMKA[pred]}')
+            bed.append(f'вход-{pred}')
+
     for imya, chem, fajl in REESTR[faza]:
         tek = sha(d / fajl)
         z = j.get(imya)
@@ -112,28 +198,41 @@ def gate(d: Path, faza: int, tiho=False):
         else:
             stroki.append(f'   ✓ {imya:<26} {chem:<9} {z["kogda"]} @{z["hash"]} · {z["sled"][:60]}')
     if not tiho:
-        print(f'Лист проверок фазы {faza} · {FAZA_IMYA.get(faza, "")}:')
-        print('\n'.join(stroki))
+        print(f'Лист проверок фазы «{faza}» · {FAZA_IMYA.get(faza, "")}:')
+        print('\n'.join(stroki) if stroki else
+              '   ⚠ носителей нет вовсе — объявленная слепая зона, см. docs/fazy/'
+              f'{faza}.md')
         print()
     if bed:
         if not tiho:
-            print(f'✗ гейт проверок фазы {faza} красный: не закрыто {len(bed)} — '
+            print(f'✗ гейт проверок фазы «{faza}» красный: не закрыто {len(bed)} — '
                   f'{", ".join(bed)}')
         return 1
     if not tiho:
-        print(f'✓ гейт проверок фазы {faza} зелёный')
+        if not REESTR[faza]:
+            # Пустой реестр НЕ печатается словом «зелёный»: зелёный цвет при отсутствии
+            # проверок и есть тот самый дефект, ради которого заведён этот протокол.
+            print(f'⚠ у фазы «{faza}» гейта НЕТ — проверять нечем, а не «всё в порядке»')
+        else:
+            print(f'✓ гейт проверок фазы «{faza}» зелёный: '
+                  f'закрыто {len(REESTR[faza])} из {len(REESTR[faza])}')
     return 0
 
 
 def main():
     ap = argparse.ArgumentParser(add_help=False)
-    ap.add_argument('cmd', choices=['spisok', 'mark', 'gate'])
-    ap.add_argument('papka')
+    ap.add_argument('cmd', choices=['spisok', 'mark', 'gate', 'fazy'])
+    ap.add_argument('papka', nargs='?')
     ap.add_argument('imya', nargs='?')
-    ap.add_argument('--faza', type=int, default=2)
+    ap.add_argument('--faza', default='tekst')
     ap.add_argument('--sled', default='')
     ap.add_argument('--verdikt')
     a = ap.parse_args()
+    if a.cmd == 'fazy':
+        for n, f in enumerate(PORYADOK, 1):
+            nositeli = ', '.join(i for i, _, _ in REESTR[f]) or '— носителей нет'
+            print(f'{n}. {f:<11} {FAZA_IMYA[f]}\n   {nositeli}')
+        return 0
     d = Path(a.papka)
     if not d.is_dir():
         d = Path(__file__).parent / a.papka

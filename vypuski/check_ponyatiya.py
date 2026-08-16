@@ -1,0 +1,200 @@
+#!/usr/bin/env python3
+"""Гейт фазы `ponyatnost`: понятие введено там, где употреблено.
+
+    python3 check_ponyatiya.py <папка выпуска>
+
+ЧТО ЭТОТ СКРИПТ ДЕЛАЕТ. Читает инвентарь `PONYATIYA.md` и текст `vypusk.md`, находит
+для каждого понятия блок, в котором оно ВПЕРВЫЕ встречается в прозе, и сравнивает с
+блоком, назначенным ему местом ввода на фазе `karta`. Употреблено раньше введения —
+красное. Порядок считается машиной, руками не сверяется.
+
+ЧЕГО ЭТОТ СКРИПТ НЕ ДЕЛАЕТ — объявленная слепая зона, и она названа здесь, а не
+подразумевается. Он проверяет порядок для понятий, КОТОРЫЕ УЖЕ В ИНВЕНТАРЕ. Понятие,
+произнесённое в тексте и в инвентарь не попавшее, он не видит вовсе: чтобы находить
+такие, машине нужен словарь математической лексики, которого у нас нет. Обратную
+сторону ловит верификатор понятности — субагент со свежим контекстом, по блоку.
+Зелёный этого скрипта НЕ означает «понятия проверены»; он означает ровно
+«назначенный порядок не нарушен». [ДОЛГ: docs/DOLGI.md#Д20]
+
+Тот же дефект однажды уже стоил выпуска: `check_vypusk.py` печатал первые появления
+математических ОБОЗНАЧЕНИЙ, назывался проверкой ввода терминов, и его зелёный цвет
+создавал ощущение, что термины проверены. Рычаг, покрывающий малую часть случаев,
+вреднее отсутствия рычага — поэтому охват здесь печатается всегда.
+
+Форма строки инвентаря — таблица markdown из четырёх колонок:
+
+    | понятие | роль | вводится в блоке | как |
+
+Роль — одна из четырёх: несущее · мотивация · отсылка · общеизвестное. Пятого значения
+нет: понятие, не попавшее ни в одну роль, вырезается из выпуска, а не остаётся
+необъяснённым.
+"""
+import re
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent))
+import proverki  # noqa: E402
+
+ROLI = {'несущее', 'мотивация', 'отсылка', 'общеизвестное', 'вырезать'}
+# роли, у которых место ввода обязано быть названо и соблюдено
+OBYAZANY = {'несущее', 'мотивация'}
+# сколько значимых слов отделяет ТЕРМИН от ОПИСАНИЯ дефекта
+PREDEL_SLOV = 4
+
+
+def stemy(s: str):
+    """Значимые корни понятия. Русский склоняется: «многочлены Гегенбауэра» в тексте стоит
+    как «многочленам Гегенбауэра», и поиск подстроки его не находит. Отбрасываем хвост в
+    три буквы у длинных слов — грубо, зато без словаря и без внешних библиотек.
+
+    Формулы, числа и служебные слова выбрасываем: они ловят что попало."""
+    sluzhebnye = {'этот', 'который', 'когда', 'если', 'чтобы', 'только', 'также', 'всех',
+                  'каждый', 'такой', 'нужно', 'может', 'быть', 'есть'}
+    slova = re.findall(r'[А-Яа-яЁёA-Za-z]{4,}', re.sub(r'\$[^$]*\$', ' ', s))
+    out = []
+    for w in slova:
+        w = w.lower()
+        if w in sluzhebnye:
+            continue
+        out.append(w[:-3] if len(w) >= 7 else w)
+    return out
+
+
+def bloki_teksta(src: str):
+    """[(id блока, статус, проза блока)] — проза это то, что после ==== до следующего %%."""
+    out = []
+    tek = None
+    for kus in re.split(r'^%% ', src, flags=re.M)[1:]:
+        golova = kus.split('\n', 1)[0]
+        m = re.match(r'([\w.]+)\s*·\s*(\w+)', golova)
+        if not m:
+            continue
+        proza = kus.split('====', 1)[1] if '====' in kus else ''
+        # обрезаем хвост следующего раздела, если он попал в кусок
+        proza = re.split(r'^# ', proza, flags=re.M)[0]
+        out.append((m.group(1), m.group(2), proza))
+        tek = m.group(1)
+    return out
+
+
+def inventar(src: str):
+    """[(понятие, роль, блок ввода, строка файла)] из таблицы PONYATIYA.md."""
+    out = []
+    for n, l in enumerate(src.split('\n'), 1):
+        if not l.startswith('|'):
+            continue
+        kol = [c.strip() for c in l.strip('|').split('|')]
+        if len(kol) < 3 or kol[0] in ('понятие', '---') or set(kol[0]) <= set('-: '):
+            continue
+        out.append((kol[0], kol[1], kol[2], n))
+    return out
+
+
+def main(papka):
+    d = Path(papka)
+    if not d.is_dir():
+        d = Path(__file__).parent / papka
+    pf, vf = d / 'PONYATIYA.md', d / 'vypusk.md'
+    if not pf.exists():
+        print(f'✗ нет {pf}. Инвентарь понятий порождается на фазе `karta`, '
+              f'а не пишется здесь: docs/fazy/karta.md')
+        return 1
+    if not vf.exists():
+        print(f'✗ нет {vf}')
+        return 1
+
+    inv = inventar(pf.read_text(encoding='utf-8'))
+    src = vf.read_text(encoding='utf-8')
+    bloki = bloki_teksta(src)
+    poryadok = {b: i for i, (b, _, _) in enumerate(bloki)}
+    bedy, predupr, opisaniya = [], [], []
+
+    if 'заполнить' in pf.read_text(encoding='utf-8'):
+        bedy.append('PONYATIYA.md: осталось слово «заполнить»')
+
+    for ponyatie, rol, vvod, stroka in inv:
+        if rol not in ROLI:
+            bedy.append(f'строка {stroka}: роль «{rol}» вне списка ({" · ".join(sorted(ROLI))}). '
+                        f'Понятие без роли из четырёх вырезается, а не остаётся необъяснённым')
+            continue
+        if rol not in OBYAZANY:
+            continue
+        if vvod not in poryadok:
+            bedy.append(f'строка {stroka}: «{ponyatie}» вводится в блоке {vvod}, '
+                        f'а такого блока в тексте нет')
+            continue
+        st = stemy(ponyatie)
+        if len(st) > PREDEL_SLOV:
+            # Это не термин, а описание пропущенного шага. Такому в инвентаре не место:
+            # инвентарь ведёт понятия, а дефект изложения чинится в тексте и живёт в вердикте
+            # верификатора. Смешав их, получаем инвентарь, который ничего не проверяет.
+            opisaniya.append(f'«{ponyatie}» — {len(st)} значимых слов: это описание дефекта, '
+                             f'а не понятие. Инвентарь ведёт термины; пропущенный шаг чинится '
+                             f'в тексте')
+            continue
+        # Понятие, различаемое только формулой ($E_8$, $\sqrt{2m}$), искать нечем: формулы из
+        # поиска сняты, и от «решётка $E_8$» остаётся «решётк», которое найдёт любую решётку.
+        # Красить за это НЕЛЬЗЯ — это ложное срабатывание на здоровом тексте, а не дефект.
+        if len(st) <= 1 and re.search(r'\$', ponyatie):
+            predupr.append(f'«{ponyatie}» различается только формулой — поиск по словам дал бы '
+                           f'ложное срабатывание. Порядок ввода здесь проверяет верификатор')
+            continue
+        if not st:
+            predupr.append(f'«{ponyatie}» — не из чего строить поиск; проверяет верификатор')
+            continue
+        # первое употребление в прозе: все корни понятия встречаются в блоке
+        pervoe = next((b for b, _, p in bloki
+                       if all(k in p.lower() for k in st)), None)
+        if pervoe is None:
+            predupr.append(f'«{ponyatie}» ({rol}) в прозе не встречается вовсе — '
+                           f'либо термин лишний в инвентаре, либо в тексте он назван иначе')
+            continue
+        if poryadok[pervoe] < poryadok[vvod]:
+            bedy.append(f'«{ponyatie}»: употреблено в блоке {pervoe}, а введено только в {vvod}. '
+                        f'Перенести ввод или перенести употребление')
+
+    # otsylka обязана стоять в разделе со ссылками
+    razdel_ssylki, tek = {}, None
+    for l in src.split('\n'):
+        if l.startswith('# '):
+            tek = l[2:].strip()
+            razdel_ssylki.setdefault(tek, 0)
+        elif l.startswith('- link') and tek:
+            razdel_ssylki[tek] += 1
+    tek = None
+    for l in src.split('\n'):
+        if l.startswith('# '):
+            tek = l[2:].strip()
+        elif l.startswith('%% ') and 'otsylka' in l and tek:
+            if razdel_ssylki.get(tek, 0) == 0:
+                bedy.append(f'блок `otsylka` в разделе «{tek}», у которого нет ни одной ссылки: '
+                            f'отсылка обязана отправлять наружу, иначе она просто пропуск')
+
+    schitaemye = [p for p in inv if p[1] in OBYAZANY]
+    print(f'Понятий в инвентаре: {len(inv)} · из них с обязательным местом ввода: '
+          f'{len(schitaemye)} · блоков в тексте: {len(bloki)}')
+    print('⚠ ОХВАТ: проверен ПОРЯДОК ввода для понятий инвентаря. Понятия, произнесённые в '
+          'тексте и в инвентарь не попавшие, этим скриптом НЕ ищутся — их ловит только '
+          'верификатор понятности.')
+    print()
+    for p in opisaniya:
+        print('⚠ ' + p)
+    if opisaniya:
+        print()
+    for p in predupr:
+        print('⚠ ' + p)
+    for b in bedy:
+        print('✗ ' + b)
+    if bedy:
+        print(f'\n✗ гейт понятий красный: {len(bedy)}')
+        return 1
+    print('✓ порядок ввода понятий не нарушен')
+    proverki.avtomark(d, 'check_ponyatiya',
+                      f'порядок ввода: {len(schitaemye)} понятий с обязательным местом, '
+                      f'{len(bloki)} блоков, нарушений нет')
+    return proverki.gate(d, 'ponyatnost')
+
+
+if __name__ == '__main__':
+    sys.exit(main(sys.argv[1] if len(sys.argv) > 1 else '.'))

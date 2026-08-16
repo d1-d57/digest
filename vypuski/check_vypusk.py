@@ -235,7 +235,7 @@ def main(path):
     proverki.avtomark(Path(path).parent, 'check_vypusk',
                       f'механический гейт зелёный, {len(warns)} подозрений оставлено глазам')
     # Лист проверок фазы 2: скрипт зелёный не значит «выпуск проверен».
-    return proverki.gate(Path(path).parent, 2)
+    return proverki.gate(Path(path).parent, 'tekst')
 
 
 if __name__ == '__main__':

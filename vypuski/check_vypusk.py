@@ -98,6 +98,124 @@ def stop_words():
     return out
 
 
+# --- К5 · ОБЪЁМ: потолок прозы и бюджеты разделов из раскладки ---------------
+# 🔴 Этот блок появился 2026-08-16 с ценой: выпуск 4 превысил принятый потолок
+# прозы на 71 % (18 982 знака при 11 050) и прошёл гейт ЗЕЛЁНЫМ, потому что
+# `check_vypusk.py` бюджетов не читал вовсе — во всём файле про объём была одна
+# строка, предупреждение о длине абзаца. Условие «объём: проза и тело в планках
+# К5» стояло в docs/fazy/tekst.md как условие ГЕЙТА, а носителя не имело.
+# Исполнитель добросовестно написал в отчёте «бюджеты выдержаны», сославшись на
+# зелёный скрипт, — то есть выдал молчание инструмента за подтверждение.
+# Это тот же класс, что пустой граф опор в check_bloki.py, найденный в тот же день.
+#
+# 🔴 ГЛАВНОЕ ПРАВИЛО ЭТОГО БЛОКА: отсутствие данных — КРАСНОЕ, а не пропуск.
+# Нет RASKLADKA.md, нет потолка, не читается таблица бюджетов — гейт краснеет и
+# говорит, чего ему не хватает. Молчаливый зелёный при неработающей проверке
+# вреднее отсутствующей проверки: он создаёт уверенность, что объём проверен.
+
+SKIP_PREFIX = ('- link', '- areas', '#', '%%', 'зачем:', 'мысль:',
+               'опирается:', 'объём:', '====', '|')
+
+
+def vidimaya_proza(body):
+    """Знаки прозы, которые видит читатель, по разделам.
+
+    Считается ровно то, что доезжает до страницы: без шапок блоков, маркеров,
+    подводок ссылок, заголовков и areas. Мерить надо этим, а не длиной файла:
+    у выпуска 4 разница между «телом» и видимой прозой — 12 тысяч знаков,
+    и меряя тело, потолок можно не заметить вовсе.
+    """
+    razdely = {}
+    for kus in re.split(r'\n# ', '\n' + body):
+        zagolovok = kus.split('\n')[0].strip()
+        nomer = (re.match(r'(\d+)', zagolovok) or [None, 'лид'])[1]
+        stroki = [l for l in kus.split('\n')
+                  if l.strip() and not l.startswith(SKIP_PREFIX)]
+        if stroki:
+            razdely[nomer] = razdely.get(nomer, 0) + len('\n'.join(stroki))
+    return razdely
+
+
+def byudzhety_raskladki(papka):
+    """(потолок, {номер раздела: бюджет}) из RASKLADKA.md, либо (None, {}, причина)."""
+    f = papka / 'RASKLADKA.md'
+    if not f.exists():
+        return None, {}, f'RASKLADKA.md не найдена в {papka}'
+    t = f.read_text(encoding='utf-8')
+    m = re.search(r'^potolok_prozy:\s*(\d+)', t, re.M)
+    potolok = int(m.group(1)) if m else None
+    byudzh = {}
+    for stroka in t.split('\n'):
+        if not stroka.startswith('|'):
+            continue
+        cells = [c.strip() for c in stroka.strip('|').split('|')]
+        if len(cells) < 3 or not cells[0].isdigit():
+            continue
+        # бюджет — предпоследняя числовая колонка (последняя — число ссылок)
+        chisla = [c for c in cells[1:] if c.isdigit()]
+        if len(chisla) >= 2:
+            byudzh[cells[0]] = int(chisla[-2])
+    if potolok is None:
+        return None, byudzh, 'в RASKLADKA.md нет строки `potolok_prozy:`'
+    if not byudzh:
+        return potolok, {}, 'в RASKLADKA.md не разобрана таблица бюджетов разделов'
+    return potolok, byudzh, None
+
+
+def gejt_obyoma(papka, body, errs, warns):
+    # 🔴 Развилка «неприменимо» против «пропущено» — и она НЕ по наличию файла.
+    # Раскладка и блочная разметка `%%` введены одним и тем же протоколом (v2.0),
+    # раньше их не было ни у кого: выпуски 01–03 приняты без RASKLADKA.md.
+    # Краснеть на них нельзя — гейт, красный на здоровой работе, отключают целиком
+    # вместе со всем остальным (docs/fazy/stil.md, разбор снятого механизма).
+    # Но и «нет файла → молча пропускаем» нельзя: это лазейка, которой гейт
+    # выключается удалением. Признаком берём МАРКЕРЫ БЛОКОВ: они от того же
+    # протокола, и на них стоят фазы karta, ponyatnost и stil. Снести разметку,
+    # чтобы обойти проверку объёма, значит обрушить три других гейта разом.
+    po_novomu = re.search(r'^%%\s', body, re.M) is not None
+    potolok, byudzh, beda = byudzhety_raskladki(papka)
+
+    if beda and potolok is None:
+        if not po_novomu:
+            print('К5 · объём: НЕПРИМЕНИМО — выпуск без блочной разметки `%%`, '
+                  'то есть старше протокола с раскладкой. Проверять не с чем, '
+                  'и это не пропуск.\n')
+            return
+        errs.append(f'[К5 объём] проверка объёма НЕ ПРОВЕДЕНА: {beda}. Это красное, '
+                    f'а не пропуск: у выпуска есть блочная разметка, значит он '
+                    f'ведётся по протоколу с раскладкой, и потолок обязан быть')
+        return
+    if beda:
+        warns.append(f'[К5 объём] {beda} — бюджеты разделов не проверены')
+
+    fakt = vidimaya_proza(body)
+    vsego = sum(fakt.values())
+    print(f'К5 · объём видимой прозы: {vsego} знаков при потолке {potolok} '
+          f'({100 * vsego / potolok - 100:+.0f} %)')
+    for n in sorted(fakt, key=lambda k: (k != 'лид', k)):
+        b = byudzh.get(n)
+        hvost = f'· бюджет {b:5} · {100 * fakt[n] / b - 100:+4.0f} %' if b else ''
+        print(f'   раздел {n:>4}: {fakt[n]:6} {hvost}')
+    print()
+
+    if vsego > potolok:
+        errs.append(f'[К5 потолок] проза {vsego} знаков при потолке {potolok} — '
+                    f'превышение {100 * vsego / potolok - 100:.0f} %. Либо резать по '
+                    f'«Порядку сокращения» из раскладки, либо поднимать потолок '
+                    f'В РАСКЛАДКЕ с названной причиной — молча перерастать нельзя')
+
+    for n, b in byudzh.items():
+        if n not in fakt:
+            continue
+        izbytok = 100 * fakt[n] / b - 100
+        if izbytok > 25:
+            errs.append(f'[К5 бюджет] раздел {n}: {fakt[n]} знаков при бюджете {b} '
+                        f'(+{izbytok:.0f} %) — раздел вышел из формы, а не подвинулся')
+        elif izbytok > 0:
+            warns.append(f'[К5 бюджет] раздел {n}: {fakt[n]} при бюджете {b} '
+                         f'(+{izbytok:.0f} %) — допустимо, если общий потолок держится')
+
+
 def main(path):
     src = Path(path).read_text(encoding='utf-8')
     meta, body = split_frontmatter(src)
@@ -199,6 +317,10 @@ def main(path):
 
             if len(p) > MAX_PARA:
                 warns.append(f'[объём] {loc}: абзац {len(p)} симв. — резать')
+
+    # К5 · объём против потолка и бюджетов раскладки. Стоит ДО печати вердикта:
+    # число объёма владелец должен видеть всегда, а не только когда оно красное.
+    gejt_obyoma(Path(path).parent, body, errs, warns)
 
     # Г2 · термин определён там, где впервые появился: подсказка по обозначениям.
     order, seen = [], set()

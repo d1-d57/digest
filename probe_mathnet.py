@@ -233,8 +233,12 @@ def parse_umn_paper(txt):
     return out
 
 
-def save_raw(label, timestamp, txt):
-    path = os.path.join(RAW, f"{label}_{timestamp}.html")
+def save_raw(label, timestamp, txt, live=False):
+    """§E-фикс: --live пишет под своим именем (`_live`), а не поверх Wayback-фикстуры
+    `{label}_{timestamp}.html` — иначе живые байты затирают эталонный снапшот под его же
+    именем и воспроизводимость Wayback-прогона (см. модуль-докстринг) теряется."""
+    tag = "live" if live else timestamp
+    path = os.path.join(RAW, f"{label}_{tag}.html")
     with open(path, "w", encoding="utf-8") as f:
         f.write(txt)
     return os.path.relpath(path, ROOT)
@@ -261,7 +265,7 @@ def main():
     if probs or len(talks) < 10 or empty:
         failures.append(f"колоквиум: {probs or ''} записей={len(talks)} пустых={len(empty)}")
     else:
-        raw_path = save_raw(label, ts, txt)
+        raw_path = save_raw(label, ts, txt, args.live)
         with open(os.path.join(OUT, "colloquium_mian.json"), "w", encoding="utf-8") as f:
             json.dump({"source_url": orig, "wayback_timestamp": ts, "lever": lever,
                        "count": len(talks), "talks": talks}, f, ensure_ascii=False, indent=2)
@@ -282,7 +286,7 @@ def main():
     if probs or len(arts) < 1 or empty_a:
         failures.append(f"УМН-выпуск: {probs or ''} статей={len(arts)} пустых={len(empty_a)}")
     else:
-        raw_path = save_raw(label, ts, txt)
+        raw_path = save_raw(label, ts, txt, args.live)
         with open(os.path.join(OUT, "umn_last_issue.json"), "w", encoding="utf-8") as f:
             json.dump({"source_url": orig, "wayback_timestamp": ts, "lever": lever,
                        "issue": issue_title, "count": len(arts), "articles": arts},
@@ -300,7 +304,7 @@ def main():
     if probs or not paper.get("abstract_ru") or not paper.get("pdf_url"):
         failures.append(f"УМН-статья: {probs or ''} аннотация={bool(paper.get('abstract_ru'))} pdf={bool(paper.get('pdf_url'))}")
     else:
-        raw_path = save_raw(label, ts, txt)
+        raw_path = save_raw(label, ts, txt, args.live)
         with open(os.path.join(OUT, "umn_paper_sample.json"), "w", encoding="utf-8") as f:
             json.dump({"source_url": orig, "wayback_timestamp": ts, "lever": lever,
                        "paper": paper}, f, ensure_ascii=False, indent=2)
@@ -309,15 +313,42 @@ def main():
         print(f"      -> аннотация {len(paper['abstract_ru'])} симв., PDF: {paper['pdf_label']}")
 
     # ---------- итог ----------
+    # вердикт и имена рычагов выводятся из фактического режима ТЕКУЩЕГО прогона (lever),
+    # а не из констант — иначе --live печатает «Рычаг 3 (Wayback)» поверх lever_used: live.
+    if args.live:
+        lever_label = "1 — live (прямой запрос в mathnet.ru, без Wayback)"
+        verdict_note = "прямой ход в mathnet.ru дал настоящий контент (лучше свежести Wayback)."
+    else:
+        lever_label = "3 — Wayback (web.archive.org), id_-плейбек архивных копий mathnet.ru"
+        verdict_note = "выемка удалась. Рычаг 3 (Wayback) даёт настоящий контент mathnet."
+
+    # levers_failed отражает ТЕКУЩИЙ прогон: если он шёл через --live и не провалился,
+    # рычаг 1 в этом прогоне не «failed» — он и есть lever_used, отчёт о его прошлом
+    # провале (ZAHOD-5, без --live) сюда попадать не должен, иначе получается уже
+    # опровергнутый отказ. Историческая справка — отдельным полем "history", не выдаётся
+    # как факт текущего прогона.
+    levers_failed = {}
+    if not args.live:
+        levers_failed["1_requests_live"] = (
+            "не пробовался в этом прогоне (запущен без --live); по истории ZAHOD-5 — "
+            "TCP:443 не устанавливался (connect=0)"
+        )
+        levers_failed["2_oai_pmh"] = "не пробовался в этом прогоне (запущен без --live)"
+    elif failures:
+        levers_failed["1_requests_live"] = f"этот прогон (--live) провалился: {'; '.join(failures)}"
+
     summary = {
         "zahod": "ZAHOD-6 mian colloquium confid=142 (перенацелено с мёртвого confid=408, ЗАХОД-5)",
-        "lever_used": "live" if args.live else "3 — Wayback (web.archive.org), id_-плейбек архивных копий mathnet.ru",
-        "levers_failed": {
-            "1_requests_live": "TCP:443 не устанавливается (connect=0); ICMP 3/3, порт 80 RST; "
-                               "контроли crossref/archive.org = 200. Капчи нет — до HTTP не доходит.",
-            "2_oai_pmh": "тот же хост -> та же стена (connect=0 на обоих кандидат-эндпоинтах)",
+        "lever_used": lever_label,
+        "levers_failed": levers_failed,
+        "history": {
+            "1_requests_live": "ZAHOD-5 (12.07/16.07.2026, без --live): TCP:443 не устанавливается "
+                               "(connect=0); ICMP 3/3, порт 80 RST; контроли crossref/archive.org = 200. "
+                               "Капчи нет — до HTTP не доходит. НЕ факт текущего прогона.",
+            "2_oai_pmh": "ZAHOD-5: тот же хост -> та же стена (connect=0 на обоих кандидат-эндпоинтах). "
+                        "НЕ факт текущего прогона.",
         },
-        "freshness_caveat": "данные — на дату снапшота, не на сегодня",
+        "freshness_caveat": "данные — на дату снапшота (Wayback) или на момент прогона (--live), не задним числом",
         "checks": verdicts,
         "failures": failures,
     }
@@ -328,7 +359,7 @@ def main():
     if failures:
         print("ВЕРДИКТ: ПРОВАЛ ГЕЙТА —", "; ".join(failures))
         return 1
-    print("ВЕРДИКТ: выемка удалась. Рычаг 3 (Wayback) даёт настоящий контент mathnet.")
+    print(f"ВЕРДИКТ: {verdict_note}")
     for k, v in verdicts.items():
         print(f"  {k}: {v}")
     print(f"Файлы -> {os.path.relpath(OUT, ROOT)}/")

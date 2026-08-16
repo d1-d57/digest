@@ -1,0 +1,204 @@
+<!-- СГЕНЕРИРОВАНО ИЗ vypusk.md ГЕНЕРАТОРОМ build_vypusk.py — РУКАМИ НЕ ПРАВИТЬ. Правь markdown-источник, пересобирай (0 токенов). -->
+
+<!doctype html><html lang=ru><head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>MATEMDIGEST · выпуск №4</title>
+<link rel=preconnect href="https://fonts.googleapis.com"><link rel=preconnect href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Forum&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel=stylesheet>
+<link rel=stylesheet href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin=anonymous><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin=anonymous></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin=anonymous onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],throwOnError:false})"></script>
+<style>*{box-sizing:border-box}
+:root{--bg:#14110d;--ink:#ece3d2;--mut:#a89c86;--faint:#6b6252;--line:rgba(236,227,210,.13);--gold:#cea24a;--gold2:#e6c26f;--teal:#6fae9f}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Golos Text',system-ui,sans-serif;
+ font-size:clamp(18px,1.32vw,29px);line-height:1.55;
+ background-image:radial-gradient(900px 500px at 15% -8%,rgba(206,162,74,.12),transparent 60%),radial-gradient(800px 600px at 100% 4%,rgba(111,174,159,.07),transparent 55%);-webkit-font-smoothing:antialiased}
+.wrap{width:min(1780px,93vw);margin:0 auto;padding:clamp(30px,3.2vw,64px) 0 110px}
+.kick{font-family:'JetBrains Mono',monospace;font-size:.66em;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+h1{font-family:'Forum',serif;font-weight:400;font-size:clamp(40px,5.4vw,104px);margin:0 0 20px;line-height:1.03;overflow-wrap:break-word}
+.intro{color:var(--mut);margin:0 0 .34em;font-size:1.1em;line-height:1.5}
+.intro:last-of-type{margin-bottom:0}
+.intro a,.blurb a,.labout a{color:var(--gold2);text-decoration:none;border-bottom:1px solid rgba(206,162,74,.35)}
+.intro a:hover,.blurb a:hover,.labout a:hover{color:var(--gold);border-bottom-color:var(--gold)}
+.note{display:flex;gap:.6em;align-items:baseline;margin-top:22px;color:var(--faint);font-size:.75em;line-height:1.45}
+.note .sign{color:var(--gold);font-size:1.15em;line-height:1}
+.author{font-family:'JetBrains Mono',monospace;font-size:.8em;letter-spacing:.05em;color:var(--mut);margin-top:20px}
+.author a{color:var(--gold);text-decoration:none}.author a:hover{text-decoration:underline}
+.rubric{font-family:'JetBrains Mono',monospace;font-size:.72em;letter-spacing:.24em;text-transform:uppercase;color:var(--gold2);margin:clamp(34px,3vw,56px) 0 22px;padding-top:16px;border-top:1px solid rgba(206,162,74,.3)}
+.rule{height:1px;background:var(--line);margin:clamp(24px,2vw,38px) 0}
+.item{padding:2px 0}
+.side{margin-bottom:16px}
+.meta{display:flex;gap:10px;align-items:center;margin-bottom:10px;flex-wrap:wrap}
+.kind{font-family:'JetBrains Mono',monospace;font-size:.62em;letter-spacing:.1em;text-transform:uppercase;color:var(--bg);background:var(--gold);border-radius:5px;padding:5px 11px;font-weight:700;text-decoration:none;display:inline-block}
+a.kind:hover{background:var(--gold2)}
+.date{font-family:'JetBrains Mono',monospace;font-size:.62em;color:var(--faint);margin-left:auto}
+/* Длинный термин в заголовке («аппроксимируемость») переполняет колонку и
+   налезает на текст. Переносы по слогам + разрыв слова как крайняя мера. */
+.title{font-family:'Forum',serif;font-weight:400;font-size:clamp(30px,2.55vw,50px);line-height:1.1;margin:0 0 12px;
+ hyphens:auto;-webkit-hyphens:auto;overflow-wrap:break-word}
+.by{font-size:.82em;color:var(--mut);margin:0;line-height:1.45}
+.prof{display:block;width:fit-content;margin-top:12px;font-size:.8em;color:var(--teal);text-decoration:none;border:1px solid rgba(111,174,159,.4);border-radius:7px;padding:7px 13px;line-height:1.3}
+.prof:hover{color:var(--bg);background:var(--teal);border-color:var(--teal)}
+.blurb{margin:0 0 .38em;color:#ded4c2}
+.blist{margin:.5em 0 .5em;padding:0;list-style:none;color:#ded4c2}
+.blist li{margin:0 0 .5em;padding-left:1.15em;position:relative}
+.blist li:last-child{margin-bottom:0}
+.blist li:before{content:'—';position:absolute;left:0;color:var(--gold2)}
+.blurb:last-child{margin-bottom:0}
+.blurb .m{font-family:'JetBrains Mono',monospace;font-size:.92em}
+.disp{margin:clamp(26px,2.1vw,44px) 0;text-align:center;line-height:1.5;color:var(--gold2);
+ overflow-x:auto;overflow-y:hidden}
+.katex{font-size:1.02em}
+.disp .katex{font-size:1.34em}
+.blurb .katex,.intro .katex{color:var(--ink)}
+.blurb sup,.blurb sub{font-size:.72em}
+.more{font-family:'JetBrains Mono',monospace;font-size:.7em;color:var(--gold);text-decoration:none;letter-spacing:.02em}
+.more:hover{color:var(--gold2);text-decoration:underline}
+.links{margin:clamp(26px,2.2vw,44px) 0 4px;padding:clamp(18px,1.5vw,32px) clamp(20px,1.6vw,34px);border:1px solid var(--line);border-radius:10px;background:rgba(236,227,210,.03)}
+.lhead{font-family:'JetBrains Mono',monospace;font-size:.62em;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);margin-bottom:18px}
+.lnk{margin:0 0 20px;line-height:1.45}
+.lnk:last-child{margin-bottom:0}
+.labout{color:var(--mut);font-size:.92em;margin-bottom:2px}
+.lnk a{color:var(--gold2);text-decoration:none;border-bottom:1px solid rgba(206,162,74,.35)}
+.lnk a:hover{color:var(--gold);border-bottom-color:var(--gold)}
+.dots{position:fixed;right:clamp(10px,2vw,30px);top:50%;transform:translateY(-50%);display:none;flex-direction:column;gap:15px;z-index:9}
+.dots a{position:relative;width:9px;height:9px;border-radius:50%;background:rgba(236,227,210,.22);transition:background .18s,transform .18s}
+.dots a:hover{background:var(--gold);transform:scale(1.35)}
+.dots a::after{content:attr(data-t);position:absolute;right:20px;top:50%;transform:translateY(-50%);
+ white-space:nowrap;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.04em;color:var(--ink);
+ background:rgba(20,17,13,.94);border:1px solid var(--line);border-radius:6px;padding:5px 10px;opacity:0;pointer-events:none;transition:opacity .18s}
+.dots a:hover::after{opacity:1}
+@media (min-width:1080px){
+ .wrap{padding-right:clamp(26px,2.4vw,52px)}
+ .dots{display:flex}
+ .item{display:grid;grid-template-columns:minmax(240px,23%) minmax(0,1fr);column-gap:clamp(28px,2.4vw,52px)}
+ .side{grid-column:1;margin-bottom:0;position:sticky;top:30px;align-self:start}
+ .body{grid-column:2}
+}
+.foot{margin-top:clamp(40px,3.4vw,64px);padding-top:22px;border-top:1px solid var(--line)}
+.foot .author{margin-top:0;white-space:nowrap}</style></head><body><div class=wrap>
+<div class=kick>15 АВГУСТА 2026</div>
+<h1>Плотнейшая упаковка шаров: два продвижения за год</h1>
+<p class=intro>Расставим в пространстве размерности $n$ непересекающиеся одинаковые шары; занятая ими доля объёма — плотность упаковки. Какая плотность наибольшая?</p>
+<p class=intro>Точный ответ известен ровно в пяти размерностях: 1, 2, 3, 8 и 24. В остальных неизвестен даже порядок величины</p>
+<p class=intro>В общем случае есть только границы, две убывающие экспоненты: нижнюю для решётчатых упаковок не улучшали с 1947 года, верхнюю — с 1978-го</p>
+<p class=intro>В апреле 2025 года Боаз Клартаг улучшил нижнюю: множитель перед $2^{-n}$ стал квадратичным вместо линейного. Первого августа 2026 года OpenAI заявила, что верхнюю улучшила её модель Astra. Разрыв остался экспоненциальным</p>
+<p class=intro>Семь шагов: что это за задача, откуда метод, где он точен, где недотягивает, где упирается в потолок, что с другой стороны и что осталось</p>
+<div class=note><span class=sign>&#9651;</span><span>Тексты написал Claude Opus по источникам, на которые ссылается. Там могут быть ошибки</span></div>
+<div class=author>Ваня Яковлев · <a href="https://t.me/turings_crossword" target=_blank rel=noopener>«Кроссворд Тьюринга»</a></div>
+<div class=rubric>1 · Задача</div>
+<article class=item id=p1>
+<div class=side>
+<h2 class=title>Пушечные ядра, снежинка и две разные гипотезы</h2>
+<div class=by>история математики · геометрия</div>
+</div><div class=body>
+<p class=blurb>Двенадцатого декабря 1591 года Томас Хэрриот составил для Уолтера Рэли, снаряжавшего корабли, таблицы: сколько ядер помещается в пирамидальной куче разной высоты. Хэрриот переписывался с Кеплером, и тот узнал о задаче из этой переписки</p>
+<p class=blurb>В 1611 году Кеплер издал «Strena seu de Nive Sexangula» — «Новогодний подарок, или О шестиугольных снежинках»: шестиугольность снежинки он выводит из укладки шариков и попутно делает утверждение о том, какая упаковка шаров самая плотная</p>
+<p class=blurb>Замостим пространство одинаковыми кубами и поставим центры шаров в вершины этих кубов и в центры всех граней; полученную решётку называют <strong>кубической гранецентрированной</strong>. Кеплер утверждал, что именно такая упаковка самая плотная</p>
+<p class=blurb>Плотность такой упаковки равна $\pi/\sqrt{18} \approx 0{,}7405$. Гаусс в 1831 году доказал половину утверждения Кеплера: она плотнейшая <strong>среди решётчатых</strong> — тех, где центры шаров образуют решётку. Кеплер же утверждал про все упаковки, а их несравнимо больше</p>
+<p class=blurb>Целиком гипотезу Кеплера закрыл Томас Хейлс в 1998 году, плоскость — Ласло Фейеш Тот в 1940-м; восьмую размерность закрыла Марина Вязовская, двадцать четвёртую — она же с соавторами, обе в 2016-м</p>
+<div class=links><div class=lhead>Что почитать и посмотреть</div>
+<div class=lnk><div class=labout>Статья Михаила Цфасмана в «Троицком варианте», август 2020, четыре газетные полосы: путь от пушечных ядер до Вязовской, формул почти нет</div><a href="https://trv-science.ru/2020/08/maryna-viazovska-i-zadacha-o-plotnejshej-upakovke-sharov/" target=_blank rel=noopener>Марина Вязовская и задача о плотнейшей упаковке шаров</a></div>
+<div class=lnk><div class=labout>Слайды лекции Виктора Клепцына в школе «Дубна», сорок экранов: решётки, плотность, контактные числа, без предварительных требований</div><a href="http://old.mccme.ru/dubna/2016/notes/kleptsyn-slides.pdf" target=_blank rel=noopener>Решётки и упаковки шаров</a></div>
+</div>
+</div></article>
+<div class=rubric>2 · Метод</div>
+<article class=item id=p2>
+<div class=side>
+<h2 class=title>Машинка, придуманная для кодов</h2>
+<div class=by>теория кодирования · геометрия</div>
+</div><div class=body>
+<p class=blurb>Начать проще с контактного числа: сколько единичных шаров могут одновременно касаться одного такого же. На плоскости их шесть, и это видно. Про пространство Ньютон и Грегори в 1694 году заспорили: двенадцать или тринадцать. Двенадцать ложатся с таким запасом, что свободно перекатываются, — потому и казалось, что место на тринадцатый есть. Ответ — двенадцать, его получили Шютте и ван дер Варден в 1953 году</p>
+<p class=blurb>Инструмент взяли из теории кодов — линейное программирование Дельсарта. Центры касающихся шаров лежат на сфере с попарными углами не меньше 60 градусов, а это задача о сферическом коде: сколько точек помещается на сфере при заданном наименьшем угле</p>
+<p class=blurb>Возьмём функцию $f$ на отрезке $[-1,1]$ и разложим её по многочленам Гегенбауэра $P_k$ — тем, по которым раскладываются функции на сфере, зависящие только от угла. Нужное их свойство — <strong>положительная определённость</strong> (теорема Шёнберга): для любых точек $x_1,\dots,x_N$ на сфере сумма $\sum_{i,j}P_k(\langle x_i,x_j\rangle)$ неотрицательна. Обозначим через $k(n)$ искомое контактное число и потребуем двух условий:</p>
+<p class=disp>$$f=\sum_{k\ge 0}c_kP_k,\quad c_0=1,\ c_k\ge 0;\qquad f(t)\le 0\ \text{ при } -1\le t\le \tfrac12\quad\Longrightarrow\quad k(n)\le f(1)$$</p>
+<p class=blurb>Вывод занимает две строки. Пусть $x_1,\dots,x_N$ — центры касающихся шаров на единичной сфере; их попарные скалярные произведения не больше $1/2$. Сумму $\sum_{i,j}f(\langle x_i,x_j\rangle)$ посчитаем дважды. Все недиагональные слагаемые неположительны по второму условию, а диагональных ровно $N$, поэтому сумма не больше $N f(1)$. С другой стороны, разложим $f$ и поменяем порядок суммирования: каждое слагаемое $c_k\sum_{i,j}P_k$ неотрицательно по Шёнбергу, а нулевое даёт ровно $c_0N^2=N^2$, поэтому сумма не меньше $N^2$. Отсюда $N \le f(1)$</p>
+<p class=blurb>В 1978 году Григорий Кабатянский и Владимир Левенштейн применили её к плотности упаковки: плотность не больше $2^{-(0{,}5990558\ldots+o(1))n}$, и показатель $0{,}5990558$ не улучшали сорок восемь лет</p>
+<p class=blurb>Через год та же машинка дала не оценку, а точный ответ: контактные числа в размерностях 8 и 24 равны <strong>240 и 196560</strong> — подобранная функция даёт верхнюю границу, в точности совпадающую с известными конструкциями, решётками $E_8$ и Лича. Это сделали независимо Левенштейн и Одлыжко со Слоаном в 1979 году, за тридцать семь лет до Вязовской</p>
+<div class=links><div class=lhead>Что почитать и посмотреть</div>
+<div class=lnk><div class=labout>Григорий Кабатянский и Владимир Левенштейн, «Проблемы передачи информации», 1978, том 14, выпуск 1, с. 3–25: двадцать страниц, требует анализа и ничего сверх него</div><a href="https://www.mathnet.ru/rus/ppi1518" target=_blank rel=noopener>О границах для упаковок на сфере и в пространстве</a></div>
+<div class=lnk><div class=labout>Обзор Флориана Пфендера и Гюнтера Циглера в Notices AMS, сентябрь 2004: контактные числа по размерностям и разбор метода, восемь страниц с картинками, для студента</div><a href="https://www.ams.org/notices/200408/fea-pfender.pdf" target=_blank rel=noopener>Kissing Numbers, Sphere Packings, and Some Unexpected Proofs</a></div>
+</div>
+</div></article>
+<div class=rubric>3 · Где метод точен</div>
+<article class=item id=p3>
+<div class=side>
+<h2 class=title>Где взять функцию с предписанным поведением</h2>
+<div class=by>модулярные формы · теория кодирования</div>
+</div><div class=body>
+<p class=blurb>Тот же метод перенесём со сферы на всё пространство: роль многочленов Гегенбауэра играет преобразование Фурье. Условия выписали Генри Кон и Ноам Элкис в 2003 году: радиальная функция Шварца $f$ с $f(0)=\hat f(0)&gt;0$, неположительная вне шара радиуса $r$ и с неотрицательным всюду $\hat f$; тогда плотность любой упаковки не больше объёма шара радиуса $r/2$</p>
+<p class=blurb>По численным данным в размерностях 8 и 24 граница, судя по всему, точна, но такой функции Кон и Элкис не построили: всё свелось к вопросу, где взять функцию с предписанным поведением сразу по обе стороны преобразования Фурье</p>
+<p class=blurb>Ответ дала Марина Вязовская 14 марта 2016 года — работа единоличная, про все упаковки, а не только решётчатые. Через неделю, 21 марта, вышла вторая статья, про размерность 24: Кон, Кумар, Стивен Миллер, Данило Радченко и Вязовская, решётка Лича; обе — подряд в одном томе Annals. В 2022 году Вязовская получила Филдсовскую медаль</p>
+<p class=blurb>Восьмимерное доказательство с 2024 года формализуют в Lean Вязовская и Сидхарт Харихаран с международной группой; последние шаги закрыла модель Gauss компании Math, Inc.: по сообщению EPFL, на размерность 8 у неё ушло пять дней, на двадцать четвёртую следом — две недели</p>
+<p class=blurb>Функция построена из модулярных форм: их интегральные преобразования дают <strong>собственные функции преобразования Фурье</strong> с собственными значениями $\pm1$. У такой $f$ образ читается по ней самой, и два условия Кона — Элкиса перестают быть независимыми</p>
+<p class=blurb>Собрана она из рядов Эйзенштейна $E_2, E_4, E_6$ и тета-констант Якоби. Знаки обеспечены нулями: функция обращается в ноль в точках $\sqrt{2m}$ — длинах векторов решётки $E_8$. В первой, $\sqrt2$, ноль простой, там $f$ меняет знак; дальше нули двойные, и знак не меняется — это и есть неположительность вне шара радиуса $\sqrt2$</p>
+<div class=links><div class=lhead>Что почитать и посмотреть</div>
+<div class=lnk><div class=labout>Работа Вязовской, март 2016, двадцать три страницы: половина — явное построение той самой функции; вход требует модулярных форм, схема доказательства читается сразу</div><a href="https://arxiv.org/abs/1603.04246" target=_blank rel=noopener>The sphere packing problem in dimension 8</a></div>
+<div class=lnk><div class=labout>Генри Кон и Ноам Элкис, Annals 2003, двадцать шесть страниц: условия на функцию и первое указание, что в размерностях 8 и 24 граница, по-видимому, точна</div><a href="https://arxiv.org/abs/math/0110009" target=_blank rel=noopener>New upper bounds on sphere packings I</a></div>
+<div class=lnk><div class=labout>Разговор с Андреем Окуньковым и Андреем Коняевым, июнь 2022, двенадцать страниц: как задача свелась к функциональному уравнению и как решение искалось два месяца. Математики почти нет</div><a href="https://www.mathunion.org/fileadmin/IMU/Prizes/Fields/2022/Maryna_Viazovska%20_Interview.pdf" target=_blank rel=noopener>Интервью Вязовской для Международного математического союза</a></div>
+</div>
+</div></article>
+<div class=rubric>4 · Где недотягивает</div>
+<article class=item id=p4>
+<div class=side>
+<h2 class=title>Размерность 3 и перебор Хейлса</h2>
+<div class=by>дискретная геометрия · геометрия</div>
+</div><div class=body>
+<p class=blurb>В той же работе 2003 года Кон и Элкис улучшили известные верхние оценки в размерностях с 4 по 36. В размерности 3 линейным методом ничего улучшить не удалось: лучшей осталась оценка, полученная геометрически ещё в восьмидесятые, — истинное значение $0{,}7405$ она превышала на несколько процентов</p>
+<p class=blurb>В 1953 году Ласло Фейеш Тот свёл гипотезу Кеплера к перебору конечного, хотя и огромного числа случаев: плотность упаковки есть сумма вкладов шаров, вклад шара определяется ближайшим окружением, а окружений с точностью до комбинаторного типа конечное число — неравенство достаточно проверить для каждого. Программу выполнил Томас Хейлс: в 1998 году он объявил доказательство, последний случай закрыл в диссертации его студент Сэмюэль Фергюсон</p>
+<p class=blurb>Коллегия из двенадцати рецензентов во главе с Габором Фейешем Тотом, сыном Ласло, работала четыре года и сообщила: в доказательстве она уверена на 99 процентов, но полностью сертифицировать его не может. Эту задержку Хейлс называет причиной Flyspeck — формального доказательства в HOL Light и Isabelle: проект завершился 10 августа 2014 года, публикация — Forum of Mathematics Pi, 2017. От объявления до сертификата прошло шестнадцать лет, и машина понадобилась не ради скорости, а потому что люди не смогли дочитать</p>
+<div class=links><div class=lhead>Что почитать и посмотреть</div>
+<div class=lnk><div class=labout>Томас Хейлс через двадцать лет разбирает собственный проект, двадцать страниц почти без формул: чего стоило рецензирование и что дала формализация</div><a href="https://arxiv.org/abs/2402.08032" target=_blank rel=noopener>The Formal Proof of the Kepler Conjecture: a critical retrospective</a></div>
+<div class=lnk><div class=labout>Итоговая статья проекта Flyspeck, Forum of Mathematics Pi, 2017, открытый доступ, двадцать девять страниц: что именно проверяет машина</div><a href="https://www.cambridge.org/core/journals/forum-of-mathematics-pi/article/formal-proof-of-the-kepler-conjecture/78FBD5E1A3D1BCCB8E0D5B0C463C9FBC" target=_blank rel=noopener>A formal proof of the Kepler conjecture</a></div>
+</div>
+</div></article>
+<div class=rubric>5 · Где упирается</div>
+<article class=item id=p5>
+<div class=side>
+<h2 class=title>Потолок метода и спор о происхождении</h2>
+<div class=by>линейное программирование · теория кодирования</div>
+</div><div class=body>
+<p class=blurb>Пакет из десяти результатов OpenAI, полученных, по заявлению компании, моделью Astra, открывается главой про асимптотику линейной программы Кона — Элкиса. Пусть $LP_d$ — наилучшая оценка плотности из этой программы в размерности $d$. Заявлено, что $LP_d^{1/d}$ при $d\to\infty$ имеет пределом $\sqrt{e/2\pi}$; отсюда показатель $\alpha^*=\frac12\log_2(2\pi/e)=0{,}6044\ldots$ вместо $0{,}5990558\ldots$ Кабатянского и Левенштейна — верхняя граница стала сильнее</p>
+<p class=blurb>Утверждение асимптотическое: к размерностям 8 и 24 оно не относится, там линейная программа решена точно и метод Вязовской ни во что не упирается</p>
+<p class=blurb>Рекорд здесь не главное: в той же главе доказано и обратное неравенство — никакая допустимая функция Кона — Элкиса показателя лучше $0{,}6044$ не даёт. Если заявленное доказательство верно, рекорд оказался и потолком техники</p>
+<p class=blurb>Стивен Д. Миллер, один из пяти авторов работы про размерность 24, указал: ключевой приём повторяет аргумент его работы с Генри Коном. Она вышла 15 марта 2016 года, на следующий день после статьи Вязовской; там из гипотез о поведении оптимальных функций в размерностях 8 и 24 выведена гипотеза Кона — Элкиса</p>
+<p class=blurb>Претензия не в том, что доказательство неверно, а в том, что происхождение идеи указано недостаточно. Такое же замечание по другой главе пакета сделали в Кембридже: не упомянуты работы Андреаса Тома и Габора Куна</p>
+<p class=blurb>Независимой математической проверки на середину августа нет; есть Lean-репозиторий самой OpenAI с пометками «zero sorry» и «agent-reviewed». Удостоверено им одно: формальный терм имеет заявленный тип при заданных определениях и аксиомах. Не удостоверено, что формулировка в анонсе совпадает с формальной теоремой и что определения описывают ту задачу, которую имеют в виду математики</p>
+<div class=links><div class=lhead>Что почитать и посмотреть</div>
+<div class=lnk><div class=labout>Первоисточник, 249 страниц; упаковка шаров — глава 1, «Exponential Growth Rate of the Cohn–Elkies Sphere Packing Linear Program»: в ней выписано, что доказано, и отдельно — оценка снизу на силу метода. Требует функционального анализа</div><a href="https://cdn.openai.com/pdf/ten-proofs-oai.pdf" target=_blank rel=noopener>Ten advances in mathematics and theoretical computer science</a></div>
+<div class=lnk><div class=labout>Lean-репозиторий с формализациями, файл <code>SpherePacking.lean</code>: видно, что именно сформулировано как теорема и в каких определениях; нужен Lean 4</div><a href="https://github.com/openai/ten-proofs" target=_blank rel=noopener>openai/ten-proofs</a></div>
+<div class=lnk><div class=labout>Генри Кон и Стивен Миллер, март 2016 — та самая работа, вокруг которой спор. Двенадцать страниц: гипотезы о поведении оптимальных функций плюс численные данные, вход тот же, что у работы Вязовской</div><a href="https://arxiv.org/abs/1603.04759" target=_blank rel=noopener>Some properties of optimal functions for sphere packing in dimensions 8 and 24</a></div>
+</div>
+</div></article>
+<div class=rubric>6 · Другая стенка</div>
+<article class=item id=p6>
+<div class=side>
+<h2 class=title>Эллипсоид в броуновском блуждании</h2>
+<div class=by>геометрия чисел · вероятность</div>
+</div><div class=body>
+<p class=blurb>Оценки снизу устроены иначе: из них следует, что упаковка нужной плотности существует, но не видно, как её построить. Первую доказал Хлавка в 1943 году усреднением по решёткам. Роджерс в 1947-м добавил линейный множитель — плотность не меньше $c\,n\,2^{-n}$. Дальше семьдесят шесть лет улучшали только константу $c$</p>
+<p class=blurb>В 2023 году Кампос, Йенссен, Мишелен и Сахасрабудхе довели множитель до $n\log n$, но их упаковка не решётчатая. В апреле 2025-го Боаз Клартаг получил сразу $n^2$ и для решёток: в любой размерности $n$ существует центрально-симметричный эллипсоид объёма $c n^2$ без ненулевых точек решётки $\mathbb{Z}^n$ внутри, откуда решётчатая упаковка плотности не меньше $c\,n^2 2^{-n}$</p>
+<p class=blurb>Половина такого эллипсоида уже не пересекается со своими сдвигами по решётке: разность точек двух пересекшихся половин была бы ненулевой точкой решётки внутри целого эллипсоида. А объём при делении пополам по каждой из $n$ осей падает в $2^n$ раз — отсюда и множитель $2^{-n}$</p>
+<p class=blurb>Метод вероятностный. Эллипсоид без точек решётки внутри запускают в броуновское блуждание по пространству эллипсоидов и дают расти: коснулся точки решётки — рост в этом направлении замирает, процесс идёт в подпространстве на единицу меньшей размерности. Направлений роста у эллипсоида $n(n+1)/2$, то есть порядка $n^2$, и замирают они по одному — из этого счёта и берётся квадрат вместо линейного множителя. Как именно, и составляет содержание работы</p>
+<p class=blurb>Клартаг занимается геометрией выпуклых тел в Институте Вейцмана и в теории решёток был новичком; в ноябре 2024 года у него освободилось время, и он попросил друга Барака Вайса быть наставником. На вход в область ушло несколько месяцев, на доказательство — пара недель. Его слова в Quanta: «Мне сорок семь, всю жизнь я хотел заниматься решётками; если не сделаю этого сейчас, то не сделаю никогда»</p>
+<div class=links><div class=lhead>Что почитать и посмотреть</div>
+<div class=lnk><div class=labout>Изложение Гийома Обрена для семинара Бурбаки, июнь 2026, английский перевод автора, двадцать страниц: доказательство разобрано целиком, рассчитано на неспециалиста</div><a href="https://arxiv.org/abs/2606.13313" target=_blank rel=noopener>Lattice packings of spheres, after B. Klartag</a></div>
+<div class=lnk><div class=labout>Доклад Клартага в Институте перспективных исследований, март 2026: час у доски, разбор собственного метода, для математиков любой специальности</div><a href="https://www.ias.edu/video/lattice-packing-spheres-high-dimensions-using-stochastically-evolving-ellipsoid" target=_blank rel=noopener>Lattice packing of spheres in high dimensions using a stochastically evolving ellipsoid</a></div>
+</div>
+</div></article>
+<div class=rubric>7 · Что осталось</div>
+<article class=item id=p7>
+<div class=side>
+<h2 class=title>Разрыв, приложения и три роли машины</h2>
+<div class=by>геометрия чисел · формальные доказательства</div>
+</div><div class=body>
+<p class=blurb>Если заявленная граница верна, сверху плотность не больше $2^{-(0{,}6044\ldots+o(1))n}$, снизу — не меньше $c\,n^2 2^{-n}$: верхняя оценка больше нижней примерно в $2^{0{,}4n}$ раз. После обоих продвижений — пять тысячных к показателю сверху, квадрат вместо линейного множителя снизу — разрыв остался экспоненциальным</p>
+<p class=blurb>Задачу полвека считают прикладной — коды, связь, криптография, — но ни одной теоремы вне теории упаковок, опирающейся на новые оценки, пока не названо: про работу Клартага Quanta пишет, что для этих приложений она «not immediately useful». Криптография на решётках держится на сложности задач о решётках, а не на плотности упаковок, и склеивать одно с другим нельзя</p>
+<p class=blurb>Машина появилась в сюжете трижды и каждый раз в другой роли: Flyspeck дочитал за рецензентами, Gauss закрыл формализацию за людьми, которые доказательство уже знали, а Astra предъявила утверждение, которого до неё не было, — и по существу его пока никто не разобрал</p>
+<div class=links><div class=lhead>Что почитать и посмотреть</div>
+<div class=lnk><div class=labout>Джозеф Хаулетт в Quanta, июль 2025, десять минут чтения без единой формулы: как Клартаг зашёл в чужую область. Все прямые цитаты — отсюда; есть русский перевод на Хабре</div><a href="https://www.quantamagazine.org/new-sphere-packing-record-stems-from-an-unexpected-source-20250707/" target=_blank rel=noopener>New Sphere-Packing Record Stems From an Unexpected Source</a></div>
+</div>
+</div></article>
+<div class=foot><div class=author>Ваня Яковлев · <a href="https://t.me/turings_crossword" target=_blank rel=noopener>«Кроссворд Тьюринга»</a></div></div>
+</div>
+<nav class=dots><a href="#p1" data-t="Пушечные ядра, снежинка и две разные гипотезы"></a><a href="#p2" data-t="Машинка, придуманная для кодов"></a><a href="#p3" data-t="Где взять функцию с предписанным поведением"></a><a href="#p4" data-t="Размерность 3 и перебор Хейлса"></a><a href="#p5" data-t="Потолок метода и спор о происхождении"></a><a href="#p6" data-t="Эллипсоид в броуновском блуждании"></a><a href="#p7" data-t="Разрыв, приложения и три роли машины"></a></nav>
+</body></html>

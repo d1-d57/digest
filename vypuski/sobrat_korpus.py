@@ -49,9 +49,9 @@ import re
 import subprocess
 import sys
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
-from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 KOREN = Path(__file__).resolve().parent
@@ -90,14 +90,19 @@ def chistka(t, tex=False):
     return re.sub(r'\s+', ' ', t)
 
 
-def zapros(p, popytok=3):
+def zapros(p, popytok=6):
+    """🔴 Анонимный API троттлит: пачка ~10 запросов проходит быстро, затем 429 с Retry-After,
+    который растёт от 5 до 52+ с при повторных нарушениях. Уважаем заголовок, не долбим вслепую."""
     u = API + '?' + urllib.parse.urlencode({**p, 'format': 'json'})
-    for _ in range(popytok):
+    for popytka in range(popytok):
         try:
             with urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=40) as r:
                 return json.load(r)
+        except urllib.error.HTTPError as e:
+            zhdat = int(e.headers.get('Retry-After', 5)) if e.code == 429 else 2 ** popytka
+            time.sleep(zhdat)
         except Exception:
-            time.sleep(1)
+            time.sleep(2 ** popytka)
     return {}
 
 
@@ -128,23 +133,27 @@ def wiki_spisok(predel):
     return sorted(stati)
 
 
-def wiki_teksty(zagolovki, gotovo):
-    """Тексты статей батчами по 20. Параллелит — на прямой сети это минуты, через прокси часы."""
+def wiki_teksty(zagolovki, gotovo, f_checkpoint=None):
+    """Тексты статей — ПО ОДНОМУ заголовку за запрос.
+    🔴 Пачками по 20 (`exlimit=20`) НЕ РАБОТАЕТ: `prop=extracts&explaintext` без `exintro` отдаёт
+    полный текст максимум для ОДНОЙ страницы в ответе, остальные приходят с пустым `extract` —
+    проверено живым запросом (5 заголовков → 1 текст), и пробный `--wiki 300` это подтвердил
+    (484 заголовка → 4 текста). Заодно и параллелизм убран: он усиливал троттлинг (см. ПЛАН захода
+    `kod_korpus-wiki.md`), последовательные запросы с уважением Retry-After держат ровнее.
+    Чекпойнт на диск каждые 25 статей — прогон многочасовой, обрыв не должен терять всё накопленное."""
     nado = [z for z in zagolovki if z not in gotovo]
-    pachki = [nado[i:i + 20] for i in range(0, len(nado), 20)]
-
-    def tyanut(p):
-        d = zapros({'action': 'query', 'prop': 'extracts', 'explaintext': '1',
-                    'exlimit': '20', 'titles': '|'.join(p)})
-        return {pg['title']: pg.get('extract', '')
-                for pg in d.get('query', {}).get('pages', {}).values()
-                if len(pg.get('extract', '')) > 800}
-
-    with ThreadPoolExecutor(max_workers=8) as ex:
-        for n, res in enumerate(ex.map(tyanut, pachki), 1):
-            gotovo.update(res)
-            if n % 10 == 0:
-                print(f'  {len(gotovo)} статей, {sum(map(len, gotovo.values()))} символов', flush=True)
+    for n, z in enumerate(nado, 1):
+        d = zapros({'action': 'query', 'prop': 'extracts', 'explaintext': '1', 'titles': z})
+        for pg in d.get('query', {}).get('pages', {}).values():
+            ex = pg.get('extract', '')
+            if len(ex) > 800:
+                gotovo[z] = ex
+        if f_checkpoint and n % 25 == 0:
+            json.dump(gotovo, open(f_checkpoint, 'w', encoding='utf-8'), ensure_ascii=False)
+            print(f'  чекпойнт {n}/{len(nado)}: {len(gotovo)} статей, '
+                  f'{sum(map(len, gotovo.values()))} символов', flush=True)
+    if f_checkpoint:
+        json.dump(gotovo, open(f_checkpoint, 'w', encoding='utf-8'), ensure_ascii=False)
     return gotovo
 
 
@@ -160,11 +169,92 @@ def nlp_pary(nlp, tekst):
                     yield (toks[j][0], l)
 
 
+POTOLOK_TABLICY = 25 * 1024 * 1024   # 25 МБ — решение владельца: место дешёвое, покрытие дорогое
+
+
+def razmer_szhaty(t):
+    return len(gzip.compress(json.dumps(t, ensure_ascii=False).encode('utf-8')))
+
+
+def svesti_wiki():
+    """Разбирает накопленные тексты Википедии в пары, кладёт четвёртым слоем `wiki` в таблицу —
+    `kniga`/`chelovek`/`nejroset` НЕ трогает. Дописывает реестр, режет частоту-1 при переполнении
+    потолка 25 МБ."""
+    f = RABOCHAYA / 'wiki_teksty.json'
+    if not f.exists():
+        print(f'✗ нет {f} — сначала --wiki N')
+        return 1
+    teksty = json.load(open(f, encoding='utf-8'))
+    print(f'сведение: {len(teksty)} статей в {f}')
+
+    uzhe_v_reestre = set()
+    if REESTR.exists():
+        with open(REESTR, encoding='utf-8') as rf:
+            rdr = csv.reader(rf, delimiter='\t')
+            next(rdr, None)
+            for row in rdr:
+                if len(row) >= 3 and row[0] == 'wiki':
+                    uzhe_v_reestre.add(row[2])
+
+    import spacy
+    nlp = spacy.load('ru_core_news_sm', disable=['ner', 'parser'])
+
+    pary = collections.Counter()
+    novye_stroki = []
+    for n, (zagolovok, tekst) in enumerate(teksty.items(), 1):
+        for o, g in nlp_pary(nlp, chistka(tekst)):
+            pary[(o, g)] += 1
+        if zagolovok not in uzhe_v_reestre:
+            novye_stroki.append(('wiki', 'ru-wiki', zagolovok, str(len(tekst))))
+        if n % 1000 == 0:
+            print(f'  разобрано {n}/{len(teksty)} статей, пар пока {len(pary)}', flush=True)
+
+    if novye_stroki:
+        with open(REESTR, 'a', encoding='utf-8', newline='') as rf:
+            w = csv.writer(rf, delimiter='\t')
+            for row in novye_stroki:
+                w.writerow(row)
+    print(f'реестр: дописано {len(novye_stroki)} новых строк слоя wiki '
+          f'({len(teksty) - len(novye_stroki)} уже были)')
+
+    with gzip.open(TABLICA, 'rt', encoding='utf-8') as tf:
+        T = json.load(tf)
+    T['wiki'] = {f'{o}|{g}': v for (o, g), v in pary.items()}
+    T['meta']['sloi']['wiki'] = {
+        'chto': f'{len(teksty)} статей русской Википедии по математическим категориям',
+        'status': 'да — писали люди, правило сообщества (слабее книги: встречается канцелярит)',
+    }
+    T['meta']['kak_chitat'] = ('наличие в kniga/chelovek/wiki доказывает принятость; наличие только '
+                                'в nejroset — усиленное подозрение; отсутствие не доказывает ничего')
+
+    srezano = 0
+    r = razmer_szhaty(T)
+    if r > POTOLOK_TABLICY:
+        odnochastotnye = [k for k, v in T['wiki'].items() if v == 1]
+        for i, k in enumerate(odnochastotnye, 1):
+            del T['wiki'][k]
+            srezano += 1
+            if i % 5000 == 0:
+                r = razmer_szhaty(T)
+                if r <= POTOLOK_TABLICY:
+                    break
+        r = razmer_szhaty(T)
+        print(f'⚠ потолок 25 МБ превышен — срезано {srezano} пар частоты 1 в слое wiki, '
+              f'итоговый размер {r} байт ({len(T["wiki"])} пар осталось)')
+    else:
+        print(f'размер таблицы {r} байт ({r/1024/1024:.1f} МБ) — до потолка 25 МБ не дотянулись')
+
+    with gzip.open(TABLICA, 'wt', encoding='utf-8') as tf:
+        json.dump(T, tf, ensure_ascii=False)
+    print(f'✓ таблица: слой wiki — {len(T["wiki"])} пар из {len(teksty)} статей')
+    return 0
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--sloi', default='', help='какие локальные слои собрать: kniga,chelovek,nejroset')
     ap.add_argument('--wiki', type=int, default=0, help='сколько статей Википедии добрать')
-    ap.add_argument('--svesti', action='store_true', help='собрать таблицу из накопленного')
+    ap.add_argument('--svesti', action='store_true', help='свести накопленную википедию в слой wiki таблицы')
     ap.add_argument('--knigi', default=str(Path.home() / 'Documents' / 'Книги'))
     ap.add_argument('--github', default=str(Path.home() / 'Documents' / 'GitHub'))
     a = ap.parse_args()
@@ -176,13 +266,17 @@ def main():
         json.dump(sp, open(RABOCHAYA / 'wiki_spisok.json', 'w', encoding='utf-8'), ensure_ascii=False)
         f = RABOCHAYA / 'wiki_teksty.json'
         gotovo = json.load(open(f, encoding='utf-8')) if f.exists() else {}
-        gotovo = wiki_teksty(sp, gotovo)
+        gotovo = wiki_teksty(sp, gotovo, f_checkpoint=f)
         json.dump(gotovo, open(f, 'w', encoding='utf-8'), ensure_ascii=False)
         print(f'✓ Википедия: {len(gotovo)} статей, {sum(map(len, gotovo.values()))} символов')
 
-    if a.sloi or a.svesti:
-        print('⚠ сборка слоёв и сведение таблицы: см. докстроку — шаги те же, что дали замер 16.08')
-        print('  локальные источники берутся по реестру, новые дописываются, старые не перечитываются')
+    if a.svesti:
+        rc = svesti_wiki()
+        if rc:
+            return rc
+
+    if a.sloi:
+        print('⚠ сборка ЛОКАЛЬНЫХ слоёв (kniga/chelovek/nejroset) вне этого захода — см. докстроку')
     return 0
 
 

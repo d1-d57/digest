@@ -66,6 +66,45 @@ def karta_sverka(src, rubrics, lead):
     return errs
 
 
+def bloki_teksta_ids(d: Path):
+    """Множество идентификаторов блоков из маркеров `%%` — по нему судим место ввода."""
+    src = (d / 'vypusk.md').read_text(encoding='utf-8')
+    return {m.group(1) for m in re.finditer(r'^%%\s+(\S+)\s+·', src, re.M)}
+
+
+def roli_inventarya(d: Path, est_bloki):
+    """Носитель условия 4 гейта фазы `karta`: роли инвентаря и место ввода.
+
+    🔴 Почему проверка живёт ЗДЕСЬ, а не в `check_ponyatiya.py`, где такой же
+    разбор уже есть. Условие объявлено в `docs/fazy/karta.md` гейтом ФАЗЫ КАРТЫ,
+    а `check_ponyatiya` стоит в реестре фаз `ponyatnost` и `stil` — то есть на
+    фазе `karta` он не зовётся ни разу. Условие было, носитель был, но в другой
+    фазе: карта закрывалась, ничего про роли не проверив, а ловилось это через
+    две фазы, когда переназначать роль уже дорого. Аудит 16.08 насчитал два
+    таких условия «носитель есть, но не на своей фазе».
+
+    Решение (список ролей, какие роли обязаны называть блок) НЕ дублируется:
+    оно импортируется из `check_ponyatiya`. Здесь только вызов на своей фазе.
+
+    ⚠ Инвентарь может ещё не существовать: на фазе `karta` его пишут по ходу.
+    Нет файла — это забота гейта фазы `ponyatnost`, здесь молчим.
+    """
+    pf = d / 'PONYATIYA.md'
+    if not pf.exists():
+        return []
+    import check_ponyatiya as cp                                  # noqa: E402
+    errs = []
+    for ponyatie, rol, vvod, stroka in cp.inventar(pf.read_text(encoding='utf-8')):
+        if rol not in cp.ROLI:
+            errs.append(f'[К7 роль] PONYATIYA.md строка {stroka}: роль «{rol}» вне списка '
+                        f'({" · ".join(sorted(cp.ROLI))}) — понятие без роли вырезается, '
+                        f'а не остаётся необъяснённым')
+        elif rol in cp.OBYAZANY and vvod not in est_bloki:
+            errs.append(f'[К7 место] PONYATIYA.md строка {stroka}: «{ponyatie}» ({rol}) '
+                        f'вводится в блоке {vvod}, а такого блока в карте нет')
+    return errs
+
+
 def main(name):
     d = Path(__file__).parent / name
     _meta, body = split_frontmatter((d / 'vypusk.md').read_text(encoding='utf-8'))
@@ -186,10 +225,13 @@ def main(name):
     print()
     for w in warns:
         print('⚠ ' + w)
+    errs += roli_inventarya(d, bloki_teksta_ids(d))
+
     for e in errs:
         print('✗ ' + e)
     if errs:
         print(f'\n✗ гейт блоков красный: {len(errs)} ошибок, {len(warns)} подозрений')
+        proverki.snyat(d, 'bloki')
         return 1
     print(f'\n✓ гейт блоков зелёный ({len(warns)} подозрений)')
     proverki.avtomark(d, 'bloki', f'{vsego} блоков размечены, доли {doly}')

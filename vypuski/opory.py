@@ -127,9 +127,13 @@ def main(papka):
         print('✗ ' + b)
     if bedy:
         print(f'\n✗ гейт опор красный: {len(bedy)}')
+        proverki.snyat(d, 'opory')
         return 1
     print(f'✓ гейт опор зелёный ({len(warns)} подозрений)')
-    return 0
+    proverki.avtomark(d, 'opory',
+                      f'{len(bloki)} блоков, рёбер {vsego_opor}, опор на блок '
+                      f'{vsego_opor / len(bloki):.2f}; опорных {opornyh}, листьев {listyev}')
+    return proverki.gate(d, 'karta')
 
 
 if __name__ == '__main__':

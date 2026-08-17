@@ -324,3 +324,23 @@ zhurnal/2026-08-15_vypusk-04/UROKI-FABRIKE.md   9 вердиктов прост�
 `doma/meta/POKRYTIE.md`, `doma/zahody/POKRYTIE.md`, `doma/priyomka/POKRYTIE.md` — в них физически
 вписаны правила из уроков закрытой арки. Без их коммита вердикты `вписан → <дом>` указывают в
 никуда.
+
+## ДОПОЛНЕНИЕ 3 — закрытие сессии 2026-08-17
+
+**Новые:**
+
+```
+zhurnal/2026-08-17_instrument-stilya/HANDOFF-2026-08-18.md     вход в следующую сессию
+zhurnal/2026-08-17_instrument-stilya/VYGRUZKA-2026-08-17.md    выгрузка транскрипта, 12 реплик
+```
+
+**Изменённые:**
+
+```
+zhurnal/2026-08-17_instrument-stilya/SESSIYA.md    разнесение 12 реплик + отсечка
+zhurnal/2026-08-17_instrument-stilya/PLAN.md       ⭐ СЕЙЧАС — полнота на старых лентах
+zhurnal/2026-08-17_instrument-stilya/UROKI-FABRIKE.md   уроки 5 и 6
+zhurnal/2026-08-15_vypusk-04/kod_git-podmesti-vse.md    часть 3 дозадания — гит-гигиена
+```
+
+⚠ **Выгрузка транскрипта уезжает в git ДОСЛОВНО** — проверена на 13 паттернов секретов, найдено 0.

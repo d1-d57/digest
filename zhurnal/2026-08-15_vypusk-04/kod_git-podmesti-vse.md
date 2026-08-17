@@ -919,3 +919,315 @@ grep -rn "<имя без .py>" --include=*.py --include=*.yaml --include=*.html 
 
 **Отрицательный вердикт несёт охват:** не «всё закоммичено», а «путей забрано X из Y», где Y —
 число из `status --porcelain` ДО работы.
+
+### Часть 3 · ГИТ-ГИГИЕНА ЦЕЛИКОМ — дописано владельцем 2026-08-17
+
+Владелец: *«гит-гигиену можно запихнуть в тот же заход, который сейчас нам всё чистит, дописав
+задание в дозаход»*. То есть отдельного захода на это не будет — делаешь здесь.
+
+**3.1 · ВЕРДИКТЫ ИНЦИДЕНТОВ — блокер закрытия сессии, и он не про эту сессию.**
+`zakryt_sessiyu.py` отказывается закрывать сессию: **инцидентов без вердикта 92**, а файла, куда
+вердикты пишутся, НЕ СУЩЕСТВУЕТ ВОВСЕ:
+
+```
+_studio/zhurnal/_INFRA-git/VERDIKTY.md   → FileNotFoundError, «гейт не отработал»
+```
+
+⚠ **Вердикты НЕ выдумывать.** 92 инцидента — накопленный долг проекта; проставить их скопом значит
+подделать разбор. Твоя задача уже: **завести файл** по образцу того, как он устроен в `materials`
+(`_studio/zhurnal/_INFRA-git/VERDIKTY.md` там есть — посмотри его форму и повтори), с честной
+шапкой: сколько инцидентов ждёт разбора на сегодня, число — командой. Разбор самих 92 — не твой
+заход.
+
+🔴 Если в `materials` такого файла тоже нет — не выдумывай форму, напиши в отчёт «образца нет» и
+оставь как есть. Пустой файл с выдуманной структурой хуже отсутствующего: гейт позеленеет,
+не проверив ничего.
+
+**3.2 · ВЕТКИ.** `git_zona.py poteri` по каждой открытой ветке, потом `zakryt-vetku` только по
+зелёным и только в тех репозиториях, где нет чужих живых рабочих папок. Ветку `main` в
+`matemdigest-map` не трогать — витрина. Ветку `materials:zahod/chistka-hvostov` не трогать: на ней
+единственная копия `git_zona.py`, решение владельца ещё не получено.
+
+**3.3 · ВЫВОЗ.** По каждому репозиторию `git log --oneline @{u}.. | wc -l` → 0. Ненулевое означает,
+что работа существует только на этом диске.
+
+**3.4 · ЧИСЛА В ОТЧЁТ.** Три числа на репозиторий — вне git · невлитых · невывезенных — печатаются
+командой и уходят в `## ОТЧЁТ ДОЗАДАНИЯ` дословно. Приёмка прогонит те же команды.
+
+## ОТЧЁТ ДОЗАДАНИЯ — (заполняет исполнитель)
+
+### ЧАСТЬ 1 · ЗАБРАТЬ НАКОПЛЕННОЕ — **забрано путей 9 из 9**
+
+Снимок ДО работы, командой: `matemdigest-map` 5 путей, `disciplina` 4. Итого Y = 9.
+
+| коммит | репо | что |
+|---|---|---|
+| `929cec0` | disciplina | `doma/vypusk/POKRYTIE.md` (новый, восьмой дом) + §12 в `meta`, §3 в `zahody`, §3 в `priyomka` |
+| `90a58ac` | matemdigest-map | баннер «🔒 АРКА ЗАКРЫТА» в `PLAN.md`, вердикты в `UROKI-FABRIKE.md`, дополнение 2 в `ZAYAVKA-NA-KOMMIT.md`, приёмка и дозадание в файле-заходе, новая арка `2026-08-17_instrument-stilya` целиком |
+| `91623a0` | matemdigest-map | `_studio/zhurnal/_INFRA-git/VERDIKTY.md` — часть 3.1 |
+
+**Порядок был не произвольный: `disciplina` ПЕРВОЙ, и это не вкусовщина.** В
+`UROKI-FABRIKE.md` закрытой арки стоят двенадцать вердиктов «вписан → `doma/<дом>/POKRYTIE.md`».
+Закоммить я сначала арку, эти вердикты на несколько минут указывали бы в никуда при формально
+закрытой арке. Проверено фактом ПЕРЕД коммитом арки, а не после:
+
+```
+doma/meta/POKRYTIE.md      ✅ в git      doma/vypusk/POKRYTIE.md    ✅ в git
+doma/priyomka/POKRYTIE.md  ✅ в git      doma/zahody/POKRYTIE.md    ✅ в git
+```
+Критерий №2 сходится: ни один вердикт не указывает в некоммиченный файл.
+
+⚠ **Расхождение с заданием, в мою пользу и названное:** арка `instrument-stilya` описана как
+«5 файлов», по факту в коммит ушло **8** — пока шёл коммит, добавились `VYGRUZKA-2026-08-17.md`,
+`-2.md` и `-3.md`. Взял живым `status`, как и велено, а не по списку.
+
+**Критерий №4:** переименований в коммите — **0** (`show --stat --name-status | grep -c '^R'` → 0).
+Файлов я не двигал ни одного.
+
+### ЧАСТЬ 2 · ОПИСЬ КОРНЯ — **64 файла из 64, ни одного «прочее»**
+
+Число пересчитано самим (`ls -p | grep -v / | wc -l`) → **64**, совпало со снятым 17.08. Плюс
+`.gitignore` и 8 `.fuse_hidden*`, которых `ls` без `-a` не показывает; `.fuse_hidden*` уже не в
+индексе.
+
+🔴 **Гипотеза о трёх линиях НЕ подтвердилась — линий четыре, и это не придирка.**
+
+1. **Три файла-захода лежат не в той линии.** `ZAHOD-8-deploy-site.md`,
+   `ZAHOD-9-deploy-vypusk-02.md`, `ZAHOD-10-deploy-vypusk-03.md` по содержанию — **выпуски**
+   (деплой сайта и выпусков 02/03), а не карта года. «16 файлов `ZAHOD-*`» однородной пачкой не
+   являются: 13 карты года + 3 выпусков. Переезд «всех ZAHOD-* в карту года» унёс бы три файла
+   живой линии в архивную.
+2. **Четвёртая линия — свод проекта:** `README.md`, `RUKOVODSTVO-zahodami.md`,
+   `matemdigest-handoff.zip`. Они обслуживают все линии сразу и не принадлежат ни одной.
+
+| линия | файлов | что внутри |
+|---|---|---|
+| карта года | 52 | `config.py` `db.py` `score.py` `build.py`, 5 × `fetch_*.py`, `pull_surveys.py` `probe_mathnet.py` `dozor_a.py` `update_b_icm.py` `load_scores_batch_2.py` `report.py` `verify.py`; `materials.{db,csv,json}` `sources.yaml` `sources_proposed.yaml`; 12 × `*_scores.json`; `karta-goda.html` `analiz-vypuska.html` `report.html` `report.md` `audit_sample.md` `review-1b.html` `CHERNOVIK-filtr-vazhnyh-gipotez.md`; 13 × `ZAHOD-*.md` |
+| выпуски | 4 | `primer-vypuska.html`, `ZAHOD-8-deploy-site.md`, `ZAHOD-9-deploy-vypusk-02.md`, `ZAHOD-10-deploy-vypusk-03.md` |
+| интервью Вязовской | 4 | `build_intervyu.py`, `Vyazovskaya-intervyu-2022-perevod.{md,html}`, `настройка-перевода.md` |
+| свод проекта | 3 | `README.md`, `RUKOVODSTVO-zahodami.md`, `matemdigest-handoff.zip` |
+
+Полная таблица «файл → линия → кто зовёт (`file:line`) → кого зовёт сам» — в отдельном разделе
+ниже, она длинная.
+
+**ФАЙЛЫ-СИРОТЫ — 12** (никто не зовёт И сами никого не зовут), все, кроме последнего, — карта года:
+`batch_1..5_scores.json` (5), `extra_batch_1..4_scores.json` (4), `final_batch_1_scores.json`,
+`final_remaining_scores.json`, `matemdigest-handoff.zip` (внутри — замороженные копии
+`docs/handoff/*` и четырёх `ZAHOD-*.md`).
+
+Из двенадцати `*_scores.json` в корне зовут ровно **один** — `final_batch_2_scores.json`
+(`load_scores_batch_2.py:14`). Проверено поштучно, грепом по `*.py *.md *.yaml *.html`.
+
+🔴 **ЧЕМ РИСКУЕТ ПЕРЕЕЗД — это главное в описи, и здесь оно поимённо.**
+
+**A · Абсолютные пути — ломаются от любого переезда, включая переезд всего репозитория:**
+```
+load_scores_batch_2.py:13  Path('/Users/ivanyakovlev/Documents/GitHub/matemdigest-map/materials.db')
+load_scores_batch_2.py:14  Path('/Users/…/matemdigest-map/final_batch_2_scores.json')
+```
+
+**B · Относительные к рабочему каталогу — ломаются, если файл переехал, а запуск остался из корня:**
+`config.py:8` → `DB_PATH = "materials.db"` (через него в базу бьют `db.py`, `report.py`, вся линия);
+`update_b_icm.py:8`; `build.py:15,95,101,145` (`data/raw_cache.json`, `materials.csv`,
+`materials.json`, `sources.yaml`); `report.py:193,194`; `dozor_a.py:84`;
+`fetch_data.py:8,9,10` (три файла в `data/`).
+
+**C · Относительные к `__file__` — переживут переезд ТОЛЬКО если едут вместе:**
+`verify.py:11-14` (`ROOT` + `materials.db`, `report.md`, `sources.yaml`);
+`probe_mathnet.py:47-49` (`sys.path.insert(ROOT)`, чтобы сработал `from config import HEADERS` —
+требует `config.py` соседом);
+**`build_intervyu.py:90` → `pub = src.parent / 'sayt' / 'static' / <слаг> / 'index.html'`** — самая
+тихая мина корня: он требует, чтобы `sayt/` был сиблингом исходного `.md`. Увезёте
+`Vyazovskaya-…md` в подпапку — публикация уедет в `<подпапка>/sayt/static/…` **молча, без ошибки**,
+и страница интервью на сайте просто перестанет обновляться. Проверено чтением кода, не грепом.
+
+**D · Плоские импорты, предполагающие общий корень** — любой из этих файлов в подпапку даёт
+`ImportError`: `build.py:9-12`, `db.py:5`, `fetch_a.py:7`, `fetch_cd.py:9`, `fetch_quanta.py:9-10`,
+`fetch_youtube.py:9`, `report.py:7`, `dozor_a.py:7-8`, `probe_mathnet.py:49`.
+
+**E · `.gitignore` привязан к нынешней раскладке, и одна строка там дороже прочих:**
+`.gitignore:28` → `vypuski/.korpus/`. За ней 142 МБ сырья Википедии. **Переезд `vypuski/` без
+синхронной правки этой строки означает, что сырьё уедет в историю при первом же коммите**, а
+оттуда оно вынимается только переписыванием истории. Рядом: `.gitignore:3` → `data/raw/` —
+правило мимо цели, `build.py` пишет в `data/raw_cache.json`, а не в `data/raw/`, и
+`data/fulltext_cache/` не покрыт вовсе; `.gitignore:19` → `_studio/.commit-plan`.
+
+**F · Сборка сайта — риск нулевой, и это хорошая новость.** В `sayt/hugo.yaml` и `sayt/layouts/**`
+нет ни одной ссылки на корневые файлы. Единственная нить корень↔`sayt/` — пункт C,
+`build_intervyu.py:90`.
+
+**G · Найдено сверх задания:** у `karta-goda.html`, `analiz-vypuska.html`, `primer-vypuska.html`,
+`review-1b.html` **генератора в коде нет** — `grep -rn 'karta-goda' --include='*.py'` даёт rc=1,
+совпадений ноль. При этом `docs/O-PROEKTE.md:115` называет первые два «регенерируемыми». Они
+собраны руками: потерять или сломать значит не пересобрать. Это отдельный содержательный дефект,
+и он назван строкой, а не починен.
+
+### ЧАСТЬ 3 · ГИТ-ГИГИЕНА ЦЕЛИКОМ
+
+**3.1 · ВЕРДИКТЫ ИНЦИДЕНТОВ — файл заведён, гейт заработал.**
+
+Образец в `materials` **есть** (`_studio/zhurnal/_INFRA-git/VERDIKTY.md`, 11 КБ) — форму не
+выдумывал, повторил её и сверил с разборщиком `razobrat_verdikt()` (`check_incidenty.py:104-131`),
+чтобы шапка не обещала формы, которой машина не читает.
+
+```
+до:     ❌ _studio/zhurnal/_INFRA-git/VERDIKTY.md: не читается (FileNotFoundError) — гейт не отработал
+после:  ✅ разбор инцидентов: 5 класс(ов), вердиктов не хватает у 0
+```
+
+🔴 **Зелёное честное, но временное, и я обязан это сказать вслух, потому что задание прямо
+предупреждало о ложно-зелёном.** «Не хватает у 0» — не потому, что классы разобраны, а потому, что
+им сутки: `check_incidenty.py:200` требует вердикт только при `vozrast > SVEZHEST_DNEJ`, а
+`SVEZHEST_DNEJ = 7` (`:42`). **С 2026-08-23 гейт покраснеет сам, без единого нового инцидента.**
+Вердикты не проставлены намеренно — проставить их скопом значит подделать разбор.
+
+⚠ **Число «92» не воспроизвелось, и это не придирка к заданию, а находка.** Команда по этому
+репозиторию печатает **5 классов**. 92 — счёт по `materials`. Причина расхождения в том, что
+автолог `matemdigest-map` живёт **двумя файлами**:
+
+| файл | что в нём | пишет | видит ли гейт |
+|---|---|---|---|
+| `zhurnal/_INFRA-git/INCIDENTY.md` | 7 разобранных инцидентов | рука | **НЕТ** |
+| `_studio/zhurnal/_INFRA-git/INCIDENTY.md` | 5 сырых строк | `git_zona.py` сам | да |
+
+Гейт берёт адрес из `korni.ИНЦИДЕНТЫ_REL` = `_studio/…`, а живой автолог проекта лежит корнем.
+**Разобранное гейт не читает, а прочитанное им не читает человек.** Это тот самый открытый дефект
+кросс-репозиторной раскладки `log_incident()`, уже адресованный заходу-разработчику.
+
+**3.2 · ВЕТКИ — `poteri` прогнан по КАЖДОЙ ветке всех четырёх репозиториев, погашено 0.**
+
+Проверено 18 веток (кроме четырёх текущих). Семнадцать — «Потерь нет». Одна — с потерями:
+
+```
+zahod/chistka-hvostov — пропадёт файлов: 5, есть ТОЛЬКО на этой машине:
+   🔴 _generator/tools/git_zona.py            🔴 _generator/tools/bootstrap_zahod.py
+   🔴 _generator/tools/fixtures/faza-priyomki/PROGNAT.sh
+   🔴 _generator/tools/fixtures/git_zona/PROGNAT.sh
+   🔴 _studio/docs/kak-delat/DOLG-ISKLYUCHENIA.md
+   ⚠ вычекаучена в рабочей папке materials-wt/chistka-hvostov
+```
+
+**Погашено ноль, и по каждой ветке причина:**
+
+- `materials` — 12 зелёных веток, но гасить там **нельзя по условию 3.2**: в репозитории девять
+  живых чужих рабочих папок с незакоммиченным (`modeli` — 843 пути, `dovodka-solvera` — 65,
+  `obratnyj-progon` и `solver-v3-dyhanie` — по 27, ещё три по одному).
+  `zahod/chistka-hvostov` — прямой запрет задания.
+- `disciplina` — обе оставшиеся ветки вычекаучены в живых рабочих папках:
+  `zahod/etap-20-i-perenos` (`disciplina-wt/etap-20-i-perenos`, **1 незакоммиченный путь**) и
+  `zahod/zakryt-arku` (`disciplina-wt/zakrytie`, 0 путей, но папка живая). Git не удалит ветку,
+  вычекаученную в worktree, и заставлять его я не стал.
+- `matemdigest-map` — `main` витрина, прямой запрет.
+- `matema-fest` — веток, кроме текущей, нет вовсе.
+
+*(Четыре ветки `disciplina` были погашены раньше, на первом заходе, — `arhitektura-slajdov`,
+`fazy-3-7`, `format-kartochki-faza-1`, `verifikatory-stilya`, все с надгробиями.)*
+
+**3.3 · ВЫВОЗ — `log --oneline @{u}.. | wc -l` → 0 по каждому из четырёх.**
+
+**3.4 · ЧИСЛА В ОТЧЁТ — печатает команда:**
+
+```
+                     вне git · невлитых · невывезенных
+disciplina/               0        0          0
+matema-fest/              3        0          0
+matemdigest-map/          0        1          0
+materials/                0        1          0
+```
+
+Ненулевые — те же три, что и в основном отчёте, и причины прежние: 42 МБ бинарного в
+`matema-fest` ждут решения владельца; `main` в `matemdigest-map` — витрина, влитие в неё есть
+публикация; `zahod/chistka-hvostov` в `materials` несёт единственную копию инструмента.
+
+**Заявок открыто: 0** во всех четырёх репозиториях.
+
+### НЕОБРАТИМОЕ ЗА ДОЗАДАНИЕ
+
+**Необратимого нет.** Веток не удалял, файлов не двигал и не переименовывал, ничего не публиковал,
+чужих рабочих папок не касался, `--force` не звал. Единственное новое — файл
+`_studio/zhurnal/_INFRA-git/VERDIKTY.md`, он создан, а не перезаписан поверх чего-либо.
+
+### ОХВАТ ДОЗАДАНИЯ
+
+путей забрано **9 из 9** · файлов корня расписано **64 из 64** · веток проверено `poteri`
+**18 из 18** (кроме четырёх текущих) · репозиториев **4 из 4**.
+
+---
+
+### ПОЛНАЯ ТАБЛИЦА ОПИСИ КОРНЯ — 64 файла
+
+> Столбец «кто зовёт» — не мнение, а грep по `*.py *.yaml *.html *.md *.toml` с исключением
+> самого файла и `.git/`. «никто» означает rc=1 у grep, то есть совпадений ноль, а не «не смотрел».
+
+| файл | линия | кто зовёт (`file:line`) | кого зовёт сам |
+|---|---|---|---|
+| `config.py` | карта года | `build.py:11,64,136`, `db.py:5`, `fetch_a.py:7`, `fetch_cd.py:9`, `fetch_quanta.py:9`, `fetch_youtube.py:9`, `report.py:7`, `dozor_a.py:8`, `probe_mathnet.py:49` | задаёт `DB_PATH="materials.db"` |
+| `db.py` | карта года | `build.py:9` | `config.py:5` → `materials.db` |
+| `score.py` | карта года | `build.py:10`, `fetch_quanta.py:10` | — |
+| `build.py` | карта года | никто в коде; проза `README.md:109` | `db.py` `score.py` `config.py`, все 5 `fetch_*`, `data/raw_cache.json`; пишет `materials.csv/json`, `sources.yaml` |
+| `fetch_a.py` | карта года | `build.py:12,24`, `dozor_a.py:7` | `config.py:7` |
+| `fetch_cd.py` | карта года | `build.py:12,26` | `config.py:9` |
+| `fetch_quanta.py` | карта года | `build.py:12,28` | `config.py:9`, `score.py:10` |
+| `fetch_youtube.py` | карта года | `build.py:12,30` | `config.py:9` |
+| `fetch_data.py` | карта года | `build.py:12,32` | `data/b_venues.json`, `data/e_prizes.json`, `data/e_people.json` (:8–10) |
+| `pull_surveys.py` | карта года | никто в коде; `fetch_a.py:3` (комментарий), `README.md:102` | — (пишет в stdout) |
+| `probe_mathnet.py` | карта года | никто | `config.py:49` через `sys.path.insert` (:47–48); пишет в `data/mathnet_probe/` |
+| `dozor_a.py` | карта года | никто | `fetch_a.py:7`, `config.py:8`; пишет `dozor_a_candidates.json` (:84 — файла в корне НЕТ) |
+| `update_b_icm.py` | карта года | никто | `materials.db` (:8) |
+| `load_scores_batch_2.py` | карта года | никто | `materials.db` + `final_batch_2_scores.json`, **абсолютными** путями (:13–14) |
+| `report.py` | карта года | никто в коде; `ZAHOD-1-chistka-i-schet.md:49` | `config.py:7` → `materials.db`; пишет `report.md`/`report.html` (:193–194) |
+| `verify.py` | карта года | никто | `materials.db`, `report.md`, `sources.yaml` (:12–14) |
+| `materials.db` | карта года | `config.py:8`, `load_scores_batch_2.py:13`, `update_b_icm.py:8`, `verify.py:12`, `build.py:158`; 101 упом. в 39 md/html | — |
+| `materials.csv` | карта года | `build.py:95` (пишет); `README.md:22` | — |
+| `materials.json` | карта года | `build.py:101` (пишет); `README.md:22` | — |
+| `sources.yaml` | карта года | `build.py:145` (пишет), `verify.py:14`; `README.md:21` | — |
+| `sources_proposed.yaml` | карта года | никто в коде; `README.md:21`, `docs/handoff/HANDOFF.md`, `docs/istochniki-kandidaty.md` | `sources.yaml`, `materials.db` (:2) |
+| `final_batch_2_scores.json` | карта года | `load_scores_batch_2.py:14` | — |
+| `batch_1_scores.json` | карта года | **никто** | — |
+| `batch_2_scores.json` | карта года | **никто** (единственный хит — подстрока в `final_batch_2_…`) | — |
+| `batch_3_scores.json` | карта года | **никто** | — |
+| `batch_4_scores.json` | карта года | **никто** | — |
+| `batch_5_scores.json` | карта года | **никто** | — |
+| `extra_batch_1_scores.json` | карта года | **никто** | — |
+| `extra_batch_2_scores.json` | карта года | **никто** | — |
+| `extra_batch_3_scores.json` | карта года | **никто** | — |
+| `extra_batch_4_scores.json` | карта года | **никто** | — |
+| `final_batch_1_scores.json` | карта года | **никто** | — |
+| `final_remaining_scores.json` | карта года | **никто** | — |
+| `karta-goda.html` | карта года | `README.md:6,20`, `docs/O-PROEKTE.md:115`, `ZAHOD-3:54`, `ZAHOD-4:53`, `ZAHOD-7:33,111`, `ZAHOD-1c-precise:54`, `ZAHOD-1c-stat:62` | `materials.db` (данные вшиты в HTML) |
+| `analiz-vypuska.html` | карта года | `docs/O-PROEKTE.md:115`, `ZAHOD-7:33,111` | `materials.db` |
+| `report.html` | карта года | `report.py:194` (пишет), `README.md:22`, `ZAHOD-1:49,67`, `ZAHOD-matemdigest-karta-goda.md:72,80` | `materials.db` |
+| `report.md` | карта года | `report.py:193` (пишет), `verify.py:13` (читает), `README.md:22` | — |
+| `audit_sample.md` | карта года | `ZAHOD-1b:88,95,122,197`, `review-1b.html:82` | — |
+| `review-1b.html` | карта года | `ZAHOD-1c-cal-kalibrovka-geytov.md:97` | `audit_sample.md` (:82) |
+| `CHERNOVIK-filtr-vazhnyh-gipotez.md` | карта года | `zhurnal/_INFRA-git/ZAYAVKA-2026-08-16-mesyachnyy-dolg.md:125` | `docs/pravila-vypuska.md` (:3) |
+| `ZAHOD-matemdigest-karta-goda.md` | карта года | `ZAHOD-1:*`, `docs/handoff/HANDOFF.md` | `build.py` `report.py` `verify.py` `db.py` `materials.*` |
+| `ZAHOD-1-chistka-i-schet.md` | карта года | `docs/handoff/HANDOFF.md` | `report.py` `verify.py` `materials.*` `sources.yaml` |
+| `ZAHOD-1b-redaktorskaya-otbrakovka.md` | карта года | `docs/handoff/HANDOFF.md`, `docs/handoff/README-dlya-coworka.md` | `audit_sample.md` `build.py` `score.py` |
+| `ZAHOD-1c-cal-kalibrovka-geytov.md` | карта года | `RUKOVODSTVO-zahodami.md`, `ZAHOD-7-obzory-survey-dozor.md` | `review-1b.html` `build.py` `score.py` |
+| `ZAHOD-1c-precise-idealnaya-razmetka.md` | карта года | `ZAHOD-7-obzory-survey-dozor.md` | `karta-goda.html` (:54), `materials.db` |
+| `ZAHOD-1c-stat-deshevaya-razmetka.md` | карта года | **никто** | `karta-goda.html` (:62), `materials.db` (:9) |
+| `ZAHOD-2-dobor-istochnikov.md` | карта года | `docs/handoff/HANDOFF.md` | `sources*.yaml`, `materials.db` |
+| `ZAHOD-3-backfill-novyh-istochnikov.md` | карта года | `ZAHOD-7-obzory-survey-dozor.md` | `karta-goda.html` (:54), `sources*.yaml` |
+| `ZAHOD-4-shirokiy-nevod.md` | карта года | `docs/handoff/HANDOFF-2026-07-10-dovodka-pered-zapuskom.md` | `karta-goda.html` (:53,119), `README.md`, `vypuski/` |
+| `ZAHOD-5-mathnet-razblokirovka.md` | карта года | **никто** | `probe_mathnet.py:27`, `fetch_a.py:11`, `config.py:16`, `materials.db:13` |
+| `ZAHOD-6-mian-colloquium-142.md` | карта года | **никто** | `probe_mathnet.py:20`, `config.py:20`, `fetch_a.py:30`, `data/mathnet_probe/*` |
+| `ZAHOD-7-obzory-survey-dozor.md` | карта года | `zhurnal/_INFRA-git/ZAYAVKA-2026-08-16-mesyachnyy-dolg.md` | `dozor_a.py` `update_b_icm.py` `probe_mathnet.py`, `karta-goda.html:33,111` |
+| `ZAHOD-vazhnost-2-reestr-geytov.md` | карта года | `zhurnal/_INFRA-git/ZAYAVKA-2026-08-16-mesyachnyy-dolg.md:125` | гейты `g1..g5` в `materials.db` |
+| `primer-vypuska.html` | **выпуски** | `docs/pravila-vypuska.md:278,282`, `docs/istochniki-kandidaty.md:74` | `materials.db` (упом.) |
+| `ZAHOD-8-deploy-site.md` | **выпуски** | `docs/zahod-shablon-deploy.md`, `ZAYAVKA-2026-08-16-…md` | `RUKOVODSTVO-zahodami.md`, `dozor_a.py`, `update_b_icm.py`, `probe_mathnet.py` |
+| `ZAHOD-9-deploy-vypusk-02.md` | **выпуски** | `ZAHOD-10-deploy-vypusk-03.md`, `ZAYAVKA-2026-08-16-…md` | `vypuski/`, `sayt/` |
+| `ZAHOD-10-deploy-vypusk-03.md` | **выпуски** | `docs/handoff/HANDOFF-2026-08-09-…md`, `vypuski/OCHERED.md`, `ZAYAVKA-2026-08-16-…md` | `ZAHOD-9-…md`, `vypuski/`, `materials.db` |
+| `build_intervyu.py` | интервью | `kod_git-kommit-deploy.md`, `kod_git-podmesti-vse.md`, `ZAYAVKA-NA-KOMMIT.md`, `ZAYAVKA-2026-08-17-intervyu-i-deploy.md`; баннер в обоих HTML | `Vyazovskaya-…md` (:20); пишет `<src>.html` (:83) и `sayt/static/<слаг>/index.html` (:90) |
+| `Vyazovskaya-intervyu-2022-perevod.md` | интервью | `build_intervyu.py:20`, `posty/2026-08-17-vyazovskaya/{FAKTY,SYRYO}.md`, `sayt/static/vyazovskaya/index.html`, `ZAYAVKA-2026-08-17-…md` | — (источник истины) |
+| `Vyazovskaya-intervyu-2022-perevod.html` | интервью | `kod_git-kommit-deploy.md`, `ZAYAVKA-2026-08-17-…md` | порождён `build_intervyu.py` |
+| `настройка-перевода.md` | интервью | `kod_git-podmesti-vse.md`, `ZAYAVKA-2026-08-16-…md` | **никого** |
+| `README.md` | свод проекта | `report.py:186`, `score.py:2` (в тексте), 34 упом. в 20 md | `materials.db` `karta-goda.html` `sources*.yaml` `report.*` `config.py` `build.py` `pull_surveys.py` `vypuski/build_vypusk.py` |
+| `RUKOVODSTVO-zahodami.md` | свод проекта | 25 упом.: `ZAHOD-7`, `ZAHOD-8`, `docs/O-PROEKTE.md`, `docs/protsedura-vypuska.md`, 7 файлов `zhurnal/2026-08-15_vypusk-04/kod_*.md`, `zhurnal/2026-08-17_instrument-stilya/NAVIGATOR.md` | `ZAHOD-1c-cal-…md`, `probe_mathnet.py` |
+| `matemdigest-handoff.zip` | свод проекта | **никто** | внутри: `pull_surveys.py`, `HANDOFF.md`, `README-dlya-coworka.md`, 4 × `ZAHOD-*.md` — замороженные копии |
+
+**Полусироты — никто не зовёт, но сами зовут** (двигать безопасно, но вместе с их зависимостями):
+`pull_surveys.py`, `probe_mathnet.py`, `dozor_a.py`, `update_b_icm.py`, `load_scores_batch_2.py`,
+`report.py`, `verify.py`, `build.py`, `sources_proposed.yaml`, `ZAHOD-1c-stat-…md`, `ZAHOD-5-…md`,
+`ZAHOD-6-…md`. Обратный случай один: `настройка-перевода.md` — его зовут двое, сам он не зовёт
+никого.

@@ -22,3 +22,4 @@
 НЕ ПОДМЕТАТЬ: posty/2026-08-17-vyazovskaya/**, vypuski/check_stil.py, check_idioma.py, karta_zamen.jsonl, oboroty_*, portret_objektov.json.gz, profil_stilya.json, svyazki.tsv, upravlenie.tsv, reestr_korpusa.tsv, docs/DOLGI.md, docs/fazy/stil.md, zhurnal/2026-08-15_vypusk-04/** - чужие сессии, идут параллельно.
 
 Сообщение коммита для моей зоны - в развёртке, раздел 5. --push не забыть.
+ЗАКРЫТО: 2026-08-17T20:58 · закрыта заходом kod_git-podmesti-vse: зона поста — коммит 0534836 (posty/2026-08-17-vypusk-04/** и vypuski/2026-08-15-vypusk-04/post.md), vypusk.md с тремя правками интервью — коммит 1125fa3 одним коммитом вместе с соседней сессией по решению §3 самой заявки. Виды пересобраны build_vypusk.py ДО коммита. Сверх заявки: выпуск 4 выложен на сайт (94c5bac, https://d1-d57.github.io/digest/4/) по решению владельца.

@@ -29,6 +29,10 @@
 подтверждений, а не подозрений.
 
 Требует spaCy: pip install spacy --break-system-packages && python3 -m spacy download ru_core_news_sm
+
+🔴 ПОЛОСА А · ЯДРО — файл уедет в скилл финальной правки, который заменит `russian-editor`.
+   Что мешает переносу: мешает одно: вход — папка выпуска, нужен параметр «просто текст».
+   Граница скилла и вопросы владельцу — `zhurnal/2026-08-15_vypusk-04/KARTA-PERENOSA-v-skill.md`.
 """
 import argparse
 import collections

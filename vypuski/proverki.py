@@ -110,6 +110,9 @@ REESTR = {
         ('check_ponyatiya',           'скрипт',   'vypusk.md'),
         ('check_vypusk',              'скрипт',   'vypusk.md'),
         ('check_stil',                'скрипт',   'vypusk.md'),
+        # check_fraza — второй класс, отдельный от идиомы: незаконный оборот правят заменой
+        # слова, фразу без утверждения — вычёркиванием. Заведён 17.08 по вердиктам владельца.
+        ('check_fraza',               'скрипт',   'vypusk.md'),
         ('math-russian-terminology',  'скилл',    'vypusk.md'),
         ('russian-editor',            'скилл',    'vypusk.md'),
         ('verifikator-stilya',        'субагент', 'vypusk.md'),

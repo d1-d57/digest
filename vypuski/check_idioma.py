@@ -59,6 +59,59 @@ PORQG_MAT = 20
 INFINITIV = re.compile(r'(ть|ться|ти|тись|чь|чься)$')
 
 
+def proza(t):
+    """Только ПУБЛИКУЕМЫЙ текст выпуска: служебная разметка выброшена.
+
+    🔴 Зачем отдельный шаг. Раньше файл чистился целиком и склеивался в одну строку. Отсюда два
+    дефекта, оба видны на выпуске 4 (прогон 2026-08-17): пары брались из служебных строк
+    («зачем: развести два вида продвижения» давало «вид + развести»), а сентенсайзер не находил
+    границ и печатал в качестве МЕСТА находки шапку блока вместо фразы — калибровать по такому
+    выводу нельзя. Симптом лечился списком STOP_OBJEKT («мысль», «зачем», «объём», «link»);
+    здесь снимается причина.
+
+    Что публикуется и остаётся: подзаголовок и тизер из шапки, заголовки разделов, проза блоков
+    после `====`, описания ссылок (третье поле строки `- link:`). Что выбрасывается: остальная
+    шапка, таблица карты, строки `зачем:/мысль:/опирается:/объём:` до `====`.
+    """
+    out = []
+    lines = t.split('\n')
+    i = 0
+    # шапка: из неё публикуются только subtitle и teaser
+    if lines and lines[0].strip() == '---':
+        i = 1
+        while i < len(lines) and lines[i].strip() != '---':
+            m = re.match(r'(subtitle|teaser):\s*(.+)', lines[i])
+            if m:
+                out.append(m.group(2))
+            i += 1
+        i += 1
+    v_shapke_bloka = False
+    for ln in lines[i:]:
+        s = ln.strip()
+        if s.startswith('%%'):          # начало служебной шапки блока
+            v_shapke_bloka = True
+            continue
+        if s.startswith('===='):        # конец служебной шапки, дальше проза
+            v_shapke_bloka = False
+            continue
+        if v_shapke_bloka:
+            continue
+        if s.startswith('|'):           # таблица карты
+            continue
+        if re.match(r'-\s*areas:', s):  # рубрикация раздела, не текст
+            continue
+        if s.startswith('#'):           # заголовок публикуется, но точку надо поставить:
+            out.append(s.lstrip('# ') + '.')   # иначе он склеивается с первой фразой блока
+            continue
+        m = re.match(r'-\s*link:\s*(.+)', s)
+        if m:                           # публикуется только описание, третье поле
+            chasti = [c.strip() for c in m.group(1).split('|')]
+            out.append(chasti[-1] if len(chasti) >= 3 else '')
+            continue
+        out.append(ln)
+    return chistka('\n'.join(out))
+
+
 def chistka(t):
     t = re.sub(r'```.*?```', ' ', t, flags=re.S)
     t = re.sub(r'<[^>]+>', ' ', t)
@@ -66,7 +119,10 @@ def chistka(t):
     t = re.sub(r'\$[^$]*\$', ' формула ', t)
     t = re.sub(r'https?://\S+', ' ', t)
     t = re.sub(r'[#*`>|\[\]{}\\&~^_]', ' ', t)
-    return re.sub(r'\s+', ' ', t)
+    # 🔴 переводы строк СОХРАНЯЮТСЯ: по ним сентенсайзер ставит границы, и МЕСТО находки
+    # печатается фразой, а не первыми 110 знаками абзаца.
+    t = re.sub(r'[ \t]+', ' ', t)
+    return re.sub(r'\n{2,}', '\n', t)
 
 
 def pary_iz(doc):
@@ -132,7 +188,10 @@ def main():
         print(f'✗ нужен spaCy и модель ru_core_news_sm: {e}')
         return 1
 
-    tekst = chistka(fajl.read_text(encoding='utf-8'))
+    syroj = fajl.read_text(encoding='utf-8')
+    tekst = proza(syroj)
+    print(f'ТЕКСТ: публикуемой прозы {len(tekst)} знаков из {len(syroj)} в файле — '
+          f'{100 * len(tekst) // max(1, len(syroj))} %; служебная разметка блоков не судится')
     podtv, neizv, tolko_nejro, vne, bytovye = [], [], [], [], []
     vidano = set()
     for kus in [tekst[i:i + 40000] for i in range(0, len(tekst), 40000)]:

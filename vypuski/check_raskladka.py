@@ -47,9 +47,13 @@ def main(name):
             total += int(byu)
         else:
             errs.append(f'раздел {num}: бюджет не число → «{byu}»')
-        k = len(re.findall(r'\d+', ssy)) and int(re.findall(r'\d+', ssy)[0])
-        if not 2 <= (k or 0) <= 3:
-            errs.append(f'раздел {num}: ссылок {ssy} — надо 2–3, и ни одного раздела без ссылки')
+        ssy_clean = ssy.strip()
+        if not re.fullmatch(r'\d{1,2}', ssy_clean):
+            errs.append(f'раздел {num}: ссылок «{ssy}» — должно быть число от 2 до 3')
+        else:
+            k = int(ssy_clean)
+            if not 2 <= k <= 3:
+                errs.append(f'раздел {num}: ссылок {k} — надо 2–3, и ни одного раздела без ссылки')
 
     m = re.search(r'^potolok_prozy:\s*(\d+)', t, re.M)
     if m and total > int(m.group(1)):

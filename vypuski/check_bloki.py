@@ -192,7 +192,9 @@ def opredelenie_dvazhdy(d, tekst_blokov):
 
 
 def main(name):
-    d = Path(__file__).parent / name
+    d = Path(name)
+    if not d.is_dir():
+        d = Path(__file__).parent / name
     _meta, body = split_frontmatter((d / 'vypusk.md').read_text(encoding='utf-8'))
     lead, rubrics = parse_body(body)
     errs, warns, vsego, stat = [], [], 0, {}

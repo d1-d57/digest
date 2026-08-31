@@ -1,12 +1,17 @@
 #!/usr/bin/env python3
 """Заводит папку выпуска: анкета раскладки, отчёт о проверках, каркас текста.
 
-    python3 bootstrap_vypuska.py 2026-08-15-vypusk-04 [--razdelov 6]
+    python3 bootstrap_vypuska.py 2026-08-15-vypusk-04 [--razdelov 6] [--out <папка>]
+
+Без `--out` папка выпуска заводится рядом со скриптом, в `vypuski/`, как раньше.
+С `--out <папка>` заводится `<папка>/<name>` — вызов не привязан к cwd и годится
+из любого места. Неизвестный флаг — отказ (rc≠0), без создания каталога.
 
 Структуру руками не заводят. Всё незаполненное несёт слово «заполнить» и краснеет
 на гейте: проблема не в том, что исполнитель врёт про проделанную работу, а в том,
 что он забывает под длинной инструкцией (PROTOKOL-VYPUSKA.md, Н5).
 """
+import argparse
 import sys
 from pathlib import Path
 
@@ -59,9 +64,10 @@ OTCHET = """# Отчёт о проверках — выпуск {name}
 """
 
 
-def main(name, n):
-    d = Path(__file__).parent / name
-    d.mkdir(exist_ok=True)
+def main(name, n, out):
+    koren = Path(out) if out else Path(__file__).parent
+    d = koren / name
+    d.mkdir(parents=True, exist_ok=True)
     rows = ''.join(f'| {i} | заполнить | заполнить | заполнить | заполнить | заполнить |\n'
                    for i in range(1, n + 1))
     for fn, tpl in (('RASKLADKA.md', RASKLADKA), ('OTCHET.md', OTCHET)):
@@ -75,7 +81,11 @@ def main(name, n):
 
 
 if __name__ == '__main__':
-    if len(sys.argv) < 2:
-        sys.exit(__doc__)
-    k = sys.argv.index('--razdelov') if '--razdelov' in sys.argv else -1
-    sys.exit(main(sys.argv[1], int(sys.argv[k + 1]) if k > 0 else 6))
+    ap = argparse.ArgumentParser(description=__doc__,
+                                  formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument('name')
+    ap.add_argument('--razdelov', type=int, default=6)
+    ap.add_argument('--out', default=None,
+                     help='папка, в которую кладётся <name>; по умолчанию — рядом со скриптом')
+    a = ap.parse_args()  # неизвестный флаг → argparse сам печатает ошибку и выходит rc=2
+    sys.exit(main(a.name, a.razdelov, a.out))

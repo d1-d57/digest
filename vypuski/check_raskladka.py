@@ -20,7 +20,10 @@ BLIND = [
 
 
 def main(name):
-    f = Path(__file__).parent / name / 'RASKLADKA.md'
+    d = Path(name)
+    if not d.is_dir():
+        d = Path(__file__).parent / name
+    f = d / 'RASKLADKA.md'
     if not f.exists():
         print(f'✗ нет {f} — породи bootstrap_vypuska.py')
         return 1

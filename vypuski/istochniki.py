@@ -52,7 +52,9 @@ POROG = re.compile(r'требует|нужен|нужн[оа]|без форму�
 
 
 def main(name):
-    d = Path(__file__).parent / name
+    d = Path(name)
+    if not d.is_dir():
+        d = Path(__file__).parent / name
     rask = (d / 'RASKLADKA.md').read_text(encoding='utf-8')
     _meta, body = split_frontmatter((d / 'vypusk.md').read_text(encoding='utf-8'))
     _lead, rubrics = parse_body(body)

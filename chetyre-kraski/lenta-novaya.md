@@ -1,0 +1,1 @@
+> СНЯТО С РАБОТЫ 12.09.2026. Свой движок заменён фабричным: источник ленты — LENTA-chetyre-kraski/lenta.md, сборка — disciplina/_generator/build_doc.py, выход — LENTA-chetyre-kraski/view.html. Подробности в brief.md.

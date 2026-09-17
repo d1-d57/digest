@@ -31,3 +31,4 @@ docs/fazy/razvedka.md, vypuski/proverki.py, docs/reestr-syuzhetov.md, docs/pravi
 docs/kandidat-diskrepans.md, docs/razvedka-diskrepans.md, docs/SHABLON-razvedki.md,
 docs/razvedka-topologiya-i-analiz.md, docs/zapros-portretnyy-vypusk.md, два kod_*.md в чужих арках.
 Часть покрыта заявками 16.08-20.08 в zhurnal/_INFRA-git/. Не подметать под наши сообщения.
+ЗАКРЫТО: 2026-09-17T23:56 · EXECUTED IN FACT by git revision G1, 2026-09-17: the session-2 backlog of the рациональность arc including выпуск 05 is committed to rabota (ef14718) and pushed to origin/rabota; status --porcelain on that branch is 0
